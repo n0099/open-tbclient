@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import android.app.Activity;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface RVADI {
     String getAdNetWorkName();
 

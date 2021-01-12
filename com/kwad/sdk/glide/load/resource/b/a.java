@@ -6,11 +6,11 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f10559a = true;
+    private static volatile boolean f10259a = true;
 
     public static Drawable a(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         return a(context, context, i, theme);
@@ -31,7 +31,7 @@ public final class a {
             }
             return ContextCompat.getDrawable(context2, i);
         } catch (NoClassDefFoundError e3) {
-            f10559a = false;
+            f10259a = false;
             return context2.getResources().getDrawable(i);
         }
     }

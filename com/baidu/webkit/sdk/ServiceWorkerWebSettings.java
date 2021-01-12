@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class ServiceWorkerWebSettings {
     public abstract boolean getAllowContentAccess();
 

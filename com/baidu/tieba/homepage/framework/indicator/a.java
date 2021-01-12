@@ -6,20 +6,20 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class a {
-    private int kaT = 1;
-    private final List<x> kaU = new ArrayList();
+    private int jWo = 1;
+    private final List<x> jWp = new ArrayList();
 
     public a() {
-        List<x> cRD = cRD();
-        if (!com.baidu.tbadk.core.util.x.isEmpty(cRD)) {
-            this.kaU.addAll(cRD);
+        List<x> cNL = cNL();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(cNL)) {
+            this.jWp.addAll(cNL);
         }
     }
 
-    private List<x> cRD() {
+    private List<x> cNL() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.brx().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 xVar.parserJson(jSONArray.getJSONObject(i));
@@ -33,11 +33,11 @@ public class a {
         return arrayList;
     }
 
-    public List<x> cRE() {
-        return this.kaU;
+    public List<x> cNM() {
+        return this.jWp;
     }
 
-    public int cRF() {
-        return this.kaT;
+    public int cNN() {
+        return this.jWo;
     }
 }

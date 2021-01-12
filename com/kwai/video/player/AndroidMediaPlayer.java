@@ -18,7 +18,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidMediaPlayer extends AbstractMediaPlayer {
     private static MediaInfo sMediaInfo;
     private String mDataSource;
@@ -29,7 +29,7 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     private MediaDataSource mMediaDataSource;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class AndroidMediaPlayerListenerHolder implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
         public final WeakReference<AndroidMediaPlayer> mWeakMediaPlayer;
 
@@ -89,7 +89,7 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     @TargetApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class MediaDataSourceProxy extends MediaDataSource {
         private final IMediaDataSource mMediaDataSource;
 

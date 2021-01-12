@@ -7,7 +7,7 @@ import aegon.chrome.net.UploadDataSink;
 import android.annotation.SuppressLint;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class CronetUploadDataStream extends UploadDataSink {
     public static final String TAG = "CronetUploadDataStream";
     public ByteBuffer mByteBuffer;

@@ -8,11 +8,11 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.profile.home.model.UserProfile;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9093b;
+    private ViewGroup f8793b;
     private View c;
     private TextView d;
     private com.kwad.sdk.contentalliance.profile.home.a.a e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.f.1
@@ -26,10 +26,10 @@ public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements 
         Activity m = m();
         if (m != null && com.kwad.sdk.utils.d.a(m)) {
             int a2 = ao.a(o());
-            ViewGroup.LayoutParams layoutParams = this.f9093b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f8793b.getLayoutParams();
             layoutParams.height += a2;
-            this.f9093b.setLayoutParams(layoutParams);
-            this.f9093b.setPadding(this.f9093b.getPaddingLeft(), a2, this.f9093b.getPaddingRight(), this.f9093b.getPaddingBottom());
+            this.f8793b.setLayoutParams(layoutParams);
+            this.f8793b.setPadding(this.f8793b.getPaddingLeft(), a2, this.f8793b.getPaddingRight(), this.f8793b.getPaddingBottom());
         }
     }
 
@@ -39,21 +39,21 @@ public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements 
         super.a();
         this.c.setOnClickListener(this);
         e();
-        this.f9078a.f.add(this.e);
+        this.f8778a.f.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9078a.f.remove(this.e);
+        this.f8778a.f.remove(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9093b = (ViewGroup) b(R.id.ksad_profile_title_bar);
+        this.f8793b = (ViewGroup) b(R.id.ksad_profile_title_bar);
         this.c = b(R.id.ksad_profile_left_back);
         this.d = (TextView) b(R.id.ksad_profile_title);
     }

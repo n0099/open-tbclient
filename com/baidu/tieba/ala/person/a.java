@@ -7,38 +7,38 @@ import android.view.View;
 import android.view.WindowManager;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private View hVq;
-    private View hVr;
-    private InterfaceC0697a hVs;
-    private boolean hVt;
+    private View hQJ;
+    private View hQK;
+    private InterfaceC0680a hQL;
+    private boolean hQM;
 
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0697a {
-        void cpo();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0680a {
+        void clw();
     }
 
     public a(Context context) {
         super(context, a.i.Theme_Report_Dialog);
-        this.hVt = false;
+        this.hQM = false;
         this.context = context;
     }
 
     public a(Context context, boolean z) {
         super(context, a.i.Theme_Report_Dialog);
-        this.hVt = false;
+        this.hQM = false;
         this.context = context;
-        this.hVt = z;
+        this.hQM = z;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.ala_person_dialog_report);
-        if (this.hVt) {
+        if (this.hQM) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -49,22 +49,22 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.hVq = findViewById(a.f.report);
-        this.hVr = findViewById(a.f.report_cancel);
-        this.hVq.setOnClickListener(this);
-        this.hVr.setOnClickListener(this);
+        this.hQJ = findViewById(a.f.report);
+        this.hQK = findViewById(a.f.report_cancel);
+        this.hQJ.setOnClickListener(this);
+        this.hQK.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.f.report && this.hVs != null) {
-            this.hVs.cpo();
+        if (view.getId() == a.f.report && this.hQL != null) {
+            this.hQL.clw();
         }
         dismiss();
     }
 
-    public void a(InterfaceC0697a interfaceC0697a) {
-        this.hVs = interfaceC0697a;
+    public void a(InterfaceC0680a interfaceC0680a) {
+        this.hQL = interfaceC0680a;
     }
 
     public void resize() {

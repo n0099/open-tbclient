@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.recapp.o;
 import com.baidu.tieba.recapp.p;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends k<bz, FrsAppEmptyHolder> implements o {
-    private p gey;
+    private p fZO;
 
     public c(p pVar, BdUniqueId bdUniqueId) {
         super(pVar.getTbPageContext(), bdUniqueId);
-        this.gey = pVar;
+        this.fZO = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends k<bz, FrsAppEmptyHolder> implements o {
     public View a(int i, View view, ViewGroup viewGroup, bz bzVar, FrsAppEmptyHolder frsAppEmptyHolder) {
         if (bzVar instanceof AdvertAppInfo) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) bzVar;
-            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.eOc.eOq == -1001);
+            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, -1), advertAppInfo.eJr.eJF == -1001);
         }
         return frsAppEmptyHolder.getView();
     }

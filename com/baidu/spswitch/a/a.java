@@ -1,11 +1,11 @@
 package com.baidu.spswitch.a;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private final View cDQ;
+    private final View cze;
 
     public a(View view) {
-        this.cDQ = view;
+        this.cze = view;
     }
 }

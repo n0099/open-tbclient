@@ -8,29 +8,29 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private String forumId;
-    private AntiData ftd;
-    private av jdR;
-    private final ArrayList<bz> jdT;
-    private boolean jdU;
-    private boolean jdV;
+    private AntiData fos;
+    private av iZk;
+    private final ArrayList<bz> iZm;
+    private boolean iZn;
+    private boolean iZo;
 
     private b() {
-        this.jdU = false;
-        this.jdT = new ArrayList<>();
+        this.iZn = false;
+        this.iZm = new ArrayList<>();
     }
 
-    public static b cDY() {
-        return a.jdW;
+    public static b cAg() {
+        return a.iZp;
     }
 
-    public boolean cDS() {
-        return this.jdU;
+    public boolean cAa() {
+        return this.iZn;
     }
 
     public void X(boolean z, boolean z2) {
-        this.jdU = z;
-        if (this.jdR != null) {
-            this.jdR.e(this.jdU, z2, 1);
+        this.iZn = z;
+        if (this.iZk != null) {
+            this.iZk.e(this.iZn, z2, 1);
         }
     }
 
@@ -38,42 +38,42 @@ public class b {
         if (bzVar == null) {
             return false;
         }
-        if (this.jdT.size() > 29) {
-            if (this.jdR != null) {
-                this.jdR.zX(1);
+        if (this.iZm.size() > 29) {
+            if (this.iZk != null) {
+                this.iZk.yr(1);
                 return false;
             }
             return false;
         }
-        this.jdT.add(bzVar);
-        if (this.jdR != null) {
-            this.jdR.co(this.jdT.size(), 1);
+        this.iZm.add(bzVar);
+        if (this.iZk != null) {
+            this.iZk.co(this.iZm.size(), 1);
         }
         return true;
     }
 
-    public List<bz> cDV() {
-        return this.jdT;
+    public List<bz> cAd() {
+        return this.iZm;
     }
 
     public void am(bz bzVar) {
-        this.jdT.remove(bzVar);
-        if (this.jdR != null) {
-            this.jdR.co(this.jdT.size(), 1);
+        this.iZm.remove(bzVar);
+        if (this.iZk != null) {
+            this.iZk.co(this.iZm.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bz> it = this.jdT.iterator();
+        Iterator<bz> it = this.iZm.iterator();
         while (it.hasNext()) {
             bz next = it.next();
             if (next != null) {
-                next.jC(false);
+                next.jy(false);
             }
         }
-        this.jdT.clear();
-        if (this.jdR != null) {
-            this.jdR.co(0, 1);
+        this.iZm.clear();
+        if (this.iZk != null) {
+            this.iZk.co(0, 1);
         }
     }
 
@@ -83,21 +83,21 @@ public class b {
     }
 
     public void a(av avVar) {
-        this.jdR = avVar;
+        this.iZk = avVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b jdW = new b();
+        private static b iZp = new b();
     }
 
-    public AntiData cDZ() {
-        return this.ftd;
+    public AntiData cAh() {
+        return this.fos;
     }
 
     public void b(AntiData antiData) {
-        this.ftd = antiData;
+        this.fos = antiData;
     }
 
     public String getForumId() {
@@ -108,13 +108,13 @@ public class b {
         this.forumId = str;
     }
 
-    public void ql(boolean z) {
-        this.jdV = z;
+    public void qh(boolean z) {
+        this.iZo = z;
     }
 
     public void dn(List<String> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list) && !com.baidu.tbadk.core.util.x.isEmpty(this.jdT)) {
-            Iterator<bz> it = this.jdT.iterator();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(list) && !com.baidu.tbadk.core.util.x.isEmpty(this.iZm)) {
+            Iterator<bz> it = this.iZm.iterator();
             while (it.hasNext()) {
                 bz next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.jdR != null) {
-                this.jdR.co(this.jdT.size(), 1);
+            if (this.iZk != null) {
+                this.iZk.co(this.iZm.size(), 1);
             }
         }
     }
 
-    public boolean cEa() {
-        return this.jdV;
+    public boolean cAi() {
+        return this.iZo;
     }
 }

@@ -19,7 +19,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProxyChangeListener {
     public static final /* synthetic */ boolean $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
     public static boolean sEnabled = true;
@@ -29,7 +29,7 @@ public class ProxyChangeListener {
     public final Looper mLooper = Looper.myLooper();
     public final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ProxyConfig {
         public static final ProxyConfig DIRECT = new ProxyConfig("", 0, "", new String[0]);
         public final String[] mExclusionList;
@@ -53,7 +53,7 @@ public class ProxyChangeListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class ProxyReceiver extends BroadcastReceiver {
         public /* synthetic */ ProxyReceiver(AnonymousClass1 anonymousClass1) {
             ProxyChangeListener.this = r1;

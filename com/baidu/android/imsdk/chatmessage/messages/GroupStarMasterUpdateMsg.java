@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupStarMasterUpdateMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupStarMasterUpdateMsg> CREATOR = new Parcelable.Creator<GroupStarMasterUpdateMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarMasterUpdateMsg.1
         /* JADX DEBUG: Method merged with bridge method */

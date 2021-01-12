@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FileZipUtil {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
@@ -127,7 +127,7 @@ public class FileZipUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSrc {
         public boolean mDelete;
         @NonNull

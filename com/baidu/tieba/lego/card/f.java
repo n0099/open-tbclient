@@ -1,9 +1,9 @@
 package com.baidu.tieba.lego.card;
 
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
-    public static int qc(int i) {
+    public static int ov(int i) {
         switch (i) {
             case 1:
                 return R.drawable.icon_hand_normal_card_recommend;

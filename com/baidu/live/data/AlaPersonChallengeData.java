@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPersonChallengeData implements Serializable {
     public int challengeId;
 

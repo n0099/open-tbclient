@@ -1,11 +1,11 @@
 package com.baidu.tieba.video.localvideo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     private long duration;
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
-    private String nJS;
+    private String nFn;
     private String videoId;
     private String videoPath;
 
@@ -37,8 +37,8 @@ public class b {
         this.mimeType = str;
     }
 
-    public void UB(String str) {
-        this.nJS = str;
+    public void Tt(String str) {
+        this.nFn = str;
     }
 
     public long getLastModified() {

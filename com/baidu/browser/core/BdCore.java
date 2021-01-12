@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.browser.core.util.BdLog;
 /* loaded from: classes4.dex */
 public final class BdCore {
-    private static BdCore afY;
+    private static BdCore afh;
     private Context mContext;
-    private EditTextType afZ = EditTextType.DEFAULT;
+    private EditTextType afi = EditTextType.DEFAULT;
     private boolean mHasInit = false;
 
     /* loaded from: classes4.dex */
@@ -21,13 +21,13 @@ public final class BdCore {
     private BdCore() {
     }
 
-    public static synchronized BdCore sJ() {
+    public static synchronized BdCore sy() {
         BdCore bdCore;
         synchronized (BdCore.class) {
-            if (afY == null) {
-                afY = new BdCore();
+            if (afh == null) {
+                afh = new BdCore();
             }
-            bdCore = afY;
+            bdCore = afh;
         }
         return bdCore;
     }

@@ -14,18 +14,18 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetworkMonitor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f9327a = false;
+    private static volatile boolean f9027a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<WeakReference<a>> f9328b;
+    private List<WeakReference<a>> f9028b;
     private boolean c;
     private final BroadcastReceiver d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private enum Holder {
         INSTANCE;
         
@@ -39,20 +39,20 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum NetworkState {
         NETWORK_NONE,
         NETWORK_MOBILE,
         NETWORK_WIFI
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(NetworkState networkState);
     }
 
     private NetworkMonitor() {
-        this.f9328b = Collections.synchronizedList(new LinkedList());
+        this.f9028b = Collections.synchronizedList(new LinkedList());
         this.c = false;
         this.d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
@@ -84,7 +84,7 @@ public class NetworkMonitor {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
-        Iterator<WeakReference<a>> it = this.f9328b.iterator();
+        Iterator<WeakReference<a>> it = this.f9028b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null) {
@@ -102,22 +102,22 @@ public class NetworkMonitor {
 
     private synchronized void d() {
         Context context;
-        if (!f9327a && (context = KsAdSDKImpl.get().getContext()) != null) {
+        if (!f9027a && (context = KsAdSDKImpl.get().getContext()) != null) {
             context.getApplicationContext().registerReceiver(this.d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-            f9327a = true;
+            f9027a = true;
         }
     }
 
     public void a(@NonNull a aVar) {
         d();
-        this.f9328b.add(new WeakReference<>(aVar));
+        this.f9028b.add(new WeakReference<>(aVar));
     }
 
     public void b(a aVar) {
         if (aVar == null) {
             return;
         }
-        Iterator<WeakReference<a>> it = this.f9328b.iterator();
+        Iterator<WeakReference<a>> it = this.f9028b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null) {

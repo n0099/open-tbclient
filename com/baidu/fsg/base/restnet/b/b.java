@@ -24,14 +24,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1944a = "appcache";
+    private static final String f1894a = "appcache";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f1945b = 2;
+    private static final int f1895b = 2;
     private Context c;
     private String d;
     private e e;

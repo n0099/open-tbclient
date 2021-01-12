@@ -32,21 +32,21 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private HostnameVerifier f1287a = HttpsURLConnection.getDefaultHostnameVerifier();
+        private HostnameVerifier f1293a = HttpsURLConnection.getDefaultHostnameVerifier();
 
         /* renamed from: b  reason: collision with root package name */
-        private HttpsURLConnection f1288b;
+        private HttpsURLConnection f1294b;
 
         a(HttpsURLConnection httpsURLConnection) {
-            this.f1288b = httpsURLConnection;
+            this.f1294b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -76,7 +76,7 @@ public class b {
 
         @Override // javax.net.ssl.SSLSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-            String requestProperty = this.f1288b.getRequestProperty("Host");
+            String requestProperty = this.f1294b.getRequestProperty("Host");
             if (!TextUtils.isEmpty(requestProperty)) {
                 str = requestProperty;
             }
@@ -95,7 +95,7 @@ public class b {
                 } catch (Throwable th) {
                 }
             }
-            if (this.f1287a.verify(str, sSLSocket.getSession())) {
+            if (this.f1293a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);

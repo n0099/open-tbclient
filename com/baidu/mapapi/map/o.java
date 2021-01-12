@@ -1,20 +1,20 @@
 package com.baidu.mapapi.map;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-/* loaded from: classes3.dex */
-final class o implements Parcelable.Creator<MapStatus> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public MapStatus createFromParcel(Parcel parcel) {
-        return new MapStatus(parcel);
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+/* loaded from: classes6.dex */
+class o extends AnimatorListenerAdapter {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SwipeDismissTouchListener f2803a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(SwipeDismissTouchListener swipeDismissTouchListener) {
+        this.f2803a = swipeDismissTouchListener;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public MapStatus[] newArray(int i) {
-        return new MapStatus[i];
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        this.f2803a.a();
     }
 }

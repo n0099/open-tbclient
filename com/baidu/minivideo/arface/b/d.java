@@ -3,49 +3,49 @@ package com.baidu.minivideo.arface.b;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
-    public String clb;
-    public String clc;
-    public File cle;
+    public String cgo;
+    public String cgp;
+    public File cgr;
     public String mMd5;
     public String mUrl;
     public String mVersion = "5.1_v2";
-    public File cld = null;
+    public File cgq = null;
 
-    public static d aef() {
+    public static d aam() {
         d dVar = new d();
-        dVar.clb = "so";
-        dVar.clc = "so2";
+        dVar.cgo = "so";
+        dVar.cgp = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cld = dVar.aeh();
-        dVar.cle = dVar.aek();
+        dVar.cgq = dVar.aao();
+        dVar.cgr = dVar.aar();
         return dVar;
     }
 
-    public static d aeg() {
+    public static d aan() {
         d dVar = new d();
-        dVar.clb = "source";
-        dVar.clc = "so2";
+        dVar.cgo = "source";
+        dVar.cgp = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cld = dVar.aeh();
-        dVar.cle = dVar.aek();
+        dVar.cgq = dVar.aao();
+        dVar.cgr = dVar.aar();
         return dVar;
     }
 
     private String getUrl() {
         String str;
-        if (TextUtils.equals("so2", this.clc)) {
-            if (TextUtils.equals("source", this.clb)) {
+        if (TextUtils.equals("so2", this.cgp)) {
+            if (TextUtils.equals("source", this.cgo)) {
                 str = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
             } else {
                 str = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
             }
-        } else if (TextUtils.equals("source", this.clb)) {
+        } else if (TextUtils.equals("source", this.cgo)) {
             str = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
         } else {
             str = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
@@ -57,31 +57,31 @@ public class d {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File aeh() {
-        if (this.cld == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.cld = new File(aej(), getName());
+    public File aao() {
+        if (this.cgq == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.cgq = new File(aaq(), getName());
         }
-        return this.cld;
+        return this.cgq;
     }
 
-    public File aei() {
-        return aeh();
+    public File aap() {
+        return aao();
     }
 
-    public String aej() {
-        if (TextUtils.equals(this.clb, "so")) {
-            if (TextUtils.equals(this.clc, "so2")) {
-                return e.aep().getAbsolutePath();
+    public String aaq() {
+        if (TextUtils.equals(this.cgo, "so")) {
+            if (TextUtils.equals(this.cgp, "so2")) {
+                return e.aaw().getAbsolutePath();
             }
-            return e.aeo().getAbsolutePath();
+            return e.aav().getAbsolutePath();
         }
-        return e.ael().aen().getAbsolutePath();
+        return e.aas().aau().getAbsolutePath();
     }
 
-    public File aek() {
-        if (this.cle == null) {
-            File aei = aei();
-            String absolutePath = aei != null ? aei.getAbsolutePath() : null;
+    public File aar() {
+        if (this.cgr == null) {
+            File aap = aap();
+            String absolutePath = aap != null ? aap.getAbsolutePath() : null;
             if (absolutePath == null) {
                 return null;
             }
@@ -91,8 +91,8 @@ public class d {
             if (!absolutePath.endsWith(".loading")) {
                 absolutePath = absolutePath + ".loading";
             }
-            this.cle = new File(absolutePath);
+            this.cgr = new File(absolutePath);
         }
-        return this.cle;
+        return this.cgr;
     }
 }

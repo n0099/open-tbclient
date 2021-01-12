@@ -1,5 +1,6 @@
 package com.baidu.live.data;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class at {
-    public String aQd;
-    public String aQf;
-    public int aQg;
-    public String aQh;
-    public int aQi;
-    public String aQj;
+    public String aLq;
+    public String aLs;
+    public int aLt;
+    public String aLu;
+    public int aLv;
+    public String aLw;
     public long ala_id;
     public long anchor_live;
     public int change_sex;
@@ -72,7 +73,7 @@ public class at {
     public int verify_status;
     public int verify_type;
     public int verify_video_status;
-    public String aQe = "";
+    public String aLr = "";
     public int gender = 2;
 
     public String getNameShow() {
@@ -87,10 +88,10 @@ public class at {
             } else {
                 this.user_id = jSONObject.optString("user_id");
             }
-            this.aQd = ExtraParamsManager.getDecryptUserId(jSONObject.optString("pa_uid"));
+            this.aLq = ExtraParamsManager.getDecryptUserId(jSONObject.optString("pa_uid"));
             this.loginType = jSONObject.optString(Constants.KEY_LOGIN_TYPE);
             this.type = jSONObject.optString("type");
-            this.aQe = jSONObject.optString("meta_key");
+            this.aLr = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -104,8 +105,8 @@ public class at {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.aQf = jSONObject.optString("bg_img");
-            this.aQh = jSONObject.optString("app_from");
+            this.aLs = jSONObject.optString("bg_img");
+            this.aLu = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");
@@ -127,14 +128,14 @@ public class at {
             this.send_count = jSONObject.optLong("send_count");
             this.record_count = jSONObject.optInt("record_count");
             this.push_switch = jSONObject.optInt("push_switch");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.lng = jSONObject.optDouble("lng");
             this.lat = jSONObject.optDouble("lat");
             this.anchor_live = jSONObject.optLong("anchor_live");
             this.enter_live = jSONObject.optLong("enter_live");
             this.is_live_admin = jSONObject.optInt("is_live_admin");
             this.is_block = jSONObject.optInt("is_block");
-            this.aQg = jSONObject.optInt("is_chat_block");
+            this.aLt = jSONObject.optInt("is_chat_block");
             this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH);
             this.third_app_id = jSONObject.optString("third_app_id");
             this.stream_id = jSONObject.optLong(BdStatsConstant.StatsKey.STREAM_ID);
@@ -144,7 +145,7 @@ public class at {
             this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
             this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
             this.petal_num = jSONObject.optInt("petal_num");
-            this.aQj = jSONObject.optString("bd_personal_page");
+            this.aLw = jSONObject.optString("bd_personal_page");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.live_mark_info_new = new ArrayList(optJSONArray.length());
@@ -155,7 +156,7 @@ public class at {
                     this.live_mark_info_new.add(alaLiveMarkData);
                 }
             }
-            this.aQi = jSONObject.optInt("live_mark_total");
+            this.aLv = jSONObject.optInt("live_mark_total");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }

@@ -1,31 +1,31 @@
 package com.baidu.swan.apps.v.a;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 class d implements a {
     @Nullable
-    private com.baidu.swan.games.f.a dka;
+    private com.baidu.swan.games.f.a dfl;
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onPause() {
-        aDZ();
-        if (this.dka != null) {
-            this.dka.onPause();
+        aAf();
+        if (this.dfl != null) {
+            this.dfl.onPause();
         }
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onResume() {
-        aDZ();
-        if (this.dka != null) {
-            this.dka.onResume();
+        aAf();
+        if (this.dfl != null) {
+            this.dfl.onResume();
         }
     }
 
-    private void aDZ() {
-        com.baidu.swan.apps.core.g.a avS;
-        if ((this.dka == null || this.dka.isDestroyed()) && (avS = com.baidu.swan.apps.core.turbo.d.avB().avS()) != null && (avS.ani() instanceof com.baidu.swan.games.f.a)) {
-            this.dka = (com.baidu.swan.games.f.a) avS.ani();
+    private void aAf() {
+        com.baidu.swan.apps.core.g.a arX;
+        if ((this.dfl == null || this.dfl.isDestroyed()) && (arX = com.baidu.swan.apps.core.turbo.d.arG().arX()) != null && (arX.ajo() instanceof com.baidu.swan.games.f.a)) {
+            this.dfl = (com.baidu.swan.games.f.a) arX.ajo();
         }
     }
 }

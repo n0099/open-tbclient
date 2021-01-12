@@ -1,8 +1,7 @@
 package com.baidu.mapapi.model.inner;
 
-import com.baidu.platform.comapi.basestruct.Point;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MapBound implements Serializable {
     public Point ptLB;
     public Point ptRT;

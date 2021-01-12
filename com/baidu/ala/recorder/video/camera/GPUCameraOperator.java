@@ -21,7 +21,7 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.lang.ref.WeakReference;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GPUCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final int MAX_DROP_FIRST_FRAMES = 5;

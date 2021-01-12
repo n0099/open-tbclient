@@ -3,7 +3,7 @@ package aegon.chrome.base;
 import aegon.chrome.base.annotations.CalledByNative;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UnguessableToken implements Parcelable {
     public static final Parcelable.Creator<UnguessableToken> CREATOR = new Parcelable.Creator<UnguessableToken>() { // from class: aegon.chrome.base.UnguessableToken.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */

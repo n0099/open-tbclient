@@ -141,29 +141,29 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class b extends a {
-        private final PrintStream qhT;
+        private final PrintStream qds;
 
         b(PrintStream printStream) {
-            this.qhT = printStream;
+            this.qds = printStream;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
         void bL(Object obj) {
-            this.qhT.println(obj);
+            this.qds.println(obj);
         }
     }
 
     /* loaded from: classes5.dex */
     static final class c extends a {
-        private final PrintWriter qhU;
+        private final PrintWriter qdt;
 
         c(PrintWriter printWriter) {
-            this.qhU = printWriter;
+            this.qdt = printWriter;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
         void bL(Object obj) {
-            this.qhU.println(obj);
+            this.qdt.println(obj);
         }
     }
 

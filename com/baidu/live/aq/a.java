@@ -3,16 +3,16 @@ package com.baidu.live.aq;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.x;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
-    private static volatile a bXl;
-    private b bXm;
+    private static volatile a bSz;
+    private b bSA;
 
-    public static a aan() {
-        if (bXl == null) {
-            bXl = new a();
+    public static a Wu() {
+        if (bSz == null) {
+            bSz = new a();
         }
-        return bXl;
+        return bSz;
     }
 
     private a() {
@@ -20,145 +20,146 @@ public class a implements b {
 
     @Override // com.baidu.live.aq.b
     public boolean isApplying() {
-        if (this.bXm != null) {
-            return this.bXm.isApplying();
+        if (this.bSA != null) {
+            return this.bSA.isApplying();
         }
         return false;
     }
 
     @Override // com.baidu.live.aq.b
-    public boolean jm(String str) {
-        if (this.bXm != null) {
-            return this.bXm.jm(str);
+    public boolean ib(String str) {
+        if (this.bSA != null) {
+            return this.bSA.ib(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.aq.b
-    public boolean jn(String str) {
-        if (this.bXm != null) {
-            return this.bXm.jn(str);
+    public boolean ic(String str) {
+        if (this.bSA != null) {
+            return this.bSA.ic(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.aq.b
-    public boolean jo(String str) {
-        if (this.bXm != null) {
-            return this.bXm.jo(str);
+    public boolean id(String str) {
+        if (this.bSA != null) {
+            return this.bSA.id(str);
         }
         return false;
     }
 
     @Override // com.baidu.live.aq.b
-    public AlaWheatInfoData jp(String str) {
-        if (this.bXm != null) {
-            return this.bXm.jp(str);
+    public AlaWheatInfoData ie(String str) {
+        if (this.bSA != null) {
+            return this.bSA.ie(str);
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public AlaWheatInfoData aao() {
-        if (this.bXm != null) {
-            return this.bXm.aao();
+    public AlaWheatInfoData Wv() {
+        if (this.bSA != null) {
+            return this.bSA.Wv();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
     public void G(String str, boolean z) {
-        if (this.bXm != null) {
-            this.bXm.G(str, z);
+        if (this.bSA != null) {
+            this.bSA.G(str, z);
         }
     }
 
     @Override // com.baidu.live.aq.b
-    public boolean jq(String str) {
-        if (this.bXm != null) {
-            return this.bXm.jq(str);
+    /* renamed from: if  reason: not valid java name */
+    public boolean mo18if(String str) {
+        if (this.bSA != null) {
+            return this.bSA.mo18if(str);
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.bXm = bVar;
+        this.bSA = bVar;
     }
 
     @Override // com.baidu.live.aq.b
-    public List<AlaWheatInfoData> aap() {
-        if (this.bXm != null) {
-            return this.bXm.aap();
+    public List<AlaWheatInfoData> Ww() {
+        if (this.bSA != null) {
+            return this.bSA.Ww();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public List<AlaWheatInfoData> aaq() {
-        if (this.bXm != null) {
-            return this.bXm.aaq();
+    public List<AlaWheatInfoData> Wx() {
+        if (this.bSA != null) {
+            return this.bSA.Wx();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public String aar() {
-        if (this.bXm != null) {
-            return this.bXm.aar();
+    public String Wy() {
+        if (this.bSA != null) {
+            return this.bSA.Wy();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public String aas() {
-        if (this.bXm != null) {
-            return this.bXm.aas();
+    public String Wz() {
+        if (this.bSA != null) {
+            return this.bSA.Wz();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
     public String getCustomRoomId() {
-        if (this.bXm != null) {
-            return this.bXm.getCustomRoomId();
+        if (this.bSA != null) {
+            return this.bSA.getCustomRoomId();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public x aat() {
-        if (this.bXm != null) {
-            return this.bXm.aat();
+    public x WA() {
+        if (this.bSA != null) {
+            return this.bSA.WA();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public String aau() {
-        if (this.bXm != null) {
-            return this.bXm.aau();
+    public String WB() {
+        if (this.bSA != null) {
+            return this.bSA.WB();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.bXm != null) {
-            this.bXm.muteOrUnmuteAudio(z);
+        if (this.bSA != null) {
+            this.bSA.muteOrUnmuteAudio(z);
         }
     }
 
     @Override // com.baidu.live.aq.b
-    public void aav() {
-        if (this.bXm != null) {
-            this.bXm.aav();
+    public void WC() {
+        if (this.bSA != null) {
+            this.bSA.WC();
         }
     }
 
     @Override // com.baidu.live.aq.b
-    public void aaw() {
-        if (this.bXm != null) {
-            this.bXm.aaw();
+    public void WD() {
+        if (this.bSA != null) {
+            this.bSA.WD();
         }
     }
 }

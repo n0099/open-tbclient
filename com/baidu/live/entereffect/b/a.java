@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static com.baidu.live.entereffect.a.a G(JSONObject jSONObject) {
         com.baidu.live.entereffect.a.a aVar = null;
@@ -19,9 +19,9 @@ public class a {
                 aVar.priority = jSONObject.optInt("priority_over_gift");
                 aVar.videoUrl = optString2;
                 aVar.videoMd5 = jSONObject.optString("video_md5");
-                aVar.aVV = optString3;
+                aVar.aRi = optString3;
                 aVar.frameCount = jSONObject.optInt("frame_count");
-                aVar.aVW = jSONObject.optLong("last_accessed");
+                aVar.aRj = jSONObject.optLong("last_accessed");
                 if (optJSONObject != null) {
                     try {
                         optJSONObject.put("repeat_count", 1);
@@ -30,10 +30,10 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                aVar.aVX = new com.baidu.live.gift.c();
+                aVar.aRk = new com.baidu.live.gift.c();
                 com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
                 bVar.parseJson(jSONObject);
-                aVar.aVX.aXb = bVar;
+                aVar.aRk.aSo = bVar;
             }
         }
         return aVar;
@@ -52,21 +52,21 @@ public class a {
             if (!TextUtils.isEmpty(trim) && trim.charAt(0) != '#') {
                 trim = '#' + trim;
             }
-            cVar.aVZ = trim;
+            cVar.aRm = trim;
             String trim2 = jSONObject.optString("bg_color_end").trim();
             if (!TextUtils.isEmpty(trim2) && trim2.charAt(0) != '#') {
                 trim2 = '#' + trim2;
             }
-            cVar.aWa = trim2;
-            cVar.aWb = jSONObject.optString("transparency_begin").trim();
-            cVar.aWc = jSONObject.optString("transparency_end").trim();
-            cVar.aWd = jSONObject.optString("text_color").trim();
-            cVar.aWe = jSONObject.optString("nickname_preix");
-            cVar.aWf = jSONObject.optString("nickname_suffix");
+            cVar.aRn = trim2;
+            cVar.aRo = jSONObject.optString("transparency_begin").trim();
+            cVar.aRp = jSONObject.optString("transparency_end").trim();
+            cVar.aRq = jSONObject.optString("text_color").trim();
+            cVar.aRr = jSONObject.optString("nickname_preix");
+            cVar.aRs = jSONObject.optString("nickname_suffix");
             cVar.iconUrl = jSONObject.optString("icon_url");
-            cVar.aWg = jSONObject.optInt("icon_width");
-            cVar.aWh = jSONObject.optInt("icon_height");
-            cVar.aWi = jSONObject.optInt("need_effect_file") == 1;
+            cVar.aRt = jSONObject.optInt("icon_width");
+            cVar.aRu = jSONObject.optInt("icon_height");
+            cVar.aRv = jSONObject.optInt("need_effect_file") == 1;
             cVar.portrait = str2;
             String optString = jSONObject.optString("level_icon_url");
             if (!TextUtils.isEmpty(optString)) {
@@ -74,8 +74,8 @@ public class a {
                 int optInt = jSONObject.optInt("level_icon_width");
                 int optInt2 = jSONObject.optInt("level_icon_height");
                 if (optInt > 0 && optInt2 > 0) {
-                    cVar.aWg = optInt;
-                    cVar.aWh = optInt2;
+                    cVar.aRt = optInt;
+                    cVar.aRu = optInt2;
                 }
             }
             return cVar;

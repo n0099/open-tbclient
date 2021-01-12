@@ -2,7 +2,7 @@ package rx.internal.util;
 
 import rx.g;
 import rx.h;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class h<T> extends rx.h<T> {
     final T value;
 
@@ -27,13 +27,13 @@ public final class h<T> extends rx.h<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T> implements h.a<T> {
-        private final rx.internal.schedulers.b qxG;
+        private final rx.internal.schedulers.b qte;
         private final T value;
 
         a(rx.internal.schedulers.b bVar, T t) {
-            this.qxG = bVar;
+            this.qte = bVar;
             this.value = t;
         }
 
@@ -41,12 +41,12 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.b
         /* renamed from: b */
         public void call(rx.i<? super T> iVar) {
-            iVar.add(this.qxG.g(new c(iVar, this.value)));
+            iVar.add(this.qte.g(new c(iVar, this.value)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class b<T> implements h.a<T> {
         private final rx.g scheduler;
         private final T value;
@@ -67,13 +67,13 @@ public final class h<T> extends rx.h<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class c<T> implements rx.functions.a {
-        private final rx.i<? super T> qxH;
+        private final rx.i<? super T> qtf;
         private final T value;
 
         c(rx.i<? super T> iVar, T t) {
-            this.qxH = iVar;
+            this.qtf = iVar;
             this.value = t;
         }
 
@@ -81,9 +81,9 @@ public final class h<T> extends rx.h<T> {
         @Override // rx.functions.a
         public void call() {
             try {
-                this.qxH.onSuccess((T) this.value);
+                this.qtf.onSuccess((T) this.value);
             } catch (Throwable th) {
-                this.qxH.onError(th);
+                this.qtf.onError(th);
             }
         }
     }

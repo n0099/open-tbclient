@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes5.dex */
 public class a implements b {
-    public C0995a pfR = new C0995a();
+    public C0978a pbo = new C0978a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0995a {
-        public com.bun.miitmdid.a.a.a pfS;
-        public com.bun.miitmdid.a.a.b pfT;
-        public c pfU;
+    public class C0978a {
+        public com.bun.miitmdid.a.a.a pbp;
+        public com.bun.miitmdid.a.a.b pbq;
+        public c pbr;
 
-        public C0995a() {
+        public C0978a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.pfR.pfS = new com.bun.miitmdid.a.a.a();
+            aVar.pbo.pbp = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.pfR.pfS != null;
+        return aVar.pbo.pbp != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.pfR.pfU = new c();
+            aVar.pbo.pbr = new c();
         }
-        return aVar.pfR.pfU != null;
+        return aVar.pbo.pbr != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -52,13 +52,13 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f6032a = optJSONObject.optString("appid");
-            aVar.pfR.pfT = bVar;
+            bVar.f5732a = optJSONObject.optString("appid");
+            aVar.pbo.pbq = bVar;
         }
-        return aVar.pfR.pfT != null;
+        return aVar.pbo.pbq != null;
     }
 
-    public static a hK(Context context) {
+    public static a hI(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.pfR == null || this.pfR.pfT == null || this.pfR.pfT.f6032a == null) ? "" : this.pfR.pfT.f6032a;
+        return (this.pbo == null || this.pbo.pbq == null || this.pbo.pbq.f5732a == null) ? "" : this.pbo.pbq.f5732a;
     }
 }

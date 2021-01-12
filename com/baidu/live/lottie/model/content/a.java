@@ -2,18 +2,18 @@ package com.baidu.live.lottie.model.content;
 
 import android.graphics.PointF;
 import com.baidu.live.lottie.model.a.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
-    private final boolean FF;
-    private final m<PointF, PointF> buI;
-    private final com.baidu.live.lottie.model.a.f buO;
+    private final boolean FD;
+    private final m<PointF, PointF> bpU;
+    private final com.baidu.live.lottie.model.a.f bqa;
     private final String name;
 
     public a(String str, m<PointF, PointF> mVar, com.baidu.live.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.buI = mVar;
-        this.buO = fVar;
-        this.FF = z;
+        this.bpU = mVar;
+        this.bqa = fVar;
+        this.FD = z;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
@@ -25,15 +25,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> PS() {
-        return this.buI;
+    public m<PointF, PointF> LX() {
+        return this.bpU;
     }
 
-    public com.baidu.live.lottie.model.a.f PZ() {
-        return this.buO;
+    public com.baidu.live.lottie.model.a.f Me() {
+        return this.bqa;
     }
 
     public boolean isReversed() {
-        return this.FF;
+        return this.FD;
     }
 }

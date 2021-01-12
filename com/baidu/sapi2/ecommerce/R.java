@@ -1,10 +1,10 @@
 package com.baidu.sapi2.ecommerce;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public final class R {
     private R() {
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class anim {
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -33,7 +33,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class array {
         public static final int pass_liveness_head_pose = 0x7f030013;
 
@@ -41,7 +41,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class attr {
         public static final int actionBarDivider = 0x7f040002;
         public static final int actionBarItemBackground = 0x7f040003;
@@ -323,7 +323,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
         public static final int abc_allow_stacked_button_bar = 0x7f050001;
@@ -333,7 +333,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class color {
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f060112;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f060113;
@@ -487,7 +487,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class dimen {
         public static final int abc_action_bar_content_inset_material = 0x7f07003b;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f07003c;
@@ -638,7 +638,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080088;
         public static final int abc_action_bar_item_background_material = 0x7f080089;
@@ -817,7 +817,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class id {
         public static final int action0 = 0x7f090030;
         public static final int action_bar = 0x7f090031;
@@ -872,170 +872,170 @@ public final class R {
         public static final int dialog_title = 0x7f090cd7;
         public static final int disableHome = 0x7f090cdf;
         public static final int divider_line = 0x7f090d1e;
-        public static final int edit_query = 0x7f090dcd;
-        public static final int end = 0x7f090e5e;
-        public static final int end_padder = 0x7f090e65;
-        public static final int error_btn = 0x7f090ea3;
-        public static final int error_content = 0x7f090ea5;
-        public static final int error_desc = 0x7f090ea6;
-        public static final int error_icon = 0x7f090ea7;
-        public static final int error_title = 0x7f090eb2;
-        public static final int expand_activities_button = 0x7f090ec4;
-        public static final int expanded_menu = 0x7f090ecf;
-        public static final int first_style_btn = 0x7f090f88;
-        public static final int forever = 0x7f090fef;
-        public static final int get_code = 0x7f09123e;
-        public static final int gone = 0x7f0912ba;
-        public static final int group_divider = 0x7f0912eb;
-        public static final int home = 0x7f09138e;
-        public static final int homeAsUp = 0x7f09138f;
-        public static final int icon = 0x7f091452;
-        public static final int icon_group = 0x7f091467;
-        public static final int ifRoom = 0x7f0914f1;
-        public static final int image = 0x7f0914f2;
-        public static final int img_face_recognized_state = 0x7f09154e;
-        public static final int info = 0x7f0915a1;
-        public static final int invisible = 0x7f0915f2;
-        public static final int italic = 0x7f0915ff;
-        public static final int iv_pose_bg = 0x7f0916be;
-        public static final int iv_pose_warning_tip = 0x7f0916bf;
-        public static final int iv_recog_circle = 0x7f0916c4;
-        public static final int iv_recog_logo = 0x7f0916c5;
-        public static final int layout_pose_tip = 0x7f09195d;
-        public static final int layout_pose_warning = 0x7f09195e;
-        public static final int left = 0x7f09199d;
-        public static final int line1 = 0x7f0919eb;
-        public static final int line3 = 0x7f0919ed;
-        public static final int listMode = 0x7f091a10;
-        public static final int list_item = 0x7f091a18;
-        public static final int loading_container = 0x7f091ad0;
-        public static final int media_actions = 0x7f091b97;
-        public static final int message = 0x7f091bdc;
-        public static final int microphone_icon = 0x7f091bf2;
-        public static final int middle = 0x7f091bf5;
-        public static final int msg_text = 0x7f091c48;
-        public static final int multiply = 0x7f091c57;
-        public static final int negative_btn = 0x7f091cc9;
-        public static final int neutral_btn = 0x7f091cd6;
-        public static final int never = 0x7f091cd9;
-        public static final int next_btn = 0x7f091d09;
-        public static final int none = 0x7f091d59;
-        public static final int normal = 0x7f091d62;
-        public static final int notification_background = 0x7f091d71;
-        public static final int notification_main_column = 0x7f091d72;
-        public static final int notification_main_column_container = 0x7f091d73;
-        public static final int parent = 0x7f091dfc;
-        public static final int parentPanel = 0x7f091dfd;
-        public static final int percent = 0x7f091f5f;
-        public static final int phone = 0x7f092030;
-        public static final int positive_btn = 0x7f0920be;
-        public static final int progressBar1 = 0x7f09215d;
-        public static final int progress_bar = 0x7f092161;
-        public static final int progress_circular = 0x7f092162;
-        public static final int progress_horizontal = 0x7f092164;
-        public static final int prompt = 0x7f092175;
-        public static final int radio = 0x7f092214;
-        public static final int right = 0x7f092315;
-        public static final int right_icon = 0x7f09232f;
-        public static final int right_side = 0x7f09233a;
-        public static final int rim_base_toast_icon = 0x7f092344;
-        public static final int rim_base_toast_message = 0x7f092345;
-        public static final int root_view = 0x7f0923be;
-        public static final int sapi_background_picture = 0x7f092422;
-        public static final int sapi_bio_title_btn_left = 0x7f092423;
-        public static final int sapi_bio_title_btn_right = 0x7f092424;
-        public static final int sapi_bio_title_text = 0x7f092425;
-        public static final int sapi_bottom_back = 0x7f092426;
-        public static final int sapi_clip_box = 0x7f092427;
-        public static final int sapi_layout_bottom_back = 0x7f092428;
-        public static final int sapi_sdk_bottom_divider_line = 0x7f09242c;
-        public static final int sapi_sdk_loading_timeout_bg_layout = 0x7f09242d;
-        public static final int sapi_sdk_loading_timeout_iv = 0x7f09242e;
-        public static final int sapi_sdk_loading_timeout_tv = 0x7f09242f;
-        public static final int sapi_sdk_sweep_light_loading_bg_layout = 0x7f092430;
-        public static final int sapi_title_bg_layout = 0x7f092431;
-        public static final int sapi_title_layout = 0x7f092432;
-        public static final int sapi_webview = 0x7f092433;
-        public static final int screen = 0x7f09244f;
-        public static final int scrollIndicatorDown = 0x7f09245a;
-        public static final int scrollIndicatorUp = 0x7f09245b;
-        public static final int scrollView = 0x7f09245c;
-        public static final int search_badge = 0x7f092490;
-        public static final int search_bar = 0x7f092491;
-        public static final int search_button = 0x7f09249b;
-        public static final int search_close_btn = 0x7f09249c;
-        public static final int search_edit_frame = 0x7f09249f;
-        public static final int search_go_btn = 0x7f0924a5;
-        public static final int search_mag_icon = 0x7f0924af;
-        public static final int search_plate = 0x7f0924b1;
-        public static final int search_src_text = 0x7f0924b6;
-        public static final int search_voice_btn = 0x7f0924bf;
-        public static final int second_style_btn = 0x7f0924ce;
-        public static final int select_dialog_listview = 0x7f0924fe;
-        public static final int separate_line = 0x7f09251d;
-        public static final int shortcut = 0x7f092576;
-        public static final int showCustom = 0x7f092579;
-        public static final int showHome = 0x7f09257a;
-        public static final int showTitle = 0x7f09257b;
-        public static final int spacer = 0x7f09260e;
-        public static final int split_action_bar = 0x7f092627;
-        public static final int src_atop = 0x7f092657;
-        public static final int src_in = 0x7f092658;
-        public static final int src_over = 0x7f092659;
-        public static final int start = 0x7f092663;
-        public static final int status_bar_latest_event_content = 0x7f092674;
-        public static final int stop_speech_background_layout = 0x7f092693;
-        public static final int stop_speech_tx = 0x7f092694;
-        public static final int stub_bottom_back = 0x7f092698;
-        public static final int sub_title = 0x7f0926a8;
-        public static final int submenuarrow = 0x7f0926af;
-        public static final int submit_area = 0x7f0926b0;
-        public static final int sure_clip_btn = 0x7f0926ce;
-        public static final int sweep_iv = 0x7f0926ea;
-        public static final int tabMode = 0x7f0926fc;
-        public static final int tag_transition_group = 0x7f092773;
-        public static final int tag_unhandled_key_event_manager = 0x7f092774;
-        public static final int tag_unhandled_key_listeners = 0x7f092775;
-        public static final int text = 0x7f0927f6;
-        public static final int text2 = 0x7f0927f7;
-        public static final int textSpacerNoButtons = 0x7f0927fc;
-        public static final int textSpacerNoTitle = 0x7f0927fd;
-        public static final int time = 0x7f0928d0;
-        public static final int time_out_dialog_msg = 0x7f0928d1;
-        public static final int tipTextView = 0x7f0928db;
-        public static final int tips_area_layout = 0x7f092903;
-        public static final int tips_tx = 0x7f092907;
-        public static final int title = 0x7f092909;
-        public static final int titleDividerNoCustom = 0x7f09290f;
-        public static final int title_btn_left_iv = 0x7f092923;
-        public static final int title_btn_left_tv = 0x7f092924;
-        public static final int title_btn_right = 0x7f092925;
-        public static final int title_divider_line = 0x7f09292e;
-        public static final int title_left_btn_layout = 0x7f092935;
-        public static final int title_right_close = 0x7f092943;
-        public static final int title_template = 0x7f092950;
-        public static final int title_text = 0x7f092951;
-        public static final int top = 0x7f09299e;
-        public static final int topPanel = 0x7f0929a3;
-        public static final int transverse_divider_line = 0x7f092a52;
-        public static final int tv_pose_tip = 0x7f092c2c;
-        public static final int tv_pose_warning_tip = 0x7f092c2d;
-        public static final int uniform = 0x7f092cf1;
-        public static final int up = 0x7f092d0a;
-        public static final int useLogo = 0x7f092d1e;
-        public static final int view_switcher = 0x7f092e72;
-        public static final int voice_error_parent_view = 0x7f092e92;
-        public static final int voice_parent_layout = 0x7f092e94;
-        public static final int webview = 0x7f092f9d;
-        public static final int withText = 0x7f092fcf;
-        public static final int wrap_content = 0x7f092fd3;
-        public static final int xfordview = 0x7f092fea;
+        public static final int edit_query = 0x7f090dce;
+        public static final int end = 0x7f090e5f;
+        public static final int end_padder = 0x7f090e66;
+        public static final int error_btn = 0x7f090ea4;
+        public static final int error_content = 0x7f090ea6;
+        public static final int error_desc = 0x7f090ea7;
+        public static final int error_icon = 0x7f090ea8;
+        public static final int error_title = 0x7f090eb3;
+        public static final int expand_activities_button = 0x7f090ec5;
+        public static final int expanded_menu = 0x7f090ed0;
+        public static final int first_style_btn = 0x7f090f89;
+        public static final int forever = 0x7f090ff0;
+        public static final int get_code = 0x7f09123f;
+        public static final int gone = 0x7f0912bb;
+        public static final int group_divider = 0x7f0912ec;
+        public static final int home = 0x7f09138f;
+        public static final int homeAsUp = 0x7f091390;
+        public static final int icon = 0x7f091453;
+        public static final int icon_group = 0x7f091468;
+        public static final int ifRoom = 0x7f0914f2;
+        public static final int image = 0x7f0914f3;
+        public static final int img_face_recognized_state = 0x7f09154f;
+        public static final int info = 0x7f0915a2;
+        public static final int invisible = 0x7f0915f3;
+        public static final int italic = 0x7f091600;
+        public static final int iv_pose_bg = 0x7f0916bf;
+        public static final int iv_pose_warning_tip = 0x7f0916c0;
+        public static final int iv_recog_circle = 0x7f0916c5;
+        public static final int iv_recog_logo = 0x7f0916c6;
+        public static final int layout_pose_tip = 0x7f09195e;
+        public static final int layout_pose_warning = 0x7f09195f;
+        public static final int left = 0x7f09199e;
+        public static final int line1 = 0x7f0919ec;
+        public static final int line3 = 0x7f0919ee;
+        public static final int listMode = 0x7f091a11;
+        public static final int list_item = 0x7f091a19;
+        public static final int loading_container = 0x7f091ad1;
+        public static final int media_actions = 0x7f091b98;
+        public static final int message = 0x7f091bdd;
+        public static final int microphone_icon = 0x7f091bf3;
+        public static final int middle = 0x7f091bf6;
+        public static final int msg_text = 0x7f091c49;
+        public static final int multiply = 0x7f091c58;
+        public static final int negative_btn = 0x7f091cca;
+        public static final int neutral_btn = 0x7f091cd7;
+        public static final int never = 0x7f091cda;
+        public static final int next_btn = 0x7f091d0a;
+        public static final int none = 0x7f091d5a;
+        public static final int normal = 0x7f091d63;
+        public static final int notification_background = 0x7f091d72;
+        public static final int notification_main_column = 0x7f091d73;
+        public static final int notification_main_column_container = 0x7f091d74;
+        public static final int parent = 0x7f091dfd;
+        public static final int parentPanel = 0x7f091dfe;
+        public static final int percent = 0x7f091f60;
+        public static final int phone = 0x7f092031;
+        public static final int positive_btn = 0x7f0920bf;
+        public static final int progressBar1 = 0x7f09215e;
+        public static final int progress_bar = 0x7f092162;
+        public static final int progress_circular = 0x7f092163;
+        public static final int progress_horizontal = 0x7f092165;
+        public static final int prompt = 0x7f092176;
+        public static final int radio = 0x7f092215;
+        public static final int right = 0x7f092316;
+        public static final int right_icon = 0x7f092330;
+        public static final int right_side = 0x7f09233b;
+        public static final int rim_base_toast_icon = 0x7f092345;
+        public static final int rim_base_toast_message = 0x7f092346;
+        public static final int root_view = 0x7f0923bf;
+        public static final int sapi_background_picture = 0x7f092423;
+        public static final int sapi_bio_title_btn_left = 0x7f092424;
+        public static final int sapi_bio_title_btn_right = 0x7f092425;
+        public static final int sapi_bio_title_text = 0x7f092426;
+        public static final int sapi_bottom_back = 0x7f092427;
+        public static final int sapi_clip_box = 0x7f092428;
+        public static final int sapi_layout_bottom_back = 0x7f092429;
+        public static final int sapi_sdk_bottom_divider_line = 0x7f09242d;
+        public static final int sapi_sdk_loading_timeout_bg_layout = 0x7f09242e;
+        public static final int sapi_sdk_loading_timeout_iv = 0x7f09242f;
+        public static final int sapi_sdk_loading_timeout_tv = 0x7f092430;
+        public static final int sapi_sdk_sweep_light_loading_bg_layout = 0x7f092431;
+        public static final int sapi_title_bg_layout = 0x7f092432;
+        public static final int sapi_title_layout = 0x7f092433;
+        public static final int sapi_webview = 0x7f092434;
+        public static final int screen = 0x7f092450;
+        public static final int scrollIndicatorDown = 0x7f09245b;
+        public static final int scrollIndicatorUp = 0x7f09245c;
+        public static final int scrollView = 0x7f09245d;
+        public static final int search_badge = 0x7f092491;
+        public static final int search_bar = 0x7f092492;
+        public static final int search_button = 0x7f09249c;
+        public static final int search_close_btn = 0x7f09249d;
+        public static final int search_edit_frame = 0x7f0924a0;
+        public static final int search_go_btn = 0x7f0924a6;
+        public static final int search_mag_icon = 0x7f0924b0;
+        public static final int search_plate = 0x7f0924b2;
+        public static final int search_src_text = 0x7f0924b7;
+        public static final int search_voice_btn = 0x7f0924c0;
+        public static final int second_style_btn = 0x7f0924cf;
+        public static final int select_dialog_listview = 0x7f0924ff;
+        public static final int separate_line = 0x7f09251e;
+        public static final int shortcut = 0x7f092577;
+        public static final int showCustom = 0x7f09257a;
+        public static final int showHome = 0x7f09257b;
+        public static final int showTitle = 0x7f09257c;
+        public static final int spacer = 0x7f09260f;
+        public static final int split_action_bar = 0x7f092628;
+        public static final int src_atop = 0x7f092658;
+        public static final int src_in = 0x7f092659;
+        public static final int src_over = 0x7f09265a;
+        public static final int start = 0x7f092664;
+        public static final int status_bar_latest_event_content = 0x7f092675;
+        public static final int stop_speech_background_layout = 0x7f092694;
+        public static final int stop_speech_tx = 0x7f092695;
+        public static final int stub_bottom_back = 0x7f092699;
+        public static final int sub_title = 0x7f0926a9;
+        public static final int submenuarrow = 0x7f0926b0;
+        public static final int submit_area = 0x7f0926b1;
+        public static final int sure_clip_btn = 0x7f0926cf;
+        public static final int sweep_iv = 0x7f0926eb;
+        public static final int tabMode = 0x7f0926fd;
+        public static final int tag_transition_group = 0x7f092774;
+        public static final int tag_unhandled_key_event_manager = 0x7f092775;
+        public static final int tag_unhandled_key_listeners = 0x7f092776;
+        public static final int text = 0x7f0927f7;
+        public static final int text2 = 0x7f0927f8;
+        public static final int textSpacerNoButtons = 0x7f0927fd;
+        public static final int textSpacerNoTitle = 0x7f0927fe;
+        public static final int time = 0x7f0928d1;
+        public static final int time_out_dialog_msg = 0x7f0928d2;
+        public static final int tipTextView = 0x7f0928dc;
+        public static final int tips_area_layout = 0x7f092904;
+        public static final int tips_tx = 0x7f092908;
+        public static final int title = 0x7f09290a;
+        public static final int titleDividerNoCustom = 0x7f092910;
+        public static final int title_btn_left_iv = 0x7f092924;
+        public static final int title_btn_left_tv = 0x7f092925;
+        public static final int title_btn_right = 0x7f092926;
+        public static final int title_divider_line = 0x7f09292f;
+        public static final int title_left_btn_layout = 0x7f092936;
+        public static final int title_right_close = 0x7f092944;
+        public static final int title_template = 0x7f092951;
+        public static final int title_text = 0x7f092952;
+        public static final int top = 0x7f09299f;
+        public static final int topPanel = 0x7f0929a4;
+        public static final int transverse_divider_line = 0x7f092a53;
+        public static final int tv_pose_tip = 0x7f092c2d;
+        public static final int tv_pose_warning_tip = 0x7f092c2e;
+        public static final int uniform = 0x7f092cf2;
+        public static final int up = 0x7f092d0b;
+        public static final int useLogo = 0x7f092d1f;
+        public static final int view_switcher = 0x7f092e73;
+        public static final int voice_error_parent_view = 0x7f092e93;
+        public static final int voice_parent_layout = 0x7f092e95;
+        public static final int webview = 0x7f092f9e;
+        public static final int withText = 0x7f092fd0;
+        public static final int wrap_content = 0x7f092fd4;
+        public static final int xfordview = 0x7f092feb;
 
         private id() {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
         public static final int abc_config_activityShortDur = 0x7f0a0001;
@@ -1049,7 +1049,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class layout {
         public static final int abc_action_bar_title_item = 0x7f0c0000;
         public static final int abc_action_bar_up_container = 0x7f0c0001;
@@ -1123,7 +1123,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class string {
         public static final int abc_action_bar_home_description = 0x7f0f0023;
         public static final int abc_action_bar_up_description = 0x7f0f0024;
@@ -1165,134 +1165,134 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f0f0048;
         public static final int abc_toolbar_collapse_description = 0x7f0f0049;
         public static final int app_name = 0x7f0f04ac;
-        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f106d;
-        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f106f;
-        public static final int pass_bio_alert_dialog_btn_try_again = 0x7f0f1070;
-        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f1071;
-        public static final int pass_bio_cancel = 0x7f0f1072;
-        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f1073;
-        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f1074;
-        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f1075;
-        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f1076;
-        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f1077;
-        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f1078;
-        public static final int pass_bio_error_msg_no_login = 0x7f0f1079;
-        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f107a;
-        public static final int pass_bio_error_msg_param = 0x7f0f107b;
-        public static final int pass_bio_error_msg_server_error = 0x7f0f107c;
-        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f107d;
-        public static final int pass_bio_error_msg_unknown = 0x7f0f107e;
-        public static final int pass_bio_error_msg_user_cancel = 0x7f0f107f;
-        public static final int pass_bio_loading = 0x7f0f1080;
-        public static final int pass_bio_multi_window_tips = 0x7f0f1081;
-        public static final int pass_bio_permission_request = 0x7f0f1082;
-        public static final int pass_bio_pmn_camera = 0x7f0f1083;
-        public static final int pass_bio_pmn_cancel = 0x7f0f1084;
-        public static final int pass_bio_pmn_msg_liveness = 0x7f0f1085;
-        public static final int pass_bio_pmn_ok = 0x7f0f1086;
-        public static final int pass_bio_pmn_title_liveness = 0x7f0f1087;
-        public static final int pass_bio_point = 0x7f0f1088;
-        public static final int pass_bio_result_msg_success = 0x7f0f1089;
-        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f108a;
-        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f108b;
-        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f108c;
-        public static final int pass_face_timeout_dialog_msg = 0x7f0f108d;
-        public static final int pass_face_timeout_dialog_title = 0x7f0f108e;
-        public static final int pass_liveness_brightness_too_dark = 0x7f0f108f;
-        public static final int pass_liveness_cancle = 0x7f0f1090;
-        public static final int pass_liveness_dialog_recognized_fail_cancel = 0x7f0f1091;
-        public static final int pass_liveness_dialog_recognized_time_out_title = 0x7f0f1092;
-        public static final int pass_liveness_face_to_screen = 0x7f0f1093;
-        public static final int pass_liveness_guide_start_recog = 0x7f0f1094;
-        public static final int pass_liveness_network_set = 0x7f0f1095;
-        public static final int pass_liveness_no_network_tip = 0x7f0f1096;
-        public static final int pass_liveness_open_camera_no_permission = 0x7f0f1097;
-        public static final int pass_liveness_permission_camera = 0x7f0f1098;
-        public static final int pass_liveness_put_face_round = 0x7f0f1099;
-        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f109a;
-        public static final int pass_liveness_title_text = 0x7f0f109c;
-        public static final int pass_liveness_tofar_from_camera = 0x7f0f109d;
-        public static final int pass_liveness_tonear_from_camera = 0x7f0f109e;
-        public static final int sapi_sdk_account_center_cancel = 0x7f0f141a;
-        public static final int sapi_sdk_account_center_day = 0x7f0f141b;
-        public static final int sapi_sdk_account_center_month = 0x7f0f141c;
-        public static final int sapi_sdk_account_center_ok = 0x7f0f141d;
-        public static final int sapi_sdk_account_center_please_download_message_app = 0x7f0f141e;
-        public static final int sapi_sdk_account_center_please_relogin = 0x7f0f141f;
-        public static final int sapi_sdk_account_center_set_time_cancle = 0x7f0f1420;
-        public static final int sapi_sdk_account_center_set_time_ok = 0x7f0f1421;
-        public static final int sapi_sdk_account_center_webview_title_common_problem = 0x7f0f1422;
-        public static final int sapi_sdk_account_center_webview_title_online_service = 0x7f0f1423;
-        public static final int sapi_sdk_account_center_year = 0x7f0f1424;
-        public static final int sapi_sdk_alert_dialog_change_environment = 0x7f0f1425;
-        public static final int sapi_sdk_alert_dialog_default_msg_text = 0x7f0f1426;
-        public static final int sapi_sdk_cancel = 0x7f0f1427;
-        public static final int sapi_sdk_change_pwd_success = 0x7f0f1428;
-        public static final int sapi_sdk_common_back_btn_text = 0x7f0f1429;
-        public static final int sapi_sdk_common_invalid_params = 0x7f0f142a;
-        public static final int sapi_sdk_common_loading_timeout = 0x7f0f142b;
-        public static final int sapi_sdk_common_retry_btn_text = 0x7f0f142c;
-        public static final int sapi_sdk_common_setting_btn_text = 0x7f0f142d;
-        public static final int sapi_sdk_explain_camera_agree = 0x7f0f142e;
-        public static final int sapi_sdk_explain_camera_content = 0x7f0f142f;
-        public static final int sapi_sdk_explain_camera_defuse = 0x7f0f1430;
-        public static final int sapi_sdk_explain_camera_detail = 0x7f0f1431;
-        public static final int sapi_sdk_explain_camera_title = 0x7f0f1432;
-        public static final int sapi_sdk_face_login_switch_disable = 0x7f0f1433;
-        public static final int sapi_sdk_face_login_switch_enable = 0x7f0f1434;
-        public static final int sapi_sdk_login_dialog_delete_account_btn_cancel = 0x7f0f1438;
-        public static final int sapi_sdk_login_dialog_delete_account_btn_ok = 0x7f0f1439;
-        public static final int sapi_sdk_login_dialog_delete_account_message = 0x7f0f143a;
-        public static final int sapi_sdk_ok = 0x7f0f143b;
-        public static final int sapi_sdk_pmn_cancel = 0x7f0f143c;
-        public static final int sapi_sdk_pmn_msg_use_fingerprint = 0x7f0f143d;
-        public static final int sapi_sdk_pmn_ok = 0x7f0f143e;
-        public static final int sapi_sdk_pmn_title_set_portrait = 0x7f0f143f;
-        public static final int sapi_sdk_sms_get_check_code = 0x7f0f1440;
-        public static final int sapi_sdk_sms_hint_input_check_code = 0x7f0f1441;
-        public static final int sapi_sdk_sms_hint_input_phone = 0x7f0f1442;
-        public static final int sapi_sdk_sms_in_the_login = 0x7f0f1443;
-        public static final int sapi_sdk_sms_prompt_phone_number_error = 0x7f0f1444;
-        public static final int sapi_sdk_sms_re_get_check_code = 0x7f0f1445;
-        public static final int sapi_sdk_sms_second = 0x7f0f1446;
-        public static final int sapi_sdk_speech_recognition_error_init_fail = 0x7f0f1447;
-        public static final int sapi_sdk_speech_recognition_error_interrupt_content = 0x7f0f1448;
-        public static final int sapi_sdk_speech_recognition_error_interrupt_tips = 0x7f0f1449;
-        public static final int sapi_sdk_speech_recognition_error_interrupt_title = 0x7f0f144a;
-        public static final int sapi_sdk_speech_recognition_error_microphone_content = 0x7f0f144b;
-        public static final int sapi_sdk_speech_recognition_error_microphone_content_desc = 0x7f0f144c;
-        public static final int sapi_sdk_speech_recognition_error_microphone_setting = 0x7f0f144d;
-        public static final int sapi_sdk_speech_recognition_error_microphone_title = 0x7f0f144e;
-        public static final int sapi_sdk_speech_recognition_error_net_off_content = 0x7f0f144f;
-        public static final int sapi_sdk_speech_recognition_error_net_off_title = 0x7f0f1450;
-        public static final int sapi_sdk_speech_recognition_error_net_time_out_content = 0x7f0f1451;
-        public static final int sapi_sdk_speech_recognition_error_net_time_out_title = 0x7f0f1452;
-        public static final int sapi_sdk_speech_recognition_error_retry = 0x7f0f1453;
-        public static final int sapi_sdk_speech_recognition_error_unkown = 0x7f0f1454;
-        public static final int sapi_sdk_speech_recognition_is_identifying = 0x7f0f1455;
-        public static final int sapi_sdk_speech_recognition_stop_speech = 0x7f0f1456;
-        public static final int sapi_sdk_speech_recognition_tips_text = 0x7f0f1457;
-        public static final int sapi_sdk_title_account_center = 0x7f0f1459;
-        public static final int sapi_sdk_title_fast_reg = 0x7f0f145a;
-        public static final int sapi_sdk_title_filluprofile = 0x7f0f145b;
-        public static final int sapi_sdk_title_forget_pwd = 0x7f0f145c;
-        public static final int sapi_sdk_title_login = 0x7f0f145d;
-        public static final int sapi_sdk_title_modify_pwd = 0x7f0f1467;
-        public static final int sapi_sdk_title_operation_record = 0x7f0f1468;
-        public static final int sapi_sdk_title_qr_login = 0x7f0f1469;
-        public static final int sapi_sdk_title_real_name = 0x7f0f146a;
-        public static final int sapi_sdk_title_register = 0x7f0f146b;
-        public static final int sapi_sdk_title_sms_login = 0x7f0f146c;
-        public static final int sapi_sdk_title_switch = 0x7f0f146d;
-        public static final int sapi_sdk_user_profile_sdcard_unavailable = 0x7f0f146e;
-        public static final int search_menu_title = 0x7f0f1639;
-        public static final int status_bar_notification_info_overflow = 0x7f0f175c;
+        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f1073;
+        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f1075;
+        public static final int pass_bio_alert_dialog_btn_try_again = 0x7f0f1076;
+        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f1077;
+        public static final int pass_bio_cancel = 0x7f0f1078;
+        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f1079;
+        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f107a;
+        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f107b;
+        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f107c;
+        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f107d;
+        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f107e;
+        public static final int pass_bio_error_msg_no_login = 0x7f0f107f;
+        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f1080;
+        public static final int pass_bio_error_msg_param = 0x7f0f1081;
+        public static final int pass_bio_error_msg_server_error = 0x7f0f1082;
+        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f1083;
+        public static final int pass_bio_error_msg_unknown = 0x7f0f1084;
+        public static final int pass_bio_error_msg_user_cancel = 0x7f0f1085;
+        public static final int pass_bio_loading = 0x7f0f1086;
+        public static final int pass_bio_multi_window_tips = 0x7f0f1087;
+        public static final int pass_bio_permission_request = 0x7f0f1088;
+        public static final int pass_bio_pmn_camera = 0x7f0f1089;
+        public static final int pass_bio_pmn_cancel = 0x7f0f108a;
+        public static final int pass_bio_pmn_msg_liveness = 0x7f0f108b;
+        public static final int pass_bio_pmn_ok = 0x7f0f108c;
+        public static final int pass_bio_pmn_title_liveness = 0x7f0f108d;
+        public static final int pass_bio_point = 0x7f0f108e;
+        public static final int pass_bio_result_msg_success = 0x7f0f108f;
+        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f1090;
+        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f1091;
+        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f1092;
+        public static final int pass_face_timeout_dialog_msg = 0x7f0f1093;
+        public static final int pass_face_timeout_dialog_title = 0x7f0f1094;
+        public static final int pass_liveness_brightness_too_dark = 0x7f0f1095;
+        public static final int pass_liveness_cancle = 0x7f0f1096;
+        public static final int pass_liveness_dialog_recognized_fail_cancel = 0x7f0f1097;
+        public static final int pass_liveness_dialog_recognized_time_out_title = 0x7f0f1098;
+        public static final int pass_liveness_face_to_screen = 0x7f0f1099;
+        public static final int pass_liveness_guide_start_recog = 0x7f0f109a;
+        public static final int pass_liveness_network_set = 0x7f0f109b;
+        public static final int pass_liveness_no_network_tip = 0x7f0f109c;
+        public static final int pass_liveness_open_camera_no_permission = 0x7f0f109d;
+        public static final int pass_liveness_permission_camera = 0x7f0f109e;
+        public static final int pass_liveness_put_face_round = 0x7f0f109f;
+        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f10a0;
+        public static final int pass_liveness_title_text = 0x7f0f10a2;
+        public static final int pass_liveness_tofar_from_camera = 0x7f0f10a3;
+        public static final int pass_liveness_tonear_from_camera = 0x7f0f10a4;
+        public static final int sapi_sdk_account_center_cancel = 0x7f0f1420;
+        public static final int sapi_sdk_account_center_day = 0x7f0f1421;
+        public static final int sapi_sdk_account_center_month = 0x7f0f1422;
+        public static final int sapi_sdk_account_center_ok = 0x7f0f1423;
+        public static final int sapi_sdk_account_center_please_download_message_app = 0x7f0f1424;
+        public static final int sapi_sdk_account_center_please_relogin = 0x7f0f1425;
+        public static final int sapi_sdk_account_center_set_time_cancle = 0x7f0f1426;
+        public static final int sapi_sdk_account_center_set_time_ok = 0x7f0f1427;
+        public static final int sapi_sdk_account_center_webview_title_common_problem = 0x7f0f1428;
+        public static final int sapi_sdk_account_center_webview_title_online_service = 0x7f0f1429;
+        public static final int sapi_sdk_account_center_year = 0x7f0f142a;
+        public static final int sapi_sdk_alert_dialog_change_environment = 0x7f0f142b;
+        public static final int sapi_sdk_alert_dialog_default_msg_text = 0x7f0f142c;
+        public static final int sapi_sdk_cancel = 0x7f0f142d;
+        public static final int sapi_sdk_change_pwd_success = 0x7f0f142e;
+        public static final int sapi_sdk_common_back_btn_text = 0x7f0f142f;
+        public static final int sapi_sdk_common_invalid_params = 0x7f0f1430;
+        public static final int sapi_sdk_common_loading_timeout = 0x7f0f1431;
+        public static final int sapi_sdk_common_retry_btn_text = 0x7f0f1432;
+        public static final int sapi_sdk_common_setting_btn_text = 0x7f0f1433;
+        public static final int sapi_sdk_explain_camera_agree = 0x7f0f1434;
+        public static final int sapi_sdk_explain_camera_content = 0x7f0f1435;
+        public static final int sapi_sdk_explain_camera_defuse = 0x7f0f1436;
+        public static final int sapi_sdk_explain_camera_detail = 0x7f0f1437;
+        public static final int sapi_sdk_explain_camera_title = 0x7f0f1438;
+        public static final int sapi_sdk_face_login_switch_disable = 0x7f0f1439;
+        public static final int sapi_sdk_face_login_switch_enable = 0x7f0f143a;
+        public static final int sapi_sdk_login_dialog_delete_account_btn_cancel = 0x7f0f143e;
+        public static final int sapi_sdk_login_dialog_delete_account_btn_ok = 0x7f0f143f;
+        public static final int sapi_sdk_login_dialog_delete_account_message = 0x7f0f1440;
+        public static final int sapi_sdk_ok = 0x7f0f1441;
+        public static final int sapi_sdk_pmn_cancel = 0x7f0f1442;
+        public static final int sapi_sdk_pmn_msg_use_fingerprint = 0x7f0f1443;
+        public static final int sapi_sdk_pmn_ok = 0x7f0f1444;
+        public static final int sapi_sdk_pmn_title_set_portrait = 0x7f0f1445;
+        public static final int sapi_sdk_sms_get_check_code = 0x7f0f1446;
+        public static final int sapi_sdk_sms_hint_input_check_code = 0x7f0f1447;
+        public static final int sapi_sdk_sms_hint_input_phone = 0x7f0f1448;
+        public static final int sapi_sdk_sms_in_the_login = 0x7f0f1449;
+        public static final int sapi_sdk_sms_prompt_phone_number_error = 0x7f0f144a;
+        public static final int sapi_sdk_sms_re_get_check_code = 0x7f0f144b;
+        public static final int sapi_sdk_sms_second = 0x7f0f144c;
+        public static final int sapi_sdk_speech_recognition_error_init_fail = 0x7f0f144d;
+        public static final int sapi_sdk_speech_recognition_error_interrupt_content = 0x7f0f144e;
+        public static final int sapi_sdk_speech_recognition_error_interrupt_tips = 0x7f0f144f;
+        public static final int sapi_sdk_speech_recognition_error_interrupt_title = 0x7f0f1450;
+        public static final int sapi_sdk_speech_recognition_error_microphone_content = 0x7f0f1451;
+        public static final int sapi_sdk_speech_recognition_error_microphone_content_desc = 0x7f0f1452;
+        public static final int sapi_sdk_speech_recognition_error_microphone_setting = 0x7f0f1453;
+        public static final int sapi_sdk_speech_recognition_error_microphone_title = 0x7f0f1454;
+        public static final int sapi_sdk_speech_recognition_error_net_off_content = 0x7f0f1455;
+        public static final int sapi_sdk_speech_recognition_error_net_off_title = 0x7f0f1456;
+        public static final int sapi_sdk_speech_recognition_error_net_time_out_content = 0x7f0f1457;
+        public static final int sapi_sdk_speech_recognition_error_net_time_out_title = 0x7f0f1458;
+        public static final int sapi_sdk_speech_recognition_error_retry = 0x7f0f1459;
+        public static final int sapi_sdk_speech_recognition_error_unkown = 0x7f0f145a;
+        public static final int sapi_sdk_speech_recognition_is_identifying = 0x7f0f145b;
+        public static final int sapi_sdk_speech_recognition_stop_speech = 0x7f0f145c;
+        public static final int sapi_sdk_speech_recognition_tips_text = 0x7f0f145d;
+        public static final int sapi_sdk_title_account_center = 0x7f0f145f;
+        public static final int sapi_sdk_title_fast_reg = 0x7f0f1460;
+        public static final int sapi_sdk_title_filluprofile = 0x7f0f1461;
+        public static final int sapi_sdk_title_forget_pwd = 0x7f0f1462;
+        public static final int sapi_sdk_title_login = 0x7f0f1463;
+        public static final int sapi_sdk_title_modify_pwd = 0x7f0f146d;
+        public static final int sapi_sdk_title_operation_record = 0x7f0f146e;
+        public static final int sapi_sdk_title_qr_login = 0x7f0f146f;
+        public static final int sapi_sdk_title_real_name = 0x7f0f1470;
+        public static final int sapi_sdk_title_register = 0x7f0f1471;
+        public static final int sapi_sdk_title_sms_login = 0x7f0f1472;
+        public static final int sapi_sdk_title_switch = 0x7f0f1473;
+        public static final int sapi_sdk_user_profile_sdcard_unavailable = 0x7f0f1474;
+        public static final int search_menu_title = 0x7f0f163f;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1762;
 
         private string() {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f100001;
         public static final int AlertDialog_AppCompat_Light = 0x7f100002;
@@ -1674,7 +1674,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class styleable {
         public static final int ActionBarLayout_android_layout_gravity = 0x00000000;
         public static final int ActionBar_background = 0x00000000;
@@ -2213,7 +2213,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class xml {
         public static final int pass_sdk_file_provider = 0x7f120009;
 

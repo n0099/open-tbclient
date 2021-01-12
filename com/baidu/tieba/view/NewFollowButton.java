@@ -25,22 +25,22 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     private long forumId;
     private String forumName;
     private int iconSize;
-    private LikeModel jYX;
-    private ae jYY;
+    private LikeModel jUs;
+    private ae jUt;
     private boolean loading;
-    private TBSpecificationButtonConfig nTB;
-    private TBSpecificationButtonConfig nTC;
-    private com.baidu.adp.base.e nTD;
-    private ae.a nTE;
-    private boolean nTF;
-    private int nTG;
-    private boolean nTH;
-    private final int nTI;
-    private boolean nTJ;
-    private boolean nTK;
-    private com.baidu.tbadk.core.view.commonBtn.b nTL;
-    private com.baidu.tbadk.core.view.commonBtn.b nTM;
-    private a nTN;
+    private TBSpecificationButtonConfig nOW;
+    private TBSpecificationButtonConfig nOX;
+    private com.baidu.adp.base.e nOY;
+    private ae.a nOZ;
+    private boolean nPa;
+    private int nPb;
+    private boolean nPc;
+    private final int nPd;
+    private boolean nPe;
+    private boolean nPf;
+    private com.baidu.tbadk.core.view.commonBtn.b nPg;
+    private com.baidu.tbadk.core.view.commonBtn.b nPh;
+    private a nPi;
     private TbPageContext<?> pageContext;
 
     public NewFollowButton(Context context) {
@@ -53,12 +53,12 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
 
     public NewFollowButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nTF = true;
-        this.nTG = UtilHelper.getDimenPixelSize(R.dimen.tbds4);
+        this.nPa = true;
+        this.nPb = UtilHelper.getDimenPixelSize(R.dimen.tbds4);
         this.iconSize = UtilHelper.getDimenPixelSize(R.dimen.tbds30);
-        this.nTH = true;
-        this.nTI = R.drawable.icon_pure_add12_svg;
-        this.nTJ = false;
+        this.nPc = true;
+        this.nPd = R.drawable.icon_pure_add12_svg;
+        this.nPe = false;
         this.loading = false;
         setOnClickListener(this);
     }
@@ -92,85 +92,85 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     /* JADX INFO: Access modifiers changed from: private */
     public void aM(boolean z) {
         if (z) {
-            if (this.nTC == null) {
-                if (this.nTM == null) {
-                    this.nTM = new com.baidu.tbadk.core.view.commonBtn.b();
-                    this.nTM.ru(R.color.CAM_X0109);
-                    this.nTM.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+            if (this.nOX == null) {
+                if (this.nPh == null) {
+                    this.nPh = new com.baidu.tbadk.core.view.commonBtn.b();
+                    this.nPh.pO(R.color.CAM_X0109);
+                    this.nPh.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 }
-                setConfig(this.nTM);
+                setConfig(this.nPh);
             } else {
-                setConfig(this.nTC);
+                setConfig(this.nOX);
             }
-            setClickable(this.nTF);
+            setClickable(this.nPa);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
-            if (this.nTB == null) {
-                if (this.nTL == null) {
-                    this.nTL = new com.baidu.tbadk.core.view.commonBtn.b();
-                    this.nTL.rs(R.color.CAM_X0302);
-                    if (this.nTH) {
-                        this.nTL.setIconSize(this.iconSize);
-                        this.nTL.a(this.nTI, 0, TBSpecificationButtonConfig.IconType.SVG);
-                        this.nTL.rr(this.nTG);
+            if (this.nOW == null) {
+                if (this.nPg == null) {
+                    this.nPg = new com.baidu.tbadk.core.view.commonBtn.b();
+                    this.nPg.pM(R.color.CAM_X0302);
+                    if (this.nPc) {
+                        this.nPg.setIconSize(this.iconSize);
+                        this.nPg.a(this.nPd, 0, TBSpecificationButtonConfig.IconType.SVG);
+                        this.nPg.pL(this.nPb);
                     }
                 }
-                setConfig(this.nTL);
+                setConfig(this.nPg);
             } else {
-                setConfig(this.nTB);
+                setConfig(this.nOW);
             }
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         }
-        bxP();
-        this.nTK = z;
+        btV();
+        this.nPf = z;
     }
 
-    private void cAB() {
+    private void cwJ() {
         if (!this.loading && this.pageContext != null) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
             } else if (!StringUtils.isNull(this.forumName) && this.forumId > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
-                if (this.nTN == null) {
-                    this.nTN = new a();
+                if (this.nPi == null) {
+                    this.nPi = new a();
                 }
-                if (this.jYX == null) {
-                    this.jYX = new LikeModel(this.pageContext);
-                    this.jYX.setLoadDataCallBack(this.nTN);
+                if (this.jUs == null) {
+                    this.jUs = new LikeModel(this.pageContext);
+                    this.jUs.setLoadDataCallBack(this.nPi);
                 }
                 if (at.isForumName(this.forumName)) {
                     this.loading = true;
-                    this.jYX.dOu();
-                    this.jYX.gr(this.forumName, String.valueOf(this.forumId));
+                    this.jUs.dKC();
+                    this.jUs.gq(this.forumName, String.valueOf(this.forumId));
                 }
             }
         }
     }
 
-    private void cAC() {
+    private void cwK() {
         if (!this.loading && this.pageContext != null) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
             } else if (!StringUtils.isNull(this.forumName) && this.forumId > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
-                if (this.nTN == null) {
-                    this.nTN = new a();
+                if (this.nPi == null) {
+                    this.nPi = new a();
                 }
-                if (this.jYY == null) {
-                    this.jYY = new ae();
-                    this.jYY.a(this.nTN);
+                if (this.jUt == null) {
+                    this.jUt = new ae();
+                    this.jUt.a(this.nPi);
                 }
                 this.loading = true;
-                this.jYY.P(this.forumName, this.forumId);
+                this.jUt.P(this.forumName, this.forumId);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nTK) {
-            cAB();
+        if (this.nPf) {
+            cwJ();
         } else {
-            cAC();
+            cwK();
         }
     }
 
@@ -182,18 +182,18 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
 
         @Override // com.baidu.adp.base.e
         public void callback(Object obj) {
-            if (NewFollowButton.this.jYX.getErrorCode() == 22) {
+            if (NewFollowButton.this.jUs.getErrorCode() == 22) {
                 l.showToast(NewFollowButton.this.pageContext.getPageActivity(), NewFollowButton.this.pageContext.getString(R.string.had_liked_forum));
                 NewFollowButton.this.loading = false;
             } else if (obj == null) {
                 NewFollowButton.this.loading = false;
-            } else if (NewFollowButton.this.jYX.getErrorCode() != 0) {
-                l.showToast(NewFollowButton.this.pageContext.getPageActivity(), NewFollowButton.this.jYX.getErrorString());
+            } else if (NewFollowButton.this.jUs.getErrorCode() != 0) {
+                l.showToast(NewFollowButton.this.pageContext.getPageActivity(), NewFollowButton.this.jUs.getErrorString());
                 NewFollowButton.this.loading = false;
             } else {
-                NewFollowButton.this.aC(true, NewFollowButton.this.nTJ);
-                if (NewFollowButton.this.nTD != null) {
-                    NewFollowButton.this.nTD.callback(obj);
+                NewFollowButton.this.aC(true, NewFollowButton.this.nPe);
+                if (NewFollowButton.this.nOY != null) {
+                    NewFollowButton.this.nOY.callback(obj);
                 }
                 NewFollowButton.this.loading = false;
             }
@@ -201,17 +201,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
 
         @Override // com.baidu.tieba.tbadkCore.ae.a
         public void C(String str, long j) {
-            NewFollowButton.this.aC(false, NewFollowButton.this.nTJ);
-            if (NewFollowButton.this.nTE != null) {
-                NewFollowButton.this.nTE.C(str, j);
+            NewFollowButton.this.aC(false, NewFollowButton.this.nPe);
+            if (NewFollowButton.this.nOZ != null) {
+                NewFollowButton.this.nOZ.C(str, j);
             }
             NewFollowButton.this.loading = false;
         }
 
         @Override // com.baidu.tieba.tbadkCore.ae.a
         public void D(String str, long j) {
-            if (NewFollowButton.this.nTE != null) {
-                NewFollowButton.this.nTE.D(str, j);
+            if (NewFollowButton.this.nOZ != null) {
+                NewFollowButton.this.nOZ.D(str, j);
             }
             NewFollowButton.this.loading = false;
         }

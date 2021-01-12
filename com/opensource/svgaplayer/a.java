@@ -1,10 +1,10 @@
 package com.opensource.svgaplayer;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    void cls();
+    void chA();
 
     void d(int i, double d);
 
-    void eDV();
+    void eAd();
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     @NonNull
     public static LiveInfo A(@NonNull AdTemplate adTemplate) {

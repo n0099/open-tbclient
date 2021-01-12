@@ -7,7 +7,7 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProfileResultData extends BaseResultData implements b {
     private static final long serialVersionUID = 5593104938742949008L;
     public UserProfile userProfile = new UserProfile();

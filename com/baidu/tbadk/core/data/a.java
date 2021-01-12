@@ -17,22 +17,22 @@ public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.i {
     private Map<BdUniqueId, com.baidu.tbadk.a.e> mABTestMap = new HashMap();
     public SparseArray<String> feedBackReasonMap = null;
 
-    public abstract bz boP();
+    public abstract bz bkV();
 
-    public abstract at boR();
+    public abstract at bkX();
 
-    public String boQ() {
-        if (boP() == null) {
+    public String bkW() {
+        if (bkV() == null) {
             return null;
         }
-        return boP().boQ();
+        return bkV().bkW();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.ay.x(boP());
+        return com.baidu.tbadk.core.util.ay.x(bkV());
     }
 
-    public String boS() {
+    public String bkY() {
         return null;
     }
 
@@ -43,55 +43,55 @@ public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.i {
         }
     }
 
-    public boolean boT() {
-        bz boP = boP();
-        if (boP == null) {
+    public boolean bkZ() {
+        bz bkV = bkV();
+        if (bkV == null) {
             return false;
         }
-        return boP.eWe || boP.eWg;
+        return bkV.eRt || bkV.eRv;
     }
 
-    public boolean boU() {
-        bz boP = boP();
-        if (boP == null) {
+    public boolean bla() {
+        bz bkV = bkV();
+        if (bkV == null) {
             return false;
         }
-        return boP.eWe || boP.eWg || boP.eWd;
+        return bkV.eRt || bkV.eRv || bkV.eRs;
     }
 
-    public boolean boV() {
-        bz boP = boP();
-        if (boP == null) {
+    public boolean blb() {
+        bz bkV = bkV();
+        if (bkV == null) {
             return false;
         }
-        return boP.eWd || boP.eWe || boP.eWg || boP.eWf || boP.eWh;
+        return bkV.eRs || bkV.eRt || bkV.eRv || bkV.eRu || bkV.eRw;
     }
 
-    public boolean boW() {
-        bz boP = boP();
-        if (boP == null) {
+    public boolean blc() {
+        bz bkV = bkV();
+        if (bkV == null) {
             return false;
         }
-        return boP.boW();
+        return bkV.blc();
     }
 
-    public boolean boX() {
+    public boolean bld() {
         return false;
     }
 
-    public boolean boY() {
+    public boolean ble() {
         return true;
     }
 
-    public boolean boZ() {
-        bz boP = boP();
-        if (boP == null || boP.brr() == null || com.baidu.tbadk.core.util.ay.x(boP)) {
+    public boolean blf() {
+        bz bkV = bkV();
+        if (bkV == null || bkV.bnx() == null || com.baidu.tbadk.core.util.ay.x(bkV)) {
             return false;
         }
-        boolean z = boP.bto() || boP.bpY() || boP.bpZ();
-        if (boP.eWd && z) {
+        boolean z = bkV.bpu() || bkV.bme() || bkV.bmf();
+        if (bkV.eRs && z) {
             return true;
         }
-        return boP.eWf && z && !boP.brr().hadConcerned();
+        return bkV.eRu && z && !bkV.bnx().hadConcerned();
     }
 }

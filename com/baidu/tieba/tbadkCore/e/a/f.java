@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<a> ntY = new ArrayList<>();
+    private ArrayList<a> npt = new ArrayList<>();
 
     public void a(a aVar) {
-        this.ntY.add(aVar);
+        this.npt.add(aVar);
     }
 
     public c a(e eVar, c cVar) {
@@ -25,32 +25,32 @@ public class f {
             cVar = new c();
         }
         if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.getModule()) && "addObserver".equals(eVar.getAction())) {
-            Iterator<a> it = this.ntY.iterator();
+            Iterator<a> it = this.npt.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    cVar = it.next().addObserver(eVar.dPP(), cVar, true);
-                    if (cVar.dPK()) {
+                    cVar = it.next().addObserver(eVar.dLX(), cVar, true);
+                    if (cVar.dLS()) {
                         break;
                     }
-                } else if (!cVar.dPK()) {
-                    cVar.KZ(202);
-                    cVar.Tt(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                } else if (!cVar.dLS()) {
+                    cVar.Js(202);
+                    cVar.Sl(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
                 }
             }
         } else {
             String module = eVar.getModule();
             if (!at.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
-                cVar.KZ(201);
+                cVar.Js(201);
             } else {
-                Iterator<a> it2 = this.ntY.iterator();
+                Iterator<a> it2 = this.npt.iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         cVar = it2.next().dispatch(eVar, cVar);
-                        if (cVar.dPJ()) {
+                        if (cVar.dLR()) {
                             break;
                         }
-                    } else if (!cVar.dPJ()) {
-                        cVar.KZ(202);
+                    } else if (!cVar.dLR()) {
+                        cVar.Js(202);
                     }
                 }
             }
@@ -59,16 +59,16 @@ public class f {
     }
 
     public void a(WebView webView, c cVar) {
-        if (webView != null && cVar != null && cVar.dPM()) {
-            callJsMethod(webView, cVar.cxb(), cVar.dPN());
+        if (webView != null && cVar != null && cVar.dLU()) {
+            callJsMethod(webView, cVar.ctj(), cVar.dLV());
         }
     }
 
     public void a(WebView webView, List<c> list) {
         if (webView != null && !x.isEmpty(list)) {
             for (c cVar : list) {
-                if (cVar != null && cVar.dPM()) {
-                    callJsMethod(webView, cVar.cxb(), cVar.dPN());
+                if (cVar != null && cVar.dLU()) {
+                    callJsMethod(webView, cVar.ctj(), cVar.dLV());
                 }
             }
         }
@@ -87,7 +87,7 @@ public class f {
     public List<c> f(String str, HashMap hashMap) {
         List<c> list = null;
         if (!at.isEmpty(str)) {
-            Iterator<a> it = this.ntY.iterator();
+            Iterator<a> it = this.npt.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(str, hashMap);
                 if (!x.isEmpty(list)) {

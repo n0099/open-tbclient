@@ -5,32 +5,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements h {
-    private Object Kq;
+    private Object Ko;
 
     public a(Object obj) {
         if (obj != null && obj.getClass().isArray()) {
-            this.Kq = obj;
+            this.Ko = obj;
         }
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        if (this.Kq != null) {
-            Class<?> componentType = this.Kq.getClass().getComponentType();
+        if (this.Ko != null) {
+            Class<?> componentType = this.Ko.getClass().getComponentType();
             if (componentType == Character.TYPE) {
-                return String.valueOf((char[]) this.Kq);
+                return String.valueOf((char[]) this.Ko);
             }
             if (componentType == Byte.TYPE) {
                 try {
-                    com.baidu.adp.lib.util.c.encodeBytes((byte[]) this.Kq, 0);
+                    com.baidu.adp.lib.util.c.encodeBytes((byte[]) this.Ko, 0);
                 } catch (Exception e) {
                     return null;
                 }
             } else {
-                int length = Array.getLength(this.Kq);
+                int length = Array.getLength(this.Ko);
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < length; i++) {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(Array.get(this.Kq, i)).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(Array.get(this.Ko, i)).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
                     if (a2 != null) {
                         jSONArray.put(a2);
                     }
@@ -43,39 +43,39 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        if (this.Kq != null) {
-            Class<?> componentType = this.Kq.getClass().getComponentType();
+        if (this.Ko != null) {
+            Class<?> componentType = this.Ko.getClass().getComponentType();
             if (componentType == Boolean.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Byte.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Character.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Double.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Float.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Integer.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Long.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == Short.TYPE) {
-                return this.Kq;
+                return this.Ko;
             }
             if (componentType == String.class) {
-                return this.Kq;
+                return this.Ko;
             }
-            int length = Array.getLength(this.Kq);
+            int length = Array.getLength(this.Ko);
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < length; i++) {
-                Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(Array.get(this.Kq, i)).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
+                Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(Array.get(this.Ko, i)).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
                 if (a2 != null) {
                     jSONArray.put(a2);
                 }
@@ -92,7 +92,7 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.Kq;
+        return this.Ko;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -112,6 +112,6 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.Kq;
+        return this.Ko;
     }
 }

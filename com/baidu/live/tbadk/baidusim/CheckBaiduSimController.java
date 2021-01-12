@@ -21,7 +21,7 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.util.CheckBaiduSimResponseMessage;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CheckBaiduSimController {
     private static CheckBaiduSimController mInstance = null;
     private CustomMessageListener networkChangedListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.live.tbadk.baidusim.CheckBaiduSimController.1

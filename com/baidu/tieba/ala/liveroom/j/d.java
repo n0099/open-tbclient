@@ -9,18 +9,18 @@ import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.coreextra.view.CircleProgressView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private CircleProgressView hDH;
-    private TextView hDI;
-    PendantChildView hDJ;
+    private CircleProgressView hzb;
+    private TextView hzc;
+    PendantChildView hzd;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(a.g.ala_apk_downloading_view_layout, (ViewGroup) null);
-        this.hDJ = new PendantChildView(context) { // from class: com.baidu.tieba.ala.liveroom.j.d.1
+        this.hzd = new PendantChildView(context) { // from class: com.baidu.tieba.ala.liveroom.j.d.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.RIGHT;
@@ -51,20 +51,20 @@ public class d {
                 return 35;
             }
         };
-        this.hDJ.addView(this.mRootView);
-        this.hDH = (CircleProgressView) this.mRootView.findViewById(a.f.apk_download_progress);
-        this.hDI = (TextView) this.mRootView.findViewById(a.f.apk_download_progress_text);
+        this.hzd.addView(this.mRootView);
+        this.hzb = (CircleProgressView) this.mRootView.findViewById(a.f.apk_download_progress);
+        this.hzc = (TextView) this.mRootView.findViewById(a.f.apk_download_progress_text);
         this.mRootView.setBackgroundResource(a.e.sdk_black_oval_shape_alpha50);
-        this.hDH.setCircleForegroundColor(context.getResources().getColor(a.c.sdk_white_alpha100));
-        this.hDH.setCircleBackgroundColor(context.getResources().getColor(a.c.sdk_black_alpha100));
-        this.hDH.setWidth(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
+        this.hzb.setCircleForegroundColor(context.getResources().getColor(a.c.sdk_white_alpha100));
+        this.hzb.setCircleBackgroundColor(context.getResources().getColor(a.c.sdk_black_alpha100));
+        this.hzb.setWidth(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
     }
 
-    public PendantChildView cic() {
-        return this.hDJ;
+    public PendantChildView cek() {
+        return this.hzd;
     }
 
-    public void og(boolean z) {
+    public void oc(boolean z) {
         if (z) {
             this.mRootView.setAlpha(0.5f);
         } else {
@@ -78,7 +78,7 @@ public class d {
         } else if (i > 100) {
             i = 100;
         }
-        this.hDH.setProgress(i);
-        this.hDI.setText(i + "%");
+        this.hzb.setProgress(i);
+        this.hzc.setText(i + "%");
     }
 }

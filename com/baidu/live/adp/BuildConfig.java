@@ -1,5 +1,5 @@
 package com.baidu.live.adp;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.live.adp";
     public static final String BUILD_TYPE = "release";

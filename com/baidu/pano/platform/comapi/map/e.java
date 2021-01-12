@@ -8,12 +8,12 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import androidx.core.view.ViewCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.JNIEngine;
 import com.baidu.pano.platform.comjni.JNITool;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
     private float c;
     private float i;
@@ -26,10 +26,10 @@ public class e {
     private Context p;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pano.platform.c.a f3964a = new com.baidu.pano.platform.c.a();
+    private com.baidu.pano.platform.c.a f3926a = new com.baidu.pano.platform.c.a();
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3965b = 0;
+    private int f3927b = 0;
     private final long d = 16;
     private final int e = 1001;
     private final int f = 1002;
@@ -53,7 +53,7 @@ public class e {
     }
 
     public boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f3965b == 1) {
+        if (this.f3927b == 1) {
             if (Math.abs(f) < 1.0f) {
                 f = 0.0f;
             } else if (Math.abs(f2) < 1.0f) {
@@ -80,19 +80,19 @@ public class e {
             c = 60.0f;
         }
         if (c == 60.0f) {
-            this.f3964a.a(60.0f, 40.0f);
+            this.f3926a.a(60.0f, 40.0f);
             c(1);
         } else if (c == 40.0f) {
-            this.f3964a.a(40.0f, 20.0f);
+            this.f3926a.a(40.0f, 20.0f);
             c(2);
         } else if (c == 20.0f) {
-            this.f3964a.a(20.0f, 60.0f);
+            this.f3926a.a(20.0f, 60.0f);
             c(3);
         } else if (c > 20.0f && c < 40.0f) {
-            this.f3964a.a(c, 20.0f);
+            this.f3926a.a(c, 20.0f);
             c(4);
         } else if (c > 40.0f && c < 60.0f) {
-            this.f3964a.a(c, 40.0f);
+            this.f3926a.a(c, 40.0f);
             c(5);
         }
         return true;
@@ -102,13 +102,13 @@ public class e {
         float f = 60.0f;
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.f3965b = 1;
+                this.f3927b = 1;
                 break;
             case 1:
-                this.f3965b = 0;
+                this.f3927b = 0;
                 break;
             case 2:
-                if (this.f3965b == 2) {
+                if (this.f3927b == 2) {
                     float d = d(motionEvent);
                     float f2 = (float) (d / this.h);
                     if (Math.abs(1.0f - f2) > 0.01f) {
@@ -125,12 +125,12 @@ public class e {
                 }
                 return true;
             case 5:
-                this.f3965b = 2;
+                this.f3927b = 2;
                 this.c = c();
                 this.h = d(motionEvent);
                 break;
             case 6:
-                this.f3965b = 0;
+                this.f3927b = 0;
                 break;
         }
         return false;
@@ -265,14 +265,14 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByURL(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
+        return JNIEngine.addCustomMarkerByURL(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
     }
 
     public boolean b(Bundle bundle) {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByText(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bundle.getString("text"), bundle.getInt("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
+        return JNIEngine.addCustomMarkerByText(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("text"), bundle.getInt("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
     }
 
     public void c(Bundle bundle) {
@@ -285,7 +285,7 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByBitmap(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bitmap);
+        return JNIEngine.addCustomMarkerByBitmap(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bitmap);
     }
 
     public void a(String str, float f, float f2) {
@@ -305,7 +305,7 @@ public class e {
 
     public void d(Bundle bundle) {
         if (bundle != null) {
-            JNIEngine.addPoiMarker(bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z));
+            JNIEngine.addPoiMarker(bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"));
         }
     }
 

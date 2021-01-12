@@ -1,16 +1,16 @@
 package com.qq.e.comm.managers.setting;
 
 import com.qq.e.comm.pi.CustomLandingPageListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class GlobalSetting {
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile Integer f11853b;
+    private static volatile Integer f11553b;
     private static volatile boolean c;
     private static volatile Boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile CustomLandingPageListener f11852a = null;
+    private static volatile CustomLandingPageListener f11552a = null;
     private static volatile String e = null;
     private static volatile String f = null;
     private static volatile String g = null;
@@ -18,7 +18,7 @@ public final class GlobalSetting {
     private static volatile String i = null;
 
     public static Integer getChannel() {
-        return f11853b;
+        return f11553b;
     }
 
     public static String getCustomADActivityClassName() {
@@ -26,7 +26,7 @@ public final class GlobalSetting {
     }
 
     public static CustomLandingPageListener getCustomLandingPageListener() {
-        return f11852a;
+        return f11552a;
     }
 
     public static String getCustomLandscapeActivityClassName() {
@@ -60,8 +60,8 @@ public final class GlobalSetting {
     }
 
     public static void setChannel(int i2) {
-        if (f11853b == null) {
-            f11853b = Integer.valueOf(i2);
+        if (f11553b == null) {
+            f11553b = Integer.valueOf(i2);
         }
     }
 
@@ -70,7 +70,7 @@ public final class GlobalSetting {
     }
 
     public static void setCustomLandingPageListener(CustomLandingPageListener customLandingPageListener) {
-        f11852a = customLandingPageListener;
+        f11552a = customLandingPageListener;
     }
 
     public static void setCustomLandscapeActivityClassName(String str) {

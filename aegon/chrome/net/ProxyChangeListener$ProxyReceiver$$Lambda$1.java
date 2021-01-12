@@ -2,7 +2,7 @@ package aegon.chrome.net;
 
 import aegon.chrome.net.ProxyChangeListener;
 import android.content.Intent;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class ProxyChangeListener$ProxyReceiver$$Lambda$1 implements Runnable {
     private final ProxyChangeListener.ProxyReceiver arg$1;
     private final Intent arg$2;

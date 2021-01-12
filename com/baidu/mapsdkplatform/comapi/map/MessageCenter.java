@@ -1,14 +1,13 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Handler;
-import com.baidu.platform.comjni.engine.MessageProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MessageCenter {
     public static void registMessage(int i, Handler handler) {
-        MessageProxy.registerMessageHandler(i, handler);
+        com.baidu.mapsdkplatform.comjni.engine.a.a(i, handler);
     }
 
     public static void unregistMessage(int i, Handler handler) {
-        MessageProxy.unRegisterMessageHandler(i, handler);
+        com.baidu.mapsdkplatform.comjni.engine.a.b(i, handler);
     }
 }

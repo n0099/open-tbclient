@@ -9,15 +9,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class an {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dSc;
+    private static a dNq;
     @Nullable
-    private com.baidu.swan.apps.v.a dRY = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ao.an.1
+    private com.baidu.swan.apps.v.a dNm = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ao.an.1
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(final Activity activity, Bundle bundle) {
-            if (b.aQR()) {
+            if (b.aMX()) {
                 super.onActivityCreated(activity, bundle);
                 if (activity != null && activity.getIntent() != null) {
                     Runnable runnable = new Runnable() { // from class: com.baidu.swan.apps.ao.an.1.1
@@ -25,33 +25,33 @@ public class an {
                         public void run() {
                             boolean c;
                             Intent intent = activity.getIntent();
-                            com.baidu.swan.apps.adaptation.a.r aAE = com.baidu.swan.apps.t.a.aAE();
+                            com.baidu.swan.apps.adaptation.a.r awK = com.baidu.swan.apps.t.a.awK();
                             ComponentName component = intent.getComponent();
-                            if (an.this.dRZ && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aAE != null && component != null && TextUtils.equals(aAE.ale(), component.getClassName())) {
-                                if (an.this.dSa) {
+                            if (an.this.dNn && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && awK != null && component != null && TextUtils.equals(awK.ahk(), component.getClassName())) {
+                                if (an.this.dNo) {
                                     if (an.DEBUG) {
                                         Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
                                         return;
                                     }
                                     return;
                                 }
-                                b aQQ = b.aQQ();
-                                if (c.aQW() && b.aQS()) {
-                                    c = aQQ.b(activity, an.this.dSb, false);
+                                b aMW = b.aMW();
+                                if (c.aNc() && b.aMY()) {
+                                    c = aMW.b(activity, an.this.dNp, false);
                                 } else {
-                                    c = aQQ.c(an.this.dSb, false, false);
+                                    c = aMW.c(an.this.dNp, false, false);
                                 }
                                 if (an.DEBUG) {
-                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dSb);
+                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dNp);
                                 }
-                                aQQ.aQT();
+                                aMW.aMZ();
                             }
                             if (an.DEBUG) {
-                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dRZ + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dNn + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                             }
                         }
                     };
-                    if (c.aQW()) {
+                    if (c.aNc()) {
                         runnable.run();
                     } else {
                         p.b(runnable, "moveTaskToFront");
@@ -63,46 +63,46 @@ public class an {
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             super.onActivityStarted(activity);
-            an.this.dRZ = an.this.dRZ && activity != null && activity.getTaskId() == an.this.dSb;
+            an.this.dNn = an.this.dNn && activity != null && activity.getTaskId() == an.this.dNp;
         }
     };
-    private boolean dRZ;
-    private boolean dSa;
-    private int dSb;
+    private boolean dNn;
+    private boolean dNo;
+    private int dNp;
     @NonNull
     private final Application mApp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void m(boolean z, int i);
     }
 
     public an(@NonNull Application application) {
         this.mApp = application;
-        dSc = new a() { // from class: com.baidu.swan.apps.ao.an.2
+        dNq = new a() { // from class: com.baidu.swan.apps.ao.an.2
             @Override // com.baidu.swan.apps.ao.an.a
             public void m(boolean z, int i) {
                 if (z) {
-                    an.this.dRZ = true;
-                    an.this.dSb = i;
-                } else if (an.this.dRZ && i == 1) {
-                    an.this.dRZ = false;
+                    an.this.dNn = true;
+                    an.this.dNp = i;
+                } else if (an.this.dNn && i == 1) {
+                    an.this.dNn = false;
                 }
-                an.this.dSa = z;
+                an.this.dNo = z;
             }
         };
-        application.registerActivityLifecycleCallbacks(this.dRY);
+        application.registerActivityLifecycleCallbacks(this.dNm);
     }
 
     public void onDestroy() {
-        dSc = null;
-        this.mApp.unregisterActivityLifecycleCallbacks(this.dRY);
+        dNq = null;
+        this.mApp.unregisterActivityLifecycleCallbacks(this.dNm);
     }
 
     public static void l(boolean z, int i) {
-        if (dSc != null) {
-            dSc.m(z, i);
+        if (dNq != null) {
+            dNq.m(z, i);
         }
     }
 }

@@ -8,74 +8,74 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SMListView extends ListView {
-    private float cGB;
+    private float cBP;
     private int mDirection;
     private float mDownX;
-    private int pfA;
-    private boolean pfB;
-    private SMLayout pfC;
-    private c pfD;
-    private d pfE;
-    private a pfF;
-    private b pfG;
-    private Interpolator pfu;
-    private Interpolator pfv;
-    private int pfx;
-    private int pfy;
-    private int pfz;
+    private Interpolator paR;
+    private Interpolator paS;
+    private int paU;
+    private int paV;
+    private int paW;
+    private int paX;
+    private boolean paY;
+    private SMLayout paZ;
+    private c pba;
+    private d pbb;
+    private a pbc;
+    private b pbd;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean a(int i, com.baidu.yuyinala.privatemessage.session.view.smrlistview.c cVar, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
-        void Py(int i);
+        void NR(int i);
 
-        void Pz(int i);
+        void NS(int i);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
-        void PA(int i);
+        void NT(int i);
 
-        void PB(int i);
+        void NU(int i);
     }
 
     public SMListView(Context context) {
         super(context);
         this.mDirection = 1;
-        this.pfx = 5;
-        this.pfy = 3;
-        this.pfB = true;
+        this.paU = 5;
+        this.paV = 3;
+        this.paY = true;
         init();
     }
 
     public SMListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDirection = 1;
-        this.pfx = 5;
-        this.pfy = 3;
-        this.pfB = true;
+        this.paU = 5;
+        this.paV = 3;
+        this.paY = true;
         init();
     }
 
     public SMListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDirection = 1;
-        this.pfx = 5;
-        this.pfy = 3;
-        this.pfB = true;
+        this.paU = 5;
+        this.paV = 3;
+        this.paY = true;
         init();
     }
 
     private void init() {
-        this.pfy = wT(this.pfy);
-        this.pfx = wT(this.pfx);
-        this.pfz = 0;
+        this.paV = vn(this.paV);
+        this.paU = vn(this.paU);
+        this.paW = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,38 +84,38 @@ public class SMListView extends ListView {
         super.setAdapter((ListAdapter) new com.baidu.yuyinala.privatemessage.session.view.smrlistview.b(getContext(), listAdapter) { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMListView.1
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.b
             public void b(com.baidu.yuyinala.privatemessage.session.view.smrlistview.c cVar) {
-                if (SMListView.this.pfE != null) {
-                    SMListView.this.pfE.a(cVar);
+                if (SMListView.this.pbb != null) {
+                    SMListView.this.pbb.a(cVar);
                 }
             }
 
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.b, com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMView.a
             public void a(SMView sMView, com.baidu.yuyinala.privatemessage.session.view.smrlistview.c cVar, int i) {
                 boolean z = false;
-                if (SMListView.this.pfF != null) {
-                    z = SMListView.this.pfF.a(sMView.getPosition(), cVar, i);
+                if (SMListView.this.pbc != null) {
+                    z = SMListView.this.pbc.a(sMView.getPosition(), cVar, i);
                 }
-                if (SMListView.this.pfC != null && !z) {
-                    SMListView.this.pfC.eoD();
+                if (SMListView.this.paZ != null && !z) {
+                    SMListView.this.paZ.ekH();
                 }
             }
         });
     }
 
     public void setCloseInterpolator(Interpolator interpolator) {
-        this.pfu = interpolator;
+        this.paR = interpolator;
     }
 
     public void setOpenInterpolator(Interpolator interpolator) {
-        this.pfv = interpolator;
+        this.paS = interpolator;
     }
 
     public Interpolator getOpenInterpolator() {
-        return this.pfv;
+        return this.paS;
     }
 
     public Interpolator getCloseInterpolator() {
-        return this.pfu;
+        return this.paR;
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
@@ -125,65 +125,65 @@ public class SMListView extends ListView {
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() != 0 && this.pfC == null) {
+        if (motionEvent.getAction() != 0 && this.paZ == null) {
             return super.onTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                int i = this.pfA;
-                this.pfB = eoG();
+                int i = this.paX;
+                this.paY = ekK();
                 this.mDownX = motionEvent.getX();
-                this.cGB = motionEvent.getY();
-                this.pfz = 0;
-                this.pfA = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
-                if (this.pfA == i && this.pfC != null && this.pfC.isOpen()) {
-                    this.pfz = 1;
-                    this.pfC.at(motionEvent);
+                this.cBP = motionEvent.getY();
+                this.paW = 0;
+                this.paX = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
+                if (this.paX == i && this.paZ != null && this.paZ.isOpen()) {
+                    this.paW = 1;
+                    this.paZ.at(motionEvent);
                     return true;
                 }
-                View childAt = getChildAt(this.pfA - getFirstVisiblePosition());
-                if (this.pfC != null && this.pfC.isOpen()) {
-                    this.pfC.eoD();
-                    this.pfC = null;
+                View childAt = getChildAt(this.paX - getFirstVisiblePosition());
+                if (this.paZ != null && this.paZ.isOpen()) {
+                    this.paZ.ekH();
+                    this.paZ = null;
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     obtain.setAction(3);
                     onTouchEvent(obtain);
-                    if (this.pfG != null) {
-                        this.pfG.Pz(i);
+                    if (this.pbd != null) {
+                        this.pbd.NS(i);
                     }
                     return true;
                 }
                 if (childAt instanceof SMLayout) {
-                    this.pfC = (SMLayout) childAt;
-                    this.pfC.setSwipeDirection(this.mDirection);
+                    this.paZ = (SMLayout) childAt;
+                    this.paZ.setSwipeDirection(this.mDirection);
                 }
-                if (this.pfC != null) {
-                    this.pfC.at(motionEvent);
+                if (this.paZ != null) {
+                    this.paZ.at(motionEvent);
                     break;
                 }
                 break;
             case 1:
-                if (this.pfz == 1) {
-                    if (this.pfC != null) {
-                        boolean isOpen = this.pfC.isOpen();
-                        if (this.pfB) {
-                            this.pfC.at(motionEvent);
+                if (this.paW == 1) {
+                    if (this.paZ != null) {
+                        boolean isOpen = this.paZ.isOpen();
+                        if (this.paY) {
+                            this.paZ.at(motionEvent);
                         }
-                        boolean isOpen2 = this.pfC.isOpen();
-                        if (isOpen != isOpen2 && this.pfG != null) {
+                        boolean isOpen2 = this.paZ.isOpen();
+                        if (isOpen != isOpen2 && this.pbd != null) {
                             if (isOpen2) {
-                                this.pfG.Py(this.pfA);
+                                this.pbd.NR(this.paX);
                             } else {
-                                this.pfG.Pz(this.pfA);
+                                this.pbd.NS(this.paX);
                             }
                         }
                         if (!isOpen2) {
-                            this.pfA = -1;
-                            this.pfC = null;
+                            this.paX = -1;
+                            this.paZ = null;
                         }
                     }
-                    if (this.pfD != null) {
-                        this.pfD.PB(this.pfA);
+                    if (this.pba != null) {
+                        this.pba.NU(this.paX);
                     }
                     motionEvent.setAction(3);
                     super.onTouchEvent(motionEvent);
@@ -191,24 +191,24 @@ public class SMListView extends ListView {
                 }
                 break;
             case 2:
-                float abs = Math.abs(motionEvent.getY() - this.cGB);
+                float abs = Math.abs(motionEvent.getY() - this.cBP);
                 float abs2 = Math.abs(motionEvent.getX() - this.mDownX);
-                if (this.pfz == 1) {
-                    if (this.pfC != null && this.pfB) {
-                        this.pfC.at(motionEvent);
+                if (this.paW == 1) {
+                    if (this.paZ != null && this.paY) {
+                        this.paZ.at(motionEvent);
                     }
                     getSelector().setState(new int[]{0});
                     motionEvent.setAction(3);
                     super.onTouchEvent(motionEvent);
                     return true;
-                } else if (this.pfz == 0) {
-                    if (Math.abs(abs) > this.pfx) {
-                        this.pfz = 2;
+                } else if (this.paW == 0) {
+                    if (Math.abs(abs) > this.paU) {
+                        this.paW = 2;
                         break;
-                    } else if (abs2 > this.pfy) {
-                        this.pfz = 1;
-                        if (this.pfD != null) {
-                            this.pfD.PA(this.pfA);
+                    } else if (abs2 > this.paV) {
+                        this.paW = 1;
+                        if (this.pba != null) {
+                            this.pba.NT(this.paX);
                             break;
                         }
                     }
@@ -218,32 +218,32 @@ public class SMListView extends ListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public boolean eoG() {
-        return this.pfB;
+    public boolean ekK() {
+        return this.paY;
     }
 
     public void setSwipeEnable(boolean z) {
-        this.pfB = z;
+        this.paY = z;
     }
 
-    private int wT(int i) {
+    private int vn(int i) {
         return (int) TypedValue.applyDimension(1, i, getContext().getResources().getDisplayMetrics());
     }
 
     public void setMenuCreator(d dVar) {
-        this.pfE = dVar;
+        this.pbb = dVar;
     }
 
     public void setOnMenuItemClickListener(a aVar) {
-        this.pfF = aVar;
+        this.pbc = aVar;
     }
 
     public void setOnSwipeListener(c cVar) {
-        this.pfD = cVar;
+        this.pba = cVar;
     }
 
     public void setOnMenuStateChangeListener(b bVar) {
-        this.pfG = bVar;
+        this.pbd = bVar;
     }
 
     public void setSwipeDirection(int i) {

@@ -41,13 +41,13 @@ import javax.net.ssl.SSLHandshakeException;
 public class c implements e, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13510a = c.class.getSimpleName();
+    private static final String f13210a = c.class.getSimpleName();
     private String F;
     private long G;
     private long H;
 
     /* renamed from: b  reason: collision with root package name */
-    private Future f13511b;
+    private Future f13211b;
     private AtomicInteger e;
     private boolean h;
     private boolean i;
@@ -55,73 +55,73 @@ public class c implements e, Runnable {
     private boolean k;
     private boolean l;
     private final AtomicBoolean m;
-    private final com.ss.android.socialbase.downloader.g.d qbZ;
-    private volatile com.ss.android.socialbase.downloader.downloader.d qca;
-    private final k qcc;
-    private com.ss.android.socialbase.downloader.g.c qcd;
-    private i qce;
-    private final i qcf;
-    private h qcg;
-    private final h qch;
-    private s qci;
-    private final com.ss.android.socialbase.downloader.downloader.e qcj;
-    private AlarmManager qck;
-    private volatile com.ss.android.socialbase.downloader.e.a qcl;
-    private g qcm;
-    private com.ss.android.socialbase.downloader.i.e qcn;
-    private al qco;
-    private af qcp;
-    private final com.ss.android.socialbase.downloader.k.a qcq;
+    private final k pXB;
+    private com.ss.android.socialbase.downloader.g.c pXC;
+    private i pXD;
+    private final i pXE;
+    private h pXF;
+    private final h pXG;
+    private s pXH;
+    private final com.ss.android.socialbase.downloader.downloader.e pXI;
+    private AlarmManager pXJ;
+    private volatile com.ss.android.socialbase.downloader.e.a pXK;
+    private g pXL;
+    private com.ss.android.socialbase.downloader.i.e pXM;
+    private al pXN;
+    private af pXO;
+    private final com.ss.android.socialbase.downloader.k.a pXP;
+    private final com.ss.android.socialbase.downloader.g.d pXy;
+    private volatile com.ss.android.socialbase.downloader.downloader.d pXz;
     private volatile boolean d = false;
     private final ArrayList<b> f = new ArrayList<>();
-    private volatile j qcb = j.RUN_STATUS_NONE;
+    private volatile j pXA = j.RUN_STATUS_NONE;
     private volatile int C = 5;
     private boolean D = false;
     private boolean E = false;
 
     public c(com.ss.android.socialbase.downloader.g.d dVar, Handler handler) {
-        this.qbZ = dVar;
+        this.pXy = dVar;
         if (dVar != null) {
-            this.qcd = dVar.a();
-            this.qce = dVar.eJC();
-            this.qcg = dVar.eJJ();
-            this.qco = dVar.eJE();
-            this.qcp = dVar.eJF();
-            this.qci = e(dVar);
-            this.qcq = com.ss.android.socialbase.downloader.k.a.Th(this.qcd.g());
+            this.pXC = dVar.a();
+            this.pXD = dVar.eFM();
+            this.pXF = dVar.eFT();
+            this.pXN = dVar.eFO();
+            this.pXO = dVar.eFP();
+            this.pXH = e(dVar);
+            this.pXP = com.ss.android.socialbase.downloader.k.a.RA(this.pXC.g());
         } else {
-            this.qcq = com.ss.android.socialbase.downloader.k.a.eJW();
+            this.pXP = com.ss.android.socialbase.downloader.k.a.eGg();
         }
         h();
-        this.qcc = com.ss.android.socialbase.downloader.downloader.b.eHJ();
-        this.qcf = com.ss.android.socialbase.downloader.downloader.b.eHP();
-        this.qch = com.ss.android.socialbase.downloader.downloader.b.eHR();
-        this.qcj = new com.ss.android.socialbase.downloader.downloader.e(dVar, handler);
-        this.qck = com.ss.android.socialbase.downloader.downloader.b.eHz();
+        this.pXB = com.ss.android.socialbase.downloader.downloader.b.eDT();
+        this.pXE = com.ss.android.socialbase.downloader.downloader.b.eDZ();
+        this.pXG = com.ss.android.socialbase.downloader.downloader.b.eEb();
+        this.pXI = new com.ss.android.socialbase.downloader.downloader.e(dVar, handler);
+        this.pXJ = com.ss.android.socialbase.downloader.downloader.b.eDJ();
         this.m = new AtomicBoolean(true);
     }
 
     private void h() {
-        if (this.qcd != null) {
-            int eIt = this.qcd.eIt() - this.qcd.ax();
-            if (eIt < 0) {
-                eIt = 0;
+        if (this.pXC != null) {
+            int J = this.pXC.J() - this.pXC.ax();
+            if (J < 0) {
+                J = 0;
             }
             if (this.e == null) {
-                this.e = new AtomicInteger(eIt);
+                this.e = new AtomicInteger(J);
             } else {
-                this.e.set(eIt);
+                this.e.set(J);
             }
         }
     }
 
     public void a() {
-        this.qcb = j.RUN_STATUS_PAUSE;
-        if (this.qca != null) {
-            this.qca.b();
+        this.pXA = j.RUN_STATUS_PAUSE;
+        if (this.pXz != null) {
+            this.pXz.b();
         } else {
             p();
-            this.qcb = j.RUN_STATUS_PAUSE;
+            this.pXA = j.RUN_STATUS_PAUSE;
             m();
         }
         try {
@@ -138,19 +138,19 @@ public class c implements e, Runnable {
     }
 
     public void b() {
-        this.qcb = j.RUN_STATUS_CANCELED;
-        if (this.qca != null) {
-            this.qca.c();
+        this.pXA = j.RUN_STATUS_CANCELED;
+        if (this.pXz != null) {
+            this.pXz.c();
         } else {
             p();
-            this.qcb = j.RUN_STATUS_CANCELED;
+            this.pXA = j.RUN_STATUS_CANCELED;
             m();
         }
         F();
     }
 
-    public com.ss.android.socialbase.downloader.g.d eJX() {
-        return this.qbZ;
+    public com.ss.android.socialbase.downloader.g.d eGh() {
+        return this.pXy;
     }
 
     private int c(long j, List<com.ss.android.socialbase.downloader.g.b> list) {
@@ -161,21 +161,21 @@ public class c implements e, Runnable {
                 if (list != null) {
                     i = list.size();
                 } else {
-                    i = this.qcd.eJl();
+                    i = this.pXC.eFv();
                 }
             } else {
-                if (this.qce != null) {
-                    a2 = this.qce.a(j);
+                if (this.pXD != null) {
+                    a2 = this.pXD.a(j);
                 } else {
-                    a2 = this.qcf.a(j);
+                    a2 = this.pXE.a(j);
                 }
-                com.ss.android.socialbase.downloader.i.k eJO = com.ss.android.socialbase.downloader.i.j.eJN().eJO();
-                com.ss.android.socialbase.downloader.f.a.b(f13510a, String.format("NetworkQuality is : %s", eJO.name()));
-                this.qcd.f(eJO.name());
-                if (this.qcg != null) {
-                    i = this.qcg.a(a2, eJO);
+                com.ss.android.socialbase.downloader.i.k eFY = com.ss.android.socialbase.downloader.i.j.eFX().eFY();
+                com.ss.android.socialbase.downloader.f.a.b(f13210a, String.format("NetworkQuality is : %s", eFY.name()));
+                this.pXC.f(eFY.name());
+                if (this.pXF != null) {
+                    i = this.pXF.a(a2, eFY);
                 } else {
-                    i = this.qch.a(a2, eJO);
+                    i = this.pXG.a(a2, eFY);
                 }
             }
             if (i <= 0) {
@@ -185,14 +185,14 @@ public class c implements e, Runnable {
             i = 1;
         }
         if (com.ss.android.socialbase.downloader.f.a.a()) {
-            com.ss.android.socialbase.downloader.f.a.b(f13510a, String.format("chunk count : %s for %s contentLen:%s", String.valueOf(i), this.qcd.h(), String.valueOf(j)));
+            com.ss.android.socialbase.downloader.f.a.b(f13210a, String.format("chunk count : %s for %s contentLen:%s", String.valueOf(i), this.pXC.h(), String.valueOf(j)));
         }
         return i;
     }
 
     private boolean i() {
-        int q = this.qcd.q();
-        if (q == 1 || this.qcd.eIP()) {
+        int q = this.pXC.q();
+        if (q == 1 || this.pXC.eEZ()) {
             return true;
         }
         if (q != -2 && q != -4) {
@@ -203,7 +203,7 @@ public class c implements e, Runnable {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [302=4] */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0084, code lost:
-        if (r8.qcq.a("fix_file_exist_update_download_info") != false) goto L76;
+        if (r8.pXP.a("fix_file_exist_update_download_info") != false) goto L76;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -213,20 +213,20 @@ public class c implements e, Runnable {
         boolean z2 = true;
         try {
             try {
-                int g = this.qcd.g();
-                if (this.qcc != null) {
+                int g = this.pXC.g();
+                if (this.pXB != null) {
                     if (com.ss.android.socialbase.downloader.m.a.a(2048)) {
-                        this.qcc.d();
+                        this.pXB.d();
                     }
-                    com.ss.android.socialbase.downloader.g.c b2 = this.qcc.b(g);
+                    com.ss.android.socialbase.downloader.g.c b2 = this.pXB.b(g);
                     if (b2 == null || b2.bk()) {
-                        this.qcd.eJd();
+                        this.pXC.eFn();
                         z = true;
                     } else {
-                        String k = this.qcd.k();
-                        String F = this.qcd.F();
-                        this.qcd.a(b2, true);
-                        z = com.ss.android.socialbase.downloader.m.a.a(4096) && b2 != this.qcd;
+                        String k = this.pXC.k();
+                        String F = this.pXC.F();
+                        this.pXC.a(b2, true);
+                        z = com.ss.android.socialbase.downloader.m.a.a(4096) && b2 != this.pXC;
                         try {
                             if (k.equals(b2.k()) && com.ss.android.socialbase.downloader.m.d.a(b2, false, F)) {
                                 try {
@@ -235,13 +235,13 @@ public class c implements e, Runnable {
                                     throw e;
                                 } catch (Throwable th) {
                                     th = th;
-                                    if (this.qbZ != null && this.qcd != null) {
-                                        com.ss.android.socialbase.downloader.h.a.a(this.qbZ.eJB(), this.qcd, new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(th, "checkTaskCache")), this.qcd.q());
+                                    if (this.pXy != null && this.pXC != null) {
+                                        com.ss.android.socialbase.downloader.h.a.a(this.pXy.eFL(), this.pXC, new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(th, "checkTaskCache")), this.pXC.q());
                                     }
                                     if (z) {
                                         if (z2) {
                                             try {
-                                                if (!this.qcq.a("fix_file_exist_update_download_info")) {
+                                                if (!this.pXP.a("fix_file_exist_update_download_info")) {
                                                     return;
                                                 }
                                             } catch (SQLiteException e2) {
@@ -249,14 +249,14 @@ public class c implements e, Runnable {
                                                 return;
                                             }
                                         }
-                                        this.qcc.a(this.qcd);
+                                        this.pXB.a(this.pXC);
                                         return;
                                     }
                                     return;
                                 }
                             } else if (com.ss.android.socialbase.downloader.downloader.b.r(b2) != g) {
                                 try {
-                                    this.qcc.f(g);
+                                    this.pXB.f(g);
                                 } catch (SQLiteException e3) {
                                     e3.printStackTrace();
                                 }
@@ -274,7 +274,7 @@ public class c implements e, Runnable {
                                         e5.printStackTrace();
                                     }
                                 }
-                                this.qcc.a(this.qcd);
+                                this.pXB.a(this.pXC);
                             }
                             throw th;
                         }
@@ -285,7 +285,7 @@ public class c implements e, Runnable {
                 h();
                 if (z) {
                     try {
-                        this.qcc.a(this.qcd);
+                        this.pXB.a(this.pXC);
                     } catch (SQLiteException e6) {
                         e6.printStackTrace();
                     }
@@ -303,9 +303,9 @@ public class c implements e, Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.ss.android.socialbase.downloader.downloader.b.a(this.qbZ, 3);
+        com.ss.android.socialbase.downloader.downloader.b.a(this.pXy, 3);
         k();
-        com.ss.android.socialbase.downloader.downloader.b.b(this.qbZ, 3);
+        com.ss.android.socialbase.downloader.downloader.b.b(this.pXy, 3);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
@@ -317,16 +317,16 @@ public class c implements e, Runnable {
     private void k() {
         Process.setThreadPriority(10);
         try {
-            if (this.qcd != null && this.H > 0) {
-                this.qcd.c(System.currentTimeMillis() - this.H);
+            if (this.pXC != null && this.H > 0) {
+                this.pXC.c(System.currentTimeMillis() - this.H);
             }
         } catch (Throwable th) {
         }
         try {
-            an eJz = this.qbZ.eJz();
-            if (eJz != null) {
-                if (eJz.a()) {
-                    this.qcj.e();
+            an eFJ = this.pXy.eFJ();
+            if (eFJ != null) {
+                if (eFJ.a()) {
+                    this.pXI.e();
                     return;
                 }
             }
@@ -335,7 +335,7 @@ public class c implements e, Runnable {
             }
         }
         if (i()) {
-            com.ss.android.socialbase.downloader.h.a.a(this.qbZ.eJB(), this.qcd, new com.ss.android.socialbase.downloader.e.a(1003, "task status is invalid"), this.qcd != null ? this.qcd.q() : 0);
+            com.ss.android.socialbase.downloader.h.a.a(this.pXy.eFL(), this.pXC, new com.ss.android.socialbase.downloader.e.a(1003, "task status is invalid"), this.pXC != null ? this.pXC.q() : 0);
             return;
         }
         while (true) {
@@ -343,17 +343,17 @@ public class c implements e, Runnable {
             if (this.D) {
                 if (this.C > 0) {
                     this.C--;
-                } else if (this.qcd.eIz() != this.qcd.ejL()) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13510a, this.qcd.d());
-                    this.qcj.a(new com.ss.android.socialbase.downloader.e.g(ARPMessageType.MSG_TYPE_VIDEO_STOP, "current bytes is not equals to total bytes, bytes invalid retry status is : " + this.qcd.eIA()));
+                } else if (this.pXC.eEJ() != this.pXC.efR()) {
+                    com.ss.android.socialbase.downloader.f.a.b(f13210a, this.pXC.d());
+                    this.pXI.a(new com.ss.android.socialbase.downloader.e.g(ARPMessageType.MSG_TYPE_VIDEO_STOP, "current bytes is not equals to total bytes, bytes invalid retry status is : " + this.pXC.eEK()));
                     return;
-                } else if (this.qcd.eIz() <= 0) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13510a, this.qcd.d());
-                    this.qcj.a(new com.ss.android.socialbase.downloader.e.g(ARPMessageType.MSG_TYPE_VIDEO_RESUME_RES, "curBytes is 0, bytes invalid retry status is : " + this.qcd.eIA()));
+                } else if (this.pXC.eEJ() <= 0) {
+                    com.ss.android.socialbase.downloader.f.a.b(f13210a, this.pXC.d());
+                    this.pXI.a(new com.ss.android.socialbase.downloader.e.g(ARPMessageType.MSG_TYPE_VIDEO_RESUME_RES, "curBytes is 0, bytes invalid retry status is : " + this.pXC.eEK()));
                     return;
-                } else if (this.qcd.ejL() <= 0) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13510a, this.qcd.d());
-                    this.qcj.a(new com.ss.android.socialbase.downloader.e.g(1044, "TotalBytes is 0, bytes invalid retry status is : " + this.qcd.eIA()));
+                } else if (this.pXC.efR() <= 0) {
+                    com.ss.android.socialbase.downloader.f.a.b(f13210a, this.pXC.d());
+                    this.pXI.a(new com.ss.android.socialbase.downloader.e.g(1044, "TotalBytes is 0, bytes invalid retry status is : " + this.pXC.eEK()));
                     return;
                 }
             } else {
@@ -367,55 +367,55 @@ public class c implements e, Runnable {
         List<com.ss.android.socialbase.downloader.g.b> c;
         String O;
         try {
-            this.qcb = j.RUN_STATUS_NONE;
-            this.qcd.Q();
-            this.qcd.ac();
+            this.pXA = j.RUN_STATUS_NONE;
+            this.pXC.Q();
+            this.pXC.eEI();
             long currentTimeMillis = System.currentTimeMillis();
-            this.qcd.a(-1L);
+            this.pXC.a(-1L);
             boolean z = false;
             try {
                 j();
             } catch (com.ss.android.socialbase.downloader.e.b e) {
-                com.ss.android.socialbase.downloader.f.a.b(f13510a, "file exist " + e.c());
+                com.ss.android.socialbase.downloader.f.a.b(f13210a, "file exist " + e.c());
                 this.F = e.c();
                 z = true;
             }
             if (!this.D) {
-                this.qcj.b();
+                this.pXI.b();
             }
             this.D = false;
             if (s()) {
                 return;
             }
             if (!TextUtils.isEmpty(this.F) && z) {
-                if (com.ss.android.socialbase.downloader.k.a.eJW().b("fix_end_for_file_exist_error", true)) {
-                    if (this.F.equals(this.qcd.h())) {
-                        this.qcb = j.RUN_STATUS_END_RIGHT_NOW;
+                if (com.ss.android.socialbase.downloader.k.a.eGg().b("fix_end_for_file_exist_error", true)) {
+                    if (this.F.equals(this.pXC.h())) {
+                        this.pXA = j.RUN_STATUS_END_RIGHT_NOW;
                     } else {
-                        this.qcb = j.RUN_STATUS_END_FOR_FILE_EXIST;
+                        this.pXA = j.RUN_STATUS_END_FOR_FILE_EXIST;
                     }
-                } else if (this.F.equals(this.qcd.n())) {
-                    this.qcb = j.RUN_STATUS_END_RIGHT_NOW;
+                } else if (this.F.equals(this.pXC.n())) {
+                    this.pXA = j.RUN_STATUS_END_RIGHT_NOW;
                 } else {
-                    this.qcb = j.RUN_STATUS_END_FOR_FILE_EXIST;
+                    this.pXA = j.RUN_STATUS_END_FOR_FILE_EXIST;
                 }
                 return;
             }
-            com.ss.android.socialbase.downloader.i.b.eJM().b();
+            com.ss.android.socialbase.downloader.i.b.eFW().b();
             while (!s()) {
                 try {
                     try {
                         C();
                         y();
                         B();
-                        c = this.qcc.c(this.qcd.g());
+                        c = this.pXB.c(this.pXC.g());
                         D();
-                        O = this.qcd.O();
+                        O = this.pXC.O();
                     } catch (com.ss.android.socialbase.downloader.e.a e2) {
-                        com.ss.android.socialbase.downloader.f.a.d(f13510a, "downloadInner: baseException = " + e2);
-                        if (this.qcb != j.RUN_STATUS_PAUSE) {
+                        com.ss.android.socialbase.downloader.f.a.d(f13210a, "downloadInner: baseException = " + e2);
+                        if (this.pXA != j.RUN_STATUS_PAUSE) {
                             if (e2.a() == 1025 || e2.a() == 1009) {
-                                this.qcb = j.RUN_STATUS_END_RIGHT_NOW;
+                                this.pXA = j.RUN_STATUS_END_RIGHT_NOW;
                                 p();
                                 return;
                             } else if (d(e2)) {
@@ -434,27 +434,27 @@ public class c implements e, Runnable {
                         p();
                     }
                 } catch (a e3) {
-                    com.ss.android.socialbase.downloader.f.a.d(f13510a, "downloadInner: retry throwable for " + e3.a());
-                    if (this.qcb != j.RUN_STATUS_PAUSE) {
+                    com.ss.android.socialbase.downloader.f.a.d(f13210a, "downloadInner: retry throwable for " + e3.a());
+                    if (this.pXA != j.RUN_STATUS_PAUSE) {
                         if (this.e != null && this.e.get() > 0) {
-                            this.qcd.h(this.e.decrementAndGet());
-                            this.qcd.c(5);
+                            this.pXC.h(this.e.decrementAndGet());
+                            this.pXC.c(5);
                             p();
                         } else if (this.e == null) {
                             b(new com.ss.android.socialbase.downloader.e.a(1043, "retry for Throwable, but retain retry time is NULL, last error is" + e3.a()));
-                        } else if (this.qcd.aY()) {
-                            this.qcd.c(5);
-                            this.e.set(this.qcd.eIt());
-                            this.qcd.h(this.e.get());
+                        } else if (this.pXC.aY()) {
+                            this.pXC.c(5);
+                            this.e.set(this.pXC.J());
+                            this.pXC.h(this.e.get());
                             p();
                         } else {
-                            b(new com.ss.android.socialbase.downloader.e.a(1018, String.format("retry for Throwable, but retry Time %s all used, last error is %s", String.valueOf(this.qcd.eIt()), e3.a())));
+                            b(new com.ss.android.socialbase.downloader.e.a(1018, String.format("retry for Throwable, but retry Time %s all used, last error is %s", String.valueOf(this.pXC.J()), e3.a())));
                         }
                     }
                     p();
                 } catch (Throwable th) {
-                    com.ss.android.socialbase.downloader.f.a.d(f13510a, "downloadInner: throwable =  " + th);
-                    if (this.qcb != j.RUN_STATUS_PAUSE) {
+                    com.ss.android.socialbase.downloader.f.a.d(f13210a, "downloadInner: throwable =  " + th);
+                    if (this.pXA != j.RUN_STATUS_PAUSE) {
                         b(new com.ss.android.socialbase.downloader.e.a(1045, th));
                     }
                     p();
@@ -463,22 +463,22 @@ public class c implements e, Runnable {
                     p();
                     return;
                 }
-                long t = this.i ? com.ss.android.socialbase.downloader.m.d.t(this.qcd) : 0L;
+                long t = this.i ? com.ss.android.socialbase.downloader.m.d.t(this.pXC) : 0L;
                 com.ss.android.socialbase.downloader.g.b jq = jq(t);
                 List<com.ss.android.socialbase.downloader.g.e> e4 = e(jq);
-                com.ss.android.socialbase.downloader.m.d.a(e4, this.qcd);
-                this.qcd.n(0);
+                com.ss.android.socialbase.downloader.m.d.a(e4, this.pXC);
+                this.pXC.n(0);
                 long currentTimeMillis2 = System.currentTimeMillis();
                 try {
                     b(O, e4, t);
-                    this.qcd.b(System.currentTimeMillis() - currentTimeMillis2);
+                    this.pXC.b(System.currentTimeMillis() - currentTimeMillis2);
                     if (s()) {
                         p();
                         return;
                     }
-                    long ejL = this.qcd.ejL();
-                    a(ejL, this.qcd.l(), this.qcd.m());
-                    int c2 = c(ejL, c);
+                    long efR = this.pXC.efR();
+                    a(efR, this.pXC.l(), this.pXC.m());
+                    int c2 = c(efR, c);
                     if (s()) {
                         p();
                         return;
@@ -487,7 +487,7 @@ public class c implements e, Runnable {
                     } else {
                         this.h = c2 == 1;
                         if (this.h) {
-                            if (this.qcm == null) {
+                            if (this.pXL == null) {
                                 try {
                                     currentTimeMillis2 = System.currentTimeMillis();
                                     a(O, e4);
@@ -498,22 +498,22 @@ public class c implements e, Runnable {
                                 p();
                                 return;
                             } else {
-                                this.qcd.a(System.currentTimeMillis() - currentTimeMillis);
-                                a(jq, O, this.qcm);
+                                this.pXC.a(System.currentTimeMillis() - currentTimeMillis);
+                                a(jq, O, this.pXL);
                             }
                         } else {
-                            if (!this.qcd.ad()) {
+                            if (!this.pXC.ad()) {
                                 o();
                             }
                             if (s()) {
                                 p();
                                 return;
                             }
-                            this.qcd.a(System.currentTimeMillis() - currentTimeMillis);
+                            this.pXC.a(System.currentTimeMillis() - currentTimeMillis);
                             if (this.i) {
                                 a(c2, c);
                             } else {
-                                a(ejL, c2);
+                                a(efR, c2);
                             }
                         }
                         p();
@@ -529,31 +529,31 @@ public class c implements e, Runnable {
 
     private void b(String str, List<com.ss.android.socialbase.downloader.g.e> list, long j) throws com.ss.android.socialbase.downloader.e.a, a {
         c(str, list, j);
-        if (this.qcn != null) {
+        if (this.pXM != null) {
             try {
-                a(this.qcn, j);
+                a(this.pXM, j);
             } catch (Throwable th) {
                 this.E = true;
             }
         }
-        if (this.qcn == null || this.E) {
+        if (this.pXM == null || this.E) {
             a(str, list);
-            a(this.qcm, j);
+            a(this.pXL, j);
         }
     }
 
     private void m() {
         boolean z;
         boolean z2;
-        boolean z3 = (this.qcb == j.RUN_STATUS_PAUSE || this.qcb == j.RUN_STATUS_CANCELED) ? false : true;
+        boolean z3 = (this.pXA == j.RUN_STATUS_PAUSE || this.pXA == j.RUN_STATUS_CANCELED) ? false : true;
         try {
             z2 = t();
             z = false;
         } catch (Exception e) {
             if (e instanceof com.ss.android.socialbase.downloader.e.a) {
-                this.qcj.a((com.ss.android.socialbase.downloader.e.a) e);
+                this.pXI.a((com.ss.android.socialbase.downloader.e.a) e);
             } else {
-                this.qcj.a(new com.ss.android.socialbase.downloader.e.a(1046, e));
+                this.pXI.a(new com.ss.android.socialbase.downloader.e.a(1046, e));
             }
             z = true;
             z2 = true;
@@ -562,54 +562,54 @@ public class c implements e, Runnable {
             this.m.set(false);
             if (z3) {
                 try {
-                    com.ss.android.socialbase.downloader.impls.a eHO = com.ss.android.socialbase.downloader.downloader.b.eHO();
-                    if (eHO != null) {
-                        eHO.a(this);
+                    com.ss.android.socialbase.downloader.impls.a eDY = com.ss.android.socialbase.downloader.downloader.b.eDY();
+                    if (eDY != null) {
+                        eDY.a(this);
                         return;
                     }
                     return;
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    com.ss.android.socialbase.downloader.h.a.a(this.qbZ.eJB(), this.qcd, new com.ss.android.socialbase.downloader.e.a(1014, com.ss.android.socialbase.downloader.m.d.c(th, "removeDownloadRunnable")), this.qcd != null ? this.qcd.q() : 0);
+                    com.ss.android.socialbase.downloader.h.a.a(this.pXy.eFL(), this.pXC, new com.ss.android.socialbase.downloader.e.a(1014, com.ss.android.socialbase.downloader.m.d.c(th, "removeDownloadRunnable")), this.pXC != null ? this.pXC.q() : 0);
                     return;
                 }
             }
             return;
         }
         this.D = true;
-        com.ss.android.socialbase.downloader.f.a.b(f13510a, "jump to restart");
+        com.ss.android.socialbase.downloader.f.a.b(f13210a, "jump to restart");
     }
 
     private void c(String str, List<com.ss.android.socialbase.downloader.g.e> list, long j) throws com.ss.android.socialbase.downloader.e.a, a {
         com.ss.android.socialbase.downloader.i.a.c w;
-        if (this.qcd.eJl() == 1 && (w = com.ss.android.socialbase.downloader.i.a.a.eJL().w(str, list)) != null) {
-            this.qcn = w;
-            this.qcd.n(1);
+        if (this.pXC.eFv() == 1 && (w = com.ss.android.socialbase.downloader.i.a.a.eFV().w(str, list)) != null) {
+            this.pXM = w;
+            this.pXC.n(1);
         }
-        if (this.qcn == null && !this.E && this.qcd.af()) {
+        if (this.pXM == null && !this.E && this.pXC.af()) {
             try {
-                this.qcn = com.ss.android.socialbase.downloader.downloader.b.a(str, list, this.qcq.b("net_lib_strategy"), this.qcq.b("monitor_download_connect") > 0, this.qcd);
+                this.pXM = com.ss.android.socialbase.downloader.downloader.b.a(str, list, this.pXP.b("net_lib_strategy"), this.pXP.b("monitor_download_connect") > 0, this.pXC);
             } catch (Throwable th) {
-                this.qcd.a(com.ss.android.socialbase.downloader.m.d.L(th));
+                this.pXC.a(com.ss.android.socialbase.downloader.m.d.L(th));
             }
         }
     }
 
     private void a(String str, List<com.ss.android.socialbase.downloader.g.e> list) throws com.ss.android.socialbase.downloader.e.a, a {
-        if (this.qcm == null) {
+        if (this.pXL == null) {
             com.ss.android.socialbase.downloader.i.a.d dVar = null;
-            if (this.qcd.eJl() == 1) {
-                dVar = com.ss.android.socialbase.downloader.i.a.a.eJL().x(str, list);
+            if (this.pXC.eFv() == 1) {
+                dVar = com.ss.android.socialbase.downloader.i.a.a.eFV().x(str, list);
             }
             try {
                 if (dVar != null) {
-                    a(this.qcm);
-                    this.qcd.n(2);
-                    this.qcm = dVar;
+                    a(this.pXL);
+                    this.pXC.n(2);
+                    this.pXL = dVar;
                 } else {
                     try {
-                        this.qcm = com.ss.android.socialbase.downloader.downloader.b.a(this.qcd.o(), this.qcd.I(), str, list, this.qcq.b("net_lib_strategy"), this.qcq.b("monitor_download_connect") > 0, this.qcd);
-                        a(this.qcm);
+                        this.pXL = com.ss.android.socialbase.downloader.downloader.b.a(this.pXC.o(), this.pXC.I(), str, list, this.pXP.b("net_lib_strategy"), this.pXP.b("monitor_download_connect") > 0, this.pXC);
+                        a(this.pXL);
                     } catch (com.ss.android.socialbase.downloader.e.a e) {
                         throw e;
                     } catch (Throwable th) {
@@ -620,30 +620,30 @@ public class c implements e, Runnable {
                         } else {
                             com.ss.android.socialbase.downloader.m.d.a(th, "CreateFirstConnection");
                         }
-                        a(this.qcm);
+                        a(this.pXL);
                     }
                 }
-                if (this.qcm == null) {
+                if (this.pXL == null) {
                     throw new com.ss.android.socialbase.downloader.e.a(1022, new IOException("download can't continue, firstConnection is null"));
                 }
             } catch (Throwable th2) {
-                a(this.qcm);
+                a(this.pXL);
                 throw th2;
             }
         }
     }
 
     private void n() {
-        if (this.qcn != null) {
-            this.qcn.c();
-            this.qcn = null;
+        if (this.pXM != null) {
+            this.pXM.c();
+            this.pXM = null;
         }
     }
 
     private void o() {
-        if (this.qcm != null) {
-            this.qcm.d();
-            this.qcm = null;
+        if (this.pXL != null) {
+            this.pXL.d();
+            this.pXL = null;
         }
     }
 
@@ -653,38 +653,38 @@ public class c implements e, Runnable {
     }
 
     private com.ss.android.socialbase.downloader.g.b jq(long j) {
-        return new b.a(this.qcd.g()).SN(-1).jf(0L).jj(j).jg(j).jh(0L).ji(this.qcd.ejL() - j).eIm();
+        return new b.a(this.pXC.g()).Rg(-1).jf(0L).jj(j).jg(j).jh(0L).ji(this.pXC.efR() - j).eEw();
     }
 
     private List<com.ss.android.socialbase.downloader.g.e> e(com.ss.android.socialbase.downloader.g.b bVar) {
-        return com.ss.android.socialbase.downloader.m.d.a(this.qcd.eIs(), this.qcd.an(), bVar);
+        return com.ss.android.socialbase.downloader.m.d.a(this.pXC.eEC(), this.pXC.an(), bVar);
     }
 
     private void q() throws com.ss.android.socialbase.downloader.e.a {
-        if (this.qca != null) {
-            if (this.qcb == j.RUN_STATUS_CANCELED) {
-                this.qcd.c(-4);
-                this.qca.c();
-            } else if (this.qcb == j.RUN_STATUS_PAUSE) {
-                this.qcd.c(-2);
-                this.qca.b();
+        if (this.pXz != null) {
+            if (this.pXA == j.RUN_STATUS_CANCELED) {
+                this.pXC.c(-4);
+                this.pXz.c();
+            } else if (this.pXA == j.RUN_STATUS_PAUSE) {
+                this.pXC.c(-2);
+                this.pXz.b();
             } else {
-                this.qca.d();
+                this.pXz.d();
             }
         }
     }
 
     private boolean r() {
-        return this.qcb == j.RUN_STATUS_CANCELED || this.qcb == j.RUN_STATUS_PAUSE;
+        return this.pXA == j.RUN_STATUS_CANCELED || this.pXA == j.RUN_STATUS_PAUSE;
     }
 
     private boolean s() {
-        if (r() || this.qcd.q() == -2) {
+        if (r() || this.pXC.q() == -2) {
             if (!r()) {
-                if (this.qcd.q() == -2) {
-                    this.qcb = j.RUN_STATUS_PAUSE;
-                } else if (this.qcd.q() == -4) {
-                    this.qcb = j.RUN_STATUS_CANCELED;
+                if (this.pXC.q() == -2) {
+                    this.pXA = j.RUN_STATUS_PAUSE;
+                } else if (this.pXC.q() == -4) {
+                    this.pXA = j.RUN_STATUS_CANCELED;
                 }
             }
             return true;
@@ -693,45 +693,45 @@ public class c implements e, Runnable {
     }
 
     private boolean t() {
-        com.ss.android.socialbase.downloader.i.b.eJM().c();
-        if (this.qcb == j.RUN_STATUS_ERROR) {
-            this.qcj.a(this.qcl);
+        com.ss.android.socialbase.downloader.i.b.eFW().c();
+        if (this.pXA == j.RUN_STATUS_ERROR) {
+            this.pXI.a(this.pXK);
             return true;
-        } else if (this.qcb == j.RUN_STATUS_CANCELED) {
-            this.qcj.c();
+        } else if (this.pXA == j.RUN_STATUS_CANCELED) {
+            this.pXI.c();
             return true;
-        } else if (this.qcb == j.RUN_STATUS_PAUSE) {
-            this.qcj.d();
+        } else if (this.pXA == j.RUN_STATUS_PAUSE) {
+            this.pXI.d();
             return true;
-        } else if (this.qcb == j.RUN_STATUS_END_RIGHT_NOW) {
+        } else if (this.pXA == j.RUN_STATUS_END_RIGHT_NOW) {
             try {
-                this.qcj.g();
+                this.pXI.g();
                 return true;
             } catch (com.ss.android.socialbase.downloader.e.a e) {
-                this.qcj.a(e);
+                this.pXI.a(e);
                 return true;
             }
-        } else if (this.qcb == j.RUN_STATUS_END_FOR_FILE_EXIST) {
+        } else if (this.pXA == j.RUN_STATUS_END_FOR_FILE_EXIST) {
             try {
-                this.qcj.a(this.F);
+                this.pXI.a(this.F);
                 return true;
             } catch (com.ss.android.socialbase.downloader.e.a e2) {
-                this.qcj.a(e2);
+                this.pXI.a(e2);
                 return true;
             }
-        } else if (this.qcb == j.RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET) {
-            this.qcj.a(this.qcl, false);
+        } else if (this.pXA == j.RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET) {
+            this.pXI.a(this.pXK, false);
             return false;
-        } else if (this.qcb != j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
-            if (this.qcb == j.RUN_STATUS_RETRY_DELAY && !u()) {
-                com.ss.android.socialbase.downloader.f.a.b(f13510a, "doTaskStatusHandle retryDelay");
+        } else if (this.pXA != j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
+            if (this.pXA == j.RUN_STATUS_RETRY_DELAY && !u()) {
+                com.ss.android.socialbase.downloader.f.a.b(f13210a, "doTaskStatusHandle retryDelay");
                 w();
-                return this.qcb == j.RUN_STATUS_RETRY_DELAY;
+                return this.pXA == j.RUN_STATUS_RETRY_DELAY;
             }
             try {
                 if (v()) {
-                    this.qcj.f();
-                    r.eJS().d();
+                    this.pXI.f();
+                    r.eGc().d();
                     return true;
                 }
                 return false;
@@ -749,10 +749,10 @@ public class c implements e, Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean u() {
-        if (this.qcd.eJl() <= 1) {
-            return this.qcd.eIz() > 0 && this.qcd.eIz() == this.qcd.ejL();
+        if (this.pXC.eFv() <= 1) {
+            return this.pXC.eEJ() > 0 && this.pXC.eEJ() == this.pXC.efR();
         }
-        List<com.ss.android.socialbase.downloader.g.b> c = this.qcc.c(this.qcd.g());
+        List<com.ss.android.socialbase.downloader.g.b> c = this.pXB.c(this.pXC.g());
         if (c == null || c.size() <= 1) {
             return false;
         }
@@ -767,15 +767,15 @@ public class c implements e, Runnable {
     }
 
     private boolean v() {
-        if (this.qcd.eIZ()) {
-            this.qcd.f(this.qcd.eIz());
+        if (this.pXC.eFj()) {
+            this.pXC.f(this.pXC.eEJ());
         }
-        if (this.qcd.eIz() <= 0 || (!this.qcd.ag() && (this.qcd.ejL() <= 0 || this.qcd.eIz() != this.qcd.ejL()))) {
-            this.qcd.a(com.ss.android.socialbase.downloader.b.b.BYTE_INVALID_RETRY_STATUS_RESTART);
-            this.qcd.eJd();
-            this.qcc.a(this.qcd);
-            this.qcc.d(this.qcd.g());
-            com.ss.android.socialbase.downloader.m.d.a(this.qcd);
+        if (this.pXC.eEJ() <= 0 || (!this.pXC.ag() && (this.pXC.efR() <= 0 || this.pXC.eEJ() != this.pXC.efR()))) {
+            this.pXC.a(com.ss.android.socialbase.downloader.b.b.BYTE_INVALID_RETRY_STATUS_RESTART);
+            this.pXC.eFn();
+            this.pXB.a(this.pXC);
+            this.pXB.d(this.pXC.g());
+            com.ss.android.socialbase.downloader.m.d.a(this.pXC);
             return false;
         }
         return true;
@@ -783,24 +783,24 @@ public class c implements e, Runnable {
 
     private void w() {
         boolean z;
-        long epL = epL();
+        long elP = elP();
         try {
             Intent intent = new Intent("com.ss.android.downloader.action.DOWNLOAD_WAKEUP");
-            intent.putExtra("extra_download_id", this.qcd.g());
-            intent.setClass(com.ss.android.socialbase.downloader.downloader.b.eHT(), DownloadHandleService.class);
+            intent.putExtra("extra_download_id", this.pXC.g());
+            intent.setClass(com.ss.android.socialbase.downloader.downloader.b.eEd(), DownloadHandleService.class);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.qck.setExact(2, SystemClock.elapsedRealtime() + epL, PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eHT(), this.qcd.g(), intent, 1073741824));
+                this.pXJ.setExact(2, SystemClock.elapsedRealtime() + elP, PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eEd(), this.pXC.g(), intent, 1073741824));
             } else {
-                this.qck.set(2, SystemClock.elapsedRealtime() + epL, PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eHT(), this.qcd.g(), intent, 1073741824));
+                this.pXJ.set(2, SystemClock.elapsedRealtime() + elP, PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eEd(), this.pXC.g(), intent, 1073741824));
             }
         } catch (Throwable th) {
             try {
                 if (th instanceof NoSuchMethodError) {
                     try {
                         Intent intent2 = new Intent("com.ss.android.downloader.action.DOWNLOAD_WAKEUP");
-                        intent2.setClass(com.ss.android.socialbase.downloader.downloader.b.eHT(), DownloadHandleService.class);
-                        intent2.putExtra("extra_download_id", this.qcd.g());
-                        this.qck.set(2, epL + SystemClock.elapsedRealtime(), PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eHT(), this.qcd.g(), intent2, 1073741824));
+                        intent2.setClass(com.ss.android.socialbase.downloader.downloader.b.eEd(), DownloadHandleService.class);
+                        intent2.putExtra("extra_download_id", this.pXC.g());
+                        this.pXJ.set(2, elP + SystemClock.elapsedRealtime(), PendingIntent.getService(com.ss.android.socialbase.downloader.downloader.b.eEd(), this.pXC.g(), intent2, 1073741824));
                         z = true;
                     } catch (Throwable th2) {
                         z = false;
@@ -809,43 +809,43 @@ public class c implements e, Runnable {
                     z = false;
                 }
                 if (!z) {
-                    this.qcb = j.RUN_STATUS_NONE;
+                    this.pXA = j.RUN_STATUS_NONE;
                 }
             } finally {
-                this.qcb = j.RUN_STATUS_RETRY_DELAY;
-                this.qcd.a(com.ss.android.socialbase.downloader.b.i.DELAY_RETRY_WAITING);
-                this.qcc.a(this.qcd);
+                this.pXA = j.RUN_STATUS_RETRY_DELAY;
+                this.pXC.a(com.ss.android.socialbase.downloader.b.i.DELAY_RETRY_WAITING);
+                this.pXB.a(this.pXC);
             }
         }
     }
 
-    private long epL() {
-        return this.qci.a(this.qcd.M(), this.qcd.eIu());
+    private long elP() {
+        return this.pXH.a(this.pXC.us(), this.pXC.eED());
     }
 
     private void y() throws a, com.ss.android.socialbase.downloader.e.a {
-        com.ss.android.socialbase.downloader.impls.a eHO;
-        int g = this.qcd.g();
-        int r = com.ss.android.socialbase.downloader.downloader.b.r(this.qcd);
-        if (this.qcd.aX()) {
+        com.ss.android.socialbase.downloader.impls.a eDY;
+        int g = this.pXC.g();
+        int r = com.ss.android.socialbase.downloader.downloader.b.r(this.pXC);
+        if (this.pXC.aX()) {
             throw new com.ss.android.socialbase.downloader.e.a(1009, "file has downloaded");
         }
-        com.ss.android.socialbase.downloader.g.c b2 = this.qcc.b(r);
-        if (b2 != null && (eHO = com.ss.android.socialbase.downloader.downloader.b.eHO()) != null && b2.g() != g && b2.a(this.qcd)) {
-            if (eHO.a(b2.g())) {
-                this.qcc.f(g);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pXB.b(r);
+        if (b2 != null && (eDY = com.ss.android.socialbase.downloader.downloader.b.eDY()) != null && b2.g() != g && b2.a(this.pXC)) {
+            if (eDY.a(b2.g())) {
+                this.pXB.f(g);
                 throw new com.ss.android.socialbase.downloader.e.a(1025, "another same task is downloading");
             }
-            List<com.ss.android.socialbase.downloader.g.b> c = this.qcc.c(r);
-            com.ss.android.socialbase.downloader.m.d.a(this.qcd);
-            this.qcc.f(r);
-            if (b2 != null && b2.eJh()) {
-                this.qcd.a(b2, false);
-                this.qcc.a(this.qcd);
+            List<com.ss.android.socialbase.downloader.g.b> c = this.pXB.c(r);
+            com.ss.android.socialbase.downloader.m.d.a(this.pXC);
+            this.pXB.f(r);
+            if (b2 != null && b2.eFr()) {
+                this.pXC.a(b2, false);
+                this.pXB.a(this.pXC);
                 if (c != null) {
                     for (com.ss.android.socialbase.downloader.g.b bVar : c) {
                         bVar.b(g);
-                        this.qcc.a(bVar);
+                        this.pXB.a(bVar);
                     }
                 }
                 throw new a("retry task because id generator changed");
@@ -857,14 +857,14 @@ public class c implements e, Runnable {
         if (list.size() != i) {
             throw new com.ss.android.socialbase.downloader.e.a((int) DebugConstants.HTTP_ERRCODE_VERSION_HIGH, new IllegalArgumentException());
         }
-        a(list, this.qcd.ejL());
+        a(list, this.pXC.efR());
     }
 
     private void a(long j, int i) throws com.ss.android.socialbase.downloader.e.a {
         long j2;
         long j3 = 0;
         long j4 = j / i;
-        int g = this.qcd.g();
+        int g = this.pXC.g();
         ArrayList arrayList = new ArrayList();
         int i2 = 0;
         while (true) {
@@ -875,14 +875,14 @@ public class c implements e, Runnable {
                 } else {
                     j2 = (j3 + j4) - 1;
                 }
-                com.ss.android.socialbase.downloader.g.b eIm = new b.a(g).SN(i3).jf(j3).jj(j3).jg(j3).jh(j2).eIm();
-                arrayList.add(eIm);
-                this.qcc.a(eIm);
+                com.ss.android.socialbase.downloader.g.b eEw = new b.a(g).Rg(i3).jf(j3).jj(j3).jg(j3).jh(j2).eEw();
+                arrayList.add(eEw);
+                this.pXB.a(eEw);
                 j3 += j4;
                 i2 = i3 + 1;
             } else {
-                this.qcd.d(i);
-                this.qcc.a(g, i);
+                this.pXC.d(i);
+                this.pXB.a(g, i);
                 a(arrayList, j);
                 return;
             }
@@ -900,14 +900,14 @@ public class c implements e, Runnable {
                 }
                 if (p > 0) {
                     bVar.a(p);
-                    if (this.qcd.ad() && this.qcm != null && (!this.qcd.af() || this.E)) {
+                    if (this.pXC.ad() && this.pXL != null && (!this.pXC.af() || this.E)) {
                         if (bVar.s() == 0) {
-                            this.f.add(new b(bVar, this.qbZ, this.qcm, this));
+                            this.f.add(new b(bVar, this.pXy, this.pXL, this));
                         } else if (bVar.s() > 0) {
-                            this.f.add(new b(bVar, this.qbZ, this));
+                            this.f.add(new b(bVar, this.pXy, this));
                         }
                     } else {
-                        this.f.add(new b(bVar, this.qbZ, this));
+                        this.f.add(new b(bVar, this.pXy, this));
                     }
                 }
             }
@@ -917,9 +917,9 @@ public class c implements e, Runnable {
             Iterator<b> it = this.f.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (this.qcb == j.RUN_STATUS_CANCELED) {
+                if (this.pXA == j.RUN_STATUS_CANCELED) {
                     next.b();
-                } else if (this.qcb == j.RUN_STATUS_PAUSE) {
+                } else if (this.pXA == j.RUN_STATUS_PAUSE) {
                     next.a();
                 } else {
                     arrayList.add(next);
@@ -954,9 +954,9 @@ public class c implements e, Runnable {
         Iterator<b> it2 = this.f.iterator();
         while (it2.hasNext()) {
             b next2 = it2.next();
-            if (this.qcb == j.RUN_STATUS_CANCELED) {
+            if (this.pXA == j.RUN_STATUS_CANCELED) {
                 next2.b();
-            } else if (this.qcb == j.RUN_STATUS_PAUSE) {
+            } else if (this.pXA == j.RUN_STATUS_PAUSE) {
                 next2.a();
             } else {
                 arrayList2.add(Executors.callable(next2));
@@ -972,10 +972,10 @@ public class c implements e, Runnable {
     }
 
     private void a(com.ss.android.socialbase.downloader.g.b bVar, String str, g gVar) throws com.ss.android.socialbase.downloader.e.a {
-        bVar.a(this.qcd.ejL() - bVar.n());
-        this.qcd.d(1);
-        this.qcc.a(this.qcd.g(), 1);
-        this.qca = new com.ss.android.socialbase.downloader.downloader.d(this.qcd, str, gVar, bVar, this);
+        bVar.a(this.pXC.efR() - bVar.n());
+        this.pXC.d(1);
+        this.pXB.a(this.pXC.g(), 1);
+        this.pXz = new com.ss.android.socialbase.downloader.downloader.d(this.pXC, str, gVar, bVar, this);
         q();
     }
 
@@ -984,20 +984,20 @@ public class c implements e, Runnable {
     public class a extends Throwable {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13515b;
+        private String f13215b;
 
         public a(String str) {
             super(str);
-            this.f13515b = str;
+            this.f13215b = str;
         }
 
         public String a() {
-            return this.f13515b;
+            return this.f13215b;
         }
     }
 
     private boolean z() {
-        if (this.qcd == null || ((this.i && this.qcd.eJl() <= 1) || this.qcd.eIM())) {
+        if (this.pXC == null || ((this.i && this.pXC.eFv() <= 1) || this.pXC.eEW())) {
             return false;
         }
         return this.j && !this.l;
@@ -1012,21 +1012,21 @@ public class c implements e, Runnable {
                 long length = new File(str, str2).length();
                 long j4 = j - length;
                 long c = com.ss.android.socialbase.downloader.m.d.c(str);
-                com.ss.android.socialbase.downloader.k.a Th = com.ss.android.socialbase.downloader.k.a.Th(this.qcd.g());
-                if (Th.a("space_fill_part_download", 0) == 1) {
+                com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(this.pXC.g());
+                if (RA.a("space_fill_part_download", 0) == 1) {
                     this.G = 0L;
-                    long ejL = j4 <= 0 ? this.qcd.ejL() - this.qcd.eIz() : j4;
-                    if (c < ejL) {
-                        com.ss.android.socialbase.downloader.f.a.d(f13510a, "checkSpaceOverflow: contentLength = " + com.ss.android.socialbase.downloader.m.d.a(j) + "MB, downloaded = " + com.ss.android.socialbase.downloader.m.d.a(length) + "MB, required = " + com.ss.android.socialbase.downloader.m.d.a(ejL) + "MB, available = " + com.ss.android.socialbase.downloader.m.d.a(c) + "MB");
+                    long efR = j4 <= 0 ? this.pXC.efR() - this.pXC.eEJ() : j4;
+                    if (c < efR) {
+                        com.ss.android.socialbase.downloader.f.a.d(f13210a, "checkSpaceOverflow: contentLength = " + com.ss.android.socialbase.downloader.m.d.a(j) + "MB, downloaded = " + com.ss.android.socialbase.downloader.m.d.a(length) + "MB, required = " + com.ss.android.socialbase.downloader.m.d.a(efR) + "MB, available = " + com.ss.android.socialbase.downloader.m.d.a(c) + "MB");
                         if (c > 0) {
-                            int a2 = Th.a("space_fill_min_keep_mb", 100);
+                            int a2 = RA.a("space_fill_min_keep_mb", 100);
                             if (a2 > 0) {
                                 j2 = c - (a2 * 1048576);
-                                com.ss.android.socialbase.downloader.f.a.d(f13510a, "checkSpaceOverflow: minKeep = " + a2 + "MB, canDownload = " + com.ss.android.socialbase.downloader.m.d.a(j2) + "MB");
+                                com.ss.android.socialbase.downloader.f.a.d(f13210a, "checkSpaceOverflow: minKeep = " + a2 + "MB, canDownload = " + com.ss.android.socialbase.downloader.m.d.a(j2) + "MB");
                                 if (j2 <= 0) {
-                                    throw new com.ss.android.socialbase.downloader.e.e(c, ejL);
+                                    throw new com.ss.android.socialbase.downloader.e.e(c, efR);
                                 }
-                                this.G = this.qcd.eIz() + j2;
+                                this.G = this.pXC.eEJ() + j2;
                             } else {
                                 j2 = c;
                             }
@@ -1038,7 +1038,7 @@ public class c implements e, Runnable {
                             } else {
                                 j3 = j;
                             }
-                        } else if (Th.a("download_when_space_negative", 0) != 1) {
+                        } else if (RA.a("download_when_space_negative", 0) != 1) {
                             throw new com.ss.android.socialbase.downloader.e.a(1052, "availableSpace " + (c == 0 ? "=" : "<") + " 0");
                         }
                         A.b(j);
@@ -1062,21 +1062,21 @@ public class c implements e, Runnable {
         long j;
         int a2;
         try {
-            j = com.ss.android.socialbase.downloader.m.d.c(this.qcd.l());
+            j = com.ss.android.socialbase.downloader.m.d.c(this.pXC.l());
         } catch (com.ss.android.socialbase.downloader.e.a e) {
             j = 0;
         }
-        com.ss.android.socialbase.downloader.f.a.c(f13510a, "checkSpaceOverflowInProgress: available = " + com.ss.android.socialbase.downloader.m.d.a(j) + "MB");
+        com.ss.android.socialbase.downloader.f.a.c(f13210a, "checkSpaceOverflowInProgress: available = " + com.ss.android.socialbase.downloader.m.d.a(j) + "MB");
         if (j > 0) {
-            long ejL = this.qcd.ejL() - this.qcd.eIz();
-            if (j < ejL && (a2 = com.ss.android.socialbase.downloader.k.a.Th(this.qcd.g()).a("space_fill_min_keep_mb", 100)) > 0) {
+            long efR = this.pXC.efR() - this.pXC.eEJ();
+            if (j < efR && (a2 = com.ss.android.socialbase.downloader.k.a.RA(this.pXC.g()).a("space_fill_min_keep_mb", 100)) > 0) {
                 long j2 = j - (a2 * 1048576);
-                com.ss.android.socialbase.downloader.f.a.c(f13510a, "checkSpaceOverflowInProgress: minKeep  = " + a2 + "MB, canDownload = " + com.ss.android.socialbase.downloader.m.d.a(j2) + "MB");
+                com.ss.android.socialbase.downloader.f.a.c(f13210a, "checkSpaceOverflowInProgress: minKeep  = " + a2 + "MB, canDownload = " + com.ss.android.socialbase.downloader.m.d.a(j2) + "MB");
                 if (j2 <= 0) {
                     this.G = 0L;
-                    throw new com.ss.android.socialbase.downloader.e.e(j, ejL);
+                    throw new com.ss.android.socialbase.downloader.e.e(j, efR);
                 } else {
-                    this.G = this.qcd.eIz() + j2 + 1048576;
+                    this.G = this.pXC.eEJ() + j2 + 1048576;
                     return;
                 }
             }
@@ -1085,25 +1085,25 @@ public class c implements e, Runnable {
     }
 
     private void B() throws com.ss.android.socialbase.downloader.e.g {
-        if (this.qcd.x() && !com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), "android.permission.ACCESS_NETWORK_STATE")) {
+        if (this.pXC.x() && !com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), "android.permission.ACCESS_NETWORK_STATE")) {
             throw new com.ss.android.socialbase.downloader.e.g(1019, String.format("download task need permission:%s", "android.permission.ACCESS_NETWORK_STATE"));
         }
-        if (!this.qcd.eIW()) {
+        if (!this.pXC.eFg()) {
             throw new com.ss.android.socialbase.downloader.e.d();
         }
-        if (!this.qcd.eIX()) {
+        if (!this.pXC.eFh()) {
             throw new com.ss.android.socialbase.downloader.e.f();
         }
     }
 
     private void C() throws com.ss.android.socialbase.downloader.e.a {
-        if (TextUtils.isEmpty(this.qcd.k())) {
+        if (TextUtils.isEmpty(this.pXC.k())) {
             throw new com.ss.android.socialbase.downloader.e.a((int) ARPMessageType.MSG_TYPE_VIDEO_STOP_RES, "download savePath can not be empty");
         }
-        if (TextUtils.isEmpty(this.qcd.h())) {
+        if (TextUtils.isEmpty(this.pXC.h())) {
             throw new com.ss.android.socialbase.downloader.e.a((int) ARPMessageType.MSG_TYPE_VIDEO_PLAY_FAILED, "download name can not be empty");
         }
-        File file = new File(this.qcd.k());
+        File file = new File(this.pXC.k());
         if (!file.exists()) {
             if (!file.mkdirs()) {
                 throw new com.ss.android.socialbase.downloader.e.a(1030, "download savePath directory can not created");
@@ -1118,17 +1118,17 @@ public class c implements e, Runnable {
             return true;
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.equals(str2) || !(this.k || this.j)) {
-            return (i == 201 || i == 416) && this.qcd.eIz() > 0;
+            return (i == 201 || i == 416) && this.pXC.eEJ() > 0;
         }
         return true;
     }
 
     private void a(String str, String str2) throws a {
-        this.qcc.d(this.qcd.g());
-        com.ss.android.socialbase.downloader.m.d.a(this.qcd);
+        this.pXB.d(this.pXC.g());
+        com.ss.android.socialbase.downloader.m.d.a(this.pXC);
         this.i = false;
-        this.qcd.j(str);
-        this.qcc.a(this.qcd);
+        this.pXC.j(str);
+        this.pXB.a(this.pXC);
         throw new a(str2);
     }
 
@@ -1141,13 +1141,13 @@ public class c implements e, Runnable {
                 int b2 = eVar.b();
                 String a2 = eVar.a("Accept-Ranges");
                 String a3 = eVar.a("Content-Type");
-                if (TextUtils.isEmpty(this.qcd.eIE()) && !TextUtils.isEmpty(a3)) {
-                    this.qcd.h(a3);
+                if (TextUtils.isEmpty(this.pXC.eEO()) && !TextUtils.isEmpty(a3)) {
+                    this.pXC.h(a3);
                 }
                 this.j = com.ss.android.socialbase.downloader.m.d.a(b2, a2);
                 this.k = com.ss.android.socialbase.downloader.m.d.c(b2);
-                this.qcd.i(this.j);
-                String an = this.qcd.an();
+                this.pXC.i(this.j);
+                String an = this.pXC.an();
                 String a4 = eVar.a("Etag");
                 if (!s(b2, an, a4)) {
                     str = a4;
@@ -1169,10 +1169,10 @@ public class c implements e, Runnable {
                         }
                     }
                     long b3 = com.ss.android.socialbase.downloader.m.d.b(eVar);
-                    if (!TextUtils.isEmpty(this.qcd.h())) {
+                    if (!TextUtils.isEmpty(this.pXC.h())) {
                         str2 = "";
                     } else {
-                        str2 = com.ss.android.socialbase.downloader.m.d.a(eVar, this.qcd.j());
+                        str2 = com.ss.android.socialbase.downloader.m.d.a(eVar, this.pXC.j());
                     }
                     if (com.ss.android.socialbase.downloader.m.a.a(8)) {
                         this.l = com.ss.android.socialbase.downloader.m.d.d(eVar);
@@ -1193,10 +1193,10 @@ public class c implements e, Runnable {
                         j2 = -1;
                     }
                     if (!s()) {
-                        if (this.qcd.eFI() > 0 && com.ss.android.socialbase.downloader.k.a.Th(this.qcd.g()).b("force_check_file_length") == 1 && this.qcd.eFI() != j2) {
-                            throw new com.ss.android.socialbase.downloader.e.a(1070, "expectFileLength = " + this.qcd.eFI() + " , totalLength = " + j2);
+                        if (this.pXC.eBR() > 0 && com.ss.android.socialbase.downloader.k.a.RA(this.pXC.g()).b("force_check_file_length") == 1 && this.pXC.eBR() != j2) {
+                            throw new com.ss.android.socialbase.downloader.e.a(1070, "expectFileLength = " + this.pXC.eBR() + " , totalLength = " + j2);
                         }
-                        this.qcj.a(j2, str, str2);
+                        this.pXI.a(j2, str, str2);
                     }
                 } else if (b2 == 403) {
                     throw new com.ss.android.socialbase.downloader.e.a(1047, "response code error : 403");
@@ -1218,33 +1218,33 @@ public class c implements e, Runnable {
     }
 
     public int e() {
-        if (this.qcd != null) {
-            return this.qcd.g();
+        if (this.pXC != null) {
+            return this.pXC.g();
         }
         return 0;
     }
 
     public void f() {
         this.H = System.currentTimeMillis();
-        this.qcj.a();
+        this.pXI.a();
     }
 
     private void D() {
-        long u = com.ss.android.socialbase.downloader.m.d.u(this.qcd);
-        this.qcd.d(u);
+        long u = com.ss.android.socialbase.downloader.m.d.u(this.pXC);
+        this.pXC.d(u);
         this.i = u > 0;
         if (!this.i) {
-            this.qcc.d(this.qcd.g());
-            com.ss.android.socialbase.downloader.m.d.a(this.qcd);
+            this.pXB.d(this.pXC.g());
+            com.ss.android.socialbase.downloader.m.d.a(this.pXC);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.l.e
     public boolean a(long j) throws com.ss.android.socialbase.downloader.e.a {
-        if (this.G > 0 && this.qcd.eIz() > this.G) {
+        if (this.G > 0 && this.pXC.eEJ() > this.G) {
             A();
         }
-        return this.qcj.a(j);
+        return this.pXI.a(j);
     }
 
     @Override // com.ss.android.socialbase.downloader.l.e
@@ -1259,11 +1259,11 @@ public class c implements e, Runnable {
     @Override // com.ss.android.socialbase.downloader.l.e
     public boolean d(com.ss.android.socialbase.downloader.e.a aVar) {
         if (!com.ss.android.socialbase.downloader.m.d.g(aVar)) {
-            return ((this.e != null && this.e.get() > 0) || this.qcd.aZ() || (aVar != null && ((aVar.a() == 1011 || (aVar.getCause() != null && (aVar.getCause() instanceof SSLHandshakeException))) && this.qcd.ba()))) && !(aVar instanceof com.ss.android.socialbase.downloader.e.g);
+            return ((this.e != null && this.e.get() > 0) || this.pXC.aZ() || (aVar != null && ((aVar.a() == 1011 || (aVar.getCause() != null && (aVar.getCause() instanceof SSLHandshakeException))) && this.pXC.ba()))) && !(aVar instanceof com.ss.android.socialbase.downloader.e.g);
         } else if (!this.h || this.d) {
             return true;
         } else {
-            com.ss.android.socialbase.downloader.m.d.a(this.qcd);
+            com.ss.android.socialbase.downloader.m.d.a(this.pXC);
             this.d = true;
             return true;
         }
@@ -1271,19 +1271,19 @@ public class c implements e, Runnable {
 
     @Override // com.ss.android.socialbase.downloader.l.e
     public void b(com.ss.android.socialbase.downloader.e.a aVar) {
-        com.ss.android.socialbase.downloader.f.a.b(f13510a, "onError:" + aVar.getMessage());
-        this.qcb = j.RUN_STATUS_ERROR;
-        this.qcl = aVar;
+        com.ss.android.socialbase.downloader.f.a.b(f13210a, "onError:" + aVar.getMessage());
+        this.pXA = j.RUN_STATUS_ERROR;
+        this.pXK = aVar;
         F();
     }
 
     private void E() {
         try {
-            this.qcc.d(this.qcd.g());
-            com.ss.android.socialbase.downloader.m.d.a(this.qcd);
+            this.pXB.d(this.pXC.g());
+            com.ss.android.socialbase.downloader.m.d.a(this.pXC);
             this.i = false;
-            this.qcd.j("");
-            this.qcc.a(this.qcd);
+            this.pXC.j("");
+            this.pXB.a(this.pXC);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -1291,17 +1291,17 @@ public class c implements e, Runnable {
 
     @Override // com.ss.android.socialbase.downloader.l.e
     public void e(com.ss.android.socialbase.downloader.e.a aVar) {
-        if (this.qcd != null) {
-            this.qcd.m(true);
+        if (this.pXC != null) {
+            this.pXC.m(true);
         }
         a(aVar, false);
     }
 
     @Override // com.ss.android.socialbase.downloader.l.e
     public void a(com.ss.android.socialbase.downloader.e.a aVar, boolean z) {
-        com.ss.android.socialbase.downloader.f.a.b(f13510a, "onAllChunkRetryWithReset");
-        this.qcb = j.RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET;
-        this.qcl = aVar;
+        com.ss.android.socialbase.downloader.f.a.b(f13210a, "onAllChunkRetryWithReset");
+        this.pXA = j.RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET;
+        this.pXK = aVar;
         F();
         boolean z2 = false;
         if (z) {
@@ -1322,26 +1322,26 @@ public class c implements e, Runnable {
                 }
             }
         } catch (Throwable th) {
-            com.ss.android.socialbase.downloader.f.a.c(f13510a, "cancelAllChunkRunnable: " + th.toString());
+            com.ss.android.socialbase.downloader.f.a.c(f13210a, "cancelAllChunkRunnable: " + th.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<String> list) {
         if (list != null && !list.isEmpty()) {
-            this.qcd.a(list, this.qcb == j.RUN_STATUS_WAITING_ASYNC_HANDLER);
-            com.ss.android.socialbase.downloader.impls.a eHO = com.ss.android.socialbase.downloader.downloader.b.eHO();
-            if (eHO != null) {
-                eHO.SH(this.qcd.g());
+            this.pXC.a(list, this.pXA == j.RUN_STATUS_WAITING_ASYNC_HANDLER);
+            com.ss.android.socialbase.downloader.impls.a eDY = com.ss.android.socialbase.downloader.downloader.b.eDY();
+            if (eDY != null) {
+                eDY.Ra(this.pXC.g());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G() {
-        com.ss.android.socialbase.downloader.impls.a eHO;
-        if (!s() && (eHO = com.ss.android.socialbase.downloader.downloader.b.eHO()) != null) {
-            eHO.SH(this.qcd.g());
+        com.ss.android.socialbase.downloader.impls.a eDY;
+        if (!s() && (eDY = com.ss.android.socialbase.downloader.downloader.b.eDY()) != null) {
+            eDY.Ra(this.pXC.g());
         }
     }
 
@@ -1353,21 +1353,21 @@ public class c implements e, Runnable {
         if (aVar != null && (aVar.a() == 1047 || com.ss.android.socialbase.downloader.m.d.J(aVar))) {
             return a(aVar, j);
         }
-        this.qcl = aVar;
-        this.qcd.e(-j);
-        this.qcc.a(this.qcd);
+        this.pXK = aVar;
+        this.pXC.e(-j);
+        this.pXB.a(this.pXC);
         if (f(aVar)) {
             return com.ss.android.socialbase.downloader.e.h.RETURN;
         }
-        this.qcj.a(bVar, aVar, this.qcb == j.RUN_STATUS_RETRY_DELAY);
-        if (this.qcb != j.RUN_STATUS_RETRY_DELAY && this.qcd.eIG()) {
-            long epL = epL();
-            if (epL > 0) {
-                com.ss.android.socialbase.downloader.f.a.c(f13510a, "onSingleChunkRetry with delay time " + epL);
+        this.pXI.a(bVar, aVar, this.pXA == j.RUN_STATUS_RETRY_DELAY);
+        if (this.pXA != j.RUN_STATUS_RETRY_DELAY && this.pXC.eEQ()) {
+            long elP = elP();
+            if (elP > 0) {
+                com.ss.android.socialbase.downloader.f.a.c(f13210a, "onSingleChunkRetry with delay time " + elP);
                 try {
-                    Thread.sleep(epL);
+                    Thread.sleep(elP);
                 } catch (Throwable th) {
-                    com.ss.android.socialbase.downloader.f.a.d(f13510a, "onSingleChunkRetry:" + th.getMessage());
+                    com.ss.android.socialbase.downloader.f.a.d(f13210a, "onSingleChunkRetry:" + th.getMessage());
                 }
             }
         }
@@ -1377,16 +1377,16 @@ public class c implements e, Runnable {
     @Override // com.ss.android.socialbase.downloader.l.e
     public com.ss.android.socialbase.downloader.e.h a(com.ss.android.socialbase.downloader.e.a aVar, long j) {
         long j2;
-        long ejL;
+        long efR;
         boolean z;
-        this.qcl = aVar;
-        this.qcd.e(-j);
-        this.qcc.a(this.qcd);
+        this.pXK = aVar;
+        this.pXC.e(-j);
+        this.pXB.a(this.pXC);
         if (r()) {
             return com.ss.android.socialbase.downloader.e.h.RETURN;
         }
         if (aVar != null && aVar.a() == 1047) {
-            if (this.qco == null || this.qcd.ejT()) {
+            if (this.pXN == null || this.pXC.efZ()) {
                 if (f(aVar)) {
                     return com.ss.android.socialbase.downloader.e.h.RETURN;
                 }
@@ -1398,13 +1398,13 @@ public class c implements e, Runnable {
                         c.this.a(list);
                     }
                 };
-                boolean a2 = this.qco.a(uVar);
-                this.qcd.eII();
+                boolean a2 = this.pXN.a(uVar);
+                this.pXC.eES();
                 if (a2) {
                     if (!uVar.a()) {
                         F();
-                        this.qcj.h();
-                        this.qcb = j.RUN_STATUS_WAITING_ASYNC_HANDLER;
+                        this.pXI.h();
+                        this.pXA = j.RUN_STATUS_WAITING_ASYNC_HANDLER;
                         return com.ss.android.socialbase.downloader.e.h.RETURN;
                     }
                     z = true;
@@ -1412,7 +1412,7 @@ public class c implements e, Runnable {
             }
             z = false;
         } else if (com.ss.android.socialbase.downloader.m.d.J(aVar)) {
-            if (this.qcp == null) {
+            if (this.pXO == null) {
                 b(aVar);
                 return com.ss.android.socialbase.downloader.e.h.RETURN;
             }
@@ -1428,21 +1428,21 @@ public class c implements e, Runnable {
             };
             if (aVar instanceof com.ss.android.socialbase.downloader.e.e) {
                 j2 = ((com.ss.android.socialbase.downloader.e.e) aVar).c();
-                ejL = ((com.ss.android.socialbase.downloader.e.e) aVar).d();
+                efR = ((com.ss.android.socialbase.downloader.e.e) aVar).d();
             } else {
                 j2 = -1;
-                ejL = this.qcd.ejL();
+                efR = this.pXC.efR();
             }
             synchronized (this) {
-                if (this.qcp.a(j2, ejL, aeVar)) {
-                    if (!com.ss.android.socialbase.downloader.k.a.Th(this.qcd.g()).b("not_delete_when_clean_space", false)) {
+                if (this.pXO.a(j2, efR, aeVar)) {
+                    if (!com.ss.android.socialbase.downloader.k.a.RA(this.pXC.g()).b("not_delete_when_clean_space", false)) {
                         v();
                     }
                     if (!atomicBoolean.get()) {
-                        if (this.qcb != j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
-                            this.qcb = j.RUN_STATUS_WAITING_ASYNC_HANDLER;
+                        if (this.pXA != j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
+                            this.pXA = j.RUN_STATUS_WAITING_ASYNC_HANDLER;
                             F();
-                            this.qcj.h();
+                            this.pXI.h();
                         }
                         return com.ss.android.socialbase.downloader.e.h.RETURN;
                     } else if (f(aVar)) {
@@ -1450,7 +1450,7 @@ public class c implements e, Runnable {
                     } else {
                         z = true;
                     }
-                } else if (this.qcb == j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
+                } else if (this.pXA == j.RUN_STATUS_WAITING_ASYNC_HANDLER) {
                     return com.ss.android.socialbase.downloader.e.h.RETURN;
                 } else {
                     b(aVar);
@@ -1466,30 +1466,30 @@ public class c implements e, Runnable {
         if (!z && H()) {
             F();
         }
-        this.qcj.a(aVar, this.qcb == j.RUN_STATUS_RETRY_DELAY);
-        return this.qcb == j.RUN_STATUS_RETRY_DELAY ? com.ss.android.socialbase.downloader.e.h.RETURN : com.ss.android.socialbase.downloader.e.h.CONTINUE;
+        this.pXI.a(aVar, this.pXA == j.RUN_STATUS_RETRY_DELAY);
+        return this.pXA == j.RUN_STATUS_RETRY_DELAY ? com.ss.android.socialbase.downloader.e.h.RETURN : com.ss.android.socialbase.downloader.e.h.CONTINUE;
     }
 
     private boolean f(com.ss.android.socialbase.downloader.e.a aVar) {
         boolean z = true;
         if (this.e != null) {
             if (this.e.get() <= 0 || (aVar != null && aVar.a() == 1070)) {
-                if (this.qcd.aY()) {
-                    this.e.set(this.qcd.K());
-                    this.qcd.h(this.e.get());
+                if (this.pXC.aY()) {
+                    this.e.set(this.pXC.K());
+                    this.pXC.h(this.e.get());
                     z = false;
-                } else if (aVar != null && ((aVar.a() == 1011 || (aVar.getCause() != null && (aVar.getCause() instanceof SSLHandshakeException))) && this.qcd.ba())) {
-                    this.e.set(this.qcd.eIt());
-                    this.qcd.h(this.e.get());
-                    this.qcd.k(true);
+                } else if (aVar != null && ((aVar.a() == 1011 || (aVar.getCause() != null && (aVar.getCause() instanceof SSLHandshakeException))) && this.pXC.ba())) {
+                    this.e.set(this.pXC.J());
+                    this.pXC.h(this.e.get());
+                    this.pXC.k(true);
                     z = false;
                 } else {
-                    b(new com.ss.android.socialbase.downloader.e.a(aVar.a(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.e), String.valueOf(this.qcd.eIt()), aVar.b())));
+                    b(new com.ss.android.socialbase.downloader.e.a(aVar.a(), String.format("retry for exception, but current retry time : %s , retry Time %s all used, last error is %s", String.valueOf(this.e), String.valueOf(this.pXC.J()), aVar.b())));
                     return true;
                 }
             }
-            if (this.qcb != j.RUN_STATUS_RETRY_DELAY && z) {
-                this.qcd.h(this.e.decrementAndGet());
+            if (this.pXA != j.RUN_STATUS_RETRY_DELAY && z) {
+                this.pXC.h(this.e.decrementAndGet());
             }
             return false;
         }
@@ -1498,10 +1498,10 @@ public class c implements e, Runnable {
     }
 
     @Override // com.ss.android.socialbase.downloader.l.e
-    public synchronized com.ss.android.socialbase.downloader.g.b Tj(int i) {
+    public synchronized com.ss.android.socialbase.downloader.g.b RC(int i) {
         com.ss.android.socialbase.downloader.g.b bVar;
-        if (this.qcd.eJl() >= 2) {
-            List<com.ss.android.socialbase.downloader.g.b> c = this.qcc.c(this.qcd.g());
+        if (this.pXC.eFv() >= 2) {
+            List<com.ss.android.socialbase.downloader.g.b> c = this.pXB.c(this.pXC.g());
             if (c != null && !c.isEmpty()) {
                 int i2 = 0;
                 while (true) {
@@ -1535,15 +1535,15 @@ public class c implements e, Runnable {
         if (eVar != null) {
             try {
                 int b2 = eVar.b();
-                this.qcd.f(b2);
-                this.qcd.g(com.ss.android.socialbase.downloader.m.b.a(b2));
+                this.pXC.f(b2);
+                this.pXC.g(com.ss.android.socialbase.downloader.m.b.a(b2));
                 z = true;
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (z) {
-                this.qcd.f(-1);
-                this.qcd.g("");
+                this.pXC.f(-1);
+                this.pXC.g("");
                 return;
             }
             return;
@@ -1556,14 +1556,14 @@ public class c implements e, Runnable {
     private com.ss.android.socialbase.downloader.g.b a(com.ss.android.socialbase.downloader.g.b bVar, int i) {
         com.ss.android.socialbase.downloader.g.b bVar2;
         if (bVar.d()) {
-            long BX = bVar.BX(true);
-            com.ss.android.socialbase.downloader.f.a.b(f13510a, "reuseChunk retainLen:" + BX + " chunkIndex:" + i);
+            long BT = bVar.BT(true);
+            com.ss.android.socialbase.downloader.f.a.b(f13210a, "reuseChunk retainLen:" + BT + " chunkIndex:" + i);
             boolean z = false;
-            if (!bVar.f() && BX > com.ss.android.socialbase.downloader.b.e.d && this.qcd.p()) {
-                List<com.ss.android.socialbase.downloader.g.b> D = bVar.D(this.qcd.eJl(), this.qcd.ejL());
+            if (!bVar.f() && BT > com.ss.android.socialbase.downloader.b.e.d && this.pXC.p()) {
+                List<com.ss.android.socialbase.downloader.g.b> D = bVar.D(this.pXC.eFv(), this.pXC.efR());
                 if (D != null) {
                     for (com.ss.android.socialbase.downloader.g.b bVar3 : D) {
-                        this.qcc.b(bVar3);
+                        this.pXB.b(bVar3);
                     }
                 }
                 z = true;
@@ -1579,7 +1579,7 @@ public class c implements e, Runnable {
                     }
                     bVar2 = bVar.g().get(i2);
                     if (bVar2 != null) {
-                        com.ss.android.socialbase.downloader.f.a.b(f13510a, "check can checkUnCompletedChunk -- chunkIndex:" + bVar2.s() + " currentOffset:" + bVar2.n() + "  startOffset:" + bVar2.l() + " contentLen:" + bVar2.q());
+                        com.ss.android.socialbase.downloader.f.a.b(f13210a, "check can checkUnCompletedChunk -- chunkIndex:" + bVar2.s() + " currentOffset:" + bVar2.n() + "  startOffset:" + bVar2.l() + " contentLen:" + bVar2.q());
                         if (bVar2.s() < 0) {
                             break;
                         } else if (!bVar2.i() && !bVar2.c()) {
@@ -1589,8 +1589,8 @@ public class c implements e, Runnable {
                     i2++;
                 }
                 if (bVar2 != null) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13510a, "unComplete chunk " + bVar.s() + " curOffset:" + bVar.n() + " reuseChunk chunkIndex:" + i + " for subChunk:" + bVar2.s());
-                    this.qcc.a(bVar2.k(), bVar2.s(), bVar2.b(), i);
+                    com.ss.android.socialbase.downloader.f.a.b(f13210a, "unComplete chunk " + bVar.s() + " curOffset:" + bVar.n() + " reuseChunk chunkIndex:" + i + " for subChunk:" + bVar2.s());
+                    this.pXB.a(bVar2.k(), bVar2.s(), bVar2.b(), i);
                     bVar2.c(i);
                     bVar2.a(true);
                     return bVar2;
@@ -1603,40 +1603,40 @@ public class c implements e, Runnable {
     }
 
     private boolean H() {
-        if (this.qcb == j.RUN_STATUS_RETRY_DELAY || this.qck == null || !this.qcd.eIG() || epL() <= 0) {
+        if (this.pXA == j.RUN_STATUS_RETRY_DELAY || this.pXJ == null || !this.pXC.eEQ() || elP() <= 0) {
             return false;
         }
-        this.qcb = j.RUN_STATUS_RETRY_DELAY;
+        this.pXA = j.RUN_STATUS_RETRY_DELAY;
         return true;
     }
 
     private s e(com.ss.android.socialbase.downloader.g.d dVar) {
-        s eJD = dVar.eJD();
-        if (eJD == null) {
+        s eFN = dVar.eFN();
+        if (eFN == null) {
             com.ss.android.socialbase.downloader.g.c a2 = dVar.a();
             if (a2 != null) {
-                String eIH = a2.eIH();
-                if (!TextUtils.isEmpty(eIH)) {
-                    return new q(eIH);
+                String eER = a2.eER();
+                if (!TextUtils.isEmpty(eER)) {
+                    return new q(eER);
                 }
             }
-            return com.ss.android.socialbase.downloader.downloader.b.eHS();
+            return com.ss.android.socialbase.downloader.downloader.b.eEc();
         }
-        return eJD;
+        return eFN;
     }
 
-    public Future eJY() {
-        return this.f13511b;
+    public Future eGi() {
+        return this.f13211b;
     }
 
     public void a(Future future) {
-        this.f13511b = future;
+        this.f13211b = future;
     }
 
     public void b(long j) {
-        if (this.qcm != null && (this.qcm instanceof com.ss.android.socialbase.downloader.i.a)) {
+        if (this.pXL != null && (this.pXL instanceof com.ss.android.socialbase.downloader.i.a)) {
             try {
-                ((com.ss.android.socialbase.downloader.i.a) this.qcm).a(j);
+                ((com.ss.android.socialbase.downloader.i.a) this.pXL).a(j);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

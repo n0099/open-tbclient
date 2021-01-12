@@ -2,7 +2,9 @@ package com.qq.e.comm;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.mapapi.UIMsg;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.constants.ErrorCode;
@@ -12,7 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static AdError a(int i) {
         switch (i) {
@@ -20,10 +22,10 @@ public class a {
             case 2001:
                 return new AdError(2001, "初始化错误");
             case 301:
-            case 200101:
+            case UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION /* 200101 */:
                 return new AdError(2001, "初始化错误，详细码：200101");
             case 302:
-            case 200102:
+            case UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION /* 200102 */:
                 return new AdError(2001, "初始化错误，详细码：200102");
             case 303:
             case 200103:
@@ -128,7 +130,7 @@ public class a {
             case 400104:
                 return new AdError(4001, "传入的参数有错误，详细码：" + i);
             default:
-                return new AdError(6000, "未知错误，详细码：" + i);
+                return new AdError(SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME, "未知错误，详细码：" + i);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.kwai.player.qos;
 
 import com.kwai.video.player.IMediaPlayer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppQosLiveRealtimeWrapper {
     private static final int DEFAULT_MONITOR_INTERVAL = 1000;
     private static final int DEFAULT_QOS_TICK_DURATION_SEC = 10;

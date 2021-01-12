@@ -11,11 +11,11 @@ public class b {
         final NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
         newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.pd(5);
+        aVar.nx(5);
         aVar.br(newUserRewardDialogView);
-        aVar.jI(false);
-        aVar.pe(R.style.picker_view_scale_anim);
-        aVar.b(tbPageContext).btY();
+        aVar.jE(false);
+        aVar.ny(R.style.picker_view_scale_anim);
+        aVar.b(tbPageContext).bqe();
         newUserRewardDialogView.setCloseListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

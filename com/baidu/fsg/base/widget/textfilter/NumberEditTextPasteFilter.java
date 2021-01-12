@@ -2,11 +2,11 @@ package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2102a = NumberEditTextPasteFilter.class.getSimpleName();
+    private static final String f2052a = NumberEditTextPasteFilter.class.getSimpleName();
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

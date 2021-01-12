@@ -3,7 +3,7 @@ package com.kwad.sdk.home.download;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements Serializable {
     private static final long serialVersionUID = -3305476346070314287L;
     public String appPackageName;

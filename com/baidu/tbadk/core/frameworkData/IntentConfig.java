@@ -193,29 +193,29 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) J).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bHq());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bDx());
             }
         }
     }
 
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.pageExtra.c ft = com.baidu.tbadk.pageExtra.d.ft(this.mContext);
-            ArrayList<String> bHm = ft == null ? null : ft.bHm();
-            if (!x.isEmpty(bHm)) {
-                if (ft != null) {
-                    com.baidu.tbadk.pageExtra.d.Ej(ft.getCurrentPageKey());
-                    com.baidu.tbadk.mutiprocess.g.publishEvent(new PrePageKeyEvent(com.baidu.tbadk.pageExtra.d.bHn()));
+            com.baidu.tbadk.pageExtra.c fr = com.baidu.tbadk.pageExtra.d.fr(this.mContext);
+            ArrayList<String> bDt = fr == null ? null : fr.bDt();
+            if (!x.isEmpty(bDt)) {
+                if (fr != null) {
+                    com.baidu.tbadk.pageExtra.d.CY(fr.getCurrentPageKey());
+                    com.baidu.tbadk.mutiprocess.g.publishEvent(new PrePageKeyEvent(com.baidu.tbadk.pageExtra.d.bDu()));
                 }
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bHm);
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bDt);
             }
         }
     }
 
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.pageExtra.c ft = com.baidu.tbadk.pageExtra.d.ft(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.pageExtra.d.d(ft == null ? null : ft.bHl(), str);
+            com.baidu.tbadk.pageExtra.c fr = com.baidu.tbadk.pageExtra.d.fr(this.mContext);
+            ArrayList<String> d = com.baidu.tbadk.pageExtra.d.d(fr == null ? null : fr.bDs(), str);
             if (!x.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }

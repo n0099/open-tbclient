@@ -6,33 +6,33 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.pay.PayConfig;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends BdBaseModel {
-    private InterfaceC0661a hjO;
-    private HashMap<String, String> hjP;
-    private String hjQ;
+    private InterfaceC0644a hfh;
+    private HashMap<String, String> hfi;
+    private String hfj;
     protected TbPageContext mPageContext;
     private PayChannelType mPayChannelType;
 
     /* renamed from: com.baidu.tieba.ala.live.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0661a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0644a {
         void a(PayChannelType payChannelType, int i, String str, int i2, HttpResponsedMessage httpResponsedMessage);
 
         void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z);
     }
 
-    public abstract void HN(String str);
+    public abstract void GC(String str);
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void caR();
+    public abstract void bWZ();
 
-    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0661a interfaceC0661a) {
+    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0644a interfaceC0644a) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mPayChannelType = payChannelType;
-        this.hjO = interfaceC0661a;
+        this.hfh = interfaceC0644a;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -47,32 +47,32 @@ public abstract class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, String str2, HashMap<String, String> hashMap, String str3, boolean z) {
-        if (this.hjO != null) {
-            this.hjQ = str2;
-            this.hjP = hashMap;
-            this.hjO.a(this.mPayChannelType, i, str, hashMap, str3, z);
+        if (this.hfh != null) {
+            this.hfj = str2;
+            this.hfi = hashMap;
+            this.hfh.a(this.mPayChannelType, i, str, hashMap, str3, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, int i2, HttpResponsedMessage httpResponsedMessage) {
-        if (this.hjO != null) {
-            this.hjO.a(this.mPayChannelType, i, str, i2, httpResponsedMessage);
+        if (this.hfh != null) {
+            this.hfh.a(this.mPayChannelType, i, str, i2, httpResponsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ev(String str, String str2) {
-        if (this.hjP != null && str != null) {
-            this.hjP.put(str, str2);
+    public void eu(String str, String str2) {
+        if (this.hfi != null && str != null) {
+            this.hfi.put(str, str2);
         }
     }
 
-    public HashMap<String, String> caP() {
-        return this.hjP;
+    public HashMap<String, String> bWX() {
+        return this.hfi;
     }
 
-    public String caS() {
-        return this.hjQ;
+    public String bXa() {
+        return this.hfj;
     }
 }

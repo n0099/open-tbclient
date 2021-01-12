@@ -1,26 +1,25 @@
 package com.sdk.base.framework.f.l;
 
 import android.content.Context;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13164a;
+    private static final String f12864a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f13165b;
+    private static Boolean f12865b;
 
     static {
         new TreeMap();
-        f13164a = a.class.getSimpleName();
-        f13165b = Boolean.valueOf(f.f13119b);
+        f12864a = a.class.getSimpleName();
+        f12865b = Boolean.valueOf(f.f12819b);
     }
 
     public static String a(Context context, String str) {
@@ -30,7 +29,7 @@ public class a {
             return com.sdk.base.framework.f.j.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
         } catch (Throwable th) {
             com.sdk.base.framework.f.g.a.a(th.toString());
-            c.b(f13164a, "SDK解密异常：" + th.toString(), f13165b);
+            c.b(f12864a, "SDK解密异常：" + th.toString(), f12865b);
             return null;
         }
     }
@@ -45,9 +44,9 @@ public class a {
                 DataInfo dataInfo = new DataInfo();
                 dataInfo.putData("status", String.valueOf(i));
                 dataInfo.putData("msg", str);
-                dataInfo.putData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, a2);
+                dataInfo.putData("obj", a2);
                 dataInfo.putData("seq", str2);
-                aVar.a(aVar.c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, i.f13102b);
+                aVar.a(aVar.c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, i.f12802b);
             } catch (Throwable th) {
             }
         }
@@ -57,7 +56,7 @@ public class a {
         try {
             return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
         } catch (Exception e) {
-            c.c(f13164a, "out data error" + e, f13165b);
+            c.c(f12864a, "out data error" + e, f12865b);
             return true;
         }
     }

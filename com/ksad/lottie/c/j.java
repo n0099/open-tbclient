@@ -1,9 +1,10 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.d a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
@@ -43,7 +44,7 @@ public class j {
                     }
                     break;
                 case 3530753:
-                    if (nextName.equals("size")) {
+                    if (nextName.equals(TiebaInitialize.LogFields.SIZE)) {
                         c2 = 1;
                         break;
                     }

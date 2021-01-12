@@ -25,7 +25,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FileProvider extends ContentProvider {
     private static final String ATTR_NAME = "name";
     private static final String ATTR_PATH = "path";
@@ -45,7 +45,7 @@ public class FileProvider extends ContentProvider {
     /* JADX INFO: Access modifiers changed from: package-private */
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -57,7 +57,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();

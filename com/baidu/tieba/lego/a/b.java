@@ -4,63 +4,63 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.b.f;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.tbadk.b.e {
-    private final HashMap<String, f> kWK;
+    private final HashMap<String, f> kSf;
 
     private b() {
-        this.kWK = new HashMap<>();
+        this.kSf = new HashMap<>();
     }
 
     /* renamed from: com.baidu.tieba.lego.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0789b {
-        private static b kWL = new b();
+    /* loaded from: classes8.dex */
+    private static class C0772b {
+        private static b kSg = new b();
     }
 
-    public static b dde() {
-        return C0789b.kWL;
+    public static b cZm() {
+        return C0772b.kSg;
     }
 
     public void k(Object obj, String str) {
         if (str != null) {
-            a NT = a.NT(str);
-            f fVar = this.kWK.get(NT.getKey());
-            if (fVar != null && NT.isValid()) {
-                fVar.a(obj, NT.getParams(), str);
+            a ML = a.ML(str);
+            f fVar = this.kSf.get(ML.getKey());
+            if (fVar != null && ML.isValid()) {
+                fVar.a(obj, ML.getParams(), str);
             }
         }
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a NT = a.NT(str);
-            f fVar = this.kWK.get(NT.getKey());
-            if (fVar != null && NT.isValid()) {
+            a ML = a.ML(str);
+            f fVar = this.kSf.get(ML.getKey());
+            if (fVar != null && ML.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    NT.getParams().putAll(hashMap);
+                    ML.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, NT.getParams(), str, eVar);
+                fVar.a(obj, ML.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.kWK.put(str, fVar);
+        this.kSf.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private boolean eQz;
-        HashMap<String, String> fbY;
+        private boolean eLO;
+        HashMap<String, String> eXq;
         String key;
 
         public boolean isValid() {
-            return this.eQz;
+            return this.eLO;
         }
 
         public String getKey() {
@@ -68,40 +68,40 @@ public class b implements com.baidu.tbadk.b.e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.fbY;
+            return this.eXq;
         }
 
         private a(String str) {
-            this.eQz = false;
+            this.eLO = false;
             Uri parse = Uri.parse(str);
-            this.eQz = "tblego".equals(parse.getScheme());
+            this.eLO = "tblego".equals(parse.getScheme());
             if (isValid()) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.fbY = new HashMap<>();
+                this.eXq = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.fbY.put(str2, parse.getQueryParameter(str2));
+                    this.eXq.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.fbY = new HashMap<>();
+            this.eXq = new HashMap<>();
         }
 
-        public String NS(String str) {
+        public String MK(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             if (isValid()) {
-                for (String str2 : this.fbY.keySet()) {
+                for (String str2 : this.eXq.keySet()) {
                     if (str.equals(str2)) {
-                        return this.fbY.get(str2);
+                        return this.eXq.get(str2);
                     }
                 }
             }
             return null;
         }
 
-        public static a NT(String str) {
+        public static a ML(String str) {
             return new a(str);
         }
     }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 final class f {
-    private static volatile f afK;
+    private static volatile f aeT;
 
     /* loaded from: classes6.dex */
     interface a {
@@ -19,21 +19,21 @@ final class f {
 
     /* loaded from: classes6.dex */
     private class b implements Runnable {
-        private a afL;
+        private a aeU;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1628b;
+        private String f1577b;
 
         public b(String str, a aVar) {
-            this.f1628b = str;
-            this.afL = aVar;
+            this.f1577b = str;
+            this.aeU = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map b2 = f.this.b(this.f1628b);
+            Map b2 = f.this.b(this.f1577b);
             if (b2 != null) {
                 arrayList = (ArrayList) b2.get("ipv6");
                 arrayList2 = (ArrayList) b2.get("ipv4");
@@ -41,7 +41,7 @@ final class f {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.afL.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1628b);
+            this.aeU.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1577b);
         }
     }
 
@@ -88,15 +88,15 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f sD() {
-        if (afK == null) {
+    public static f ss() {
+        if (aeT == null) {
             synchronized (f.class) {
-                if (afK == null) {
-                    afK = new f();
+                if (aeT == null) {
+                    aeT = new f();
                 }
             }
         }
-        return afK;
+        return aeT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -104,11 +104,11 @@ final class f {
         if (str == null || str.isEmpty()) {
             return;
         }
-        m.sG().b().execute(new b(str, aVar));
+        m.sv().b().execute(new b(str, aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult de(String str) {
+    public BDHttpDnsResult cZ(String str) {
         ArrayList arrayList;
         ArrayList arrayList2;
         Map<String, ArrayList> b2 = b(str);

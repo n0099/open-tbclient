@@ -3,19 +3,19 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6825a;
+    private int f6525a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6826b;
+    private int f6526b;
     private int c;
     private String d;
 
     public void a(int i) {
-        this.f6825a = i;
+        this.f6525a = i;
     }
 
     public void b(int i) {
-        this.f6826b = i;
+        this.f6526b = i;
     }
 
     public int a() {

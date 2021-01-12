@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss.expanded.decoders;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class DecodedChar extends DecodedObject {
     static final char FNC1 = '$';
     private final char value;

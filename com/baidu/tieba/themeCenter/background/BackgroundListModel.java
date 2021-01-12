@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     private List<DressItemData> mBackgroundList;
     private com.baidu.tieba.themeCenter.dressCenter.e mRecommand;
-    private BackgroundListActivity nBL;
-    private List<DressItemData> nBM;
-    private a nBO;
-    private boolean nBP;
+    private BackgroundListActivity nxg;
+    private List<DressItemData> nxh;
+    private a nxj;
+    private boolean nxk;
     private int currentPage = 0;
     private boolean hasMore = true;
-    private boolean cWB = false;
-    private com.baidu.adp.framework.listener.a nBQ = new com.baidu.adp.framework.listener.a(1003034, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_LIST) { // from class: com.baidu.tieba.themeCenter.background.BackgroundListModel.1
+    private boolean cRP = false;
+    private com.baidu.adp.framework.listener.a nxl = new com.baidu.adp.framework.listener.a(1003034, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_LIST) { // from class: com.baidu.tieba.themeCenter.background.BackgroundListModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -38,59 +38,59 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                             BackgroundListModel.this.mRecommand = backgroundListHttpResponseMessage.getRecommand();
                             BackgroundListModel.this.mBackgroundList = backgroundListHttpResponseMessage.getBackgroundList();
                             BackgroundListModel.this.hasMore = backgroundListHttpResponseMessage.hasMore();
-                            BackgroundListModel.this.cWB = backgroundListHttpResponseMessage.getIsDefault();
+                            BackgroundListModel.this.cRP = backgroundListHttpResponseMessage.getIsDefault();
                         } else if (responsedMessage instanceof BackgroundListSocketResponseMessage) {
                             BackgroundListSocketResponseMessage backgroundListSocketResponseMessage = (BackgroundListSocketResponseMessage) responsedMessage;
                             BackgroundListModel.this.mRecommand = backgroundListSocketResponseMessage.getRecommand();
                             BackgroundListModel.this.mBackgroundList = backgroundListSocketResponseMessage.getBackgroundList();
                             BackgroundListModel.this.hasMore = backgroundListSocketResponseMessage.hasMore();
-                            BackgroundListModel.this.cWB = backgroundListSocketResponseMessage.getIsDefault();
+                            BackgroundListModel.this.cRP = backgroundListSocketResponseMessage.getIsDefault();
                         }
-                        if (BackgroundListModel.this.nBM == null) {
-                            BackgroundListModel.this.nBM = new ArrayList();
-                            BackgroundListModel.this.nBM.add(BackgroundListModel.this.nBN);
+                        if (BackgroundListModel.this.nxh == null) {
+                            BackgroundListModel.this.nxh = new ArrayList();
+                            BackgroundListModel.this.nxh.add(BackgroundListModel.this.nxi);
                         }
                         if (BackgroundListModel.this.currentPage == 1) {
-                            BackgroundListModel.this.nBM.clear();
-                            BackgroundListModel.this.nBM.add(BackgroundListModel.this.nBN);
+                            BackgroundListModel.this.nxh.clear();
+                            BackgroundListModel.this.nxh.add(BackgroundListModel.this.nxi);
                         }
                         if (BackgroundListModel.this.mBackgroundList != null) {
-                            BackgroundListModel.this.nBM.addAll(BackgroundListModel.this.mBackgroundList);
+                            BackgroundListModel.this.nxh.addAll(BackgroundListModel.this.mBackgroundList);
                         }
                     }
-                    if (BackgroundListModel.this.nBO != null) {
-                        BackgroundListModel.this.dSN();
-                        BackgroundListModel.this.nBO.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundListModel.this.mRecommand, BackgroundListModel.this.nBM);
+                    if (BackgroundListModel.this.nxj != null) {
+                        BackgroundListModel.this.dOV();
+                        BackgroundListModel.this.nxj.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundListModel.this.mRecommand, BackgroundListModel.this.nxh);
                     }
                 }
             }
         }
     };
-    private com.baidu.adp.framework.listener.a nBv = new com.baidu.adp.framework.listener.a(1003036, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundListModel.2
+    private com.baidu.adp.framework.listener.a nwQ = new com.baidu.adp.framework.listener.a(1003036, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundListModel.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            DressItemData Lv;
-            DressItemData Lv2;
+            DressItemData JO;
+            DressItemData JO2;
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof BackgroundSetHttpResponseMessage) || (responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
                     BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                     int propId = backgroundSetRequestMessage.getPropId();
                     if (responsedMessage.getError() == 0) {
-                        if (propId == BackgroundListModel.this.nBL.getPropId() && (Lv = BackgroundListModel.this.Lv(propId)) != null) {
-                            TiebaStatic.log(new aq("c10286").an("obj_id", propId).an("obj_type", Lv.getFreeUserLevel()));
+                        if (propId == BackgroundListModel.this.nxg.getPropId() && (JO = BackgroundListModel.this.JO(propId)) != null) {
+                            TiebaStatic.log(new aq("c10286").an("obj_id", propId).an("obj_type", JO.getFreeUserLevel()));
                         }
-                        com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.CURRENT_USED_PERSONAL_BACKGROUND + TbadkCoreApplication.getCurrentAccount(), propId);
-                        BackgroundListModel.this.Lu(propId);
-                        BackgroundListModel.this.nBO.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundListModel.this.mRecommand, BackgroundListModel.this.nBM);
+                        com.baidu.tbadk.core.sharedPref.b.brx().putInt(SharedPrefConfig.CURRENT_USED_PERSONAL_BACKGROUND + TbadkCoreApplication.getCurrentAccount(), propId);
+                        BackgroundListModel.this.JN(propId);
+                        BackgroundListModel.this.nxj.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundListModel.this.mRecommand, BackgroundListModel.this.nxh);
                     } else if (responsedMessage.getError() != 2270014) {
-                        int i = com.baidu.tieba.themeCenter.c.nAx;
-                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nAy) {
-                            i = com.baidu.tieba.themeCenter.c.nAw;
+                        int i = com.baidu.tieba.themeCenter.c.nvS;
+                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nvT) {
+                            i = com.baidu.tieba.themeCenter.c.nvR;
                         }
                         boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                         if (!fromDetail) {
-                            if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundListModel.this.getUniqueId()) && propId == BackgroundListModel.this.nBL.getPropId() && (Lv2 = BackgroundListModel.this.Lv(propId)) != null) {
-                                BackgroundListModel.this.a(i, responsedMessage.getErrorString(), Lv2, fromDetail);
+                            if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundListModel.this.getUniqueId()) && propId == BackgroundListModel.this.nxg.getPropId() && (JO2 = BackgroundListModel.this.JO(propId)) != null) {
+                                BackgroundListModel.this.a(i, responsedMessage.getErrorString(), JO2, fromDetail);
                             }
                         }
                     }
@@ -98,9 +98,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             }
         }
     };
-    private DressItemData nBN = new DressItemData();
+    private DressItemData nxi = new DressItemData();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, com.baidu.tieba.themeCenter.dressCenter.e eVar, List<DressItemData> list);
     }
@@ -117,25 +117,25 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             i2 = 9;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nAw) {
-                com.baidu.tieba.themeCenter.b.a(this.nBL.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nAx) {
-                com.baidu.tieba.themeCenter.b.a(this.nBL.getPageContext(), z ? 4 : 2, str, i2);
+            if (i == com.baidu.tieba.themeCenter.c.nvR) {
+                com.baidu.tieba.themeCenter.b.a(this.nxg.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == com.baidu.tieba.themeCenter.c.nvS) {
+                com.baidu.tieba.themeCenter.b.a(this.nxg.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
 
     public BackgroundListModel(BackgroundListActivity backgroundListActivity) {
-        this.nBL = backgroundListActivity;
-        this.nBN.setPropsId(0);
-        this.nBN.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
-        this.nBM = new ArrayList();
-        this.nBM.add(this.nBN);
-        this.nBP = backgroundListActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nxg = backgroundListActivity;
+        this.nxi.setPropsId(0);
+        this.nxi.setTitle(TbadkCoreApplication.getInst().getString(R.string.default_background));
+        this.nxh = new ArrayList();
+        this.nxh.add(this.nxi);
+        this.nxk = backgroundListActivity.getIntent().getBooleanExtra("member_buy_show", false);
         registerTask();
-        registerListener(this.nBQ);
-        dSK();
-        registerListener(this.nBv);
+        registerListener(this.nxl);
+        dOS();
+        registerListener(this.nwQ);
     }
 
     private void registerTask() {
@@ -143,7 +143,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_LIST, 1003034, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void dSK() {
+    private void dOS() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, 1003036, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -158,7 +158,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         return false;
     }
 
-    public void dSL() {
+    public void dOT() {
         if (this.hasMore) {
             this.currentPage++;
             BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();
@@ -173,18 +173,18 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         return false;
     }
 
-    public boolean dSM() {
-        return this.nBP;
+    public boolean dOU() {
+        return this.nxk;
     }
 
     public void a(a aVar) {
-        this.nBO = aVar;
+        this.nxj = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lu(int i) {
-        if (this.nBM != null && this.nBM.size() > 0) {
-            for (DressItemData dressItemData : this.nBM) {
+    public void JN(int i) {
+        if (this.nxh != null && this.nxh.size() > 0) {
+            for (DressItemData dressItemData : this.nxh) {
                 if (dressItemData != null) {
                     if (dressItemData.getPropsId() == i) {
                         dressItemData.setInUse(true);
@@ -197,19 +197,19 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSN() {
-        DressItemData Lv;
-        if (this.cWB && (Lv = Lv(0)) != null) {
-            Lv.setInUse(true);
+    public void dOV() {
+        DressItemData JO;
+        if (this.cRP && (JO = JO(0)) != null) {
+            JO.setInUse(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DressItemData Lv(int i) {
-        if (this.nBM == null || this.nBM.size() <= 0) {
+    public DressItemData JO(int i) {
+        if (this.nxh == null || this.nxh.size() <= 0) {
             return null;
         }
-        for (DressItemData dressItemData : this.nBM) {
+        for (DressItemData dressItemData : this.nxh) {
             if (dressItemData != null && dressItemData.getPropsId() == i) {
                 return dressItemData;
             }
@@ -218,7 +218,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.nBQ);
-        MessageManager.getInstance().unRegisterListener(this.nBv);
+        MessageManager.getInstance().unRegisterListener(this.nxl);
+        MessageManager.getInstance().unRegisterListener(this.nwQ);
     }
 }

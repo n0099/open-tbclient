@@ -10,10 +10,10 @@ import java.util.Map;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, a> f7885a = Collections.synchronizedMap(new HashMap());
+    private static final Map<String, a> f7585a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    private static IListenerManager f7886b;
+    private static IListenerManager f7586b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -89,7 +89,7 @@ public class h {
                     }
                 }, 5);
             } else {
-                f7885a.put(str, aVar);
+                f7585a.put(str, aVar);
             }
         }
     }
@@ -98,14 +98,14 @@ public class h {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f7885a.remove(str);
+        return f7585a.remove(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static IListenerManager b() {
-        if (f7886b == null) {
-            f7886b = com.bytedance.sdk.openadsdk.multipro.aidl.a.d.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
+        if (f7586b == null) {
+            f7586b = com.bytedance.sdk.openadsdk.multipro.aidl.a.d.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
         }
-        return f7886b;
+        return f7586b;
     }
 }

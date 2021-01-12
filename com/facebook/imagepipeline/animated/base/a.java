@@ -4,15 +4,15 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 /* loaded from: classes5.dex */
 public interface a {
-    int QK(int i);
+    AnimatedDrawableFrameInfo Ot(int i);
 
-    AnimatedDrawableFrameInfo Qa(int i);
+    int Pd(int i);
 
     void d(int i, Canvas canvas);
 
-    int ewV();
+    int etd();
 
-    int ewW();
+    int ete();
 
     int getFrameCount();
 

@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.intersitial2.fullscreen.a;
 import android.view.ViewGroup;
 import com.qq.e.comm.plugin.aa.b.f;
 import com.qq.e.comm.plugin.intersitial2.fullscreen.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a(ViewGroup viewGroup);
 

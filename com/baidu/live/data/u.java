@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class u extends BaseData {
-    public boolean aKI = true;
-    public List<t> aKJ;
+    public boolean aFV = true;
+    public List<t> aFW;
     public int pn;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -17,14 +17,14 @@ public class u extends BaseData {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.aKI = jSONObject.optInt("has_more") == 1;
-            this.aKJ = new ArrayList();
+            this.aFV = jSONObject.optInt("has_more") == 1;
+            this.aFW = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("live");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
                     t tVar = new t();
                     tVar.parserJson(optJSONObject);
-                    this.aKJ.add(tVar);
+                    this.aFW.add(tVar);
                 }
             }
         }

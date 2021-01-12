@@ -12,7 +12,7 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     private KsFragment g;
     private Presenter h;
@@ -35,8 +35,8 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     private void t() {
         this.i = new d();
-        this.i.f9067a = this.k;
-        this.i.f9068b = this.g;
+        this.i.f8767a = this.k;
+        this.i.f8768b = this.g;
         this.i.c = this;
         this.i.d = this.d;
     }
@@ -57,15 +57,15 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     public void a(@NonNull f fVar, @NonNull e eVar) {
         this.n = fVar;
-        this.g = fVar.f9035a;
+        this.g = fVar.f8735a;
         this.d = eVar;
-        this.k = fVar.f9036b;
+        this.k = fVar.f8736b;
         this.l = fVar.d;
         this.m = fVar.f;
         this.o = 0;
         b();
-        this.f9052a = fVar.k;
-        this.f9053b = true;
+        this.f8752a = fVar.k;
+        this.f8753b = true;
         this.j = new b(this.g.getChildFragmentManager());
         this.j.a(this.l);
         this.j.a(this.m);
@@ -87,9 +87,9 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     public void a(@NonNull AdTemplate adTemplate, int i) {
         this.o = i;
         if (this.o == 1) {
-            this.f9052a = false;
+            this.f8752a = false;
         } else {
-            this.f9052a = this.n.k;
+            this.f8752a = this.n.k;
         }
         this.j.a(this.k.d(), adTemplate, i, this.k.a(adTemplate), false);
     }
@@ -163,11 +163,11 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void h() {
-        this.f9052a = false;
+        this.f8752a = false;
     }
 
     public void i() {
-        this.f9052a = this.n.k;
+        this.f8752a = this.n.k;
     }
 
     public boolean j() {

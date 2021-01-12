@@ -39,7 +39,7 @@ public class g {
         ao.setViewTextColor(textView3, R.color.CAM_X0305);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.bwr().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.bsx().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -61,7 +61,7 @@ public class g {
                 zVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 zVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dPR().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dLZ().getLocationData();
             if (locationData != null) {
                 zVar.addPostData("name", locationData.getFormatted_address());
                 zVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

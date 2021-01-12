@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.group;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupMember implements Parcelable, NoProGuard {
     public static final int ADDSTATUSFAIL = 1;
     public static final int ADDSTATUSORIG = 2;

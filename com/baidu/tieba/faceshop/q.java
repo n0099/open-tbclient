@@ -10,50 +10,50 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class q {
-    private final BdListView WV;
-    private final NoNetworkView gCe;
-    private View iUJ;
-    private p iUK;
-    private final TbPageContext<o> iUb;
-    private final NavigationBar iUc;
+    private final BdListView WT;
+    private final NoNetworkView gxx;
+    private final TbPageContext<o> iPu;
+    private final NavigationBar iPv;
+    private View iQc;
+    private p iQd;
     private final View mParent;
     private final com.baidu.tbadk.core.view.g mPullView;
 
     public q(TbPageContext<o> tbPageContext) {
-        this.iUb = tbPageContext;
+        this.iPu = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
         this.mParent = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.iUc = (NavigationBar) this.mParent.findViewById(R.id.view_navigation_bar);
-        this.iUc.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.iUc.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gCe = (NoNetworkView) this.mParent.findViewById(R.id.view_no_network);
-        this.WV = (BdListView) this.mParent.findViewById(R.id.purchase_record_list);
+        this.iPv = (NavigationBar) this.mParent.findViewById(R.id.view_navigation_bar);
+        this.iPv.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
+        this.iPv.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.gxx = (NoNetworkView) this.mParent.findViewById(R.id.view_no_network);
+        this.WT = (BdListView) this.mParent.findViewById(R.id.purchase_record_list);
         this.mPullView = new com.baidu.tbadk.core.view.g(tbPageContext);
-        this.WV.setPullRefresh(this.mPullView);
-        this.iUJ = BdListViewHelper.a(this.iUb.getPageActivity(), this.WV, BdListViewHelper.HeadType.DEFAULT);
+        this.WT.setPullRefresh(this.mPullView);
+        this.iQc = BdListViewHelper.a(this.iPu.getPageActivity(), this.WT, BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void c(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.iUK == null) {
-            this.iUK = new p(this.iUb.getOrignalPage());
-            this.WV.setAdapter((ListAdapter) this.iUK);
+        if (this.iQd == null) {
+            this.iQd = new p(this.iPu.getOrignalPage());
+            this.WT.setAdapter((ListAdapter) this.iQd);
         }
-        this.iUK.a(facePurchaseRecordsData);
-        cBS();
+        this.iQd.a(facePurchaseRecordsData);
+        cya();
     }
 
-    public p cBR() {
-        return this.iUK;
+    public p cxZ() {
+        return this.iQd;
     }
 
-    public void cBS() {
-        this.WV.completePullRefreshPostDelayed(0L);
+    public void cya() {
+        this.WT.completePullRefreshPostDelayed(0L);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.WV.setOnItemClickListener(onItemClickListener);
+        this.WT.setOnItemClickListener(onItemClickListener);
     }
 
     public void a(f.c cVar) {
@@ -61,23 +61,23 @@ public class q {
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.gCe.a(aVar);
+        this.gxx.a(aVar);
     }
 
-    public void qc(boolean z) {
-        BdListViewHelper.a(this.iUJ, BdListViewHelper.HeadType.DEFAULT, z);
+    public void pY(boolean z) {
+        BdListViewHelper.a(this.iQc, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void d(NoNetworkView.a aVar) {
-        this.gCe.b(aVar);
+        this.gxx.b(aVar);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.core.c layoutMode = this.iUb.getLayoutMode();
+        com.baidu.tbadk.core.c layoutMode = this.iPu.getLayoutMode();
         layoutMode.setNightMode(i == 1);
         layoutMode.onModeChanged(this.mParent);
-        this.iUc.onChangeSkinType(this.iUb, i);
-        this.gCe.onChangeSkinType(this.iUb, i);
+        this.iPv.onChangeSkinType(this.iPu, i);
+        this.gxx.onChangeSkinType(this.iPu, i);
         this.mPullView.changeSkin(i);
     }
 }

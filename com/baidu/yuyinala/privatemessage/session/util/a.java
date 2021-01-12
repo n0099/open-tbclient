@@ -12,19 +12,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private static long pdU = -1;
+    private static long oZp = -1;
 
     public static String k(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eox());
+        Calendar calendar = Calendar.getInstance(ekB());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eox());
+        Calendar calendar2 = Calendar.getInstance(ekB());
         calendar2.setTimeInMillis(hZ(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eox());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", ekB());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,25 +52,25 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eox());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", ekB());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eox());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", ekB());
             }
         }
         return simpleDateFormat.format(time);
     }
 
     public static long hZ(long j) {
-        if (pdU < 0) {
-            pdU = j;
+        if (oZp < 0) {
+            oZp = j;
         }
-        if (Math.abs(pdU - j) > 1000) {
-            pdU = j;
+        if (Math.abs(oZp - j) > 1000) {
+            oZp = j;
         }
-        return pdU;
+        return oZp;
     }
 
-    public static Locale eox() {
+    public static Locale ekB() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
@@ -89,7 +89,7 @@ public final class a {
     }
 
     public static void ib(long j) {
-        b.eou().hY(j);
+        b.eky().hY(j);
     }
 
     public static String b(ChatSession chatSession) {

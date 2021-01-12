@@ -1,21 +1,21 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
-    public long Md = -1;
+    public long Mb = -1;
     public long downloadSize = -1;
     public long connectTime = -1;
-    public long Me = -1;
+    public long Mc = -1;
     public int retry = 0;
-    public long Mf = -1;
+    public long Md = -1;
     public long dnsTime = -1;
     public String exception = "";
-    public int Mg = -1;
+    public int Me = -1;
     public int errorCode = 0;
-    public int Mh = 0;
-    public String Mi = null;
-    public String Mj = null;
+    public int Mf = 0;
+    public String Mg = null;
+    public String Mh = null;
     public String url = null;
-    public String Mo = null;
-    public String Mp = null;
-    public int Mq = 0;
+    public String Mm = null;
+    public String Mn = null;
+    public int Mo = 0;
 }

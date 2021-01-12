@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import android.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MultiPartHeaders {
-    private final List<Pair<String, String>> oKR = new ArrayList();
+    private final List<Pair<String, String>> oGm = new ArrayList();
 }

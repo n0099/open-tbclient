@@ -25,33 +25,33 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class FrsTabSortSwitchButton extends View implements View.OnTouchListener {
-    private Paint bUX;
-    private float bUn;
-    private Paint bjo;
-    private Path eYH;
-    private float hPj;
-    private float jrA;
-    private boolean jrB;
-    private a jre;
-    private float jrh;
-    private int jri;
-    private int jrj;
-    private int jrk;
-    private float jrl;
-    private float jrm;
-    private int jrn;
-    private String jro;
-    private String jrp;
-    private RectF jrq;
-    private RectF jrr;
-    private Path jrs;
-    private int jrt;
-    private float jru;
-    private boolean jrv;
-    private boolean jrw;
-    private boolean jrx;
-    private List<Float> jry;
-    private GestureDetector.SimpleOnGestureListener jrz;
+    private float bPB;
+    private Paint bQl;
+    private Paint bex;
+    private Path eTW;
+    private float hKD;
+    private float jmB;
+    private int jmC;
+    private int jmD;
+    private int jmE;
+    private float jmF;
+    private float jmG;
+    private int jmH;
+    private String jmI;
+    private String jmJ;
+    private RectF jmK;
+    private RectF jmL;
+    private Path jmM;
+    private int jmN;
+    private float jmO;
+    private boolean jmP;
+    private boolean jmQ;
+    private boolean jmR;
+    private List<Float> jmS;
+    private GestureDetector.SimpleOnGestureListener jmT;
+    private float jmU;
+    private boolean jmV;
+    private a jmy;
     private int mBackgroundColorId;
     private Paint mBackgroundPaint;
     private List<ab> mData;
@@ -63,7 +63,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
 
     /* loaded from: classes2.dex */
     public interface a {
-        boolean AL(int i);
+        boolean zf(int i);
     }
 
     public FrsTabSortSwitchButton(Context context) {
@@ -76,13 +76,13 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
 
     public FrsTabSortSwitchButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jrv = false;
-        this.jrw = false;
-        this.jrx = true;
-        this.jrz = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.1
+        this.jmP = false;
+        this.jmQ = false;
+        this.jmR = true;
+        this.jmT = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                if (!FrsTabSortSwitchButton.this.jrw && motionEvent.getX() <= FrsTabSortSwitchButton.this.bUn && motionEvent.getY() <= FrsTabSortSwitchButton.this.mHeight) {
+                if (!FrsTabSortSwitchButton.this.jmQ && motionEvent.getX() <= FrsTabSortSwitchButton.this.bPB && motionEvent.getY() <= FrsTabSortSwitchButton.this.mHeight) {
                     if (FrsTabSortSwitchButton.this.getParent() != null) {
                         FrsTabSortSwitchButton.this.getParent().requestDisallowInterceptTouchEvent(true);
                     }
@@ -93,32 +93,32 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
             public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-                int i2 = FrsTabSortSwitchButton.this.jrt;
-                FrsTabSortSwitchButton.this.jru = motionEvent.getX();
-                FrsTabSortSwitchButton.this.jrt = FrsTabSortSwitchButton.this.cJl();
-                FrsTabSortSwitchButton.this.jrw = true;
-                if (FrsTabSortSwitchButton.this.jrt != i2) {
-                    FrsTabSortSwitchButton.this.AM(i2);
+                int i2 = FrsTabSortSwitchButton.this.jmN;
+                FrsTabSortSwitchButton.this.jmO = motionEvent.getX();
+                FrsTabSortSwitchButton.this.jmN = FrsTabSortSwitchButton.this.cFt();
+                FrsTabSortSwitchButton.this.jmQ = true;
+                if (FrsTabSortSwitchButton.this.jmN != i2) {
+                    FrsTabSortSwitchButton.this.zg(i2);
                     if (FrsTabSortSwitchButton.this.mValueAnimator != null) {
                         FrsTabSortSwitchButton.this.mValueAnimator.start();
                     }
-                    FrsTabSortSwitchButton.this.AN(i2);
+                    FrsTabSortSwitchButton.this.zh(i2);
                 }
-                FrsTabSortSwitchButton.this.jrw = false;
+                FrsTabSortSwitchButton.this.jmQ = false;
                 return true;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (FrsTabSortSwitchButton.this.jrv) {
-                    FrsTabSortSwitchButton.this.jru -= f;
-                    if (FrsTabSortSwitchButton.this.jru < 0.0f) {
-                        FrsTabSortSwitchButton.this.jru = 0.0f;
+                if (FrsTabSortSwitchButton.this.jmP) {
+                    FrsTabSortSwitchButton.this.jmO -= f;
+                    if (FrsTabSortSwitchButton.this.jmO < 0.0f) {
+                        FrsTabSortSwitchButton.this.jmO = 0.0f;
                     }
-                    Float f3 = (Float) x.getItem(FrsTabSortSwitchButton.this.jry, FrsTabSortSwitchButton.this.jry.size() - 1);
+                    Float f3 = (Float) x.getItem(FrsTabSortSwitchButton.this.jmS, FrsTabSortSwitchButton.this.jmS.size() - 1);
                     float floatValue = f3 == null ? 0.0f : f3.floatValue();
-                    if (FrsTabSortSwitchButton.this.jru > floatValue) {
-                        FrsTabSortSwitchButton.this.jru = floatValue;
+                    if (FrsTabSortSwitchButton.this.jmO > floatValue) {
+                        FrsTabSortSwitchButton.this.jmO = floatValue;
                     }
                     FrsTabSortSwitchButton.this.invalidate();
                     return true;
@@ -134,33 +134,33 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     private void c(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FrsTabSortSwitchButton);
         this.mBackgroundColorId = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_background_color, R.color.CAM_X0107);
-        this.jri = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_slide_color, R.color.CAM_X0101);
-        this.jrj = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_un_selected_text_color, R.color.CAM_X0105);
-        this.jrk = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_selected_text_color, R.color.CAM_X0105);
+        this.jmC = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_slide_color, R.color.CAM_X0101);
+        this.jmD = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_un_selected_text_color, R.color.CAM_X0105);
+        this.jmE = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_selected_text_color, R.color.CAM_X0105);
         this.mTextSize = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_text_size, 5.0f);
-        this.jrl = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_text_horizontal_padding, 0.0f);
-        this.jrh = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_slide_height, 0.0f);
-        this.jrm = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_slide_border_width, 0.0f);
-        this.jrn = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_slide_border_color, R.color.CAM_X0105);
+        this.jmF = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_text_horizontal_padding, 0.0f);
+        this.jmB = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_slide_height, 0.0f);
+        this.jmG = obtainStyledAttributes.getDimension(R.styleable.FrsTabSortSwitchButton_slide_border_width, 0.0f);
+        this.jmH = obtainStyledAttributes.getResourceId(R.styleable.FrsTabSortSwitchButton_slide_border_color, R.color.CAM_X0105);
         obtainStyledAttributes.recycle();
     }
 
     private void init(Context context) {
-        this.jrq = new RectF();
-        this.eYH = new Path();
-        this.jrr = new RectF();
-        this.jrs = new Path();
+        this.jmK = new RectF();
+        this.eTW = new Path();
+        this.jmL = new RectF();
+        this.jmM = new Path();
         this.mBackgroundPaint = new Paint(1);
         this.mBackgroundPaint.setColor(ao.getColor(this.mBackgroundColorId));
-        this.bUX = new Paint(1);
-        this.bjo = new Paint(1);
-        this.bjo.setTextSize(this.mTextSize);
+        this.bQl = new Paint(1);
+        this.bex = new Paint(1);
+        this.bex.setTextSize(this.mTextSize);
         this.mData = new ArrayList();
-        this.jry = new ArrayList();
-        this.jrt = 0;
-        this.mGestureDetector = new GestureDetector(context, this.jrz);
-        this.jro = getResources().getString(R.string.reply_post_frs);
-        this.jrp = getResources().getString(R.string.send_post);
+        this.jmS = new ArrayList();
+        this.jmN = 0;
+        this.mGestureDetector = new GestureDetector(context, this.jmT);
+        this.jmI = getResources().getString(R.string.reply_post_frs);
+        this.jmJ = getResources().getString(R.string.send_post);
         initAnimation();
     }
 
@@ -170,10 +170,10 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * FrsTabSortSwitchButton.this.mMoveDistance;
-                if (FrsTabSortSwitchButton.this.jrB) {
-                    FrsTabSortSwitchButton.this.jru = FrsTabSortSwitchButton.this.jrA - floatValue;
+                if (FrsTabSortSwitchButton.this.jmV) {
+                    FrsTabSortSwitchButton.this.jmO = FrsTabSortSwitchButton.this.jmU - floatValue;
                 } else {
-                    FrsTabSortSwitchButton.this.jru = floatValue + FrsTabSortSwitchButton.this.jrA;
+                    FrsTabSortSwitchButton.this.jmO = floatValue + FrsTabSortSwitchButton.this.jmU;
                 }
                 FrsTabSortSwitchButton.this.invalidate();
             }
@@ -182,9 +182,9 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                Float f = (Float) x.getItem(FrsTabSortSwitchButton.this.jry, FrsTabSortSwitchButton.this.jrt);
+                Float f = (Float) x.getItem(FrsTabSortSwitchButton.this.jmS, FrsTabSortSwitchButton.this.jmN);
                 if (f != null) {
-                    FrsTabSortSwitchButton.this.jru = f.floatValue();
+                    FrsTabSortSwitchButton.this.jmO = f.floatValue();
                 }
             }
         });
@@ -200,103 +200,103 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         int mode2 = View.MeasureSpec.getMode(i2);
         int count = x.getCount(this.mData);
         if (mode == Integer.MIN_VALUE) {
-            this.bUn = 0.0f;
+            this.bPB = 0.0f;
             for (int i3 = 0; i3 < count; i3++) {
                 ab abVar = (ab) x.getItem(this.mData, i3);
                 if (abVar != null) {
-                    float measureText = this.bjo.measureText(abVar.name == null ? "" : abVar.name) + (this.jrl * 2.0f);
-                    if (this.jrx) {
-                        this.jry.add(Float.valueOf(this.bUn));
+                    float measureText = this.bex.measureText(abVar.name == null ? "" : abVar.name) + (this.jmF * 2.0f);
+                    if (this.jmR) {
+                        this.jmS.add(Float.valueOf(this.bPB));
                     }
-                    this.bUn = measureText + this.bUn;
+                    this.bPB = measureText + this.bPB;
                 }
             }
         } else {
-            this.bUn = size;
-            float f2 = this.bUn;
+            this.bPB = size;
+            float f2 = this.bPB;
             if (count > 0) {
-                f2 = this.bUn / count;
+                f2 = this.bPB / count;
             }
             for (int i4 = 0; i4 < count; i4++) {
-                if (this.jrx) {
-                    this.jry.add(Float.valueOf(f));
+                if (this.jmR) {
+                    this.jmS.add(Float.valueOf(f));
                 }
                 f += f2;
             }
         }
         if (mode2 == Integer.MIN_VALUE) {
-            this.mHeight = this.jrh;
+            this.mHeight = this.jmB;
         } else {
             this.mHeight = size2;
-            this.jrh = this.mHeight;
+            this.jmB = this.mHeight;
         }
-        this.jrx = false;
-        cJk();
-        setMeasuredDimension((int) this.bUn, (int) this.mHeight);
+        this.jmR = false;
+        cFs();
+        setMeasuredDimension((int) this.bPB, (int) this.mHeight);
     }
 
-    private void cJk() {
-        this.jrq.set(0.0f, 0.0f, this.bUn, this.mHeight);
-        this.eYH.reset();
-        this.eYH.addRoundRect(this.jrq, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
-        Float f = (Float) x.getItem(this.jry, this.jrt);
-        this.jru = f != null ? f.floatValue() : 0.0f;
-        Paint.FontMetrics fontMetrics = this.bjo.getFontMetrics();
-        this.hPj = ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f) + (this.mHeight / 2.0f);
+    private void cFs() {
+        this.jmK.set(0.0f, 0.0f, this.bPB, this.mHeight);
+        this.eTW.reset();
+        this.eTW.addRoundRect(this.jmK, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
+        Float f = (Float) x.getItem(this.jmS, this.jmN);
+        this.jmO = f != null ? f.floatValue() : 0.0f;
+        Paint.FontMetrics fontMetrics = this.bex.getFontMetrics();
+        this.hKD = ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f) + (this.mHeight / 2.0f);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.clipPath(this.eYH);
+        canvas.clipPath(this.eTW);
         super.onDraw(canvas);
-        canvas.drawPath(this.eYH, this.mBackgroundPaint);
+        canvas.drawPath(this.eTW, this.mBackgroundPaint);
         aa(canvas);
         int i = 0;
         while (i < this.mData.size()) {
-            a(canvas, this.mData.get(i).name, this.jry.get(i).floatValue() + this.jrl, this.hPj, this.jrt == i);
+            a(canvas, this.mData.get(i).name, this.jmS.get(i).floatValue() + this.jmF, this.hKD, this.jmN == i);
             i++;
         }
     }
 
     private void aa(Canvas canvas) {
         float f;
-        if (this.jru < 0.0f) {
-            this.jru = 0.0f;
+        if (this.jmO < 0.0f) {
+            this.jmO = 0.0f;
         }
-        float floatValue = !x.isEmpty(this.jry) ? ((Float) x.getItem(this.jry, this.jrt)).floatValue() : 0.0f;
-        if (this.jrt + 1 < this.jry.size()) {
-            f = this.jry.get(this.jrt + 1).floatValue();
+        float floatValue = !x.isEmpty(this.jmS) ? ((Float) x.getItem(this.jmS, this.jmN)).floatValue() : 0.0f;
+        if (this.jmN + 1 < this.jmS.size()) {
+            f = this.jmS.get(this.jmN + 1).floatValue();
         } else {
-            f = this.jrt + 1 == this.jry.size() ? this.bUn : 0.0f;
+            f = this.jmN + 1 == this.jmS.size() ? this.bPB : 0.0f;
         }
-        float f2 = (f - floatValue) + this.jru;
-        if (f2 > this.bUn) {
-            f2 = this.bUn;
+        float f2 = (f - floatValue) + this.jmO;
+        if (f2 > this.bPB) {
+            f2 = this.bPB;
         }
-        this.jrr.set(this.jru, 0.0f, f2, this.mHeight);
-        this.jrs.reset();
-        this.jrs.addRoundRect(this.jrr, this.jrh / 2.0f, this.jrh / 2.0f, Path.Direction.CW);
-        this.bUX.reset();
-        this.bUX.setAntiAlias(true);
-        this.bUX.setColor(ao.getColor(this.jri));
-        canvas.drawPath(this.jrs, this.bUX);
-        this.bUX.reset();
-        this.bUX.setAntiAlias(true);
-        this.bUX.setColor(ao.getColor(this.jrn));
-        this.bUX.setStyle(Paint.Style.STROKE);
-        this.bUX.setStrokeWidth(this.jrm);
-        this.jrr.set(this.jru + (this.jrm / 2.0f), this.jrm / 2.0f, f2 - (this.jrm / 2.0f), this.jrh - (this.jrm / 2.0f));
-        float f3 = (this.jrh - this.jrm) / 2.0f;
-        canvas.drawRoundRect(this.jrr, f3, f3, this.bUX);
+        this.jmL.set(this.jmO, 0.0f, f2, this.mHeight);
+        this.jmM.reset();
+        this.jmM.addRoundRect(this.jmL, this.jmB / 2.0f, this.jmB / 2.0f, Path.Direction.CW);
+        this.bQl.reset();
+        this.bQl.setAntiAlias(true);
+        this.bQl.setColor(ao.getColor(this.jmC));
+        canvas.drawPath(this.jmM, this.bQl);
+        this.bQl.reset();
+        this.bQl.setAntiAlias(true);
+        this.bQl.setColor(ao.getColor(this.jmH));
+        this.bQl.setStyle(Paint.Style.STROKE);
+        this.bQl.setStrokeWidth(this.jmG);
+        this.jmL.set(this.jmO + (this.jmG / 2.0f), this.jmG / 2.0f, f2 - (this.jmG / 2.0f), this.jmB - (this.jmG / 2.0f));
+        float f3 = (this.jmB - this.jmG) / 2.0f;
+        canvas.drawRoundRect(this.jmL, f3, f3, this.bQl);
     }
 
     private void a(Canvas canvas, String str, float f, float f2, boolean z) {
         if (z) {
-            this.bjo.setColor(ao.getColor(this.jrk));
+            this.bex.setColor(ao.getColor(this.jmE));
         } else {
-            this.bjo.setColor(ao.getColor(this.jrj));
+            this.bex.setColor(ao.getColor(this.jmD));
         }
-        canvas.drawText(str, f, f2, this.bjo);
+        canvas.drawText(str, f, f2, this.bex);
     }
 
     @Override // android.view.View.OnTouchListener
@@ -304,68 +304,68 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         if (this.mGestureDetector.onTouchEvent(motionEvent)) {
             return true;
         }
-        if (this.jrv && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
-            int i = this.jrt;
-            int cJl = cJl();
-            if (Math.abs(cJl - i) >= 2 || cJl > i) {
-                this.jrt = cJl;
-            } else if (cJl < i) {
-                float floatValue = this.jry.get(cJl).floatValue();
-                float floatValue2 = cJl + 1 < this.jry.size() ? this.jry.get(cJl + 1).floatValue() : floatValue;
-                if (this.jru >= floatValue && this.jru <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
-                    this.jrt = cJl;
+        if (this.jmP && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
+            int i = this.jmN;
+            int cFt = cFt();
+            if (Math.abs(cFt - i) >= 2 || cFt > i) {
+                this.jmN = cFt;
+            } else if (cFt < i) {
+                float floatValue = this.jmS.get(cFt).floatValue();
+                float floatValue2 = cFt + 1 < this.jmS.size() ? this.jmS.get(cFt + 1).floatValue() : floatValue;
+                if (this.jmO >= floatValue && this.jmO <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
+                    this.jmN = cFt;
                 }
             } else {
-                float floatValue3 = this.jry.get(cJl).floatValue();
-                if (this.jru >= (((cJl + 1 < this.jry.size() ? this.jry.get(cJl + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cJl + 1 < this.jry.size()) {
-                    this.jrt = cJl + 1;
+                float floatValue3 = this.jmS.get(cFt).floatValue();
+                if (this.jmO >= (((cFt + 1 < this.jmS.size() ? this.jmS.get(cFt + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cFt + 1 < this.jmS.size()) {
+                    this.jmN = cFt + 1;
                 }
             }
-            this.jrw = true;
-            this.jrA = this.jru;
-            float floatValue4 = this.jry.get(this.jrt).floatValue();
-            this.mMoveDistance = Math.abs(this.jrA - floatValue4);
-            if (this.jrt < i) {
-                this.jrB = true;
-            } else if (this.jrt > i) {
-                this.jrB = false;
+            this.jmQ = true;
+            this.jmU = this.jmO;
+            float floatValue4 = this.jmS.get(this.jmN).floatValue();
+            this.mMoveDistance = Math.abs(this.jmU - floatValue4);
+            if (this.jmN < i) {
+                this.jmV = true;
+            } else if (this.jmN > i) {
+                this.jmV = false;
             } else {
-                this.jrB = this.jrA > floatValue4;
+                this.jmV = this.jmU > floatValue4;
             }
             if (this.mValueAnimator != null) {
                 this.mValueAnimator.start();
             }
-            if (this.jrt != i) {
-                AN(i);
+            if (this.jmN != i) {
+                zh(i);
             }
-            this.jrw = false;
+            this.jmQ = false;
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cJl() {
+    public int cFt() {
         float floatValue;
-        int i = this.jrt;
+        int i = this.jmN;
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.jry.size()) {
+            if (i3 >= this.jmS.size()) {
                 return i;
             }
-            float floatValue2 = ((Float) x.getItem(this.jry, i3)).floatValue();
-            if (i3 + 1 == this.jry.size()) {
-                floatValue = this.bUn;
+            float floatValue2 = ((Float) x.getItem(this.jmS, i3)).floatValue();
+            if (i3 + 1 == this.jmS.size()) {
+                floatValue = this.bPB;
             } else {
-                floatValue = ((Float) x.getItem(this.jry, i3 + 1)).floatValue();
+                floatValue = ((Float) x.getItem(this.jmS, i3 + 1)).floatValue();
             }
-            if (this.jru <= floatValue2 || this.jru >= floatValue) {
-                if (this.jru == floatValue2) {
+            if (this.jmO <= floatValue2 || this.jmO >= floatValue) {
+                if (this.jmO == floatValue2) {
                     if (i - 1 >= 0) {
                         return i - 1;
                     }
-                } else if (this.jru == floatValue && i + 1 < x.getCount(this.jry)) {
+                } else if (this.jmO == floatValue && i + 1 < x.getCount(this.jmS)) {
                     return i + 1;
                 }
                 i2 = i3 + 1;
@@ -376,20 +376,20 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AM(int i) {
-        this.jrA = this.jry.get(i).floatValue();
-        this.mMoveDistance = Math.abs(this.jry.get(this.jrt).floatValue() - this.jrA);
-        this.jrB = this.jrt < i;
+    public void zg(int i) {
+        this.jmU = this.jmS.get(i).floatValue();
+        this.mMoveDistance = Math.abs(this.jmS.get(this.jmN).floatValue() - this.jmU);
+        this.jmV = this.jmN < i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AN(int i) {
-        if (this.jre != null && !this.jre.AL(this.jrt)) {
+    public void zh(int i) {
+        if (this.jmy != null && !this.jmy.zf(this.jmN)) {
             if (this.mValueAnimator != null) {
                 this.mValueAnimator.cancel();
             }
-            this.jrt = i;
-            this.jru = this.jry.get(this.jrt).floatValue();
+            this.jmN = i;
+            this.jmO = this.jmS.get(this.jmN).floatValue();
             invalidate();
         }
     }
@@ -404,18 +404,18 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             setVisibility(0);
             for (int i = 0; i < list.size(); i++) {
                 ab abVar = new ab();
-                abVar.jjG = list.get(i).tab_id.intValue();
+                abVar.jeY = list.get(i).tab_id.intValue();
                 if (list.get(i).tab_id.intValue() == 2) {
                     if (list.get(i).tab_type.intValue() == 16) {
                         abVar.name = "最热";
                     } else {
-                        abVar.name = this.jro;
+                        abVar.name = this.jmI;
                     }
                 } else if (list.get(i).tab_id.intValue() == 3) {
                     if (list.get(i).tab_type.intValue() == 16) {
                         abVar.name = "最新";
                     } else {
-                        abVar.name = this.jrp;
+                        abVar.name = this.jmJ;
                     }
                 } else {
                     abVar.name = list.get(i).tab_name;
@@ -450,13 +450,13 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         for (int i = 0; i < size; i++) {
             ab abVar = this.mData.get(i);
             FrsTabInfo frsTabInfo = list.get(i);
-            if (frsTabInfo.tab_id.intValue() != abVar.jjG) {
+            if (frsTabInfo.tab_id.intValue() != abVar.jeY) {
                 return true;
             }
-            if (frsTabInfo.tab_id.intValue() == 2 && !abVar.name.equals(this.jro)) {
+            if (frsTabInfo.tab_id.intValue() == 2 && !abVar.name.equals(this.jmI)) {
                 return true;
             }
-            if (frsTabInfo.tab_id.intValue() == 3 && !abVar.name.equals(this.jrp)) {
+            if (frsTabInfo.tab_id.intValue() == 3 && !abVar.name.equals(this.jmJ)) {
                 return true;
             }
             if (frsTabInfo.tab_id.intValue() != 2 && frsTabInfo.tab_id.intValue() != 3) {
@@ -473,24 +473,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     private void reset() {
-        this.jrt = 0;
-        this.jru = 0.0f;
-        this.jrw = false;
+        this.jmN = 0;
+        this.jmO = 0.0f;
+        this.jmQ = false;
         this.mData.clear();
-        this.jry.clear();
-        this.jrx = true;
+        this.jmS.clear();
+        this.jmR = true;
     }
 
-    public int AO(int i) {
+    public int zi(int i) {
         ab abVar = (ab) x.getItem(this.mData, i);
         if (abVar == null) {
             return -1;
         }
-        return abVar.jjG;
+        return abVar.jeY;
     }
 
     public void setOnSwitchChangeListener(a aVar) {
-        this.jre = aVar;
+        this.jmy = aVar;
     }
 
     public void onChangeSkinType() {
@@ -499,24 +499,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     public void setCanScroll(boolean z) {
-        this.jrv = z;
+        this.jmP = z;
     }
 
     public int getState() {
-        return this.jrt;
+        return this.jmN;
     }
 
-    public void ki(int i) {
+    public void iC(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
             if (i3 < this.mData.size()) {
-                if (this.mData.get(i3).jjG != i) {
+                if (this.mData.get(i3).jeY != i) {
                     i2 = i3 + 1;
                 } else {
-                    this.jrt = i3;
-                    if (i3 < this.jry.size()) {
-                        this.jru = this.jry.get(i3).floatValue();
+                    this.jmN = i3;
+                    if (i3 < this.jmS.size()) {
+                        this.jmO = this.jmS.get(i3).floatValue();
                     }
                     invalidate();
                     return;

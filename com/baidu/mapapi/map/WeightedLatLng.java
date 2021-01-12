@@ -1,16 +1,16 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.Point;
-import com.baidu.mapapi.map.t;
+import com.baidu.mapapi.map.n;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
-public class WeightedLatLng extends t.a {
+import com.baidu.mapapi.model.inner.GeoPoint;
+/* loaded from: classes6.dex */
+public class WeightedLatLng extends n.a {
     public static final double DEFAULT_INTENSITY = 1.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f2898a;
+    private Point f2787a;
     public final double intensity;
     public final LatLng latLng;
 
@@ -20,11 +20,11 @@ public class WeightedLatLng extends t.a {
 
     public WeightedLatLng(LatLng latLng, double d) {
         if (latLng == null) {
-            throw new IllegalArgumentException("BDMapSDKException: latLng can not be null");
+            throw new IllegalArgumentException("latLng can not be null");
         }
         this.latLng = latLng;
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        this.f2898a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
+        this.f2787a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
         if (d > 0.0d) {
             this.intensity = d;
         } else {
@@ -33,8 +33,8 @@ public class WeightedLatLng extends t.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.baidu.mapapi.map.t.a
+    @Override // com.baidu.mapapi.map.n.a
     public Point a() {
-        return this.f2898a;
+        return this.f2787a;
     }
 }

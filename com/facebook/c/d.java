@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class d {
-    private static d pAs;
-    private int pAt;
+    private static d pvR;
+    private int pvS;
     @Nullable
-    private List<c.a> pAu;
-    private final c.a pAv = new a();
+    private List<c.a> pvT;
+    private final c.a pvU = new a();
 
     private d() {
-        ewT();
+        etb();
     }
 
     public void gL(@Nullable List<c.a> list) {
-        this.pAu = list;
-        ewT();
+        this.pvT = list;
+        etb();
     }
 
     public c w(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.pAt];
-        int a2 = a(this.pAt, inputStream, bArr);
-        c p = this.pAv.p(bArr, a2);
-        if (p == null || p == c.pAq) {
-            if (this.pAu != null) {
-                for (c.a aVar : this.pAu) {
+        byte[] bArr = new byte[this.pvS];
+        int a2 = a(this.pvS, inputStream, bArr);
+        c p = this.pvU.p(bArr, a2);
+        if (p == null || p == c.pvP) {
+            if (this.pvT != null) {
+                for (c.a aVar : this.pvT) {
                     c p2 = aVar.p(bArr, a2);
-                    if (p2 != null && p2 != c.pAq) {
+                    if (p2 != null && p2 != c.pvP) {
                         return p2;
                     }
                 }
             }
-            return c.pAq;
+            return c.pvP;
         }
         return p;
     }
 
-    private void ewT() {
-        this.pAt = this.pAv.getHeaderSize();
-        if (this.pAu != null) {
-            for (c.a aVar : this.pAu) {
-                this.pAt = Math.max(this.pAt, aVar.getHeaderSize());
+    private void etb() {
+        this.pvS = this.pvU.getHeaderSize();
+        if (this.pvT != null) {
+            for (c.a aVar : this.pvT) {
+                this.pvS = Math.max(this.pvS, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d ewU() {
+    public static synchronized d etc() {
         d dVar;
         synchronized (d.class) {
-            if (pAs == null) {
-                pAs = new d();
+            if (pvR == null) {
+                pvR = new d();
             }
-            dVar = pAs;
+            dVar = pvR;
         }
         return dVar;
     }
 
     public static c x(InputStream inputStream) throws IOException {
-        return ewU().w(inputStream);
+        return etc().w(inputStream);
     }
 
     public static c y(InputStream inputStream) {

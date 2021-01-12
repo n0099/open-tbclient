@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class v {
-    private String aKK;
-    private String aKL;
-    private String aKM;
-    private String aKN;
-    private List<aj> aKO;
+    private String aFX;
+    private String aFY;
+    private String aFZ;
+    private String aGa;
+    private List<aj> aGb;
     private String action;
     private String id;
     private String userId;
@@ -24,58 +24,58 @@ public class v {
         vVar.action = jSONObject.optString("action");
         vVar.id = jSONObject.optString("id");
         vVar.userId = jSONObject.optString("user_id");
-        vVar.aKL = jSONObject.optString("toast_text");
-        vVar.aKM = jSONObject.optString("chosen_color_start", "#7C11FF");
-        vVar.aKN = jSONObject.optString("chosen_color_end", "#FF3656");
-        vVar.aKK = jSONObject.optString("theme");
+        vVar.aFY = jSONObject.optString("toast_text");
+        vVar.aFZ = jSONObject.optString("chosen_color_start", "#7C11FF");
+        vVar.aGa = jSONObject.optString("chosen_color_end", "#FF3656");
+        vVar.aFX = jSONObject.optString("theme");
         JSONArray optJSONArray = jSONObject.optJSONArray("session_conf");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            vVar.aKO = new ArrayList();
+            vVar.aGb = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 aj ajVar = new aj();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 ajVar.imageUrl = optJSONObject.optString("img");
-                ajVar.aMc = optJSONObject.optString("btn_text");
+                ajVar.aHp = optJSONObject.optString("btn_text");
                 ajVar.url = optJSONObject.optString("session_info");
-                ajVar.startColor = vVar.aKM;
-                ajVar.endColor = vVar.aKN;
-                vVar.aKO.add(ajVar);
+                ajVar.startColor = vVar.aFZ;
+                ajVar.endColor = vVar.aGa;
+                vVar.aGb.add(ajVar);
             }
             return vVar;
         }
         return vVar;
     }
 
-    public boolean EC() {
-        return (this.aKO == null || this.aKO.isEmpty()) ? false : true;
+    public boolean AH() {
+        return (this.aGb == null || this.aGb.isEmpty()) ? false : true;
     }
 
-    public List<aj> ED() {
-        return this.aKO;
+    public List<aj> AI() {
+        return this.aGb;
     }
 
     public String getAction() {
         return this.action;
     }
 
-    public String EE() {
-        return this.aKN;
+    public String AJ() {
+        return this.aGa;
     }
 
-    public String EF() {
-        return this.aKM;
+    public String AK() {
+        return this.aFZ;
     }
 
-    public String EG() {
-        return this.aKL;
+    public String AL() {
+        return this.aFY;
     }
 
-    public boolean gm(String str) {
+    public boolean fb(String str) {
         return !TextUtils.isEmpty(this.action) && this.action.equals(str);
     }
 
-    public boolean gn(String str) {
+    public boolean fc(String str) {
         return !TextUtils.isEmpty(this.id) && this.id.equals(str);
     }
 
@@ -84,6 +84,6 @@ public class v {
     }
 
     public String toString() {
-        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aKK + "', action='" + this.action + "', toastText='" + this.aKL + "', choseColorStart='" + this.aKM + "', choseColorEnd='" + this.aKN + "', sessionList=" + this.aKO + '}';
+        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aFX + "', action='" + this.action + "', toastText='" + this.aFY + "', choseColorStart='" + this.aFZ + "', choseColorEnd='" + this.aGa + "', sessionList=" + this.aGb + '}';
     }
 }

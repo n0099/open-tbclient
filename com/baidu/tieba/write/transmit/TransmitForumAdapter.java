@@ -13,35 +13,35 @@ import com.baidu.adp.widget.ListView.w;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TransmitForumAdapter extends com.baidu.adp.widget.ListView.a<TransmitForumData, TransmitForumViewHolder> {
-    private a obg;
-    private w obh;
+    private a nWB;
+    private w nWC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitForumAdapter(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.obh = new w() { // from class: com.baidu.tieba.write.transmit.TransmitForumAdapter.1
+        this.nWC = new w() { // from class: com.baidu.tieba.write.transmit.TransmitForumAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (nVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean dYP = TransmitForumAdapter.this.obg != null ? TransmitForumAdapter.this.obg.dYP() : false;
-                    if (!isChecked && dYP) {
-                        TransmitForumAdapter.this.obg.dYQ();
+                    boolean dUX = TransmitForumAdapter.this.nWB != null ? TransmitForumAdapter.this.nWB.dUX() : false;
+                    if (!isChecked && dUX) {
+                        TransmitForumAdapter.this.nWB.dUY();
                     }
-                    if (isChecked || !dYP) {
+                    if (isChecked || !dUX) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                        if (TransmitForumAdapter.this.obg != null) {
-                            TransmitForumAdapter.this.obg.dYR();
+                        if (TransmitForumAdapter.this.nWB != null) {
+                            TransmitForumAdapter.this.nWB.dUZ();
                         }
                     }
                 }
             }
         };
-        a(this.obh);
+        a(this.nWC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,26 +56,26 @@ public class TransmitForumAdapter extends com.baidu.adp.widget.ListView.a<Transm
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
-        transmitForumViewHolder.fni.setText(transmitForumData.forumName);
-        transmitForumViewHolder.lyV.setChecked(transmitForumData.checked);
-        ao.setViewTextColor(transmitForumViewHolder.fni, R.color.CAM_X0105);
+        transmitForumViewHolder.fiz.setText(transmitForumData.forumName);
+        transmitForumViewHolder.lup.setChecked(transmitForumData.checked);
+        ao.setViewTextColor(transmitForumViewHolder.fiz, R.color.CAM_X0105);
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
-        public TextView fni;
-        public CheckBox lyV;
+        public TextView fiz;
+        public CheckBox lup;
 
         public TransmitForumViewHolder(View view) {
             super(view);
-            this.fni = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.lyV = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.lyV.setButtonDrawable(ao.getDrawable(R.drawable.transmit_check_box));
+            this.fiz = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.lup = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.lup.setButtonDrawable(ao.getDrawable(R.drawable.transmit_check_box));
         }
     }
 
     public void a(a aVar) {
-        this.obg = aVar;
+        this.nWB = aVar;
     }
 }

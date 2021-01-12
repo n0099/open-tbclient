@@ -16,7 +16,7 @@ import androidx.transition.AnimatorUtils;
 import androidx.transition.Transition;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class Visibility extends Transition {
     public static final int MODE_IN = 1;
     public static final int MODE_OUT = 2;
@@ -28,12 +28,12 @@ public abstract class Visibility extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface Mode {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class VisibilityInfo {
         ViewGroup mEndParent;
         int mEndVisibility;
@@ -280,7 +280,7 @@ public abstract class Visibility extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class DisappearListener extends AnimatorListenerAdapter implements AnimatorUtils.AnimatorPauseListenerCompat, Transition.TransitionListener {
         boolean mCanceled = false;
         private final int mFinalVisibility;

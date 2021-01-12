@@ -1,11 +1,11 @@
 package com.baidu.mcn;
 /* loaded from: classes.dex */
 public class a {
-    public String cin;
-    public String cio;
-    public String cip;
-    public String ciq;
-    public int cir;
+    public String cdA;
+    public String cdB;
+    public String cdC;
+    public String cdD;
+    public int cdE;
     public String fid;
     public String tid;
 }

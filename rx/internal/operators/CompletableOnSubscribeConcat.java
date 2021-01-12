@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class CompletableOnSubscribeConcat implements b.a {
     final int prefetch;
-    final rx.d<rx.b> qsS;
+    final rx.d<rx.b> qoq;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -16,24 +16,24 @@ public final class CompletableOnSubscribeConcat implements b.a {
     public void call(rx.c cVar) {
         CompletableConcatSubscriber completableConcatSubscriber = new CompletableConcatSubscriber(cVar, this.prefetch);
         cVar.onSubscribe(completableConcatSubscriber);
-        this.qsS.a((rx.j<? super rx.b>) completableConcatSubscriber);
+        this.qoq.a((rx.j<? super rx.b>) completableConcatSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class CompletableConcatSubscriber extends rx.j<rx.b> {
         volatile boolean active;
         final rx.c actual;
         volatile boolean done;
-        final rx.internal.util.a.q<rx.b> qsU;
-        final SequentialSubscription qsT = new SequentialSubscription();
-        final ConcatInnerSubscriber qsV = new ConcatInnerSubscriber();
+        final rx.internal.util.a.q<rx.b> qos;
+        final SequentialSubscription qor = new SequentialSubscription();
+        final ConcatInnerSubscriber qot = new ConcatInnerSubscriber();
         final AtomicBoolean once = new AtomicBoolean();
 
         public CompletableConcatSubscriber(rx.c cVar, int i) {
             this.actual = cVar;
-            this.qsU = new rx.internal.util.a.q<>(i);
-            add(this.qsT);
+            this.qos = new rx.internal.util.a.q<>(i);
+            add(this.qor);
             request(i);
         }
 
@@ -41,7 +41,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         @Override // rx.e
         /* renamed from: a */
         public void onNext(rx.b bVar) {
-            if (!this.qsU.offer(bVar)) {
+            if (!this.qos.offer(bVar)) {
                 onError(new MissingBackpressureException());
             } else {
                 drain();
@@ -76,12 +76,12 @@ public final class CompletableOnSubscribeConcat implements b.a {
         }
 
         void drain() {
-            ConcatInnerSubscriber concatInnerSubscriber = this.qsV;
+            ConcatInnerSubscriber concatInnerSubscriber = this.qot;
             if (concatInnerSubscriber.getAndIncrement() == 0) {
                 while (!isUnsubscribed()) {
                     if (!this.active) {
                         boolean z = this.done;
-                        rx.b poll = this.qsU.poll();
+                        rx.b poll = this.qos.poll();
                         boolean z2 = poll == null;
                         if (z && z2) {
                             this.actual.onCompleted();
@@ -100,7 +100,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
             private static final long serialVersionUID = 7233503139645205620L;
 
@@ -109,7 +109,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onSubscribe(rx.k kVar) {
-                CompletableConcatSubscriber.this.qsT.set(kVar);
+                CompletableConcatSubscriber.this.qor.set(kVar);
             }
 
             @Override // rx.c

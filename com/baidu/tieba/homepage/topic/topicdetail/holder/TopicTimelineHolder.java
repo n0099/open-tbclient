@@ -4,14 +4,14 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes2.dex */
 public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder {
-    private T klj;
+    private T kgD;
 
     public TopicTimelineHolder(T t) {
         super(t);
-        this.klj = t;
+        this.kgD = t;
     }
 
-    public T cUb() {
-        return this.klj;
+    public T cQj() {
+        return this.kgD;
     }
 }

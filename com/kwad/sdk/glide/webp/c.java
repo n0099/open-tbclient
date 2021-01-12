@@ -1,12 +1,12 @@
 package com.kwad.sdk.glide.webp;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10662a;
+    public final int f10362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f10663b;
+    public final int f10363b;
     public final int c;
     public final int d;
     public final int e;
@@ -16,8 +16,8 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i, WebpFrame webpFrame) {
-        this.f10662a = i;
-        this.f10663b = webpFrame.getXOffest();
+        this.f10362a = i;
+        this.f10363b = webpFrame.getXOffest();
         this.c = webpFrame.getYOffest();
         this.d = webpFrame.getWidth();
         this.e = webpFrame.getHeight();
@@ -27,6 +27,6 @@ public class c {
     }
 
     public String toString() {
-        return "frameNumber=" + this.f10662a + ", xOffset=" + this.f10663b + ", yOffset=" + this.c + ", width=" + this.d + ", height=" + this.e + ", duration=" + this.f + ", blendPreviousFrame=" + this.g + ", disposeBackgroundColor=" + this.h;
+        return "frameNumber=" + this.f10362a + ", xOffset=" + this.f10363b + ", yOffset=" + this.c + ", width=" + this.d + ", height=" + this.e + ", duration=" + this.f + ", blendPreviousFrame=" + this.g + ", disposeBackgroundColor=" + this.h;
     }
 }

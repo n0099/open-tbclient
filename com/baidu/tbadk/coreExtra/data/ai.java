@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String ftT;
-    private long ftU;
-    private long ftV;
-    private long ftW;
-    private String ftX;
-    private String ftY;
+    private String fph;
+    private long fpi;
+    private long fpj;
+    private long fpk;
+    private String fpl;
+    private String fpm;
 
     public void parseJson(String str) {
         if (!at.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.ftT = jSONObject.optString("splash_video_url");
-                this.ftU = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.ftV = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.ftW = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.ftX = jSONObject.optString("splash_video_h5_url");
-                this.ftY = jSONObject.optString("splash_video_h5_text");
+                this.fph = jSONObject.optString("splash_video_url");
+                this.fpi = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.fpj = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.fpk = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.fpl = jSONObject.optString("splash_video_h5_url");
+                this.fpm = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String bAi() {
-        return this.ftT;
+    public String bwo() {
+        return this.fph;
     }
 
-    public long bAj() {
-        return this.ftU;
+    public long bwp() {
+        return this.fpi;
     }
 
-    public long bAk() {
-        return this.ftV;
+    public long bwq() {
+        return this.fpj;
     }
 
-    public long bAl() {
-        return this.ftW;
+    public long bwr() {
+        return this.fpk;
     }
 
-    public String bAm() {
-        return this.ftX;
+    public String bws() {
+        return this.fpl;
     }
 
-    public String bAn() {
-        return this.ftY;
+    public String bwt() {
+        return this.fpm;
     }
 }

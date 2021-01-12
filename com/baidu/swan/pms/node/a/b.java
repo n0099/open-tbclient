@@ -8,28 +8,28 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b exW;
-    private a exX = new a();
+    private static volatile b etj;
+    private a etk = new a();
 
-    public static b bhh() {
-        if (exW == null) {
+    public static b bdn() {
+        if (etj == null) {
             synchronized (b.class) {
-                if (exW == null) {
-                    exW = new b();
+                if (etj == null) {
+                    etj = new b();
                 }
             }
         }
-        return exW;
+        return etj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bhi() {
-        return this.exX.getString("ceres_info", "0");
+    public String bdo() {
+        return this.etk.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bhj() {
-        return this.exX.getString("global_info", "0");
+    public String bdp() {
+        return this.etk.getString("global_info", "0");
     }
 
     private b() {
@@ -57,7 +57,7 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.exX.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.etk.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new com.baidu.swan.pms.node.a.a(optJSONArray, optJSONObject3);
     }
 

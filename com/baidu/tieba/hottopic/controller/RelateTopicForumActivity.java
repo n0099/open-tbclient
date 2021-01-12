@@ -17,13 +17,13 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
-    public LikeModel jYX;
-    private com.baidu.tieba.hottopic.view.d kqk;
+    public LikeModel jUs;
+    private com.baidu.tieba.hottopic.view.d klF;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private String fgR = "";
-    private CustomMessageListener fUR = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.1
+    private String fci = "";
+    private CustomMessageListener fQk = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,17 +34,17 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (gE != null) {
                         gE.followNum++;
                         gE.setIsLiked(true);
-                        j cVG = RelateTopicForumActivity.this.kqk.cVG();
-                        if (cVG != null) {
-                            cVG.c(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fgR);
-                            cVG.notifyDataSetChanged();
+                        j cRO = RelateTopicForumActivity.this.klF.cRO();
+                        if (cRO != null) {
+                            cRO.c(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fci);
+                            cRO.notifyDataSetChanged();
                         }
                     }
                 }
             }
         }
     };
-    private CustomMessageListener fUQ = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.2
+    private CustomMessageListener fQj = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,23 +55,23 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (gE != null) {
                         gE.followNum--;
                         gE.setIsLiked(false);
-                        j cVG = RelateTopicForumActivity.this.kqk.cVG();
-                        if (cVG != null) {
-                            cVG.c(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fgR);
-                            cVG.notifyDataSetChanged();
+                        j cRO = RelateTopicForumActivity.this.klF.cRO();
+                        if (cRO != null) {
+                            cRO.c(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fci);
+                            cRO.notifyDataSetChanged();
                         }
                     }
                 }
             }
         }
     };
-    private e iHU = new e() { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.3
+    private e iDn = new e() { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.3
         @Override // com.baidu.adp.base.e
         public void callback(Object obj) {
-            if (AntiHelper.bP(RelateTopicForumActivity.this.jYX.getErrorCode(), RelateTopicForumActivity.this.jYX.getErrorString())) {
-                AntiHelper.bs(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.jYX.getErrorString());
-            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.jYX.getErrorString())) {
-                l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.jYX.getErrorString());
+            if (AntiHelper.bQ(RelateTopicForumActivity.this.jUs.getErrorCode(), RelateTopicForumActivity.this.jUs.getErrorString())) {
+                AntiHelper.bs(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.jUs.getErrorString());
+            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.jUs.getErrorString())) {
+                l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.jUs.getErrorString());
             }
         }
     };
@@ -81,22 +81,22 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.jYX = new LikeModel(getPageContext());
-        this.jYX.setLoadDataCallBack(this.iHU);
+        this.jUs = new LikeModel(getPageContext());
+        this.jUs.setLoadDataCallBack(this.iDn);
         registerListener();
         initUI();
         TiebaStatic.log("c10335a");
     }
 
     private void initUI() {
-        this.kqk = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
-        cUS();
+        this.klF = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
+        cRa();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kqk.onChangeSkinType(i);
+        this.klF.onChangeSkinType(i);
     }
 
     private void initData(Bundle bundle) {
@@ -104,7 +104,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
             if (bundle.getSerializable("data_list") != null && (bundle.getSerializable("data_list") instanceof ArrayList)) {
                 try {
                     this.dataList = (ArrayList) bundle.getSerializable("data_list");
-                    this.fgR = bundle.getString("topic_id") == null ? "" : bundle.getString("topic_id");
+                    this.fci = bundle.getString("topic_id") == null ? "" : bundle.getString("topic_id");
                     return;
                 } catch (Exception e) {
                     return;
@@ -116,22 +116,22 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         if (intent != null && intent.getSerializableExtra("data_list") != null && (intent.getSerializableExtra("data_list") instanceof ArrayList)) {
             try {
                 this.dataList = (ArrayList) intent.getSerializableExtra("data_list");
-                this.fgR = intent.getStringExtra("topic_id") == null ? "" : intent.getStringExtra("topic_id");
+                this.fci = intent.getStringExtra("topic_id") == null ? "" : intent.getStringExtra("topic_id");
             } catch (Exception e2) {
             }
         }
     }
 
     public String getTopicId() {
-        return this.fgR;
+        return this.fci;
     }
 
-    private void cUS() {
-        if (this.kqk != null) {
+    private void cRa() {
+        if (this.klF != null) {
             if (this.dataList.isEmpty()) {
-                this.kqk.bVG();
+                this.klF.bRO();
             } else {
-                this.kqk.Zi();
+                this.klF.Vp();
             }
         }
     }
@@ -156,7 +156,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     }
 
     private void registerListener() {
-        registerListener(this.fUR);
-        registerListener(this.fUQ);
+        registerListener(this.fQk);
+        registerListener(this.fQj);
     }
 }

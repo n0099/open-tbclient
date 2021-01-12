@@ -3,7 +3,7 @@ package com.baidu.ubc;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ah {
     public static String toMd5(byte[] bArr, boolean z) {
         try {

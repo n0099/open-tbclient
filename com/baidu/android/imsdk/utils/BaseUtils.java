@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseUtils {
     public static final String METHOD_RECEIVEESSAGE = "93";
     public static final String METHOD_SENDMESSAGE = "55";

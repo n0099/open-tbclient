@@ -2,13 +2,13 @@ package rx.internal.operators;
 
 import rx.g;
 import rx.h;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class u<T> implements h.a<T> {
-    final h.a<T> qwc;
+    final h.a<T> qrA;
     final rx.g scheduler;
 
     public u(h.a<T> aVar, rx.g gVar) {
-        this.qwc = aVar;
+        this.qrA = aVar;
         this.scheduler = gVar;
     }
 
@@ -20,32 +20,32 @@ public final class u<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.qwc.call(aVar);
+        this.qrA.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a qwd;
+        final g.a qrB;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar) {
             this.actual = iVar;
-            this.qwd = aVar;
+            this.qrB = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.qwd.c(this);
+            this.qrB.c(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.qwd.c(this);
+            this.qrB.c(this);
         }
 
         @Override // rx.functions.a
@@ -61,7 +61,7 @@ public final class u<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.qwd.unsubscribe();
+                this.qrB.unsubscribe();
             }
         }
     }

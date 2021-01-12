@@ -10,18 +10,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes3.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.c pCB;
-    private final ap pEc;
+    private final com.facebook.imagepipeline.g.c pya;
+    private final ap pzB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.g.c cVar) {
-        this.pEc = apVar;
-        this.pCB = cVar;
-        this.pCB.a(apVar.eAH(), this.pEc.evw(), this.pEc.getId(), this.pEc.eAK());
-        ajVar.a(ezu(), apVar);
+        this.pzB = apVar;
+        this.pya = cVar;
+        this.pya.a(apVar.ewP(), this.pzB.erD(), this.pzB.getId(), this.pzB.ewS());
+        ajVar.a(evC(), apVar);
     }
 
-    private k<T> ezu() {
+    private k<T> evC() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.d.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void f(@Nullable T t, int i) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void ezv() {
-                a.this.ezv();
+            protected void evD() {
+                a.this.evD();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -47,32 +47,32 @@ public abstract class a<T> extends AbstractDataSource<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void f(@Nullable T t, int i) {
-        boolean Rv = com.facebook.imagepipeline.producers.b.Rv(i);
-        if (super.c(t, Rv) && Rv) {
-            this.pCB.a(this.pEc.eAH(), this.pEc.getId(), this.pEc.eAK());
+        boolean PO = com.facebook.imagepipeline.producers.b.PO(i);
+        if (super.c(t, PO) && PO) {
+            this.pya.a(this.pzB.ewP(), this.pzB.getId(), this.pzB.ewS());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(Throwable th) {
         if (super.u(th)) {
-            this.pCB.a(this.pEc.eAH(), this.pEc.getId(), th, this.pEc.eAK());
+            this.pya.a(this.pzB.ewP(), this.pzB.getId(), th, this.pzB.ewS());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void ezv() {
+    public synchronized void evD() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean ati() {
-        if (!super.ati()) {
+    public boolean apn() {
+        if (!super.apn()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.pCB.Zx(this.pEc.getId());
-            this.pEc.cancel();
+            this.pya.Yp(this.pzB.getId());
+            this.pzB.cancel();
         }
         return true;
     }

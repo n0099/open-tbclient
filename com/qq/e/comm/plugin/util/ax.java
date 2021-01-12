@@ -4,14 +4,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f12868a;
+    private final long f12568a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final long f12869b;
+    private final long f12569b;
     private long c;
     private long d;
     private boolean e = false;
@@ -29,9 +29,9 @@ public abstract class ax {
                 } else {
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
                     ax.this.a(elapsedRealtime);
-                    long elapsedRealtime3 = (ax.this.f12869b + elapsedRealtime2) - SystemClock.elapsedRealtime();
+                    long elapsedRealtime3 = (ax.this.f12569b + elapsedRealtime2) - SystemClock.elapsedRealtime();
                     while (elapsedRealtime3 < 0) {
-                        elapsedRealtime3 += ax.this.f12869b;
+                        elapsedRealtime3 += ax.this.f12569b;
                     }
                     sendMessageDelayed(obtainMessage(1), elapsedRealtime3);
                 }
@@ -40,8 +40,8 @@ public abstract class ax {
     };
 
     public ax(long j, long j2) {
-        this.f12868a = j;
-        this.f12869b = j2;
+        this.f12568a = j;
+        this.f12569b = j2;
     }
 
     private ax b(long j) {
@@ -63,7 +63,7 @@ public abstract class ax {
 
     public final void b() {
         synchronized (this) {
-            b(this.f12868a);
+            b(this.f12568a);
         }
     }
 

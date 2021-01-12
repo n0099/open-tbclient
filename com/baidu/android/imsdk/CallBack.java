@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface CallBack {
     void onError(int i, int i2, long j);
 

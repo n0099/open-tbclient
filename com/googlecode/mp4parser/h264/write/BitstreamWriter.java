@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.h264.write;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BitstreamWriter {
     private int curBit;
     private int[] curByte = new int[8];

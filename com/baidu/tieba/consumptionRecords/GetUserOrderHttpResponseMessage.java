@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private ArrayList<a> orderList;

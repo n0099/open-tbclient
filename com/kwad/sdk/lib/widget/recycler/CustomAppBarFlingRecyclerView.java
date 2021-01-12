@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomAppBarFlingRecyclerView extends RecyclerView implements CustomAppBarFlingConsumer {
     public CustomAppBarFlingRecyclerView(Context context) {
         super(context);

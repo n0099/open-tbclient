@@ -1,9 +1,9 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface cg {
-    boolean abK(String str);
+    boolean aaC(String str);
 
-    void eKp();
+    void eGA();
 
-    void eKq();
+    void eGz();
 }

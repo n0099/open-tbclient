@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private com.baidu.tieba.ala.guardclub.view.d haO;
-    private e.a haQ = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
+    private com.baidu.tieba.ala.guardclub.view.d gWi;
+    private e.a gWk = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
     };
-    private BdUniqueId bwz = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e haP = new com.baidu.tieba.ala.guardclub.model.e(this.bwz, this.haQ);
+    private BdUniqueId brL = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e gWj = new com.baidu.tieba.ala.guardclub.model.e(this.brL, this.gWk);
 
     public h(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.haO = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.haO.setOtherParams(str);
-        this.haP.a(this.haO);
-        this.haO.f(this.haP);
+        this.gWi = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.gWi.setOtherParams(str);
+        this.gWj.a(this.gWi);
+        this.gWi.f(this.gWj);
     }
 
     public View getView() {
-        return this.haO.getView();
+        return this.gWi.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.haO != null) {
-            this.haO.notifyDataSetInvalidated();
+        if (this.gWi != null) {
+            this.gWi.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPageDestroy() {
-        if (this.haP != null) {
-            this.haP.onDestory();
+        if (this.gWj != null) {
+            this.gWj.onDestory();
         }
-        if (this.haO != null) {
-            this.haO.bYP();
+        if (this.gWi != null) {
+            this.gWi.bUX();
         }
     }
 }

@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String cis = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> cit;
+    private static String cdF = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> cdG;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b ciu = new b();
+        public static b cdH = new b();
     }
 
-    public static b adv() {
-        return a.ciu;
+    public static b ZC() {
+        return a.cdH;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void jC(String str) {
+    public void ir(String str) {
         if (!StringUtils.isNull(str)) {
-            this.cit = this.mPreference.getStringSet(cis, null);
-            if (this.cit == null) {
-                this.cit = new HashSet();
+            this.cdG = this.mPreference.getStringSet(cdF, null);
+            if (this.cdG == null) {
+                this.cdG = new HashSet();
             }
-            this.cit.add(str);
-            this.mPreference.edit().putStringSet(cis, this.cit).commit();
+            this.cdG.add(str);
+            this.mPreference.edit().putStringSet(cdF, this.cdG).commit();
         }
     }
 
-    public boolean jD(String str) {
+    public boolean is(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.cit == null) {
-            this.cit = this.mPreference.getStringSet(cis, null);
+        if (this.cdG == null) {
+            this.cdG = this.mPreference.getStringSet(cdF, null);
         }
-        if (this.cit != null) {
-            return this.cit.contains(str);
+        if (this.cdG != null) {
+            return this.cdG.contains(str);
         }
         return false;
     }

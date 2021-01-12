@@ -1,8 +1,8 @@
 package com.baidu.fsg.base.restnet.http;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class HttpDefines {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum HttpMethod {
         GET,
         POST,

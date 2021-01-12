@@ -1,49 +1,43 @@
 package com.baidu.mapapi.map;
 
-import android.text.TextUtils;
-import com.baidu.mapsdkplatform.comapi.map.f;
-/* loaded from: classes3.dex */
-class p implements f.a {
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.mapapi.map.SwipeDismissTouchListener;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class p extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CustomMapStyleCallBack f2928a;
+    final /* synthetic */ ViewGroup.LayoutParams f2807a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ MapCustomStyleOptions f2929b;
-    final /* synthetic */ MapView c;
+    final /* synthetic */ int f2808b;
+    final /* synthetic */ SwipeDismissTouchListener c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(MapView mapView, CustomMapStyleCallBack customMapStyleCallBack, MapCustomStyleOptions mapCustomStyleOptions) {
-        this.c = mapView;
-        this.f2928a = customMapStyleCallBack;
-        this.f2929b = mapCustomStyleOptions;
+    public p(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
+        this.c = swipeDismissTouchListener;
+        this.f2807a = layoutParams;
+        this.f2808b = i;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.f.a
-    public void a(int i, String str, String str2) {
-        boolean z;
-        if (this.f2928a == null || !this.f2928a.onCustomMapStyleLoadFailed(i, str, str2)) {
-            z = this.c.B;
-            if (z) {
-                return;
-            }
-            this.c.a(str2, this.f2929b);
-        }
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.f.a
-    public void a(String str) {
-        if (this.f2928a == null || !this.f2928a.onPreLoadLastCustomMapStyle(str)) {
-            this.c.a(str, this.f2929b);
-            this.c.B = true;
-        }
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.map.f.a
-    public void a(boolean z, String str) {
-        if ((this.f2928a == null || !this.f2928a.onCustomMapStyleLoadSuccess(z, str)) && z && !TextUtils.isEmpty(str)) {
-            this.c.a(str, 1);
-            this.c.setMapCustomStyleEnable(true);
-        }
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        SwipeDismissTouchListener.DismissCallbacks dismissCallbacks;
+        View view;
+        Object obj;
+        View view2;
+        View view3;
+        dismissCallbacks = this.c.f;
+        view = this.c.e;
+        obj = this.c.l;
+        dismissCallbacks.onDismiss(view, obj);
+        view2 = this.c.e;
+        view2.setTranslationX(0.0f);
+        this.f2807a.height = this.f2808b;
+        view3 = this.c.e;
+        view3.setLayoutParams(this.f2807a);
     }
 }

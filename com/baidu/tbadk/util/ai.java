@@ -24,7 +24,7 @@ import java.net.URLDecoder;
 public class ai {
     private static BaseWebView mBaseWebView;
 
-    public static void bJq() {
+    public static void bFy() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -36,14 +36,14 @@ public class ai {
 
     @Deprecated
     public static String getUserAgent() {
-        bJq();
+        bFy();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String bJr() {
+    public static String bFz() {
         if (Build.VERSION.SDK_INT >= 17) {
             return WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()) + " tieba/" + TbConfig.getVersion();
         }
@@ -197,7 +197,7 @@ public class ai {
         return str;
     }
 
-    public static boolean EN(String str) {
+    public static boolean DC(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

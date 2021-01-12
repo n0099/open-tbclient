@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.settings;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TaskSetting {
     protected TimeOutData mTimeOutData = null;
     protected int mRetryCount = 1;

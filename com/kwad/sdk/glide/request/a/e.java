@@ -6,12 +6,12 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.request.b.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class e<Z> extends k<ImageView, Z> implements b.a {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private Animatable f10640b;
+    private Animatable f10340b;
 
     public e(ImageView imageView) {
         super(imageView);
@@ -24,18 +24,18 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     private void c(@Nullable Z z) {
         if (!(z instanceof Animatable)) {
-            this.f10640b = null;
+            this.f10340b = null;
             return;
         }
-        this.f10640b = (Animatable) z;
-        this.f10640b.start();
+        this.f10340b = (Animatable) z;
+        this.f10340b.start();
     }
 
     @Override // com.kwad.sdk.glide.request.a.k, com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.request.a.j
     public void a(@Nullable Drawable drawable) {
         super.a(drawable);
-        if (this.f10640b != null) {
-            this.f10640b.stop();
+        if (this.f10340b != null) {
+            this.f10340b.stop();
         }
         b((e<Z>) null);
         e(drawable);
@@ -61,8 +61,8 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void c() {
-        if (this.f10640b != null) {
-            this.f10640b.start();
+        if (this.f10340b != null) {
+            this.f10340b.start();
         }
     }
 
@@ -75,12 +75,12 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void d() {
-        if (this.f10640b != null) {
-            this.f10640b.stop();
+        if (this.f10340b != null) {
+            this.f10340b.stop();
         }
     }
 
     public void e(Drawable drawable) {
-        ((ImageView) this.f10646a).setImageDrawable(drawable);
+        ((ImageView) this.f10346a).setImageDrawable(drawable);
     }
 }

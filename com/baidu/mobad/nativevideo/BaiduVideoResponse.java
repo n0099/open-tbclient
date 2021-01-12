@@ -2,10 +2,10 @@ package com.baidu.mobad.nativevideo;
 
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface BaiduVideoResponse {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public enum PrerollMaterialType {
         NORMAL,
         VIDEO,

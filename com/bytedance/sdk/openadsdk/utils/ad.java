@@ -16,10 +16,10 @@ public class ad {
     private static final CharSequence e = "funtouch";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7840a = false;
+    public static boolean f7540a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f7841b = false;
+    public static boolean f7541b = false;
 
     public static String a() {
         if (o()) {
@@ -69,18 +69,18 @@ public class ad {
     }
 
     public static boolean e() {
-        if (!f7841b) {
+        if (!f7541b) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    f7840a = true;
-                    f7841b = true;
-                    return f7840a;
+                    f7540a = true;
+                    f7541b = true;
+                    return f7540a;
                 }
             } catch (Exception e2) {
             }
-            f7841b = true;
+            f7541b = true;
         }
-        return f7840a;
+        return f7540a;
     }
 
     public static String f() {
@@ -295,10 +295,10 @@ public class ad {
     public static class a implements Callable<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7843a;
+        private String f7543a;
 
         public a(String str) {
-            this.f7843a = str;
+            this.f7543a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -306,7 +306,7 @@ public class ad {
         /* renamed from: a */
         public String call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            String c = ad.c(this.f7843a);
+            String c = ad.c(this.f7543a);
             u.b("RomUtils", "property:" + c + ",getSystemProperty use time :" + (System.currentTimeMillis() - currentTimeMillis));
             if (!TextUtils.isEmpty(c)) {
                 try {

@@ -12,19 +12,19 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements Handler.Callback {
-    private static Printer pqi = null;
-    private static f pqj = null;
-    private static final Printer pqk = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
+    private static Printer plD = null;
+    private static f plE = null;
+    private static final Printer plF = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
         @Override // android.util.Printer
         public void println(String str) {
             if (str != null) {
                 if (str.startsWith(">>>>> Dispatching")) {
-                    f.esB().a(str);
+                    f.eoH().a(str);
                 } else if (str.startsWith("<<<<< Finished")) {
-                    f.esB().b(str);
+                    f.eoH().b(str);
                 }
-                if (f.pqi != null && f.pqi != f.pqk) {
-                    f.pqi.println(str);
+                if (f.plD != null && f.plD != f.plF) {
+                    f.plD.println(str);
                 }
             }
         }
@@ -43,29 +43,29 @@ public class f implements Handler.Callback {
         b();
     }
 
-    public static f esB() {
-        if (pqj == null) {
+    public static f eoH() {
+        if (plE == null) {
             synchronized (f.class) {
-                if (pqj == null) {
-                    pqj = new f();
+                if (plE == null) {
+                    plE = new f();
                 }
             }
         }
-        return pqj;
+        return plE;
     }
 
     public void b() {
         if (!this.k) {
             this.k = true;
-            pqi = esC();
-            if (pqi == pqk) {
-                pqi = null;
+            plD = eoI();
+            if (plD == plF) {
+                plD = null;
             }
-            Looper.getMainLooper().setMessageLogging(pqk);
+            Looper.getMainLooper().setMessageLogging(plF);
         }
     }
 
-    private Printer esC() {
+    private Printer eoI() {
         try {
             Field declaredField = Class.forName("android.os.Looper").getDeclaredField("mLogging");
             declaredField.setAccessible(true);

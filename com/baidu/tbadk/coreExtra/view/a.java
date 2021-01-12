@@ -13,70 +13,70 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private ImageViewerBottomLayout fzf;
-    private AbsFloorImageTextView fzg;
-    private LinearLayout fzh;
-    private boolean fzi = true;
-    private final ImageViewerBottomLayout.a fzj = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private boolean fuA = true;
+    private final ImageViewerBottomLayout.a fuB = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.fzi = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fzi)));
-            a.this.kA(z);
+            a.this.fuA = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fuA)));
+            a.this.kw(z);
         }
     };
+    private ImageViewerBottomLayout fux;
+    private AbsFloorImageTextView fuy;
+    private LinearLayout fuz;
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.fzh = new LinearLayout(context);
-        this.fzh.setOrientation(1);
-        this.fzh.setVisibility(8);
-        ao.a(this.fzh, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.fuz = new LinearLayout(context);
+        this.fuz.setOrientation(1);
+        this.fuz.setVisibility(8);
+        ao.a(this.fuz, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.fzh, layoutParams);
-        bCU();
-        bCT();
+        relativeLayout.addView(this.fuz, layoutParams);
+        bza();
+        byZ();
     }
 
-    private void bCT() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fzl);
-        this.fzf = new ImageViewerBottomLayout(this.mContext);
-        this.fzh.addView(this.fzf, layoutParams);
-        this.fzf.setExpandButtonListener(this.fzj);
+    private void byZ() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fuD);
+        this.fux = new ImageViewerBottomLayout(this.mContext);
+        this.fuz.addView(this.fux, layoutParams);
+        this.fux.setExpandButtonListener(this.fuB);
     }
 
-    private void bCU() {
+    private void bza() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.fzg = new FloorImageTextViewNew(this.mContext);
-        this.fzh.addView(this.fzg, layoutParams);
+        this.fuy = new FloorImageTextViewNew(this.mContext);
+        this.fuz.addView(this.fuy, layoutParams);
     }
 
-    public void kA(boolean z) {
-        if (this.fzg != null) {
-            this.fzg.kA(z);
+    public void kw(boolean z) {
+        if (this.fuy != null) {
+            this.fuy.kw(z);
         }
-        if (this.fzf != null) {
-            this.fzf.kB(!z);
+        if (this.fux != null) {
+            this.fux.kx(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.fzg != null) {
-            this.fzg.setUserId(str);
+        if (this.fuy != null) {
+            this.fuy.setUserId(str);
         }
-        if (this.fzf != null) {
-            this.fzf.setUserId(str);
+        if (this.fux != null) {
+            this.fux.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.fzg != null) {
-            this.fzg.a(imageUrlData);
+        if (this.fuy != null) {
+            this.fuy.a(imageUrlData);
         }
-        if (this.fzf != null) {
-            this.fzf.b(imageUrlData);
+        if (this.fux != null) {
+            this.fux.b(imageUrlData);
         }
     }
 
@@ -85,50 +85,50 @@ public class a {
     }
 
     public boolean isShown() {
-        return bN(this.fzh);
+        return bN(this.fuz);
     }
 
-    public boolean bCV() {
-        return this.fzi;
+    public boolean bzb() {
+        return this.fuA;
     }
 
     public void setVisibility(int i) {
-        if (this.fzh != null) {
-            this.fzh.clearAnimation();
-            this.fzh.setVisibility(i);
+        if (this.fuz != null) {
+            this.fuz.clearAnimation();
+            this.fuz.setVisibility(i);
         }
     }
 
     public void be(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.G(this.fzh, i2);
+            com.baidu.tieba.v.a.G(this.fuz, i2);
         } else {
-            com.baidu.tieba.v.a.F(this.fzh, i2);
+            com.baidu.tieba.v.a.F(this.fuz, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.fzf != null) {
-            this.fzf.setOnShareImageListener(cVar);
+        if (this.fux != null) {
+            this.fux.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.fzf != null) {
-            this.fzf.setOnDownloadImageListener(bVar);
+        if (this.fux != null) {
+            this.fux.setOnDownloadImageListener(bVar);
         }
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        if (this.fzf != null) {
-            this.fzf.setOnReplyClickListener(onClickListener);
+        if (this.fux != null) {
+            this.fux.setOnReplyClickListener(onClickListener);
         }
     }
 
     public int getBottomHeight() {
-        if (this.fzf == null || this.fzg == null) {
+        if (this.fux == null || this.fuy == null) {
             return 0;
         }
-        return this.fzf.getHeight() + AbsFloorImageTextView.fxY;
+        return this.fux.getHeight() + AbsFloorImageTextView.ftq;
     }
 }

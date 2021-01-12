@@ -12,23 +12,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class StatusListener {
         public abstract void onStatus(int i);
     }
 
-    void NX(int i);
+    void Mq(int i);
 
-    void NY(int i);
+    void Mr(int i);
 
-    void NZ(int i);
+    void Ms(int i);
 
-    void WU(String str);
+    void VM(String str);
 
-    void WV(String str);
+    void VN(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -36,9 +36,9 @@ public interface UrlRequest {
 
     void cancel();
 
-    void ehD();
+    void edL();
 
-    void ehE();
+    void edM();
 
     void followRedirect();
 
@@ -54,7 +54,7 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         boolean mDisableCache;
         boolean mDisableConnectionMigration;
@@ -63,24 +63,24 @@ public interface UrlRequest {
         Object mTag;
         Executor mUploadDataProviderExecutor;
         final String mUrl;
-        final Callback oJQ;
-        boolean oKf;
-        boolean oKh;
-        int oKi;
-        int oKj;
-        int oKk;
-        int oKl;
-        String oKm;
-        String oKn;
-        UploadDataProvider oLJ;
-        boolean oLK;
-        final TurbonetEngine oLf;
+        boolean oFA;
+        boolean oFC;
+        int oFD;
+        int oFE;
+        int oFF;
+        int oFG;
+        String oFH;
+        String oFI;
+        final Callback oFl;
+        final TurbonetEngine oGA;
+        UploadDataProvider oHe;
+        boolean oHf;
         final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
         Collection<Object> mRequestAnnotations = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public @interface RequestPriority {
         }
 
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oJQ = callback;
+            this.oFl = callback;
             this.mExecutor = executor;
-            this.oLf = turbonetEngine;
-            this.oLK = false;
-            this.oKh = false;
-            this.oKi = 0;
-            this.oKj = 0;
-            this.oKk = 0;
-            this.oKl = 0;
+            this.oGA = turbonetEngine;
+            this.oHf = false;
+            this.oFC = false;
+            this.oFD = 0;
+            this.oFE = 0;
+            this.oFF = 0;
+            this.oFG = 0;
             this.mTag = null;
-            this.oKm = null;
-            this.oKn = null;
+            this.oFH = null;
+            this.oFI = null;
         }
 
-        public Builder Xf(String str) {
+        public Builder VX(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -120,7 +120,7 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder gT(String str, String str2) {
+        public Builder gS(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -135,43 +135,43 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder eio() {
+        public Builder eew() {
             this.mDisableCache = true;
             return this;
         }
 
-        public Builder eip() {
-            this.oLK = true;
+        public Builder eex() {
+            this.oHf = true;
             return this;
         }
 
-        public Builder eiq() {
-            this.oKf = true;
+        public Builder eey() {
+            this.oFA = true;
             return this;
         }
 
-        public Builder Oj(int i) {
-            this.oKi = i;
+        public Builder MC(int i) {
+            this.oFD = i;
             return this;
         }
 
-        public Builder Ok(int i) {
-            this.oKj = i;
+        public Builder MD(int i) {
+            this.oFE = i;
             return this;
         }
 
-        public Builder Ol(int i) {
-            this.oKk = i;
+        public Builder ME(int i) {
+            this.oFF = i;
             return this;
         }
 
-        public Builder Xg(String str) {
-            this.oKm = str;
+        public Builder VY(String str) {
+            this.oFH = str;
             return this;
         }
 
-        public Builder Xh(String str) {
-            this.oKn = str;
+        public Builder VZ(String str) {
+            this.oFI = str;
             return this;
         }
 
@@ -185,13 +185,13 @@ public interface UrlRequest {
             if (this.mMethod == null) {
                 this.mMethod = "POST";
             }
-            this.oLJ = uploadDataProvider;
+            this.oHe = uploadDataProvider;
             this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
-        public UrlRequest eir() {
-            UrlRequest a2 = this.oLf.a(this.mUrl, this.oJQ, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oKf);
+        public UrlRequest eez() {
+            UrlRequest a2 = this.oGA.a(this.mUrl, this.oFl, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oFA);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
             }
@@ -200,41 +200,41 @@ public interface UrlRequest {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oLJ != null) {
-                a2.a(this.oLJ, this.mUploadDataProviderExecutor);
+            if (this.oHe != null) {
+                a2.a(this.oHe, this.mUploadDataProviderExecutor);
             }
-            if (this.oLK) {
-                a2.ehD();
+            if (this.oHf) {
+                a2.edL();
             }
-            if (this.oKh) {
-                a2.ehE();
+            if (this.oFC) {
+                a2.edM();
             }
-            if (this.oKi > 0) {
-                a2.setTimeout(this.oKi);
+            if (this.oFD > 0) {
+                a2.setTimeout(this.oFD);
             }
-            if (this.oKj > 0) {
-                a2.NX(this.oKj);
+            if (this.oFE > 0) {
+                a2.Mq(this.oFE);
             }
-            if (this.oKk > 0) {
-                a2.NY(this.oKk);
+            if (this.oFF > 0) {
+                a2.Mr(this.oFF);
             }
-            if (this.oKl > 0) {
-                a2.NZ(this.oKl);
+            if (this.oFG > 0) {
+                a2.Ms(this.oFG);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oKm)) {
-                a2.WU(this.oKm);
+            if (!TextUtils.isEmpty(this.oFH)) {
+                a2.VM(this.oFH);
             }
-            if (!TextUtils.isEmpty(this.oKn)) {
-                a2.WV(this.oKn);
+            if (!TextUtils.isEmpty(this.oFI)) {
+                a2.VN(this.oFI);
             }
             return a2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Om(int i) {
+        public static int MF(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

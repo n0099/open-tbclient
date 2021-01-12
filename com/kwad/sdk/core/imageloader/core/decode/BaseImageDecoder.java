@@ -12,7 +12,7 @@ import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseImageDecoder implements ImageDecoder {
     protected static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
     protected static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
@@ -23,7 +23,7 @@ public class BaseImageDecoder implements ImageDecoder {
     protected final boolean loggingEnabled;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
@@ -40,7 +40,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;

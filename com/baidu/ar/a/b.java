@@ -2,6 +2,7 @@ package com.baidu.ar.a;
 
 import android.content.Context;
 import com.baidu.ar.callback.ICallbackWith;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
@@ -14,7 +15,7 @@ public class b {
     private Context mContext;
 
     public b(Context context) {
-        this.bM = "default";
+        this.bM = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
         if (context != null) {
             this.mContext = context.getApplicationContext();
             a a2 = d.a(context);

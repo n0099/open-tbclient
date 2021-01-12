@@ -3,7 +3,7 @@ package com.baidu.swan.support.v4.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new Parcelable.Creator<FragmentManagerState>() { // from class: com.baidu.swan.support.v4.app.FragmentManagerState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,22 +15,22 @@ public final class FragmentManagerState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: nH */
+        /* renamed from: mb */
         public FragmentManagerState[] newArray(int i) {
             return new FragmentManagerState[i];
         }
     };
-    FragmentState[] ezC;
-    BackStackState[] ezD;
+    FragmentState[] euN;
+    BackStackState[] euO;
     int[] mAdded;
 
     public FragmentManagerState() {
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.ezC = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.euN = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.mAdded = parcel.createIntArray();
-        this.ezD = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.euO = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
 
     @Override // android.os.Parcelable
@@ -40,8 +40,8 @@ public final class FragmentManagerState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedArray(this.ezC, i);
+        parcel.writeTypedArray(this.euN, i);
         parcel.writeIntArray(this.mAdded);
-        parcel.writeTypedArray(this.ezD, i);
+        parcel.writeTypedArray(this.euO, i);
     }
 }

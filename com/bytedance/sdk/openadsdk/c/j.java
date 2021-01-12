@@ -29,10 +29,10 @@ public class j {
     private p w;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6531a = 1;
+    private int f6231a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6532b = false;
+    private boolean f6232b = false;
     private boolean c = false;
     private boolean d = false;
     private int e = -1;
@@ -95,8 +95,8 @@ public class j {
         if (this.w != null) {
             this.w.e();
         }
-        if (!this.f6532b) {
-            this.f6532b = true;
+        if (!this.f6232b) {
+            this.f6232b = true;
             a("load_start", new JSONObject());
         }
     }
@@ -115,10 +115,10 @@ public class j {
                 this.r.incrementAndGet();
             }
         }
-        if (this.f6531a != 3) {
-            this.f6531a = 2;
+        if (this.f6231a != 3) {
+            this.f6231a = 2;
         }
-        if (this.f6531a == 2) {
+        if (this.f6231a == 2) {
             long j = this.m - this.l;
             if (!this.c) {
                 this.c = true;
@@ -146,7 +146,7 @@ public class j {
         if (this.w != null) {
             this.w.g();
         }
-        this.f6531a = 3;
+        this.f6231a = 3;
         this.e = i;
         this.f = str;
     }
@@ -158,12 +158,12 @@ public class j {
 
     public void c() {
         u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        boolean z = this.f6531a == 2;
+        boolean z = this.f6231a == 2;
         this.k = System.currentTimeMillis();
         long j = this.k - this.j;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("load_status", this.f6531a);
+            jSONObject.put("load_status", this.f6231a);
             jSONObject.put("stay_page_duration", j);
             jSONObject.put("max_scroll_percent", z ? this.o.get() : 0);
         } catch (JSONException e) {

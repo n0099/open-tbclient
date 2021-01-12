@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static Bitmap c(ImageFileInfo imageFileInfo) {
         Bitmap b2;
@@ -22,17 +22,17 @@ public class b {
             b2 = bVar.b(imageFileInfo, true);
         }
         if (b2 == null) {
-            return Pj(imageFileInfo.getFilePath());
+            return Ob(imageFileInfo.getFilePath());
         }
         return b2;
     }
 
-    public static Bitmap Pj(String str) {
+    public static Bitmap Ob(String str) {
         Bitmap bitmap = null;
         try {
             File file = new File(str);
             if (file.exists()) {
-                if (ai(file)) {
+                if (ah(file)) {
                     com.baidu.adp.widget.ImageView.a bs = a.C0013a.le().bs(str);
                     if (bs != null) {
                         bitmap = bs.getRawBitmap();
@@ -54,7 +54,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean ai(File file) {
+    public static boolean ah(File file) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         try {

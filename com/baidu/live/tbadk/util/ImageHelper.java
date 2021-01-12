@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.util;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImageHelper {
     public static boolean canUseIp(String str) {
         if (str == null) {

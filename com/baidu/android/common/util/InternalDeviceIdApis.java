@@ -17,9 +17,9 @@ public class InternalDeviceIdApis {
     }
 
     public static String getSelfC270Ids(Context context) {
-        g.a tV = a(context).tV();
-        if (tV != null) {
-            return tV.g();
+        g.a tM = a(context).tM();
+        if (tM != null) {
+            return tM.g();
         }
         return null;
     }
@@ -27,13 +27,13 @@ public class InternalDeviceIdApis {
     public static TargetPackageCuidV270Info getTargetPackageCuid270Info(Context context, String str) {
         g a2 = a(context);
         TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-        g.a S = a2.S(str, "upc");
-        if (S != null) {
-            targetPackageCuidV270Info.upcChannelCuid = S.g();
+        g.a R = a2.R(str, "upc");
+        if (R != null) {
+            targetPackageCuidV270Info.upcChannelCuid = R.g();
         }
-        g.a S2 = a2.S(str, "isc");
-        if (S2 != null) {
-            targetPackageCuidV270Info.iscChannelCuid = S2.g();
+        g.a R2 = a2.R(str, "isc");
+        if (R2 != null) {
+            targetPackageCuidV270Info.iscChannelCuid = R2.g();
         }
         return targetPackageCuidV270Info;
     }

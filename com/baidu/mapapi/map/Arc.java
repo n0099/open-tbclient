@@ -3,24 +3,24 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class Arc extends Overlay {
     private static final String f = Arc.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2790a;
+    int f2690a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2791b;
+    int f2691b;
     LatLng c;
     LatLng d;
     LatLng e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Arc() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.i.arc;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.arc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,14 +35,14 @@ public final class Arc extends Overlay {
         GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f2791b);
+        bundle.putInt("width", this.f2691b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.f2790a, bundle);
+        Overlay.a(this.f2690a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.f2790a;
+        return this.f2690a;
     }
 
     public LatLng getEndPoint() {
@@ -58,20 +58,20 @@ public final class Arc extends Overlay {
     }
 
     public int getWidth() {
-        return this.f2791b;
+        return this.f2691b;
     }
 
     public void setColor(int i) {
-        this.f2790a = i;
+        this.f2690a = i;
         this.listener.b(this);
     }
 
     public void setPoints(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         if (latLng == null || latLng2 == null || latLng3 == null) {
-            throw new IllegalArgumentException("BDMapSDKException:start and middle and end points can not be null");
+            throw new IllegalArgumentException("start and middle and end points can not be null");
         }
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
+            throw new IllegalArgumentException("start and middle and end points can not be same");
         }
         this.c = latLng;
         this.d = latLng2;
@@ -81,7 +81,7 @@ public final class Arc extends Overlay {
 
     public void setWidth(int i) {
         if (i > 0) {
-            this.f2791b = i;
+            this.f2691b = i;
             this.listener.b(this);
         }
     }

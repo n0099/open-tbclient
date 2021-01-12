@@ -8,7 +8,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     private static final String TAG = "ByteBufferEncoder";
 

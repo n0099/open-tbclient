@@ -21,11 +21,11 @@ import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ao;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9140b;
+    private ViewGroup f8840b;
     private ViewGroup c;
     private TextView d;
     private TextView e;
@@ -53,7 +53,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             if (a.this.r.getAndSet(true)) {
                 return;
             }
-            if (a.this.a(com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(a.this.f8693a.j)))) {
+            if (a.this.a(com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(a.this.f8393a.j)))) {
                 e.j(a.this.p);
             }
         }
@@ -76,10 +76,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, TrendInfo trendInfo) {
         if (o() != null) {
-            e.c(this.f8693a.j, z ? 2 : 1);
+            e.c(this.f8393a.j, z ? 2 : 1);
             TrendsParams trendsParams = new TrendsParams();
-            if (this.f8693a.j != null && this.f8693a.j.mAdScene != null) {
-                trendsParams.mEntryScene = this.f8693a.j.mAdScene.entryScene;
+            if (this.f8393a.j != null && this.f8393a.j.mAdScene != null) {
+                trendsParams.mEntryScene = this.f8393a.j.mAdScene.entryScene;
             }
             trendsParams.trendInfo = trendInfo;
             com.kwad.sdk.contentalliance.trends.b.a(o(), trendsParams);
@@ -89,9 +89,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(TrendInfo trendInfo) {
         boolean z = true;
-        boolean z2 = com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f8693a.j)) && !this.f8693a.j.mIsTubeEpisodeList;
+        boolean z2 = com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f8393a.j)) && !this.f8393a.j.mIsTubeEpisodeList;
         boolean z3 = trendInfo != null && trendInfo.offlineTime > 0 && trendInfo.offlineTime < System.currentTimeMillis();
-        if (trendInfo == null || TextUtils.isEmpty(trendInfo.name) || com.kwad.sdk.core.response.b.c.B(this.f8693a.j) || z2 || z3) {
+        if (trendInfo == null || TextUtils.isEmpty(trendInfo.name) || com.kwad.sdk.core.response.b.c.B(this.f8393a.j) || z2 || z3) {
             z = false;
         }
         com.kwad.sdk.core.d.a.a("PhotoTrendEnterPresenter", ">> isShowTrendEnterView() showTrendEnter=" + z);
@@ -219,8 +219,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.p = this.f8693a.j;
-        final TrendInfo K = com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(this.f8693a.j));
+        this.p = this.f8393a.j;
+        final TrendInfo K = com.kwad.sdk.core.response.b.d.K(com.kwad.sdk.core.response.b.c.k(this.f8393a.j));
         if (a(K)) {
             a(K.name);
             if (TextUtils.isEmpty(K.iconUrl)) {
@@ -229,19 +229,19 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
                 KSImageLoader.loadImage(this.n, K.iconUrl, null);
             }
             b(K);
-            this.f9140b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.a.a.3
+            this.f8840b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.a.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.a(false, K);
                 }
             });
-            this.f9140b.setVisibility(0);
+            this.f8840b.setVisibility(0);
         } else {
-            this.f9140b.setVisibility(8);
+            this.f8840b.setVisibility(8);
         }
-        this.f8693a.f8703b.add(this.t);
-        if (this.f8693a.m != null) {
-            this.f8693a.m.a(this.s);
+        this.f8393a.f8403b.add(this.t);
+        if (this.f8393a.m != null) {
+            this.f8393a.m.a(this.s);
         }
     }
 
@@ -252,10 +252,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         if (this.o != null) {
             this.o.cancel();
         }
-        if (this.f8693a.m != null) {
-            this.f8693a.m.b(this.s);
+        if (this.f8393a.m != null) {
+            this.f8393a.m.b(this.s);
         }
-        this.f8693a.f8703b.remove(this.t);
+        this.f8393a.f8403b.remove(this.t);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -263,7 +263,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public void c() {
         super.c();
         this.q = com.kwad.sdk.core.config.c.x();
-        this.f9140b = (ViewGroup) b(R.id.ksad_photo_hot_enter_container);
+        this.f8840b = (ViewGroup) b(R.id.ksad_photo_hot_enter_container);
         this.f = (ImageView) b(R.id.ksad_trend_enter_arrow);
         this.d = (TextView) b(R.id.ksad_photo_hot_enter_trend_name);
         this.e = (TextView) b(R.id.ksad_photo_hot_enter_watch_count);

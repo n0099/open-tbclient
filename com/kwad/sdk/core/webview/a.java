@@ -6,14 +6,14 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9836a;
+    public int f9536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f9837b;
+    public AdTemplate f9537b;
     public AdBaseFrameLayout c;
     @Nullable
     public JSONObject d;

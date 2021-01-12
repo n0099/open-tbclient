@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -46,10 +46,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     private static final String q = "skipreg";
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5431a;
+    private Context f5148a;
 
     /* renamed from: b  reason: collision with root package name */
-    private View f5432b;
+    private View f5149b;
     private View c;
     private EditText d;
     private EditText e;
@@ -86,7 +86,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
 
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
-                SmsLoginView.this.f.setText((j / 1000) + SmsLoginView.this.f5431a.getString(a.g.sapi_sdk_sms_second));
+                SmsLoginView.this.f.setText((j / 1000) + SmsLoginView.this.f5148a.getString(a.g.sapi_sdk_sms_second));
                 SmsLoginView.this.f.setEnabled(false);
                 SmsLoginView.this.a(false);
             }
@@ -99,7 +99,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public void onClick(View view) {
             if (SmsLoginView.this.d.getText().toString().length() == 11) {
                 SmsLoginView smsLoginView = SmsLoginView.this;
-                smsLoginView.m = smsLoginView.f.getText().toString().equals(SmsLoginView.this.f5431a.getString(a.g.sapi_sdk_sms_get_check_code));
+                smsLoginView.m = smsLoginView.f.getText().toString().equals(SmsLoginView.this.f5148a.getString(a.g.sapi_sdk_sms_get_check_code));
                 SmsLoginView.this.g.setVisibility(8);
                 SmsLoginView.this.g.setText("");
                 SmsLoginView.this.e.requestFocus();
@@ -200,7 +200,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         @Override // java.lang.Runnable
         public void run() {
             SmsLoginView.this.e.requestFocus();
-            InputMethodManager inputMethodManager = (InputMethodManager) SmsLoginView.this.f5431a.getSystemService("input_method");
+            InputMethodManager inputMethodManager = (InputMethodManager) SmsLoginView.this.f5148a.getSystemService("input_method");
             if (inputMethodManager != null) {
                 inputMethodManager.showSoftInput(SmsLoginView.this.d, 0);
             }
@@ -252,7 +252,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, LoginConstants.SMS_LOGIN);
                 CoreViewRouter.getInstance().getSmsViewLoginCallback().onSuccess(webAuthResult);
             }
-            new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5381b);
+            new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5098b);
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -380,10 +380,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     private interface f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f5441a = "pop_login";
+        public static final String f5158a = "pop_login";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f5442b = "show";
+        public static final String f5159b = "show";
         public static final String c = "input_phone";
         public static final String d = "first_get_dpass";
         public static final String e = "first_get_dpass_success";
@@ -442,7 +442,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
 
     private void d() {
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode || SapiAccountManager.getInstance().getSapiConfiguration().isDarkMode) {
-            this.f5432b.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_sms_bg_night_mode));
+            this.f5149b.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_sms_bg_night_mode));
             this.d.setTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
             this.d.setHintTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_hint_color_night_mode));
             this.e.setTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
@@ -456,18 +456,18 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public SmsLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.m = true;
-        this.f5431a = context;
-        this.f5432b = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
+        this.f5148a = context;
+        this.f5149b = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.i.sapi_sdk_sms_login_view, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(a.i.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
         obtainStyledAttributes.recycle();
-        this.c = this.f5432b.findViewById(a.e.code_container);
-        this.d = (EditText) this.f5432b.findViewById(a.e.phone);
-        this.i = this.f5432b.findViewById(a.e.loading_container);
-        this.e = (EditText) this.f5432b.findViewById(a.e.check_code);
-        this.f = (TextView) this.f5432b.findViewById(a.e.get_code);
-        this.g = (TextView) this.f5432b.findViewById(a.e.prompt);
-        this.h = this.f5432b.findViewById(a.e.separate_line);
+        this.c = this.f5149b.findViewById(a.e.code_container);
+        this.d = (EditText) this.f5149b.findViewById(a.e.phone);
+        this.i = this.f5149b.findViewById(a.e.loading_container);
+        this.e = (EditText) this.f5149b.findViewById(a.e.check_code);
+        this.f = (TextView) this.f5149b.findViewById(a.e.get_code);
+        this.g = (TextView) this.f5149b.findViewById(a.e.prompt);
+        this.h = this.f5149b.findViewById(a.e.separate_line);
         a(this.d, context.getString(a.g.sapi_sdk_sms_hint_input_phone));
         a(this.e, context.getString(a.g.sapi_sdk_sms_hint_input_check_code));
         this.d.addTextChangedListener(new e(this, null));
@@ -490,7 +490,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         this.i.setVisibility(0);
-        this.j = new d(this.f5431a);
+        this.j = new d(this.f5148a);
         this.j.show();
     }
 

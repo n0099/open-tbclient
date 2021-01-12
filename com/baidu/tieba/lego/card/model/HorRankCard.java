@@ -1,7 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HorRankCard extends BaseCardInfo {
     private final double displayNum;
     private final String itemStatistics;
@@ -24,17 +23,17 @@ public class HorRankCard extends BaseCardInfo {
     private final int titleColor;
     private final int titleColorNight;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int bgColor;
         public int bgColorNight;
         public String btnDone;
         public String btnText;
         public boolean isDone;
-        public long kYl;
-        public String kYm;
-        public String kYn;
-        public HorRankCard kYo;
+        public long kTG;
+        public String kTH;
+        public String kTI;
+        public HorRankCard kTJ;
         public String picUrl;
         public String postUrl;
         public int rank;
@@ -93,10 +92,10 @@ public class HorRankCard extends BaseCardInfo {
 
     public HorRankCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
-        this.titleColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tColorNight", ""));
+        this.titleColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tColor", ""));
+        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
-        this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
+        this.ratio = jSONObject.optDouble("ratio", 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
         if (optInt <= 0) {
             this.picType = 1;
@@ -116,18 +115,18 @@ public class HorRankCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             aVar.rank = optJSONObject.optInt("rank");
             aVar.picUrl = optJSONObject.optString("picUrl");
-            aVar.kYm = optJSONObject.optString("picIcon");
+            aVar.kTH = optJSONObject.optString("picIcon");
             aVar.title = optJSONObject.optString("title");
             aVar.subTitle = optJSONObject.optString("subTitle");
             aVar.postUrl = optJSONObject.optString("postUrl");
             aVar.isDone = optJSONObject.optInt("isDone") == 1;
             aVar.btnText = optJSONObject.optString("btnText");
             aVar.btnDone = optJSONObject.optString("btnDone");
-            aVar.kYn = optJSONObject.optString("picScheme");
-            aVar.bgColor = com.baidu.tieba.lego.card.c.b.sF(optJSONObject.optString("bgColor", ""));
-            aVar.bgColorNight = com.baidu.tieba.lego.card.c.b.sF(optJSONObject.optString("bgColorNight", ""));
-            aVar.kYl = optJSONObject.optLong("resourceId");
-            aVar.kYo = this;
+            aVar.kTI = optJSONObject.optString("picScheme");
+            aVar.bgColor = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("bgColor", ""));
+            aVar.bgColorNight = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("bgColorNight", ""));
+            aVar.kTG = optJSONObject.optLong("resourceId");
+            aVar.kTJ = this;
             this.rankInfoList.add(aVar);
         }
         this.rightText = c.ey(jSONObject.optJSONObject("moreButton"));

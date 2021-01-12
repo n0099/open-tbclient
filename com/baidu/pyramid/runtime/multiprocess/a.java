@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile int cvH = 0;
+    private static volatile int cqP = 0;
     private static volatile String sProcessName;
 
-    public static int ahC() {
-        int i = cvH;
+    public static int adI() {
+        int i = cqP;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,17 +26,17 @@ public class a {
             } else {
                 i |= 4;
             }
-            cvH = i;
+            cqP = i;
         }
         return i;
     }
 
-    public static boolean ahD() {
-        return (ahC() & 1) != 0;
+    public static boolean adJ() {
+        return (adI() & 1) != 0;
     }
 
-    public static boolean ahE() {
-        return (ahC() & 2) != 0;
+    public static boolean adK() {
+        return (adI() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -46,7 +46,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = ahG();
+                    str = adM();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -57,7 +57,7 @@ public class a {
         return str;
     }
 
-    public static int ahF() {
+    public static int adL() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -91,7 +91,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String ahG() {
+    private static String adM() {
         String str;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

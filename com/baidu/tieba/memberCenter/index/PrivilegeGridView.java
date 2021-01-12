@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PrivilegeGridView extends GridView {
     public PrivilegeGridView(Context context) {
         super(context);

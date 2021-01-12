@@ -1,23 +1,23 @@
 package com.baidu.yuyinala.more;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaMoreFunctionDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c {
     public b(TbPageContext tbPageContext, AlaMoreFunctionDialogData alaMoreFunctionDialogData) {
         super(tbPageContext, new c(tbPageContext), alaMoreFunctionDialogData);
-        ((c) this.bKA).a(this);
-        gp(80);
-        da(true);
-        db(true);
+        ((c) this.bFO).a(this);
+        eI(80);
+        cW(true);
+        cX(true);
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UD() {
+    public boolean QI() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UE() {
+    public boolean QJ() {
         return true;
     }
 
@@ -27,6 +27,6 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaMo
     }
 
     public void a(com.baidu.live.e.c cVar) {
-        ((c) this.bKA).b(cVar);
+        ((c) this.bFO).b(cVar);
     }
 }

@@ -2,46 +2,31 @@ package com.baidu.platform.base;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Base64;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
-import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
-import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
-    private SearchType f;
 
     /* renamed from: b  reason: collision with root package name */
-    private AsyncHttpClient f4172b = new AsyncHttpClient();
+    private AsyncHttpClient f4134b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f4171a = new ReentrantLock();
+    protected final Lock f4133a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str) {
-        byte[] bArr = {102, 97, 105, 108, 100};
-        try {
-            bArr = AlgorithmUtil.getUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), Base64.decode(str.getBytes(), 0));
-        } catch (Exception e) {
-            Log.e("BaseSearch", "transform result failed");
-        }
-        return new String(bArr).trim();
-    }
-
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
-        asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f), protoResultCallback);
+        asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(), protoResultCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,9 +39,21 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str) {
+        if (b(str)) {
+            return;
+        }
+        Log.e("BaseSearch", "Permission check unfinished, try again");
+        int permissionCheck = PermissionCheck.permissionCheck();
+        if (permissionCheck != 0) {
+            Log.e("BaseSearch", "The authorized result is: " + permissionCheck);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, d dVar, Object obj, AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback) {
         SearchResult a2 = dVar.a(str);
-        a2.status = b(str);
+        a2.status = c(str);
         if (a(dVar, a2)) {
             a(asyncHttpClient, protoResultCallback, a2);
         } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
@@ -83,8 +80,21 @@ public abstract class a {
         return false;
     }
 
-    private int b(String str) {
-        JSONObject optJSONObject;
+    private boolean b(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.has("SDK_InnerError") && jSONObject.optJSONObject("SDK_InnerError").has("PermissionCheckError")) {
+                Log.e("BaseSearch", "Permission check unfinished");
+                return false;
+            }
+            return true;
+        } catch (JSONException e) {
+            Log.e("BaseSearch", "Create JSONObject failed");
+            return false;
+        }
+    }
+
+    private int c(String str) {
         int i = 10204;
         if (str != null && !str.equals("")) {
             try {
@@ -93,8 +103,8 @@ public abstract class a {
                     i = jSONObject.getInt("status");
                 } else if (jSONObject.has("status_sp")) {
                     i = jSONObject.getInt("status_sp");
-                } else if (jSONObject.has("result") && (optJSONObject = jSONObject.optJSONObject("result")) != null) {
-                    i = optJSONObject.optInt(BdStatsConstant.StatsType.ERROR);
+                } else if (jSONObject.has("result")) {
+                    i = jSONObject.optJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR);
                 }
             } catch (JSONException e) {
                 Log.e("BaseSearch", "Create JSONObject failed when get response result status");
@@ -103,38 +113,15 @@ public abstract class a {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean c(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("status") || jSONObject.has("status_sp")) {
-                switch (jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp")) {
-                    case 105:
-                    case 106:
-                        int permissionCheck = PermissionCheck.permissionCheck();
-                        if (permissionCheck != 0) {
-                            Log.e("BaseSearch", "permissionCheck result is: " + permissionCheck);
-                            break;
-                        }
-                        break;
-                }
-            }
-            return true;
-        } catch (JSONException e) {
-            return false;
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(e eVar, Object obj, d dVar) {
         if (dVar == null) {
             Log.e(a.class.getSimpleName(), "The SearchParser is null, must be applied.");
             return false;
         }
-        this.f = dVar.a();
-        String a2 = eVar.a(this.f);
+        String a2 = eVar.a();
         if (a2 != null) {
-            this.f4172b.get(a2, new b(this, dVar, obj));
+            this.f4134b.get(a2, new b(this, dVar, obj));
             return true;
         }
         Log.e("BaseSearch", "The sendurl is: " + a2);

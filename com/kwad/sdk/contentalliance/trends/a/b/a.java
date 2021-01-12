@@ -15,7 +15,7 @@ import com.kwad.sdk.contentalliance.trends.view.d;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.utils.ag;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends e {
     private TextView c;
     private ImageView d;
@@ -47,7 +47,7 @@ public class a extends e {
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
             com.kwad.sdk.core.d.a.a("PhotoTrendFeedTitlePresenter", " onError code " + i + " msg " + str);
-            if (a.this.f9034a.c.getAdapter().a() == 0) {
+            if (a.this.f8734a.c.getAdapter().a() == 0) {
                 a.this.c.setVisibility(8);
                 a.this.e.setVisibility(8);
                 a.this.h = true;
@@ -64,7 +64,7 @@ public class a extends e {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    Runnable f9153b = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.a.b.a.3
+    Runnable f8853b = new Runnable() { // from class: com.kwad.sdk.contentalliance.trends.a.b.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.c.setAlpha(1.0f);
@@ -79,10 +79,10 @@ public class a extends e {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (f == 0.0f || a.this.f9034a.c.getAdapter() == null) {
+            if (f == 0.0f || a.this.f8734a.c.getAdapter() == null) {
                 return;
             }
-            CharSequence pageTitle = a.this.f9034a.c.getAdapter().getPageTitle(i);
+            CharSequence pageTitle = a.this.f8734a.c.getAdapter().getPageTitle(i);
             TrendInfo trendInfo = new TrendInfo();
             try {
                 trendInfo.parseJson(new JSONObject(pageTitle.toString()));
@@ -90,9 +90,9 @@ public class a extends e {
                 e.printStackTrace();
             }
             TrendInfo trendInfo2 = new TrendInfo();
-            if (a.this.f9034a.c.k()) {
+            if (a.this.f8734a.c.k()) {
                 try {
-                    trendInfo2.parseJson(new JSONObject(a.this.f9034a.c.getAdapter().getPageTitle(i + 1).toString()));
+                    trendInfo2.parseJson(new JSONObject(a.this.f8734a.c.getAdapter().getPageTitle(i + 1).toString()));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -111,8 +111,8 @@ public class a extends e {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (a.this.f9034a.c.getAdapter() != null) {
-                CharSequence pageTitle = a.this.f9034a.c.getAdapter().getPageTitle(i);
+            if (a.this.f8734a.c.getAdapter() != null) {
+                CharSequence pageTitle = a.this.f8734a.c.getAdapter().getPageTitle(i);
                 if (TextUtils.isEmpty(pageTitle)) {
                     return;
                 }
@@ -128,11 +128,11 @@ public class a extends e {
                     a.this.e();
                     return;
                 }
-                a.this.f9034a.i = trendInfo;
+                a.this.f8734a.i = trendInfo;
                 a.this.a(trendInfo);
                 a.this.c.setVisibility(8);
                 a.this.e.setVisibility(8);
-                a.this.c.postDelayed(a.this.f9153b, 1200L);
+                a.this.c.postDelayed(a.this.f8853b, 1200L);
             }
         }
     };
@@ -145,7 +145,7 @@ public class a extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f9034a.f == null || this.f9034a.f.l || this.h) {
+        if (this.f8734a.f == null || this.f8734a.f.l || this.h) {
             return;
         }
         this.c.setVisibility(0);
@@ -162,12 +162,12 @@ public class a extends e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f9034a.f9036b;
+        this.g = this.f8734a.f8736b;
         this.g.a(this.j);
-        this.f9034a.c.a(this.k);
-        a(this.f9034a.i);
-        com.kwad.sdk.core.d.a.a("PhotoTrendFeedTitlePresenter", "mCallerContext.mTrendListData size=" + this.f9034a.h.size());
-        TrendInfo trendInfo = this.f9034a.i;
+        this.f8734a.c.a(this.k);
+        a(this.f8734a.i);
+        com.kwad.sdk.core.d.a.a("PhotoTrendFeedTitlePresenter", "mCallerContext.mTrendListData size=" + this.f8734a.h.size());
+        TrendInfo trendInfo = this.f8734a.i;
         if (trendInfo != null) {
             com.kwad.sdk.core.d.a.a("PhotoTrendFeedTitlePresenter", "trendInfo" + trendInfo.toJson());
             a(trendInfo);
@@ -180,11 +180,11 @@ public class a extends e {
         } else {
             this.f.setVisibility(8);
         }
-        this.f9034a.o.add(this.i);
+        this.f8734a.o.add(this.i);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Activity activity = a.this.f9034a.f9035a.getActivity();
+                Activity activity = a.this.f8734a.f8735a.getActivity();
                 if (activity != null) {
                     activity.onBackPressed();
                 }
@@ -196,11 +196,11 @@ public class a extends e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9034a.c.b(this.k);
-        this.f9034a.o.remove(this.i);
+        this.f8734a.c.b(this.k);
+        this.f8734a.o.remove(this.i);
         this.g.b(this.j);
         this.d.setOnClickListener(null);
-        this.c.removeCallbacks(this.f9153b);
+        this.c.removeCallbacks(this.f8853b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

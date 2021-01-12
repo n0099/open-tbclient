@@ -10,12 +10,12 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes2.dex */
 public class c extends k<l, FrsFeedItemViewHolder> {
-    private boolean jpv;
-    protected a jwl;
+    private boolean jkO;
+    protected a jrF;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.jpv = z;
+        this.jkO = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class c extends k<l, FrsFeedItemViewHolder> {
     /* renamed from: bE */
     public FrsFeedItemViewHolder e(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.jwl = new a(this.mPageContext, inflate, 2, this.jpv, this.mPageId);
+        this.jrF = new a(this.mPageContext, inflate, 2, this.jkO, this.mPageId);
         return new FrsFeedItemViewHolder(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends k<l, FrsFeedItemViewHolder> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) frsFeedItemViewHolder);
         if (lVar != null) {
-            this.jwl.f(lVar.getForumId(), lVar.dOl());
+            this.jrF.f(lVar.getForumId(), lVar.dKt());
         }
         return view;
     }

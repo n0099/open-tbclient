@@ -1,6 +1,6 @@
 package org.aspectj.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends a implements org.aspectj.lang.reflect.c {
     Class returnType;
 
@@ -10,9 +10,9 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class eNk() {
+    public Class eJu() {
         if (this.returnType == null) {
-            this.returnType = TL(6);
+            this.returnType = Se(6);
         }
         return this.returnType;
     }
@@ -20,18 +20,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.TN(eNl()));
-        if (hVar.qpi) {
-            stringBuffer.append(hVar.H(eNk()));
+        stringBuffer.append(hVar.Sg(eJv()));
+        if (hVar.qkG) {
+            stringBuffer.append(hVar.H(eJu()));
         }
-        if (hVar.qpi) {
+        if (hVar.qkG) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.l(eNm(), eNn()));
+        stringBuffer.append(hVar.l(eJw(), eJx()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, eNg());
-        hVar.c(stringBuffer, eNh());
+        hVar.b(stringBuffer, eJq());
+        hVar.c(stringBuffer, eJr());
         return stringBuffer.toString();
     }
 }

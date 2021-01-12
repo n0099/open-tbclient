@@ -37,7 +37,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
         zVar.addPostData(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, this.url);
         zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
         String postNetData = zVar.postNetData();
-        if (zVar.bvR().bwB().isRequestSuccess()) {
+        if (zVar.brX().bsH().isRequestSuccess()) {
             try {
                 resultData = (ResultData) OrmObject.objectWithJsonStr(postNetData, ResultData.class);
             } catch (Exception e) {

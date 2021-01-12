@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.impl;
 
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ANRInfo {
     private String mAllStackTracePath;
     private String mCurrentPage;

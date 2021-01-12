@@ -15,21 +15,21 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a fcZ;
-    private c jnn;
+    private com.baidu.tbadk.coreExtra.model.a eYq;
+    private c jiG;
     private TbPageContext mPageContext;
-    private BdUniqueId ahE = BdUniqueId.gen();
-    private CustomMessageListener fdd = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
+    private BdUniqueId agN = BdUniqueId.gen();
+    private CustomMessageListener eYu = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.jnn != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.jiG != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.isSucc) {
-                    h.this.jnn.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.jiG.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.jnn.qQ(data.isAttention);
+                    h.this.jiG.qM(data.isAttention);
                 }
             }
         }
@@ -37,25 +37,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.jnn = cVar;
-        this.fcZ = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.fdd.setSelfListener(true);
-        this.fdd.setTag(this.ahE);
-        MessageManager.getInstance().registerListener(this.fdd);
+        this.jiG = cVar;
+        this.eYq = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.eYu.setSelfListener(true);
+        this.eYu.setTag(this.agN);
+        MessageManager.getInstance().registerListener(this.eYu);
     }
 
     public void f(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.jmR != null && this.fcZ != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            this.fcZ.a(!gVar.jmR.hasFocus, gVar.jmR.portrait, gVar.jmR.userId, this.ahE);
+        } else if (gVar != null && gVar.jik != null && this.eYq != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            this.eYq.a(!gVar.jik.hasFocus, gVar.jik.portrait, gVar.jik.userId, this.agN);
         }
     }
 
     public void g(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && this.jnn != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.jiG != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -68,14 +68,14 @@ public class h {
             }
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.jnn.cHT();
+            this.jiG.cEb();
         }
     }
 
-    public void cIc() {
-        if (this.fcZ != null) {
-            this.fcZ.cancel();
+    public void cEk() {
+        if (this.eYq != null) {
+            this.eYq.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.fdd);
+        MessageManager.getInstance().unRegisterListener(this.eYu);
     }
 }

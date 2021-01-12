@@ -1,30 +1,30 @@
 package com.kwad.sdk.a.b;
 
 import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private KsNativeAd.VideoPlayListener f8450b;
+    private KsNativeAd.VideoPlayListener f8150b;
     private com.kwad.sdk.contentalliance.detail.video.e c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.e.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            if (e.this.f8450b != null) {
-                e.this.f8450b.onVideoPlayComplete();
+            if (e.this.f8150b != null) {
+                e.this.f8150b.onVideoPlayComplete();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
-            if (e.this.f8450b != null) {
-                e.this.f8450b.onVideoPlayError(i, i2);
+            if (e.this.f8150b != null) {
+                e.this.f8150b.onVideoPlayError(i, i2);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            if (e.this.f8450b != null) {
-                e.this.f8450b.onVideoPlayStart();
+            if (e.this.f8150b != null) {
+                e.this.f8150b.onVideoPlayStart();
             }
         }
     };
@@ -33,14 +33,14 @@ public class e extends com.kwad.sdk.a.a.a {
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8450b = this.f8436a.f8438b;
-        this.f8436a.f.a(this.c);
+        this.f8150b = this.f8136a.f8138b;
+        this.f8136a.f.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8436a.f.b(this.c);
+        this.f8136a.f.b(this.c);
     }
 }

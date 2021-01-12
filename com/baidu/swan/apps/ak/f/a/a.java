@@ -2,7 +2,6 @@ package com.baidu.swan.apps.ak.f.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -13,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/memoryWarning");
@@ -44,16 +43,16 @@ public class a extends aa {
     }
 
     public void b(Context context, final CallbackHandler callbackHandler, final String str) {
-        b ajx;
-        if ((context instanceof com.baidu.swan.apps.ak.f.c) && (ajx = ((com.baidu.swan.apps.ak.f.c) context).ajx()) != null) {
-            ajx.a(new com.baidu.swan.apps.ak.f.a() { // from class: com.baidu.swan.apps.ak.f.a.a.1
+        b afD;
+        if ((context instanceof com.baidu.swan.apps.ak.f.c) && (afD = ((com.baidu.swan.apps.ak.f.c) context).afD()) != null) {
+            afD.a(new com.baidu.swan.apps.ak.f.a() { // from class: com.baidu.swan.apps.ak.f.a.a.1
                 @Override // com.baidu.swan.apps.ak.f.a
-                public void lC(int i) {
+                public void jW(int i) {
                     c.i("MemoryWarningAction", "trimMemory consume level:" + i);
                     if (i == 10 || i == 15) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put(MapBundleKey.MapObjKey.OBJ_LEVEL, i);
+                            jSONObject.put("level", i);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

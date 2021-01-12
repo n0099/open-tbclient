@@ -5,14 +5,14 @@ import com.ss.android.socialbase.downloader.impls.r;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l {
-    private static com.ss.android.downloadlib.a.a.d pWD;
+    private static com.ss.android.downloadlib.a.a.d pSc;
 
-    public static com.ss.android.downloadlib.a.a.d eGu() {
-        return pWD;
+    public static com.ss.android.downloadlib.a.a.d eCD() {
+        return pSc;
     }
 
     public static void a(com.ss.android.downloadlib.a.a.d dVar) {
-        pWD = dVar;
+        pSc = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,34 +29,34 @@ public class l {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi_switch_status", jSONObject, aVar);
+        com.ss.android.downloadlib.e.a.eCL().a("pause_reserve_wifi_switch_status", jSONObject, aVar);
         if (n && a(i)) {
             if (com.ss.android.socialbase.downloader.m.d.a(j.a())) {
                 if (cVar.U()) {
                     cVar.Y();
-                    com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi_cancel_on_wifi", aVar);
+                    com.ss.android.downloadlib.e.a.eCL().a("pause_reserve_wifi_cancel_on_wifi", aVar);
                 }
             } else if (!cVar.V()) {
                 a(new com.ss.android.downloadlib.a.a.d() { // from class: com.ss.android.downloadlib.a.l.1
                     @Override // com.ss.android.downloadlib.a.a.d
                     public void a() {
                         l.a((com.ss.android.downloadlib.a.a.d) null);
-                        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(g);
+                        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(g);
                         if (h != null) {
                             h.X();
-                            r.eJS().a(h);
-                            com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi_confirm", aVar);
+                            r.eGc().a(h);
+                            com.ss.android.downloadlib.e.a.eCL().a("pause_reserve_wifi_confirm", aVar);
                         }
                     }
 
                     @Override // com.ss.android.downloadlib.a.a.d
                     public void b() {
                         l.a((com.ss.android.downloadlib.a.a.d) null);
-                        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(g);
+                        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(g);
                         if (h != null) {
                             h.Y();
                         }
-                        com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi_cancel", aVar);
+                        com.ss.android.downloadlib.e.a.eCL().a("pause_reserve_wifi_cancel", aVar);
                     }
                 });
                 TTDelegateActivity.b(aVar.j());

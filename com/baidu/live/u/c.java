@@ -1,9 +1,9 @@
 package com.baidu.live.u;
 
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void Id();
+    void Ei();
 
     void bd(long j);
 

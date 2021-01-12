@@ -4,10 +4,10 @@ import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface NetworkClient {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum Priority {
         High(1),
         Mid(2),
@@ -15,14 +15,14 @@ public interface NetworkClient {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f11870a;
+        private int f11570a;
 
         Priority(int i) {
-            this.f11870a = i;
+            this.f11570a = i;
         }
 
         public final int value() {
-            return this.f11870a;
+            return this.f11570a;
         }
     }
 

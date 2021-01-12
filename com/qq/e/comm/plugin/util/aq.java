@@ -10,27 +10,27 @@ import java.io.DataOutputStream;
 import java.util.Arrays;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class aq {
     private static final byte[] c = {91, -62};
     private static Cipher d = null;
     private static Cipher e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12860a = String.format("AES/%s/PKCS7Padding", "ECB");
+    public static final String f12560a = String.format("AES/%s/PKCS7Padding", "ECB");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f12861b = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+    public static final byte[] f12561b = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Exception {
         public a(String str, Throwable th) {
             super(str, th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Exception {
         public b(String str, Throwable th) {
             super(str, th);
@@ -46,7 +46,7 @@ public class aq {
                     cipher = d;
                 } else {
                     try {
-                        Cipher cipher2 = Cipher.getInstance(f12860a);
+                        Cipher cipher2 = Cipher.getInstance(f12560a);
                         cipher2.init(1, new SecretKeySpec(c(), com.baidu.sapi2.utils.e.q));
                         d = cipher2;
                         cipher = d;
@@ -84,7 +84,7 @@ public class aq {
                     cipher = e;
                 } else {
                     try {
-                        Cipher cipher2 = Cipher.getInstance(f12860a);
+                        Cipher cipher2 = Cipher.getInstance(f12560a);
                         cipher2.init(2, new SecretKeySpec(c(), com.baidu.sapi2.utils.e.q));
                         e = cipher2;
                         cipher = e;
@@ -116,7 +116,7 @@ public class aq {
     }
 
     private static byte[] c() {
-        return f12861b;
+        return f12561b;
     }
 
     private static byte[] c(byte[] bArr) throws a {

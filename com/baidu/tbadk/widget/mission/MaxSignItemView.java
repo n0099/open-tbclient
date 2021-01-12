@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class MaxSignItemView extends FrameLayout {
-    private LineView fXo;
-    private ArrayList<b> fXp;
-    private a fXq;
-    private int fXr;
-    private int fXs;
-    private int fXt;
-    private int fXu;
+    private LineView fSH;
+    private ArrayList<b> fSI;
+    private a fSJ;
+    private int fSK;
+    private int fSL;
+    private int fSM;
+    private int fSN;
     private LinearLayout mContainer;
     private int mSkinType;
 
@@ -37,40 +37,40 @@ public class MaxSignItemView extends FrameLayout {
     public MaxSignItemView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fXp = new ArrayList<>();
-        this.fXt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.fXu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.fSI = new ArrayList<>();
+        this.fSM = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.fSN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         init();
     }
 
     public MaxSignItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fXp = new ArrayList<>();
-        this.fXt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.fXu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.fSI = new ArrayList<>();
+        this.fSM = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.fSN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         init();
     }
 
     public MaxSignItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.fXp = new ArrayList<>();
-        this.fXt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.fXu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.fSI = new ArrayList<>();
+        this.fSM = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.fSN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.max_sign_dialog_cus_view, (ViewGroup) this, true);
         this.mContainer = (LinearLayout) findViewById(R.id.sign_item_container);
-        this.fXo = (LineView) findViewById(R.id.line_view);
-        this.fXr = l.getDimens(getContext(), R.dimen.tbds3);
-        this.fXs = l.getDimens(getContext(), R.dimen.tbds0);
+        this.fSH = (LineView) findViewById(R.id.line_view);
+        this.fSK = l.getDimens(getContext(), R.dimen.tbds3);
+        this.fSL = l.getDimens(getContext(), R.dimen.tbds0);
     }
 
     public void setItemClickListener(a aVar) {
-        this.fXq = aVar;
+        this.fSJ = aVar;
     }
 
     public void setData(ActiveCenterData activeCenterData) {
@@ -82,35 +82,35 @@ public class MaxSignItemView extends FrameLayout {
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     if (size <= 3) {
-                        if (marginLayoutParams.leftMargin != this.fXs || marginLayoutParams.rightMargin != this.fXs) {
-                            marginLayoutParams.leftMargin = this.fXs;
-                            marginLayoutParams.rightMargin = this.fXs;
+                        if (marginLayoutParams.leftMargin != this.fSL || marginLayoutParams.rightMargin != this.fSL) {
+                            marginLayoutParams.leftMargin = this.fSL;
+                            marginLayoutParams.rightMargin = this.fSL;
                             setLayoutParams(marginLayoutParams);
                         }
-                    } else if (marginLayoutParams.leftMargin != this.fXr || marginLayoutParams.rightMargin != this.fXr) {
-                        marginLayoutParams.leftMargin = this.fXr;
-                        marginLayoutParams.rightMargin = this.fXr;
+                    } else if (marginLayoutParams.leftMargin != this.fSK || marginLayoutParams.rightMargin != this.fSK) {
+                        marginLayoutParams.leftMargin = this.fSK;
+                        marginLayoutParams.rightMargin = this.fSK;
                         setLayoutParams(layoutParams);
                     }
                 }
-                if (this.fXo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fXo.getLayoutParams();
+                if (this.fSH.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fSH.getLayoutParams();
                     if (size <= 3) {
-                        if (marginLayoutParams2.leftMargin != this.fXt || marginLayoutParams2.rightMargin != this.fXt) {
-                            marginLayoutParams2.leftMargin = this.fXt;
-                            marginLayoutParams2.rightMargin = this.fXt;
-                            this.fXo.setLayoutParams(marginLayoutParams2);
+                        if (marginLayoutParams2.leftMargin != this.fSM || marginLayoutParams2.rightMargin != this.fSM) {
+                            marginLayoutParams2.leftMargin = this.fSM;
+                            marginLayoutParams2.rightMargin = this.fSM;
+                            this.fSH.setLayoutParams(marginLayoutParams2);
                         }
-                    } else if (marginLayoutParams2.leftMargin != this.fXu || marginLayoutParams2.rightMargin != this.fXu) {
-                        marginLayoutParams2.leftMargin = this.fXu;
-                        marginLayoutParams2.rightMargin = this.fXu;
-                        this.fXo.setLayoutParams(marginLayoutParams2);
+                    } else if (marginLayoutParams2.leftMargin != this.fSN || marginLayoutParams2.rightMargin != this.fSN) {
+                        marginLayoutParams2.leftMargin = this.fSN;
+                        marginLayoutParams2.rightMargin = this.fSN;
+                        this.fSH.setLayoutParams(marginLayoutParams2);
                     }
                 }
                 this.mContainer.removeAllViews();
-                this.fXp.clear();
+                this.fSI.clear();
                 for (int i = 0; i < size; i++) {
-                    this.fXp.add(a(arrayList.get(i)));
+                    this.fSI.add(a(arrayList.get(i)));
                 }
             }
         }
@@ -125,16 +125,16 @@ public class MaxSignItemView extends FrameLayout {
         bVar.iconView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.MaxSignItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!bVar.fXD) {
-                    Iterator it = MaxSignItemView.this.fXp.iterator();
+                if (!bVar.fSW) {
+                    Iterator it = MaxSignItemView.this.fSI.iterator();
                     while (it.hasNext()) {
-                        ((b) it.next()).lH(false);
+                        ((b) it.next()).lD(false);
                     }
-                    bVar.lH(true);
-                    if (MaxSignItemView.this.fXq == null) {
+                    bVar.lD(true);
+                    if (MaxSignItemView.this.fSJ == null) {
                         return;
                     }
-                    MaxSignItemView.this.fXq.b(bVar.fXE);
+                    MaxSignItemView.this.fSJ.b(bVar.fSX);
                 }
             }
         });
@@ -143,55 +143,55 @@ public class MaxSignItemView extends FrameLayout {
 
     /* loaded from: classes.dex */
     public static class b {
-        private int fXB;
-        private CircleView fXC;
-        private ActiveCenterData.ActiveCenterStatusData fXE;
+        private int fSU;
+        private CircleView fSV;
+        private ActiveCenterData.ActiveCenterStatusData fSX;
         private ImageView iconView;
         private View itemView;
         private TextView textView;
-        private int fXx = R.drawable.ic_pic_mask_task_complete_svg;
-        private int fXy = R.drawable.ic_pic_mask_task_select_svg;
-        private int fXz = R.drawable.ic_pic_mask_task_comingsoon_svg;
-        private int fXA = R.drawable.ic_pic_mask_task_uncomplete_svg;
-        private boolean fXD = false;
+        private int fSQ = R.drawable.ic_pic_mask_task_complete_svg;
+        private int fSR = R.drawable.ic_pic_mask_task_select_svg;
+        private int fSS = R.drawable.ic_pic_mask_task_comingsoon_svg;
+        private int fST = R.drawable.ic_pic_mask_task_uncomplete_svg;
+        private boolean fSW = false;
 
         public b(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-            this.fXB = this.fXz;
-            this.fXE = activeCenterStatusData;
+            this.fSU = this.fSS;
+            this.fSX = activeCenterStatusData;
             this.itemView = view;
             this.iconView = (ImageView) this.itemView.findViewById(R.id.item_icon);
             this.textView = (TextView) this.itemView.findViewById(R.id.item_text);
-            this.fXC = (CircleView) this.itemView.findViewById(R.id.select_circle);
-            this.fXC.setVisibility(4);
+            this.fSV = (CircleView) this.itemView.findViewById(R.id.select_circle);
+            this.fSV.setVisibility(4);
             if (activeCenterStatusData.is_today_mission == 0) {
                 if (activeCenterStatusData.is_completed) {
-                    this.fXB = this.fXx;
+                    this.fSU = this.fSQ;
                 } else {
-                    this.fXB = this.fXA;
+                    this.fSU = this.fST;
                 }
             } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.fXC.setVisibility(0);
+                this.fSV.setVisibility(0);
                 if (activeCenterStatusData.is_completed) {
-                    this.fXB = this.fXx;
+                    this.fSU = this.fSQ;
                 } else {
-                    this.fXB = this.fXy;
+                    this.fSU = this.fSR;
                 }
             } else {
-                this.fXB = this.fXz;
+                this.fSU = this.fSS;
             }
-            SvgManager.bwr().a(this.iconView, this.fXB, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsx().a(this.iconView, this.fSU, SvgManager.SvgResourceStateType.NORMAL);
             ao.setViewTextColor(this.textView, R.color.CAM_X0109);
             this.textView.setText(activeCenterStatusData.day + "天");
         }
 
-        public void lH(boolean z) {
+        public void lD(boolean z) {
             if (z) {
-                this.fXD = true;
-                this.fXC.setVisibility(0);
+                this.fSW = true;
+                this.fSV.setVisibility(0);
                 return;
             }
-            this.fXD = false;
-            this.fXC.setVisibility(4);
+            this.fSW = false;
+            this.fSV.setVisibility(4);
         }
     }
 }

@@ -6,7 +6,7 @@ import android.view.animation.DecelerateInterpolator;
 import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FadeInBitmapDisplayer implements BitmapDisplayer {
     private final boolean animateFromDisk;
     private final boolean animateFromMemory;

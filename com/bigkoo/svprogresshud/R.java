@@ -74,10 +74,10 @@ public final class R {
         public static final int FILL = 0x7f090008;
         public static final int STROKE = 0x7f090012;
         public static final int circleProgressBar = 0x7f090afc;
-        public static final int ivBigLoading = 0x7f09166f;
-        public static final int ivSmallLoading = 0x7f091670;
-        public static final int sv_outmost_container = 0x7f0926d1;
-        public static final int tvMsg = 0x7f092b39;
+        public static final int ivBigLoading = 0x7f091670;
+        public static final int ivSmallLoading = 0x7f091671;
+        public static final int sv_outmost_container = 0x7f0926d2;
+        public static final int tvMsg = 0x7f092b3a;
 
         private id() {
         }

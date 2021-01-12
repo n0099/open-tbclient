@@ -19,13 +19,13 @@ import com.kwad.sdk.utils.ah;
 import com.kwai.CpuMemoryProfiler;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.core.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1102a {
+    /* loaded from: classes4.dex */
+    public static class C1085a {
         public static String a(Context context) {
             File file = new File(b(context), "kwad_ex");
             if (!file.exists()) {
@@ -91,7 +91,7 @@ public class a {
     @NonNull
     private static b b(@NonNull Context context, @NonNull final SdkConfig sdkConfig) {
         final Context applicationContext = context.getApplicationContext();
-        return new b.a().a(applicationContext).f("3.3.9").a(3030900).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f9969a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ah.l(applicationContext)).b(ah.m()).a("Android").c(sdkConfig.appId).d(C1102a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
+        return new b.a().a(applicationContext).f("3.3.9").a(3030900).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f9669a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ah.l(applicationContext)).b(ah.m()).a("Android").c(sdkConfig.appId).d(C1085a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
             @Override // com.kwad.sdk.crash.f
             public com.kwad.sdk.crash.model.message.a a(int i) {
                 com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();
@@ -105,7 +105,7 @@ public class a {
                 aVar.a("mKsadSdKVersionCode", 3030900);
                 aVar.a("mKsadSdkApiVersion", KsAdSDKImpl.get().getApiVersion());
                 aVar.a("mKsadSdKApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-                aVar.a("mKsadSdkType", d.f9969a);
+                aVar.a("mKsadSdkType", d.f9669a);
                 return aVar;
             }
         }).a(new e() { // from class: com.kwad.sdk.core.a.a.1

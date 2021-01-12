@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Map;
 import okhttp3.internal.http.StatusLine;
 import org.apache.http.HttpStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Code93Reader extends OneDReader {
     private static final int ASTERISK_ENCODING;
     static final int[] CHARACTER_ENCODINGS;

@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private SparseArray<List<b>> akn = new SparseArray<>();
+    private SparseArray<List<b>> ajw = new SparseArray<>();
 
     /* loaded from: classes.dex */
     public interface b {
-        boolean a(C0090a c0090a);
+        boolean a(C0089a c0089a);
     }
 
     public void b(int i, b bVar) {
-        if (this.akn == null) {
-            this.akn = new SparseArray<>();
+        if (this.ajw == null) {
+            this.ajw = new SparseArray<>();
         }
-        List<b> list = this.akn.get(i);
+        List<b> list = this.ajw.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.akn.put(i, list);
+            this.ajw.put(i, list);
         }
         list.add(bVar);
     }
 
-    public boolean b(C0090a c0090a) {
-        List<b> list = this.akn.get(c0090a.ako);
+    public boolean b(C0089a c0089a) {
+        List<b> list = this.ajw.get(c0089a.ajx);
         if (x.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0090a)) {
+            if (bVar != null && bVar.a(c0089a)) {
                 return true;
             }
         }
@@ -40,29 +40,29 @@ public class a {
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0090a {
-        private int ako;
-        private Object akp;
+    public static class C0089a {
+        private int ajx;
+        private Object ajy;
 
-        public C0090a(int i, Object obj) {
-            this.ako = i;
-            this.akp = obj;
+        public C0089a(int i, Object obj) {
+            this.ajx = i;
+            this.ajy = obj;
         }
 
-        public C0090a(int i) {
-            this.ako = i;
+        public C0089a(int i) {
+            this.ajx = i;
         }
 
         public int getActionType() {
-            return this.ako;
+            return this.ajx;
         }
 
         public void setExtraData(Object obj) {
-            this.akp = obj;
+            this.ajy = obj;
         }
 
-        public Object tF() {
-            return this.akp;
+        public Object tu() {
+            return this.ajy;
         }
     }
 }

@@ -4,73 +4,73 @@ import android.content.Context;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    public static final AtomicReference<a> ctd = new AtomicReference<>();
+    public static final AtomicReference<a> cop = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
-    String agA();
+    String[] acA();
 
-    int agB();
+    String acB();
 
-    String agC();
-
-    @NonNull
-    Context agf();
-
-    @NonNull
-    String agg();
-
-    @NonNull
-    String agh();
-
-    @NonNull
-    String agi();
-
-    @NonNull
-    String agj();
-
-    @NonNull
-    String agk();
-
-    @NonNull
-    String agl();
-
-    @NonNull
-    String agm();
-
-    @NonNull
-    String agn();
-
-    @NonNull
-    String ago();
-
-    boolean agp();
-
-    @NonNull
-    String agq();
-
-    boolean agr();
-
-    String ags();
-
-    String agt();
-
-    String[] agu();
-
-    String agv();
-
-    String agw();
+    String acC();
 
     @IdRes
-    int agx();
+    int acD();
 
     @IdRes
-    int agy();
+    int acE();
 
     @IdRes
-    int agz();
+    int acF();
+
+    String acG();
+
+    int acH();
+
+    String acI();
+
+    @NonNull
+    Context acl();
+
+    @NonNull
+    String acm();
+
+    @NonNull
+    String acn();
+
+    @NonNull
+    String aco();
+
+    @NonNull
+    String acp();
+
+    @NonNull
+    String acq();
+
+    @NonNull
+    String acr();
+
+    @NonNull
+    String acs();
+
+    @NonNull
+    String act();
+
+    @NonNull
+    String acu();
+
+    boolean acv();
+
+    @NonNull
+    String acw();
+
+    boolean acx();
+
+    String acy();
+
+    String acz();
 
     @NonNull
     String androidId();

@@ -12,10 +12,10 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static long f13464a;
+    static long f13164a;
 
     /* renamed from: b  reason: collision with root package name */
-    static long f13465b;
+    static long f13165b;
     private static final HandlerThread c = new HandlerThread("Downloader-preconnecter");
     private static final Handler d;
 
@@ -43,13 +43,13 @@ public class b {
                     try {
                         try {
                             List<e> a2 = b.a(0L, null, null);
-                            c w = a.eJL().a(str) ? a.eJL().w(str, a2) : null;
+                            c w = a.eFV().a(str) ? a.eFV().w(str, a2) : null;
                             if (w == null) {
                                 try {
                                     cVar = new c(str, a2, 0L);
                                     cVar.a();
                                     if (cVar.e()) {
-                                        a.eJL().a(str, cVar);
+                                        a.eFV().a(str, cVar);
                                     }
                                 } catch (Exception e) {
                                     e = e;
@@ -95,9 +95,9 @@ public class b {
     }
 
     private static void a() {
-        f13464a = com.ss.android.socialbase.downloader.k.a.eJW().a("preconnect_connection_outdate_time", 300000L);
-        f13465b = com.ss.android.socialbase.downloader.k.a.eJW().a("preconnect_head_info_outdate_time", 300000L);
-        a.eJL().a(com.ss.android.socialbase.downloader.k.a.eJW().a("preconnect_max_cache_size", 3));
+        f13164a = com.ss.android.socialbase.downloader.k.a.eGg().a("preconnect_connection_outdate_time", 300000L);
+        f13165b = com.ss.android.socialbase.downloader.k.a.eGg().a("preconnect_head_info_outdate_time", 300000L);
+        a.eFV().a(com.ss.android.socialbase.downloader.k.a.eGg().a("preconnect_max_cache_size", 3));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

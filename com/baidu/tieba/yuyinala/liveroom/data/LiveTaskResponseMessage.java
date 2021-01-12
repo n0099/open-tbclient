@@ -4,13 +4,13 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long hCr;
-    public int hCs;
-    public String hCt;
-    public String hCu;
+    public long hxL;
+    public int hxM;
+    public String hxN;
+    public String hxO;
     public String message;
     public String scheme;
     public String url;
@@ -27,15 +27,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.hCr = optJSONObject.optLong("toastDuration");
+                this.hxL = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.hCs = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.hCt = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
-                this.hCu = optJSONObject2.optString("usermsg");
+                this.hxM = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.hxN = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
+                this.hxO = optJSONObject2.optString("usermsg");
             }
         }
     }

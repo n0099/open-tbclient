@@ -5,10 +5,11 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import java.util.Arrays;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 abstract class CameraCapturer implements CameraVideoCapturer {
     private static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
     private static final int OPEN_CAMERA_DELAY_MS = 500;
@@ -173,7 +174,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     private SwitchState switchState = SwitchState.IDLE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum SwitchState {
         IDLE,
         PENDING,
@@ -302,7 +303,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
 
     @Override // org.webrtc.VideoCapturer
     public void changeCaptureFormat(int i, int i2, int i3) {
-        Logging.d(TAG, "changeCaptureFormat: " + i + "x" + i2 + "@" + i3);
+        Logging.d(TAG, "changeCaptureFormat: " + i + Config.EVENT_HEAT_X + i2 + "@" + i3);
         synchronized (this.stateLock) {
             stopCapture();
             startCapture(i, i2, i3);
@@ -359,7 +360,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
 
     @Override // org.webrtc.VideoCapturer
     public void startCapture(int i, int i2, int i3) {
-        Logging.d(TAG, "startCapture: " + i + "x" + i2 + "@" + i3);
+        Logging.d(TAG, "startCapture: " + i + Config.EVENT_HEAT_X + i2 + "@" + i3);
         if (this.applicationContext == null) {
             throw new RuntimeException("CameraCapturer must be initialized before calling startCapture.");
         }

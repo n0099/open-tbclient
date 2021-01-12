@@ -1,27 +1,27 @@
 package com.baidu.mapapi.search.route;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class IndoorPlanNode {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f3023a;
+    private LatLng f2901a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3024b;
+    private String f2902b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
-        this.f3023a = null;
-        this.f3024b = null;
-        this.f3023a = latLng;
-        this.f3024b = str;
+        this.f2901a = null;
+        this.f2902b = null;
+        this.f2901a = latLng;
+        this.f2902b = str;
     }
 
     public String getFloor() {
-        return this.f3024b;
+        return this.f2902b;
     }
 
     public LatLng getLocation() {
-        return this.f3023a;
+        return this.f2901a;
     }
 }

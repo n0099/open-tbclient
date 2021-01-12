@@ -34,113 +34,113 @@ import com.baidu.tieba.yuyinala.liveroom.k.d;
 import com.baidu.tieba.yuyinala.liveroom.messages.AlaGetVerifyStrategyResponseHttpMessage;
 import com.baidu.tieba.yuyinala.liveroom.views.d;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String hGP;
-    public boolean hGQ;
-    public boolean hGR;
+    public String hCj;
+    public boolean hCk;
+    public boolean hCl;
     public String mForumId;
     public String mForumName;
-    private d ori;
-    private YuyinAlaCreateLiveRoomActivity ork;
-    private b orl;
-    private com.baidu.tieba.yuyinala.liveroom.data.d orm;
-    private d.b orn = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
+    private d omA;
+    private YuyinAlaCreateLiveRoomActivity omC;
+    private b omD;
+    private com.baidu.tieba.yuyinala.liveroom.data.d omE;
+    private d.b omF = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cli() {
-            a.this.cke();
+        public void chq() {
+            a.this.cgm();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void clj() {
-            a.this.hGQ = a.this.orl.chp();
+        public void chr() {
+            a.this.hCk = a.this.omD.cdx();
             com.baidu.tieba.yuyinala.liveroom.data.d dVar = new com.baidu.tieba.yuyinala.liveroom.data.d();
-            dVar.hCa = false;
+            dVar.hxu = false;
             dVar.forumId = null;
             dVar.forumName = null;
-            dVar.title = a.this.orl.getLiveTitle().trim();
+            dVar.title = a.this.omD.getLiveTitle().trim();
             dVar.clarity = 0;
             dVar.gameId = null;
             dVar.gameName = null;
-            dVar.hCb = a.this.orl.chq();
-            dVar.hCe = a.this.hGQ;
-            dVar.hCd = a.this.orl.chn();
-            dVar.hCc = a.this.orl.chs();
-            dVar.hCf = a.this.orl.cho();
-            if (!dVar.hCf) {
-                a.this.ork.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
+            dVar.hxv = a.this.omD.cdy();
+            dVar.hxy = a.this.hCk;
+            dVar.hxx = a.this.omD.cdv();
+            dVar.hxw = a.this.omD.cdA();
+            dVar.hxz = a.this.omD.cdw();
+            if (!dVar.hxz) {
+                a.this.omC.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
                 return;
             }
-            a.this.orm = dVar;
+            a.this.omE = dVar;
             if (FinishLiveManager.getInstance().getFinishListener() != null) {
                 FinishLiveManager.getInstance().getFinishListener().onStartLive();
             }
-            a.this.a(a.this.orm);
+            a.this.a(a.this.omE);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
         public void onCloseClicked() {
-            a.this.ede();
+            a.this.dZm();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void clm() {
-            BrowserHelper.startWebActivity(a.this.ork, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
+        public void chu() {
+            BrowserHelper.startWebActivity(a.this.omC, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
         }
     };
-    private d.a oro = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
+    private d.a omG = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
     };
-    private a.InterfaceC0939a orp = new a.InterfaceC0939a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
-        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0939a
+    private a.InterfaceC0922a omH = new a.InterfaceC0922a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
+        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0922a
         public void a(int i, String str, int i2, Object obj) {
             if (i2 == 6) {
-                as cmn = a.this.ori.cmn();
-                if (!a.this.a(cmn)) {
-                    if (cmn.aPU != 1) {
-                        a.this.ork.showToast(cmn.aPV);
-                    } else if (cmn.mErrorCode != 0) {
-                        a.this.ork.showToast(str);
-                        if (cmn.mErrorCode == 110000) {
-                            ViewHelper.skipToLoginActivity(a.this.ork.getActivity());
+                as civ = a.this.omA.civ();
+                if (!a.this.a(civ)) {
+                    if (civ.aLh != 1) {
+                        a.this.omC.showToast(civ.aLi);
+                    } else if (civ.mErrorCode != 0) {
+                        a.this.omC.showToast(str);
+                        if (civ.mErrorCode == 110000) {
+                            ViewHelper.skipToLoginActivity(a.this.omC.getActivity());
                         }
                     } else {
-                        a.this.d(cmn);
+                        a.this.d(civ);
                     }
                 }
             } else if (i2 == 7 && (obj instanceof AlaGetVerifyStrategyResponseHttpMessage)) {
                 AlaGetVerifyStrategyResponseHttpMessage alaGetVerifyStrategyResponseHttpMessage = (AlaGetVerifyStrategyResponseHttpMessage) obj;
                 if (alaGetVerifyStrategyResponseHttpMessage.getError() != 0) {
-                    BdUtilHelper.showToast(a.this.ork.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
-                } else if (alaGetVerifyStrategyResponseHttpMessage.hJE == 1 && alaGetVerifyStrategyResponseHttpMessage.hJG == 1 && alaGetVerifyStrategyResponseHttpMessage.hJJ == 1) {
-                    a.this.chv();
+                    BdUtilHelper.showToast(a.this.omC.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
+                } else if (alaGetVerifyStrategyResponseHttpMessage.hEY == 1 && alaGetVerifyStrategyResponseHttpMessage.hFa == 1 && alaGetVerifyStrategyResponseHttpMessage.hFd == 1) {
+                    a.this.cdD();
                 }
             }
         }
     };
 
     public a(YuyinAlaCreateLiveRoomActivity yuyinAlaCreateLiveRoomActivity) {
-        this.ork = yuyinAlaCreateLiveRoomActivity;
+        this.omC = yuyinAlaCreateLiveRoomActivity;
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.k.d dVar) {
-        this.ori = dVar;
-        if (this.ori == null) {
-            this.ori = new com.baidu.tieba.yuyinala.liveroom.k.d(this.ork.getPageContext());
+        this.omA = dVar;
+        if (this.omA == null) {
+            this.omA = new com.baidu.tieba.yuyinala.liveroom.k.d(this.omC.getPageContext());
         }
-        this.ori.a(this.orp);
+        this.omA.a(this.omH);
     }
 
     public void a(String str, String str2, String str3, Bundle bundle) {
         this.mForumName = str;
         this.mForumId = str2;
-        this.hGP = str3;
-        this.hGR = false;
-        if (this.orl == null) {
-            this.orl = new b(this.ork.getPageContext());
-            this.ork.setContentView(this.orl.getView(), new FrameLayout.LayoutParams(-1, -1));
+        this.hCj = str3;
+        this.hCl = false;
+        if (this.omD == null) {
+            this.omD = new b(this.omC.getPageContext());
+            this.omC.setContentView(this.omD.getView(), new FrameLayout.LayoutParams(-1, -1));
         }
-        this.orl.a(this.orn);
-        this.orl.a(this.oro);
+        this.omD.a(this.omF);
+        this.omD.a(this.omG);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
@@ -150,36 +150,36 @@ public class a {
                 Q(intent);
             }
         } else if (i == 12001 && i2 == -1) {
-            IB(P(intent));
+            Hq(P(intent));
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.orl != null) {
-            this.orl.onKeyboardVisibilityChanged(z);
+        if (this.omD != null) {
+            this.omD.onKeyboardVisibilityChanged(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ede() {
-        this.ork.cjJ();
+    public void dZm() {
+        this.omC.cfR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chv() {
+    public void cdD() {
         if (TbadkCoreApplication.getInst().isOther()) {
-            cle();
-        } else if (this.orl != null) {
-            this.orl.chv();
+            chm();
+        } else if (this.omD != null) {
+            this.omD.cdD();
         }
     }
 
-    private void cle() {
-        if (this.orm != null) {
-            this.mForumName = this.orm.forumName;
-            this.mForumId = this.orm.forumId;
-            this.hGQ = this.orm.hCe;
-            a(this.orm);
+    private void chm() {
+        if (this.omE != null) {
+            this.mForumName = this.omE.forumName;
+            this.mForumId = this.omE.forumId;
+            this.hCk = this.omE.hxy;
+            a(this.omE);
         }
     }
 
@@ -188,9 +188,9 @@ public class a {
         if (asVar == null) {
             return false;
         }
-        this.ork.closeLoadingDialog();
+        this.omC.closeLoadingDialog();
         if (asVar.mErrorCode == 6) {
-            this.ork.showToast(asVar.mErrorMsg);
+            this.omC.showToast(asVar.mErrorMsg);
             return true;
         }
         return false;
@@ -201,8 +201,8 @@ public class a {
         String str;
         ILocation buildLocation;
         String md5;
-        if (dVar != null && !dVar.hCa) {
-            boolean z = dVar.hCb;
+        if (dVar != null && !dVar.hxu) {
+            boolean z = dVar.hxv;
             String str2 = null;
             String str3 = null;
             double d = 0.0d;
@@ -219,22 +219,22 @@ public class a {
                 d2 = locationInfo.longitude;
                 str = str3;
             }
-            this.ori.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hCc, "", "", dVar.hCd ? 1 : 0, 1, this.hGQ ? 2 : 1, 1, dVar.gameId, dVar.gameName);
+            this.omA.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hxw, "", "", dVar.hxx ? 1 : 0, 1, this.hCk ? 2 : 1, 1, dVar.gameId, dVar.gameName);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cke() {
-        if (this.ori != null) {
-            this.ori.cmg();
+    public void cgm() {
+        if (this.omA != null) {
+            this.omA.cio();
         }
     }
 
-    private void IB(String str) {
+    private void Hq(String str) {
         Log.i("CreateAudioRoom", "editLiveCoverFromCamera:" + str);
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             Log.i("CreateAudioRoom", "editLiveCoverFromCamera1:" + str);
-            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.ork.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
+            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.omC.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
             editHeadActivityConfig.setPreviewImageHeightScale(1.0f);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
         }
@@ -259,19 +259,19 @@ public class a {
 
     private void Q(Intent intent) {
         PhotoUrlData fromJson;
-        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.orl != null) {
-            this.orl.Io(fromJson.getBigurl());
+        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.omD != null) {
+            this.omD.Hd(fromJson.getBigurl());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(as asVar) {
-        if (this.ork != null && asVar != null && asVar.mLiveInfo != null && asVar.mLiveInfo.live_id != 0) {
+        if (this.omC != null && asVar != null && asVar.mLiveInfo != null && asVar.mLiveInfo.live_id != 0) {
             try {
-                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.ork.getPageContext().getPageActivity());
+                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.omC.getPageContext().getPageActivity());
                 yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(asVar.mLiveInfo.live_id, String.valueOf(asVar.mLiveInfo.room_id), "live_sdk");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
-                this.ork.cjJ();
+                this.omC.cfR();
             } catch (Throwable th) {
             }
         }

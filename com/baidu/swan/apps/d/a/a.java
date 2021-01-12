@@ -8,7 +8,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.ao.ai;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static void ad(Context context, String str) {
         if (ProcessUtils.isMainProcess()) {

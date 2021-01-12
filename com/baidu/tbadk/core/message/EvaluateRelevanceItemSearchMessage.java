@@ -6,7 +6,7 @@ public class EvaluateRelevanceItemSearchMessage extends CustomResponsedMessage<O
     public String content;
 
     public EvaluateRelevanceItemSearchMessage(String str) {
-        super(2921528);
+        super(2921529);
         this.content = str;
     }
 }

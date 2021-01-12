@@ -32,60 +32,60 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceSearchFragment extends BaseFragment implements SearchEditView.a {
-    private int bdf;
-    private View lnx;
-    private f lxb;
-    private BdListView lxd;
-    private LinearLayout lxj;
-    private SearchEditView lyi;
-    private TextView lyj;
-    private FaceImageLayout lyk;
-    private AutoLineWrapLayout lyl;
-    private h lym;
-    private SearchEmotionModel lyn;
-    private GetHotWordsModel lyp;
-    private List<String> lyq;
-    private String lyr;
+    private int aYr;
+    private View liR;
+    private LinearLayout lsD;
+    private f lsv;
+    private BdListView lsx;
+    private SearchEditView ltD;
+    private TextView ltE;
+    private FaceImageLayout ltF;
+    private AutoLineWrapLayout ltG;
+    private h ltH;
+    private SearchEmotionModel ltI;
+    private GetHotWordsModel ltJ;
+    private List<String> ltK;
+    private String ltL;
     private Activity mActivity;
     private List<EmotionImageData> mEmotionList;
     private boolean mHasMore;
     private NoDataView mNoDataView;
-    private final SearchEmotionModel.a iRt = new SearchEmotionModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.4
+    private final SearchEmotionModel.a iMM = new SearchEmotionModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.4
         @Override // com.baidu.tieba.face.SearchEmotionModel.a
         public void a(String str, com.baidu.tieba.face.data.a aVar) {
             FaceSearchFragment.this.getBaseFragmentActivity().hideProgressBar();
-            if (aVar == null || aVar.cAN() == null || aVar.cAN().isEmpty()) {
-                if (FaceSearchFragment.this.bdf == 0) {
-                    FaceSearchFragment.this.dkC();
+            if (aVar == null || aVar.cwV() == null || aVar.cwV().isEmpty()) {
+                if (FaceSearchFragment.this.aYr == 0) {
+                    FaceSearchFragment.this.dgK();
                     return;
                 }
                 return;
             }
-            FaceSearchFragment.this.bdf = aVar.getPage();
-            if (FaceSearchFragment.this.bdf == 1) {
+            FaceSearchFragment.this.aYr = aVar.getPage();
+            if (FaceSearchFragment.this.aYr == 1) {
                 FaceSearchFragment.this.mEmotionList.clear();
             }
-            FaceSearchFragment.this.mHasMore = aVar.cAM() != 0;
-            FaceSearchFragment.this.mEmotionList.addAll(aVar.cAN());
-            FaceSearchFragment.this.lym.notifyDataSetChanged();
-            FaceSearchFragment.this.dkz();
-            l.hideSoftKeyPad(FaceSearchFragment.this.getActivity(), FaceSearchFragment.this.lyi);
+            FaceSearchFragment.this.mHasMore = aVar.cwU() != 0;
+            FaceSearchFragment.this.mEmotionList.addAll(aVar.cwV());
+            FaceSearchFragment.this.ltH.notifyDataSetChanged();
+            FaceSearchFragment.this.dgH();
+            l.hideSoftKeyPad(FaceSearchFragment.this.getActivity(), FaceSearchFragment.this.ltD);
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.a
         public void onFail(int i, String str) {
             FaceSearchFragment.this.getBaseFragmentActivity().hideProgressBar();
-            if (FaceSearchFragment.this.bdf == 1) {
-                FaceSearchFragment.this.dkC();
+            if (FaceSearchFragment.this.aYr == 1) {
+                FaceSearchFragment.this.dgK();
             }
         }
     };
-    private final BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.5
+    private final BdListView.e WL = new BdListView.e() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            FaceSearchFragment.this.dkB();
+            FaceSearchFragment.this.dgJ();
         }
     };
 
@@ -95,36 +95,36 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
         this.mActivity.getWindow().setSoftInputMode(3);
         View inflate = layoutInflater.inflate(R.layout.fragment_pick_search, (ViewGroup) null);
         ap(inflate);
-        this.lyn = new SearchEmotionModel();
-        this.bdf = 1;
-        bIn();
+        this.ltI = new SearchEmotionModel();
+        this.aYr = 1;
+        bEv();
         return inflate;
     }
 
     private void ap(View view) {
         Serializable serializable;
-        this.lxj = (LinearLayout) view.findViewById(R.id.layout_root);
-        this.lyk = (FaceImageLayout) view.findViewById(R.id.layout_content);
-        this.lyk.setListener(new FaceImageLayout.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.1
+        this.lsD = (LinearLayout) view.findViewById(R.id.layout_root);
+        this.ltF = (FaceImageLayout) view.findViewById(R.id.layout_content);
+        this.ltF.setListener(new FaceImageLayout.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.1
             @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
-            public void dkt() {
-                l.hideSoftKeyPad(FaceSearchFragment.this.mActivity, FaceSearchFragment.this.lyi);
+            public void dgB() {
+                l.hideSoftKeyPad(FaceSearchFragment.this.mActivity, FaceSearchFragment.this.ltD);
             }
         });
-        this.lnx = view.findViewById(R.id.view_line);
-        this.lyi = (SearchEditView) view.findViewById(R.id.edit_search_view);
-        this.lyi.setCallback(this);
-        this.lyl = (AutoLineWrapLayout) view.findViewById(R.id.layout_hot_words);
-        this.lyj = (TextView) view.findViewById(R.id.tv_tips);
-        ao.setBackgroundResource(this.lxj, R.color.CAM_X0201);
-        ao.setBackgroundColor(this.lnx, R.color.CAM_X0204);
-        ao.setViewTextColor(this.lyj, R.color.CAM_X0109);
-        this.lxd = (BdListView) view.findViewById(R.id.listview_emotion);
-        this.lxd.setOnSrollToBottomListener(this.WN);
+        this.liR = view.findViewById(R.id.view_line);
+        this.ltD = (SearchEditView) view.findViewById(R.id.edit_search_view);
+        this.ltD.setCallback(this);
+        this.ltG = (AutoLineWrapLayout) view.findViewById(R.id.layout_hot_words);
+        this.ltE = (TextView) view.findViewById(R.id.tv_tips);
+        ao.setBackgroundResource(this.lsD, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.liR, R.color.CAM_X0204);
+        ao.setViewTextColor(this.ltE, R.color.CAM_X0109);
+        this.lsx = (BdListView) view.findViewById(R.id.listview_emotion);
+        this.lsx.setOnSrollToBottomListener(this.WL);
         this.mEmotionList = new ArrayList();
-        this.lym = new h(this.mEmotionList, 10);
-        this.lym.b(this.lxb);
-        this.lxd.setAdapter((ListAdapter) this.lym);
+        this.ltH = new h(this.mEmotionList, 10);
+        this.ltH.b(this.lsv);
+        this.lsx.setAdapter((ListAdapter) this.ltH);
         if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             Iterator it = ((ArrayList) serializable).iterator();
@@ -134,40 +134,40 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
                     linkedHashMap.put(faceData.emotionImageData.getPicUrl(), faceData.emotionImageData);
                 }
             }
-            this.lym.G(linkedHashMap);
+            this.ltH.G(linkedHashMap);
         }
     }
 
-    private void bIn() {
-        this.lyp = new GetHotWordsModel();
-        this.lyq = new ArrayList();
-        this.lyp.a(new GetHotWordsModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.2
+    private void bEv() {
+        this.ltJ = new GetHotWordsModel();
+        this.ltK = new ArrayList();
+        this.ltJ.a(new GetHotWordsModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.2
             @Override // com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel.a
             public void ai(List<String> list) {
                 if (list != null) {
-                    FaceSearchFragment.this.lyq.addAll(list);
-                    if (FaceSearchFragment.this.lyq == null || FaceSearchFragment.this.lyq.isEmpty()) {
-                        FaceSearchFragment.this.lyl.setVisibility(8);
-                        FaceSearchFragment.this.lyj.setVisibility(8);
+                    FaceSearchFragment.this.ltK.addAll(list);
+                    if (FaceSearchFragment.this.ltK == null || FaceSearchFragment.this.ltK.isEmpty()) {
+                        FaceSearchFragment.this.ltG.setVisibility(8);
+                        FaceSearchFragment.this.ltE.setVisibility(8);
                     }
-                    FaceSearchFragment.this.dky();
+                    FaceSearchFragment.this.dgG();
                 }
             }
 
             @Override // com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel.a
             public void onFail(int i, String str) {
-                FaceSearchFragment.this.lyl.setVisibility(8);
+                FaceSearchFragment.this.ltG.setVisibility(8);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dky() {
-        this.lyl.setVisibility(0);
-        this.lyj.setVisibility(0);
-        int min = Math.min(this.lyq.size(), 10);
+    public void dgG() {
+        this.ltG.setVisibility(0);
+        this.ltE.setVisibility(0);
+        int min = Math.min(this.ltK.size(), 10);
         for (int i = 0; i < min; i++) {
-            final String str = this.lyq.get(i);
+            final String str = this.ltK.get(i);
             if (!TextUtils.isEmpty(str)) {
                 String str2 = str.length() > 20 ? str.substring(0, 20) + StringHelper.STRING_MORE : str;
                 TextView textView = new TextView(this.mActivity);
@@ -181,109 +181,109 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceSearchFragment.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        FaceSearchFragment.this.lyi.setText(str);
-                        FaceSearchFragment.this.lyi.setSelection(str.length());
-                        FaceSearchFragment.this.Pk(str);
+                        FaceSearchFragment.this.ltD.setText(str);
+                        FaceSearchFragment.this.ltD.setSelection(str.length());
+                        FaceSearchFragment.this.Oc(str);
                     }
                 });
-                this.lyl.addView(textView);
+                this.ltG.addView(textView);
             }
         }
     }
 
     public void a(f fVar) {
-        this.lxb = fVar;
-        if (this.lym != null) {
-            this.lym.b(this.lxb);
+        this.lsv = fVar;
+        if (this.ltH != null) {
+            this.ltH.b(this.lsv);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkz() {
-        this.lxd.setVisibility(0);
-        this.lyj.setVisibility(8);
-        this.lyl.setVisibility(8);
+    public void dgH() {
+        this.lsx.setVisibility(0);
+        this.ltE.setVisibility(8);
+        this.ltG.setVisibility(8);
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
-    private void dkA() {
-        if (this.lyq != null && !this.lyq.isEmpty()) {
-            this.lyl.setVisibility(0);
-            this.lyj.setVisibility(0);
+    private void dgI() {
+        if (this.ltK != null && !this.ltK.isEmpty()) {
+            this.ltG.setVisibility(0);
+            this.ltE.setVisibility(0);
         }
-        this.lxd.setVisibility(8);
+        this.lsx.setVisibility(8);
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkB() {
+    public void dgJ() {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (this.mHasMore) {
             getBaseFragmentActivity().showProgressBar();
-            this.lyn.a(this.lyr, this.bdf + 1, 40, this.iRt);
+            this.ltI.a(this.ltL, this.aYr + 1, 40, this.iMM);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkC() {
+    public void dgK() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.lyk, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.Cv(this.mActivity.getText(R.string.face_group_no_emotion).toString()), null);
+            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.ltF, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.Bk(this.mActivity.getText(R.string.face_group_no_emotion).toString()), null);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
-        this.lyl.setVisibility(8);
-        this.lxd.setVisibility(8);
-        this.lyj.setVisibility(8);
+        this.ltG.setVisibility(8);
+        this.lsx.setVisibility(8);
+        this.ltE.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pk(String str) {
+    public void Oc(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (!j.isNetWorkAvailable()) {
                 showToast(R.string.neterror);
                 return;
             }
             getBaseFragmentActivity().showProgressBar();
-            this.bdf = 0;
-            this.lyr = str;
-            this.lyn.a(str, this.bdf + 1, 40, this.iRt);
+            this.aYr = 0;
+            this.ltL = str;
+            this.ltI.a(str, this.aYr + 1, 40, this.iMM);
         }
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void JT(String str) {
-        Pk(str);
+    public void II(String str) {
+        Oc(str);
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void JU(String str) {
+    public void IJ(String str) {
         if (str.length() == 0) {
             this.mEmotionList.clear();
-            if (this.lym != null) {
-                this.lym.notifyDataSetChanged();
+            if (this.ltH != null) {
+                this.ltH.notifyDataSetChanged();
             }
-            dkA();
+            dgI();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.lym != null) {
-            this.lym.dkE();
+        if (this.ltH != null) {
+            this.ltH.dgM();
         }
-        this.lyn.cancelLoadData();
-        this.lyp.cancelLoadData();
+        this.ltI.cancelLoadData();
+        this.ltJ.cancelLoadData();
     }
 
-    public LinkedHashMap<String, EmotionImageData> dkm() {
-        if (this.lym != null) {
-            return this.lym.dkm();
+    public LinkedHashMap<String, EmotionImageData> dgu() {
+        if (this.ltH != null) {
+            return this.ltH.dgu();
         }
         return null;
     }

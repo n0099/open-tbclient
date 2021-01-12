@@ -1,7 +1,7 @@
 package com.baidu.live.message;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FollowRoom implements Serializable {
     public boolean isFollowed;
     public String liveId;

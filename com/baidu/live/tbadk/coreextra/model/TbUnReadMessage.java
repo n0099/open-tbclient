@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbUnReadMessage {
     private String groupMsgName;
     private String groupUpdatesEventContent;
@@ -42,7 +42,7 @@ public class TbUnReadMessage {
     private HashMap<String, String> privateGidName = new HashMap<>();
     private List<OfficialNotificationData> officialNotificationData = new ArrayList();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class OfficialNotificationData {
         public String content;
         public String gName;

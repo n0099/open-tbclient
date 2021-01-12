@@ -27,26 +27,26 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ConstrainImageLayout extends ViewGroup {
-    private boolean alQ;
-    private TbImageView.c alY;
-    private d amr;
-    protected boolean ams;
-    private Bitmap anf;
-    protected BdUniqueId fJu;
-    private a fVM;
-    private double fVS;
-    private com.baidu.adp.widget.a.b fVU;
-    private boolean fVW;
-    protected com.baidu.adp.lib.d.b<TbImageView> fVY;
-    private int fVZ;
-    private int fWa;
-    private String fWb;
-    private Paint fWc;
-    private int fWd;
-    private int fWe;
-    private int fWf;
-    private MediaData fWg;
-    private ViewGroup.OnHierarchyChangeListener fWh;
+    private boolean akY;
+    private d alA;
+    protected boolean alB;
+    private TbImageView.c alg;
+    private Bitmap amo;
+    protected BdUniqueId fEN;
+    private ViewGroup.OnHierarchyChangeListener fRA;
+    private a fRf;
+    private double fRl;
+    private com.baidu.adp.widget.a.b fRn;
+    private boolean fRp;
+    protected com.baidu.adp.lib.d.b<TbImageView> fRr;
+    private int fRs;
+    private int fRt;
+    private String fRu;
+    private Paint fRv;
+    private int fRw;
+    private int fRx;
+    private int fRy;
+    private MediaData fRz;
     private int imagePadding;
     private Paint mBitmapPaint;
     private int mSkinType;
@@ -60,15 +60,15 @@ public class ConstrainImageLayout extends ViewGroup {
 
     public ConstrainImageLayout(Context context) {
         super(context);
-        this.fVZ = -1;
-        this.alQ = false;
-        this.fWa = R.color.common_color_10082;
+        this.fRs = -1;
+        this.akY = false;
+        this.fRt = R.color.common_color_10082;
         this.textHeight = 0;
-        this.ams = false;
-        this.fVW = false;
-        this.fWf = 0;
+        this.alB = false;
+        this.fRp = false;
+        this.fRy = 0;
         this.mSkinType = 3;
-        this.fWh = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
+        this.fRA = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
                 if (view2 instanceof TbImageView) {
@@ -78,14 +78,14 @@ public class ConstrainImageLayout extends ViewGroup {
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fVY != null) {
+                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fRr != null) {
                     TbImageView tbImageView = (TbImageView) view2;
                     tbImageView.reset();
-                    ConstrainImageLayout.this.fVY.returnObject(tbImageView);
+                    ConstrainImageLayout.this.fRr.returnObject(tbImageView);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -99,10 +99,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akY ? 13 : 14));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i = CT.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -162,7 +162,7 @@ public class ConstrainImageLayout extends ViewGroup {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f, f);
-                            if (ConstrainImageLayout.this.ams && i > i2) {
+                            if (ConstrainImageLayout.this.alB && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f2);
@@ -181,15 +181,15 @@ public class ConstrainImageLayout extends ViewGroup {
 
     public ConstrainImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fVZ = -1;
-        this.alQ = false;
-        this.fWa = R.color.common_color_10082;
+        this.fRs = -1;
+        this.akY = false;
+        this.fRt = R.color.common_color_10082;
         this.textHeight = 0;
-        this.ams = false;
-        this.fVW = false;
-        this.fWf = 0;
+        this.alB = false;
+        this.fRp = false;
+        this.fRy = 0;
         this.mSkinType = 3;
-        this.fWh = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
+        this.fRA = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
                 if (view2 instanceof TbImageView) {
@@ -199,14 +199,14 @@ public class ConstrainImageLayout extends ViewGroup {
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fVY != null) {
+                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fRr != null) {
                     TbImageView tbImageView = (TbImageView) view2;
                     tbImageView.reset();
-                    ConstrainImageLayout.this.fVY.returnObject(tbImageView);
+                    ConstrainImageLayout.this.fRr.returnObject(tbImageView);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -220,10 +220,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akY ? 13 : 14));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i = CT.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -283,7 +283,7 @@ public class ConstrainImageLayout extends ViewGroup {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f, f);
-                            if (ConstrainImageLayout.this.ams && i > i2) {
+                            if (ConstrainImageLayout.this.alB && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f2);
@@ -302,15 +302,15 @@ public class ConstrainImageLayout extends ViewGroup {
 
     public ConstrainImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fVZ = -1;
-        this.alQ = false;
-        this.fWa = R.color.common_color_10082;
+        this.fRs = -1;
+        this.akY = false;
+        this.fRt = R.color.common_color_10082;
         this.textHeight = 0;
-        this.ams = false;
-        this.fVW = false;
-        this.fWf = 0;
+        this.alB = false;
+        this.fRp = false;
+        this.fRy = 0;
         this.mSkinType = 3;
-        this.fWh = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
+        this.fRA = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
                 if (view2 instanceof TbImageView) {
@@ -320,14 +320,14 @@ public class ConstrainImageLayout extends ViewGroup {
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fVY != null) {
+                if ((view2 instanceof TbImageView) && ConstrainImageLayout.this.fRr != null) {
                     TbImageView tbImageView = (TbImageView) view2;
                     tbImageView.reset();
-                    ConstrainImageLayout.this.fVY.returnObject(tbImageView);
+                    ConstrainImageLayout.this.fRr.returnObject(tbImageView);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
@@ -341,10 +341,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i2 = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akY ? 13 : 14));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i2 = CT.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;
@@ -404,7 +404,7 @@ public class ConstrainImageLayout extends ViewGroup {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f, f);
-                            if (ConstrainImageLayout.this.ams && i2 > i22) {
+                            if (ConstrainImageLayout.this.alB && i2 > i22) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f2);
@@ -422,16 +422,16 @@ public class ConstrainImageLayout extends ViewGroup {
     }
 
     private void init() {
-        setOnHierarchyChangeListener(this.fWh);
+        setOnHierarchyChangeListener(this.fRA);
         this.textPaint = new Paint();
         this.textPaint.setColor(ao.getColor(R.color.CAM_X0101));
         this.textPaint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.T_X09));
         this.textPaint.setAntiAlias(true);
         Paint.FontMetrics fontMetrics = this.textPaint.getFontMetrics();
         this.textHeight = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-        this.fWd = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
-        this.fWc = new Paint();
-        this.fWc.setAntiAlias(true);
+        this.fRw = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
+        this.fRv = new Paint();
+        this.fRv.setAntiAlias(true);
         this.mBitmapPaint = new Paint();
         this.mBitmapPaint.setAntiAlias(true);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
@@ -442,31 +442,31 @@ public class ConstrainImageLayout extends ViewGroup {
         if (dVar == null) {
             setClickable(false);
         } else {
-            this.amr = dVar;
+            this.alA = dVar;
         }
     }
 
     public void setImageViewObjectPool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        this.fVY = bVar;
+        this.fRr = bVar;
     }
 
     public void setFromCDN(boolean z) {
-        this.alQ = z;
+        this.akY = z;
     }
 
     public void setForeColorId(int i) {
-        this.fWa = i;
+        this.fRt = i;
     }
 
     public void setExtraCenterText(String str) {
-        this.fWb = str;
+        this.fRu = str;
     }
 
     public void setImageMaxChildCount(int i) {
         if (i > 0) {
-            this.fVZ = i;
+            this.fRs = i;
         } else {
-            this.fVZ = -1;
+            this.fRs = -1;
         }
     }
 
@@ -487,7 +487,7 @@ public class ConstrainImageLayout extends ViewGroup {
     }
 
     public void setSingleImageRatio(double d) {
-        this.fVS = d;
+        this.fRl = d;
     }
 
     public void setUrls(List<MediaData> list, int i, boolean z) {
@@ -496,13 +496,13 @@ public class ConstrainImageLayout extends ViewGroup {
 
     public void setUrls(List<MediaData> list, int i, boolean z, boolean z2) {
         int count;
-        if (this.fVY != null && (count = x.getCount(list)) > 0) {
+        if (this.fRr != null && (count = x.getCount(list)) > 0) {
             if (count == 1) {
-                this.fWg = (MediaData) x.getItem(list, 0);
+                this.fRz = (MediaData) x.getItem(list, 0);
             }
-            tv(count);
+            rP(count);
             int childCount = getChildCount();
-            int i2 = this.alQ ? 13 : 14;
+            int i2 = this.akY ? 13 : 14;
             int i3 = 0;
             while (i3 < childCount) {
                 View childAt = getChildAt(i3);
@@ -534,9 +534,9 @@ public class ConstrainImageLayout extends ViewGroup {
                     tbImageView.setBorderColor(ao.getColor(R.color.CAM_X0401));
                     tbImageView.setBorderSurroundContent(true);
                     tbImageView.setDrawBorder(true);
-                    tbImageView.setOnDrawListener(this.alY);
-                    if (this.fVM != null) {
-                        this.fVM.a(tbImageView, i3, childCount);
+                    tbImageView.setOnDrawListener(this.alg);
+                    if (this.fRf != null) {
+                        this.fRf.a(tbImageView, i3, childCount);
                     }
                     tbImageView.startLoad(a2, i2, false);
                 }
@@ -546,18 +546,18 @@ public class ConstrainImageLayout extends ViewGroup {
     }
 
     public void setCanCenterStart(boolean z) {
-        this.ams = z;
+        this.alB = z;
     }
 
     private void a(TbImageView tbImageView, int i, boolean z, boolean z2) {
-        if (this.amr != null && tbImageView != null) {
+        if (this.alA != null && tbImageView != null) {
             View.OnClickListener onClickListener = tbImageView.getOnClickListener();
             if (onClickListener instanceof b) {
                 ((b) onClickListener).b(i, z, z2);
             } else {
                 tbImageView.setOnClickListener(new b(i, z, z2));
             }
-        } else if (this.amr == null && tbImageView != null) {
+        } else if (this.alA == null && tbImageView != null) {
             tbImageView.setClickable(false);
         }
     }
@@ -582,7 +582,7 @@ public class ConstrainImageLayout extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b implements View.OnClickListener {
-        private boolean amu;
+        private boolean alD;
         private int currentIndex;
         private boolean hasMore;
 
@@ -593,13 +593,13 @@ public class ConstrainImageLayout extends ViewGroup {
         public void b(int i, boolean z, boolean z2) {
             this.currentIndex = i;
             this.hasMore = z;
-            this.amu = z2;
+            this.alD = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ConstrainImageLayout.this.amr != null) {
-                ConstrainImageLayout.this.amr.c(view, this.currentIndex, this.hasMore && this.amu);
+            if (ConstrainImageLayout.this.alA != null) {
+                ConstrainImageLayout.this.alA.c(view, this.currentIndex, this.hasMore && this.alD);
             }
         }
     }
@@ -608,18 +608,18 @@ public class ConstrainImageLayout extends ViewGroup {
         this.imagePadding = i;
     }
 
-    private void tv(int i) {
+    private void rP(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
-                TbImageView borrowObject = this.fVY.borrowObject();
+                TbImageView borrowObject = this.fRr.borrowObject();
                 borrowObject.setContentDescription(getResources().getString(R.string.editor_image));
                 borrowObject.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 borrowObject.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
-                borrowObject.setPageId(this.fJu);
+                borrowObject.setPageId(this.fEN);
                 addView(borrowObject);
             }
         }
@@ -632,82 +632,82 @@ public class ConstrainImageLayout extends ViewGroup {
         super.onMeasure(i, i2);
         int childCount = getChildCount();
         if (childCount > 0) {
-            int max = Math.max(childCount, this.fVZ);
+            int max = Math.max(childCount, this.fRs);
             int size = View.MeasureSpec.getSize(i);
             int i5 = size - ((max - 1) * this.imagePadding);
-            if (this.fVW) {
+            if (this.fRp) {
                 if (childCount == 1) {
-                    if (this.fWf == 0) {
-                        this.fWf = (int) ((size - (this.imagePadding * 2)) / 3.0f);
+                    if (this.fRy == 0) {
+                        this.fRy = (int) ((size - (this.imagePadding * 2)) / 3.0f);
                     }
-                    if (this.fWg != null && this.fWg.picWidth > 0 && this.fWg.picHeight > 0) {
-                        if (this.fWg.picWidth * 2 <= this.fWg.picHeight) {
-                            int i6 = this.imagePadding + ((int) (this.fWf * 1.5f));
-                            i3 = (this.fWf * 2) + this.imagePadding;
+                    if (this.fRz != null && this.fRz.picWidth > 0 && this.fRz.picHeight > 0) {
+                        if (this.fRz.picWidth * 2 <= this.fRz.picHeight) {
+                            int i6 = this.imagePadding + ((int) (this.fRy * 1.5f));
+                            i3 = (this.fRy * 2) + this.imagePadding;
                             i4 = i6;
-                        } else if (this.fWg.picHeight * 2 <= this.fWg.picWidth) {
-                            int i7 = this.imagePadding + (this.fWf * 2);
-                            i3 = ((int) (this.fWf * 1.5f)) + this.imagePadding;
+                        } else if (this.fRz.picHeight * 2 <= this.fRz.picWidth) {
+                            int i7 = this.imagePadding + (this.fRy * 2);
+                            i3 = ((int) (this.fRy * 1.5f)) + this.imagePadding;
                             i4 = i7;
-                        } else if (this.fWg.picWidth < this.fWf) {
-                            if (this.fWg.picHeight < this.fWf) {
-                                if (this.fWg.picWidth < this.fWg.picHeight) {
-                                    int i8 = this.fWf;
-                                    i3 = (this.fWg.picHeight * i8) / this.fWg.picWidth;
+                        } else if (this.fRz.picWidth < this.fRy) {
+                            if (this.fRz.picHeight < this.fRy) {
+                                if (this.fRz.picWidth < this.fRz.picHeight) {
+                                    int i8 = this.fRy;
+                                    i3 = (this.fRz.picHeight * i8) / this.fRz.picWidth;
                                     i4 = i8;
                                 } else {
-                                    i3 = this.fWf;
-                                    i4 = (this.fWg.picWidth * i3) / this.fWg.picHeight;
+                                    i3 = this.fRy;
+                                    i4 = (this.fRz.picWidth * i3) / this.fRz.picHeight;
                                 }
-                            } else if (this.fWg.picHeight < this.fWf || this.fWg.picHeight >= this.fWf * 2) {
+                            } else if (this.fRz.picHeight < this.fRy || this.fRz.picHeight >= this.fRy * 2) {
                                 i3 = 0;
                                 i4 = 0;
                             } else {
-                                int i9 = this.fWf;
-                                i3 = (this.fWg.picHeight * i9) / this.fWg.picWidth;
+                                int i9 = this.fRy;
+                                i3 = (this.fRz.picHeight * i9) / this.fRz.picWidth;
                                 i4 = i9;
                             }
-                        } else if (this.fWg.picWidth >= this.fWf && this.fWg.picWidth < this.fWf * 2) {
-                            if (this.fWg.picHeight < this.fWf) {
-                                i3 = this.fWf;
-                                i4 = (this.fWg.picWidth * i3) / this.fWg.picHeight;
-                            } else if (this.fWg.picHeight >= this.fWf && this.fWg.picHeight < this.fWf * 2) {
-                                int i10 = this.fWg.picWidth;
-                                i3 = this.fWg.picHeight;
+                        } else if (this.fRz.picWidth >= this.fRy && this.fRz.picWidth < this.fRy * 2) {
+                            if (this.fRz.picHeight < this.fRy) {
+                                i3 = this.fRy;
+                                i4 = (this.fRz.picWidth * i3) / this.fRz.picHeight;
+                            } else if (this.fRz.picHeight >= this.fRy && this.fRz.picHeight < this.fRy * 2) {
+                                int i10 = this.fRz.picWidth;
+                                i3 = this.fRz.picHeight;
                                 i4 = i10;
                             } else {
-                                i3 = (this.fWf * 2) + this.imagePadding;
-                                i4 = (this.fWg.picWidth * i3) / this.fWg.picHeight;
+                                i3 = (this.fRy * 2) + this.imagePadding;
+                                i4 = (this.fRz.picWidth * i3) / this.fRz.picHeight;
                             }
-                        } else if (this.fWg.picHeight < this.fWf) {
+                        } else if (this.fRz.picHeight < this.fRy) {
                             i3 = 0;
                             i4 = 0;
-                        } else if (this.fWg.picHeight >= this.fWf && this.fWg.picHeight < this.fWf * 2) {
-                            int i11 = this.imagePadding + (this.fWf * 2);
-                            i3 = (this.fWg.picHeight * i11) / this.fWg.picWidth;
+                        } else if (this.fRz.picHeight >= this.fRy && this.fRz.picHeight < this.fRy * 2) {
+                            int i11 = this.imagePadding + (this.fRy * 2);
+                            i3 = (this.fRz.picHeight * i11) / this.fRz.picWidth;
                             i4 = i11;
-                        } else if (this.fWg.picWidth < this.fWg.picHeight) {
-                            i3 = (this.fWf * 2) + this.imagePadding;
-                            i4 = (this.fWg.picWidth * i3) / this.fWg.picHeight;
+                        } else if (this.fRz.picWidth < this.fRz.picHeight) {
+                            i3 = (this.fRy * 2) + this.imagePadding;
+                            i4 = (this.fRz.picWidth * i3) / this.fRz.picHeight;
                         } else {
-                            int i12 = this.imagePadding + (this.fWf * 2);
-                            i3 = (this.fWg.picHeight * i12) / this.fWg.picWidth;
+                            int i12 = this.imagePadding + (this.fRy * 2);
+                            i3 = (this.fRz.picHeight * i12) / this.fRz.picWidth;
                             i4 = i12;
                         }
                     } else {
-                        int i13 = this.imagePadding + (this.fWf * 2);
+                        int i13 = this.imagePadding + (this.fRy * 2);
                         i3 = i13;
                         i4 = i13;
                     }
-                    int[] c = com.baidu.tbadk.a.b.b.c(this.fWg);
+                    int[] c = com.baidu.tbadk.a.b.b.c(this.fRz);
                     if (c[0] > 0 && c[1] > 0) {
                         i4 = c[0];
                         i3 = c[1];
                     }
                 } else {
                     int i14 = i5 / max;
-                    if (this.fWe > 0) {
-                        i3 = this.fWe;
+                    if (this.fRx > 0) {
+                        i3 = this.fRx;
                         i4 = i14;
                     } else {
                         i3 = i14;
@@ -716,9 +716,9 @@ public class ConstrainImageLayout extends ViewGroup {
                 }
             } else {
                 int i15 = i5 / max;
-                i3 = this.fVS > 0.0d ? (int) ((i15 * this.fVS) + 0.5d) : i15;
-                if (this.fWe > 0) {
-                    i3 = this.fWe;
+                i3 = this.fRl > 0.0d ? (int) ((i15 * this.fRl) + 0.5d) : i15;
+                if (this.fRx > 0) {
+                    i3 = this.fRx;
                     i4 = i15;
                 } else {
                     i4 = i15;
@@ -751,8 +751,8 @@ public class ConstrainImageLayout extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        bKB();
-        if (!StringUtils.isNull(this.fWb) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.fWb != null) {
+        bGJ();
+        if (!StringUtils.isNull(this.fRu) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.fRu != null) {
             TbImageView tbImageView = null;
             int childCount2 = getChildCount();
             while (true) {
@@ -772,16 +772,16 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    private void bKB() {
-        if (this.fVU != null && getChildCount() > 0) {
+    private void bGJ() {
+        if (this.fRn != null && getChildCount() > 0) {
             View childAt = getChildAt(0);
             int width = childAt.getWidth();
             int height = childAt.getHeight();
             if (width > 0 && height > 0) {
                 if (getChildCount() == 1) {
-                    this.fVU.i(1, childAt.getWidth(), childAt.getHeight());
+                    this.fRn.i(1, childAt.getWidth(), childAt.getHeight());
                 } else {
-                    this.fVU.i(2, childAt.getWidth(), childAt.getHeight());
+                    this.fRn.i(2, childAt.getWidth(), childAt.getHeight());
                 }
             }
         }
@@ -797,15 +797,15 @@ public class ConstrainImageLayout extends ViewGroup {
     private void a(Canvas canvas, RectF rectF, float[] fArr) {
         int i;
         if (rectF != null) {
-            if (this.anf == null || this.anf.isRecycled()) {
+            if (this.amo == null || this.amo.isRecycled()) {
                 int i2 = (int) (rectF.right - rectF.left);
                 int i3 = (int) (rectF.bottom - rectF.top);
-                this.anf = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_4444);
-                Canvas canvas2 = new Canvas(this.anf);
+                this.amo = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_4444);
+                Canvas canvas2 = new Canvas(this.amo);
                 canvas2.drawARGB(0, 0, 0, 0);
                 RectF rectF2 = new RectF(-fArr[0], 0.0f, i2, i3);
                 int i4 = Integer.MIN_VALUE;
-                if (com.baidu.tbadk.a.d.bmF()) {
+                if (com.baidu.tbadk.a.d.biL()) {
                     i = ao.getColor(R.color.CAM_X0601);
                     i4 = ao.getColor(R.color.CAM_X0606);
                 } else {
@@ -814,27 +814,27 @@ public class ConstrainImageLayout extends ViewGroup {
                 this.mBitmapPaint.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, i3, i, i4, Shader.TileMode.CLAMP));
                 canvas2.drawPath(com.baidu.tbadk.core.elementsMaven.a.a.a(rectF2, fArr), this.mBitmapPaint);
             }
-            canvas.drawBitmap(this.anf, rectF.left, rectF.top, this.fWc);
+            canvas.drawBitmap(this.amo, rectF.left, rectF.top, this.fRv);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
             int dimenPixelSize2 = ((int) rectF.right) - UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
             int i5 = ((int) rectF.bottom) - dimenPixelSize;
-            int measureText = dimenPixelSize2 - ((int) this.textPaint.measureText(this.fWb));
-            float[] ps = com.baidu.tbadk.core.elementsMaven.a.ps(R.array.S_O_X001);
-            this.textPaint.setShadowLayer(ps[1], ps[2], ps[3], (int) ps[0]);
-            canvas.drawText(this.fWb, measureText, i5, this.textPaint);
+            int measureText = dimenPixelSize2 - ((int) this.textPaint.measureText(this.fRu));
+            float[] nL = com.baidu.tbadk.core.elementsMaven.a.nL(R.array.S_O_X001);
+            this.textPaint.setShadowLayer(nL[1], nL[2], nL[3], (int) nL[0]);
+            canvas.drawText(this.fRu, measureText, i5, this.textPaint);
         }
     }
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            bKC();
+            bGK();
             this.textPaint.setColor(ao.getColor(R.color.CAM_X0101));
             invalidate();
         }
     }
 
-    private void bKC() {
+    private void bGK() {
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {
@@ -846,22 +846,22 @@ public class ConstrainImageLayout extends ViewGroup {
     }
 
     public void setFixedImageHeight(int i) {
-        this.fWe = i;
+        this.fRx = i;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fJu = bdUniqueId;
+        this.fEN = bdUniqueId;
     }
 
     public void setTbImageViewConfiguration(a aVar) {
-        this.fVM = aVar;
+        this.fRf = aVar;
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.fVU = bVar;
+        this.fRn = bVar;
     }
 
     public void setSinglePicUseStyleV10(boolean z) {
-        this.fVW = z;
+        this.fRp = z;
     }
 }

@@ -11,10 +11,10 @@ import java.util.List;
 class j extends ProxySelector {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<Proxy> f7605a = Collections.singletonList(Proxy.NO_PROXY);
+    private static final List<Proxy> f7305a = Collections.singletonList(Proxy.NO_PROXY);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ProxySelector f7606b = ProxySelector.getDefault();
+    private final ProxySelector f7306b = ProxySelector.getDefault();
     private final String c;
     private final int d;
 
@@ -28,12 +28,12 @@ class j extends ProxySelector {
         if (uri == null) {
             throw new IllegalArgumentException("URI can't be null");
         }
-        return (this.c.equalsIgnoreCase(uri.getHost()) && this.d == uri.getPort()) ? f7605a : this.f7606b.select(uri);
+        return (this.c.equalsIgnoreCase(uri.getHost()) && this.d == uri.getPort()) ? f7305a : this.f7306b.select(uri);
     }
 
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        this.f7606b.connectFailed(uri, socketAddress, iOException);
+        this.f7306b.connectFailed(uri, socketAddress, iOException);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

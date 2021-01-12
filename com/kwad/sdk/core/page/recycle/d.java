@@ -5,16 +5,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Presenter> f9658a = new ArrayList();
+    private List<Presenter> f9358a = new ArrayList();
 
     protected abstract c a(ViewGroup viewGroup, int i);
 
     public void a() {
-        for (Presenter presenter : this.f9658a) {
+        for (Presenter presenter : this.f9358a) {
             presenter.j();
         }
     }
@@ -24,14 +24,14 @@ public abstract class d extends RecyclerView.Adapter<c> {
     /* renamed from: a */
     public void onViewRecycled(c cVar) {
         super.onViewRecycled(cVar);
-        cVar.f9656a.i();
+        cVar.f9356a.i();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i) {
-        cVar.f9656a.a(cVar.f9657b);
+        cVar.f9356a.a(cVar.f9357b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     /* renamed from: b */
     public final c onCreateViewHolder(ViewGroup viewGroup, int i) {
         c a2 = a(viewGroup, i);
-        this.f9658a.add(a2.f9656a);
+        this.f9358a.add(a2.f9356a);
         return a2;
     }
 

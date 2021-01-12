@@ -12,56 +12,56 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.yuyinala.privatemessage.session.b.h;
 import com.baidu.yuyinala.privatemessage.session.b.j;
 import com.baidu.yuyinala.privatemessage.session.util.TagView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private TextView eLt;
-    private TextView gFi;
-    private TextView gFk;
-    private HeadImageView hDn;
-    public View mmS;
-    private TagView pfN;
-    private TextView pfO;
-    private j pfP;
+    private TextView eGI;
+    private TextView gAC;
+    private TextView gAE;
+    private HeadImageView hyH;
+    public View mio;
+    private TagView pbk;
+    private TextView pbl;
+    private j pbm;
 
     public a(View view) {
-        this.mmS = view;
+        this.mio = view;
         initView();
     }
 
     public void a(j jVar) {
         if (jVar != null) {
-            this.pfP = jVar;
-            String str = h.eov().eow().get(h.encode(jVar.pdK + ""));
+            this.pbm = jVar;
+            String str = h.ekz().ekA().get(h.encode(jVar.oZf + ""));
             if (!TextUtils.isEmpty(str)) {
-                this.eLt.setText(str);
+                this.eGI.setText(str);
             } else {
-                this.eLt.setText(jVar.name);
+                this.eGI.setText(jVar.name);
             }
-            this.gFi.setText(jVar.description);
-            this.gFk.setText(jVar.pdC);
-            this.hDn.setIsRound(true);
-            this.hDn.startLoad(this.pfP.iconUrl, 12, false);
-            if (jVar.pdM != null) {
-                this.pfN.setText(jVar.pdM);
-                this.pfN.setVisibility(0);
+            this.gAC.setText(jVar.description);
+            this.gAE.setText(jVar.oYX);
+            this.hyH.setIsRound(true);
+            this.hyH.startLoad(this.pbm.iconUrl, 12, false);
+            if (jVar.oZh != null) {
+                this.pbk.setText(jVar.oZh);
+                this.pbk.setVisibility(0);
             } else {
-                this.pfN.setVisibility(8);
+                this.pbk.setVisibility(8);
             }
             IMBoxManager.getShield(TbadkCoreApplication.getInst().getContext(), jVar.contacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.viewholder.a.1
                 @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener
                 public void onResult(GetShieldAndTopResult getShieldAndTopResult) {
-                    a.this.pfO.setVisibility(getShieldAndTopResult.getShield() == 1 ? 0 : 8);
+                    a.this.pbl.setVisibility(getShieldAndTopResult.getShield() == 1 ? 0 : 8);
                 }
             });
         }
     }
 
     private void initView() {
-        this.hDn = (HeadImageView) this.mmS.findViewById(a.f.user_message_item_icon);
-        this.eLt = (TextView) this.mmS.findViewById(a.f.user_message_item_name);
-        this.gFi = (TextView) this.mmS.findViewById(a.f.user_message_item_description);
-        this.gFk = (TextView) this.mmS.findViewById(a.f.user_message_item_time);
-        this.pfN = (TagView) this.mmS.findViewById(a.f.user_message_item_new_count);
-        this.pfO = (TextView) this.mmS.findViewById(a.f.yuyin_tv_chatlist_shield_status);
+        this.hyH = (HeadImageView) this.mio.findViewById(a.f.user_message_item_icon);
+        this.eGI = (TextView) this.mio.findViewById(a.f.user_message_item_name);
+        this.gAC = (TextView) this.mio.findViewById(a.f.user_message_item_description);
+        this.gAE = (TextView) this.mio.findViewById(a.f.user_message_item_time);
+        this.pbk = (TagView) this.mio.findViewById(a.f.user_message_item_new_count);
+        this.pbl = (TextView) this.mio.findViewById(a.f.yuyin_tv_chatlist_shield_status);
     }
 }

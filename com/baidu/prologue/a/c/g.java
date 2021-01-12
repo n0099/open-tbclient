@@ -1,7 +1,7 @@
 package com.baidu.prologue.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface g {
-    public static final g ctf = new a();
+    public static final g cor = new a();
 
     int d(String str, String str2);
 

@@ -22,45 +22,45 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends BaseAdapter {
-    private ArrayList<j.b> eYq = new ArrayList<>();
-    private int gPr;
+    private ArrayList<j.b> eTF = new ArrayList<>();
+    private int gKL;
     private String mLiveId;
     private TbPageContext mPageContext;
-    private String ojl;
+    private String oeF;
 
     public e(TbPageContext tbPageContext, int i, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gPr = i;
-        this.ojl = str;
+        this.gKL = i;
+        this.oeF = str;
         this.mLiveId = str2;
     }
 
     public void setData(List<j.b> list) {
         if (list != null) {
-            this.eYq.clear();
-            this.eYq.addAll(list);
+            this.eTF.clear();
+            this.eTF.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eYq == null) {
+        if (this.eTF == null) {
             return 0;
         }
-        return this.eYq.size();
+        return this.eTF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: MX */
+    /* renamed from: Lq */
     public j.b getItem(int i) {
-        if (this.eYq == null) {
+        if (this.eTF == null) {
             return null;
         }
-        return this.eYq.get(i);
+        return this.eTF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -75,38 +75,38 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_rank__list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.olq = (CharmRankItemView) view.findViewById(a.f.item);
+            aVar2.ogL = (CharmRankItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            if (aVar.olq.getData() == null || !TextUtils.equals(aVar.olq.getData().user_uk, item.user_uk)) {
-                aVar.olq.okf.setData(item);
+            if (aVar.ogL.getData() == null || !TextUtils.equals(aVar.ogL.getData().user_uk, item.user_uk)) {
+                aVar.ogL.ofA.setData(item);
             }
-            aVar.olq.setData(i + 1, item);
-            aVar.olq.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
+            aVar.ogL.setData(i + 1, item);
+            aVar.ogL.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.a
-                public void ebO() {
+                public void dXW() {
                     if (!TbadkCoreApplication.isLogin()) {
                         ViewHelper.skipToLoginActivity(e.this.mPageContext.getContext());
                         return;
                     }
                     com.baidu.live.personmanager.a aVar3 = new com.baidu.live.personmanager.a(e.this.mPageContext.getContext());
-                    if (!item.Ez()) {
-                        aVar3.u(item.user_uk, e.this.ojl, e.this.mLiveId);
-                        aVar3.a(new a.InterfaceC0201a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0201a
-                            public void Ry() {
-                                e.this.MY(i + 1);
+                    if (!item.AE()) {
+                        aVar3.t(item.user_uk, e.this.oeF, e.this.mLiveId);
+                        aVar3.a(new a.InterfaceC0192a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0192a
+                            public void ND() {
+                                e.this.Lr(i + 1);
                                 item.follow_status = 1;
-                                aVar.olq.aE(true, true);
+                                aVar.ogL.aE(true, true);
                                 BdUtilHelper.showToast(e.this.mPageContext.getContext(), "关注成功", 3000);
                             }
 
-                            @Override // com.baidu.live.personmanager.a.InterfaceC0201a
-                            public void v(int i2, String str) {
+                            @Override // com.baidu.live.personmanager.a.InterfaceC0192a
+                            public void w(int i2, String str) {
                             }
                         });
                     }
@@ -118,15 +118,15 @@ public class e extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MY(int i) {
+    public void Lr(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ojl);
-            if (this.gPr == 0) {
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oeF);
+            if (this.gKL == 0) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "contribtab");
                 jSONObject.put("contrib_num", i);
-            } else if (this.gPr == 1) {
+            } else if (this.gKL == 1) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "charmtab");
                 jSONObject.put("charm_num", i);
             }
@@ -136,9 +136,9 @@ public class e extends BaseAdapter {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, "follow").setContentExt(jSONObject));
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class a {
-        private CharmRankItemView olq;
+        private CharmRankItemView ogL;
 
         private a() {
         }

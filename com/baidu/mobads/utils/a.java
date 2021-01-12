@@ -3,18 +3,18 @@ package com.baidu.mobads.utils;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.interfaces.utils.IBase64;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a implements IBase64 {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f3526a = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+    private static final byte[] f3488a = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final byte[] f3527b = new byte[128];
+    private static final byte[] f3489b = new byte[128];
 
     static {
-        for (int i = 0; i < f3526a.length; i++) {
-            f3527b[f3526a[i]] = (byte) i;
+        for (int i = 0; i < f3488a.length; i++) {
+            f3489b[f3488a[i]] = (byte) i;
         }
     }
 
@@ -33,10 +33,10 @@ public class a implements IBase64 {
         while (true) {
             int i3 = i;
             if (i3 < bytes.length) {
-                bArr[i2] = f3526a[(bytes[i3] & 252) >> 2];
-                bArr[i2 + 1] = f3526a[((bytes[i3] & 3) << 4) + ((bytes[i3 + 1] & 240) >> 4)];
-                bArr[i2 + 2] = f3526a[((bytes[i3 + 1] & 15) << 2) + ((bytes[i3 + 2] & 192) >> 6)];
-                bArr[i2 + 3] = f3526a[bytes[i3 + 2] & 63];
+                bArr[i2] = f3488a[(bytes[i3] & 252) >> 2];
+                bArr[i2 + 1] = f3488a[((bytes[i3] & 3) << 4) + ((bytes[i3 + 1] & 240) >> 4)];
+                bArr[i2 + 2] = f3488a[((bytes[i3 + 1] & 15) << 2) + ((bytes[i3 + 2] & 192) >> 6)];
+                bArr[i2 + 3] = f3488a[bytes[i3 + 2] & 63];
                 i = i3 + 3;
                 i2 += 4;
             } else {
@@ -62,10 +62,10 @@ public class a implements IBase64 {
                 if (i3 >= str.length() - 4) {
                     break;
                 }
-                byte b2 = f3527b[str.charAt(i3)];
-                byte b3 = f3527b[str.charAt(i3 + 1)];
-                byte b4 = f3527b[str.charAt(i3 + 2)];
-                byte b5 = f3527b[str.charAt(i3 + 3)];
+                byte b2 = f3489b[str.charAt(i3)];
+                byte b3 = f3489b[str.charAt(i3 + 1)];
+                byte b4 = f3489b[str.charAt(i3 + 2)];
+                byte b5 = f3489b[str.charAt(i3 + 3)];
                 bArr[i2] = (byte) ((b2 << 2) | (b3 >> 4));
                 bArr[i2 + 1] = (byte) ((b3 << 4) | (b4 >> 2));
                 bArr[i2 + 2] = (byte) ((b4 << 6) | b5);
@@ -73,18 +73,18 @@ public class a implements IBase64 {
                 i2 += 3;
             }
             if (str.charAt(str.length() - 2) == '$') {
-                bArr[bArr.length - 1] = (byte) ((f3527b[str.charAt(str.length() - 4)] << 2) | (f3527b[str.charAt(str.length() - 3)] >> 4));
+                bArr[bArr.length - 1] = (byte) ((f3489b[str.charAt(str.length() - 4)] << 2) | (f3489b[str.charAt(str.length() - 3)] >> 4));
             } else if (str.charAt(str.length() - 1) == '$') {
-                byte b6 = f3527b[str.charAt(str.length() - 4)];
-                byte b7 = f3527b[str.charAt(str.length() - 3)];
-                byte b8 = f3527b[str.charAt(str.length() - 2)];
+                byte b6 = f3489b[str.charAt(str.length() - 4)];
+                byte b7 = f3489b[str.charAt(str.length() - 3)];
+                byte b8 = f3489b[str.charAt(str.length() - 2)];
                 bArr[bArr.length - 2] = (byte) ((b6 << 2) | (b7 >> 4));
                 bArr[bArr.length - 1] = (byte) ((b7 << 4) | (b8 >> 2));
             } else {
-                byte b9 = f3527b[str.charAt(str.length() - 4)];
-                byte b10 = f3527b[str.charAt(str.length() - 3)];
-                byte b11 = f3527b[str.charAt(str.length() - 2)];
-                byte b12 = f3527b[str.charAt(str.length() - 1)];
+                byte b9 = f3489b[str.charAt(str.length() - 4)];
+                byte b10 = f3489b[str.charAt(str.length() - 3)];
+                byte b11 = f3489b[str.charAt(str.length() - 2)];
+                byte b12 = f3489b[str.charAt(str.length() - 1)];
                 bArr[bArr.length - 3] = (byte) ((b9 << 2) | (b10 >> 4));
                 bArr[bArr.length - 2] = (byte) ((b10 << 4) | (b11 >> 2));
                 bArr[bArr.length - 1] = (byte) ((b11 << 6) | b12);
@@ -128,6 +128,6 @@ public class a implements IBase64 {
         if (b2 < 0 || b2 >= 128) {
             return false;
         }
-        return f3527b[b2] != -1;
+        return f3489b[b2] != -1;
     }
 }

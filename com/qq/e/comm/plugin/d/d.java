@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import com.baidu.android.util.io.ActionJsonData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static NotificationManager a(Context context) {
         NotificationManager notificationManager;

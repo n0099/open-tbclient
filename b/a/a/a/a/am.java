@@ -9,16 +9,16 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class am extends Handler {
-    final /* synthetic */ al BA;
-    StringBuffer Bz;
+    StringBuffer Bx;
+    final /* synthetic */ al By;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(al alVar, Looper looper) {
         super(looper);
-        this.BA = alVar;
-        this.Bz = new StringBuffer(15360);
+        this.By = alVar;
+        this.Bx = new StringBuffer(15360);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -33,49 +33,49 @@ public final class am extends Handler {
         try {
             switch (message.what) {
                 case 1:
-                    String stringBuffer = this.Bz.toString();
-                    wVar = al.AW;
-                    x xVar = wVar.AX;
-                    this.Bz.setLength(0);
-                    StringBuffer append = this.Bz.append("LOC_CORE,");
-                    simpleDateFormat = this.BA.By;
+                    String stringBuffer = this.Bx.toString();
+                    wVar = al.AV;
+                    x xVar = wVar.AW;
+                    this.Bx.setLength(0);
+                    StringBuffer append = this.Bx.append("LOC_CORE,");
+                    simpleDateFormat = this.By.Bw;
                     append.append(simpleDateFormat.format(new Date())).append(',').append(xVar.f()).append(',').append(xVar.h()).append(',').append(xVar.e().replaceAll(":", "").toUpperCase()).append(',').append("Lite");
                     if (!o.a(stringBuffer)) {
-                        this.Bz.append(stringBuffer);
+                        this.Bx.append(stringBuffer);
                     }
-                    al alVar = this.BA;
-                    StringBuilder append2 = new StringBuilder().append(xVar.c).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.d).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1084b).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1083a).append(',');
+                    al alVar = this.By;
+                    StringBuilder append2 = new StringBuilder().append(xVar.c).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.d).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1083b).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1082a).append(',');
                     str = al.h;
                     StringBuilder append3 = append2.append(str).append(',');
-                    wVar2 = al.AW;
-                    alVar.a("SYSTEM", append3.append(wVar2.AX.f()).append(',').append(Build.MODEL).append(',').append(Build.VERSION.SDK_INT).toString());
+                    wVar2 = al.AV;
+                    alVar.a("SYSTEM", append3.append(wVar2.AW.f()).append(',').append(Build.MODEL).append(',').append(Build.VERSION.SDK_INT).toString());
                     break;
                 case 2:
                     break;
                 case 3:
-                    this.Bz.append('$').append((String) message.obj);
-                    if (this.Bz.length() >= 15360) {
-                        this.BA.a(this.Bz.toString(), false);
-                        this.Bz.setLength(0);
+                    this.Bx.append('$').append((String) message.obj);
+                    if (this.Bx.length() >= 15360) {
+                        this.By.a(this.Bx.toString(), false);
+                        this.Bx.setLength(0);
                         sendEmptyMessage(1);
                         return;
                     }
                     return;
                 case 4:
-                    this.BA.a("", true);
+                    this.By.a("", true);
                     return;
                 case 5:
-                    al.b(this.BA);
+                    al.b(this.By);
                     return;
                 default:
                     return;
             }
             removeMessages(2);
-            al alVar2 = this.BA;
+            al alVar2 = this.By;
             context = al.f;
             b2 = al.b(context);
             alVar2.a("PERMISSION", b2);
-            this.BA.c();
+            this.By.c();
         } catch (Throwable th) {
         }
     }

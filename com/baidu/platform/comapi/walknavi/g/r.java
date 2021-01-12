@@ -1,18 +1,19 @@
 package com.baidu.platform.comapi.walknavi.g;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class r implements Runnable {
+/* loaded from: classes6.dex */
+public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4572a;
+    final /* synthetic */ a f4348a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(a aVar) {
-        this.f4572a = aVar;
+        this.f4348a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.platform.comapi.walknavi.b.a().J().a(com.baidu.platform.comapi.walknavi.b.a().J().j());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 }

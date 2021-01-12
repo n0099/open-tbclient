@@ -1,66 +1,66 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static e oBj;
-    private TbPageContext oAe;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c oBk;
+    private static e owE;
+    private TbPageContext ovz;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c owF;
 
-    public static e eeP() {
-        if (oBj == null) {
-            oBj = new e();
+    public static e eaX() {
+        if (owE == null) {
+            owE = new e();
         }
-        return oBj;
+        return owE;
     }
 
     private e() {
     }
 
     public void h(TbPageContext tbPageContext) {
-        if (tbPageContext != null && tbPageContext != this.oAe) {
-            this.oAe = tbPageContext;
+        if (tbPageContext != null && tbPageContext != this.ovz) {
+            this.ovz = tbPageContext;
             hide();
         }
-        if (this.oAe == null) {
-            this.oAe = o.efg().efm();
+        if (this.ovz == null) {
+            this.ovz = o.ebo().ebu();
         }
-        if (this.oAe != null) {
-            if (this.oBk == null) {
-                this.oBk = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oAe);
+        if (this.ovz != null) {
+            if (this.owF == null) {
+                this.owF = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.ovz);
             }
-            if (this.oBk.efy()) {
-                this.oBk.show();
+            if (this.owF.ebG()) {
+                this.owF.show();
                 return;
             }
-            this.oBk.show();
-            this.oBk.startTimer();
+            this.owF.show();
+            this.owF.startTimer();
         }
     }
 
-    public e eeQ() {
-        if (this.oBk != null) {
-            this.oBk.startTimer();
+    public e eaY() {
+        if (this.owF != null) {
+            this.owF.startTimer();
         }
         return this;
     }
 
-    public e eeR() {
-        if (this.oBk != null) {
-            this.oBk.cancelTimer();
+    public e eaZ() {
+        if (this.owF != null) {
+            this.owF.cancelTimer();
         }
         return this;
     }
 
     private void hide() {
-        if (this.oBk != null) {
-            this.oBk.dismiss();
-            this.oBk = null;
+        if (this.owF != null) {
+            this.owF.dismiss();
+            this.owF = null;
         }
     }
 
     public void onDestroy() {
-        eeR();
+        eaZ();
         hide();
     }
 }

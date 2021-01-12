@@ -11,87 +11,87 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeRecyclerView Yc;
-    private LinkedList<com.baidu.adp.widget.ListView.a> kbI = new LinkedList<>();
-    private f knP;
-    private b knQ;
-    private d knR;
-    private e knS;
-    private c knT;
+    private BdTypeRecyclerView Ya;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jXd = new LinkedList<>();
+    private f kjk;
+    private b kjl;
+    private d kjm;
+    private e kjn;
+    private c kjo;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Yc = bdTypeRecyclerView;
-        MT();
+        this.Ya = bdTypeRecyclerView;
+        IY();
     }
 
-    private void MT() {
-        this.knP = new f(this.mPageContext, k.izK);
-        this.knQ = new b(this.mPageContext, l.eTj);
-        this.knR = new d(this.mPageContext, k.izR);
-        this.knS = new e(this.mPageContext, k.izP);
-        this.knT = new c(this.mPageContext, k.eSQ);
-        this.knP.a(this.Yc);
-        this.knQ.a(this.Yc);
-        this.knR.a(this.Yc);
-        this.knS.a(this.Yc);
-        this.knT.a(this.Yc);
-        this.kbI.add(this.knP);
-        this.kbI.add(this.knQ);
-        this.kbI.add(this.knR);
-        this.kbI.add(this.knS);
-        this.kbI.add(this.knT);
-        this.Yc.addAdapters(this.kbI);
+    private void IY() {
+        this.kjk = new f(this.mPageContext, k.ivd);
+        this.kjl = new b(this.mPageContext, l.eOy);
+        this.kjm = new d(this.mPageContext, k.ivk);
+        this.kjn = new e(this.mPageContext, k.ivi);
+        this.kjo = new c(this.mPageContext, k.eOf);
+        this.kjk.a(this.Ya);
+        this.kjl.a(this.Ya);
+        this.kjm.a(this.Ya);
+        this.kjn.a(this.Ya);
+        this.kjo.a(this.Ya);
+        this.jXd.add(this.kjk);
+        this.jXd.add(this.kjl);
+        this.jXd.add(this.kjm);
+        this.jXd.add(this.kjn);
+        this.jXd.add(this.kjo);
+        this.Ya.addAdapters(this.jXd);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Yc != null) {
-            this.Yc.getListAdapter().notifyDataSetChanged();
+        if (this.Ya != null) {
+            this.Ya.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.knP != null) {
-            this.knP.setPageUniqueId(bdUniqueId);
+        if (this.kjk != null) {
+            this.kjk.setPageUniqueId(bdUniqueId);
         }
-        if (this.knQ != null) {
-            this.knQ.setPageUniqueId(bdUniqueId);
+        if (this.kjl != null) {
+            this.kjl.setPageUniqueId(bdUniqueId);
         }
-        if (this.knR != null) {
-            this.knR.setPageUniqueId(bdUniqueId);
+        if (this.kjm != null) {
+            this.kjm.setPageUniqueId(bdUniqueId);
         }
-        if (this.knS != null) {
-            this.knS.setPageUniqueId(bdUniqueId);
+        if (this.kjn != null) {
+            this.kjn.setPageUniqueId(bdUniqueId);
         }
-        if (this.knT != null) {
-            this.knT.setPageUniqueId(bdUniqueId);
+        if (this.kjo != null) {
+            this.kjo.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<n> list) {
-        this.Yc.setData(list);
+        this.Ya.setData(list);
     }
 
     public List<n> getDataList() {
-        if (this.Yc != null) {
-            return this.Yc.getData();
+        if (this.Ya != null) {
+            return this.Ya.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.knS != null) {
-            this.knS.setEventCallback(aVar);
+        if (this.kjn != null) {
+            this.kjn.setEventCallback(aVar);
         }
-        if (this.knP != null) {
-            this.knP.setEventCallback(aVar);
+        if (this.kjk != null) {
+            this.kjk.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.knQ != null) {
-            this.knQ.onPause();
+        if (this.kjl != null) {
+            this.kjl.onPause();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.knQ != null) {
-            this.knQ.b(eVar);
+        if (this.kjl != null) {
+            this.kjl.b(eVar);
         }
     }
 }

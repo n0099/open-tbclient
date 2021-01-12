@@ -3,7 +3,7 @@ package com.kwai.filedownloader.a;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import com.baidu.mobstat.Config;
 import com.kwai.filedownloader.f.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements c.a {
     @Override // com.kwai.filedownloader.f.c.a
     public int a(int i, String str, String str2, long j) {

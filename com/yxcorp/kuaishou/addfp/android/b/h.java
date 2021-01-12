@@ -4,15 +4,15 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Parcel;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f14691a = "iphonesubinfo";
-    private /* synthetic */ f qgA;
+    private final String f14391a = "iphonesubinfo";
+    private /* synthetic */ f qbZ;
 
     public h(f fVar) {
-        this.qgA = fVar;
+        this.qbZ = fVar;
     }
 
     private String a(String str, String str2) {
@@ -25,7 +25,7 @@ public final class h {
         String str3 = "";
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        a2 = this.qgA.a(str2);
+        a2 = this.qbZ.a(str2);
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
@@ -34,7 +34,7 @@ public final class h {
             context = f.d;
             obtain.writeString(context.getPackageName());
         }
-        a3 = this.qgA.a(str2, str, obtain, obtain2);
+        a3 = this.qbZ.a(str2, str, obtain, obtain2);
         if (a3 != null) {
             try {
                 obtain2.readException();

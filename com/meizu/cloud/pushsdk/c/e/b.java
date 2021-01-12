@@ -6,25 +6,25 @@ import android.os.Build;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f11592a = b.class.getSimpleName();
+    private static String f11292a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f11593b;
+    private HashMap<String, String> f11293b;
     private HashMap<String, Object> c;
     private HashMap<String, String> d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f11594a = null;
+        private Context f11294a = null;
 
         public a a(Context context) {
-            this.f11594a = context;
+            this.f11294a = context;
             return this;
         }
 
@@ -34,17 +34,17 @@ public class b {
     }
 
     private b(a aVar) {
-        this.f11593b = new HashMap<>();
+        this.f11293b = new HashMap<>();
         this.c = new HashMap<>();
         this.d = new HashMap<>();
         d();
         e();
         f();
         g();
-        if (aVar.f11594a != null) {
-            a(aVar.f11594a);
+        if (aVar.f11294a != null) {
+            a(aVar.f11294a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f11592a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f11292a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
@@ -93,7 +93,7 @@ public class b {
     public void b(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f11592a, "Location information not available.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(f11292a, "Location information not available.", new Object[0]);
             return;
         }
         a("la", Double.valueOf(c.getLatitude()));
@@ -105,7 +105,7 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f11593b;
+        return this.f11293b;
     }
 
     public void c(Context context) {

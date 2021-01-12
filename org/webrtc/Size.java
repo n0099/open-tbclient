@@ -1,5 +1,7 @@
 package org.webrtc;
-/* loaded from: classes10.dex */
+
+import com.baidu.mobstat.Config;
+/* loaded from: classes9.dex */
 public class Size {
     public int height;
     public int width;
@@ -22,6 +24,6 @@ public class Size {
     }
 
     public String toString() {
-        return this.width + "x" + this.height;
+        return this.width + Config.EVENT_HEAT_X + this.height;
     }
 }

@@ -17,17 +17,17 @@ import com.baidu.live.tbadk.util.TextHelper;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
-    private HeadImageView aGr;
-    private HeadImageView aZT;
-    private FrameLayout aZU;
-    private List<HeadImageView> aZV;
-    private TextView aZW;
-    private Integer aZX;
-    private TextView aZY;
-    private AlphaAnimation aZZ;
-    private AlphaAnimation baa;
+    private HeadImageView aBE;
+    private HeadImageView aVg;
+    private FrameLayout aVh;
+    private List<HeadImageView> aVi;
+    private TextView aVj;
+    private Integer aVk;
+    private TextView aVl;
+    private AlphaAnimation aVm;
+    private AlphaAnimation aVn;
 
     public AlaBigGiftExtraInfoRevisionView(Context context) {
         this(context, null);
@@ -41,61 +41,61 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
     public void setData(com.baidu.live.gift.a.c cVar) {
         ArrayList arrayList = new ArrayList();
         arrayList.clear();
-        if (cVar.beL != null && cVar.beL.HC() == 1) {
-            for (int i = 0; i < cVar.beL.aZo.size(); i++) {
-                if (cVar.beL.aZo.get(i).portrait != null) {
-                    arrayList.add(cVar.beL.aZo.get(i).portrait);
+        if (cVar.aZV != null && cVar.aZV.DH() == 1) {
+            for (int i = 0; i < cVar.aZV.aUB.size(); i++) {
+                if (cVar.aZV.aUB.get(i).portrait != null) {
+                    arrayList.add(cVar.aZV.aUB.get(i).portrait);
                 }
             }
         } else {
             arrayList.clear();
         }
-        if (cVar.beL != null && arrayList.size() != 0) {
+        if (cVar.aZV != null && arrayList.size() != 0) {
             I(arrayList);
-            this.aGr.startLoad(arrayList.get(0), 12, false);
+            this.aBE.startLoad(arrayList.get(0), 12, false);
             arrayList.remove(0);
-            if (arrayList.size() < this.aZV.size()) {
+            if (arrayList.size() < this.aVi.size()) {
                 if (arrayList.size() != 0) {
                     for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        this.aZV.get(i2).startLoad(arrayList.get(i2), 12, false);
+                        this.aVi.get(i2).startLoad(arrayList.get(i2), 12, false);
                     }
                     int size = arrayList.size();
                     while (true) {
                         int i3 = size;
-                        if (i3 >= this.aZV.size()) {
+                        if (i3 >= this.aVi.size()) {
                             break;
                         }
-                        this.aZV.get(i3).setVisibility(8);
+                        this.aVi.get(i3).setVisibility(8);
                         size = i3 + 1;
                     }
                 } else {
                     int size2 = arrayList.size();
                     while (true) {
                         int i4 = size2;
-                        if (i4 >= this.aZV.size()) {
+                        if (i4 >= this.aVi.size()) {
                             break;
                         }
-                        this.aZV.get(i4).setVisibility(8);
+                        this.aVi.get(i4).setVisibility(8);
                         size2 = i4 + 1;
                     }
                 }
-                if (cVar.beL.HB() != null) {
-                    this.aZW.setText(cVar.beL.HB());
+                if (cVar.aZV.DG() != null) {
+                    this.aVj.setText(cVar.aZV.DG());
                 }
-                if (cVar.beL.HA() != null) {
-                    this.aZY.setText(cVar.beL.HA());
+                if (cVar.aZV.DF() != null) {
+                    this.aVl.setText(cVar.aZV.DF());
                 }
-                this.aZY.setTextColor(getContext().getResources().getColor(a.c.sdk_color_ffe918));
-                this.aZY.setMaxEms(7);
+                this.aVl.setTextColor(getContext().getResources().getColor(a.c.sdk_color_ffe918));
+                this.aVl.setMaxEms(7);
                 return;
             }
             return;
         }
         if (cVar.portrait != null) {
-            this.aGr.startLoad(cVar.portrait, 12, false);
-            if (this.aZV != null) {
-                for (int i5 = 0; i5 < this.aZV.size(); i5++) {
-                    this.aZV.get(i5).setVisibility(8);
+            this.aBE.startLoad(cVar.portrait, 12, false);
+            if (this.aVi != null) {
+                for (int i5 = 0; i5 < this.aVi.size(); i5++) {
+                    this.aVi.get(i5).setVisibility(8);
                 }
             }
         }
@@ -104,44 +104,44 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
             if (TextHelper.getTextLengthWithEmoji(str) > 20) {
                 str = TextHelper.subStringWithEmoji(str, 20) + StringHelper.STRING_MORE;
             }
-            this.aZW.setText(str);
+            this.aVj.setText(str);
         }
-        if (cVar.bex != null) {
-            if (TextUtils.isEmpty(cVar.beN)) {
-                this.aZY.setText(getResources().getString(a.h.donate) + cVar.bex.Gy());
-                this.aZY.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
-                this.aZY.setMaxEms(7);
+        if (cVar.aZH != null) {
+            if (TextUtils.isEmpty(cVar.aZX)) {
+                this.aVl.setText(getResources().getString(a.h.donate) + cVar.aZH.CD());
+                this.aVl.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
+                this.aVl.setMaxEms(7);
                 return;
             }
-            this.aZY.setText(cVar.beN + cVar.bex.Gy());
-            this.aZY.setTextColor(getContext().getResources().getColor(a.c.sdk_color_ffe918));
-            this.aZY.setMaxEms(cVar.beN.length() + 5);
+            this.aVl.setText(cVar.aZX + cVar.aZH.CD());
+            this.aVl.setTextColor(getContext().getResources().getColor(a.c.sdk_color_ffe918));
+            this.aVl.setMaxEms(cVar.aZX.length() + 5);
         }
     }
 
-    public void Ii() {
+    public void En() {
         setVisibility(0);
-        if (this.aZZ == null) {
-            this.aZZ = new AlphaAnimation(0.0f, 1.0f);
-            this.aZZ.setDuration(500L);
-            this.aZZ.setFillAfter(true);
+        if (this.aVm == null) {
+            this.aVm = new AlphaAnimation(0.0f, 1.0f);
+            this.aVm.setDuration(500L);
+            this.aVm.setFillAfter(true);
         }
-        startAnimation(this.aZZ);
+        startAnimation(this.aVm);
     }
 
-    public void Ij() {
-        if (this.baa == null) {
-            this.baa = new AlphaAnimation(1.0f, 0.0f);
-            this.baa.setDuration(500L);
-            this.baa.setFillAfter(true);
+    public void Eo() {
+        if (this.aVn == null) {
+            this.aVn = new AlphaAnimation(1.0f, 0.0f);
+            this.aVn.setDuration(500L);
+            this.aVn.setFillAfter(true);
         }
-        startAnimation(this.baa);
+        startAnimation(this.aVn);
     }
 
     public void onDestroy() {
         setVisibility(8);
         clearAnimation();
-        this.aZV.clear();
+        this.aVi.clear();
     }
 
     public void end() {
@@ -151,37 +151,37 @@ public class AlaBigGiftExtraInfoRevisionView extends FrameLayout {
 
     private void init() {
         setBackgroundColor(0);
-        this.aZV = new ArrayList(4);
-        this.aZX = 3;
-        Ik();
+        this.aVi = new ArrayList(4);
+        this.aVk = 3;
+        Ep();
     }
 
-    private void Ik() {
+    private void Ep() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.g.popup_extra_info_revision_layout, (ViewGroup) this, true);
-        this.aGr = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.aZU = (FrameLayout) findViewById(a.f.content_frame);
-        this.aZV = new ArrayList(3);
-        this.aZX = 3;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aGr.getLayoutParams();
-        for (int i = 0; i < this.aZX.intValue(); i++) {
-            this.aZT = new HeadImageView(getContext());
-            this.aZT.setIsRound(true);
-            this.aZT.setAutoChangeStyle(false);
-            this.aZT.setDefaultBgResource(a.e.sdk_default_avatar);
-            this.aZT.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.aZV.add(this.aZT);
+        this.aBE = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.aVh = (FrameLayout) findViewById(a.f.content_frame);
+        this.aVi = new ArrayList(3);
+        this.aVk = 3;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aBE.getLayoutParams();
+        for (int i = 0; i < this.aVk.intValue(); i++) {
+            this.aVg = new HeadImageView(getContext());
+            this.aVg.setIsRound(true);
+            this.aVg.setAutoChangeStyle(false);
+            this.aVg.setDefaultBgResource(a.e.sdk_default_avatar);
+            this.aVg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.aVi.add(this.aVg);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(layoutParams.width, layoutParams.height);
             layoutParams2.gravity = 5;
             layoutParams2.rightMargin = (layoutParams.width - 12) * (i + 1);
-            this.aZU.addView(this.aZV.get(i), layoutParams2);
+            this.aVh.addView(this.aVi.get(i), layoutParams2);
         }
-        this.aZW = (TextView) findViewById(a.f.tv_sender);
-        this.aZY = (TextView) findViewById(a.f.tv_tip);
-        this.aGr.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.aGr.setIsRound(true);
-        this.aGr.setAutoChangeStyle(false);
-        this.aGr.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.aVj = (TextView) findViewById(a.f.tv_sender);
+        this.aVl = (TextView) findViewById(a.f.tv_tip);
+        this.aBE.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.aBE.setIsRound(true);
+        this.aBE.setAutoChangeStyle(false);
+        this.aBE.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 
     private void I(List<String> list) {

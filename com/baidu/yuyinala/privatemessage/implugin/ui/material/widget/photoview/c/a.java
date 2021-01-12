@@ -4,10 +4,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.widget.OverScroller;
 @TargetApi(9)
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends d {
     protected final OverScroller mScroller;
-    private boolean pak = false;
+    private boolean oVH = false;
 
     public a(Context context) {
         this.mScroller = new OverScroller(context);
@@ -15,9 +15,9 @@ public class a extends d {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
     public boolean computeScrollOffset() {
-        if (this.pak) {
+        if (this.oVH) {
             this.mScroller.computeScrollOffset();
-            this.pak = false;
+            this.oVH = false;
         }
         return this.mScroller.computeScrollOffset();
     }
@@ -28,7 +28,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d
-    public void AF(boolean z) {
+    public void AB(boolean z) {
         this.mScroller.forceFinished(z);
     }
 

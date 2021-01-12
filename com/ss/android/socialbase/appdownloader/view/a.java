@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.downloader.b;
 public class a extends Fragment {
     public void a() {
         try {
-            startActivityForResult(eHo(), 1000);
+            startActivityForResult(eDy(), 1000);
         } catch (Throwable th) {
             try {
                 startActivityForResult(b(), 1000);
@@ -62,11 +62,11 @@ public class a extends Fragment {
     }
 
     private Context e() {
-        Context eHT = b.eHT();
-        if (eHT == null && getActivity() != null && !getActivity().isFinishing()) {
+        Context eEd = b.eEd();
+        if (eEd == null && getActivity() != null && !getActivity().isFinishing()) {
             return getActivity().getApplicationContext();
         }
-        return eHT;
+        return eEd;
     }
 
     public Intent c() {
@@ -77,7 +77,7 @@ public class a extends Fragment {
         return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
     }
 
-    private Intent eHo() {
+    private Intent eDy() {
         Context e = e();
         if (e == null) {
             return null;

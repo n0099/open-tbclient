@@ -19,28 +19,28 @@ import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.downloader.e;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b implements g {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.adlanding.download.a.a eaz;
-    private SwanAdDownloadButtonView ebe;
-    private a ebf;
+    private com.baidu.swan.apps.adlanding.download.a.a dVN;
+    private SwanAdDownloadButtonView dWs;
+    private a dWt;
     private Context mContext;
 
-    private void aVn() {
-        this.ebe = new SwanAdDownloadButtonView(this.mContext);
+    private void aRt() {
+        this.dWs = new SwanAdDownloadButtonView(this.mContext);
         String string = this.mContext.getResources().getString(c.g.swanapp_ad_download_button);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
-        layoutParams.bottomMargin = (int) (0.04d * com.baidu.swan.apps.t.a.aAs().getResources().getDisplayMetrics().heightPixels);
-        this.ebe.setLayoutParams(layoutParams);
-        float z = z(this.mContext, c.C0522c.swanapp_round_text_size);
+        layoutParams.bottomMargin = (int) (0.04d * com.baidu.swan.apps.t.a.awy().getResources().getDisplayMetrics().heightPixels);
+        this.dWs.setLayoutParams(layoutParams);
+        float z = z(this.mContext, c.C0505c.swanapp_round_text_size);
         int color = this.mContext.getResources().getColor(c.b.swanapp_ad_download_button_color);
-        aT(this.ebe);
-        this.ebe.V(dp2pxf(this.mContext, z)).hS(true).mo(-1).mn(color).hR(true);
-        this.ebe.setText(string);
-        this.ebe.setVisibility(0);
-        this.ebe.setProgress(this.ebf.percent);
+        aT(this.dWs);
+        this.dWs.V(dp2pxf(this.mContext, z)).hO(true).kI(-1).kH(color).hN(true);
+        this.dWs.setText(string);
+        this.dWs.setVisibility(0);
+        this.dWs.setProgress(this.dWt.percent);
     }
 
     public static float dp2pxf(@Nullable Context context, float f) {
@@ -48,50 +48,50 @@ public class b implements g {
         return (displayMetrics != null ? displayMetrics.density : 0.0f) * f;
     }
 
-    private void aVo() {
-        this.ebe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.game.ad.downloader.view.b.1
+    private void aRu() {
+        this.dWs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.game.ad.downloader.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.ebf.eaW == SwanAdDownloadState.NOT_START || b.this.ebf.eaW == SwanAdDownloadState.DELETED) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.NOT_START || b.this.dWt.dWk == SwanAdDownloadState.DELETED) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "download start");
                     }
-                    com.baidu.swan.apps.t.a.aAC().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aVq()).amR(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.eaz);
+                    com.baidu.swan.apps.t.a.awI().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aRw()).aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.dVN);
                 }
-                if (b.this.ebf.eaW == SwanAdDownloadState.DOWNLOADING) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.DOWNLOADING) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "download pause");
                     }
-                    com.baidu.swan.apps.t.a.aAC().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aVq()).amR(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, b.this.eaz);
+                    com.baidu.swan.apps.t.a.awI().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aRw()).aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, b.this.dVN);
                 }
-                if (b.this.ebf.eaW == SwanAdDownloadState.DOWNLOAD_PAUSED) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.DOWNLOAD_PAUSED) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "download resume");
                     }
-                    com.baidu.swan.apps.t.a.aAC().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aVq()).amR(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.eaz);
+                    com.baidu.swan.apps.t.a.awI().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aRw()).aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.dVN);
                 }
-                if (b.this.ebf.eaW == SwanAdDownloadState.DOWNLOAD_FAILED) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.DOWNLOAD_FAILED) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "download retry");
                     }
-                    com.baidu.swan.apps.t.a.aAC().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aVq()).amR(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.eaz);
+                    com.baidu.swan.apps.t.a.awI().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aRw()).aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.dVN);
                 }
-                if (b.this.ebf.eaW == SwanAdDownloadState.DOWNLOADED) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.DOWNLOADED) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "download install");
                     }
-                    b.this.eaz.amO();
-                    com.baidu.swan.apps.t.a.aAC().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aVq()).amR(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, b.this.eaz);
+                    b.this.dVN.aiU();
+                    com.baidu.swan.apps.t.a.awI().a(b.this.mContext, ((com.baidu.swan.apps.adlanding.download.model.a) b.this.aRw()).aiX(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, b.this.dVN);
                 }
-                if (b.this.ebf.eaW == SwanAdDownloadState.INSTALLED) {
+                if (b.this.dWt.dWk == SwanAdDownloadState.INSTALLED) {
                     if (b.DEBUG) {
                         Log.d("SwanAppAdDownloadViewImpl", "open app");
                     }
-                    String amP = b.this.eaz.amP();
-                    if (TextUtils.isEmpty(b.this.ebf.name) && !TextUtils.isEmpty(amP)) {
-                        b.this.kO(amP);
+                    String aiV = b.this.dVN.aiV();
+                    if (TextUtils.isEmpty(b.this.dWt.name) && !TextUtils.isEmpty(aiV)) {
+                        b.this.jD(aiV);
                     }
-                    b.this.vY(b.this.ebf.name);
+                    b.this.uN(b.this.dWt.name);
                 }
             }
         });
@@ -105,8 +105,8 @@ public class b implements g {
 
     private void aT(View view) {
         if (view != null) {
-            float z = z(this.mContext, c.C0522c.swanapp_round_width_size);
-            float z2 = z(this.mContext, c.C0522c.swanapp_round_height_size);
+            float z = z(this.mContext, c.C0505c.swanapp_round_width_size);
+            float z2 = z(this.mContext, c.C0505c.swanapp_round_height_size);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(-1, -2);
@@ -124,51 +124,51 @@ public class b implements g {
     }
 
     private void b(SwanAdDownloadState swanAdDownloadState) {
-        if (swanAdDownloadState != this.ebf.eaW) {
-            this.ebf.eaW = swanAdDownloadState;
-            aVp();
+        if (swanAdDownloadState != this.dWt.dWk) {
+            this.dWt.dWk = swanAdDownloadState;
+            aRv();
         }
     }
 
     private void setProgress(int i) {
-        if (i != this.ebf.percent) {
-            this.ebf.percent = i;
-            aVp();
+        if (i != this.dWt.percent) {
+            this.dWt.percent = i;
+            aRv();
         }
     }
 
-    private void aVp() {
+    private void aRv() {
         String string;
-        if (this.ebf.eaW == SwanAdDownloadState.DOWNLOADING) {
-            if (this.ebe != null && this.ebe.getVisibility() != 8) {
-                if (this.ebf.percent < this.ebe.getMax()) {
-                    string = String.format(this.mContext.getResources().getString(c.g.swanapp_ad_button_downloading), this.ebf.percent + "%");
+        if (this.dWt.dWk == SwanAdDownloadState.DOWNLOADING) {
+            if (this.dWs != null && this.dWs.getVisibility() != 8) {
+                if (this.dWt.percent < this.dWs.getMax()) {
+                    string = String.format(this.mContext.getResources().getString(c.g.swanapp_ad_button_downloading), this.dWt.percent + "%");
                 } else {
                     string = this.mContext.getResources().getString(c.g.swanapp_ad_download_button_install);
                 }
-                this.ebe.setText(string);
-                this.ebe.setProgress(this.ebf.percent);
+                this.dWs.setText(string);
+                this.dWs.setProgress(this.dWt.percent);
             }
         } else {
-            if (e.au(this.mContext, this.ebf.name)) {
-                this.ebf.eaW = SwanAdDownloadState.INSTALLED;
+            if (e.au(this.mContext, this.dWt.name)) {
+                this.dWt.dWk = SwanAdDownloadState.INSTALLED;
             }
-            String string2 = this.mContext.getResources().getString(c(this.ebf.eaW));
-            if (this.ebf.eaW == SwanAdDownloadState.DOWNLOADED) {
-                this.ebe.setProgress(100);
+            String string2 = this.mContext.getResources().getString(c(this.dWt.dWk));
+            if (this.dWt.dWk == SwanAdDownloadState.DOWNLOADED) {
+                this.dWs.setProgress(100);
             }
-            if (this.ebf.eaW == SwanAdDownloadState.DOWNLOAD_PAUSED) {
-                this.ebe.setProgress(this.ebf.percent);
+            if (this.dWt.dWk == SwanAdDownloadState.DOWNLOAD_PAUSED) {
+                this.dWs.setProgress(this.dWt.percent);
             }
-            this.ebe.setText(string2);
+            this.dWs.setText(string2);
         }
-        if (this.ebe != null) {
-            this.ebe.postInvalidate();
+        if (this.dWs != null) {
+            this.dWs.postInvalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vY(String str) {
+    public void uN(String str) {
         ResolveInfo am;
         if (!TextUtils.isEmpty(str) && (am = am(this.mContext, str)) != null) {
             Intent intent = new Intent("android.intent.action.MAIN");
@@ -219,22 +219,22 @@ public class b implements g {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void kO(String str) {
-        this.ebf.name = str;
+    public void jD(String str) {
+        this.dWt.name = str;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public View getRealView() {
-        return this.ebe;
+        return this.dWs;
     }
 
-    public Object aVq() {
-        return this.ebe.getTag();
+    public Object aRw() {
+        return this.dWs.getTag();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
     public void P(Object obj) {
-        this.ebe.setTag(obj);
+        this.dWs.setTag(obj);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
@@ -243,8 +243,8 @@ public class b implements g {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void alG() {
-        aT(this.ebe);
+    public void ahM() {
+        aT(this.dWs);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
@@ -257,10 +257,10 @@ public class b implements g {
     /* renamed from: b */
     public b a(Context context, com.baidu.swan.apps.adlanding.download.model.a aVar, com.baidu.swan.apps.adlanding.download.a.a aVar2) {
         this.mContext = context;
-        this.ebf = a.cS(aVar.url, aVar.name);
-        this.eaz = aVar2;
-        aVn();
-        aVo();
+        this.dWt = a.cR(aVar.url, aVar.name);
+        this.dVN = aVar2;
+        aRt();
+        aRu();
         return this;
     }
 }

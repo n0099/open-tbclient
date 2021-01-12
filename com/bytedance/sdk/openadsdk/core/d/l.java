@@ -34,10 +34,10 @@ public class l {
     private String W;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6809a;
+    public String f6509a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6810b;
+    private int f6510b;
     private k c;
     private k d;
     private String e;
@@ -316,11 +316,11 @@ public class l {
     }
 
     public int H() {
-        return this.f6810b;
+        return this.f6510b;
     }
 
     public void k(int i) {
-        this.f6810b = i;
+        this.f6510b = i;
     }
 
     public k I() {
@@ -516,11 +516,11 @@ public class l {
     }
 
     public String ah() {
-        return this.f6809a;
+        return this.f6509a;
     }
 
     public void n(String str) {
-        this.f6809a = str;
+        this.f6509a = str;
     }
 
     public boolean equals(Object obj) {
@@ -574,7 +574,7 @@ public class l {
 
     public void b(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f6810b = 4;
+            this.f6510b = 4;
             this.n = jSONObject.optString("id");
             this.r = jSONObject.optString("source");
             this.o = new b();
@@ -626,8 +626,8 @@ public class l {
             e i = i();
             if (i != null) {
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("click_upper_content_area", i.f6791a);
-                jSONObject4.put("click_upper_non_content_area", i.f6792b);
+                jSONObject4.put("click_upper_content_area", i.f6491a);
+                jSONObject4.put("click_upper_non_content_area", i.f6492b);
                 jSONObject4.put("click_lower_content_area", i.c);
                 jSONObject4.put("click_lower_non_content_area", i.d);
                 jSONObject4.put("click_button_area", i.e);
@@ -826,10 +826,10 @@ public class l {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6811a;
+        private String f6511a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6812b;
+        private String f6512b;
         private String c;
         private String d;
         private String e;
@@ -845,19 +845,19 @@ public class l {
         }
 
         public String b() {
-            return this.f6811a;
+            return this.f6511a;
         }
 
         public void b(String str) {
-            this.f6811a = str;
+            this.f6511a = str;
         }
 
         public String c() {
-            return this.f6812b;
+            return this.f6512b;
         }
 
         public void c(String str) {
-            this.f6812b = str;
+            this.f6512b = str;
         }
 
         public String d() {

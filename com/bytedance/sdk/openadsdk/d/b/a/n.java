@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final v<Class> f7204a = new v<Class>() { // from class: com.bytedance.sdk.openadsdk.d.b.a.n.1
+    public static final v<Class> f6904a = new v<Class>() { // from class: com.bytedance.sdk.openadsdk.d.b.a.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bytedance.sdk.openadsdk.d.v
         public void a(com.bytedance.sdk.openadsdk.d.d.c cVar, Class cls) throws IOException {
@@ -49,7 +49,7 @@ public final class n {
     }.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final w f7205b = a(Class.class, f7204a);
+    public static final w f6905b = a(Class.class, f6904a);
     public static final v<BitSet> c = new v<BitSet>() { // from class: com.bytedance.sdk.openadsdk.d.b.a.n.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bytedance.sdk.openadsdk.d.v
@@ -61,7 +61,7 @@ public final class n {
             com.bytedance.sdk.openadsdk.d.d.b f2 = aVar.f();
             int i2 = 0;
             while (f2 != com.bytedance.sdk.openadsdk.d.d.b.END_ARRAY) {
-                switch (AnonymousClass30.f7220a[f2.ordinal()]) {
+                switch (AnonymousClass30.f6920a[f2.ordinal()]) {
                     case 1:
                         if (aVar.m() == 0) {
                             z2 = false;
@@ -727,7 +727,7 @@ public final class n {
         @Override // com.bytedance.sdk.openadsdk.d.v
         /* renamed from: a */
         public com.bytedance.sdk.openadsdk.d.l b(com.bytedance.sdk.openadsdk.d.d.a aVar) throws IOException {
-            switch (AnonymousClass30.f7220a[aVar.f().ordinal()]) {
+            switch (AnonymousClass30.f6920a[aVar.f().ordinal()]) {
                 case 1:
                     return new q(new com.bytedance.sdk.openadsdk.d.b.g(aVar.h()));
                 case 2:
@@ -736,7 +736,7 @@ public final class n {
                     return new q(aVar.h());
                 case 4:
                     aVar.j();
-                    return com.bytedance.sdk.openadsdk.d.n.f7298a;
+                    return com.bytedance.sdk.openadsdk.d.n.f6998a;
                 case 5:
                     com.bytedance.sdk.openadsdk.d.i iVar = new com.bytedance.sdk.openadsdk.d.i();
                     aVar.a();
@@ -810,10 +810,10 @@ public final class n {
     private static final class a<T extends Enum<T>> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<String, T> f7221a = new HashMap();
+        private final Map<String, T> f6921a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        private final Map<T, String> f7222b = new HashMap();
+        private final Map<T, String> f6922b = new HashMap();
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.openadsdk.d.b.a.n$a<T extends java.lang.Enum<T>> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -832,12 +832,12 @@ public final class n {
                         name = cVar.a();
                         String[] b2 = cVar.b();
                         for (String str : b2) {
-                            this.f7221a.put(str, t);
+                            this.f6921a.put(str, t);
                         }
                     }
                     String str2 = name;
-                    this.f7221a.put(str2, t);
-                    this.f7222b.put(t, str2);
+                    this.f6921a.put(str2, t);
+                    this.f6922b.put(t, str2);
                 }
             } catch (NoSuchFieldException e) {
                 throw new AssertionError(e);
@@ -852,11 +852,11 @@ public final class n {
                 aVar.j();
                 return null;
             }
-            return this.f7221a.get(aVar.h());
+            return this.f6921a.get(aVar.h());
         }
 
         public void a(com.bytedance.sdk.openadsdk.d.d.c cVar, T t) throws IOException {
-            cVar.b(t == null ? null : this.f7222b.get(t));
+            cVar.b(t == null ? null : this.f6922b.get(t));
         }
     }
 

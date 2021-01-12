@@ -1,33 +1,33 @@
 package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaseNpcModel {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3093a = "";
+    private String f2985a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3094b = "";
+    private String f2986b = "";
     private String c = "";
     private Bitmap d = null;
     private String e = "";
     private boolean f = false;
 
     public String getDownLoadKey() {
-        return this.f3093a;
+        return this.f2985a;
     }
 
     public void setDownLoadKey(String str) {
-        this.f3093a = str;
+        this.f2985a = str;
     }
 
     public String getOriginTitle() {
-        return this.f3094b;
+        return this.f2986b;
     }
 
     public void setOriginTitle(String str) {
-        this.f3094b = str;
+        this.f2986b = str;
     }
 
     public String getLocalPath() {

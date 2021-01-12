@@ -12,38 +12,38 @@ import com.baidu.android.util.devices.RomUtils;
 import com.win.opensdk.java;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class as {
     private static final String java = as.class.getSimpleName();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         String java;
-        private boolean qdm;
+        private boolean pYL;
 
         public a(String str, boolean z) {
             this.java = str;
-            this.qdm = z;
+            this.pYL = z;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements ServiceConnection {
-        private Context qdj;
-        boolean qdm = false;
-        final BlockingQueue<IBinder> qeE = new LinkedBlockingQueue();
+        private Context pYI;
+        boolean pYL = false;
+        final BlockingQueue<IBinder> qad = new LinkedBlockingQueue();
 
         public b(Context context) {
-            this.qdj = context;
+            this.pYI = context;
         }
 
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.qeE.put(iBinder);
-                String java = java.AbstractBinderC1290java.java(iBinder).java();
+                this.qad.put(iBinder);
+                String java = java.AbstractBinderC1273java.java(iBinder).java();
                 if (!TextUtils.isEmpty(java)) {
-                    az.bJ(this.qdj, java);
+                    az.bJ(this.pYI, java);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -57,7 +57,7 @@ public class as {
         }
     }
 
-    public static a iP(Context context) {
+    public static a iN(Context context) {
         Intent intent;
         if (!(RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) || Build.VERSION.SDK_INT < 23) {
             return null;
@@ -72,15 +72,15 @@ public class as {
             context.unbindService(bVar);
         }
         if (context.bindService(intent, bVar, 1)) {
-            if (bVar.qdm) {
+            if (bVar.pYL) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder take = bVar.qeE.take();
+            IBinder take = bVar.qad.take();
             if (take != null) {
-                bVar.qdm = true;
+                bVar.pYL = true;
             }
-            java java2 = java.AbstractBinderC1290java.java(take);
-            return new a(java2.java(), java2.m82java());
+            java java2 = java.AbstractBinderC1273java.java(take);
+            return new a(java2.java(), java2.m78java());
         }
         return null;
     }

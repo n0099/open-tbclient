@@ -16,6 +16,7 @@ import com.baidu.lcp.sdk.pb.LcmPb;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.sapi2.SapiContext;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -31,16 +32,16 @@ public class a {
         String appVersionName = TextUtils.isEmpty(getAppVersionName(context)) ? "" : getAppVersionName(context);
         long currentTimeMillis = System.currentTimeMillis();
         String appId = e.getAppId(context);
-        String aN = e.aN(context);
+        String aM = e.aM(context);
         try {
             if (z) {
-                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aN)) {
-                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aN);
+                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aM)) {
+                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aM);
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("request_id", valueOf);
-                jSONObject.put("cuid", aN);
+                jSONObject.put("cuid", aM);
                 jSONObject.put(HttpConstants.DEVICE_TYPE, HttpConstants.OS_TYPE_VALUE);
                 jSONObject.put("os_version", str);
                 jSONObject.put("manufacture", str2);
@@ -48,8 +49,8 @@ public class a {
                 jSONObject.put("app_id", e.getAppId(context));
                 jSONObject.put("app_version", appVersionName);
                 jSONObject.put(SapiContext.KEY_SDK_VERSION, "2240016");
-                jSONObject.put("ts", currentTimeMillis);
-                jSONObject.put("sign", b(appId, aN, HttpConstants.OS_TYPE_VALUE, currentTimeMillis));
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+                jSONObject.put("sign", b(appId, aM, HttpConstants.OS_TYPE_VALUE, currentTimeMillis));
                 return jSONObject;
             }
             String str4 = "nonNet";
@@ -60,7 +61,7 @@ public class a {
                     str4 = RequsetNetworkUtils.getMobileType(context);
                 }
             }
-            return LcmPb.Common.newBuilder().fw(aN).fx(HttpConstants.OS_TYPE_VALUE).fy(str).fz(str2).fA(str3).fB(appId).fC(appVersionName).fD("2240016").fE(str4).fF(aH(context)).build();
+            return LcmPb.Common.newBuilder().ek(aM).el(HttpConstants.OS_TYPE_VALUE).em(str).en(str2).eo(str3).ep(appId).eq(appVersionName).er("2240016").es(str4).et(aG(context)).build();
         } catch (Exception e) {
             d.e("LCPCommon", "getData :", e);
             return null;
@@ -98,7 +99,7 @@ public class a {
         }
     }
 
-    public static String aH(Context context) {
+    public static String aG(Context context) {
         String str;
         String str2;
         String str3 = "";
@@ -177,7 +178,7 @@ public class a {
 
     public static void a(Context context, long j, String str, String str2) {
         try {
-            new a.b(context).fr(str).fs("1").Y(j).ft(str2).Z(501112L).build();
+            new a.b(context).ef(str).eg("1").Y(j).eh(str2).Z(501112L).build();
         } catch (Exception e) {
             d.e("LCPCommon", "businessEvent exception ", e);
         }

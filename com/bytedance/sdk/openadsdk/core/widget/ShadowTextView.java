@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 public class ShadowTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f7070a;
+    private Paint f6770a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f7071b;
+    private RectF f6771b;
     private int c;
 
     public ShadowTextView(Context context) {
@@ -34,12 +34,12 @@ public class ShadowTextView extends TextView {
 
     private void a() {
         setTextColor(-1);
-        this.f7070a = new Paint();
-        this.f7070a.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f7070a.setColor(Color.parseColor("#99333333"));
-        this.f7070a.setAntiAlias(true);
-        this.f7070a.setStrokeWidth(0.0f);
-        this.f7071b = new RectF();
+        this.f6770a = new Paint();
+        this.f6770a.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.f6770a.setColor(Color.parseColor("#99333333"));
+        this.f6770a.setAntiAlias(true);
+        this.f6770a.setStrokeWidth(0.0f);
+        this.f6771b = new RectF();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -54,16 +54,16 @@ public class ShadowTextView extends TextView {
             }
             int i3 = measuredWidth + ((measuredHeight / 2) * 2);
             setMeasuredDimension(i3, measuredHeight);
-            this.f7071b.set(0.0f, 0.0f, i3, measuredHeight);
+            this.f6771b.set(0.0f, 0.0f, i3, measuredHeight);
             return;
         }
-        this.f7071b.set(0.0f, 0.0f, 0.0f, 0.0f);
+        this.f6771b.set(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawRoundRect(this.f7071b, this.f7071b.bottom / 2.0f, this.f7071b.bottom / 2.0f, this.f7070a);
-        canvas.translate((this.f7071b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
+        canvas.drawRoundRect(this.f6771b, this.f6771b.bottom / 2.0f, this.f6771b.bottom / 2.0f, this.f6770a);
+        canvas.translate((this.f6771b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
         super.onDraw(canvas);
     }
 }

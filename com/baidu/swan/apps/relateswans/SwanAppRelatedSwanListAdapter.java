@@ -19,9 +19,9 @@ import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private com.baidu.swan.apps.relateswans.a dwX;
+    private com.baidu.swan.apps.relateswans.a dsj;
     private Context mContext;
 
     public SwanAppRelatedSwanListAdapter(Context context) {
@@ -30,11 +30,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
     public SwanAppRelatedSwanListAdapter(Context context, com.baidu.swan.apps.relateswans.a aVar) {
         this.mContext = context;
-        this.dwX = aVar;
+        this.dsj = aVar;
     }
 
     public void b(com.baidu.swan.apps.relateswans.a aVar) {
-        this.dwX = aVar;
+        this.dsj = aVar;
         notifyDataSetChanged();
     }
 
@@ -49,14 +49,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.dwX != null) {
+        if (this.dsj != null) {
             if (viewHolder instanceof b) {
                 int i2 = i - 1;
                 if (i2 >= 0) {
-                    ((b) viewHolder).a(this.mContext, this.dwX.dwT.get(i2), i);
+                    ((b) viewHolder).a(this.mContext, this.dsj.dsf.get(i2), i);
                 }
             } else if (viewHolder instanceof a) {
-                ((a) viewHolder).al(this.mContext, this.dwX.dwU);
+                ((a) viewHolder).al(this.mContext, this.dsj.dsg);
             }
         }
     }
@@ -68,31 +68,31 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dwX == null) {
+        if (this.dsj == null) {
             return 0;
         }
-        return this.dwX.dwT.size() + 1;
+        return this.dsj.dsf.size() + 1;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static class b extends RecyclerView.ViewHolder {
         b(View view) {
             super(view);
         }
 
-        void a(final Context context, final a.C0467a c0467a, final int i) {
-            if (c0467a != null) {
+        void a(final Context context, final a.C0450a c0450a, final int i) {
+            if (c0450a != null) {
                 ((RelativeLayout) this.itemView.findViewById(a.f.related_swan_app)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (!TextUtils.isEmpty(c0467a.dwV)) {
-                            SchemeRouter.invoke(context, c0467a.dwV);
-                            SwanAppRelatedSwanListAdapter.V("aboutrelated", String.valueOf(i), "click");
+                        if (!TextUtils.isEmpty(c0450a.dsh)) {
+                            SchemeRouter.invoke(context, c0450a.dsh);
+                            SwanAppRelatedSwanListAdapter.U("aboutrelated", String.valueOf(i), "click");
                         }
                     }
                 });
                 final SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.itemView.findViewById(a.f.swan_app_icon);
-                s.a(c0467a.iconUrl, new s.a() { // from class: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter.b.2
+                s.a(c0450a.iconUrl, new s.a() { // from class: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter.b.2
                     @Override // com.baidu.swan.apps.ao.s.a
                     public void g(String str, Bitmap bitmap) {
                         if (bitmap == null) {
@@ -102,12 +102,12 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                         }
                     }
                 });
-                ((TextView) this.itemView.findViewById(a.f.swan_app_name)).setText(c0467a.appName);
+                ((TextView) this.itemView.findViewById(a.f.swan_app_name)).setText(c0450a.appName);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static class a extends RecyclerView.ViewHolder {
         public a(View view) {
             super(view);
@@ -124,13 +124,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     SchemeRouter.invoke(context, str);
-                    SwanAppRelatedSwanListAdapter.V("aboutrelated", "more", "click");
+                    SwanAppRelatedSwanListAdapter.U("aboutrelated", "more", "click");
                 }
             });
         }
     }
 
-    public static void V(String str, String str2, String str3) {
+    public static void U(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             f fVar = new f();
             fVar.mValue = str;
@@ -141,12 +141,12 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (!TextUtils.isEmpty(str3)) {
                 fVar.mType = str3;
             }
-            b.a aMp = d.aMh().aMd().aMp();
-            fVar.mFrom = h.kX(d.aMh().ajl());
-            fVar.mAppId = aMp.getAppId();
-            fVar.mSource = aMp.aCw();
-            fVar.cl(h.tC(aMp.aCy()));
-            fVar.tL(aMp.aCC().getString("ubc"));
+            b.a aIv = d.aIn().aIj().aIv();
+            fVar.mFrom = h.jr(d.aIn().afr());
+            fVar.mAppId = aIv.getAppId();
+            fVar.mSource = aIv.ayC();
+            fVar.cl(h.sq(aIv.ayE()));
+            fVar.sA(aIv.ayI().getString("ubc"));
             com.baidu.swan.apps.statistic.d.b(fVar);
         }
     }

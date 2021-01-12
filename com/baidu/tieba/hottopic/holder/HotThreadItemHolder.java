@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.holder;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotThreadItemHolder extends TypeAdapter.ViewHolder {
 }

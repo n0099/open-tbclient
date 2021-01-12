@@ -12,7 +12,7 @@ import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
     private int mActivePointerId;
@@ -24,7 +24,7 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
     private VelocityTracker mVelocityTracker;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class FlingRunnable implements Runnable {
         private final V mLayout;
         private final KSCoordinatorLayout mParent;

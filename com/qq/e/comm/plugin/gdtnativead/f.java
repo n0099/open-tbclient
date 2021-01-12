@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Pair;
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
@@ -34,14 +35,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements NEADI, com.qq.e.comm.plugin.r.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final com.qq.e.comm.plugin.ad.e f12316a;
+    protected final com.qq.e.comm.plugin.ad.e f12016a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final String f12317b;
+    protected final String f12017b;
     protected final String c;
     protected final ADListener d;
     protected int e;
@@ -72,10 +73,10 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
         this.q = -1;
         this.f = new com.qq.e.comm.plugin.y.c();
         this.r = 0;
-        this.f12316a = eVar;
+        this.f12016a = eVar;
         this.g = context;
         this.h = str;
-        this.f12317b = str2;
+        this.f12017b = str2;
         this.i = aDSize;
         this.d = aDListener;
         this.j = lVar;
@@ -90,11 +91,11 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
 
     protected com.qq.e.comm.plugin.ad.b a(int i, LoadAdParams loadAdParams) {
         com.qq.e.comm.plugin.ad.b bVar = new com.qq.e.comm.plugin.ad.b();
-        bVar.a(this.f12317b);
+        bVar.a(this.f12017b);
         bVar.c(1);
         bVar.d(i);
         bVar.e(2);
-        bVar.h(this.f12316a.b());
+        bVar.h(this.f12016a.b());
         bVar.a(this.i.getWidth());
         bVar.b(this.i.getHeight());
         bVar.k(this.m);
@@ -127,7 +128,7 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
             } else {
                 hashMap.put(Constants.KEYS.AD_INFO, optJSONObject);
             }
-            arrayList.add(new NativeExpressADView(this, this.g, this.i, this.h, this.f12317b, optJSONObject2, hashMap));
+            arrayList.add(new NativeExpressADView(this, this.g, this.i, this.h, this.f12017b, optJSONObject2, hashMap));
         }
         return arrayList;
     }
@@ -146,19 +147,19 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
         ai.a("gdt_tag_net", "LoadGDTNativeExpressADResponse: ", jSONObject);
         Pair<Object, Object> b2 = b(jSONObject);
         if (b2 == null || b2.first == null || b2.second == null) {
-            c(6000);
-            c.a(this.f12316a, false, this.f, 6000);
+            c(SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
+            c.a(this.f12016a, false, this.f, (int) SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
         } else if (b2.first instanceof Integer) {
             c(((Integer) b2.first).intValue());
-            c.a(this.f12316a, false, this.f, ((Integer) b2.second).intValue());
+            c.a(this.f12016a, false, this.f, ((Integer) b2.second).intValue());
         } else {
             List<NativeExpressADView> a2 = a((JSONObject) b2.first, (JSONArray) b2.second);
             if (a2 == null || a2.size() <= 0) {
                 c(501);
-                c.a(this.f12316a, false, this.f, 5011);
+                c.a(this.f12016a, false, this.f, 5011);
                 return;
             }
-            c.a(this.f12316a, true, this.f, 0);
+            c.a(this.f12016a, true, this.f, 0);
             a(a2);
         }
     }
@@ -172,7 +173,7 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
             return new Pair<>(Integer.valueOf(optInt), Integer.valueOf(optInt));
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject(this.f12317b)) != null) {
+        if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject(this.f12017b)) != null) {
             int optInt2 = optJSONObject.optInt(Constants.KEYS.RET);
             if (optInt2 != 0) {
                 return new Pair<>(Integer.valueOf(optInt2), Integer.valueOf(optInt2));
@@ -182,8 +183,8 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
                 return new Pair<>(501, 5025);
             }
             boolean[] zArr = new boolean[optJSONArray.length()];
-            if ((this.f12316a == com.qq.e.comm.plugin.ad.e.UNIFIED_BANNER || this.f12316a == com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL || this.f12316a == com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD) && b.a()) {
-                List<JSONObject> a2 = com.qq.e.comm.plugin.util.b.a(optJSONArray, new m(this.f12317b, this.f12316a, (com.qq.e.comm.plugin.ad.d) null), this.c, zArr);
+            if ((this.f12016a == com.qq.e.comm.plugin.ad.e.UNIFIED_BANNER || this.f12016a == com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL || this.f12016a == com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD) && b.a()) {
+                List<JSONObject> a2 = com.qq.e.comm.plugin.util.b.a(optJSONArray, new m(this.f12017b, this.f12016a, (com.qq.e.comm.plugin.ad.d) null), this.c, zArr);
                 jSONArray = new JSONArray();
                 if (a2 != null) {
                     for (JSONObject jSONObject2 : a2) {
@@ -306,19 +307,19 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
         } else {
             i2 = i3;
         }
-        c.d(this.f12316a, this.f);
+        c.d(this.f12016a, this.f);
         this.e = i2;
-        com.qq.e.comm.plugin.w.e.a(a(i2, loadAdParams), new com.qq.e.comm.plugin.w.b(this.c, this.f12316a, this.f12317b), new e.a() { // from class: com.qq.e.comm.plugin.gdtnativead.f.1
+        com.qq.e.comm.plugin.w.e.a(a(i2, loadAdParams), new com.qq.e.comm.plugin.w.b(this.c, this.f12016a, this.f12017b), new e.a() { // from class: com.qq.e.comm.plugin.gdtnativead.f.1
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(com.qq.e.comm.plugin.k.a aVar) {
                 ai.a("LoadGDTNativeExpressADFail", aVar);
-                c.a(f.this.f12316a, aVar, f.this.f);
+                c.a(f.this.f12016a, aVar, f.this.f);
                 f.this.c(aVar.a());
             }
 
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(JSONObject jSONObject) {
-                c.e(f.this.f12316a, f.this.f);
+                c.e(f.this.f12016a, f.this.f);
                 f.this.a(jSONObject);
             }
         });
@@ -331,7 +332,7 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
 
     @Override // com.qq.e.comm.pi.ADI
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        b.a(this.f12317b, downAPPConfirmPolicy);
+        b.a(this.f12017b, downAPPConfirmPolicy);
     }
 
     @Override // com.qq.e.comm.pi.NEADI
@@ -350,7 +351,7 @@ public class f implements NEADI, com.qq.e.comm.plugin.r.a {
     public void setVideoOption(VideoOption videoOption) {
         this.k = videoOption;
         if (videoOption != null) {
-            b.a(this.f12317b, videoOption);
+            b.a(this.f12017b, videoOption);
         }
     }
 

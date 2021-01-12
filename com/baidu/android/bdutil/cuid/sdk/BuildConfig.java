@@ -1,5 +1,5 @@
 package com.baidu.android.bdutil.cuid.sdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.bdutil.cuid.sdk";
     public static final String BUILD_TYPE = "release";

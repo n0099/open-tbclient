@@ -1,9 +1,9 @@
 package com.qq.e.comm.constants;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ErrorCode {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class AdError {
         public static final int DETAIl_URL_ERROR = 503;
         public static final int JSON_PARSE_ERROR = 502;
@@ -13,7 +13,7 @@ public class ErrorCode {
         public static final int RETRY_NO_FILL_ERROR = 505;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class InitError {
         public static final int GET_INTERFACE_ERROR = 303;
         public static final int INIT_ADMANGER_ERROR = 301;
@@ -22,7 +22,7 @@ public class ErrorCode {
         public static final int INVALID_REQUEST_ERROR = 304;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class NetWorkError {
         public static final int HTTP_STATUS_ERROR = 403;
         public static final int IMG_LOAD_ERROR = 406;
@@ -34,7 +34,7 @@ public class ErrorCode {
         public static final int TIME_OUT_ERROR = 404;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class OtherError {
         public static final int ANDROID_PERMMISON_ERROR = 602;
         public static final int CONTAINER_HEIGHT_ERROR = 606;

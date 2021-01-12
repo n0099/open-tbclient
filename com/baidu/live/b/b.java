@@ -1,5 +1,5 @@
 package com.baidu.live.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void c(String str, long j, long j2);
 

@@ -7,43 +7,43 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.b> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
 
-    public static d bei() {
+    public static d bao() {
         return new d();
     }
 
     private boolean a(Context context, com.baidu.swan.apps.w.a.b bVar, com.baidu.swan.apps.w.b bVar2, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction start");
-        com.baidu.swan.apps.adaptation.b.e ob = com.baidu.swan.apps.v.f.aDH().ob(bVar.cNP);
-        if (!(ob instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e mQ = com.baidu.swan.apps.v.f.azN().mQ(bVar.cJd);
+        if (!(mQ instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c yF = com.baidu.swan.impl.map.c.bea().h((com.baidu.swan.apps.adaptation.b.c) ob).yF(bVar.cNO);
-        if (yF == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.cNO);
+        com.baidu.swan.impl.map.item.c xu = com.baidu.swan.impl.map.c.bag().h((com.baidu.swan.apps.adaptation.b.c) mQ).xu(bVar.cJc);
+        if (xu == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.cJc);
             return false;
         }
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction end");
-        return a(bVar, yF);
+        return a(bVar, xu);
     }
 
     private boolean a(com.baidu.swan.apps.w.a.b bVar, com.baidu.swan.impl.map.item.c cVar) {
         if (bVar == null || !bVar.isValid()) {
             return false;
         }
-        BaiduMap map = cVar.esf.getMap();
+        BaiduMap map = cVar.enq.getMap();
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        Iterator<com.baidu.swan.apps.w.a.a.c> it = bVar.dkc.iterator();
+        Iterator<com.baidu.swan.apps.w.a.a.c> it = bVar.dfn.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.w.a.a.c next = it.next();
             builder.include(new LatLng(next.latitude, next.longitude));
         }
-        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.dkd[3], bVar.dkd[0], bVar.dkd[1], bVar.dkd[2]));
+        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.dfo[3], bVar.dfo[0], bVar.dfo[1], bVar.dfo[2]));
         return true;
     }
 

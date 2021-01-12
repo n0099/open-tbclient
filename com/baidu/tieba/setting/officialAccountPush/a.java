@@ -11,34 +11,34 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.MsgSettingItemView;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter implements BdSwitchView.a {
-    private TbPageContext eXu;
-    private ArrayList<OfficialAccountPushInfo> eYq;
-    private BdSwitchView.a ndT;
+    private TbPageContext eSJ;
+    private ArrayList<OfficialAccountPushInfo> eTF;
+    private BdSwitchView.a mZo;
 
     public a(TbPageContext tbPageContext) {
-        this.eXu = tbPageContext;
+        this.eSJ = tbPageContext;
     }
 
     public void setData(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.eYq = arrayList;
+        this.eTF = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eYq == null) {
+        if (this.eTF == null) {
             return 0;
         }
-        return this.eYq.size();
+        return this.eTF.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eYq == null || i < 0 || i >= this.eYq.size()) {
+        if (this.eTF == null || i < 0 || i >= this.eTF.size()) {
             return null;
         }
-        return this.eYq.get(i);
+        return this.eTF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,51 +51,51 @@ public class a extends BaseAdapter implements BdSwitchView.a {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0876a c0876a;
+        C0859a c0859a;
         if (view == null) {
-            view = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
-            c0876a = new C0876a();
-            c0876a.ndU = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
-            view.setTag(c0876a);
+            view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+            c0859a = new C0859a();
+            c0859a.mZp = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            view.setTag(c0859a);
         } else {
-            c0876a = (C0876a) view.getTag();
+            c0859a = (C0859a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (at.isEmpty(officialAccountPushInfo.name)) {
-            c0876a.ndU.setVisibility(8);
+            c0859a.mZp.setVisibility(8);
         } else {
-            c0876a.ndU.setVisibility(0);
-            c0876a.ndU.setText(officialAccountPushInfo.name);
+            c0859a.mZp.setVisibility(0);
+            c0859a.mZp.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c0876a.ndU.getSwitchView().turnOnNoCallback();
+                c0859a.mZp.getSwitchView().turnOnNoCallback();
             } else {
-                c0876a.ndU.getSwitchView().turnOffNoCallback();
+                c0859a.mZp.getSwitchView().turnOffNoCallback();
             }
-            c0876a.ndU.setLineVisibility(true);
-            c0876a.ndU.onChangeSkinType(this.eXu, TbadkCoreApplication.getInst().getSkinType());
-            c0876a.ndU.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0876a.ndU.getSwitchView().setTag(officialAccountPushInfo);
+            c0859a.mZp.setLineVisibility(true);
+            c0859a.mZp.onChangeSkinType(this.eSJ, TbadkCoreApplication.getInst().getSkinType());
+            c0859a.mZp.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0859a.mZp.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.ndT = aVar;
+        this.mZo = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.ndT != null) {
-            this.ndT.a(view, switchState);
+        if (this.mZo != null) {
+            this.mZo.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0876a {
-        MsgSettingItemView ndU;
+    /* loaded from: classes7.dex */
+    public class C0859a {
+        MsgSettingItemView mZp;
 
-        public C0876a() {
+        public C0859a() {
         }
     }
 }

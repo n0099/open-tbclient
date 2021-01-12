@@ -2,6 +2,7 @@ package org.webrtc;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import com.baidu.mobstat.Config;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -9,7 +10,7 @@ import java.nio.charset.Charset;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class VideoFileRenderer implements VideoSink {
     private static final String TAG = "VideoFileRenderer";
     private EglBase eglBase;
@@ -67,7 +68,7 @@ public class VideoFileRenderer implements VideoSink {
     public static /* synthetic */ void lambda$release$3(VideoFileRenderer videoFileRenderer) {
         try {
             videoFileRenderer.videoOutFile.close();
-            Logging.d(TAG, "Video written to disk as " + videoFileRenderer.outputFileName + ". The number of frames is " + videoFileRenderer.frameCount + " and the dimensions of the frames are " + videoFileRenderer.outputFileWidth + "x" + videoFileRenderer.outputFileHeight + ".");
+            Logging.d(TAG, "Video written to disk as " + videoFileRenderer.outputFileName + ". The number of frames is " + videoFileRenderer.frameCount + " and the dimensions of the frames are " + videoFileRenderer.outputFileWidth + Config.EVENT_HEAT_X + videoFileRenderer.outputFileHeight + ".");
             videoFileRenderer.fileThread.quit();
         } catch (IOException e) {
             throw new RuntimeException("Error closing output file", e);

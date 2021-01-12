@@ -1,14 +1,14 @@
 package com.baidu.tieba.memberCenter.index.a;
 
 import tbclient.GetVipInfo.VipSpecialItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class o {
     private String desc;
     private String imgUrl;
+    private String leA;
+    private int leB;
+    private int lfn;
     private String linkUrl;
-    private int ljS;
-    private String ljf;
-    private int ljg;
     private int taskId;
     private String title;
     private int updateType;
@@ -18,10 +18,10 @@ public class o {
         this.desc = vipSpecialItem.desc;
         this.imgUrl = vipSpecialItem.img_url;
         this.linkUrl = vipSpecialItem.link;
-        this.ljf = vipSpecialItem.update_time;
-        this.ljg = vipSpecialItem.id.intValue();
+        this.leA = vipSpecialItem.update_time;
+        this.leB = vipSpecialItem.id.intValue();
         this.updateType = vipSpecialItem.type.intValue();
         this.taskId = vipSpecialItem.task_id.intValue();
-        this.ljS = vipSpecialItem.is_finish.intValue();
+        this.lfn = vipSpecialItem.is_finish.intValue();
     }
 }

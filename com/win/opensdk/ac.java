@@ -4,21 +4,21 @@ import com.win.opensdk.core.Info;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ac {
-    private List<Info> qen = Collections.synchronizedList(new ArrayList());
+    private List<Info> pZM = Collections.synchronizedList(new ArrayList());
 
     public final void hg(List<Info> list) {
-        synchronized (this.qen) {
-            this.qen.clear();
-            this.qen.addAll(list);
+        synchronized (this.pZM) {
+            this.pZM.clear();
+            this.pZM.addAll(list);
         }
     }
 
-    public final Info eKA() {
+    public final Info eGK() {
         Info info = null;
-        synchronized (this.qen) {
-            while (this.qen.size() > 0 && ((info = this.qen.remove(0)) == null || !info.isEffective())) {
+        synchronized (this.pZM) {
+            while (this.pZM.size() > 0 && ((info = this.pZM.remove(0)) == null || !info.isEffective())) {
             }
         }
         return info;
@@ -26,15 +26,15 @@ public final class ac {
 
     public final boolean java() {
         boolean isEmpty;
-        synchronized (this.qen) {
-            isEmpty = this.qen.isEmpty();
+        synchronized (this.pZM) {
+            isEmpty = this.pZM.isEmpty();
         }
         return isEmpty;
     }
 
-    public final void eKp() {
+    public final void eGz() {
         try {
-            this.qen.clear();
+            this.pZM.clear();
         } catch (Exception e) {
         }
     }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.memberCenter.tail.data;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
-    public int lou;
-    public TailData lov;
+    public int ljL;
+    public TailData ljM;
 
     public e(int i, TailData tailData) {
-        this.lou = 0;
-        this.lou = i;
-        this.lov = tailData;
+        this.ljL = 0;
+        this.ljL = i;
+        this.ljM = tailData;
     }
 }

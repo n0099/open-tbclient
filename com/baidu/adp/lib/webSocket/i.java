@@ -17,25 +17,25 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class i implements g {
-    private List<BasicNameValuePair> Re;
-    private String[] Rf;
-    protected Handler Rl;
-    protected volatile m Rm;
-    protected volatile o Rn;
-    protected e.a Ro;
-    private URI Rp;
-    private String Rq;
+    private List<BasicNameValuePair> Rc;
+    private String[] Rd;
+    protected Handler Rj;
+    protected volatile m Rk;
+    protected volatile o Rl;
+    protected e.a Rm;
+    private URI Rn;
+    private String Ro;
+    private String Rp;
+    private int Rq;
     private String Rr;
-    private int Rs;
-    private String Rt;
-    private String Ru;
-    private g.a Rv;
-    protected l Rw;
-    private boolean Rx = false;
-    private boolean Ry = false;
-    private volatile boolean Rz = false;
-    private long RA = 0;
-    private c RB = null;
+    private String Rs;
+    private g.a Rt;
+    protected l Ru;
+    private boolean Rv = false;
+    private boolean Rw = false;
+    private volatile boolean Rx = false;
+    private long Ry = 0;
+    private c Rz = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -49,25 +49,25 @@ public class i implements g {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 e eVar = new e();
-                i.this.Ro = eVar.a(i.this.Rr, i.this.Rs, i.this.Rw, false);
-                if (i.this.Rz) {
+                i.this.Rm = eVar.a(i.this.Rp, i.this.Rq, i.this.Ru, false);
+                if (i.this.Rx) {
                     i.this.t(new k.c());
                     return;
                 }
                 try {
-                    if (!i.this.Ro.isConnected()) {
+                    if (!i.this.Rm.isConnected()) {
                         i.this.t(new k.e(2, "cannot connect"));
                     } else {
-                        i.this.RA = System.currentTimeMillis() - currentTimeMillis;
+                        i.this.Ry = System.currentTimeMillis() - currentTimeMillis;
                         i.this.om();
                         i.this.ol();
-                        k.b bVar = new k.b(i.this.Rr + ":" + i.this.Rs);
-                        bVar.mPath = i.this.Rt;
-                        bVar.mQuery = i.this.Ru;
-                        bVar.RE = i.this.Rf;
-                        bVar.RF = i.this.Re;
-                        i.this.Rn.w(bVar);
-                        if (i.this.Rz) {
+                        k.b bVar = new k.b(i.this.Rp + ":" + i.this.Rq);
+                        bVar.mPath = i.this.Rr;
+                        bVar.mQuery = i.this.Rs;
+                        bVar.RC = i.this.Rd;
+                        bVar.RD = i.this.Rc;
+                        i.this.Rl.w(bVar);
+                        if (i.this.Rx) {
                             i.this.t(new k.c());
                         }
                     }
@@ -91,7 +91,7 @@ public class i implements g {
         if (cVar == null) {
             return false;
         }
-        if (this.RB != null || !isOpen()) {
+        if (this.Rz != null || !isOpen()) {
             if (isDebug()) {
             }
             if (cVar != null) {
@@ -100,47 +100,47 @@ public class i implements g {
             }
             return false;
         }
-        this.RB = cVar;
-        return d(this.RB);
+        this.Rz = cVar;
+        return d(this.Rz);
     }
 
     private boolean d(c cVar) {
-        if (this.Rn == null) {
+        if (this.Rl == null) {
             t(new k.f(new Exception("mWriter = null")));
             return false;
         }
-        return this.Rn.w(new k.i(cVar));
+        return this.Rl.w(new k.i(cVar));
     }
 
     public void close(int i, String str) {
         if (SwitchManager.getInstance().findType("need_more_logs") == 1) {
             com.baidu.adp.framework.client.socket.i.debug("more_log", 0, 0, "close", i, str);
         }
-        this.Rx = false;
-        this.Rz = true;
+        this.Rv = false;
+        this.Rx = true;
+        if (this.Rk != null) {
+            this.Rk.quit();
+            this.Rk = null;
+        }
+        if (this.Rl != null) {
+            this.Rl.quit();
+            this.Rl = null;
+        }
         if (this.Rm != null) {
-            this.Rm.quit();
-            this.Rm = null;
-        }
-        if (this.Rn != null) {
-            this.Rn.quit();
-            this.Rn = null;
-        }
-        if (this.Ro != null) {
             try {
-                this.Ro.close();
+                this.Rm.close();
             } catch (Throwable th) {
                 if (isDebug()) {
                     th.printStackTrace();
                 }
             }
-            this.Ro = null;
+            this.Rm = null;
         }
-        g.a aVar = this.Rv;
-        this.Rv = null;
+        g.a aVar = this.Rt;
+        this.Rt = null;
         if (aVar != null) {
             try {
-                aVar.c(i, str);
+                aVar.d(i, str);
             } catch (Exception e) {
                 if (isDebug()) {
                     BdLog.d(e.getMessage());
@@ -150,46 +150,46 @@ public class i implements g {
     }
 
     public void a(String str, String[] strArr, g.a aVar, l lVar, List<BasicNameValuePair> list) throws WebSocketException {
-        this.Ry = true;
-        if (this.Ro != null && this.Ro.isConnected()) {
+        this.Rw = true;
+        if (this.Rm != null && this.Rm.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.Rp = new URI(str);
-            if (!this.Rp.getScheme().equals("ws") && !this.Rp.getScheme().equals("wss")) {
+            this.Rn = new URI(str);
+            if (!this.Rn.getScheme().equals("ws") && !this.Rn.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.Rp.getScheme().equals("wss")) {
+            if (this.Rn.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.Rq = this.Rp.getScheme();
-            if (this.Rp.getPort() == -1) {
-                if (this.Rq.equals("ws")) {
-                    this.Rs = 80;
+            this.Ro = this.Rn.getScheme();
+            if (this.Rn.getPort() == -1) {
+                if (this.Ro.equals("ws")) {
+                    this.Rq = 80;
                 } else {
-                    this.Rs = Constants.SOCKET_PORT_SSL;
+                    this.Rq = Constants.SOCKET_PORT_SSL;
                 }
             } else {
-                this.Rs = this.Rp.getPort();
+                this.Rq = this.Rn.getPort();
             }
-            if (this.Rp.getHost() == null) {
+            if (this.Rn.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.Rr = this.Rp.getHost();
-            if (this.Rp.getPath() == null || this.Rp.getPath().equals("")) {
-                this.Rt = "/";
+            this.Rp = this.Rn.getHost();
+            if (this.Rn.getPath() == null || this.Rn.getPath().equals("")) {
+                this.Rr = "/";
             } else {
-                this.Rt = this.Rp.getPath();
+                this.Rr = this.Rn.getPath();
             }
-            if (this.Rp.getQuery() == null || this.Rp.getQuery().equals("")) {
-                this.Ru = null;
+            if (this.Rn.getQuery() == null || this.Rn.getQuery().equals("")) {
+                this.Rs = null;
             } else {
-                this.Ru = this.Rp.getQuery();
+                this.Rs = this.Rn.getQuery();
             }
-            this.Rf = strArr;
-            this.Re = list;
-            this.Rv = aVar;
-            this.Rw = new l(lVar);
+            this.Rd = strArr;
+            this.Rc = list;
+            this.Rt = aVar;
+            this.Ru = new l(lVar);
             new a().start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -198,54 +198,54 @@ public class i implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(Object obj) {
-        Message obtainMessage = this.Rl.obtainMessage();
+        Message obtainMessage = this.Rj.obtainMessage();
         obtainMessage.obj = obj;
-        this.Rl.sendMessage(obtainMessage);
+        this.Rj.sendMessage(obtainMessage);
     }
 
     protected void ok() {
-        this.Rl = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
+        this.Rj = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.obj instanceof k.s) {
                     k.s sVar = (k.s) message.obj;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.onTextMessage(sVar.RO);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.onTextMessage(sVar.RK);
                     }
                 } else if (message.obj instanceof k.m) {
                     k.m mVar = (k.m) message.obj;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.m(mVar.RD);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.m(mVar.RB);
                     } else if (i.this.isDebug()) {
                         BdLog.d("could not call onRawTextMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.a) {
                     k.a aVar = (k.a) message.obj;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.b(aVar);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.b(aVar);
                     } else if (i.this.isDebug()) {
                         BdLog.d("could not call onBinaryMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.j) {
                     k.C0019k c0019k = new k.C0019k();
-                    c0019k.RD = ((k.j) message.obj).RD;
-                    i.this.Rn.w(c0019k);
+                    c0019k.RB = ((k.j) message.obj).RB;
+                    i.this.Rl.w(c0019k);
                 } else if (message.obj instanceof k.C0019k) {
                     k.C0019k c0019k2 = (k.C0019k) message.obj;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.oc();
+                    if (i.this.Rt != null) {
+                        i.this.Rt.oc();
                     }
                 } else if (message.obj instanceof k.c) {
                     i.this.close(1, null);
                 } else if (message.obj instanceof k.q) {
                     k.q qVar = (k.q) message.obj;
                     if (qVar.mSuccess) {
-                        if (i.this.Rv != null) {
-                            i.this.Rv.onOpen(qVar.mHeaders);
-                            i.this.Rx = true;
-                            i.this.Ry = false;
-                            if (i.this.Rv != null) {
-                                i.this.Rv.a(null);
+                        if (i.this.Rt != null) {
+                            i.this.Rt.onOpen(qVar.mHeaders);
+                            i.this.Rv = true;
+                            i.this.Rw = false;
+                            if (i.this.Rt != null) {
+                                i.this.Rt.a(null);
                                 return;
                             }
                             return;
@@ -253,39 +253,39 @@ public class i implements g {
                         i.this.close(6, "handler already NULL");
                     }
                 } else if (message.obj instanceof k.d) {
-                    SocketException socketException = ((k.d) message.obj).RG;
+                    SocketException socketException = ((k.d) message.obj).RE;
                     i.this.close(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
                 } else if (message.obj instanceof k.l) {
-                    WebSocketException webSocketException = ((k.l) message.obj).RK;
+                    WebSocketException webSocketException = ((k.l) message.obj).RI;
                     i.this.close(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
                 } else if (message.obj instanceof k.f) {
-                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).RI.toString() + ")");
+                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).RG.toString() + ")");
                 } else if (message.obj instanceof k.p) {
                     k.p pVar = (k.p) message.obj;
-                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.RH + ")");
+                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.RF + ")");
                 } else if (message.obj instanceof k.e) {
-                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).RH);
+                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).RF);
                 } else if (message.obj instanceof k.r) {
-                    if (i.this.Rv != null) {
-                        i.this.Rv.b(((k.r) message.obj).RL);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.b(((k.r) message.obj).RJ);
                     }
                 } else if (message.obj instanceof k.g) {
-                    i.this.RB = null;
-                    c cVar = ((k.g) message.obj).RL;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.c(cVar);
+                    i.this.Rz = null;
+                    c cVar = ((k.g) message.obj).RJ;
+                    if (i.this.Rt != null) {
+                        i.this.Rt.c(cVar);
                     }
-                    if (i.this.Rv != null) {
-                        i.this.Rv.a(cVar);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.a(cVar);
                     }
                 } else if (message.obj instanceof k.n) {
-                    i.this.RB = null;
-                    c cVar2 = ((k.n) message.obj).RL;
-                    if (i.this.Rv != null) {
-                        i.this.Rv.a(2, cVar2);
+                    i.this.Rz = null;
+                    c cVar2 = ((k.n) message.obj).RJ;
+                    if (i.this.Rt != null) {
+                        i.this.Rt.a(2, cVar2);
                     }
-                    if (i.this.Rv != null) {
-                        i.this.Rv.a(cVar2);
+                    if (i.this.Rt != null) {
+                        i.this.Rt.a(cVar2);
                     }
                 } else {
                     i.this.u(message.obj);
@@ -300,24 +300,24 @@ public class i implements g {
     protected void ol() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.Rn = new o(handlerThread.getLooper(), this.Rl, this.Ro, this.Rw);
+        this.Rl = new o(handlerThread.getLooper(), this.Rj, this.Rm, this.Ru);
     }
 
     protected void om() {
-        this.Rm = new m(this.Rl, this.Ro, this.Rw, "WebSocketReader");
-        this.Rm.start();
+        this.Rk = new m(this.Rj, this.Rm, this.Ru, "WebSocketReader");
+        this.Rk.start();
     }
 
     public boolean on() {
-        return this.RB != null;
+        return this.Rz != null;
     }
 
     public boolean isConnecting() {
-        return this.Ry;
+        return this.Rw;
     }
 
     public boolean isOpen() {
-        return this.Rx;
+        return this.Rv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -326,59 +326,59 @@ public class i implements g {
     }
 
     public void oh() {
-        if (this.Rn != null) {
-            this.Rn.oh();
+        if (this.Rl != null) {
+            this.Rl.oh();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.Rn != null) {
-            return this.Rn.getUpFlowSize();
+        if (this.Rl != null) {
+            return this.Rl.getUpFlowSize();
         }
         return 0L;
     }
 
     public void oi() {
-        if (this.Rm != null) {
-            this.Rm.oi();
+        if (this.Rk != null) {
+            this.Rk.oi();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.Rm != null) {
-            return this.Rm.getDownFlowSize();
+        if (this.Rk != null) {
+            return this.Rk.getDownFlowSize();
         }
         return 0L;
     }
 
     public long oo() {
-        if (this.Ro != null) {
-            return this.Ro.oa();
+        if (this.Rm != null) {
+            return this.Rm.oa();
         }
         return 0L;
     }
 
     public String op() {
-        if (this.Ro != null) {
-            return this.Ro.nZ();
+        if (this.Rm != null) {
+            return this.Rm.nZ();
         }
         return null;
     }
 
     public long oq() {
-        return this.RA;
+        return this.Ry;
     }
 
     public String getLocalDns() {
-        if (this.Ro != null) {
-            return this.Ro.getLocalDns();
+        if (this.Rm != null) {
+            return this.Rm.getLocalDns();
         }
         return null;
     }
 
     public String getLocalDnsBak() {
-        if (this.Ro != null) {
-            return this.Ro.getLocalDnsBak();
+        if (this.Rm != null) {
+            return this.Rm.getLocalDnsBak();
         }
         return null;
     }

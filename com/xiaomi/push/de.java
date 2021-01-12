@@ -9,16 +9,16 @@ import org.json.JSONObject;
 class de implements Comparable<de> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f14233a;
+    protected int f13933a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f279a;
+    private long f278a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f280a;
+    String f279a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final LinkedList<cu> f281a;
+    private final LinkedList<cu> f280a;
 
     public de() {
         this(null, 0);
@@ -29,10 +29,10 @@ class de implements Comparable<de> {
     }
 
     public de(String str, int i) {
-        this.f281a = new LinkedList<>();
-        this.f279a = 0L;
-        this.f280a = str;
-        this.f14233a = i;
+        this.f280a = new LinkedList<>();
+        this.f278a = 0L;
+        this.f279a = str;
+        this.f13933a = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,16 +42,16 @@ class de implements Comparable<de> {
         if (deVar == null) {
             return 1;
         }
-        return deVar.f14233a - this.f14233a;
+        return deVar.f13933a - this.f13933a;
     }
 
     public synchronized de a(JSONObject jSONObject) {
-        this.f279a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
-        this.f14233a = jSONObject.getInt("wt");
-        this.f280a = jSONObject.getString("host");
+        this.f278a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
+        this.f13933a = jSONObject.getInt("wt");
+        this.f279a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("ah");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f281a.add(new cu().a(jSONArray.getJSONObject(i)));
+            this.f280a.add(new cu().a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
@@ -59,13 +59,13 @@ class de implements Comparable<de> {
     public synchronized JSONObject a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f279a);
-        jSONObject.put("wt", this.f14233a);
-        jSONObject.put("host", this.f280a);
+        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f278a);
+        jSONObject.put("wt", this.f13933a);
+        jSONObject.put("host", this.f279a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cu> it = this.f281a.iterator();
+        Iterator<cu> it = this.f280a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m235a());
+            jSONArray.put(it.next().m231a());
         }
         jSONObject.put("ah", jSONArray);
         return jSONObject;
@@ -74,24 +74,24 @@ class de implements Comparable<de> {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(cu cuVar) {
         if (cuVar != null) {
-            this.f281a.add(cuVar);
+            this.f280a.add(cuVar);
             int a2 = cuVar.a();
             if (a2 > 0) {
-                this.f14233a += cuVar.a();
+                this.f13933a += cuVar.a();
             } else {
                 int i = 0;
-                for (int size = this.f281a.size() - 1; size >= 0 && this.f281a.get(size).a() < 0; size--) {
+                for (int size = this.f280a.size() - 1; size >= 0 && this.f280a.get(size).a() < 0; size--) {
                     i++;
                 }
-                this.f14233a += a2 * i;
+                this.f13933a += a2 * i;
             }
-            if (this.f281a.size() > 30) {
-                this.f14233a -= this.f281a.remove().a();
+            if (this.f280a.size() > 30) {
+                this.f13933a -= this.f280a.remove().a();
             }
         }
     }
 
     public String toString() {
-        return this.f280a + ":" + this.f14233a;
+        return this.f279a + ":" + this.f13933a;
     }
 }

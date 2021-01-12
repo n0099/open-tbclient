@@ -3,56 +3,56 @@ package com.baidu.swan.apps.ao.d;
 import com.baidu.swan.apps.ao.ak;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements b {
-    private final Queue<a> dST = new ArrayDeque();
-    private a dSU;
+    private final Queue<a> dOh = new ArrayDeque();
+    private a dOi;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.dST) {
-                this.dST.offer(aVar.a(this));
+            synchronized (this.dOh) {
+                this.dOh.offer(aVar.a(this));
             }
         }
-        aSl();
+        aOr();
     }
 
     @Override // com.baidu.swan.apps.ao.d.b
     public void a(a aVar) {
-        synchronized (this.dST) {
-            if (aVar == this.dSU) {
-                aSm();
+        synchronized (this.dOh) {
+            if (aVar == this.dOi) {
+                aOs();
             }
         }
     }
 
-    private void aSl() {
-        synchronized (this.dST) {
-            if (this.dSU == null) {
-                aSm();
+    private void aOr() {
+        synchronized (this.dOh) {
+            if (this.dOi == null) {
+                aOs();
             }
         }
     }
 
-    private void aSm() {
-        synchronized (this.dST) {
-            this.dSU = null;
-            if (!this.dST.isEmpty()) {
-                this.dSU = this.dST.poll();
-                if (this.dSU == null) {
-                    aSm();
+    private void aOs() {
+        synchronized (this.dOh) {
+            this.dOi = null;
+            if (!this.dOh.isEmpty()) {
+                this.dOi = this.dOh.poll();
+                if (this.dOi == null) {
+                    aOs();
                 } else {
-                    ak.l(this.dSU);
+                    ak.l(this.dOi);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dSU != null) {
-            this.dSU.finish();
-            this.dSU = null;
+        if (this.dOi != null) {
+            this.dOi.finish();
+            this.dOi = null;
         }
-        this.dST.clear();
+        this.dOh.clear();
     }
 }

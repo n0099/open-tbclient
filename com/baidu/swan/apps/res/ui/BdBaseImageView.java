@@ -8,59 +8,59 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.ao.z;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BdBaseImageView extends ImageView {
-    private int don;
-    private boolean dxd;
+    private int djz;
+    private boolean dsp;
 
     public BdBaseImageView(Context context) {
         super(context);
-        this.dxd = true;
-        this.don = 0;
+        this.dsp = true;
+        this.djz = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dxd = true;
-        this.don = 0;
+        this.dsp = true;
+        this.djz = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dxd = true;
-        this.don = 0;
+        this.dsp = true;
+        this.djz = 0;
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(@Nullable Drawable drawable) {
-        this.dxd = true;
+        this.dsp = true;
         super.setImageDrawable(drawable);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (aJX()) {
+        if (aGd()) {
             z.a(getContext(), getDrawable());
-            this.don = z.dd(getContext());
-            this.dxd = false;
+            this.djz = z.dc(getContext());
+            this.dsp = false;
         }
         super.draw(canvas);
     }
 
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
-        if (aJY()) {
+        if (aGe()) {
             z.a(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
     }
 
-    private boolean aJX() {
-        return this.dxd || this.don != z.dd(getContext());
+    private boolean aGd() {
+        return this.dsp || this.djz != z.dc(getContext());
     }
 
-    private boolean aJY() {
-        return Color.alpha(z.dd(getContext())) != 0;
+    private boolean aGe() {
+        return Color.alpha(z.dc(getContext())) != 0;
     }
 }

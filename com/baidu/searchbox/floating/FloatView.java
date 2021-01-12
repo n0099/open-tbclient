@@ -18,7 +18,7 @@ import kotlin.jvm.a.a;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatView {
     public static final Companion Companion = new Companion(null);
     public static final String TAG = "FloatView";
@@ -38,7 +38,7 @@ public final class FloatView {
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -139,7 +139,7 @@ public final class FloatView {
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private final Context context;
         private Config mConfig;

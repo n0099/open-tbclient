@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class EmailAddressResultParser extends ResultParser {
     private static final Pattern COMMA = Pattern.compile(",");
 

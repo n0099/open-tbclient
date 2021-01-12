@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.recommend.message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaHttpMessage extends HttpMessage {
     public int mPn;
 

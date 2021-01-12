@@ -1,11 +1,11 @@
 package com.baidu.live.an;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    boolean XN();
+    boolean TU();
 
-    void XO();
+    void TV();
 
-    void XP();
+    void TW();
 
-    void XQ();
+    void TX();
 }

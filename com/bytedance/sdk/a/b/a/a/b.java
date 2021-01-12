@@ -6,5 +6,5 @@ import java.io.IOException;
 public interface b {
     void b();
 
-    r equ() throws IOException;
+    r emy() throws IOException;
 }

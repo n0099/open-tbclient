@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BrowserHelper {
     static String parseWebViewUrl(String str, String str2) {
         String str3;

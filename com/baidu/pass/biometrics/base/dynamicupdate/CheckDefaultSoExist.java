@@ -49,7 +49,7 @@ public class CheckDefaultSoExist {
     public static void isExist(Context context) {
         String[] strArr;
         String b2;
-        for (String str : LoadSo.f3981b) {
+        for (String str : LoadSo.f3943b) {
             if (Build.VERSION.SDK_INT > 8) {
                 b2 = a(context, str);
             } else {

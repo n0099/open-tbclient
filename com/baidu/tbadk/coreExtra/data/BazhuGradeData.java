@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
@@ -15,7 +14,7 @@ public class BazhuGradeData extends com.baidu.tbadk.core.data.n implements Seria
         if (jSONObject != null) {
             try {
                 this.mDesc = jSONObject.optString("desc", "");
-                this.mLevel = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_LEVEL, "");
+                this.mLevel = jSONObject.optString("level", "");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

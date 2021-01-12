@@ -16,10 +16,10 @@ import javax.crypto.spec.IvParameterSpec;
 final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f1627b = a();
+    private static String f1576b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1626a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1575a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -35,7 +35,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, dd(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, cY(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -59,7 +59,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1626a.matcher(str).matches();
+        return f1575a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,12 +72,12 @@ final class e {
         return Pattern.matches("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", str);
     }
 
-    public static boolean d(String str) {
-        return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
+    private static Key cY(String str) {
+        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
-    private static Key dd(String str) {
-        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
+    public static boolean d(String str) {
+        return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -103,18 +103,18 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String f(String str) {
-        return a(f1627b, str.getBytes());
+        return a(f1576b, str.getBytes());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String g(String str) {
-        return g(f1627b, Base64.decode(str, 0));
+        return g(f1576b, Base64.decode(str, 0));
     }
 
     private static String g(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, dd(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(2, cY(str), new IvParameterSpec("01020304".getBytes()));
             return new String(cipher.doFinal(bArr));
         } catch (Exception e) {
             return null;

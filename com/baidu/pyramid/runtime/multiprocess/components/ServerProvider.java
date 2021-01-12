@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ServerProvider extends DispatchableContentProvider {
-    public static String ahV() {
+    public static String aeb() {
         return e.getAppContext().getPackageName() + ".provider.ipc.server";
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected String ahS() {
-        return ahV();
+    protected String adY() {
+        return aeb();
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected List<a> ahT() {
-        List<a> kn = com.baidu.pyramid.runtime.multiprocess.a.a.kn(ahS());
-        if (kn == null) {
-            kn = new ArrayList<>();
+    protected List<a> adZ() {
+        List<a> jc = com.baidu.pyramid.runtime.multiprocess.a.a.jc(adY());
+        if (jc == null) {
+            jc = new ArrayList<>();
         }
-        kn.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
-        return kn;
+        jc.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
+        return jc;
     }
 }

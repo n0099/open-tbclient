@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DlnaManager {
     public static final int DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL = -1011;
     public static final int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;

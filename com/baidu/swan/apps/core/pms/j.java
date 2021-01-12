@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.core.pms;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class j extends com.baidu.swan.pms.a.g implements com.baidu.swan.apps.env.c.b {
-    private final int cXJ = aud();
-    private int cXK = this.cXJ;
+    private final int cSX = aqi();
+    private int cSY = this.cSX;
 
-    protected int aud() {
+    protected int aqi() {
         return 0;
     }
 
-    public j iz(int i) {
-        if ((this.cXK == 0 || this.cXJ == this.cXK) && i != 0 && i != this.cXK) {
-            this.cXK = i;
+    public j gT(int i) {
+        if ((this.cSY == 0 || this.cSX == this.cSY) && i != 0 && i != this.cSY) {
+            this.cSY = i;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int auv() {
-        return this.cXK == 0 ? this.cXJ : this.cXK;
+    public int aqA() {
+        return this.cSY == 0 ? this.cSX : this.cSY;
     }
 }

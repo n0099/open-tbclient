@@ -5,7 +5,7 @@ import android.content.Context;
 public class i {
     public static int a(String str) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "layout", com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName());
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "layout", com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName());
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -22,12 +22,12 @@ public class i {
     }
 
     public static int b(String str) {
-        return a(com.ss.android.socialbase.downloader.downloader.b.eHT(), str);
+        return a(com.ss.android.socialbase.downloader.downloader.b.eEd(), str);
     }
 
     public static int c(String str) {
         try {
-            return a(str, com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName());
+            return a(str, com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName());
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -36,7 +36,7 @@ public class i {
 
     public static int a(String str, String str2) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "drawable", str2);
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "drawable", str2);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -45,7 +45,7 @@ public class i {
 
     public static int d(String str) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "style", com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName());
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "style", com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName());
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -54,7 +54,7 @@ public class i {
 
     public static int e(String str) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "id", com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName());
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "id", com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName());
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -63,7 +63,7 @@ public class i {
 
     public static int f(String str) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "color", com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName());
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "color", com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName());
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
@@ -72,7 +72,7 @@ public class i {
 
     public static int b(String str, String str2) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.b.eHT().getResources().getIdentifier(str, "attr", str2);
+            return com.ss.android.socialbase.downloader.downloader.b.eEd().getResources().getIdentifier(str, "attr", str2);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;

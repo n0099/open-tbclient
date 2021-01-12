@@ -9,44 +9,44 @@ import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.videochat.f.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private Activity activity;
-    private b.a bPl;
-    private b.InterfaceC0233b bSw;
-    private b bSx;
-    private com.baidu.live.follow.pendant.a bSy;
+    private b.a bKz;
+    private b.InterfaceC0224b bNK;
+    private b bNL;
+    private com.baidu.live.follow.pendant.a bNM;
 
     public void ag(View view) {
-        if (this.bSx != null) {
-            this.bSx.ag(view);
+        if (this.bNL != null) {
+            this.bNL.ag(view);
         }
-        if (this.bSy != null) {
-            this.bSy.m(Zp());
+        if (this.bNM != null) {
+            this.bNM.m(Vw());
         }
     }
 
     public void a(x xVar, c cVar) {
-        if (this.bSx != null) {
-            this.bSx.a(xVar, cVar);
+        if (this.bNL != null) {
+            this.bNL.a(xVar, cVar);
         }
-        if (this.bSy != null) {
-            this.bSy.n(cVar.getAvatar(), cVar.getNickName(), cVar.getUserId());
-        }
-    }
-
-    public void Zo() {
-        if (this.bSx != null) {
-            this.bSx.release();
-        }
-        if (this.bSy != null) {
-            this.bSy.FX();
+        if (this.bNM != null) {
+            this.bNM.m(cVar.getAvatar(), cVar.getNickName(), cVar.getUserId());
         }
     }
 
-    public a(b.a aVar, b.InterfaceC0233b interfaceC0233b) {
-        this.bPl = aVar;
-        this.bSw = interfaceC0233b;
+    public void Vv() {
+        if (this.bNL != null) {
+            this.bNL.release();
+        }
+        if (this.bNM != null) {
+            this.bNM.Cc();
+        }
+    }
+
+    public a(b.a aVar, b.InterfaceC0224b interfaceC0224b) {
+        this.bKz = aVar;
+        this.bNK = interfaceC0224b;
     }
 
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
@@ -54,43 +54,43 @@ public class a {
             this.activity = tbPageContext.getPageActivity();
         }
         if (this.activity != null && viewGroup != null) {
-            if (this.bSx == null) {
-                this.bSx = new b(this.activity, this.bPl, this.bSw);
+            if (this.bNL == null) {
+                this.bNL = new b(this.activity, this.bKz, this.bNK);
             }
-            if (this.bSx.getView() != null && this.bSx.getView().getParent() == null) {
-                this.bSx.getView().setVisibility(8);
+            if (this.bNL.getView() != null && this.bNL.getView().getParent() == null) {
+                this.bNL.getView().setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds200), this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds440));
                 layoutParams.topMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds274);
                 layoutParams.leftMargin = this.activity.getResources().getDimensionPixelSize(a.d.sdk_ds20);
-                viewGroup.addView(this.bSx.getView(), layoutParams);
+                viewGroup.addView(this.bNL.getView(), layoutParams);
             }
-            if (this.bSy == null) {
-                this.bSy = new com.baidu.live.follow.pendant.a(this.activity);
+            if (this.bNM == null) {
+                this.bNM = new com.baidu.live.follow.pendant.a(this.activity);
             }
         }
     }
 
-    public FrameLayout Zp() {
-        if (this.bSx != null) {
-            return this.bSx.Zp();
+    public FrameLayout Vw() {
+        if (this.bNL != null) {
+            return this.bNL.Vw();
         }
         return null;
     }
 
     public void onDestroy() {
-        if (this.bSx != null) {
-            this.bSx.release();
+        if (this.bNL != null) {
+            this.bNL.release();
         }
-        if (this.bSy != null) {
-            this.bSy.onDestroy();
+        if (this.bNM != null) {
+            this.bNM.onDestroy();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.bSx != null && this.bSx.getView() != null) {
-            this.bSx.getView().setVisibility(z ? 4 : 0);
-            if (this.bSy != null) {
-                this.bSy.onKeyboardVisibilityChanged(z);
+        if (this.bNL != null && this.bNL.getView() != null) {
+            this.bNL.getView().setVisibility(z ? 4 : 0);
+            if (this.bNM != null) {
+                this.bNM.onKeyboardVisibilityChanged(z);
             }
         }
     }

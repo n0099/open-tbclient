@@ -24,56 +24,56 @@ import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
 import com.baidu.live.view.f;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImBarrageOptionListView extends HListView implements c {
-    private a aGD;
-    boolean aGE;
-    private e aGF;
+    private a aBQ;
+    boolean aBR;
+    private e aBS;
     private int mDividerWidth;
 
     public ImBarrageOptionListView(Context context) {
         super(context);
-        this.aGE = true;
+        this.aBR = true;
         init();
     }
 
     @Override // com.baidu.live.im.b.c
     public void setCallback(e eVar) {
-        this.aGF = eVar;
+        this.aBS = eVar;
     }
 
     @Override // com.baidu.live.im.b.c
     public void setSelectEnabled(boolean z) {
-        this.aGE = z;
+        this.aBR = z;
     }
 
     @Override // com.baidu.live.im.b.c
     public void setData(ck[] ckVarArr, Map<String, Integer> map, int i) {
-        if (this.aGD == null) {
-            this.aGD = new a();
-            this.aGD.a(ckVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
-            setAdapter((ListAdapter) this.aGD);
+        if (this.aBQ == null) {
+            this.aBQ = new a();
+            this.aBQ.a(ckVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
+            setAdapter((ListAdapter) this.aBQ);
             return;
         }
-        this.aGD.a(ckVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
-        this.aGD.notifyDataSetChanged();
+        this.aBQ.a(ckVarArr, map, UtilHelper.getRealScreenOrientation(getContext()), i);
+        this.aBQ.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tieba.horizonallist.widget.HListView, com.baidu.live.tieba.horizonallist.widget.AbsHListView, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.aGD != null) {
-            this.aGD.dU(UtilHelper.getRealScreenOrientation(getContext()));
-            this.aGD.notifyDataSetChanged();
+        if (this.aBQ != null) {
+            this.aBQ.co(UtilHelper.getRealScreenOrientation(getContext()));
+            this.aBQ.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.live.im.b.c
     public void f(Map<String, Integer> map) {
-        if (this.aGD != null) {
-            this.aGD.b(map, UtilHelper.getRealScreenOrientation(getContext()));
-            this.aGD.notifyDataSetChanged();
+        if (this.aBQ != null) {
+            this.aBQ.b(map, UtilHelper.getRealScreenOrientation(getContext()));
+            this.aBQ.notifyDataSetChanged();
         }
     }
 
@@ -85,12 +85,12 @@ public class ImBarrageOptionListView extends HListView implements c {
 
     @Override // com.baidu.live.im.b.c
     public void setSwitchStatus(boolean z) {
-        if (d.Nk().Nn() != z) {
-            d.Nk().setSwitchStatus(z);
+        if (d.Jp().Js() != z) {
+            d.Jp().setSwitchStatus(z);
             if (!z) {
-                d.Nk().setSelectId(null);
-                if (this.aGD != null && this.aGD.getCount() > 0) {
-                    this.aGD.notifyDataSetChanged();
+                d.Jp().setSelectId(null);
+                if (this.aBQ != null && this.aBQ.getCount() > 0) {
+                    this.aBQ.notifyDataSetChanged();
                 }
             }
         }
@@ -98,27 +98,27 @@ public class ImBarrageOptionListView extends HListView implements c {
 
     @Override // com.baidu.live.im.b.c
     public void setSelectPos(int i) {
-        if (this.aGD != null && this.aGD.getItem(i) != null) {
-            String str = this.aGD.getItem(i).id;
-            String No = d.Nk().No();
-            if (TextUtils.isEmpty(No) || !No.equals(str)) {
-                h(i, str);
+        if (this.aBQ != null && this.aBQ.getItem(i) != null) {
+            String str = this.aBQ.getItem(i).id;
+            String Jt = d.Jp().Jt();
+            if (TextUtils.isEmpty(Jt) || !Jt.equals(str)) {
+                i(i, str);
             }
         }
     }
 
     @Override // com.baidu.live.im.b.c
     public void setSelectId(String str) {
-        int ge;
-        if (!TextUtils.isEmpty(str) && this.aGD != null && (ge = ge(str)) >= 0) {
-            h(ge, str);
+        int eT;
+        if (!TextUtils.isEmpty(str) && this.aBQ != null && (eT = eT(str)) >= 0) {
+            i(eT, str);
         }
     }
 
     @Override // com.baidu.live.im.b.c
     public ck getSelectInfo() {
-        if (this.aGD != null) {
-            return this.aGD.getItem(ge(d.Nk().No()));
+        if (this.aBQ != null) {
+            return this.aBQ.getItem(eT(d.Jp().Jt()));
         }
         return null;
     }
@@ -129,98 +129,98 @@ public class ImBarrageOptionListView extends HListView implements c {
         this.mDividerWidth = getResources().getDimensionPixelOffset(a.d.sdk_ds4);
         setDividerWidth(this.mDividerWidth);
         setSelector(new ColorDrawable(0));
-        this.aGE = true;
+        this.aBR = true;
         setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.barrage.view.ImBarrageOptionListView.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                ImBarrageOptionListView.this.dT(i);
+                ImBarrageOptionListView.this.cn(i);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dT(int i) {
+    public void cn(int i) {
         ck item;
-        if (this.aGE && this.aGD != null && this.aGF != null && ge(d.Nk().No()) != i && (item = this.aGD.getItem(i)) != null) {
-            if (item.type == 16 && !this.aGF.Nt()) {
+        if (this.aBR && this.aBQ != null && this.aBS != null && eT(d.Jp().Jt()) != i && (item = this.aBQ.getItem(i)) != null) {
+            if (item.type == 16 && !this.aBS.Jy()) {
                 BdUtilHelper.showToast(getContext(), a.h.sdk_throne_disabled_alert);
             }
-            if (item.type == 17 && item.aTG > this.aGF.MK()) {
-                if (item.aTG == 7) {
+            if (item.type == 17 && item.aOT > this.aBS.IP()) {
+                if (item.aOT == 7) {
                     BdUtilHelper.showToast(getContext(), a.h.sdk_noble_king_disabled_alert);
                 } else {
                     BdUtilHelper.showToast(getContext(), a.h.sdk_noble_disabled_alert);
                 }
             }
             setSelectPos(i);
-            this.aGF.fb(i);
+            this.aBS.dv(i);
         }
     }
 
-    private int ge(String str) {
-        if (TextUtils.isEmpty(str) || this.aGD == null) {
+    private int eT(String str) {
+        if (TextUtils.isEmpty(str) || this.aBQ == null) {
             return -1;
         }
-        for (int i = 0; i <= this.aGD.getCount(); i++) {
-            if (this.aGD.getItem(i).id.equals(str)) {
+        for (int i = 0; i <= this.aBQ.getCount(); i++) {
+            if (this.aBQ.getItem(i).id.equals(str)) {
                 return i;
             }
         }
         return -1;
     }
 
-    private void h(int i, String str) {
-        d.Nk().setSwitchStatus(true);
-        d.Nk().setSelectId(str);
-        if (this.aGD != null && this.aGD.getCount() > 0) {
-            this.aGD.notifyDataSetChanged();
+    private void i(int i, String str) {
+        d.Jp().setSwitchStatus(true);
+        d.Jp().setSelectId(str);
+        if (this.aBQ != null && this.aBQ.getCount() > 0) {
+            this.aBQ.notifyDataSetChanged();
         }
         setSelection(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a extends BaseAdapter {
-        private ck[] aGH;
-        private Map<String, Integer> aGI;
-        private int aGJ;
+        private ck[] aBU;
+        private Map<String, Integer> aBV;
+        private int aBW;
         private int from;
 
         private a() {
         }
 
         public void a(ck[] ckVarArr, Map<String, Integer> map, int i, int i2) {
-            this.aGH = ckVarArr;
-            this.aGI = map;
+            this.aBU = ckVarArr;
+            this.aBV = map;
             this.from = i2;
-            this.aGJ = dW(i);
+            this.aBW = cq(i);
         }
 
         public void b(Map<String, Integer> map, int i) {
-            this.aGI = map;
-            this.aGJ = dW(i);
+            this.aBV = map;
+            this.aBW = cq(i);
         }
 
-        public void dU(int i) {
-            this.aGJ = dW(i);
+        public void co(int i) {
+            this.aBW = cq(i);
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.aGH != null) {
-                return this.aGH.length;
+            if (this.aBU != null) {
+                return this.aBU.length;
             }
             return 0;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: dV */
+        /* renamed from: cp */
         public ck getItem(int i) {
             if (i < 0 || i >= getCount()) {
                 return null;
             }
-            return this.aGH[i];
+            return this.aBU[i];
         }
 
         @Override // android.widget.Adapter
@@ -234,77 +234,77 @@ public class ImBarrageOptionListView extends HListView implements c {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.ala_im_barrage_option_item, (ViewGroup) null);
                 bVar = new b();
-                bVar.aGK = view.findViewById(a.f.layout_container);
-                bVar.aGL = view.findViewById(a.f.layout_content);
-                bVar.aGM = (TextView) view.findViewById(a.f.tv_name);
-                bVar.aGN = (ImageView) view.findViewById(a.f.iv_gift);
-                bVar.aGO = view.findViewById(a.f.layout_gift_count);
-                bVar.aGP = (ImBarrageItemGiftCountView) view.findViewById(a.f.tv_gift_count);
-                bVar.aGQ = (ImageView) view.findViewById(a.f.barrage_prime);
+                bVar.aBX = view.findViewById(a.f.layout_container);
+                bVar.aBY = view.findViewById(a.f.layout_content);
+                bVar.aBZ = (TextView) view.findViewById(a.f.tv_name);
+                bVar.aCa = (ImageView) view.findViewById(a.f.iv_gift);
+                bVar.aCb = view.findViewById(a.f.layout_gift_count);
+                bVar.aCc = (ImBarrageItemGiftCountView) view.findViewById(a.f.tv_gift_count);
+                bVar.aCd = (ImageView) view.findViewById(a.f.barrage_prime);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
             }
             ck item = getItem(i);
-            Drawable background = bVar.aGL.getBackground();
+            Drawable background = bVar.aBY.getBackground();
             if (!(background instanceof f)) {
                 background = new f();
                 ((f) background).setCornerRadius(viewGroup.getResources().getDimensionPixelOffset(a.d.sdk_ds16));
             }
-            if (item.aTD) {
-                if (item.aTF >= 0 && item.aTF <= 255) {
-                    ((f) background).O(ImBarrageOptionListView.this.getResources().getDimensionPixelSize(a.d.sdk_ds2), item.aTF);
+            if (item.aOQ) {
+                if (item.aOS >= 0 && item.aOS <= 255) {
+                    ((f) background).O(ImBarrageOptionListView.this.getResources().getDimensionPixelSize(a.d.sdk_ds2), item.aOS);
                 } else {
                     ((f) background).setStrokeWidth(ImBarrageOptionListView.this.getResources().getDimensionPixelSize(a.d.sdk_ds2));
                 }
-                ((f) background).f(item.Fs(), item.Ft());
+                ((f) background).f(item.Bx(), item.By());
             } else {
-                ((f) background).setColors(item.Fs());
+                ((f) background).setColors(item.Bx());
             }
-            bVar.aGL.setBackgroundDrawable(background);
+            bVar.aBY.setBackgroundDrawable(background);
             if (item.type == 17) {
-                bVar.aGQ.setVisibility(0);
-                if (item.aTG == 7) {
-                    bVar.aGQ.setImageResource(a.e.icon_live_im_barrage_noble_prime_big);
+                bVar.aCd.setVisibility(0);
+                if (item.aOT == 7) {
+                    bVar.aCd.setImageResource(a.e.icon_live_im_barrage_noble_prime_big);
                 } else {
-                    bVar.aGQ.setImageResource(a.e.icon_live_im_barrage_noble_prime_small);
+                    bVar.aCd.setImageResource(a.e.icon_live_im_barrage_noble_prime_small);
                 }
             } else {
-                bVar.aGQ.setVisibility(8);
+                bVar.aCd.setVisibility(8);
             }
-            boolean equals = item.id.equals(d.Nk().No());
-            if (!ImBarrageOptionListView.this.a(bVar, item, this.aGI, this.from, equals)) {
-                bVar.aGM.setVisibility(0);
+            boolean equals = item.id.equals(d.Jp().Jt());
+            if (!ImBarrageOptionListView.this.a(bVar, item, this.aBV, this.from, equals)) {
+                bVar.aBZ.setVisibility(0);
                 if (item.type == 1) {
-                    bVar.aGM.setText(item.price + "T豆/条");
+                    bVar.aBZ.setText(item.price + "T豆/条");
                 } else {
-                    bVar.aGM.setText(item.name);
+                    bVar.aBZ.setText(item.name);
                 }
-                bVar.aGO.setVisibility(8);
-                bVar.aGN.setVisibility(8);
+                bVar.aCb.setVisibility(8);
+                bVar.aCa.setVisibility(8);
             }
             if (equals) {
-                bVar.aGK.setAlpha(1.0f);
+                bVar.aBX.setAlpha(1.0f);
             } else {
-                bVar.aGK.setAlpha(0.3f);
+                bVar.aBX.setAlpha(0.3f);
             }
-            ViewGroup.LayoutParams layoutParams = bVar.aGK.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = bVar.aBX.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.aGJ, -1);
+                layoutParams = new ViewGroup.LayoutParams(this.aBW, -1);
             }
-            layoutParams.width = this.aGJ;
-            ViewGroup.LayoutParams layoutParams2 = bVar.aGO.getLayoutParams();
+            layoutParams.width = this.aBW;
+            ViewGroup.LayoutParams layoutParams2 = bVar.aCb.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             }
             if (layoutParams.width > 0) {
-                bVar.aGL.setPadding(0, 0, 0, 0);
+                bVar.aBY.setPadding(0, 0, 0, 0);
                 if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                     ((RelativeLayout.LayoutParams) layoutParams2).addRule(1, 0);
                     ((RelativeLayout.LayoutParams) layoutParams2).addRule(11);
                 }
             } else {
-                bVar.aGL.setPadding(ImBarrageOptionListView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds20), 0, ImBarrageOptionListView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds20), 0);
+                bVar.aBY.setPadding(ImBarrageOptionListView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds20), 0, ImBarrageOptionListView.this.getResources().getDimensionPixelOffset(a.d.sdk_ds20), 0);
                 if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                     ((RelativeLayout.LayoutParams) layoutParams2).addRule(11, 0);
                     ((RelativeLayout.LayoutParams) layoutParams2).addRule(1, a.f.iv_gift);
@@ -313,7 +313,7 @@ public class ImBarrageOptionListView extends HListView implements c {
             return view;
         }
 
-        private int dW(int i) {
+        private int cq(int i) {
             int count;
             int dimens = BdUtilHelper.getDimens(ImBarrageOptionListView.this.getContext(), a.d.sdk_ds220);
             if (i == 1 && (count = getCount()) <= 3) {
@@ -330,13 +330,13 @@ public class ImBarrageOptionListView extends HListView implements c {
             return false;
         }
         if (map.containsKey(ckVar.id) && (intValue = map.get(ckVar.id).intValue()) != 0 && ckVar.price == 100) {
-            bVar.aGM.setVisibility(8);
-            bVar.aGN.setImageResource(z ? a.e.icon_barrage_gift_price_100_selected : a.e.icon_barrage_gift_price_100_unselected);
-            bVar.aGN.setVisibility(0);
-            bVar.aGO.setVisibility(0);
-            bVar.aGP.setText(intValue > 999 ? "999+" : String.valueOf(intValue));
-            bVar.aGP.setTextColor(-16198405);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.aGN.getLayoutParams();
+            bVar.aBZ.setVisibility(8);
+            bVar.aCa.setImageResource(z ? a.e.icon_barrage_gift_price_100_selected : a.e.icon_barrage_gift_price_100_unselected);
+            bVar.aCa.setVisibility(0);
+            bVar.aCb.setVisibility(0);
+            bVar.aCc.setText(intValue > 999 ? "999+" : String.valueOf(intValue));
+            bVar.aCc.setTextColor(-16198405);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.aCa.getLayoutParams();
             if (i == 0) {
                 layoutParams.width = -2;
                 layoutParams.height = -1;
@@ -347,22 +347,22 @@ public class ImBarrageOptionListView extends HListView implements c {
                 layoutParams.addRule(12);
                 layoutParams.leftMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds12);
             }
-            bVar.aGN.setLayoutParams(layoutParams);
+            bVar.aCa.setLayoutParams(layoutParams);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        View aGK;
-        View aGL;
-        TextView aGM;
-        ImageView aGN;
-        View aGO;
-        ImBarrageItemGiftCountView aGP;
-        ImageView aGQ;
+        View aBX;
+        View aBY;
+        TextView aBZ;
+        ImageView aCa;
+        View aCb;
+        ImBarrageItemGiftCountView aCc;
+        ImageView aCd;
 
         private b() {
         }

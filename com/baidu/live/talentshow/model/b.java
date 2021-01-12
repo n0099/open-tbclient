@@ -1,7 +1,7 @@
 package com.baidu.live.talentshow.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends HttpMessage {
     public b() {
         super(1021223);

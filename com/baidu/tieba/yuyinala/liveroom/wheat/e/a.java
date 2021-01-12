@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.media.AudioManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     @SuppressLint({"MissingPermission"})
-    public static boolean hi(Context context) {
+    public static boolean hg(Context context) {
         if (context == null) {
             return false;
         }

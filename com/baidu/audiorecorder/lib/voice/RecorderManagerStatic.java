@@ -9,7 +9,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecorderManagerStatic {
     public static String Tag = "tag";
 
@@ -74,7 +74,7 @@ public class RecorderManagerStatic {
         TbadkCoreApplication.getInst().setAudioRecorderExist(true);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     static class a {
         a() {
         }

@@ -3,17 +3,17 @@ package com.kwad.sdk.contentalliance.home;
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile long f9032a = 0;
+    private static volatile long f8732a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f9033b;
+    private a f8733b;
     private boolean c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         boolean a();
 
@@ -23,31 +23,31 @@ public class d {
     }
 
     public d(@NonNull a aVar) {
-        this.f9033b = aVar;
+        this.f8733b = aVar;
     }
 
     private void b() {
-        if (this.f9033b != null) {
-            this.f9033b.b();
+        if (this.f8733b != null) {
+            this.f8733b.b();
         }
     }
 
     private void c() {
-        if (this.f9033b != null) {
-            this.f9033b.c();
+        if (this.f8733b != null) {
+            this.f8733b.c();
         }
     }
 
     @UiThread
     public void a() {
-        if (this.f9033b == null || this.f9033b.a()) {
-            f9032a = 0L;
+        if (this.f8733b == null || this.f8733b.a()) {
+            f8732a = 0L;
         } else if (!this.c) {
             c();
-        } else if (System.currentTimeMillis() - f9032a < IMConnection.RETRY_DELAY_TIMES) {
+        } else if (System.currentTimeMillis() - f8732a < IMConnection.RETRY_DELAY_TIMES) {
             c();
         } else {
-            f9032a = System.currentTimeMillis();
+            f8732a = System.currentTimeMillis();
             b();
         }
     }

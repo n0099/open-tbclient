@@ -10,15 +10,15 @@ import com.baidu.tieba.lego.card.view.j;
 import com.baidu.tieba.recapp.h;
 import com.baidu.tieba.recapp.report.e;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements h {
-    private AdvertAppInfo kQj;
+    private AdvertAppInfo kLE;
     private String mForumId;
+    private j mNg;
     private String mPostId;
-    private j mRM;
 
     public c(@NonNull TbPageContext<?> tbPageContext, @NonNull final AdvertAppInfo.ILegoAdvert iLegoAdvert, int i, boolean z, String str, String str2) {
-        this.kQj = iLegoAdvert.getAdvertAppInfo();
+        this.kLE = iLegoAdvert.getAdvertAppInfo();
         this.mForumId = str;
         this.mPostId = str2;
         b bVar = new b(tbPageContext);
@@ -38,9 +38,9 @@ public class c implements h {
                         str3 = "image";
                     }
                 }
-                c.this.RL(str3);
+                c.this.QD(str3);
                 if (i2 == 1) {
-                    c.this.RM(c.this.kQj.bpi() ? "image" : "video");
+                    c.this.QE(c.this.kLE.blo() ? "image" : "video");
                 }
             }
 
@@ -48,50 +48,50 @@ public class c implements h {
             public void a(String str3, String str4, HashMap<String, Object> hashMap) {
             }
         });
-        this.mRM = bVar;
+        this.mNg = bVar;
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.mRM.setDragToExitListener(dVar);
+        this.mNg.setDragToExitListener(dVar);
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public View der() {
-        return this.mRM.der();
+    public View daz() {
+        return this.mNg.daz();
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void onAdShow() {
-        com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(this.kQj));
-        aqI();
+        com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(this.kLE));
+        amN();
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void onDestroy() {
-        this.mRM.onDestroy();
+        this.mNg.onDestroy();
     }
 
-    public void RL(String str) {
-        RN("click");
-        com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kQj, 2, 0);
-        b2.Se(str);
-        e.dFW().a(b2);
+    public void QD(String str) {
+        QF("click");
+        com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kLE, 2, 0);
+        b2.QW(str);
+        e.dCe().a(b2);
     }
 
-    public void RM(String str) {
-        RN("click");
-        com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kQj, 706, 0);
-        b2.Se(str);
-        e.dFW().a(b2);
+    public void QE(String str) {
+        QF("click");
+        com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kLE, 706, 0);
+        b2.QW(str);
+        e.dCe().a(b2);
     }
 
-    public void aqI() {
-        RN("show");
-        e.dFW().a(com.baidu.tieba.recapp.report.h.b(this.kQj, 3, 0));
+    public void amN() {
+        QF("show");
+        e.dCe().a(com.baidu.tieba.recapp.report.h.b(this.kLE, 3, 0));
     }
 
-    public void RN(String str) {
-        com.baidu.tbadk.distribute.a.bEw().a(this.kQj, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
+    public void QF(String str) {
+        com.baidu.tbadk.distribute.a.bAC().a(this.kLE, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.screenlocknotify;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 class b extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action.equals("android.intent.action.SCREEN_ON")) {
-            a.dGQ().mXm = 1;
+            a.dCY().mSB = 1;
         } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-            a.dGQ().mXm = 1;
-            a.dGQ().mXl.dTq();
+            a.dCY().mSB = 1;
+            a.dCY().mSA.dPy();
         } else if (action.equals("android.intent.action.USER_PRESENT")) {
-            a.dGQ().mXm = 0;
+            a.dCY().mSB = 0;
         }
     }
 }

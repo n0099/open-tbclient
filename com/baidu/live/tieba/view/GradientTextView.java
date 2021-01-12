@@ -11,12 +11,12 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GradientTextView extends TextView {
-    private int bLM;
-    private int bLN;
-    private String bLQ;
-    private boolean bLR;
+    private int bHa;
+    private int bHb;
+    private String bHe;
+    private boolean bHf;
 
     public GradientTextView(Context context) {
         this(context, null);
@@ -29,19 +29,19 @@ public class GradientTextView extends TextView {
     public GradientTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_GradientTextView);
-        this.bLM = obtainStyledAttributes.getColor(a.j.sdk_GradientTextView_startColor, -1);
-        this.bLN = obtainStyledAttributes.getColor(a.j.sdk_GradientTextView_endColor, -1);
+        this.bHa = obtainStyledAttributes.getColor(a.j.sdk_GradientTextView_startColor, -1);
+        this.bHb = obtainStyledAttributes.getColor(a.j.sdk_GradientTextView_endColor, -1);
         obtainStyledAttributes.recycle();
-        this.bLR = true;
+        this.bHf = true;
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.bLR = z;
+        this.bHf = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.bLM = i;
-        this.bLN = i2;
+        this.bHa = i;
+        this.bHb = i2;
         invalidate();
     }
 
@@ -49,11 +49,11 @@ public class GradientTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (!TextUtils.isEmpty(charSequence) && ((this.bLM != 0 || this.bLN != 0) && (!this.bLR || !charSequence.equals(this.bLQ)))) {
-            this.bLQ = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && ((this.bHa != 0 || this.bHb != 0) && (!this.bHf || !charSequence.equals(this.bHe)))) {
+            this.bHe = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bLM, this.bLN, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bHa, this.bHb, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

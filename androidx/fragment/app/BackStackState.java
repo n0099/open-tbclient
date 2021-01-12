@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.fragment.app.BackStackRecord;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new Parcelable.Creator<BackStackState>() { // from class: androidx.fragment.app.BackStackState.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -18,7 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.graphics.drawable.WrappedDrawableApi14;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     private static final String TAG = "WrappedDrawableApi21";
     private static Method sIsProjectedDrawableMethod;
@@ -118,7 +118,7 @@ class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         return new DrawableWrapperStateLollipop(this.mState, null);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class DrawableWrapperStateLollipop extends WrappedDrawableApi14.DrawableWrapperState {
         DrawableWrapperStateLollipop(@Nullable WrappedDrawableApi14.DrawableWrapperState drawableWrapperState, @Nullable Resources resources) {
             super(drawableWrapperState, resources);

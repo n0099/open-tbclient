@@ -1,5 +1,6 @@
 package com.baidu.live.data;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.ARConfigKey;
@@ -25,7 +26,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveInfoData implements Serializable {
     public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -221,7 +222,7 @@ public class AlaLiveInfoData implements Serializable {
             this.anchorTitle = jSONObject.optString("anchor_title");
             this.start_time = jSONObject.optInt("start_time");
             this.end_time = jSONObject.optInt("end_time");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.channel_id = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID);
             this.channel_name = jSONObject.optString("channel_name");
             this.live_status = jSONObject.optInt("live_status");
@@ -442,7 +443,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("flower_count", this.flower_count);
             jSONObject.put("start_time", this.start_time);
             jSONObject.put("end_time", this.end_time);
-            jSONObject.put("location", this.location);
+            jSONObject.put(Headers.LOCATION, this.location);
             jSONObject.put(SharedPrefConfig.CHANNEL_ID, this.channel_id);
             jSONObject.put("channel_name", this.channel_name);
             jSONObject.put("live_status", this.live_status);

@@ -20,7 +20,7 @@ public class OperableVideoMediaControllerView extends VideoControllerView {
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    protected View fH(Context context) {
+    protected View fF(Context context) {
         return View.inflate(context, R.layout.operable_video_controller, null);
     }
 }

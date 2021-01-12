@@ -2,7 +2,7 @@ package com.kwai.player.debuginfo.model;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppVodQosDebugInfoNew {
     public static final int VodQosDebugInfoMediaType_KFLV = 2;
     public static final int VodQosDebugInfoMediaType_LIVE = 1;

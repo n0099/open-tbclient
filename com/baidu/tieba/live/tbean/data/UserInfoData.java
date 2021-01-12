@@ -3,7 +3,7 @@ package com.baidu.tieba.live.tbean.data;
 import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UserInfoData extends BaseData {
     public int is_mem;
     public int scores_total;

@@ -14,36 +14,36 @@ import com.qq.e.comm.plugin.y.u;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f12371a;
+    private h f12071a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.c.a.a f12372b;
+    private com.qq.e.comm.plugin.c.a.a f12072b;
 
     public i(h hVar, com.qq.e.comm.plugin.c.a.a aVar) {
-        this.f12371a = hVar;
-        this.f12372b = aVar;
+        this.f12071a = hVar;
+        this.f12072b = aVar;
     }
 
     private d.b a(int i, int i2) {
-        int a2 = b.a(this.f12371a.b());
+        int a2 = b.a(this.f12071a.b());
         com.qq.e.comm.plugin.ad.f c = c();
-        boolean a3 = com.qq.e.comm.plugin.util.d.a(this.f12371a.c);
-        String o = this.f12371a.o();
+        boolean a3 = com.qq.e.comm.plugin.util.d.a(this.f12071a.c);
+        String o = this.f12071a.o();
         if (i2 == -1) {
-            i2 = (!a3 || com.qq.e.comm.plugin.util.b.g(this.f12371a.c)) ? 0 : 1;
+            i2 = (!a3 || com.qq.e.comm.plugin.util.b.g(this.f12071a.c)) ? 0 : 1;
         }
-        if (this.f12371a.d.a_() == 48) {
+        if (this.f12071a.d.a_() == 48) {
             i2 = 48;
         }
-        return new d.b(i2, this.f12371a.o == 2 ? d.c.SysBrowser : d.c.InnerBrowser).a(i).a(o).b(a2).a(c);
+        return new d.b(i2, this.f12071a.o == 2 ? d.c.SysBrowser : d.c.InnerBrowser).a(i).a(o).b(a2).a(c);
     }
 
     private void a() {
-        com.qq.e.comm.plugin.s.c l = this.f12371a.d.l();
+        com.qq.e.comm.plugin.s.c l = this.f12071a.d.l();
         if (l == null) {
             return;
         }
@@ -51,19 +51,19 @@ public class i {
         if (TextUtils.isEmpty(c)) {
             return;
         }
-        new com.qq.e.comm.plugin.ac.e(this.f12371a.m).a(c);
+        new com.qq.e.comm.plugin.ac.e(this.f12071a.m).a(c);
     }
 
     private void a(final int i) {
         b(0);
-        if (!this.f12371a.f) {
-            this.f12371a.k();
+        if (!this.f12071a.f) {
+            this.f12071a.k();
         }
-        d.a a2 = com.qq.e.comm.plugin.w.i.a(this.f12371a.d);
-        d.e eVar = new d.e(this.f12371a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12371a.b());
+        d.a a2 = com.qq.e.comm.plugin.w.i.a(this.f12071a.d);
+        d.e eVar = new d.e(this.f12071a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12071a.b());
         d.b a3 = a(0, -1);
-        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12371a.l);
-        if (((Boolean) com.qq.e.comm.plugin.w.a.i.a(this.f12371a.f12327a, a2, a3, eVar, new i.a() { // from class: com.qq.e.comm.plugin.gdtnativead.i.1
+        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12071a.l);
+        if (((Boolean) com.qq.e.comm.plugin.w.a.i.a(this.f12071a.f12027a, a2, a3, eVar, new i.a() { // from class: com.qq.e.comm.plugin.gdtnativead.i.1
             @Override // com.qq.e.comm.plugin.w.a.i.a
             public void a(String str, boolean z) {
                 if (i == 1 && z) {
@@ -73,19 +73,19 @@ public class i {
         }).second).booleanValue()) {
             return;
         }
-        this.f12371a.a(false);
+        this.f12071a.a(false);
     }
 
     private void a(int i, boolean z) {
         if (i == 4) {
-            com.qq.e.comm.plugin.a.c d = this.f12371a.d(this.f12371a.g.d());
+            com.qq.e.comm.plugin.a.c d = this.f12071a.d(this.f12071a.g.d());
             if (d != null) {
                 l.a().a(d.m(), 1);
             }
         } else if (i != 32) {
             a(null, 2, -1, z);
         } else {
-            com.qq.e.comm.plugin.a.c d2 = this.f12371a.d(this.f12371a.g.d());
+            com.qq.e.comm.plugin.a.c d2 = this.f12071a.d(this.f12071a.g.d());
             if (d2 != null) {
                 l.a().a(d2.m());
             }
@@ -116,21 +116,21 @@ public class i {
         if (!z) {
             b(i);
         }
-        d.a a2 = com.qq.e.comm.plugin.w.i.a(this.f12371a.d);
-        d.e eVar = new d.e(this.f12371a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12371a.b());
+        d.a a2 = com.qq.e.comm.plugin.w.i.a(this.f12071a.d);
+        d.e eVar = new d.e(this.f12071a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12071a.b());
         d.b a3 = a(i, i2);
-        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12371a.l);
-        com.qq.e.comm.plugin.w.a.d.a(this.f12371a.f12327a, a2, eVar, a3);
+        a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f12071a.l);
+        com.qq.e.comm.plugin.w.a.d.a(this.f12071a.f12027a, a2, eVar, a3);
     }
 
     private int b() {
         int optInt;
-        if (this.f12371a.k == 1 && ((optInt = this.f12371a.c.optInt("producttype")) == 12 || optInt == 1000 || optInt == 38 || optInt == 25)) {
-            String optString = this.f12371a.c.optString("customized_invoke_url");
+        if (this.f12071a.k == 1 && ((optInt = this.f12071a.c.optInt("producttype")) == 12 || optInt == 1000 || optInt == 38 || optInt == 25)) {
+            String optString = this.f12071a.c.optString("customized_invoke_url");
             if (az.b(optString)) {
-                if (com.qq.e.comm.plugin.w.a.c.a(this.f12371a.h, com.qq.e.comm.plugin.util.d.e(this.f12371a.c), optString, com.qq.e.comm.plugin.util.b.d(this.f12371a.c), null)) {
-                    if (!this.f12371a.f) {
-                        this.f12371a.k();
+                if (com.qq.e.comm.plugin.w.a.c.a(this.f12071a.h, com.qq.e.comm.plugin.util.d.e(this.f12071a.c), optString, com.qq.e.comm.plugin.util.b.d(this.f12071a.c), null)) {
+                    if (!this.f12071a.f) {
+                        this.f12071a.k();
                     }
                     return 2;
                 }
@@ -142,49 +142,49 @@ public class i {
 
     private void b(int i) {
         if (SDKStatus.getSDKVersionCode() >= 10) {
-            this.f12371a.a(6, new Object[]{this.f12371a.f12328b, ""});
+            this.f12071a.a(6, new Object[]{this.f12071a.f12028b, ""});
         } else {
-            this.f12371a.a(6, new Object[]{this.f12371a.f12328b});
+            this.f12071a.a(6, new Object[]{this.f12071a.f12028b});
         }
     }
 
     private void b(JSONObject jSONObject) {
-        if (!this.f12371a.m()) {
-            if (this.f12371a.c == null || !this.f12371a.e) {
+        if (!this.f12071a.m()) {
+            if (this.f12071a.c == null || !this.f12071a.e) {
                 return;
             }
             a(jSONObject, 0);
             return;
         }
-        if (this.f12371a.i != null && this.f12371a.j != null && this.f12371a.j.getVisibility() != 0) {
-            this.f12371a.j.setVisibility(0);
-            com.qq.e.comm.plugin.aa.b.a.a(this.f12371a.i);
+        if (this.f12071a.i != null && this.f12071a.j != null && this.f12071a.j.getVisibility() != 0) {
+            this.f12071a.j.setVisibility(0);
+            com.qq.e.comm.plugin.aa.b.a.a(this.f12071a.i);
         }
-        if (com.qq.e.comm.plugin.util.b.c(this.f12371a.c) && this.f12371a.k == 1) {
+        if (com.qq.e.comm.plugin.util.b.c(this.f12071a.c) && this.f12071a.k == 1) {
             a(-1);
             return;
         }
         int b2 = b();
         if (b2 == 2) {
             a(jSONObject, 4);
-        } else if (com.qq.e.comm.plugin.util.b.f(this.f12371a.c) && this.f12371a.k == 1) {
+        } else if (com.qq.e.comm.plugin.util.b.f(this.f12071a.c) && this.f12071a.k == 1) {
             a(b2);
             return;
-        } else if (this.f12371a.k == 1 && com.qq.e.comm.plugin.util.d.a(this.f12371a.c) && !com.qq.e.comm.plugin.util.d.b(this.f12371a.c)) {
+        } else if (this.f12071a.k == 1 && com.qq.e.comm.plugin.util.d.a(this.f12071a.c) && !com.qq.e.comm.plugin.util.d.b(this.f12071a.c)) {
             if (b2 == 1) {
                 a(jSONObject, 3);
             } else {
                 a(jSONObject, 1);
             }
-            this.f12371a.a(false);
+            this.f12071a.a(false);
         } else if (b2 == 1) {
             b(0);
-            this.f12371a.a(true);
+            this.f12071a.a(true);
         } else {
             b(0);
-            this.f12371a.a(false);
+            this.f12071a.a(false);
         }
-        this.f12371a.f = false;
+        this.f12071a.f = false;
     }
 
     private boolean b(String str) {
@@ -192,12 +192,12 @@ public class i {
     }
 
     private com.qq.e.comm.plugin.ad.f c() {
-        if (this.f12371a.f12327a == null) {
+        if (this.f12071a.f12027a == null) {
             GDTLogger.e("Native Express AD view is null");
-            u.a(100332, 0, this.f12371a.n);
+            u.a(100332, 0, this.f12071a.n);
             return null;
         }
-        View a2 = this.f12371a.f12327a.a();
+        View a2 = this.f12071a.f12027a.a();
         if (a2 != null) {
             Rect rect = new Rect();
             if (a2.getGlobalVisibleRect(rect)) {
@@ -213,38 +213,38 @@ public class i {
     public void a(String str) {
         HashMap hashMap = new HashMap();
         hashMap.put("code", "InnerBrowser");
-        com.qq.e.comm.plugin.w.a.d.a(str, this.f12371a.d.E(), new d.e(this.f12371a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12371a.b()), a(0, -1), hashMap);
+        com.qq.e.comm.plugin.w.a.d.a(str, this.f12071a.d.E(), new d.e(this.f12071a.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12071a.b()), a(0, -1), hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         com.qq.e.comm.plugin.ad.f c = c();
         String optString = jSONObject.optString("action");
-        com.qq.e.comm.plugin.s.a aVar = this.f12371a.d;
+        com.qq.e.comm.plugin.s.a aVar = this.f12071a.d;
         if (b(optString)) {
             if (!com.qq.e.comm.plugin.c.e.a(aVar)) {
                 a(optString, jSONObject);
                 return;
             }
-            com.qq.e.comm.plugin.c.e.c(new f.a(aVar, this.f12371a.l).a(c).a(this.f12371a.o()).a(), this.f12372b);
+            com.qq.e.comm.plugin.c.e.c(new f.a(aVar, this.f12071a.l).a(c).a(this.f12071a.o()).a(), this.f12072b);
             b(0);
         } else if (!com.qq.e.comm.plugin.c.e.a(aVar)) {
             b(jSONObject);
         } else {
-            com.qq.e.comm.plugin.c.e.a(new f.a(aVar, this.f12371a.l).a(c).a(this.f12371a.o()).a(), this.f12372b);
+            com.qq.e.comm.plugin.c.e.a(new f.a(aVar, this.f12071a.l).a(c).a(this.f12071a.o()).a(), this.f12072b);
             b(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        int h = this.f12371a.g.h();
-        com.qq.e.comm.plugin.s.a aVar = this.f12371a.d;
+        int h = this.f12071a.g.h();
+        com.qq.e.comm.plugin.s.a aVar = this.f12071a.d;
         if (!com.qq.e.comm.plugin.c.e.a(aVar)) {
             a(h, z);
             return;
         }
-        com.qq.e.comm.plugin.c.e.b(new f.a(aVar, this.f12371a.l).a(c()).a(this.f12371a.o()).f(!z).a(), this.f12372b);
+        com.qq.e.comm.plugin.c.e.b(new f.a(aVar, this.f12071a.l).a(c()).a(this.f12071a.o()).f(!z).a(), this.f12072b);
         if (z || h == 4 || h == 32) {
             return;
         }

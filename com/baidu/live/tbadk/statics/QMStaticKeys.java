@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.statics;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class QMStaticKeys extends SdkStaticKeys {
     public static final String KEY_QM_AUTHOR = "author";
     public static final String KEY_QM_AUTHOR_ID = "author_id";

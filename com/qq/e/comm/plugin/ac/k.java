@@ -9,21 +9,21 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.qq.e.comm.plugin.ad.r;
 import com.qq.e.comm.plugin.util.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends ImageView implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12164a;
+    private String f11864a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ad.g f12165b;
+    private com.qq.e.comm.plugin.ad.g f11865b;
     private r c;
     private View.OnClickListener d;
 
     public k(Context context, String str, com.qq.e.comm.plugin.ad.g gVar) {
         super(context);
-        this.f12164a = str;
-        this.f12165b = gVar;
+        this.f11864a = str;
+        this.f11865b = gVar;
         this.c = new r(getContext());
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         setOnClickListener(this);
@@ -45,7 +45,7 @@ public class k extends ImageView implements View.OnClickListener {
             layoutParams.topMargin = ak.a(getContext(), i2 - 90);
             layoutParams.leftMargin = ak.a(getContext(), i);
             ((ViewGroup) ((Activity) context).getWindow().getDecorView()).addView(this, layoutParams);
-            com.qq.e.comm.plugin.p.a.a().a(this.f12164a, this);
+            com.qq.e.comm.plugin.p.a.a().a(this.f11864a, this);
         }
         setVisibility(0);
     }
@@ -72,8 +72,8 @@ public class k extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f12165b != null) {
-            this.f12165b.a(motionEvent, true);
+        if (this.f11865b != null) {
+            this.f11865b.a(motionEvent, true);
         }
         this.c.a(motionEvent);
         return super.onTouchEvent(motionEvent);

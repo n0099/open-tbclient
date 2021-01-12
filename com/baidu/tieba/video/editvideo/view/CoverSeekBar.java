@@ -23,26 +23,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CoverSeekBar extends FrameLayout {
     private int MAX_IMAGE_SIZE;
-    private float cGB;
-    private LinearLayout.LayoutParams eua;
+    private float cBP;
+    private LinearLayout.LayoutParams epm;
     private Handler handler;
-    private float iRH;
+    private float iNa;
     private float mDownX;
     private int mImageHeight;
     private int mImageWidth;
     private Thread mThread;
-    private LinearLayout nIJ;
-    private ScalableVideoView nIK;
-    private a nIL;
+    private LinearLayout nEe;
+    private ScalableVideoView nEf;
+    private a nEg;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void dUF();
+        void dQN();
 
-        void dUG();
+        void dQO();
 
         void onProgress(int i);
     }
@@ -70,31 +70,31 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     private void init() {
-        this.iRH = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.iNa = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         this.mImageWidth = l.getEquipmentWidth(getContext()) / 10;
         this.mImageHeight = l.getDimens(getContext(), R.dimen.ds112);
-        this.eua = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
-        this.nIJ = (LinearLayout) findViewById(R.id.images_container);
-        this.nIK = (ScalableVideoView) findViewById(R.id.cover_select_image);
-        this.nIK.setLayoutParams(new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight));
+        this.epm = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
+        this.nEe = (LinearLayout) findViewById(R.id.images_container);
+        this.nEf = (ScalableVideoView) findViewById(R.id.cover_select_image);
+        this.nEf.setLayoutParams(new FrameLayout.LayoutParams(this.mImageWidth, this.mImageHeight));
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.nIK.setDataSource(str);
-                this.nIK.setScalableType(ScalableType.CENTER_CROP);
-                this.nIK.a(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1
+                this.nEf.setDataSource(str);
+                this.nEf.setScalableType(ScalableType.CENTER_CROP);
+                this.nEf.a(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         mediaPlayer.setVolume(0.0f, 0.0f);
                         if (Build.VERSION.SDK_INT >= 17) {
-                            CoverSeekBar.this.nIK.start();
+                            CoverSeekBar.this.nEf.start();
                             mediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.1.1
                                 @Override // android.media.MediaPlayer.OnInfoListener
                                 public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
                                     if (i == 3) {
-                                        CoverSeekBar.this.nIK.pause();
+                                        CoverSeekBar.this.nEf.pause();
                                         return true;
                                     }
                                     return true;
@@ -102,11 +102,11 @@ public class CoverSeekBar extends FrameLayout {
                             });
                             return;
                         }
-                        CoverSeekBar.this.nIK.seekTo(0);
+                        CoverSeekBar.this.nEf.seekTo(0);
                     }
                 });
-                Ux(str);
-                Uw(str);
+                Tp(str);
+                To(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,21 +114,21 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     public int getCurrentPosition() {
-        if (this.nIK == null) {
+        if (this.nEf == null) {
             return 0;
         }
-        return this.nIK.getCurrentPosition();
+        return this.nEf.getCurrentPosition();
     }
 
     public void setImage(int i, Bitmap bitmap) {
         if (bitmap != null) {
-            if (this.nIJ.getChildCount() > 0) {
-                ((ImageView) this.nIJ.getChildAt(i)).setBackgroundDrawable(new BitmapDrawable(bitmap));
+            if (this.nEe.getChildCount() > 0) {
+                ((ImageView) this.nEe.getChildAt(i)).setBackgroundDrawable(new BitmapDrawable(bitmap));
             }
         }
     }
 
-    private void Uw(final String str) {
+    private void To(final String str) {
         this.mThread = new Thread(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.3
             @Override // java.lang.Runnable
             public void run() {
@@ -153,16 +153,16 @@ public class CoverSeekBar extends FrameLayout {
         this.mThread.start();
     }
 
-    public void Ux(String str) {
+    public void Tp(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                boolean z = this.nIJ.getChildCount() > 0;
+                boolean z = this.nEe.getChildCount() > 0;
                 MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                 mediaMetadataRetriever.setDataSource(str);
                 Bitmap extractThumbnail = ThumbnailUtils.extractThumbnail(mediaMetadataRetriever.getFrameAtTime(), this.mImageWidth, this.mImageHeight, 2);
                 for (int i = 0; i < this.MAX_IMAGE_SIZE; i++) {
                     if (z) {
-                        ImageView imageView = (ImageView) this.nIJ.getChildAt(i);
+                        ImageView imageView = (ImageView) this.nEe.getChildAt(i);
                         if (extractThumbnail != null) {
                             imageView.setBackgroundDrawable(new BitmapDrawable(extractThumbnail));
                         }
@@ -173,7 +173,7 @@ public class CoverSeekBar extends FrameLayout {
                         }
                         ao.setImageResource(imageView2, R.drawable.bg_seekbar);
                         imageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        this.nIJ.addView(imageView2, this.eua);
+                        this.nEe.addView(imageView2, this.epm);
                     }
                 }
                 mediaMetadataRetriever.release();
@@ -184,25 +184,25 @@ public class CoverSeekBar extends FrameLayout {
     }
 
     public void setProgressImage(int i, int i2) {
-        this.nIK.seekTo(i2);
+        this.nEf.seekTo(i2);
         int width = (int) (((i / 1000.0f) * getWidth()) - this.mImageWidth);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nIK.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.nEf.getLayoutParams();
         if (width <= 0) {
             width = 0;
         } else if (width >= getWidth() - this.mImageWidth) {
             width = getWidth() - this.mImageWidth;
         }
         layoutParams.setMargins(width, 0, 0, 0);
-        this.nIK.setLayoutParams(layoutParams);
+        this.nEf.setLayoutParams(layoutParams);
     }
 
     public void seekTo(int i) {
-        this.nIK.seekTo(i);
+        this.nEf.seekTo(i);
     }
 
     public void release() {
-        if (this.nIK != null) {
-            this.nIK.release();
+        if (this.nEf != null) {
+            this.nEf.release();
         }
         if (this.mThread != null) {
             this.mThread.interrupt();
@@ -214,17 +214,17 @@ public class CoverSeekBar extends FrameLayout {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.cGB = motionEvent.getY();
-                if (this.nIL != null) {
-                    this.nIL.dUF();
+                this.cBP = motionEvent.getY();
+                if (this.nEg != null) {
+                    this.nEg.dQN();
                     aj(motionEvent);
                     return true;
                 }
                 return true;
             case 1:
-                if (this.nIL != null) {
+                if (this.nEg != null) {
                     aj(motionEvent);
-                    this.nIL.dUG();
+                    this.nEg.dQO();
                     return true;
                 }
                 return true;
@@ -254,16 +254,16 @@ public class CoverSeekBar extends FrameLayout {
         float f = (paddingLeft * 1000.0f) + 0.0f;
         float f2 = f >= 0.0f ? f : 0.0f;
         float f3 = f2 <= 1000.0f ? f2 : 1000.0f;
-        if (this.nIL != null) {
-            this.nIL.onProgress((int) f3);
+        if (this.nEg != null) {
+            this.nEg.onProgress((int) f3);
         }
     }
 
     private boolean ab(MotionEvent motionEvent) {
-        return Math.abs(motionEvent.getX() - this.mDownX) < this.iRH && Math.abs(motionEvent.getY() - this.cGB) < this.iRH;
+        return Math.abs(motionEvent.getX() - this.mDownX) < this.iNa && Math.abs(motionEvent.getY() - this.cBP) < this.iNa;
     }
 
     public void setOnProgressChanged(a aVar) {
-        this.nIL = aVar;
+        this.nEg = aVar;
     }
 }

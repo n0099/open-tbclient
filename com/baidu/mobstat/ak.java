@@ -8,22 +8,22 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 import com.baidu.mobstat.al;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f3697a = true;
+    private static volatile boolean f3659a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f3698b;
+    private a f3660b;
     private Activity c;
     private Handler d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100:
-                    if (ak.this.f3698b != null) {
-                        ak.this.f3698b.a();
+                    if (ak.this.f3660b != null) {
+                        ak.this.f3660b.a();
                         return;
                     }
                     return;
@@ -33,24 +33,24 @@ public class ak {
         }
     };
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void a();
     }
 
     public ak(a aVar) {
-        this.f3698b = aVar;
+        this.f3660b = aVar;
     }
 
     public static void a(boolean z) {
         if (z) {
             an.a();
         }
-        f3697a = z;
+        f3659a = z;
     }
 
     public static boolean a() {
-        return f3697a;
+        return f3659a;
     }
 
     public void a(Activity activity) {

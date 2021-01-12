@@ -3,13 +3,13 @@ package com.baidu.ubc;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface q {
-    String aGV();
+    String aDb();
 
-    List<String> dLO();
+    List<String> dHW();
 
     boolean isBeta();
 
     boolean isPeakTime();
 
-    boolean qX(String str);
+    boolean pM(String str);
 }

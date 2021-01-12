@@ -3,21 +3,21 @@ package com.qq.e.comm.plugin.j.b;
 import java.io.File;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.qq.e.comm.plugin.j.b.a.a f12463a;
+    private final com.qq.e.comm.plugin.j.b.a.a f12163a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final File f12464b;
+    private final File f12164b;
     private final long c;
     private String d;
     private int e;
 
     public e(com.qq.e.comm.plugin.j.b.a.a aVar, File file, long j) {
-        this.f12463a = aVar;
-        this.f12464b = file;
+        this.f12163a = aVar;
+        this.f12164b = file;
         this.c = j;
     }
 
@@ -25,7 +25,7 @@ public class e implements h {
     public int a(c cVar) {
         long length;
         try {
-            length = this.c - this.f12464b.length();
+            length = this.c - this.f12164b.length();
         } catch (IOException e) {
             this.e |= 4194304;
             this.d = "UnknownNetworkExceptionWhileDoMainPartitionDownloaderWork" + e.getMessage();
@@ -34,10 +34,10 @@ public class e implements h {
             this.d = "IllegalStateExceptionWhileDoMainPartitionDownloaderWork";
         }
         if (length == 0 && this.c > 0) {
-            cVar.a(this.f12464b.length());
+            cVar.a(this.f12164b.length());
             return 0;
         }
-        a kVar = this.c <= 0 ? new k(this.f12463a.e(), this.f12464b, cVar) : new j(this.f12463a.e(), length, this.f12464b, cVar);
+        a kVar = this.c <= 0 ? new k(this.f12163a.e(), this.f12164b, cVar) : new j(this.f12163a.e(), length, this.f12164b, cVar);
         this.e |= kVar.a();
         this.d = kVar.b();
         return this.e;
@@ -55,8 +55,8 @@ public class e implements h {
 
     @Override // com.qq.e.comm.plugin.j.b.h
     public void c() {
-        if (this.f12463a != null) {
-            this.f12463a.f();
+        if (this.f12163a != null) {
+            this.f12163a.f();
         }
     }
 }

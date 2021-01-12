@@ -13,51 +13,51 @@ import com.baidu.live.utils.t;
 import com.baidu.live.view.web.g;
 import com.baidu.tieba.yuyinala.liveroom.turntable.a;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private CustomMessageListener bXd;
+    private CustomMessageListener bSr;
     private Activity mContext;
-    private a.InterfaceC0949a owT;
-    private a owV;
+    private a.InterfaceC0932a osn;
+    private a osp;
 
     public b(Activity activity) {
         this.mContext = activity;
-        aag();
+        Wn();
     }
 
     public void b(String str, long j, long j2, long j3) {
-        this.owV = new a(this.mContext);
-        this.owV.a(this.owT);
-        this.owV.getWebView().setBackgroundColor(ih(str));
+        this.osp = new a(this.mContext);
+        this.osp.a(this.osn);
+        this.osp.getWebView().setBackgroundColor(gW(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.owV).a(this.owV.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aaf = gVar.aaf();
-        for (com.baidu.live.view.web.a aVar : aaf) {
-            this.owV.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.osp).a(this.osp.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wm = gVar.Wm();
+        for (com.baidu.live.view.web.a aVar : Wm) {
+            this.osp.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.owV.GA(c(str, j, j2, j3));
+        this.osp.Fp(c(str, j, j2, j3));
     }
 
     public void dismiss() {
-        if (this.owV != null) {
-            this.owV.aah();
+        if (this.osp != null) {
+            this.osp.Wo();
         }
     }
 
-    private void aag() {
-        this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
+    private void Wn() {
+        this.bSr = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.owV != null && b.this.owV.isShowing()) {
-                    b.this.owV.dismiss();
+                if (b.this.osp != null && b.this.osp.isShowing()) {
+                    b.this.osp.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bXd);
+        MessageManager.getInstance().registerListener(this.bSr);
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -94,7 +94,7 @@ public class b {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(t.XG());
+        sb.append(t.TN());
         return sb.toString();
     }
 }

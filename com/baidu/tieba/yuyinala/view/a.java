@@ -18,52 +18,52 @@ import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import com.baidu.tieba.yuyinala.data.g;
 import com.baidu.tieba.yuyinala.view.b;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private View contentView;
-    private TextView icj;
-    private TextView iin;
-    private TextView iip;
-    private TextView iiq;
-    private TextView iir;
-    private LottieAnimationView ijo;
+    private TextView hXC;
+    private TextView idG;
+    private TextView idI;
+    private TextView idJ;
+    private TextView idK;
+    private LottieAnimationView ieH;
     private String mRoomId;
     private View mRootView;
-    private BarImageView oIc;
-    private b.a oId;
-    private FrameLayout oIe;
-    private AlaRankListActivity ojI;
+    private BarImageView oDx;
+    private b.a oDy;
+    private FrameLayout oDz;
+    private AlaRankListActivity ofc;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.ojI = alaRankListActivity;
+        this.ofc = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ojI).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ofc).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.content_view);
-        this.iin = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-        this.oIc = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
-        this.icj = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-        this.iip = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
-        this.iiq = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info_extra);
-        this.iir = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
-        this.ijo = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
-        this.oIe = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
-        this.iir.setOnTouchListener(new d());
-        this.iir.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.a.1
+        this.idG = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+        this.oDx = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
+        this.hXC = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+        this.idI = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
+        this.idJ = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info_extra);
+        this.idK = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
+        this.ieH = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
+        this.oDz = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
+        this.idK.setOnTouchListener(new d());
+        this.idK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.oId != null) {
-                    a.this.ojI.finish();
-                    a.this.oId.ep(view);
+                if (a.this.oDy != null) {
+                    a.this.ofc.finish();
+                    a.this.oDy.ep(view);
                 }
             }
         });
-        if (this.oIc != null) {
-            this.oIc.setShowOval(true);
-            this.oIc.setAutoChangeStyle(false);
+        if (this.oDx != null) {
+            this.oDx.setShowOval(true);
+            this.oDx.setAutoChangeStyle(false);
         }
     }
 
@@ -72,62 +72,62 @@ public class a {
     }
 
     public void a(b.a aVar) {
-        this.oId = aVar;
+        this.oDy = aVar;
     }
 
     public void a(g gVar) {
         int i = 10;
         if (gVar != null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            this.oIe.setVisibility(8);
-            if (gVar.aJz <= 0) {
-                spannableStringBuilder.append((CharSequence) this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
+            this.oDz.setVisibility(8);
+            if (gVar.aEM <= 0) {
+                spannableStringBuilder.append((CharSequence) this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
-                this.iin.setText("未上榜");
-                this.iin.setTextSize(10.0f);
-                this.iiq.setVisibility(0);
-                this.iiq.setText(spannableStringBuilder);
+                this.idG.setText("未上榜");
+                this.idG.setTextSize(10.0f);
+                this.idJ.setVisibility(0);
+                this.idJ.setText(spannableStringBuilder);
             } else {
-                int i2 = gVar.aJy;
-                this.iin.setText(i2 + "");
-                this.iin.setTextSize(18.0f);
+                int i2 = gVar.aEL;
+                this.idG.setText(i2 + "");
+                this.idG.setTextSize(18.0f);
                 if (i2 == 1) {
-                    if (gVar.aJC) {
-                        this.iiq.setVisibility(8);
+                    if (gVar.aEP) {
+                        this.idJ.setVisibility(8);
                     } else {
-                        String format = String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aJz - gVar.aJB) + "");
+                        String format = String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aEM - gVar.aEO) + "");
                         spannableStringBuilder.append((CharSequence) format);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format.length(), 34);
-                        this.iiq.setVisibility(0);
-                        this.iiq.setText(spannableStringBuilder);
+                        this.idJ.setVisibility(0);
+                        this.idJ.setText(spannableStringBuilder);
                     }
-                } else if (gVar.aJy >= 2 && gVar.aJy <= 10) {
-                    String str = StringHelper.formatYuyinValue((gVar.aJA - gVar.aJz) + 1) + "";
-                    spannableStringBuilder.append((CharSequence) String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
+                } else if (gVar.aEL >= 2 && gVar.aEL <= 10) {
+                    String str = StringHelper.formatYuyinValue((gVar.aEN - gVar.aEM) + 1) + "";
+                    spannableStringBuilder.append((CharSequence) String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str.length() + 4, 34);
-                    this.iiq.setVisibility(0);
-                    this.iiq.setText(spannableStringBuilder);
-                } else if (gVar.aJy > 10) {
-                    String format2 = String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aJD - gVar.aJz) + 1) + "");
+                    this.idJ.setVisibility(0);
+                    this.idJ.setText(spannableStringBuilder);
+                } else if (gVar.aEL > 10) {
+                    String format2 = String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aEQ - gVar.aEM) + 1) + "");
                     spannableStringBuilder.append((CharSequence) format2);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ.length() + 4, format2.length(), 34);
-                    this.iiq.setVisibility(0);
-                    this.iiq.setText(spannableStringBuilder);
+                    this.idJ.setVisibility(0);
+                    this.idJ.setText(spannableStringBuilder);
                 }
             }
             if (!StringUtils.isNull(gVar.cover)) {
-                this.oIc.startLoad(gVar.cover, 12, false);
+                this.oDx.startLoad(gVar.cover, 12, false);
             }
             if (!StringUtils.isNull(gVar.getNameShow())) {
                 String nameShow = gVar.getNameShow();
                 int textLengthWithEmoji = TextHelper.getTextLengthWithEmoji(gVar.getNameShow());
-                i = (this.iip == null || StringUtils.isNull(this.iip.getText().toString().trim())) ? 16 : 16;
+                i = (this.idI == null || StringUtils.isNull(this.idI.getText().toString().trim())) ? 16 : 16;
                 if (textLengthWithEmoji > i) {
-                    nameShow = String.format(this.ojI.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
+                    nameShow = String.format(this.ofc.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
                 }
-                this.icj.setText(nameShow);
+                this.hXC.setText(nameShow);
             }
-            this.iir.setVisibility(0);
+            this.idK.setVisibility(0);
         }
     }
 }

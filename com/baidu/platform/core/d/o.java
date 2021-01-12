@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
@@ -64,7 +64,7 @@ public class o extends k {
                 walkingStep.setEntrance(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("start_location"))));
                 walkingStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("end_location"))));
                 String optString = optJSONObject.optString("instructions");
-                if (optString != null && optString.length() >= 4) {
+                if (optString != null || optString.length() >= 4) {
                     optString = optString.replaceAll("</?[a-z]>", "");
                 }
                 walkingStep.setInstructions(optString);

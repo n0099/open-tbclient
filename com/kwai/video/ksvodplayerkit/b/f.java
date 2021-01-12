@@ -1,14 +1,14 @@
 package com.kwai.video.ksvodplayerkit.b;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11346a;
+    public String f11046a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f11347b;
+    public List<String> f11047b;
     public String c;
     public String d;
     public double e;

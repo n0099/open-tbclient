@@ -5,11 +5,11 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class q implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12277a;
+    private String f11977a;
 
     q() {
     }

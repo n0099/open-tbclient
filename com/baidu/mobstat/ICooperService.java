@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ICooperService {
     boolean checkCellLocationSetting(Context context);
 

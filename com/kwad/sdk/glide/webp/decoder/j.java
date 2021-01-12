@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.glide.load.DecodeFormat;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import com.kwad.sdk.glide.load.engine.s;
@@ -20,14 +21,14 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10682a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", false);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f10382a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", false);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final k.a f10683b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
+    private static final k.a f10383b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a() {
         }
@@ -77,7 +78,7 @@ public final class j {
                 i5 = Math.round(((int) Math.ceil(i3 / i7)) * f);
                 i6 = Math.round(((int) Math.ceil(i4 / i7)) * f);
                 if (Log.isLoggable("WebpDownsampler", 2)) {
-                    Log.v("WebpDownsampler", "Calculated target [" + i5 + "x" + i6 + "] for source [" + i3 + "x" + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f);
+                    Log.v("WebpDownsampler", "Calculated target [" + i5 + Config.EVENT_HEAT_X + i6 + "] for source [" + i3 + Config.EVENT_HEAT_X + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f);
                 }
             }
             if (i5 > 0 && i6 > 0) {
@@ -124,11 +125,11 @@ public final class j {
         if (bitmap == null) {
             return null;
         }
-        return "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
+        return "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
     }
 
     private static void a(int i, int i2, String str, BitmapFactory.Options options, Bitmap bitmap, int i3, int i4, long j) {
-        Log.v("WebpDownsampler", "Decoded " + a(bitmap) + " from [" + i + "x" + i2 + "] " + str + " with inBitmap " + b(options) + " for [" + i3 + "x" + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + com.kwad.sdk.glide.g.f.a(j));
+        Log.v("WebpDownsampler", "Decoded " + a(bitmap) + " from [" + i + Config.EVENT_HEAT_X + i2 + "] " + str + " with inBitmap " + b(options) + " for [" + i3 + Config.EVENT_HEAT_X + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + com.kwad.sdk.glide.g.f.a(j));
     }
 
     @TargetApi(26)
@@ -146,7 +147,7 @@ public final class j {
         }
         float a2 = (i == 90 || i == 270) ? downsampleStrategy.a(i3, i2, i4, i5) : downsampleStrategy.a(i2, i3, i4, i5);
         if (a2 <= 0.0f) {
-            throw new IllegalArgumentException("Cannot scale with factor: " + a2 + " from: " + downsampleStrategy + ", source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "]");
+            throw new IllegalArgumentException("Cannot scale with factor: " + a2 + " from: " + downsampleStrategy + ", source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "]");
         }
         DownsampleStrategy.SampleSizeRounding b2 = downsampleStrategy.b(i2, i3, i4, i5);
         if (b2 == null) {
@@ -199,7 +200,7 @@ public final class j {
             options.inDensity = 0;
         }
         if (Log.isLoggable("WebpDownsampler", 2)) {
-            Log.v("WebpDownsampler", "Calculate scaling, source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "], power of two scaled: [" + floor + "x" + floor2 + "], exact scale factor: " + a2 + ", power of 2 sample size: " + max + ", adjusted scale factor: " + a4 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
+            Log.v("WebpDownsampler", "Calculate scaling, source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "], power of two scaled: [" + floor + Config.EVENT_HEAT_X + floor2 + "], exact scale factor: " + a2 + ", power of 2 sample size: " + max + ", adjusted scale factor: " + a4 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
         }
     }
 
@@ -313,7 +314,7 @@ public final class j {
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar) {
-        return a(inputStream, i, i2, eVar, f10683b);
+        return a(inputStream, i, i2, eVar, f10383b);
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar, k.a aVar) {
@@ -321,9 +322,9 @@ public final class j {
         byte[] bArr = (byte[]) this.f.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10583a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10283a);
         try {
-            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10584b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.c)).booleanValue(), aVar), this.d);
+            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10284b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.c)).booleanValue(), aVar), this.d);
         } finally {
             c(a2);
             this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr, (Class<com.kwad.sdk.glide.load.engine.bitmap_recycle.b>) byte[].class);
@@ -331,7 +332,7 @@ public final class j {
     }
 
     public boolean a(InputStream inputStream, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10682a)).booleanValue() || WebpHeaderParser.f10656a) {
+        if (((Boolean) eVar.a(f10382a)).booleanValue() || WebpHeaderParser.f10356a) {
             return false;
         }
         WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(inputStream, this.f);
@@ -339,7 +340,7 @@ public final class j {
     }
 
     public boolean a(ByteBuffer byteBuffer, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10682a)).booleanValue() || WebpHeaderParser.f10656a) {
+        if (((Boolean) eVar.a(f10382a)).booleanValue() || WebpHeaderParser.f10356a) {
             return false;
         }
         WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(byteBuffer);

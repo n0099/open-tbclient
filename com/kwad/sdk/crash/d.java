@@ -5,67 +5,67 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.b;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.crash.b.b f9935a;
+    private com.kwad.sdk.crash.b.b f9635a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f9936b;
+    private b f9636b;
     private long c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f9937a = new d();
+        private static final d f9637a = new d();
     }
 
     private d() {
-        this.f9935a = new com.kwad.sdk.crash.b.b();
-        this.f9936b = new b.a().a();
+        this.f9635a = new com.kwad.sdk.crash.b.b();
+        this.f9636b = new b.a().a();
     }
 
     public static d a() {
-        return a.f9937a;
+        return a.f9637a;
     }
 
     public void a(int i, ExceptionMessage exceptionMessage) {
-        e a2 = this.f9936b.a();
+        e a2 = this.f9636b.a();
         if (a2 != null) {
             a2.a(i, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f9936b = bVar;
+        this.f9636b = bVar;
         this.c = SystemClock.elapsedRealtime();
-        this.f9935a.a(bVar.d, bVar.e);
+        this.f9635a.a(bVar.d, bVar.e);
     }
 
     public String[] b() {
-        return this.f9935a.a();
+        return this.f9635a.a();
     }
 
     public String[] c() {
-        return this.f9935a.b();
+        return this.f9635a.b();
     }
 
     public String d() {
-        return this.f9936b.f9921a.f9940a;
+        return this.f9636b.f9621a.f9640a;
     }
 
     public String e() {
-        return this.f9936b.f9921a.f9941b;
+        return this.f9636b.f9621a.f9641b;
     }
 
     public Context f() {
-        return this.f9936b.g;
+        return this.f9636b.g;
     }
 
     public f g() {
-        return this.f9936b.c;
+        return this.f9636b.c;
     }
 
     public long h() {
@@ -73,6 +73,6 @@ public final class d {
     }
 
     public boolean i() {
-        return this.f9936b.b();
+        return this.f9636b.b();
     }
 }

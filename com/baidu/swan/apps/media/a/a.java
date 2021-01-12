@@ -5,12 +5,12 @@ import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.kwai.video.player.KsMediaMeta;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String dou;
-    public int dor = 60000;
-    public String dos = "aac";
+    public String djF;
+    public int djD = 60000;
+    public String djE = "aac";
     public int channel = 1;
     public int sampleRate = 8000;
     public int bitRate = 16000;
@@ -19,10 +19,10 @@ public class a {
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.dor = jSONObject.optInt("duration", 60000);
-            aVar.dos = jSONObject.optString(KsMediaMeta.KSM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.dos)) {
-                aVar.dos = "aac";
+            aVar.djD = jSONObject.optInt("duration", 60000);
+            aVar.djE = jSONObject.optString(KsMediaMeta.KSM_KEY_FORMAT);
+            if (TextUtils.isEmpty(aVar.djE)) {
+                aVar.djE = "aac";
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", 8000);
@@ -40,26 +40,26 @@ public class a {
                         break;
                 }
             }
-            aVar.audioSource = qD(jSONObject.optString("audioSource", "auto"));
-            aVar.dou = jSONObject.optString("cb");
+            aVar.audioSource = ps(jSONObject.optString("audioSource", "auto"));
+            aVar.djF = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject aFg() {
-        if (this.dor > 600000 || this.dor < 0) {
+    public JSONObject aBm() {
+        if (this.djD > 600000 || this.djD < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.dos, "aac") && !TextUtils.equals(this.dos, "pcm")) {
+        if (!TextUtils.equals(this.djE, "aac") && !TextUtils.equals(this.djE, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.dos, "pcm")) {
+        if (!TextUtils.equals(this.djE, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case 8000:
@@ -92,11 +92,11 @@ public class a {
     }
 
     public String toString() {
-        return "recordTime : " + this.dor + "; channel : " + this.channel + "; audioFormat : " + this.dos + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.dou;
+        return "recordTime : " + this.djD + "; channel : " + this.channel + "; audioFormat : " + this.djE + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.djF;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int qD(String str) {
+    private static int ps(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

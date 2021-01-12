@@ -12,18 +12,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f12006a = Pattern.compile("/*(\\w+)/*(\\w+)/*(\\w+)/*");
+    private static final Pattern f11706a = Pattern.compile("/*(\\w+)/*(\\w+)/*(\\w+)/*");
 
     /* renamed from: b  reason: collision with root package name */
-    private h f12007b;
+    private h f11707b;
     private g c;
 
     public a(h hVar) {
-        this.f12007b = hVar;
+        this.f11707b = hVar;
         this.c = new g(hVar);
     }
 
@@ -33,7 +33,7 @@ public class a {
 
     private d b(Uri uri) {
         if (uri != null) {
-            Matcher matcher = f12006a.matcher(uri.getPath());
+            Matcher matcher = f11706a.matcher(uri.getPath());
             if (matcher.matches()) {
                 String group = matcher.group(1);
                 String group2 = matcher.group(2);
@@ -59,7 +59,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        a.this.f12007b.b(bVar.a());
+                        a.this.f11707b.b(bVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while fire JSEvent");
                     }
@@ -74,7 +74,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        a.this.f12007b.b(cVar.a());
+                        a.this.f11707b.b(cVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while sending JSResponse");
                     }
@@ -89,7 +89,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        a.this.f12007b.b(eVar.a());
+                        a.this.f11707b.b(eVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while sending JSResponse", th);
                     }
@@ -108,8 +108,8 @@ public class a {
                 } else {
                     GDTLogger.report(String.format("ParseJSRequestReturn Null,reqUrl=%s", str));
                 }
-            } else if (this.f12007b.c(str)) {
-                com.qq.e.comm.plugin.w.a.e.a(this.f12007b, str);
+            } else if (this.f11707b.c(str)) {
+                com.qq.e.comm.plugin.w.a.e.a(this.f11707b, str);
             }
         } catch (Throwable th) {
             GDTLogger.report(String.format("ExceptionWhileHandleJSRequest,reqUrl=%s", str), th);

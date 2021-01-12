@@ -1,41 +1,41 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ap {
-    public String aPA;
-    public int aPB;
-    public int aPC;
-    public ar aPD;
-    public int aPE;
-    public String aPF;
-    public int aPz;
+    public int aKM;
+    public String aKN;
+    public int aKO;
+    public int aKP;
+    public ar aKQ;
+    public int aKR;
+    public String aKS;
     public int status;
 
     public void parseJson(JSONObject jSONObject) {
-        this.aPz = jSONObject.optInt("taskid");
-        this.aPA = jSONObject.optString("taskname");
+        this.aKM = jSONObject.optInt("taskid");
+        this.aKN = jSONObject.optString("taskname");
         this.status = jSONObject.optInt("status");
-        this.aPB = jSONObject.optInt("cur_step");
-        this.aPC = jSONObject.optInt("total_step");
+        this.aKO = jSONObject.optInt("cur_step");
+        this.aKP = jSONObject.optInt("total_step");
         JSONObject optJSONObject = jSONObject.optJSONObject("param");
         if (optJSONObject != null) {
-            this.aPD = new ar();
-            this.aPD.parseJson(optJSONObject);
+            this.aKQ = new ar();
+            this.aKQ.parseJson(optJSONObject);
         }
-        this.aPE = jSONObject.optInt("award_num");
-        this.aPF = jSONObject.optString("taskdetail");
+        this.aKR = jSONObject.optInt("award_num");
+        this.aKS = jSONObject.optString("taskdetail");
     }
 
-    public boolean EW() {
-        return this.aPz == 1;
+    public boolean Bb() {
+        return this.aKM == 1;
     }
 
-    public boolean EX() {
-        return this.aPz == 6;
+    public boolean Bc() {
+        return this.aKM == 6;
     }
 
-    public boolean EY() {
+    public boolean Bd() {
         return this.status == 2;
     }
 }

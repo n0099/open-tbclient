@@ -6,12 +6,12 @@ import android.os.Build;
 import android.view.View;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ap {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        public static final ap pJL = new ap();
+        public static final ap pFk = new ap();
     }
 
     public void a(View view, String str, ImageView imageView) {

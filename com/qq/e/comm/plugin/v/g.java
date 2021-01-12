@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.v;
 
 import com.qq.e.comm.plugin.y.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(int i, com.qq.e.comm.plugin.y.c cVar) {

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends BaseAdapter {
-    private List<d> jOQ;
+    private List<d> jKk;
     private LayoutInflater layoutInflater;
 
     public e(Context context) {
@@ -21,30 +21,30 @@ public class e extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.jOQ = list;
+        this.jKk = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jOQ == null) {
+        if (this.jKk == null) {
             return 0;
         }
-        return this.jOQ.size();
+        return this.jKk.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: FP */
+    /* renamed from: Ej */
     public d getItem(int i) {
-        if (this.jOQ == null) {
+        if (this.jKk == null) {
             return null;
         }
-        return this.jOQ.get(i);
+        return this.jKk.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.jOQ == null) {
+        if (this.jKk == null) {
             return 0L;
         }
         return i;
@@ -64,20 +64,20 @@ public class e extends BaseAdapter {
         if (dVar == null) {
             return;
         }
-        aVar.lml.setText(dVar.name);
-        ao.setViewTextColor(aVar.lml, R.color.CAM_X0106);
-        SvgManager.bwr().a(aVar.lmk, dVar.lmj, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        aVar.lhG.setText(dVar.name);
+        ao.setViewTextColor(aVar.lhG, R.color.CAM_X0106);
+        SvgManager.bsx().a(aVar.lhF, dVar.lhE, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        private ImageView lmk;
-        private TextView lml;
+        private ImageView lhF;
+        private TextView lhG;
 
         public a(View view) {
-            this.lmk = (ImageView) view.findViewById(R.id.member_privilege_pic);
-            this.lml = (TextView) view.findViewById(R.id.member_privilege_name);
+            this.lhF = (ImageView) view.findViewById(R.id.member_privilege_pic);
+            this.lhG = (TextView) view.findViewById(R.id.member_privilege_name);
         }
     }
 }

@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class f {
-    private ValueAnimator jkq;
-    private TextView jxB;
+    private ValueAnimator jfJ;
+    private TextView jsV;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.f.3
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.jxB != null && f.this.jxB.getParent() != null && f.this.jkq != null) {
-                f.this.jkq.start();
+            if (f.this.jsV != null && f.this.jsV.getParent() != null && f.this.jfJ != null) {
+                f.this.jfJ.start();
             }
         }
     };
@@ -26,36 +26,36 @@ public class f {
 
     public f(Context context) {
         this.mContext = context;
-        cKC();
+        cGK();
     }
 
-    private void cKC() {
-        this.jxB = new TextView(this.mContext);
-        this.jxB.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-        ao.setBackgroundResource(this.jxB, R.color.CAM_X0302);
-        ao.setViewTextColor(this.jxB, R.color.CAM_X0101);
-        this.jxB.setGravity(17);
-        this.jxB.setVisibility(0);
-        this.jkq = new ValueAnimator();
-        this.jkq.setFloatValues(1.0f, 0.0f);
-        this.jkq.setDuration(400L);
-        this.jkq.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.f.1
+    private void cGK() {
+        this.jsV = new TextView(this.mContext);
+        this.jsV.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+        ao.setBackgroundResource(this.jsV, R.color.CAM_X0302);
+        ao.setViewTextColor(this.jsV, R.color.CAM_X0101);
+        this.jsV.setGravity(17);
+        this.jsV.setVisibility(0);
+        this.jfJ = new ValueAnimator();
+        this.jfJ.setFloatValues(1.0f, 0.0f);
+        this.jfJ.setDuration(400L);
+        this.jfJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.f.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (f.this.jxB != null && valueAnimator != null) {
-                    f.this.jxB.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (f.this.jsV != null && valueAnimator != null) {
+                    f.this.jsV.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.jkq.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.f.2
+        this.jfJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.f.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (f.this.jxB != null) {
-                    f.this.cHw();
+                if (f.this.jsV != null) {
+                    f.this.cDE();
                 }
             }
 
@@ -69,32 +69,32 @@ public class f {
         });
     }
 
-    public void cHw() {
+    public void cDE() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.jkq != null) {
-            this.jkq.cancel();
+        if (this.jfJ != null) {
+            this.jfJ.cancel();
         }
-        if (this.jxB != null) {
-            ViewParent parent = this.jxB.getParent();
+        if (this.jsV != null) {
+            ViewParent parent = this.jsV.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.jxB);
+                ((ViewGroup) parent).removeView(this.jsV);
             }
-            this.jxB.setVisibility(8);
-            this.jxB = null;
+            this.jsV.setVisibility(8);
+            this.jsV = null;
         }
     }
 
     public boolean isShowing() {
-        return this.jxB != null && this.jxB.getVisibility() == 0;
+        return this.jsV != null && this.jsV.getVisibility() == 0;
     }
 
-    public TextView cKD() {
-        return this.jxB;
+    public TextView cGL() {
+        return this.jsV;
     }
 
-    public void cKE() {
+    public void cGM() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, 2000L);
     }

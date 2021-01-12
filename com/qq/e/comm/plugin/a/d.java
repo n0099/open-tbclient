@@ -1,10 +1,10 @@
 package com.qq.e.comm.plugin.a;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 interface d extends Runnable {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
 

@@ -5,7 +5,7 @@ import android.view.Choreographer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DefaultTaskExecutor {
     public final Map<TaskTraits, TaskRunner> mTraitsToRunnerMap = new HashMap();
 

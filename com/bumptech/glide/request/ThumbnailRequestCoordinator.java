@@ -2,7 +2,7 @@ package com.bumptech.glide.request;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThumbnailRequestCoordinator implements Request, RequestCoordinator {
     private Request full;
     private boolean isRunning;

@@ -6,62 +6,62 @@ import java.util.Arrays;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6224a;
+    private int f5924a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int[] f6225b = new int[10];
+    private final int[] f5925b = new int[10];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f6224a = 0;
-        Arrays.fill(this.f6225b, 0);
+        this.f5924a = 0;
+        Arrays.fill(this.f5925b, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n dX(int i, int i2) {
-        if (i >= 0 && i < this.f6225b.length) {
-            this.f6224a = (1 << i) | this.f6224a;
-            this.f6225b[i] = i2;
+        if (i >= 0 && i < this.f5925b.length) {
+            this.f5924a = (1 << i) | this.f5924a;
+            this.f5925b[i] = i2;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(int i) {
-        return ((1 << i) & this.f6224a) != 0;
+        return ((1 << i) & this.f5924a) != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int b(int i) {
-        return this.f6225b[i];
+        return this.f5925b[i];
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int b() {
-        return Integer.bitCount(this.f6224a);
+        return Integer.bitCount(this.f5924a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c() {
-        if ((2 & this.f6224a) != 0) {
-            return this.f6225b[1];
+        if ((2 & this.f5924a) != 0) {
+            return this.f5925b[1];
         }
         return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c(int i) {
-        return (16 & this.f6224a) != 0 ? this.f6225b[4] : i;
+        return (16 & this.f5924a) != 0 ? this.f5925b[4] : i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int d(int i) {
-        return (32 & this.f6224a) != 0 ? this.f6225b[5] : i;
+        return (32 & this.f5924a) != 0 ? this.f5925b[5] : i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int d() {
-        return (128 & this.f6224a) != 0 ? this.f6225b[7] : SupportMenu.USER_MASK;
+        return (128 & this.f5924a) != 0 ? this.f5925b[7] : SupportMenu.USER_MASK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

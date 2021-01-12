@@ -8,7 +8,6 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import java.net.HttpURLConnection;
@@ -17,10 +16,10 @@ import java.net.URL;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class t {
-    private static long fcb = 0;
-    private static long fcc = 0;
-    private static int fcd = 0;
-    private static Object fce = new Object();
+    private static long eXt = 0;
+    private static long eXu = 0;
+    private static int eXv = 0;
+    private static Object eXw = new Object();
 
     public static com.baidu.adp.lib.stats.a pi() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
@@ -34,7 +33,7 @@ public class t {
             boolean z3 = false;
             if (com.baidu.tbadk.core.util.b.e.getInstance() != null) {
                 z3 = true;
-                if (!com.baidu.tbadk.core.util.b.e.getInstance().fek) {
+                if (!com.baidu.tbadk.core.util.b.e.getInstance().eZB) {
                     com.baidu.tbadk.core.util.b.e.getInstance().init();
                 }
             }
@@ -47,27 +46,27 @@ public class t {
                 if (z) {
                     r.getInstance().insertNormalData(j, str);
                 } else {
-                    str5 = u.bvM().bvN();
+                    str5 = u.brS().brT();
                     if (!TextUtils.isEmpty(str5)) {
-                        r.getInstance().insertErrorData(dVar.Mg, str);
+                        r.getInstance().insertErrorData(dVar.Me, str);
                     }
                 }
             }
-            synchronized (fce) {
+            synchronized (eXw) {
                 if (z) {
-                    fcd = 0;
+                    eXv = 0;
                 } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    int i2 = fcd + 1;
-                    fcd = i2;
+                    int i2 = eXv + 1;
+                    eXv = i2;
                     if (i2 >= com.baidu.adp.lib.stats.switchs.a.nt().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IMG, 5)) {
-                        BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IMG, "imgFailedCnt_" + String.valueOf(fcd) + "_url=" + str2);
+                        BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IMG, "imgFailedCnt_" + String.valueOf(eXv) + "_url=" + str2);
                     }
                 }
             }
             if (z && z3) {
-                if (!isWifiNet || j >= com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eLN) {
-                    if (isWifiNet || !com.baidu.adp.lib.util.j.is2GNet() || j >= com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eLQ) {
-                        if (!isWifiNet && j < com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eLP) {
+                if (!isWifiNet || j >= com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eHc) {
+                    if (isWifiNet || !com.baidu.adp.lib.util.j.is2GNet() || j >= com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eHf) {
+                        if (!isWifiNet && j < com.baidu.tbadk.core.util.b.e.getInstance().getCDNImageTimeData().eHe) {
                             return;
                         }
                     } else {
@@ -79,36 +78,36 @@ public class t {
             }
             com.baidu.adp.lib.stats.a pi = pi();
             if (TextUtils.isEmpty(str5)) {
-                str5 = u.bvM().bvN();
+                str5 = u.brS().brT();
             }
             if (!TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
-                str4 = bvI();
+                str4 = brO();
             }
             pi.append("url", str);
             pi.append("act", IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS);
             pi.append("result", z ? "1" : "0");
             pi.append("requrl", str2);
-            pi.append("netlib", dVar.Mq == 0 ? "Apache" : "HttpManager");
+            pi.append("netlib", dVar.Mo == 0 ? "Apache" : "HttpManager");
             pi.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
             pi.append("connTime", String.valueOf(dVar.connectTime));
-            pi.append("rspTime", String.valueOf(dVar.Me));
+            pi.append("rspTime", String.valueOf(dVar.Mc));
             pi.append("retry", String.valueOf(dVar.retry));
             pi.append("clientIp", d.getIp());
             pi.append("tiebaIp", str5);
-            String BR = u.bvM().BR(str);
-            if (!TextUtils.isEmpty(BR)) {
-                pi.append("domainIp", BR);
+            String AG = u.brS().AG(str);
+            if (!TextUtils.isEmpty(AG)) {
+                pi.append("domainIp", AG);
             }
             pi.append("wifiDnsIp", str4);
             if (dVar.connectTime > 1500 || dVar.connectTime < 0) {
-                pi.append("connBaidu", String.valueOf(bvJ()));
+                pi.append("connBaidu", String.valueOf(brP()));
             }
-            pi.append("memory", bvK());
-            pi.append("task", bvL());
-            pi.append("status", String.valueOf(dVar.Mh));
-            pi.append(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, String.valueOf(dVar.Md));
+            pi.append("memory", brQ());
+            pi.append("task", brR());
+            pi.append("status", String.valueOf(dVar.Mf));
+            pi.append("up", String.valueOf(dVar.Mb));
             pi.append("down", String.valueOf(dVar.downloadSize));
             pi.append("isCDN", isCdn ? "1" : "0");
             pi.append("isWebp", bool.booleanValue() ? "1" : "0");
@@ -118,39 +117,39 @@ public class t {
             if (i != 0) {
                 pi.append("procType", Integer.valueOf(i));
             }
-            if (dVar.Mo != null) {
-                pi.append("tracecode1", dVar.Mo);
+            if (dVar.Mm != null) {
+                pi.append("tracecode1", dVar.Mm);
             }
-            if (dVar.Mp != null) {
-                pi.append("tracecode2", dVar.Mp);
+            if (dVar.Mn != null) {
+                pi.append("tracecode2", dVar.Mn);
             }
-            if (!at.isEmpty(dVar.Mi)) {
-                pi.append("httpDnsIp", dVar.Mi);
+            if (!at.isEmpty(dVar.Mg)) {
+                pi.append("httpDnsIp", dVar.Mg);
             } else {
-                pi.append("httpDnsIp", dVar.Mj);
+                pi.append("httpDnsIp", dVar.Mh);
             }
-            pi.append("ipIndex", Integer.valueOf(dVar.Mn));
-            pi.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.LU));
+            pi.append("ipIndex", Integer.valueOf(dVar.Ml));
+            pi.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.LR));
             pi.append("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
-            pi.append("httpDnsIpList", dVar.Mm);
-            pi.append("dnsResolveType", dVar.Mk);
-            pi.append("dnsResolveStatus", dVar.Ml);
-            pi.append("isUseIpDirectConnect", Boolean.valueOf(dVar.LR));
+            pi.append("httpDnsIpList", dVar.Mk);
+            pi.append("dnsResolveType", dVar.Mi);
+            pi.append("dnsResolveStatus", dVar.Mj);
+            pi.append("isUseIpDirectConnect", Boolean.valueOf(dVar.LO));
             pi.append("redirectUrl", dVar.redirectUrl);
             BdStatisticsManager.getInstance().debug("img", pi);
         }
     }
 
-    public static void BQ(String str) {
+    public static void AF(String str) {
         com.baidu.adp.lib.stats.a pi = pi();
         pi.append("act", "assistant");
         pi.append("content", str);
         BdStatisticsManager.getInstance().debug("img", pi);
     }
 
-    private static String bvI() {
+    private static String brO() {
         try {
-            if (ad.bvZ()) {
+            if (ad.bsf()) {
                 DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApplicationContext().getSystemService("wifi")).getDhcpInfo();
                 return intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2);
             }
@@ -170,13 +169,13 @@ public class t {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static long bvJ() {
+    private static long brP() {
         Throwable th;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
         long j;
-        if (fcb >= 3) {
-            return fcc;
+        if (eXt >= 3) {
+            return eXu;
         }
         long currentTimeMillis = System.currentTimeMillis();
         HttpURLConnection httpURLConnection3 = null;
@@ -213,22 +212,22 @@ public class t {
             throw th;
         }
         if (j > 0) {
-            if (fcb > -1) {
-                fcc = ((fcc * fcb) + j) / (fcb + 1);
+            if (eXt > -1) {
+                eXu = ((eXu * eXt) + j) / (eXt + 1);
             } else {
-                fcc = j;
+                eXu = j;
             }
-            fcb++;
+            eXt++;
             return j;
         }
         return j;
     }
 
-    private static String bvK() {
-        return com.baidu.tbadk.imageManager.c.bGq().toLogString();
+    private static String brQ() {
+        return com.baidu.tbadk.imageManager.c.bCx().toLogString();
     }
 
-    private static String bvL() {
+    private static String brR() {
         return com.baidu.adp.lib.asyncTask.a.lp().toLogString();
     }
 
@@ -245,20 +244,20 @@ public class t {
     public static void a(boolean z, String str, String str2, String str3, String str4, String str5, long j, boolean z2) {
         String str6 = "";
         if (str != null) {
-            str6 = u.bvM().BS(str);
+            str6 = u.brS().AH(str);
         }
-        String bvI = bvI();
+        String brO = brO();
         String ip = d.getIp();
         com.baidu.adp.lib.stats.a pi = pi();
         pi.append("act", "tachometerCDN");
         pi.append("errorNum", str3);
         pi.append("execption", str4);
-        pi.append("size", str5);
+        pi.append(TiebaInitialize.LogFields.SIZE, str5);
         pi.append("isScuess", z ? "1" : "0");
         pi.append("url", str);
         pi.append("localIp", ip);
         pi.append("cdnIp", str6);
-        pi.append("dnsIP", bvI);
+        pi.append("dnsIP", brO);
         pi.append("usedIp", str2);
         pi.append("isUsedIp", z2 ? "0" : "1");
         pi.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));

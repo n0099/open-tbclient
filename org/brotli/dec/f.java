@@ -1,5 +1,5 @@
 package org.brotli.dec;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class f {
     private static int et(int i, int i2) {
         int i3 = 1 << (i2 - 1);
@@ -16,7 +16,7 @@ final class f {
         } while (i3 > 0);
     }
 
-    private static int d(int[] iArr, int i, int i2) {
+    private static int e(int[] iArr, int i, int i2) {
         int i3;
         int i4 = 1 << (i - i2);
         while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
@@ -88,11 +88,11 @@ final class f {
             while (iArr4[i21] > 0) {
                 if ((i30 & i19) != i29) {
                     i28 += i25;
-                    int d = d(iArr4, i21, i2);
-                    i5 = 1 << d;
+                    int e = e(iArr4, i21, i2);
+                    i5 = 1 << e;
                     i4 = i24 + i5;
                     i29 = i30 & i19;
-                    iArr[i + i29] = ((d + i2) << 16) | ((i28 - i) - i29);
+                    iArr[i + i29] = ((e + i2) << 16) | ((i28 - i) - i29);
                 } else {
                     i4 = i24;
                     i5 = i25;

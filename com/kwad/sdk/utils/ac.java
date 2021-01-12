@@ -8,69 +8,69 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f11069a;
+    private static String f10769a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f11070b;
+    private static String f10770b;
 
     public static boolean a() {
         return a(RomUtils.ROM_MIUI);
     }
 
     public static boolean a(String str) {
-        if (f11069a != null) {
-            return f11069a.contains(str);
+        if (f10769a != null) {
+            return f10769a.contains(str);
         }
         String b2 = b("ro.build.version.opporom");
-        f11070b = b2;
+        f10770b = b2;
         if (TextUtils.isEmpty(b2)) {
             String b3 = b("ro.vivo.os.version");
-            f11070b = b3;
+            f10770b = b3;
             if (TextUtils.isEmpty(b3)) {
                 String b4 = b("ro.build.version.emui");
-                f11070b = b4;
+                f10770b = b4;
                 if (TextUtils.isEmpty(b4)) {
                     String b5 = b("ro.miui.ui.version.name");
-                    f11070b = b5;
+                    f10770b = b5;
                     if (TextUtils.isEmpty(b5)) {
                         String b6 = b("ro.product.system.manufacturer");
-                        f11070b = b6;
+                        f10770b = b6;
                         if (TextUtils.isEmpty(b6)) {
                             String b7 = b("ro.smartisan.version");
-                            f11070b = b7;
+                            f10770b = b7;
                             if (!TextUtils.isEmpty(b7)) {
-                                f11069a = RomUtils.ROM_SMARTISAN;
+                                f10769a = RomUtils.ROM_SMARTISAN;
                             } else if (b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
-                                f11069a = "SAMSUNG";
+                                f10769a = "SAMSUNG";
                             } else {
-                                f11070b = Build.DISPLAY;
-                                if (f11070b.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                    f11069a = RomUtils.ROM_FLYME;
+                                f10770b = Build.DISPLAY;
+                                if (f10770b.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                    f10769a = RomUtils.ROM_FLYME;
                                 } else {
-                                    f11070b = "unknown";
-                                    f11069a = Build.MANUFACTURER.toUpperCase();
+                                    f10770b = "unknown";
+                                    f10769a = Build.MANUFACTURER.toUpperCase();
                                 }
                             }
                         } else {
-                            f11069a = "OnePlus";
+                            f10769a = "OnePlus";
                         }
                     } else {
-                        f11069a = RomUtils.ROM_MIUI;
+                        f10769a = RomUtils.ROM_MIUI;
                     }
                 } else {
-                    f11069a = RomUtils.ROM_EMUI;
+                    f10769a = RomUtils.ROM_EMUI;
                 }
             } else {
-                f11069a = RomUtils.ROM_VIVO;
+                f10769a = RomUtils.ROM_VIVO;
             }
         } else {
-            f11069a = RomUtils.ROM_OPPO;
+            f10769a = RomUtils.ROM_OPPO;
         }
-        return f11069a.contains(str);
+        return f10769a.contains(str);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x0087 A[EXC_TOP_SPLITTER, SYNTHETIC] */

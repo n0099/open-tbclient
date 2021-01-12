@@ -11,7 +11,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
 public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.kdD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jYY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* renamed from: bU */
     public a e(ViewGroup viewGroup) {
         HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
-        hotTopicTabThreadItem.setOnItemCoverListener(this.aks);
+        hotTopicTabThreadItem.setOnItemCoverListener(this.ajB);
         hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicTabThreadItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -42,21 +42,21 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HotTopicTabThreadItem kdy;
+        private HotTopicTabThreadItem jYT;
 
         a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.kdy = hotTopicTabThreadItem;
+            this.jYT = hotTopicTabThreadItem;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
             if (eVar != null) {
-                this.kdy.a(eVar);
+                this.jYT.a(eVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.kdy.onChangeSkinType(i);
+            this.jYT.onChangeSkinType(i);
         }
     }
 }

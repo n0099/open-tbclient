@@ -20,14 +20,14 @@ import com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitHorizont
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TailFramePortraitHorizontal extends LinearLayout implements View.OnClickListener, a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10985a;
+    private ImageView f10685a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TailFrameBarAppPortraitHorizontal f10986b;
+    private TailFrameBarAppPortraitHorizontal f10686b;
     private TailFrameBarH5PortraitHorizontal c;
     private b d;
     private AdTemplate e;
@@ -52,7 +52,7 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
 
     private void c() {
         inflate(getContext(), R.layout.ksad_video_tf_view_portrait_horizontal, this);
-        this.f10985a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
+        this.f10685a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
         this.j = (KsLogoView) findViewById(R.id.ksad_video_tf_logo);
     }
 
@@ -62,10 +62,10 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
         int i2 = E.height;
         int c = ao.c(getContext());
         float f = i2 / i;
-        ViewGroup.LayoutParams layoutParams = this.f10985a.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f10685a.getLayoutParams();
         layoutParams.width = c;
         layoutParams.height = (int) (f * c);
-        KSImageLoader.loadImage(this.f10985a, E.coverUrl, this.e);
+        KSImageLoader.loadImage(this.f10685a, E.coverUrl, this.e);
     }
 
     private void e() {
@@ -75,10 +75,10 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
             this.c.setVisibility(0);
             return;
         }
-        this.f10986b = (TailFrameBarAppPortraitHorizontal) findViewById(R.id.ksad_video_app_tail_frame);
-        this.f10986b.a(this.e);
-        this.f10986b.setVisibility(0);
-        this.i = this.f10986b.getTextProgressBar();
+        this.f10686b = (TailFrameBarAppPortraitHorizontal) findViewById(R.id.ksad_video_app_tail_frame);
+        this.f10686b.a(this.e);
+        this.f10686b.setVisibility(0);
+        this.i = this.f10686b.getTextProgressBar();
         f();
         this.i.setOnClickListener(this);
     }
@@ -87,37 +87,37 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
         this.h = new com.kwad.sdk.core.download.b.b(this.e, this.g, new c() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal.1
             @Override // com.kwad.sdk.core.download.b.c
             public void a(int i) {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.c(i), i);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.w(TailFramePortraitHorizontal.this.f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.a(TailFramePortraitHorizontal.this.e), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.w(TailFramePortraitHorizontal.this.f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.b(), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i) {
-                TailFramePortraitHorizontal.this.f10986b.a(TailFramePortraitHorizontal.this.f);
+                TailFramePortraitHorizontal.this.f10686b.a(TailFramePortraitHorizontal.this.f);
                 TailFramePortraitHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.a(i), i);
             }
         });
@@ -146,9 +146,9 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
     }
 
     public void b() {
-        if (this.f10986b != null) {
-            this.f10986b.a();
-            this.f10986b.setVisibility(8);
+        if (this.f10686b != null) {
+            this.f10686b.a();
+            this.f10686b.setVisibility(8);
         }
         if (this.c != null) {
             this.c.a();
@@ -160,8 +160,8 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.h, view == this.i);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1088a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
             public void a() {
                 if (TailFramePortraitHorizontal.this.d != null) {
                     TailFramePortraitHorizontal.this.d.a();

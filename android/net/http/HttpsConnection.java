@@ -1,7 +1,7 @@
 package android.net.http;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpsConnection extends Connection {
     protected SslCertificate mCertificate;
     protected AndroidHttpClientConnection mHttpClientConnection;

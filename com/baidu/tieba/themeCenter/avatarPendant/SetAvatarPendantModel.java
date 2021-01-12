@@ -7,22 +7,22 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import tbclient.T;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
     private int freeUseLevel;
-    private a nBd;
+    private a nwy;
     private long pendantId;
-    private boolean nBc = false;
-    private com.baidu.adp.framework.listener.a jaH = new com.baidu.adp.framework.listener.a(1003179, CmdConfigSocket.CMD_SET_PENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.1
+    private boolean nwx = false;
+    private com.baidu.adp.framework.listener.a iWa = new com.baidu.adp.framework.listener.a(1003179, CmdConfigSocket.CMD_SET_PENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof SetPendantHttpResponse) || (responsedMessage instanceof SetPendantSocketResponse)) {
                     if (responsedMessage.getError() == 0) {
-                        SetAvatarPendantModel.this.yC(true);
+                        SetAvatarPendantModel.this.yy(true);
                     } else {
-                        SetAvatarPendantModel.this.yC(false);
+                        SetAvatarPendantModel.this.yy(false);
                     }
                     if (responsedMessage instanceof SetPendantHttpResponse) {
                         SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
@@ -33,19 +33,19 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                         SetAvatarPendantModel.this.hE(setPendantSocketResponse.getPendantId());
                         SetAvatarPendantModel.this.freeUseLevel = setPendantSocketResponse.getFreeUseLevel();
                     }
-                    if (SetAvatarPendantModel.this.nBd != null) {
-                        int i = com.baidu.tieba.themeCenter.c.nAx;
-                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nAy) {
-                            i = com.baidu.tieba.themeCenter.c.nAw;
+                    if (SetAvatarPendantModel.this.nwy != null) {
+                        int i = com.baidu.tieba.themeCenter.c.nvS;
+                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nvT) {
+                            i = com.baidu.tieba.themeCenter.c.nvR;
                         }
-                        SetAvatarPendantModel.this.nBd.a(SetAvatarPendantModel.this.nBc, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
+                        SetAvatarPendantModel.this.nwy.a(SetAvatarPendantModel.this.nwx, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(boolean z, long j, int i, String str, int i2);
     }
@@ -53,7 +53,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public SetAvatarPendantModel() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PENDANT, SetPendantSocketResponse.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PENDANT, 1003179, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.jaH);
+        registerListener(this.iWa);
     }
 
     public void i(long j, int i, int i2) {
@@ -75,18 +75,18 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.jaH);
+        MessageManager.getInstance().unRegisterListener(this.iWa);
     }
 
     public void hE(long j) {
         this.pendantId = j;
     }
 
-    public void yC(boolean z) {
-        this.nBc = z;
+    public void yy(boolean z) {
+        this.nwx = z;
     }
 
     public void a(a aVar) {
-        this.nBd = aVar;
+        this.nwy = aVar;
     }
 }

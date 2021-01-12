@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.turntable.lucky;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends HttpMessage {
     private String liveId;
 

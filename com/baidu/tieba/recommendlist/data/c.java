@@ -3,7 +3,7 @@ package com.baidu.tieba.recommendlist.data;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BaseData {
     public String msg;
     public String type;

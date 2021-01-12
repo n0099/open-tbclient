@@ -5,26 +5,26 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dQu;
-    private static volatile c dQv;
-    private int dQs;
-    private String dQt;
+    private static a dLI;
+    private static volatile c dLJ;
+    private int dLG;
+    private String dLH;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
-    private int dQp = 0;
-    private int cZN = 200;
+    private int dLD = 0;
+    private int cVb = 200;
 
-    public static c aQy() {
-        if (dQv == null) {
+    public static c aME() {
+        if (dLJ == null) {
             synchronized (c.class) {
-                if (dQv == null) {
-                    dQv = new c();
+                if (dLJ == null) {
+                    dLJ = new c();
                 }
             }
         }
-        return dQv;
+        return dLJ;
     }
 
     private void aQ(final View view) {
@@ -32,31 +32,31 @@ public class c {
             this.mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.c.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (c.dQu != null) {
-                        c.dQu.mF(c.this.dQt);
+                    if (c.dLI != null) {
+                        c.dLI.lu(c.this.dLH);
                     }
                     Rect rect = new Rect();
                     view.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    if (c.this.dQs == c.this.dQp) {
-                        c.this.dQs = height;
-                    } else if (c.this.dQs != height) {
-                        if (c.this.dQs - height > c.this.cZN) {
-                            if (c.dQu != null) {
-                                c.dQu.O(c.this.dQt, c.this.dQs - height);
+                    if (c.this.dLG == c.this.dLD) {
+                        c.this.dLG = height;
+                    } else if (c.this.dLG != height) {
+                        if (c.this.dLG - height > c.this.cVb) {
+                            if (c.dLI != null) {
+                                c.dLI.O(c.this.dLH, c.this.dLG - height);
                                 if (c.DEBUG) {
-                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.dQs + " visibleHeight " + height);
+                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + c.this.dLG + " visibleHeight " + height);
                                 }
                             }
-                            c.this.dQs = height;
-                        } else if (height - c.this.dQs > c.this.cZN) {
-                            if (c.dQu != null) {
-                                c.dQu.P(c.this.dQt, height - c.this.dQs);
+                            c.this.dLG = height;
+                        } else if (height - c.this.dLG > c.this.cVb) {
+                            if (c.dLI != null) {
+                                c.dLI.P(c.this.dLH, height - c.this.dLG);
                             }
                             if (c.DEBUG) {
-                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.dQs + " visibleHeight " + height);
+                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + c.this.dLG + " visibleHeight " + height);
                             }
-                            c.this.dQs = height;
+                            c.this.dLG = height;
                         }
                     }
                 }
@@ -67,20 +67,20 @@ public class c {
 
     public void a(View view, String str, a aVar) {
         aQ(view);
-        this.dQt = str;
-        dQu = aVar;
-        this.dQs = 0;
+        this.dLH = str;
+        dLI = aVar;
+        this.dLG = 0;
     }
 
     public void aR(@NonNull View view) {
         view.getViewTreeObserver().removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-        this.dQt = "";
-        dQu = null;
-        this.dQs = 0;
+        this.dLH = "";
+        dLI = null;
+        this.dLG = 0;
     }
 
     public static void release() {
-        dQu = null;
-        dQv = null;
+        dLI = null;
+        dLJ = null;
     }
 }

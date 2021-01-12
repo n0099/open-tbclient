@@ -20,11 +20,11 @@ import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.LivenessCameraSurfaceView;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f2172b = 1;
+    private static final int f2122b = 1;
     private static final int c = 2;
     protected com.baidu.fsg.face.liveness.camera.a cameraControl;
     private LivenessCameraSurfaceView e;
@@ -35,7 +35,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     private int d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2173a = false;
+    boolean f2123a = false;
 
     abstract View a();
 
@@ -98,7 +98,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        this.faceRectGroup.f2138b = new Rect(this.e.getLeft(), this.e.getTop(), this.e.getRight(), this.e.getBottom());
+        this.faceRectGroup.f2088b = new Rect(this.e.getLeft(), this.e.getTop(), this.e.getRight(), this.e.getBottom());
         b();
         this.cameraControl.a((Camera.PreviewCallback) this);
         this.cameraControl.a(getActivity(), this.f);
@@ -191,7 +191,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -201,7 +201,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
-            LivenessCameraBaseActivity.this.f2173a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
+            LivenessCameraBaseActivity.this.f2123a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
             LivenessCameraBaseActivity.this.cameraControl.a((Camera.PreviewCallback) LivenessCameraBaseActivity.this);
             return null;
         }
@@ -212,7 +212,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (LivenessCameraBaseActivity.this.f2173a) {
+            if (LivenessCameraBaseActivity.this.f2123a) {
                 LivenessCameraBaseActivity.this.d();
             } else {
                 LivenessCameraBaseActivity.this.a(true, false, false);
@@ -258,7 +258,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class b implements MediaPlayer.OnErrorListener {
         private b() {
         }

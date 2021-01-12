@@ -10,21 +10,21 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(eFo = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(eBx = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eFp = WireField.Label.REPEATED, tag = 5)
+    @WireField(eBx = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eBy = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(eFo = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(eBx = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -97,12 +97,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         return sb.replace(0, 2, "FrameEntity{").append('}').toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.eFr();
+        public List<ShapeEntity> shapes = a.eBA();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -139,7 +139,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         ProtoAdapter_FrameEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, FrameEntity.class);
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eFg = cVar.eFg();
+            long eBp = cVar.eBp();
             while (true) {
-                int eFh = cVar.eFh();
-                if (eFh != -1) {
-                    switch (eFh) {
+                int eBq = cVar.eBq();
+                if (eBq != -1) {
+                    switch (eBq) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eFi = cVar.eFi();
-                            builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eBr = cVar.eBr();
+                            builder.addUnknownField(eBq, eBr, eBr.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iS(eFg);
+                    cVar.iS(eBp);
                     return builder.build();
                 }
             }

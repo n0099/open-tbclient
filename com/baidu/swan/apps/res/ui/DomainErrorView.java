@@ -10,7 +10,7 @@ import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DomainErrorView extends CommonEmptyView {
     public DomainErrorView(Context context) {
         super(context);
@@ -24,27 +24,27 @@ public class DomainErrorView extends CommonEmptyView {
         super(context, attributeSet, i);
     }
 
-    public void se(String str) {
+    public void qT(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         boolean a2 = ai.a(str, stringBuffer);
         final String stringBuffer2 = stringBuffer.toString();
         setIcon(a.e.aiapps_empty_icon_error);
         setTitle(a.h.aiapps_emptyview_domain_error_title);
-        com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(5L).cW(41L).uz("domain not in white list--" + stringBuffer2);
-        final e aMm = e.aMm();
-        if (aMm != null) {
-            final String format = String.format(getContext().getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), com.baidu.swan.apps.swancore.b.a(f.aDH().aDj(), aMm.ajv().getAppFrameType()), String.valueOf(uz.aQG()));
+        com.baidu.swan.apps.al.a aVar = new com.baidu.swan.apps.al.a().cV(5L).cW(41L).to("domain not in white list--" + stringBuffer2);
+        final e aIs = e.aIs();
+        if (aIs != null) {
+            final String format = String.format(getContext().getResources().getString(a.h.aiapps_open_failed_detail_format), ak.getVersionName(), com.baidu.swan.apps.swancore.b.a(f.azN().azp(), aIs.afB().getAppFrameType()), String.valueOf(aVar.aMM()));
             setSubTitle("(" + (a2 ? stringBuffer2 : format) + ")");
-            this.dxX.setVisibility(0);
-            this.dxX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.DomainErrorView.1
+            this.dtk.setVisibility(0);
+            this.dtk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.DomainErrorView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.swan.apps.t.a.aAB().f(aMm.aMf(), aMm.getAppKey(), aMm.getName(), ai.cN(format, stringBuffer2));
+                    com.baidu.swan.apps.t.a.awH().f(aIs.aIl(), aIs.getAppKey(), aIs.getName(), ai.cM(format, stringBuffer2));
                 }
             });
         }
         this.mTitle.setText(getResources().getText(a.h.swanapp_path_forbidden));
-        this.dxT.setPadding(ah.O(70.0f), 0, ah.O(70.0f), 0);
-        h.b(new com.baidu.swan.apps.statistic.a.d().i(uz).tH(h.kX(0)).tI(e.aMn()).cD("errorDomain", stringBuffer2).cD("path", ak.aRS().getPage()));
+        this.dtg.setPadding(ah.O(70.0f), 0, ah.O(70.0f), 0);
+        h.b(new com.baidu.swan.apps.statistic.a.d().i(aVar).sw(h.jr(0)).sx(e.aIt()).cC("errorDomain", stringBuffer2).cC("path", ak.aNY().getPage()));
     }
 }

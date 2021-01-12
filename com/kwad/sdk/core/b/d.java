@@ -4,37 +4,37 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static i f9341a;
+    private static i f9041a;
 
     private static i a() {
-        if (f9341a != null) {
-            return f9341a;
+        if (f9041a != null) {
+            return f9041a;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
-            f9341a = new g();
-            return f9341a;
+            f9041a = new g();
+            return f9041a;
         }
-        if (com.kwad.sdk.d.f9969a == 1) {
+        if (com.kwad.sdk.d.f9669a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             if (aVar == null || aVar.a() == null) {
-                f9341a = new g();
+                f9041a = new g();
             } else {
-                f9341a = aVar.a();
+                f9041a = aVar.a();
             }
         } else {
             com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
             if (bVar == null || bVar.a() == null) {
-                f9341a = new g();
+                f9041a = new g();
             } else {
-                f9341a = bVar.a();
+                f9041a = bVar.a();
             }
         }
-        return f9341a;
+        return f9041a;
     }
 
     public static String a(String str) {

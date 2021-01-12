@@ -6,13 +6,13 @@ import com.xiaomi.push.service.ap;
 class ar extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap.b.c f14551a;
+    final /* synthetic */ ap.b.c f14251a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ar(ap.b.c cVar, int i) {
         super(i);
-        this.f14551a = cVar;
+        this.f14251a = cVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -22,9 +22,9 @@ class ar extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.f14551a.f14546a == this.f14551a.f946a.f933a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f14551a.f946a.g);
-            this.f14551a.f946a.f933a = null;
+        if (this.f14251a.f14246a == this.f14251a.f945a.f932a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f14251a.f945a.g);
+            this.f14251a.f945a.f932a = null;
         }
     }
 }

@@ -12,16 +12,16 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RoundRelativeLayout extends RelativeLayout {
-    private static final int gde = R.color.black_alpha4;
-    private Paint bjn;
-    private Shape eYt;
+    private static final int fYv = R.color.black_alpha4;
+    private Paint bew;
+    private Shape eTI;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
     private Paint mStrokePaint;
-    private int nxA;
+    private int nsU;
 
     public RoundRelativeLayout(Context context) {
         this(context, null);
@@ -44,19 +44,19 @@ public class RoundRelativeLayout extends RelativeLayout {
         this.mStrokePaint.setAntiAlias(true);
         this.mStrokePaint.setColor(0);
         this.mStrokePaint.setStyle(Paint.Style.FILL);
-        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(gde));
+        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(fYv));
         this.mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.mRectF = new RectF();
-        this.bjn = new Paint();
-        this.bjn.setAntiAlias(true);
-        this.bjn.setColor(-1);
+        this.bew = new Paint();
+        this.bew.setAntiAlias(true);
+        this.bew.setColor(-1);
         this.mPaint.setStyle(Paint.Style.FILL);
     }
 
     public void setBgColorRes(int i) {
-        this.nxA = i;
-        if (this.nxA != 0) {
-            this.bjn.setColor(getContext().getResources().getColor(this.nxA));
+        this.nsU = i;
+        if (this.nsU != 0) {
+            this.bew.setColor(getContext().getResources().getColor(this.nsU));
             invalidate();
         }
     }
@@ -69,7 +69,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eYt == null) {
+            if (this.eTI == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingLeft();
@@ -79,10 +79,10 @@ public class RoundRelativeLayout extends RelativeLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, dimension3);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.eYt = new RoundRectShape(fArr, rectF, fArr2);
+                this.eTI = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
             }
-            this.eYt.resize(getWidth(), getHeight());
+            this.eTI.resize(getWidth(), getHeight());
         }
     }
 
@@ -90,10 +90,10 @@ public class RoundRelativeLayout extends RelativeLayout {
     protected void dispatchDraw(Canvas canvas) {
         int saveCount = canvas.getSaveCount();
         canvas.save();
-        canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.bjn);
+        canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.bew);
         super.dispatchDraw(canvas);
-        if (this.eYt != null) {
-            this.eYt.draw(canvas, this.mPaint);
+        if (this.eTI != null) {
+            this.eTI.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {

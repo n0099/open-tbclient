@@ -1,26 +1,26 @@
 package com.baidu.helios.common.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private com.baidu.helios.common.a.a.a.b axD;
+    private com.baidu.helios.common.a.a.a.b asR;
 
     private a() {
     }
 
-    public static a yZ() {
+    public static a ve() {
         a aVar = new a();
-        aVar.axD = new com.baidu.helios.common.a.a.a.b();
-        aVar.axD.b("PKCS1Padding");
+        aVar.asR = new com.baidu.helios.common.a.a.a.b();
+        aVar.asR.b("PKCS1Padding");
         return aVar;
     }
 
     public void a(int i, com.baidu.helios.common.a.b.a aVar) {
-        this.axD.a(i, aVar, com.baidu.helios.common.a.a.a.a.afc);
+        this.asR.a(i, aVar, com.baidu.helios.common.a.a.a.a.ano);
     }
 
-    public final byte[] w(byte[] bArr) {
+    public final byte[] v(byte[] bArr) {
         if (bArr == null) {
             throw new IllegalArgumentException("Null input buffer");
         }
-        return this.axD.k(bArr, 0, bArr.length);
+        return this.asR.l(bArr, 0, bArr.length);
     }
 }

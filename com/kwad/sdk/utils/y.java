@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class y {
     public static String a(String str) {
         PackageInfo packageArchiveInfo;

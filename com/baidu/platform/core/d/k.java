@@ -11,17 +11,16 @@ import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.platform.base.SearchType;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    SuggestAddrInfo f4774b = null;
+    SuggestAddrInfo f4491b = null;
     protected boolean c;
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
@@ -112,7 +111,7 @@ public class k extends com.baidu.platform.base.d {
                     poiInfo.address = jSONObject.optString("addr");
                     poiInfo.uid = jSONObject.optString("uid");
                     poiInfo.name = jSONObject.optString("name");
-                    poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO));
+                    poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString("geo"));
                     poiInfo.city = str;
                     arrayList.add(poiInfo);
                 }
@@ -157,7 +156,7 @@ public class k extends com.baidu.platform.base.d {
             if (i2 >= optJSONArray.length()) {
                 return arrayList;
             }
-            List<PoiInfo> a2 = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
+            List<PoiInfo> a2 = a((JSONArray) optJSONArray.opt(i2), "");
             if (a2 != null) {
                 arrayList.add(a2);
             }
@@ -175,8 +174,8 @@ public class k extends com.baidu.platform.base.d {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null || optJSONObject.optInt("type") != 23 || optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) != 0) {
                 return false;
             }
-            this.f4774b = a(jSONObject);
-            return this.f4774b != null;
+            this.f4491b = a(jSONObject);
+            return this.f4491b != null;
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
@@ -198,7 +197,7 @@ public class k extends com.baidu.platform.base.d {
                     ((m) this).a(str, transitRouteResult);
                     return transitRouteResult;
                 }
-                transitRouteResult.setSuggestAddrInfo(this.f4774b);
+                transitRouteResult.setSuggestAddrInfo(this.f4491b);
                 transitRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return transitRouteResult;
             case DRIVE_ROUTE:
@@ -207,7 +206,7 @@ public class k extends com.baidu.platform.base.d {
                     ((c) this).a(str, drivingRouteResult);
                     return drivingRouteResult;
                 }
-                drivingRouteResult.setSuggestAddrInfo(this.f4774b);
+                drivingRouteResult.setSuggestAddrInfo(this.f4491b);
                 drivingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return drivingRouteResult;
             case WALK_ROUTE:
@@ -216,7 +215,7 @@ public class k extends com.baidu.platform.base.d {
                     ((o) this).a(str, walkingRouteResult);
                     return walkingRouteResult;
                 }
-                walkingRouteResult.setSuggestAddrInfo(this.f4774b);
+                walkingRouteResult.setSuggestAddrInfo(this.f4491b);
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return walkingRouteResult;
             default:

@@ -3,26 +3,26 @@ package com.yxcorp.kuaishou.addfp.a.b.f;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14660a;
+    private Context f14360a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14661b;
+    private com.yxcorp.kuaishou.addfp.a.a.a f14361b;
 
     public g(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14660a = context;
-        this.f14661b = aVar;
+        this.f14360a = context;
+        this.f14361b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         d dVar;
-        if (this.f14661b != null) {
-            com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14661b;
-            dVar = f.qgj;
+        if (this.f14361b != null) {
+            com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14361b;
+            dVar = f.qbI;
             aVar.a(dVar.a(), this);
         }
     }
@@ -30,8 +30,8 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         d dVar;
-        dVar = f.qgj;
-        dVar.a(this.f14660a, this);
+        dVar = f.qbI;
+        dVar.a(this.f14360a, this);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -49,8 +49,8 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         d dVar;
         String str = "";
         try {
-            dVar = f.qgj;
-            str = dVar.a(this.f14660a, "OUID");
+            dVar = f.qbI;
+            str = dVar.a(this.f14360a, "OUID");
             if (str != null) {
             }
         } catch (Throwable th) {
@@ -62,22 +62,22 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
         d dVar;
-        dVar = f.qgj;
+        dVar = f.qbI;
         return dVar.a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
         d dVar;
-        dVar = f.qgj;
-        dVar.a(this.f14660a);
+        dVar = f.qbI;
+        dVar.a(this.f14360a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14661b != null) {
+        if (this.f14361b != null) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("failed here");
-            this.f14661b.a(false, this);
+            this.f14361b.a(false, this);
         }
     }
 }

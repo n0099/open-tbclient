@@ -9,12 +9,12 @@ import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void agD();
+        void acJ();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -34,13 +34,13 @@ public final class e {
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ahx().ahw().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).adD().adC().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.agD();
+                        aVar.acJ();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -53,8 +53,8 @@ public final class e {
         });
     }
 
-    public static int u(File file) {
-        int u;
+    public static int t(File file) {
+        int t;
         int i = 0;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
@@ -65,17 +65,17 @@ public final class e {
                 while (i2 < length) {
                     File file2 = listFiles[i2];
                     if (file2.isFile()) {
-                        u = file2.delete() ? 1 : 0;
+                        t = file2.delete() ? 1 : 0;
                     } else {
-                        u = u(file2);
+                        t = t(file2);
                     }
                     i2++;
-                    i3 = u + i3;
+                    i3 = t + i3;
                 }
                 i = i3;
             }
             if (!file.delete()) {
-                g.ctf.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                g.cor.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

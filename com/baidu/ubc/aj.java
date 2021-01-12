@@ -7,90 +7,90 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class aj {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private boolean eCc = false;
-    private int oNQ = 0;
-    private int oNR = 614400;
-    private JSONArray dxx = new JSONArray();
-    private SparseArray<Integer> eBY = new SparseArray<>();
-    private ArrayList<String> eBZ = new ArrayList<>();
-    private long eCa = 0;
-    private long eCb = 0;
-    private String eBe = "0";
+    private boolean exn = false;
+    private int oJl = 0;
+    private int oJm = 614400;
+    private JSONArray dsK = new JSONArray();
+    private SparseArray<Integer> exj = new SparseArray<>();
+    private ArrayList<String> exk = new ArrayList<>();
+    private long exl = 0;
+    private long exm = 0;
+    private String ewp = "0";
 
     public final void dn(JSONObject jSONObject) {
-        this.dxx.put(jSONObject);
+        this.dsK.put(jSONObject);
     }
 
-    public final SparseArray<Integer> biY() {
-        return this.eBY;
+    public final SparseArray<Integer> bfe() {
+        return this.exj;
     }
 
     public final void aE(int i, int i2) {
-        this.eBY.put(i, Integer.valueOf(i2));
+        this.exj.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList biZ() {
-        return this.eBZ;
+    public final ArrayList bff() {
+        return this.exk;
     }
 
-    public final void zE(String str) {
-        if (!this.eBZ.contains(str)) {
-            this.eBZ.add(str);
+    public final void yt(String str) {
+        if (!this.exk.contains(str)) {
+            this.exk.add(str);
         }
     }
 
     public final void u(long j, long j2) {
-        if ((j < this.eCa || this.eCa == 0) && j != 0) {
-            this.eCa = j;
+        if ((j < this.exl || this.exl == 0) && j != 0) {
+            this.exl = j;
         }
-        if (j2 > this.eCb) {
-            this.eCb = j2;
+        if (j2 > this.exm) {
+            this.exm = j2;
         }
     }
 
-    public void Ox(int i) {
+    public void MQ(int i) {
         if (i >= 0) {
-            this.oNR = i;
+            this.oJm = i;
         }
     }
 
-    public void Oy(int i) {
+    public void MR(int i) {
         if (i > 0) {
-            this.oNQ += i;
+            this.oJl += i;
         }
     }
 
-    public boolean ejv() {
-        return this.oNQ >= this.oNR;
+    public boolean efD() {
+        return this.oJl >= this.oJm;
     }
 
-    public boolean nS(int i) {
-        return this.dxx.toString().getBytes().length >= i;
+    public boolean mm(int i) {
+        return this.dsK.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.dxx.length() == 0;
+        return this.dsK.length() == 0;
     }
 
-    public JSONObject ejw() {
+    public JSONObject efE() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.dxx);
-            if (this.eCa == 0 || this.eCb == 0) {
-                this.eCa = this.eCb;
+            jSONObject.put("data", this.dsK);
+            if (this.exl == 0 || this.exm == 0) {
+                this.exl = this.exm;
             }
-            jSONObject2.put("mintime", Long.toString(this.eCa));
-            jSONObject2.put("maxtime", Long.toString(this.eCb));
+            jSONObject2.put("mintime", Long.toString(this.exl));
+            jSONObject2.put("maxtime", Long.toString(this.exm));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", ah.toMd5(this.dxx.toString().getBytes(), true));
+            jSONObject2.put("md5", ah.toMd5(this.dsK.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.eBe);
-            jSONObject.put("isreal", this.eCc ? "1" : "0");
+            jSONObject.put("isAbtest", this.ewp);
+            jSONObject.put("isreal", this.exn ? "1" : "0");
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCUploadData", "json exception:");
@@ -100,32 +100,32 @@ class aj {
     }
 
     public void clearData() {
-        this.eBY.clear();
-        this.eBZ.clear();
-        this.dxx = null;
+        this.exj.clear();
+        this.exk.clear();
+        this.dsK = null;
     }
 
-    public void zF(String str) {
-        this.eBe = str;
+    public void yu(String str) {
+        this.ewp = str;
     }
 
-    public long bjc() {
-        return this.eCa;
+    public long bfi() {
+        return this.exl;
     }
 
     public long getMaxTime() {
-        return this.eCb;
+        return this.exm;
     }
 
-    public JSONArray bjd() {
-        return this.dxx;
+    public JSONArray bfj() {
+        return this.dsK;
     }
 
-    public boolean bje() {
-        return this.eCc;
+    public boolean bfk() {
+        return this.exn;
     }
 
-    public void iN(boolean z) {
-        this.eCc = z;
+    public void iJ(boolean z) {
+        this.exn = z;
     }
 }

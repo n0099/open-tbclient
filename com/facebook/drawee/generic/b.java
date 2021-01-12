@@ -11,31 +11,31 @@ import com.facebook.drawee.drawable.p;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public static final p.b pxX = p.b.pxN;
-    public static final p.b pxY = p.b.pxO;
+    public static final p.b ptw = p.b.ptl;
+    public static final p.b ptx = p.b.ptm;
     private Drawable mBackground;
     private Resources mResources;
-    private RoundingParams pxT;
-    private int pxZ;
-    private boolean pya;
-    private float pyb;
-    private Drawable pyc;
+    private float ptA;
+    private Drawable ptB;
     @Nullable
-    private p.b pyd;
-    private Drawable pye;
-    private p.b pyf;
-    private Drawable pyg;
-    private p.b pyh;
-    private Drawable pyi;
-    private p.b pyj;
-    private p.b pyk;
-    private Matrix pyl;
-    private PointF pym;
-    private ColorFilter pyn;
-    private List<Drawable> pyo;
-    private Drawable pyp;
+    private p.b ptC;
+    private Drawable ptD;
+    private p.b ptE;
+    private Drawable ptF;
+    private p.b ptG;
+    private Drawable ptH;
+    private p.b ptI;
+    private p.b ptJ;
+    private Matrix ptK;
+    private PointF ptL;
+    private ColorFilter ptM;
+    private List<Drawable> ptN;
+    private Drawable ptO;
+    private RoundingParams ptr;
+    private int pty;
+    private boolean ptz;
 
     public b(Resources resources) {
         this.mResources = resources;
@@ -43,157 +43,157 @@ public class b {
     }
 
     private void init() {
-        this.pxZ = 150;
-        this.pya = true;
-        this.pyb = 0.0f;
-        this.pyc = null;
-        this.pyd = pxX;
-        this.pye = null;
-        this.pyf = pxX;
-        this.pyg = null;
-        this.pyh = pxX;
-        this.pyi = null;
-        this.pyj = pxX;
-        this.pyk = pxY;
-        this.pyl = null;
-        this.pym = null;
-        this.pyn = null;
+        this.pty = 150;
+        this.ptz = true;
+        this.ptA = 0.0f;
+        this.ptB = null;
+        this.ptC = ptw;
+        this.ptD = null;
+        this.ptE = ptw;
+        this.ptF = null;
+        this.ptG = ptw;
+        this.ptH = null;
+        this.ptI = ptw;
+        this.ptJ = ptx;
+        this.ptK = null;
+        this.ptL = null;
+        this.ptM = null;
         this.mBackground = null;
-        this.pyo = null;
-        this.pyp = null;
-        this.pxT = null;
+        this.ptN = null;
+        this.ptO = null;
+        this.ptr = null;
     }
 
     public Resources getResources() {
         return this.mResources;
     }
 
-    public b Qz(int i) {
-        this.pxZ = i;
+    public b OS(int i) {
+        this.pty = i;
         return this;
     }
 
-    public int ewb() {
-        return this.pxZ;
+    public int esi() {
+        return this.pty;
     }
 
-    public boolean ewc() {
-        return this.pya;
+    public boolean esj() {
+        return this.ptz;
     }
 
     public b bG(float f) {
-        this.pyb = f;
+        this.ptA = f;
         return this;
     }
 
-    public float ewd() {
-        return this.pyb;
+    public float esk() {
+        return this.ptA;
     }
 
     public b B(@Nullable Drawable drawable) {
-        this.pyc = drawable;
+        this.ptB = drawable;
         return this;
     }
 
-    public b QA(int i) {
-        this.pyc = this.mResources.getDrawable(i);
+    public b OT(int i) {
+        this.ptB = this.mResources.getDrawable(i);
         return this;
     }
 
     @Nullable
-    public Drawable ewe() {
-        return this.pyc;
+    public Drawable esl() {
+        return this.ptB;
     }
 
     public b c(@Nullable p.b bVar) {
-        this.pyd = bVar;
+        this.ptC = bVar;
         return this;
     }
 
     @Nullable
-    public p.b ewf() {
-        return this.pyd;
+    public p.b esm() {
+        return this.ptC;
     }
 
     public b C(@Nullable Drawable drawable) {
-        this.pye = drawable;
+        this.ptD = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable ewg() {
-        return this.pye;
+    public Drawable esn() {
+        return this.ptD;
     }
 
     public b d(@Nullable p.b bVar) {
-        this.pyf = bVar;
+        this.ptE = bVar;
         return this;
     }
 
     @Nullable
-    public p.b ewh() {
-        return this.pyf;
+    public p.b eso() {
+        return this.ptE;
     }
 
     public b D(@Nullable Drawable drawable) {
-        this.pyg = drawable;
+        this.ptF = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable ewi() {
-        return this.pyg;
+    public Drawable esp() {
+        return this.ptF;
     }
 
     public b e(@Nullable p.b bVar) {
-        this.pyh = bVar;
+        this.ptG = bVar;
         return this;
     }
 
     @Nullable
-    public p.b ewj() {
-        return this.pyh;
+    public p.b esq() {
+        return this.ptG;
     }
 
     public b E(@Nullable Drawable drawable) {
-        this.pyi = drawable;
+        this.ptH = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable ewk() {
-        return this.pyi;
+    public Drawable esr() {
+        return this.ptH;
     }
 
     public b f(@Nullable p.b bVar) {
-        this.pyj = bVar;
+        this.ptI = bVar;
         return this;
     }
 
     @Nullable
-    public p.b ewl() {
-        return this.pyj;
+    public p.b ess() {
+        return this.ptI;
     }
 
     public b g(@Nullable p.b bVar) {
-        this.pyk = bVar;
-        this.pyl = null;
+        this.ptJ = bVar;
+        this.ptK = null;
         return this;
     }
 
     @Nullable
-    public p.b ewm() {
-        return this.pyk;
+    public p.b est() {
+        return this.ptJ;
     }
 
     @Nullable
-    public PointF ewn() {
-        return this.pym;
+    public PointF esu() {
+        return this.ptL;
     }
 
     @Nullable
-    public ColorFilter ewo() {
-        return this.pyn;
+    public ColorFilter esv() {
+        return this.ptM;
     }
 
     public b F(@Nullable Drawable drawable) {
@@ -208,53 +208,53 @@ public class b {
 
     public b G(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.pyo = null;
+            this.ptN = null;
         } else {
-            this.pyo = Arrays.asList(drawable);
+            this.ptN = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> getOverlays() {
-        return this.pyo;
+    public List<Drawable> esw() {
+        return this.ptN;
     }
 
     public b H(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.pyp = null;
+            this.ptO = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.pyp = stateListDrawable;
+            this.ptO = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable ewp() {
-        return this.pyp;
+    public Drawable esx() {
+        return this.ptO;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.pxT = roundingParams;
+        this.ptr = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams ewa() {
-        return this.pxT;
+    public RoundingParams esh() {
+        return this.ptr;
     }
 
     private void validate() {
-        if (this.pyo != null) {
-            for (Drawable drawable : this.pyo) {
+        if (this.ptN != null) {
+            for (Drawable drawable : this.ptN) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a ewq() {
+    public a esy() {
         validate();
         return new a(this);
     }

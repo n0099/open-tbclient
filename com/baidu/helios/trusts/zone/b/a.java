@@ -20,13 +20,13 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static final byte[] aza = {77, 73, 78, 71};
+    private static final byte[] auo = {77, 73, 78, 71};
     private String D;
+    private Context E;
     private int F;
-    private Set<String> azb;
-    private Context azc;
+    private Set<String> aup;
     public String o;
     private long t;
     private boolean u;
@@ -49,14 +49,14 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ aza[i % aza.length]);
+                decode[i] = (byte) (decode[i] ^ auo[i % auo.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (a(jSONObject)) {
-                this.azb = new HashSet();
-                if (!a(this.D, this.azc, jSONObject, this.azb)) {
+                this.aup = new HashSet();
+                if (!a(this.D, this.E, jSONObject, this.aup)) {
                     this.F |= 4;
-                } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.z(decode))) {
+                } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.y(decode))) {
                     this.F |= 8;
                 } else {
                     this.t = jSONObject.getLong("priority");
@@ -79,7 +79,7 @@ public class a {
         if (a2 != null && a2.length > 0) {
             Collections.addAll(set, a2);
         }
-        return b(strArr, a2);
+        return a(strArr, a2);
     }
 
     private boolean a(JSONObject jSONObject) {
@@ -121,15 +121,7 @@ public class a {
         return true;
     }
 
-    private static String[] a(Signature[] signatureArr) {
-        String[] strArr = new String[signatureArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = f.A(signatureArr[i].toByteArray());
-        }
-        return strArr;
-    }
-
-    private static boolean b(String[] strArr, String[] strArr2) {
+    private static boolean a(String[] strArr, String[] strArr2) {
         if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
             return false;
         }
@@ -144,11 +136,19 @@ public class a {
         return hashSet.equals(hashSet2);
     }
 
+    private static String[] a(Signature[] signatureArr) {
+        String[] strArr = new String[signatureArr.length];
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = f.z(signatureArr[i].toByteArray());
+        }
+        return strArr;
+    }
+
     public void a(com.baidu.helios.common.a.b.a aVar, boolean z) {
         PackageInfo packageInfo;
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
-        PackageManager packageManager = this.azc.getPackageManager();
+        PackageManager packageManager = this.E.getPackageManager();
         try {
             packageInfo = packageManager.getPackageInfo(this.D, 2);
         } catch (PackageManager.NameNotFoundException e) {
@@ -176,7 +176,7 @@ public class a {
 
     public void a(String str, Context context) {
         this.D = str;
-        this.azc = context;
+        this.E = context;
     }
 
     public boolean a() {
@@ -188,6 +188,6 @@ public class a {
     }
 
     public Set<String> c() {
-        return this.azb;
+        return this.aup;
     }
 }

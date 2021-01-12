@@ -1,7 +1,7 @@
 package com.baidu.ala.rtc;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface RtcRoomListener {
     void onEnterRoomResult(boolean z);
 

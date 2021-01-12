@@ -9,17 +9,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /* loaded from: classes4.dex */
 final class j implements Closeable {
-    private static final Logger pkL = Logger.getLogger(e.class.getName());
+    private static final Logger pgf = Logger.getLogger(e.class.getName());
     private final boolean d;
     private boolean g;
-    private final com.bytedance.sdk.a.a.d pkM;
-    private final com.bytedance.sdk.a.a.c pkH = new com.bytedance.sdk.a.a.c();
-    final d.b pkN = new d.b(this.pkH);
+    private final com.bytedance.sdk.a.a.d pgg;
+    private final com.bytedance.sdk.a.a.c pgb = new com.bytedance.sdk.a.a.c();
+    final d.b pgh = new d.b(this.pgb);
     private int f = 16384;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(com.bytedance.sdk.a.a.d dVar, boolean z) {
-        this.pkM = dVar;
+        this.pgg = dVar;
         this.d = z;
     }
 
@@ -28,11 +28,11 @@ final class j implements Closeable {
             throw new IOException(LogConfig.TYPE_CLOSED);
         }
         if (this.d) {
-            if (pkL.isLoggable(Level.FINE)) {
-                pkL.fine(com.bytedance.sdk.a.b.a.c.a(">> CONNECTION %s", e.pjK.e()));
+            if (pgf.isLoggable(Level.FINE)) {
+                pgf.fine(com.bytedance.sdk.a.b.a.c.a(">> CONNECTION %s", e.pff.e()));
             }
-            this.pkM.aj(e.pjK.h());
-            this.pkM.flush();
+            this.pgg.ai(e.pff.h());
+            this.pgg.flush();
         }
     }
 
@@ -42,22 +42,22 @@ final class j implements Closeable {
         }
         this.f = nVar.d(this.f);
         if (nVar.c() != -1) {
-            this.pkN.a(nVar.c());
+            this.pgh.a(nVar.c());
         }
         a(0, 0, (byte) 4, (byte) 1);
-        this.pkM.flush();
+        this.pgg.flush();
     }
 
     public synchronized void b(int i, int i2, List<c> list) throws IOException {
         if (this.g) {
             throw new IOException(LogConfig.TYPE_CLOSED);
         }
-        this.pkN.a(list);
-        long b2 = this.pkH.b();
+        this.pgh.a(list);
+        long b2 = this.pgb.b();
         int min = (int) Math.min(this.f - 4, b2);
         a(i, min + 4, (byte) 5, b2 == ((long) min) ? (byte) 4 : (byte) 0);
-        this.pkM.PK(Integer.MAX_VALUE & i2);
-        this.pkM.a(this.pkH, min);
+        this.pgg.Od(Integer.MAX_VALUE & i2);
+        this.pgg.a(this.pgb, min);
         if (b2 > min) {
             b(i, b2 - min);
         }
@@ -67,7 +67,7 @@ final class j implements Closeable {
         if (this.g) {
             throw new IOException(LogConfig.TYPE_CLOSED);
         }
-        this.pkM.flush();
+        this.pgg.flush();
     }
 
     public synchronized void a(boolean z, int i, int i2, List<c> list) throws IOException {
@@ -85,8 +85,8 @@ final class j implements Closeable {
             throw new IllegalArgumentException();
         }
         a(i, 4, (byte) 3, (byte) 0);
-        this.pkM.PK(bVar.g);
-        this.pkM.flush();
+        this.pgg.Od(bVar.g);
+        this.pgg.flush();
     }
 
     public int c() {
@@ -103,7 +103,7 @@ final class j implements Closeable {
     void a(int i, byte b2, com.bytedance.sdk.a.a.c cVar, int i2) throws IOException {
         a(i, i2, (byte) 0, b2);
         if (i2 > 0) {
-            this.pkM.a(cVar, i2);
+            this.pgg.a(cVar, i2);
         }
     }
 
@@ -122,24 +122,24 @@ final class j implements Closeable {
                     } else {
                         i = i2 == 7 ? 4 : i2;
                     }
-                    this.pkM.PL(i);
-                    this.pkM.PK(nVar.b(i2));
+                    this.pgg.Oe(i);
+                    this.pgg.Od(nVar.b(i2));
                 }
                 i2++;
             }
-            this.pkM.flush();
+            this.pgg.flush();
         }
     }
 
-    public synchronized void a(boolean z, int i, int i2) throws IOException {
+    public synchronized void b(boolean z, int i, int i2) throws IOException {
         synchronized (this) {
             if (this.g) {
                 throw new IOException(LogConfig.TYPE_CLOSED);
             }
             a(0, 8, (byte) 6, z ? (byte) 1 : (byte) 0);
-            this.pkM.PK(i);
-            this.pkM.PK(i2);
-            this.pkM.flush();
+            this.pgg.Od(i);
+            this.pgg.Od(i2);
+            this.pgg.flush();
         }
     }
 
@@ -151,12 +151,12 @@ final class j implements Closeable {
             throw e.h("errorCode.httpCode == -1", new Object[0]);
         }
         a(0, bArr.length + 8, (byte) 7, (byte) 0);
-        this.pkM.PK(i);
-        this.pkM.PK(bVar.g);
+        this.pgg.Od(i);
+        this.pgg.Od(bVar.g);
         if (bArr.length > 0) {
-            this.pkM.aj(bArr);
+            this.pgg.ai(bArr);
         }
-        this.pkM.flush();
+        this.pgg.flush();
     }
 
     public synchronized void a(int i, long j) throws IOException {
@@ -167,13 +167,13 @@ final class j implements Closeable {
             throw e.h("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j));
         }
         a(i, 4, (byte) 8, (byte) 0);
-        this.pkM.PK((int) j);
-        this.pkM.flush();
+        this.pgg.Od((int) j);
+        this.pgg.flush();
     }
 
     public void a(int i, int i2, byte b2, byte b3) throws IOException {
-        if (pkL.isLoggable(Level.FINE)) {
-            pkL.fine(e.a(false, i, i2, b2, b3));
+        if (pgf.isLoggable(Level.FINE)) {
+            pgf.fine(e.a(false, i, i2, b2, b3));
         }
         if (i2 > this.f) {
             throw e.h("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(this.f), Integer.valueOf(i2));
@@ -181,22 +181,22 @@ final class j implements Closeable {
         if ((Integer.MIN_VALUE & i) != 0) {
             throw e.h("reserved bit set: %s", Integer.valueOf(i));
         }
-        a(this.pkM, i2);
-        this.pkM.PM(b2 & 255);
-        this.pkM.PM(b3 & 255);
-        this.pkM.PK(Integer.MAX_VALUE & i);
+        a(this.pgg, i2);
+        this.pgg.Of(b2 & 255);
+        this.pgg.Of(b3 & 255);
+        this.pgg.Od(Integer.MAX_VALUE & i);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() throws IOException {
         this.g = true;
-        this.pkM.close();
+        this.pgg.close();
     }
 
     private static void a(com.bytedance.sdk.a.a.d dVar, int i) throws IOException {
-        dVar.PM((i >>> 16) & 255);
-        dVar.PM((i >>> 8) & 255);
-        dVar.PM(i & 255);
+        dVar.Of((i >>> 16) & 255);
+        dVar.Of((i >>> 8) & 255);
+        dVar.Of(i & 255);
     }
 
     private void b(int i, long j) throws IOException {
@@ -204,7 +204,7 @@ final class j implements Closeable {
             int min = (int) Math.min(this.f, j);
             j -= min;
             a(i, min, (byte) 9, j == 0 ? (byte) 4 : (byte) 0);
-            this.pkM.a(this.pkH, min);
+            this.pgg.a(this.pgb, min);
         }
     }
 
@@ -212,15 +212,15 @@ final class j implements Closeable {
         if (this.g) {
             throw new IOException(LogConfig.TYPE_CLOSED);
         }
-        this.pkN.a(list);
-        long b2 = this.pkH.b();
+        this.pgh.a(list);
+        long b2 = this.pgb.b();
         int min = (int) Math.min(this.f, b2);
         byte b3 = b2 == ((long) min) ? (byte) 4 : (byte) 0;
         if (z) {
             b3 = (byte) (b3 | 1);
         }
         a(i, min, (byte) 1, b3);
-        this.pkM.a(this.pkH, min);
+        this.pgg.a(this.pgb, min);
         if (b2 > min) {
             b(i, b2 - min);
         }

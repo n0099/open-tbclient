@@ -5,39 +5,39 @@ import android.os.Handler;
 public abstract class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f7955a;
+    private Handler f7655a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final long f7956b;
+    private final long f7656b;
     private final long c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Handler handler, long j, long j2) {
-        this.f7955a = handler;
-        this.f7956b = j;
+        this.f7655a = handler;
+        this.f7656b = j;
         this.c = j2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (b() > 0) {
-            this.f7955a.postDelayed(this, b());
+            this.f7655a.postDelayed(this, b());
         } else {
-            this.f7955a.post(this);
+            this.f7655a.post(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(long j) {
         if (j > 0) {
-            this.f7955a.postDelayed(this, j);
+            this.f7655a.postDelayed(this, j);
         } else {
-            this.f7955a.post(this);
+            this.f7655a.post(this);
         }
     }
 
     long b() {
-        return this.f7956b;
+        return this.f7656b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

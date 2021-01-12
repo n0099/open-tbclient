@@ -23,37 +23,37 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes3.dex */
 public class c implements b.a, Observer {
-    private static volatile b azm = new b();
-    private static volatile Map<Long, Object> azn = new LinkedHashMap();
-    private static volatile c azr;
-    private a azp;
+    private static volatile c auE;
+    private a auC;
     private Context context;
-    private int azo = -1;
-    private final Queue<Object> azq = new LinkedBlockingQueue();
+    private static volatile b auz = new b();
+    private static volatile Map<Long, Object> auA = new LinkedHashMap();
+    private int auB = -1;
+    private final Queue<Object> auD = new LinkedBlockingQueue();
 
-    public static synchronized c zy() {
+    public static synchronized c vD() {
         c cVar;
         synchronized (c.class) {
-            if (azr == null) {
+            if (auE == null) {
                 synchronized (c.class) {
-                    if (azr == null) {
-                        azr = new c();
+                    if (auE == null) {
+                        auE = new c();
                     }
                 }
             }
-            cVar = azr;
+            cVar = auE;
         }
         return cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zz() {
-        c(this.context, e.getAppId(this.context), e.aN(this.context), d.getLoginOpenType(this.context));
+    public void vE() {
+        c(this.context, e.getAppId(this.context), e.aM(this.context), d.getLoginOpenType(this.context));
     }
 
     public void c(Context context, String str, String str2, int i) {
-        if (azm.state == -2 || azm.state == 0) {
-            com.baidu.lcp.sdk.d.d.d("LCPClientManager", "SocketConnect state is " + (azm.state == 0 ? "connected" : "connecting"));
+        if (auz.state == -2 || auz.state == 0) {
+            com.baidu.lcp.sdk.d.d.d("LCPClientManager", "SocketConnect state is " + (auz.state == 0 ? "connected" : "connecting"));
         } else {
             d(context, str, str2, i);
         }
@@ -67,20 +67,20 @@ public class c implements b.a, Observer {
                 if (TextUtils.isEmpty(e.getAppId(context))) {
                     e.E(context, str);
                 }
-                if (TextUtils.isEmpty(e.aN(context))) {
+                if (TextUtils.isEmpty(e.aM(context))) {
                     e.F(context, str2);
                 }
-                f.aF(context).addObserver(azr);
-                if (azm.state == -2 || azm.state == 0) {
-                    com.baidu.lcp.sdk.d.d.d("LCPClientManager", "SocketConnect state is " + (azm.state == 0 ? "connected" : "connecting"));
+                f.aE(context).addObserver(auE);
+                if (auz.state == -2 || auz.state == 0) {
+                    com.baidu.lcp.sdk.d.d.d("LCPClientManager", "SocketConnect state is " + (auz.state == 0 ? "connected" : "connecting"));
                 } else {
-                    if (this.azp == null) {
+                    if (this.auC == null) {
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                        this.azp = new a();
-                        context.registerReceiver(this.azp, intentFilter);
+                        this.auC = new a();
+                        context.registerReceiver(this.auC, intentFilter);
                     }
-                    if (d.ax(context)) {
+                    if (d.aw(context)) {
                         String str4 = "1N";
                         long j = 0;
                         try {
@@ -92,40 +92,40 @@ public class c implements b.a, Observer {
                                 str4 = loginFlag[1];
                                 str3 = loginFlag[2];
                             }
-                            new a.b(context).fr(String.valueOf(d.getLoginOpenType(context))).fs(str4).W(d.getLoginCallTime(context)).X(j).ft(str3).Z(501110L).build();
+                            new a.b(context).ef(String.valueOf(d.getLoginOpenType(context))).eg(str4).W(d.getLoginCallTime(context)).X(j).eh(str3).Z(501110L).build();
                         } catch (Exception e) {
                             com.baidu.lcp.sdk.d.d.e("LCPClientManager", "LcpTrack init request getLoginFlag Exception ");
-                            new a.b(context).fr(String.valueOf(d.getLoginOpenType(context))).fs(str4).W(d.getLoginCallTime(context)).X(j).ft("ext").Z(501110L).build();
+                            new a.b(context).ef(String.valueOf(d.getLoginOpenType(context))).eg(str4).W(d.getLoginCallTime(context)).X(j).eh("ext").Z(501110L).build();
                         }
-                        com.baidu.lcp.sdk.a.b.ar(context);
+                        com.baidu.lcp.sdk.a.b.aq(context);
                         d.writeLoginCallTime(context);
                         d.writeLoginFlag(context, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
                         d.writeLoginOpenType(context, i);
                     }
-                    if (!e.aL(context)) {
-                        if (this.azo < 0) {
-                            zA();
+                    if (!e.aK(context)) {
+                        if (this.auB < 0) {
+                            vF();
                         }
                     } else {
                         com.baidu.lcp.sdk.d.d.e("LCPClientManager", "token is not null ");
-                        du(0);
+                        bO(0);
                     }
                 }
             }
         }
     }
 
-    private void du(int i) {
-        if (this.context != null && e.aB(this.context)) {
+    private void bO(int i) {
+        if (this.context != null && e.aA(this.context)) {
             switch (i) {
                 case 0:
                     com.baidu.lcp.sdk.d.d.d("LCPClientManager", "socketAction createSocket");
-                    azm.state = -2;
-                    f.aF(this.context).zH();
+                    auz.state = -2;
+                    f.aE(this.context).vM();
                     return;
                 case 1:
                     com.baidu.lcp.sdk.d.d.d("LCPClientManager", "socketAction closeSocket");
-                    f.aF(this.context).ag("socketAction closeSocket:", f.aF(this.context).aAk);
+                    f.aE(this.context).af("socketAction closeSocket:", f.aE(this.context).avx);
                     return;
                 default:
                     return;
@@ -134,19 +134,19 @@ public class c implements b.a, Observer {
     }
 
     public void a(@NonNull BLCPRequest bLCPRequest, @Nullable com.baidu.lcp.sdk.client.bean.b bVar) {
-        if (this.context == null || !e.aB(this.context)) {
+        if (this.context == null || !e.aA(this.context)) {
             if (bVar != null) {
                 bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.serviceId, bLCPRequest.methodId, bLCPRequest.msgId, new byte[0]);
             }
-        } else if (azm.state != 0) {
+        } else if (auz.state != 0) {
             if (!(bLCPRequest instanceof com.baidu.lcp.sdk.client.bean.a) && !(bLCPRequest instanceof com.baidu.lcp.sdk.client.bean.c) && bVar != null) {
                 bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.serviceId, bLCPRequest.methodId, bLCPRequest.msgId, new byte[0]);
             }
-            if (azm.state == -1) {
-                zz();
+            if (auz.state == -1) {
+                vE();
             }
         } else {
-            f.aF(this.context).b(bLCPRequest, bVar);
+            f.aE(this.context).b(bLCPRequest, bVar);
             if (bLCPRequest.methodId == 1 && bLCPRequest.serviceId == 4) {
                 com.baidu.lcp.sdk.d.d.d("LCPClientManager", "云控登录打点");
                 com.baidu.lcp.sdk.d.a.a(this.context, 1L, "invoke", bLCPRequest.msgId + "");
@@ -157,7 +157,7 @@ public class c implements b.a, Observer {
         }
     }
 
-    public void zA() {
+    public void vF() {
         Object valueOf;
         if (this.context == null || !RequsetNetworkUtils.isConnected(this.context)) {
             StringBuilder append = new StringBuilder().append("context = ").append(this.context).append(", net :");
@@ -169,40 +169,40 @@ public class c implements b.a, Observer {
             com.baidu.lcp.sdk.d.d.d("LCPClientManager", append.append(valueOf).toString());
             return;
         }
-        this.azo++;
-        com.baidu.lcp.sdk.d.d.d("LCPClientManager", "no token, so request token, and tryCount = " + this.azo);
-        if (this.azo < 3) {
+        this.auB++;
+        com.baidu.lcp.sdk.d.d.d("LCPClientManager", "no token, so request token, and tryCount = " + this.auB);
+        if (this.auB < 3) {
             d.writeLoginFlag(this.context, "2N", "accessToken is null");
             com.baidu.lcp.sdk.b.b bVar = new com.baidu.lcp.sdk.b.b(this.context, this);
             com.baidu.lcp.sdk.b.c.a(bVar, bVar);
             return;
         }
-        this.azo = -1;
+        this.auB = -1;
     }
 
     @Override // com.baidu.lcp.sdk.b.b.a
-    public void fu(String str) {
-        this.azo = -1;
-        du(0);
+    public void ei(String str) {
+        this.auB = -1;
+        bO(0);
         d.writeLoginFlag(this.context, "2Y", "accessToken success");
     }
 
     @Override // com.baidu.lcp.sdk.b.b.a
     public void onFailure(int i, String str) {
         com.baidu.lcp.sdk.d.d.e("LCPClientManager", "getToken :" + str);
-        zA();
+        vF();
         d.writeLoginFlag(this.context, "2N_1", "accessToken fail");
-        if (this.azo == 2) {
-            azm.state = -1;
-            f.aF(this.context).zL();
+        if (this.auB == 2) {
+            auz.state = -1;
+            f.aE(this.context).vQ();
         }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         if (obj instanceof b) {
-            azm.state = ((b) obj).state;
-            com.baidu.lcp.sdk.d.d.d("LCPClientManager", "Manager update connectState :" + azm.state);
+            auz.state = ((b) obj).state;
+            com.baidu.lcp.sdk.d.d.d("LCPClientManager", "Manager update connectState :" + auz.state);
         }
     }
 
@@ -215,25 +215,25 @@ public class c implements b.a, Observer {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             com.baidu.lcp.sdk.d.d.d("LCPClientManager", "NetStatusReceiver changed");
-            if (RequsetNetworkUtils.isNetworkAvailable(context) && e.aB(context)) {
+            if (RequsetNetworkUtils.isNetworkAvailable(context) && e.aA(context)) {
                 com.baidu.lcp.sdk.d.d.e("LCPClientManager", "NetStatusReceiver reconnect");
-                com.baidu.lcp.sdk.c.a.aG(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.client.c.a.1
+                com.baidu.lcp.sdk.c.a.aF(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.client.c.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.zz();
+                        c.this.vE();
                     }
                 });
             }
         }
     }
 
-    public static int zx() {
-        return azm.state;
+    public static int vC() {
+        return auz.state;
     }
 
     public void pingRequest() {
         if (this.context != null) {
-            f.aF(this.context).pingRequest();
+            f.aE(this.context).pingRequest();
         }
     }
 }

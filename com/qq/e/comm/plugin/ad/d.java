@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.ad;
 
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum d {
     BANNER_240(e.BANNER, 240, 38),
     BANNER_320(e.BANNER, 320, 50),

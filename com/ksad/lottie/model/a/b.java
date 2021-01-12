@@ -1,7 +1,7 @@
 package com.ksad.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends n<Float, Float> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
@@ -14,7 +14,7 @@ public class b extends n<Float, Float> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<Float, Float> a() {
-        return new com.ksad.lottie.a.b.c(this.f8348a);
+        return new com.ksad.lottie.a.b.c(this.f8048a);
     }
 
     @Override // com.ksad.lottie.model.a.n

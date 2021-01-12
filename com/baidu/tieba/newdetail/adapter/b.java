@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lvp);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private View bUk;
-        private TextView eKc;
-        private int kdK;
+        private View bPy;
+        private TextView eFr;
+        private int jZf;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.kdK = 3;
-            this.eKc = textView;
-            this.bUk = view2;
+            this.jZf = 3;
+            this.eFr = textView;
+            this.bPy = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.eKc.setText(cVar.title);
-                this.bUk.setVisibility(cVar.liO ? 0 : 8);
+                this.eFr.setText(cVar.title);
+                this.bPy.setVisibility(cVar.lei ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.kdK != i) {
-                ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
-                ao.setBackgroundColor(this.bUk, R.color.CAM_X0204);
-                this.kdK = i;
+            if (this.jZf != i) {
+                ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
+                ao.setBackgroundColor(this.bPy, R.color.CAM_X0204);
+                this.jZf = i;
             }
         }
     }

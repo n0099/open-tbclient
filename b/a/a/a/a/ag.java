@@ -1,30 +1,30 @@
 package b.a.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class ag extends ah {
-    protected w Bm;
-    private y Bn;
+    protected w Bk;
+    private y Bl;
 
     public ag(w wVar, y yVar) {
-        this.Bn = null;
-        this.Bm = null;
-        this.Bm = wVar;
-        this.Bn = yVar;
+        this.Bl = null;
+        this.Bk = null;
+        this.Bk = wVar;
+        this.Bl = yVar;
     }
 
     public final void a(int i, int i2) {
-        if (this.Bn != null) {
-            this.Bn.a(i, i2);
+        if (this.Bl != null) {
+            this.Bl.a(i, i2);
         }
     }
 
     public final void a(ac acVar) {
-        if (this.Bn == null || acVar == null) {
+        if (this.Bl == null || acVar == null) {
             return;
         }
-        this.Bn.a(acVar);
+        this.Bl.a(acVar);
     }
 
     public final w hN() {
-        return this.Bm;
+        return this.Bk;
     }
 }

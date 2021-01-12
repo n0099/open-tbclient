@@ -1,11 +1,11 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Constants {
     public static final String LANDSCAPE = "l";
     public static final int NONE_ECPM = -1;
     public static final String PORTRAIT = "p";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class KEYS {
         public static final String AD_INFO = "adinfo";
         public static final String AD_NEGATIVE_FEEDBACK_INFO = "negative_feedback_url";
@@ -39,7 +39,7 @@ public class Constants {
         public static final int THROUGH_MAX_TIPS = 512;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class PLUGIN {
         public static final int ASSET_PLUGIN_VERSION = 1161;
     }

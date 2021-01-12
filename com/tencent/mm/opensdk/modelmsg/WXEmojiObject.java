@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WXEmojiObject implements WXMediaMessage.IMediaObject {
     private static final int CONTENT_LENGTH_LIMIT = 10485760;
     private static final String TAG = "MicroMsg.SDK.WXEmojiObject";

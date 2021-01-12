@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.j a(JsonReader jsonReader, com.ksad.lottie.d dVar) {

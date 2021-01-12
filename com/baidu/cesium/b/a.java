@@ -19,32 +19,32 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0091a anL;
-    protected a.C0094a anM;
+    protected C0090a amU;
+    protected a.C0093a amV;
     private final String e;
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0091a {
+    public static class C0090a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1670a;
-        public com.baidu.cesium.e.a anN;
+        public Context f1620a;
+        public com.baidu.cesium.e.a amW;
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        private a.C0094a anO;
+        private a.C0093a amX;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1671b;
+        private String f1621b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0094a c0094a, String str) {
-            this.anO = c0094a;
-            this.f1671b = str;
+        public b(a.C0093a c0093a, String str) {
+            this.amX = c0093a;
+            this.f1621b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -55,7 +55,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.anO.a(this.c, true);
+            String a2 = this.amX.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -74,7 +74,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.anO.a(this.c, jSONObject.toString(), true);
+                    this.amX.a(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -104,16 +104,16 @@ public abstract class a {
             this.e = exc;
         }
 
-        public static e bH(int i) {
+        public static e bF(int i) {
             return new e(-1, i, null);
         }
 
-        public static e tS() {
+        public static e tJ() {
             return new e(0, 0, null);
         }
 
-        public static e tT() {
-            return bH(0);
+        public static e tK() {
+            return bF(0);
         }
     }
 
@@ -121,26 +121,26 @@ public abstract class a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1672a;
+        public boolean f1622a;
     }
 
     /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1673a;
-        public Exception aeP;
+        public g.a f1623a;
+        public Exception amY;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1674b;
+        public int f1624b;
 
         public g(int i, g.a aVar, Exception exc) {
-            this.f1674b = i;
-            this.f1673a = aVar;
-            this.aeP = exc;
+            this.f1624b = i;
+            this.f1623a = aVar;
+            this.amY = exc;
         }
 
-        public static g bI(int i) {
+        public static g bG(int i) {
             return new g(i, null, null);
         }
 
@@ -148,12 +148,12 @@ public abstract class a {
             return new g(0, aVar, null);
         }
 
-        public static g tU() {
+        public static g tL() {
             return new g(-1, null, null);
         }
 
         public boolean a() {
-            return this.f1674b == 0;
+            return this.f1624b == 0;
         }
     }
 
@@ -170,9 +170,9 @@ public abstract class a {
         return this.e;
     }
 
-    public final void a(C0091a c0091a) {
-        this.anL = c0091a;
-        this.anM = c0091a.anN.tX().dm(IXAdRequestInfo.CS);
+    public final void a(C0090a c0090a) {
+        this.amU = c0090a;
+        this.amV = c0090a.amW.tQ().dh(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

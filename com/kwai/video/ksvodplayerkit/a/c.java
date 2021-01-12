@@ -1,17 +1,17 @@
 package com.kwai.video.ksvodplayerkit.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f11340a;
+    private static a f11040a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, String str2);
     }
 
     public static void a(a aVar) {
-        f11340a = aVar;
+        f11040a = aVar;
     }
 
     public static void a(String str) {
@@ -19,8 +19,8 @@ public class c {
     }
 
     public static void a(String str, String str2) {
-        if (f11340a != null) {
-            f11340a.a(str, str2);
+        if (f11040a != null) {
+            f11040a.a(str, str2);
         } else {
             b.d("LogUploader", "upload logger is null");
         }

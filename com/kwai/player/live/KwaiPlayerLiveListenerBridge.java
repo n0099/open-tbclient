@@ -5,7 +5,7 @@ import com.kwai.video.player.IKwaiMediaPlayer;
 import com.kwai.video.player.annotations.CalledByNative;
 import java.lang.ref.WeakReference;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiPlayerLiveListenerBridge {
     private static IKwaiMediaPlayer.OnLiveInterActiveListener getListener(Object obj) {
         if (obj == null) {

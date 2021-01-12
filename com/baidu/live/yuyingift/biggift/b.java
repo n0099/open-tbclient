@@ -1,7 +1,7 @@
 package com.baidu.live.yuyingift.biggift;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void eo(int i);
+    void cI(int i);
 
     void k(com.baidu.live.yuyingift.a.c cVar);
 

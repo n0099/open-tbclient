@@ -7,10 +7,10 @@ import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class d extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a ahi;
-    private CardUserInfoLayout aho;
-    private int ahp;
-    private a ahq;
+    private com.baidu.tbadk.core.data.a agr;
+    private CardUserInfoLayout agx;
+    private int agy;
+    private a agz;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,80 +19,80 @@ public class d extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
 
     public d(Context context) {
         super(context);
-        this.ahp = 34053;
-        this.aho = new CardUserInfoLayout(context);
-        this.aho.setShowFlag(this.ahp);
-        this.aho.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
+        this.agy = 34053;
+        this.agx = new CardUserInfoLayout(context);
+        this.agx.setShowFlag(this.agy);
+        this.agx.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.ahq != null) {
-                    d.this.ahq.a(d.this.ahi, view);
+                if (d.this.agz != null) {
+                    d.this.agz.a(d.this.agr, view);
                 }
-                if (d.this.tc() != null) {
-                    d.this.tc().a(view, d.this.ahi);
+                if (d.this.sR() != null) {
+                    d.this.sR().a(view, d.this.agr);
                 }
             }
         });
     }
 
     @Override // com.baidu.card.a
-    public void bu(int i) {
-        this.aho.setShowFlag(this.ahp);
+    public void bs(int i) {
+        this.agx.setShowFlag(this.agy);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aho;
+        return this.agx;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aho.onChangeSkinType(tbPageContext, i);
+        this.agx.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.card.a
-    public void bs(int i) {
-        this.ahp |= i;
-        bu(this.ahp);
+    public void bq(int i) {
+        this.agy |= i;
+        bs(this.agy);
     }
 
     @Override // com.baidu.card.a
-    public void bt(int i) {
-        this.ahp &= i ^ (-1);
-        bu(this.ahp);
+    public void br(int i) {
+        this.agy &= i ^ (-1);
+        bs(this.agy);
     }
 
     @Override // com.baidu.card.a
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aho.setPageUniqueId(bdUniqueId);
+        this.agx.setPageUniqueId(bdUniqueId);
     }
 
     public void a(a aVar) {
-        this.ahq = aVar;
+        this.agz = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        this.ahi = aVar;
-        this.aho.setData(aVar.boP());
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        this.agr = aVar;
+        this.agx.setData(aVar.bkV());
     }
 
     public void aC(boolean z) {
-        if (this.aho != null && this.aho.getAvatar() != null) {
-            this.aho.getAvatar().setClickable(z);
+        if (this.agx != null && this.agx.getAvatar() != null) {
+            this.agx.getAvatar().setClickable(z);
         }
     }
 
     public void aD(boolean z) {
-        if (this.aho != null && this.aho.getUserName() != null) {
-            this.aho.getUserName().setClickable(z);
+        if (this.agx != null && this.agx.getUserName() != null) {
+            this.agx.getUserName().setClickable(z);
         }
     }
 
     public void b(TbPageContext tbPageContext) {
-        this.aho.setPageContext(tbPageContext);
+        this.agx.setPageContext(tbPageContext);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class g extends e {
     public g(int i, int i2) {
-        this.f2491b = 4294967295L;
+        this.f2441b = 4294967295L;
         this.c = 4;
         this.d = 32;
         this.e = i;
@@ -10,7 +10,7 @@ final class g extends e {
     }
 
     @Override // com.baidu.helios.common.cc.e
-    public a n(byte[] bArr, int i, int i2) {
+    public a m(byte[] bArr, int i, int i2) {
         h hVar = new h();
         hVar.a(bArr, i, i2);
         return a.a(new long[]{hVar.b()});

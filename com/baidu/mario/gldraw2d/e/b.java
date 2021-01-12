@@ -6,7 +6,7 @@ import com.baidu.mario.gldraw2d.d.c;
 import com.baidu.mario.gldraw2d.d.d;
 import com.baidu.mario.gldraw2d.params.MirrorType;
 import com.baidu.mario.gldraw2d.params.ScaleType;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
 

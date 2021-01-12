@@ -15,7 +15,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class TopProxyLayout extends View implements a<TopProxyLayout> {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f6655a;
+    private a f6355a;
 
     public TopProxyLayout(Context context) {
         this(context, null);
@@ -34,7 +34,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public TopProxyLayout a(boolean z, @NonNull l lVar) {
         TopLayoutDislike2 a2 = new TopLayoutDislike2(getContext()).a(z, lVar);
         if (a2 instanceof a) {
-            this.f6655a = a2;
+            this.f6355a = a2;
             ViewParent parent = getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
                 a(a2, (ViewGroup) parent);
@@ -72,78 +72,78 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSkip(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setShowSkip(z);
+        if (this.f6355a != null) {
+            this.f6355a.setShowSkip(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSkipEnable(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setSkipEnable(z);
+        if (this.f6355a != null) {
+            this.f6355a.setSkipEnable(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void c() {
-        if (this.f6655a != null) {
-            this.f6655a.c();
+        if (this.f6355a != null) {
+            this.f6355a.c();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setShowSound(z);
+        if (this.f6355a != null) {
+            this.f6355a.setShowSound(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setSoundMute(z);
+        if (this.f6355a != null) {
+            this.f6355a.setSoundMute(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowCountDown(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setShowCountDown(z);
+        if (this.f6355a != null) {
+            this.f6355a.setShowCountDown(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f6655a != null) {
-            this.f6655a.a(charSequence, charSequence2);
+        if (this.f6355a != null) {
+            this.f6355a.a(charSequence, charSequence2);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        if (this.f6655a != null) {
-            this.f6655a.setShowDislike(z);
+        if (this.f6355a != null) {
+            this.f6355a.setShowDislike(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setListener(b bVar) {
-        if (this.f6655a != null) {
-            this.f6655a.setListener(bVar);
+        if (this.f6355a != null) {
+            this.f6355a.setListener(bVar);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a() {
-        if (this.f6655a != null) {
-            this.f6655a.a();
+        if (this.f6355a != null) {
+            this.f6355a.a();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.f6655a != null) {
-            this.f6655a.b();
+        if (this.f6355a != null) {
+            this.f6355a.b();
         }
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport fKW;
-    private TbCheckBox.a kLG;
-    private boolean kLI;
+    private final TbPageContextSupport fGp;
+    private TbCheckBox.a kHb;
+    private boolean kHd;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
-    private b kLH = null;
+    private b kHc = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes2.dex */
@@ -25,12 +25,12 @@ class c extends BaseAdapter {
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.fKW = tbPageContextSupport;
-        this.kLI = z;
+        this.fGp = tbPageContextSupport;
+        this.kHd = z;
     }
 
     public void a(b bVar) {
-        this.kLH = bVar;
+        this.kHc = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -38,7 +38,7 @@ class c extends BaseAdapter {
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.kLG = aVar;
+        this.kHb = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -83,42 +83,42 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = day();
+            aVar2 = cWG();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.kLH != null) {
-            this.kLH.a(aVar2.rootView, aVar);
+        if (this.kHc != null) {
+            this.kHc.a(aVar2.rootView, aVar);
         }
         a(aVar, aVar2, aVar.getUserPortrait());
-        aVar2.hYe.setText(aVar.bCC());
-        if (this.kLI) {
-            aVar2.kLJ.setVisibility(8);
+        aVar2.hTx.setText(aVar.byI());
+        if (this.kHd) {
+            aVar2.kHe.setVisibility(8);
         } else {
-            aVar2.kLJ.setTagData(aVar);
+            aVar2.kHe.setTagData(aVar);
         }
-        if (this.fKW instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.fKW).getLayoutMode().onModeChanged(aVar2.rootView);
+        if (this.fGp instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.fGp).getLayoutMode().onModeChanged(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.kLo.setTag(str);
-            aVar2.kLo.startLoad(str, 12, false);
+            aVar2.kGJ.setTag(str);
+            aVar2.kGJ.startLoad(str, 12, false);
         }
     }
 
-    private a day() {
+    private a cWG() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.fKW.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        aVar.kLo = (HeadImageView) aVar.rootView.findViewById(R.id.photo);
-        aVar.kLo.setIsRound(false);
-        aVar.hYe = (TextView) aVar.rootView.findViewById(R.id.txt_user_name);
-        aVar.kLJ = (TbCheckBox) aVar.rootView.findViewById(R.id.ckb_select);
-        if (this.kLG != null) {
-            aVar.kLJ.setStatedChangedListener(this.kLG);
+        aVar.rootView = LayoutInflater.from(this.fGp.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        aVar.kGJ = (HeadImageView) aVar.rootView.findViewById(R.id.photo);
+        aVar.kGJ.setIsRound(false);
+        aVar.hTx = (TextView) aVar.rootView.findViewById(R.id.txt_user_name);
+        aVar.kHe = (TbCheckBox) aVar.rootView.findViewById(R.id.ckb_select);
+        if (this.kHb != null) {
+            aVar.kHe.setStatedChangedListener(this.kHb);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -126,9 +126,9 @@ class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public class a {
-        public TextView hYe;
-        public TbCheckBox kLJ;
-        public HeadImageView kLo;
+        public TextView hTx;
+        public HeadImageView kGJ;
+        public TbCheckBox kHe;
         public View rootView;
 
         public a() {

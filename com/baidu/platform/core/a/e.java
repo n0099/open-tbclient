@@ -2,7 +2,7 @@ package com.baidu.platform.core.a;
 
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface e {
     void a();
 

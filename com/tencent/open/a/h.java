@@ -7,7 +7,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f13682a = new h();
+    public static final h f13382a = new h();
 
     public final String a(int i) {
         switch (i) {

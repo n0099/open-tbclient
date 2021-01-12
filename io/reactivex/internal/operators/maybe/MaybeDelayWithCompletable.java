@@ -9,12 +9,12 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MaybeDelayWithCompletable<T> extends k<T> {
-    final e qjA;
+    final e qeY;
     final o<T> source;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
-        this.qjA.a(new OtherObserver(mVar, this.source));
+        this.qeY.a(new OtherObserver(mVar, this.source));
     }
 
     /* loaded from: classes5.dex */
@@ -59,16 +59,16 @@ public final class MaybeDelayWithCompletable<T> extends k<T> {
     /* loaded from: classes5.dex */
     static final class a<T> implements m<T> {
         final m<? super T> actual;
-        final AtomicReference<io.reactivex.disposables.b> qil;
+        final AtomicReference<io.reactivex.disposables.b> qdJ;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super T> mVar) {
-            this.qil = atomicReference;
+            this.qdJ = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.qil, bVar);
+            DisposableHelper.replace(this.qdJ, bVar);
         }
 
         @Override // io.reactivex.m

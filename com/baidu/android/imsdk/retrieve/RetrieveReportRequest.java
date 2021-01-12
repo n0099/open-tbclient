@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RetrieveReportRequest extends BaseHttpRequest {
     private static final String APP_NAME = "imsdk";
     private static final String REPORT_HOST_ONLINE = "https://mbd.baidu.com/";

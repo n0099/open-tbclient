@@ -13,82 +13,82 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.R;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     private Context context;
-    private View lFn;
-    private TextView lFo;
-    private ImageView lFp;
-    private TextView lFq;
-    private TextView lFr;
-    private a lFs;
-    public boolean lFt;
-    private Animation lFv;
-    private long lFu = 0;
-    private boolean lFw = false;
+    private View lAI;
+    private TextView lAJ;
+    private ImageView lAK;
+    private TextView lAL;
+    private TextView lAM;
+    private a lAN;
+    public boolean lAO;
+    private Animation lAQ;
+    private long lAP = 0;
+    private boolean lAR = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void ut(boolean z);
+        void up(boolean z);
 
         void x(long j, String str);
     }
 
     public e(Context context) {
         this.context = context;
-        this.lFn = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.lFo = (TextView) this.lFn.findViewById(R.id.chosen_post_info_copyright);
-        this.lFp = (ImageView) this.lFn.findViewById(R.id.chosen_post_info_praise_icon);
-        this.lFq = (TextView) this.lFn.findViewById(R.id.chosen_post_info_praise_num);
-        this.lFr = (TextView) this.lFn.findViewById(R.id.chosen_post_info_original_post);
+        this.lAI = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.lAJ = (TextView) this.lAI.findViewById(R.id.chosen_post_info_copyright);
+        this.lAK = (ImageView) this.lAI.findViewById(R.id.chosen_post_info_praise_icon);
+        this.lAL = (TextView) this.lAI.findViewById(R.id.chosen_post_info_praise_num);
+        this.lAM = (TextView) this.lAI.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View dmz() {
-        return this.lFn;
+    public View diH() {
+        return this.lAI;
     }
 
     public void a(a aVar) {
-        this.lFs = aVar;
+        this.lAN = aVar;
     }
 
-    public void GG(int i) {
-        if (this.lFo != null) {
-            this.lFo.setText(i);
+    public void Fa(int i) {
+        if (this.lAJ != null) {
+            this.lAJ.setText(i);
         }
     }
 
     public void R(View.OnClickListener onClickListener) {
-        if (this.lFr != null) {
-            this.lFr.setOnClickListener(onClickListener);
+        if (this.lAM != null) {
+            this.lAM.setOnClickListener(onClickListener);
         }
     }
 
     public void hn(long j) {
         if (j >= 0) {
-            this.lFu = j;
-            if (this.lFq != null) {
-                this.lFq.setVisibility(0);
-                this.lFq.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
+            this.lAP = j;
+            if (this.lAL != null) {
+                this.lAL.setVisibility(0);
+                this.lAL.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
             }
-            if (this.lFq != null && this.lFq.getVisibility() == 8) {
-                this.lFq.setVisibility(0);
+            if (this.lAL != null && this.lAL.getVisibility() == 8) {
+                this.lAL.setVisibility(0);
             }
         }
     }
 
     public void a(final ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            GG(R.string.chosen_pb_copyright);
+            Fa(R.string.chosen_pb_copyright);
             hn(excellentPbThreadInfo.zan.zansum.longValue());
-            ux(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.lFp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            ut(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            this.lAK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.lFw && bg.checkUpIsLogin(e.this.context)) {
-                        e.this.lFw = true;
-                        e.this.lFp.startAnimation(e.this.dmB());
-                        if (e.this.lFs != null) {
-                            e.this.lFs.ut(e.this.lFt);
+                    if (!e.this.lAR && bg.checkUpIsLogin(e.this.context)) {
+                        e.this.lAR = true;
+                        e.this.lAK.startAnimation(e.this.diJ());
+                        if (e.this.lAN != null) {
+                            e.this.lAN.up(e.this.lAO);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             R(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.lFs != null) {
-                        e.this.lFs.x(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.lAN != null) {
+                        e.this.lAN.x(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void dmA() {
-        this.lFw = false;
+    public void diI() {
+        this.lAR = false;
     }
 
-    public void uw(boolean z) {
-        ux(z);
+    public void us(boolean z) {
+        ut(z);
         if (z) {
-            this.lFu++;
+            this.lAP++;
         } else {
-            this.lFu--;
+            this.lAP--;
         }
-        hn(this.lFu);
+        hn(this.lAP);
     }
 
-    private void ux(boolean z) {
-        this.lFt = z;
+    private void ut(boolean z) {
+        this.lAO = z;
         if (z) {
-            ao.setImageResource(this.lFp, R.drawable.btn_zambia_big_s);
+            ao.setImageResource(this.lAK, R.drawable.btn_zambia_big_s);
         } else {
-            ao.setImageResource(this.lFp, R.drawable.btn_zambia_big_n);
+            ao.setImageResource(this.lAK, R.drawable.btn_zambia_big_n);
         }
-        this.lFp.setVisibility(0);
+        this.lAK.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation dmB() {
-        if (this.lFv == null) {
-            this.lFv = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation diJ() {
+        if (this.lAQ == null) {
+            this.lAQ = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.lFv;
+        return this.lAQ;
     }
 }

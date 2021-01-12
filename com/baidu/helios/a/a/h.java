@@ -2,11 +2,11 @@ package com.baidu.helios.a.a;
 
 import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 interface h {
     String a(Context context);
 
-    JSONArray ao(Context context);
+    JSONArray an(Context context);
 
     String c(Context context);
 

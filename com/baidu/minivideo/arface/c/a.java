@@ -4,22 +4,22 @@ import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.minivideo.arface.e;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    private static e clG;
+    private static e cgT;
 
     /* renamed from: com.baidu.minivideo.arface.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0270a {
-        public int clH;
-        public long clI;
-        public long clJ;
-        public long clK;
+    /* loaded from: classes5.dex */
+    public static class C0259a {
+        public int cgU;
+        public long cgV;
+        public long cgW;
+        public long cgX;
         public int fps;
     }
 
     public static void b(e eVar) {
-        clG = eVar;
+        cgT = eVar;
     }
 
     public static void report(String str, JSONObject jSONObject) {
@@ -32,8 +32,8 @@ public final class a {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (clG != null) {
-            clG.report(str, jSONObject2);
+        if (cgT != null) {
+            cgT.report(str, jSONObject2);
         }
     }
 }

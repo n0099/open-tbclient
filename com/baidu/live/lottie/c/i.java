@@ -2,9 +2,9 @@ package com.baidu.live.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class i implements aj<Float> {
-    public static final i bvL = new i();
+    public static final i bqX = new i();
 
     private i() {
     }

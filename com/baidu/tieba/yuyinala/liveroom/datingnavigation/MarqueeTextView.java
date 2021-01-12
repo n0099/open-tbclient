@@ -8,28 +8,28 @@ import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MarqueeTextView extends TextView {
-    private int jAM;
+    private int jwg;
     private String mText;
 
     public MarqueeTextView(Context context) {
         super(context);
-        this.jAM = 217;
+        this.jwg = 217;
         this.mText = "";
         init();
     }
 
     public MarqueeTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jAM = 217;
+        this.jwg = 217;
         this.mText = "";
         init();
     }
 
     public MarqueeTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jAM = 217;
+        this.jwg = 217;
         this.mText = "";
         init();
     }
@@ -41,7 +41,7 @@ public class MarqueeTextView extends TextView {
     }
 
     public void setTextViewWidth(int i) {
-        this.jAM = i;
+        this.jwg = i;
     }
 
     public void setScrollText(String str) {
@@ -51,7 +51,7 @@ public class MarqueeTextView extends TextView {
             TextPaint paint = getPaint();
             float measureText = paint.measureText(str);
             float measureText2 = paint.measureText("m");
-            float dip2px = BdUtilHelper.dip2px(getContext(), this.jAM) - measureText;
+            float dip2px = BdUtilHelper.dip2px(getContext(), this.jwg) - measureText;
             if (dip2px >= 0.0f) {
                 int ceil = (int) Math.ceil(dip2px / measureText2);
                 if (ceil == 0 || dip2px % measureText2 == 0.0f) {

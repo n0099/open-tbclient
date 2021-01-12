@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
     public static Comparator<TrendInfo> mTrendsComparator = new Comparator<TrendInfo>() { // from class: com.kwad.sdk.core.response.model.TrendInfo.1
         /* JADX DEBUG: Method merged with bridge method */

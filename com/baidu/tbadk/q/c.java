@@ -116,9 +116,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String yA = com.baidu.helios.b.ak(TbadkCoreApplication.getInst()).yA();
-        if (!TextUtils.isEmpty(yA)) {
-            httpMessage.addParam("oaid", yA);
+        String uF = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).uF();
+        if (!TextUtils.isEmpty(uF)) {
+            httpMessage.addParam("oaid", uF);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : com.baidu.tbadk.mutiprocess.f.getTbs());
@@ -140,8 +140,8 @@ public class c extends com.baidu.adp.framework.b.d {
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.bzr().bzs()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.bzr().bzt()));
+        if (com.baidu.tbadk.coreExtra.b.a.bvx().bvy()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.bvx().bvz()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -190,23 +190,23 @@ public class c extends com.baidu.adp.framework.b.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.Fh(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.DW(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void f(HttpMessage httpMessage) {
-        ac.a bvW = ac.bvW();
-        if (bvW != null) {
-            httpMessage.addParam("stTime", String.valueOf(bvW.mTime));
-            httpMessage.addParam("stSize", String.valueOf(bvW.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(bvW.mTimesNum));
-            httpMessage.addParam("stMode", String.valueOf(bvW.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(bvW.mMethod));
+        ac.a bsc = ac.bsc();
+        if (bsc != null) {
+            httpMessage.addParam("stTime", String.valueOf(bsc.mTime));
+            httpMessage.addParam("stSize", String.valueOf(bsc.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(bsc.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(bsc.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(bsc.mMethod));
         }
         int errorNumsAndSet = ac.getErrorNumsAndSet(0);
-        if (errorNumsAndSet == 0 && bvW != null) {
-            errorNumsAndSet = bvW.mTimesNum;
+        if (errorNumsAndSet == 0 && bsc != null) {
+            errorNumsAndSet = bsc.mTimesNum;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }

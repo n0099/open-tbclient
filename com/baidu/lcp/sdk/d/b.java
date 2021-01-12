@@ -9,15 +9,15 @@ public class b {
         e.l(context, z);
     }
 
-    public static boolean aI(Context context) {
-        return e.aP(context);
+    public static boolean aH(Context context) {
+        return e.aO(context);
     }
 
     public static void j(Context context, int i) {
         e.n(context, i);
     }
 
-    public static int aJ(Context context) {
-        return e.aQ(context);
+    public static int aI(Context context) {
+        return e.aP(context);
     }
 }

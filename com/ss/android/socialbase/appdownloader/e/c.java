@@ -11,51 +11,51 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13333a = 8;
-    private static volatile c pXZ;
-    private a<Integer, Bitmap> pYa;
+    private static int f13033a = 8;
+    private static volatile c pTy;
+    private a<Integer, Bitmap> pTz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f13336a;
+        final int f13036a;
 
         public a(int i, int i2) {
             super(i2, 0.75f, true);
-            this.f13336a = i;
+            this.f13036a = i;
         }
 
         @Override // java.util.LinkedHashMap
         protected boolean removeEldestEntry(Map.Entry<K, T> entry) {
-            return size() > this.f13336a;
+            return size() > this.f13036a;
         }
     }
 
-    public static c eGU() {
-        if (pXZ == null) {
+    public static c eDe() {
+        if (pTy == null) {
             synchronized (c.class) {
-                if (pXZ == null) {
-                    pXZ = new c();
+                if (pTy == null) {
+                    pTy = new c();
                 }
             }
         }
-        return pXZ;
+        return pTy;
     }
 
     private c() {
-        this.pYa = null;
-        this.pYa = new a<>(f13333a, f13333a / 2);
+        this.pTz = null;
+        this.pTz = new a<>(f13033a, f13033a / 2);
     }
 
     public Bitmap a(int i) {
-        return this.pYa.get(Integer.valueOf(i));
+        return this.pTz.get(Integer.valueOf(i));
     }
 
     public void a(final int i, final String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.ss.android.socialbase.downloader.downloader.b.ut().submit(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.c.1
+            com.ss.android.socialbase.downloader.downloader.b.um().submit(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     InputStream inputStream = null;
@@ -64,7 +64,7 @@ public class c {
                             g b2 = com.ss.android.socialbase.downloader.downloader.b.b(true, 0, str, null);
                             if (b2 != null) {
                                 inputStream = b2.a();
-                                c.this.pYa.put(Integer.valueOf(i), BitmapFactory.decodeStream(inputStream));
+                                c.this.pTz.put(Integer.valueOf(i), BitmapFactory.decodeStream(inputStream));
                                 com.ss.android.socialbase.downloader.m.d.a(inputStream);
                                 return;
                             }

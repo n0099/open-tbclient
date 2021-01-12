@@ -14,17 +14,17 @@ import com.kwai.filedownloader.f.f;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d implements com.kwai.filedownloader.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private SQLiteDatabase f11173a;
+    private SQLiteDatabase f10873a;
 
-    /* loaded from: classes5.dex */
-    public class a implements a.InterfaceC1167a {
+    /* loaded from: classes4.dex */
+    public class a implements a.InterfaceC1150a {
 
         /* renamed from: b  reason: collision with root package name */
-        private final SparseArray<com.kwai.filedownloader.d.c> f11175b;
+        private final SparseArray<com.kwai.filedownloader.d.c> f10875b;
         private b c;
         private final SparseArray<com.kwai.filedownloader.d.c> d;
         private final SparseArray<List<com.kwai.filedownloader.d.a>> e;
@@ -34,36 +34,36 @@ public class d implements com.kwai.filedownloader.b.a {
         }
 
         a(SparseArray<com.kwai.filedownloader.d.c> sparseArray, SparseArray<List<com.kwai.filedownloader.d.a>> sparseArray2) {
-            this.f11175b = new SparseArray<>();
+            this.f10875b = new SparseArray<>();
             this.d = sparseArray;
             this.e = sparseArray2;
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1167a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1150a
         public void a() {
             if (this.c != null) {
                 this.c.b();
             }
-            if (d.this.f11173a == null) {
+            if (d.this.f10873a == null) {
                 return;
             }
-            int size = this.f11175b.size();
+            int size = this.f10875b.size();
             try {
                 if (size >= 0) {
                     try {
-                        d.this.f11173a.beginTransaction();
+                        d.this.f10873a.beginTransaction();
                         for (int i = 0; i < size; i++) {
-                            int keyAt = this.f11175b.keyAt(i);
-                            com.kwai.filedownloader.d.c cVar = this.f11175b.get(keyAt);
-                            d.this.f11173a.delete("ksad_file_download", "_id = ?", new String[]{String.valueOf(keyAt)});
-                            d.this.f11173a.insert("ksad_file_download", null, cVar.p());
+                            int keyAt = this.f10875b.keyAt(i);
+                            com.kwai.filedownloader.d.c cVar = this.f10875b.get(keyAt);
+                            d.this.f10873a.delete("ksad_file_download", "_id = ?", new String[]{String.valueOf(keyAt)});
+                            d.this.f10873a.insert("ksad_file_download", null, cVar.p());
                             if (cVar.n() > 1) {
                                 List<com.kwai.filedownloader.d.a> c = d.this.c(keyAt);
                                 if (c.size() > 0) {
-                                    d.this.f11173a.delete("ksad_file_download_connection", "id = ?", new String[]{String.valueOf(keyAt)});
+                                    d.this.f10873a.delete("ksad_file_download_connection", "id = ?", new String[]{String.valueOf(keyAt)});
                                     for (com.kwai.filedownloader.d.a aVar : c) {
                                         aVar.a(cVar.a());
-                                        d.this.f11173a.insert("ksad_file_download_connection", null, aVar.f());
+                                        d.this.f10873a.insert("ksad_file_download_connection", null, aVar.f());
                                     }
                                 }
                             }
@@ -82,28 +82,28 @@ public class d implements com.kwai.filedownloader.b.a {
                                 }
                             }
                         }
-                        d.this.f11173a.setTransactionSuccessful();
-                        if (d.this.f11173a != null) {
+                        d.this.f10873a.setTransactionSuccessful();
+                        if (d.this.f10873a != null) {
                             try {
-                                d.this.f11173a.endTransaction();
+                                d.this.f10873a.endTransaction();
                             } catch (Exception e) {
                                 d.b(e);
                             }
                         }
                     } catch (SQLiteException e2) {
                         d.b(e2);
-                        if (d.this.f11173a != null) {
+                        if (d.this.f10873a != null) {
                             try {
-                                d.this.f11173a.endTransaction();
+                                d.this.f10873a.endTransaction();
                             } catch (Exception e3) {
                                 d.b(e3);
                             }
                         }
                     } catch (Exception e4) {
                         d.b(e4);
-                        if (d.this.f11173a != null) {
+                        if (d.this.f10873a != null) {
                             try {
-                                d.this.f11173a.endTransaction();
+                                d.this.f10873a.endTransaction();
                             } catch (Exception e5) {
                                 d.b(e5);
                             }
@@ -111,9 +111,9 @@ public class d implements com.kwai.filedownloader.b.a {
                     }
                 }
             } catch (Throwable th) {
-                if (d.this.f11173a != null) {
+                if (d.this.f10873a != null) {
                     try {
-                        d.this.f11173a.endTransaction();
+                        d.this.f10873a.endTransaction();
                     } catch (Exception e6) {
                         d.b(e6);
                     }
@@ -122,16 +122,16 @@ public class d implements com.kwai.filedownloader.b.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1167a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1150a
         public void a(int i, com.kwai.filedownloader.d.c cVar) {
-            this.f11175b.put(i, cVar);
+            this.f10875b.put(i, cVar);
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1167a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1150a
         public void a(com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1167a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1150a
         public void b(com.kwai.filedownloader.d.c cVar) {
             if (this.d != null) {
                 synchronized (this.d) {
@@ -148,18 +148,18 @@ public class d implements com.kwai.filedownloader.b.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class b implements Iterator<com.kwai.filedownloader.d.c> {
 
         /* renamed from: b  reason: collision with root package name */
-        private Cursor f11177b;
+        private Cursor f10877b;
         private final List<Integer> c = new ArrayList();
         private int d;
 
         b() {
-            if (d.this.f11173a != null) {
+            if (d.this.f10873a != null) {
                 try {
-                    this.f11177b = d.this.f11173a.rawQuery("SELECT * FROM ksad_file_download", null);
+                    this.f10877b = d.this.f10873a.rawQuery("SELECT * FROM ksad_file_download", null);
                 } catch (SQLiteException e) {
                     d.b(e);
                 } catch (Exception e2) {
@@ -172,26 +172,26 @@ public class d implements com.kwai.filedownloader.b.a {
         @Override // java.util.Iterator
         /* renamed from: a */
         public com.kwai.filedownloader.d.c next() {
-            com.kwai.filedownloader.d.c b2 = d.b(this.f11177b);
+            com.kwai.filedownloader.d.c b2 = d.b(this.f10877b);
             this.d = b2.a();
             return b2;
         }
 
         void b() {
-            if (d.this.f11173a == null || this.f11177b == null) {
+            if (d.this.f10873a == null || this.f10877b == null) {
                 return;
             }
-            this.f11177b.close();
+            this.f10877b.close();
             if (this.c.isEmpty()) {
                 return;
             }
             String join = TextUtils.join(", ", this.c);
-            if (com.kwai.filedownloader.f.d.f11228a) {
+            if (com.kwai.filedownloader.f.d.f10928a) {
                 com.kwai.filedownloader.f.d.c(this, "delete %s", join);
             }
             try {
-                d.this.f11173a.execSQL(f.a("DELETE FROM %s WHERE %s IN (%s);", "ksad_file_download", IMConstants.MSG_ROW_ID, join));
-                d.this.f11173a.execSQL(f.a("DELETE FROM %s WHERE %s IN (%s);", "ksad_file_download_connection", "id", join));
+                d.this.f10873a.execSQL(f.a("DELETE FROM %s WHERE %s IN (%s);", "ksad_file_download", IMConstants.MSG_ROW_ID, join));
+                d.this.f10873a.execSQL(f.a("DELETE FROM %s WHERE %s IN (%s);", "ksad_file_download_connection", "id", join));
             } catch (SQLiteException e) {
                 d.b(e);
             } catch (Exception e2) {
@@ -201,8 +201,8 @@ public class d implements com.kwai.filedownloader.b.a {
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.f11177b != null) {
-                return this.f11177b.moveToNext();
+            if (this.f10877b != null) {
+                return this.f10877b.moveToNext();
             }
             return false;
         }
@@ -215,16 +215,16 @@ public class d implements com.kwai.filedownloader.b.a {
 
     public d() {
         try {
-            this.f11173a = new e(com.kwai.filedownloader.f.c.a()).getWritableDatabase();
+            this.f10873a = new e(com.kwai.filedownloader.f.c.a()).getWritableDatabase();
         } catch (SQLiteException e) {
             b(e);
         }
     }
 
     private void a(int i, ContentValues contentValues) {
-        if (this.f11173a != null) {
+        if (this.f10873a != null) {
             try {
-                this.f11173a.update("ksad_file_download", contentValues, "_id = ? ", new String[]{String.valueOf(i)});
+                this.f10873a.update("ksad_file_download", contentValues, "_id = ? ", new String[]{String.valueOf(i)});
             } catch (SQLiteException e) {
                 b(e);
             } catch (Exception e2) {
@@ -267,20 +267,20 @@ public class d implements com.kwai.filedownloader.b.a {
         }
     }
 
-    public a.InterfaceC1167a a(SparseArray<com.kwai.filedownloader.d.c> sparseArray, SparseArray<List<com.kwai.filedownloader.d.a>> sparseArray2) {
+    public a.InterfaceC1150a a(SparseArray<com.kwai.filedownloader.d.c> sparseArray, SparseArray<List<com.kwai.filedownloader.d.a>> sparseArray2) {
         return new a(sparseArray, sparseArray2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a() {
-        if (this.f11173a != null) {
+        if (this.f10873a != null) {
             try {
-                this.f11173a.delete("ksad_file_download", null, null);
+                this.f10873a.delete("ksad_file_download", null, null);
             } catch (SQLiteException e) {
                 b(e);
             }
             try {
-                this.f11173a.delete("ksad_file_download_connection", null, null);
+                this.f10873a.delete("ksad_file_download_connection", null, null);
             } catch (SQLiteException e2) {
                 b(e2);
             }
@@ -293,13 +293,13 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2) {
-        if (this.f11173a == null) {
+        if (this.f10873a == null) {
             return;
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("connectionCount", Integer.valueOf(i2));
         try {
-            this.f11173a.update("ksad_file_download", contentValues, "_id = ? ", new String[]{Integer.toString(i)});
+            this.f10873a.update("ksad_file_download", contentValues, "_id = ? ", new String[]{Integer.toString(i)});
         } catch (SQLiteException e) {
             b(e);
         } catch (Exception e2) {
@@ -309,13 +309,13 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2, long j) {
-        if (this.f11173a == null) {
+        if (this.f10873a == null) {
             return;
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("currentOffset", Long.valueOf(j));
         try {
-            this.f11173a.update("ksad_file_download_connection", contentValues, "id = ? AND connectionIndex = ?", new String[]{Integer.toString(i), Integer.toString(i2)});
+            this.f10873a.update("ksad_file_download_connection", contentValues, "id = ? AND connectionIndex = ?", new String[]{Integer.toString(i), Integer.toString(i2)});
         } catch (SQLiteException e) {
             b(e);
         } catch (Exception e2) {
@@ -370,11 +370,11 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.a aVar) {
-        if (aVar == null || this.f11173a == null) {
+        if (aVar == null || this.f10873a == null) {
             return;
         }
         try {
-            this.f11173a.insert("ksad_file_download_connection", null, aVar.f());
+            this.f10873a.insert("ksad_file_download_connection", null, aVar.f());
         } catch (SQLiteException e) {
             b(e);
         } catch (Exception e2) {
@@ -384,7 +384,7 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.c cVar) {
-        if (this.f11173a == null) {
+        if (this.f10873a == null) {
             return;
         }
         if (cVar == null) {
@@ -393,7 +393,7 @@ public class d implements com.kwai.filedownloader.b.a {
             b(cVar);
         } else {
             try {
-                this.f11173a.update("ksad_file_download", cVar.p(), "_id = ? ", new String[]{String.valueOf(cVar.a())});
+                this.f10873a.update("ksad_file_download", cVar.p(), "_id = ? ", new String[]{String.valueOf(cVar.a())});
             } catch (SQLiteException e) {
                 b(e);
             } catch (Exception e2) {
@@ -403,7 +403,7 @@ public class d implements com.kwai.filedownloader.b.a {
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1167a b() {
+    public a.InterfaceC1150a b() {
         return new a(this);
     }
 
@@ -413,9 +413,9 @@ public class d implements com.kwai.filedownloader.b.a {
         Cursor cursor;
         com.kwai.filedownloader.d.c cVar = null;
         try {
-            if (this.f11173a != null) {
+            if (this.f10873a != null) {
                 try {
-                    cursor = this.f11173a.rawQuery(f.a("SELECT * FROM %s WHERE %s = ?", "ksad_file_download", IMConstants.MSG_ROW_ID), new String[]{Integer.toString(i)});
+                    cursor = this.f10873a.rawQuery(f.a("SELECT * FROM %s WHERE %s = ?", "ksad_file_download", IMConstants.MSG_ROW_ID), new String[]{Integer.toString(i)});
                     try {
                         if (cursor.moveToNext()) {
                             cVar = b(cursor);
@@ -467,9 +467,9 @@ public class d implements com.kwai.filedownloader.b.a {
     }
 
     public void b(com.kwai.filedownloader.d.c cVar) {
-        if (this.f11173a != null) {
+        if (this.f10873a != null) {
             try {
-                this.f11173a.insert("ksad_file_download", null, cVar.p());
+                this.f10873a.insert("ksad_file_download", null, cVar.p());
             } catch (SQLiteException e) {
                 b(e);
             } catch (Exception e2) {
@@ -481,11 +481,11 @@ public class d implements com.kwai.filedownloader.b.a {
     @Override // com.kwai.filedownloader.b.a
     public List<com.kwai.filedownloader.d.a> c(int i) {
         ArrayList arrayList = new ArrayList();
-        if (this.f11173a != null) {
+        if (this.f10873a != null) {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = this.f11173a.rawQuery(f.a("SELECT * FROM %s WHERE %s = ?", "ksad_file_download_connection", "id"), new String[]{Integer.toString(i)});
+                    cursor = this.f10873a.rawQuery(f.a("SELECT * FROM %s WHERE %s = ?", "ksad_file_download_connection", "id"), new String[]{Integer.toString(i)});
                     while (cursor.moveToNext()) {
                         com.kwai.filedownloader.d.a aVar = new com.kwai.filedownloader.d.a();
                         aVar.a(i);
@@ -529,11 +529,11 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void d(int i) {
-        if (this.f11173a == null) {
+        if (this.f10873a == null) {
             return;
         }
         try {
-            this.f11173a.execSQL("DELETE FROM ksad_file_download_connection WHERE id = " + i);
+            this.f10873a.execSQL("DELETE FROM ksad_file_download_connection WHERE id = " + i);
         } catch (SQLiteException e) {
             b(e);
         } catch (Exception e2) {
@@ -543,11 +543,11 @@ public class d implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public boolean e(int i) {
-        if (this.f11173a == null) {
+        if (this.f10873a == null) {
             return false;
         }
         try {
-            return this.f11173a.delete("ksad_file_download", "_id = ?", new String[]{String.valueOf(i)}) != 0;
+            return this.f10873a.delete("ksad_file_download", "_id = ?", new String[]{String.valueOf(i)}) != 0;
         } catch (SQLiteException e) {
             b(e);
             return false;

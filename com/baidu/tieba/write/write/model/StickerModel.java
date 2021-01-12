@@ -10,14 +10,14 @@ import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StickerModel extends BdBaseModel {
-    private a ohp;
-    private com.baidu.adp.framework.listener.a ohq;
+    private a ocJ;
+    private com.baidu.adp.framework.listener.a ocK;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.ohq = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.ocK = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,18 +28,18 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.ohp != null) {
-                            StickerModel.this.ohp.go(list);
+                        if (StickerModel.this.ocJ != null) {
+                            StickerModel.this.ocJ.go(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.ohq);
+        registerListener(this.ocK);
     }
 
     public void a(a aVar) {
-        this.ohp = aVar;
+        this.ocJ = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -1,5 +1,5 @@
 package com.baidu.swan.menu;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void a(BaseMenuView baseMenuView);
 }

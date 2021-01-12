@@ -2,15 +2,15 @@ package com.kwad.sdk.glide.load.engine.bitmap_recycle;
 
 import com.kwad.sdk.glide.load.engine.bitmap_recycle.m;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 abstract class d<T extends m> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Queue<T> f10491a = com.kwad.sdk.glide.g.k.a(20);
+    private final Queue<T> f10191a = com.kwad.sdk.glide.g.k.a(20);
 
     public void a(T t) {
-        if (this.f10491a.size() < 20) {
-            this.f10491a.offer(t);
+        if (this.f10191a.size() < 20) {
+            this.f10191a.offer(t);
         }
     }
 
@@ -18,7 +18,7 @@ abstract class d<T extends m> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public T c() {
-        T poll = this.f10491a.poll();
+        T poll = this.f10191a.poll();
         return poll == null ? b() : poll;
     }
 }

@@ -27,49 +27,49 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SigleRecordsFragment extends BaseFragment {
-    private BdListView WV;
-    private TextView frf;
-    private ConsumptionRecordsActivity iBV;
-    private ConsumptionRecordsModel iBW;
-    private c iBZ;
-    private TbImageView iCa;
+    private BdListView WT;
+    private TextView fmv;
+    private ConsumptionRecordsActivity ixo;
+    private ConsumptionRecordsModel ixp;
+    private c ixs;
+    private TbImageView ixt;
     private NoDataView mNoDataView;
     private LinearLayout mRootView;
     private int type;
-    private boolean iBX = false;
-    private boolean iBY = false;
+    private boolean ixq = false;
+    private boolean ixr = false;
     private g mPullView = null;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iBV = (ConsumptionRecordsActivity) getBaseFragmentActivity();
-        this.iBW = new ConsumptionRecordsModel(getUniqueId());
-        this.iBW.setType(this.type);
+        this.ixo = (ConsumptionRecordsActivity) getBaseFragmentActivity();
+        this.ixp = new ConsumptionRecordsModel(getUniqueId());
+        this.ixp.setType(this.type);
         if (this.type == 3) {
-            this.iBW.setShowMember(1);
+            this.ixp.setShowMember(1);
         } else {
-            this.iBW.setShowMember(0);
+            this.ixp.setShowMember(0);
         }
-        this.iBW.a(new ConsumptionRecordsModel.a() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.1
+        this.ixp.a(new ConsumptionRecordsModel.a() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.1
             @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.a
             public void a(int i, String str, ArrayList<a> arrayList, b bVar, boolean z) {
-                SigleRecordsFragment.this.iBY = z;
+                SigleRecordsFragment.this.ixr = z;
                 SigleRecordsFragment.this.hideLoadingView(SigleRecordsFragment.this.mRootView);
-                SigleRecordsFragment.this.WV.completePullRefresh();
+                SigleRecordsFragment.this.WT.completePullRefresh();
                 if (i == 0) {
-                    SigleRecordsFragment.this.iBX = true;
+                    SigleRecordsFragment.this.ixq = true;
                     if (arrayList != null && arrayList.size() > 0) {
-                        SigleRecordsFragment.this.caZ();
+                        SigleRecordsFragment.this.bXh();
                         if (z) {
-                            SigleRecordsFragment.this.frf.setText(R.string.loading_more_now);
+                            SigleRecordsFragment.this.fmv.setText(R.string.loading_more_now);
                         } else {
-                            SigleRecordsFragment.this.frf.setText(R.string.no_more_data);
+                            SigleRecordsFragment.this.fmv.setText(R.string.no_more_data);
                         }
-                        SigleRecordsFragment.this.iBZ.ar(arrayList);
-                        SigleRecordsFragment.this.iBZ.notifyDataSetChanged();
+                        SigleRecordsFragment.this.ixs.am(arrayList);
+                        SigleRecordsFragment.this.ixs.notifyDataSetChanged();
                         return;
                     } else if (bVar != null) {
                         SigleRecordsFragment.this.a(bVar);
@@ -80,24 +80,24 @@ public class SigleRecordsFragment extends BaseFragment {
                     }
                 }
                 SigleRecordsFragment.this.showToast(str);
-                if (!SigleRecordsFragment.this.iBX) {
+                if (!SigleRecordsFragment.this.ixq) {
                     SigleRecordsFragment.this.showNoDataView();
                 } else if (z) {
-                    SigleRecordsFragment.this.frf.setText(R.string.load_more);
+                    SigleRecordsFragment.this.fmv.setText(R.string.load_more);
                 } else {
-                    SigleRecordsFragment.this.frf.setText(R.string.no_more_data);
+                    SigleRecordsFragment.this.fmv.setText(R.string.no_more_data);
                 }
-                SigleRecordsFragment.this.iBX = true;
+                SigleRecordsFragment.this.ixq = true;
             }
 
             @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.a
-            public void cvU() {
-                SigleRecordsFragment.this.iBX = true;
+            public void csc() {
+                SigleRecordsFragment.this.ixq = true;
                 SigleRecordsFragment.this.hideLoadingView(SigleRecordsFragment.this.mRootView);
-                if (SigleRecordsFragment.this.iBY) {
-                    SigleRecordsFragment.this.frf.setText(R.string.load_more);
+                if (SigleRecordsFragment.this.ixr) {
+                    SigleRecordsFragment.this.fmv.setText(R.string.load_more);
                 } else {
-                    SigleRecordsFragment.this.frf.setText(R.string.no_more_data);
+                    SigleRecordsFragment.this.fmv.setText(R.string.no_more_data);
                 }
             }
         });
@@ -106,28 +106,28 @@ public class SigleRecordsFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = (LinearLayout) layoutInflater.inflate(R.layout.single_fragment_layout, (ViewGroup) null);
-        this.WV = (BdListView) this.mRootView.findViewById(R.id.records_list_view);
-        this.mPullView = new g(this.iBV.getPageContext());
-        this.iBZ = new c(this.iBV.getPageContext(), this.type);
-        this.WV.setAdapter((ListAdapter) this.iBZ);
-        this.WV.setPullRefresh(this.mPullView);
-        TextView textView = new TextView(this.iBV.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.iBV.getActivity(), R.dimen.ds176)));
-        this.WV.addHeaderView(textView, 0);
+        this.WT = (BdListView) this.mRootView.findViewById(R.id.records_list_view);
+        this.mPullView = new g(this.ixo.getPageContext());
+        this.ixs = new c(this.ixo.getPageContext(), this.type);
+        this.WT.setAdapter((ListAdapter) this.ixs);
+        this.WT.setPullRefresh(this.mPullView);
+        TextView textView = new TextView(this.ixo.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.ixo.getActivity(), R.dimen.ds176)));
+        this.WT.addHeaderView(textView, 0);
         this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.2
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                SigleRecordsFragment.this.iBW.cvS();
+                SigleRecordsFragment.this.ixp.csa();
             }
         });
-        this.WV.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.3
+        this.WT.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.3
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                SigleRecordsFragment.this.iBW.cvT();
+                SigleRecordsFragment.this.ixp.csb();
             }
         });
-        this.frf = (TextView) layoutInflater.inflate(R.layout.load_more_view, (ViewGroup) null);
-        this.WV.addFooterView(this.frf);
+        this.fmv = (TextView) layoutInflater.inflate(R.layout.load_more_view, (ViewGroup) null);
+        this.WT.addFooterView(this.fmv);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
@@ -139,8 +139,8 @@ public class SigleRecordsFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (!this.iBX) {
-            this.iBW.cvS();
+        if (!this.ixq) {
+            this.ixp.csa();
             showLoadingView(this.mRootView, true, 400);
         }
     }
@@ -148,11 +148,11 @@ public class SigleRecordsFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iBW != null) {
-            this.iBW.destroy();
+        if (this.ixp != null) {
+            this.ixp.destroy();
         }
         hideLoadingView(this.mRootView);
-        this.WV.completePullRefresh();
+        this.WT.completePullRefresh();
         this.mPullView = null;
         this.mNoDataView = null;
     }
@@ -163,18 +163,18 @@ public class SigleRecordsFragment extends BaseFragment {
         if (this.mRootView != null) {
             ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
-        if (this.frf != null) {
-            ao.setViewTextColor(this.frf, R.color.CAM_X0108);
+        if (this.fmv != null) {
+            ao.setViewTextColor(this.fmv, R.color.CAM_X0108);
         }
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.iBZ != null && this.WV != null) {
-            ao.setBackgroundColor(this.WV, R.color.CAM_X0204);
-            this.iBZ.notifyDataSetChanged();
+        if (this.ixs != null && this.WT != null) {
+            ao.setBackgroundColor(this.WT, R.color.CAM_X0204);
+            this.ixs.notifyDataSetChanged();
         }
         if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
-            this.mNoDataView.onChangeSkinType(this.iBV.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.ixo.getPageContext(), i);
         }
     }
 
@@ -196,12 +196,12 @@ public class SigleRecordsFragment extends BaseFragment {
                 break;
         }
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.iBV.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.iBV.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.ra(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.ixo.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.ixo.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.pu(i), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dY(null, getResources().getString(i)));
-        this.mNoDataView.onChangeSkinType(this.iBV.getPageContext(), TbadkApplication.getInst().getSkinType());
-        cwb();
-        cba();
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dX(null, getResources().getString(i)));
+        this.mNoDataView.onChangeSkinType(this.ixo.getPageContext(), TbadkApplication.getInst().getSkinType());
+        csj();
+        bXi();
         this.mNoDataView.setVisibility(0);
     }
 
@@ -214,43 +214,43 @@ public class SigleRecordsFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final b bVar) {
         if (bVar != null && this.mRootView != null) {
-            if (this.iCa == null) {
-                this.iCa = new TbImageView(getActivity());
-                this.iCa.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-                this.iCa.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            if (this.ixt == null) {
+                this.ixt = new TbImageView(getActivity());
+                this.ixt.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+                this.ixt.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
-            this.iCa.startLoad(bVar.getIconUrl(), 10, false);
-            this.iCa.setVisibility(0);
-            this.iCa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.4
+            this.ixt.startLoad(bVar.getIconUrl(), 10, false);
+            this.ixt.setVisibility(0);
+            this.ixt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    be.bwv().b(SigleRecordsFragment.this.getPageContext(), new String[]{bVar.getLinkUrl()});
+                    be.bsB().b(SigleRecordsFragment.this.getPageContext(), new String[]{bVar.getLinkUrl()});
                 }
             });
-            cba();
+            bXi();
             hideNoDataView();
-            this.mRootView.addView(this.iCa);
+            this.mRootView.addView(this.ixt);
         }
     }
 
-    private void cwb() {
-        if (this.iCa != null) {
-            this.mRootView.removeView(this.iCa);
+    private void csj() {
+        if (this.ixt != null) {
+            this.mRootView.removeView(this.ixt);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caZ() {
+    public void bXh() {
         hideNoDataView();
-        cwb();
-        if (this.WV != null) {
-            this.WV.setVisibility(0);
+        csj();
+        if (this.WT != null) {
+            this.WT.setVisibility(0);
         }
     }
 
-    private void cba() {
-        if (this.WV != null) {
-            this.WV.setVisibility(8);
+    private void bXi() {
+        if (this.WT != null) {
+            this.WT.setVisibility(8);
         }
     }
 }

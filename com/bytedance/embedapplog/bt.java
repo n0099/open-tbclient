@@ -8,15 +8,15 @@ import org.json.JSONObject;
 public class bt extends bv {
 
     /* renamed from: b  reason: collision with root package name */
-    private long f6112b;
-    private final cn pgH;
-    private final m pht;
+    private long f5812b;
+    private final m pcR;
+    private final cn pce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(Application application, m mVar, cn cnVar) {
         super(application);
-        this.pht = mVar;
-        this.pgH = cnVar;
+        this.pcR = mVar;
+        this.pce = cnVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -26,32 +26,32 @@ public class bt extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        long s = this.pgH.s();
-        return (s >= 600000 ? s : 600000L) + this.f6112b;
+        long s = this.pce.s();
+        return (s >= 600000 ? s : 600000L) + this.f5812b;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epx() {
+    long[] elB() {
         return cc.c;
     }
 
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
-        JSONObject a2 = this.pht.a();
-        if (this.pht.o() != 0 && a2 != null) {
+        JSONObject a2 = this.pcR.a();
+        if (this.pcR.o() != 0 && a2 != null) {
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.pht.a());
+            jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.pcR.a());
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("_gen_time", currentTimeMillis);
-            JSONObject z = aa.z(aa.a(ab.a(this.f6114a, this.pht.a(), aa.ept().epF(), true, b.eoP()), aa.c), jSONObject);
+            JSONObject z = aa.z(aa.a(ab.a(this.f5814a, this.pcR.a(), aa.elx().elJ(), true, b.ekT()), aa.c), jSONObject);
             if (z != null) {
-                b.eoW().onRemoteAbConfigGet(av.a(b.eoR(), z) ? false : true, z);
-                if (au.f6086b) {
+                b.ela().onRemoteAbConfigGet(av.a(b.ekV(), z) ? false : true, z);
+                if (au.f5786b) {
                     au.a("getAbConfig " + z, null);
                 }
-                this.pht.a(z);
-                this.f6112b = currentTimeMillis;
+                this.pcR.a(z);
+                this.f5812b = currentTimeMillis;
                 return true;
             }
         }

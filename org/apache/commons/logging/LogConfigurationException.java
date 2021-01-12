@@ -1,6 +1,6 @@
 package org.apache.commons.logging;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LogConfigurationException extends RuntimeException {
     protected Throwable cause;
 

@@ -14,7 +14,7 @@ import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class ComponentLayer<T extends ViewGroup> extends AbsLayer implements View.OnClickListener {
     protected ArrayList<AbsComponent> mComponents;
     protected T mContainer;
@@ -119,8 +119,9 @@ public abstract class ComponentLayer<T extends ViewGroup> extends AbsLayer imple
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.player.layer.AbsLayer
-    protected void handleLayerMessage(Message message) {
+    public void handleLayerMessage(Message message) {
         super.handleLayerMessage(message);
         Iterator<AbsComponent> it = this.mComponents.iterator();
         while (it.hasNext()) {

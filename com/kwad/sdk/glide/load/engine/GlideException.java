@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class GlideException extends Exception {
     private static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
     private static final long serialVersionUID = 1;
@@ -23,17 +23,17 @@ public final class GlideException extends Exception {
     private com.kwad.sdk.glide.load.c key;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements Appendable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Appendable f10446a;
+        private final Appendable f10146a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f10447b = true;
+        private boolean f10147b = true;
 
         a(Appendable appendable) {
-            this.f10446a = appendable;
+            this.f10146a = appendable;
         }
 
         @NonNull
@@ -43,12 +43,12 @@ public final class GlideException extends Exception {
 
         @Override // java.lang.Appendable
         public Appendable append(char c) {
-            if (this.f10447b) {
-                this.f10447b = false;
-                this.f10446a.append("  ");
+            if (this.f10147b) {
+                this.f10147b = false;
+                this.f10146a.append("  ");
             }
-            this.f10447b = c == '\n';
-            this.f10446a.append(c);
+            this.f10147b = c == '\n';
+            this.f10146a.append(c);
             return this;
         }
 
@@ -62,15 +62,15 @@ public final class GlideException extends Exception {
         public Appendable append(@Nullable CharSequence charSequence, int i, int i2) {
             boolean z = false;
             CharSequence a2 = a(charSequence);
-            if (this.f10447b) {
-                this.f10447b = false;
-                this.f10446a.append("  ");
+            if (this.f10147b) {
+                this.f10147b = false;
+                this.f10146a.append("  ");
             }
             if (a2.length() > 0 && a2.charAt(i2 - 1) == '\n') {
                 z = true;
             }
-            this.f10447b = z;
-            this.f10446a.append(a2, i, i2);
+            this.f10147b = z;
+            this.f10146a.append(a2, i, i2);
             return this;
         }
     }

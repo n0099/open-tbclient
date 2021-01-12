@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NotificationCompatJellybean {
     static final String EXTRA_ALLOW_GENERATED_REPLIES = "android.support.allowGeneratedReplies";
     static final String EXTRA_DATA_ONLY_REMOTE_INPUTS = "android.support.dataRemoteInputs";

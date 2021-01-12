@@ -17,12 +17,12 @@ import com.kwad.sdk.api.KsRewardVideoAd;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class aw extends ac {
-    public AdRipper.RippedKSAd pJF;
-    public KsRewardVideoAd pJR;
+    public AdRipper.RippedKSAd pFe;
+    public KsRewardVideoAd pFq;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class b implements KsRewardVideoAd.RewardAdInteractionListener {
         public b() {
         }
@@ -31,9 +31,9 @@ public class aw extends ac {
         public void onAdClicked() {
             m.a("KSFullscreenVideoAd 激励视频广告点击");
             aw awVar = aw.this;
-            w wVar = awVar.pJD;
+            w wVar = awVar.pFc;
             if (wVar != null) {
-                ((ag) wVar).a(awVar.f8043a.f8060a);
+                ((ag) wVar).a(awVar.f7743a.f7760a);
             }
         }
 
@@ -41,9 +41,9 @@ public class aw extends ac {
         public void onPageDismiss() {
             m.a("KSFullscreenVideoAd 激励视频广告点击");
             aw awVar = aw.this;
-            w wVar = awVar.pJD;
+            w wVar = awVar.pFc;
             if (wVar != null) {
-                ((ag) wVar).d(awVar.f8043a.f8060a);
+                ((ag) wVar).d(awVar.f7743a.f7760a);
             }
         }
 
@@ -51,27 +51,27 @@ public class aw extends ac {
         public void onRewardVerify() {
             m.a("KSFullscreenVideoAd 激励视频广告获取激励");
             aw awVar = aw.this;
-            w wVar = awVar.pJD;
+            w wVar = awVar.pFc;
             if (wVar != null) {
-                String str = awVar.f8043a.f8060a;
+                String str = awVar.f7743a.f7760a;
                 ag agVar = (ag) wVar;
                 if (agVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 快手广告 onRewardedVideo，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = agVar.pJv;
+                FunAdInteractionListener funAdInteractionListener = agVar.pEU;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onRewardedVideo(agVar.pJx.pJf.f8058a);
+                    funAdInteractionListener.onRewardedVideo(agVar.pEW.pEE.f7758a);
                 }
-                d.b bVar = d.pIU;
-                ((d.a) bVar).e(agVar.f8047b, agVar.pJw.f8061b, str);
+                d.b bVar = d.pEt;
+                ((d.a) bVar).e(agVar.f7747b, agVar.pEV.f7761b, str);
             }
         }
 
         @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
         public void onVideoPlayEnd() {
             m.a("KSFullscreenVideoAd 激励视频广告播放完成");
-            w wVar = aw.this.pJD;
+            w wVar = aw.this.pFc;
             if (wVar != null) {
                 ag agVar = (ag) wVar;
                 m.a("KSAdLoaderFactory onVideoPlayEnd");
@@ -82,9 +82,9 @@ public class aw extends ac {
         public void onVideoPlayError(int i, int i2) {
             m.a("KSFullscreenVideoAd 激励视频广告播放出错");
             aw awVar = aw.this;
-            w wVar = awVar.pJD;
+            w wVar = awVar.pFc;
             if (wVar != null) {
-                ((ag) wVar).e(awVar.f8043a.f8060a);
+                ((ag) wVar).e(awVar.f7743a.f7760a);
             }
         }
 
@@ -92,16 +92,16 @@ public class aw extends ac {
         public void onVideoPlayStart() {
             m.a("KSFullscreenVideoAd 激励视频广告播放开始");
             aw awVar = aw.this;
-            w wVar = awVar.pJD;
+            w wVar = awVar.pFc;
             if (wVar != null) {
-                String str = awVar.f8043a.f8060a;
+                String str = awVar.f7743a.f7760a;
                 ag agVar = (ag) wVar;
                 m.a("KSAdLoaderFactory onVideoPlayStart");
             }
             aw awVar2 = aw.this;
-            w wVar2 = awVar2.pJD;
+            w wVar2 = awVar2.pFc;
             if (wVar2 != null) {
-                ((ag) wVar2).c(awVar2.f8043a.f8060a);
+                ((ag) wVar2).c(awVar2.f7743a.f7760a);
             }
         }
     }
@@ -113,24 +113,24 @@ public class aw extends ac {
     @Override // com.fun.ad.ac
     public void a() {
         super.a();
-        this.pJR = null;
-        this.pJF = null;
+        this.pFq = null;
+        this.pFe = null;
     }
 
     @Override // com.fun.ad.ac
-    public FunRippedAd eBP() {
-        KsRewardVideoAd ksRewardVideoAd = this.pJR;
+    public FunRippedAd exX() {
+        KsRewardVideoAd ksRewardVideoAd = this.pFq;
         if (ksRewardVideoAd == null) {
             return null;
         }
-        if (this.pJF == null) {
-            this.pJF = AdRipper.getRippedKSAd((Object) ksRewardVideoAd, false);
+        if (this.pFe == null) {
+            this.pFe = AdRipper.getRippedKSAd((Object) ksRewardVideoAd, false);
         }
         FunRippedAd funRippedAd = new FunRippedAd();
-        AdRipper.RippedKSAd rippedKSAd = this.pJF;
+        AdRipper.RippedKSAd rippedKSAd = this.pFe;
         funRippedAd.description = rippedKSAd.adDescription;
         funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
-        AdRipper.RippedKSAd rippedKSAd2 = this.pJF;
+        AdRipper.RippedKSAd rippedKSAd2 = this.pFe;
         funRippedAd.uniqueId = rippedKSAd2.adDescription;
         funRippedAd.appName = rippedKSAd2.appName;
         funRippedAd.appPackageName = rippedKSAd2.appPackageName;
@@ -142,17 +142,17 @@ public class aw extends ac {
     @Override // com.fun.ad.ac
     public void a(Context context, FunAdSlot funAdSlot, z zVar) {
         super.a(context, funAdSlot, zVar);
-        if (!this.f8044b) {
-            this.f8044b = true;
-            KsAdSDK.getLoadManager().loadRewardVideoAd(new KsScene.Builder(Long.parseLong(this.f8043a.f8060a)).adNum(1).build(), new a());
-            z zVar2 = this.pJC;
+        if (!this.f7744b) {
+            this.f7744b = true;
+            KsAdSDK.getLoadManager().loadRewardVideoAd(new KsScene.Builder(Long.parseLong(this.f7743a.f7760a)).adNum(1).build(), new a());
+            z zVar2 = this.pFb;
             if (zVar2 != null) {
-                ((ad) zVar2).a(this.f8043a.f8060a);
+                ((ad) zVar2).a(this.f7743a.f7760a);
             }
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements KsLoadManager.RewardVideoAdListener {
         public a() {
         }
@@ -161,25 +161,25 @@ public class aw extends ac {
         public void onError(int i, String str) {
             m.a("KSRewardVideoAd onError code: " + i + ", message: " + str);
             aw awVar = aw.this;
-            awVar.f8044b = false;
-            z zVar = awVar.pJC;
+            awVar.f7744b = false;
+            z zVar = awVar.pFb;
             if (zVar != null) {
-                ((ad) zVar).a(awVar.f8043a.f8060a, i, str);
+                ((ad) zVar).a(awVar.f7743a.f7760a, i, str);
             }
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
         public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
             m.a("KSRewardVideoAd onNativeAdLoad");
-            aw.this.f8044b = false;
+            aw.this.f7744b = false;
             if (list != null && !list.isEmpty()) {
-                aw.this.pJR = list.get(0);
+                aw.this.pFq = list.get(0);
                 aw awVar = aw.this;
-                z zVar = awVar.pJC;
+                z zVar = awVar.pFb;
                 if (zVar != null) {
-                    ((ad) zVar).b(awVar.f8043a.f8060a);
+                    ((ad) zVar).b(awVar.f7743a.f7760a);
                 }
-                AdRipper.ripKS(aw.this.pJR);
+                AdRipper.ripKS(aw.this.pFq);
                 return;
             }
             m.a("KSFullscreenAd onNativeAdLoad error: adList is null or empty");
@@ -189,16 +189,16 @@ public class aw extends ac {
     @Override // com.fun.ad.ac
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         super.a(activity, funAdView, wVar);
-        KsRewardVideoAd ksRewardVideoAd = this.pJR;
+        KsRewardVideoAd ksRewardVideoAd = this.pFq;
         if (ksRewardVideoAd != null) {
             if (ksRewardVideoAd.isAdEnable()) {
-                this.pJR.setRewardAdInteractionListener(new b());
-                this.pJR.showRewardVideoAd(activity, this.f8043a.g == 1 ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
+                this.pFq.setRewardAdInteractionListener(new b());
+                this.pFq.showRewardVideoAd(activity, this.f7743a.g == 1 ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
                 return;
             }
             m.a("暂无可用激励视频广告，请等待缓存加载或者重新刷新");
             if (wVar != null) {
-                ((ag) wVar).e(this.f8043a.f8060a);
+                ((ag) wVar).e(this.f7743a.f7760a);
             }
         }
     }

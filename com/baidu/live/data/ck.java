@@ -3,108 +3,108 @@ package com.baidu.live.data;
 import android.graphics.Color;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ck {
-    private String aTA;
-    private String aTB;
-    private String aTC;
-    public boolean aTD;
-    private String aTE;
-    public int aTF;
-    public int aTG;
-    private int[] aTH;
-    private int[] aTI;
-    private int[] aTJ;
-    private int[] aTK;
-    private int[] aTL;
-    private String aTv;
-    private String aTw;
-    private String aTx;
-    private String aTy;
-    private String aTz;
+    private String aOI;
+    private String aOJ;
+    private String aOK;
+    private String aOL;
+    private String aOM;
+    private String aON;
+    private String aOO;
+    private String aOP;
+    public boolean aOQ;
+    private String aOR;
+    public int aOS;
+    public int aOT;
+    private int[] aOU;
+    private int[] aOV;
+    private int[] aOW;
+    private int[] aOX;
+    private int[] aOY;
     public String id;
     public String name;
     public int price;
     public int type;
 
     public ck() {
-        this.aTD = false;
+        this.aOQ = false;
     }
 
     public ck(int i, JSONObject jSONObject) {
         int i2;
-        this.aTD = false;
+        this.aOQ = false;
         this.type = i;
         this.id = jSONObject.optString("id");
         this.price = jSONObject.optInt("price");
         this.name = jSONObject.optString("name");
-        this.aTv = jSONObject.optString("barrage_start_color");
-        this.aTw = jSONObject.optString("barrage_end_color");
-        this.aTx = jSONObject.optString("portrait_start_color");
-        this.aTy = jSONObject.optString("portrait_end_color");
-        this.aTz = jSONObject.optString("portrait_frame_start_color");
-        this.aTA = jSONObject.optString("portrait_frame_end_color");
-        this.aTB = jSONObject.optString("btn_start_color");
-        this.aTC = jSONObject.optString("btn_end_color");
-        this.aTE = jSONObject.optString("btn_border_color");
-        this.aTF = jSONObject.optInt("btn_border_transprancy");
-        if (!StringUtils.isNull(this.aTE)) {
-            this.aTD = true;
+        this.aOI = jSONObject.optString("barrage_start_color");
+        this.aOJ = jSONObject.optString("barrage_end_color");
+        this.aOK = jSONObject.optString("portrait_start_color");
+        this.aOL = jSONObject.optString("portrait_end_color");
+        this.aOM = jSONObject.optString("portrait_frame_start_color");
+        this.aON = jSONObject.optString("portrait_frame_end_color");
+        this.aOO = jSONObject.optString("btn_start_color");
+        this.aOP = jSONObject.optString("btn_end_color");
+        this.aOR = jSONObject.optString("btn_border_color");
+        this.aOS = jSONObject.optInt("btn_border_transprancy");
+        if (!StringUtils.isNull(this.aOR)) {
+            this.aOQ = true;
         }
         try {
-            i2 = (int) (((this.aTF * 1.0f) / 100.0f) * 255.0f);
+            i2 = (int) (((this.aOS * 1.0f) / 100.0f) * 255.0f);
         } catch (Exception e) {
             i2 = 255;
         }
-        this.aTF = i2;
-        this.aTG = jSONObject.optInt("noble_level");
+        this.aOS = i2;
+        this.aOT = jSONObject.optInt("noble_level");
     }
 
-    public ck Fr() {
+    public ck Bw() {
         this.type = 1;
         this.price = 100;
-        this.aTv = "#FF613EFB";
-        this.aTw = "#FF44E3FF";
-        this.aTx = "#FF623DFE";
-        this.aTy = "#FF03E2F5";
-        this.aTz = "#FF61A0FF";
-        this.aTA = "#FF73FFEF";
+        this.aOI = "#FF613EFB";
+        this.aOJ = "#FF44E3FF";
+        this.aOK = "#FF623DFE";
+        this.aOL = "#FF03E2F5";
+        this.aOM = "#FF61A0FF";
+        this.aON = "#FF73FFEF";
         return this;
     }
 
-    public int[] Fs() {
-        if (this.aTH == null || this.aTH.length != 2) {
-            this.aTH = j(this.aTB, this.aTC, "#FF623DFE", "#FF03E2F5");
+    public int[] Bx() {
+        if (this.aOU == null || this.aOU.length != 2) {
+            this.aOU = j(this.aOO, this.aOP, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aTH;
+        return this.aOU;
     }
 
-    public int[] Ft() {
-        if (this.aTL == null || this.aTL.length != 2) {
-            this.aTL = j(this.aTE, this.aTE, "#FFFFC926", "#FFFFC926");
+    public int[] By() {
+        if (this.aOY == null || this.aOY.length != 2) {
+            this.aOY = j(this.aOR, this.aOR, "#FFFFC926", "#FFFFC926");
         }
-        return this.aTL;
+        return this.aOY;
     }
 
-    public int[] Fu() {
-        if (this.aTI == null || this.aTI.length != 2) {
-            this.aTI = j(this.aTx, this.aTy, "#FF623DFE", "#FF03E2F5");
+    public int[] Bz() {
+        if (this.aOV == null || this.aOV.length != 2) {
+            this.aOV = j(this.aOK, this.aOL, "#FF623DFE", "#FF03E2F5");
         }
-        return this.aTI;
+        return this.aOV;
     }
 
-    public int[] Fv() {
-        if (this.aTJ == null || this.aTJ.length != 2) {
-            this.aTJ = j(this.aTv, this.aTw, "#FF613EFB", "#FF44E3FF");
+    public int[] BA() {
+        if (this.aOW == null || this.aOW.length != 2) {
+            this.aOW = j(this.aOI, this.aOJ, "#FF613EFB", "#FF44E3FF");
         }
-        return this.aTJ;
+        return this.aOW;
     }
 
-    public int[] Fw() {
-        if (this.aTK == null || this.aTK.length != 2) {
-            this.aTK = j(this.aTz, this.aTA, "#FF61A0FF", "#FF73FFEF");
+    public int[] BB() {
+        if (this.aOX == null || this.aOX.length != 2) {
+            this.aOX = j(this.aOM, this.aON, "#FF61A0FF", "#FF73FFEF");
         }
-        return this.aTK;
+        return this.aOX;
     }
 
     private int[] j(String str, String str2, String str3, String str4) {

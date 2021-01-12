@@ -13,29 +13,29 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private String aGB;
-    private TextView bYR;
-    private boolean boZ;
-    private TextView hNd;
-    private TextView hNe;
-    private TextView hNf;
-    private View hNg;
-    private View hNh;
-    private PersonUserData hNi;
-    private b hNj;
-    private int hNk;
+    private String aBO;
+    private TextView bUf;
+    private boolean bkm;
+    private View hIA;
+    private View hIB;
+    private PersonUserData hIC;
+    private b hID;
+    private int hIE;
+    private TextView hIx;
+    private TextView hIy;
+    private TextView hIz;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.liveroom.r.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0688a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0671a {
         void onConfirm();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void aM(String str, int i);
 
@@ -51,12 +51,12 @@ public class a extends Dialog implements View.OnClickListener {
 
         void onCancel();
 
-        void xz(int i);
+        void vT(int i);
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), a.i.theme_manage_dialog);
-        this.hNk = 0;
+        this.hIE = 0;
         this.mPageContext = tbPageContext;
     }
 
@@ -67,118 +67,118 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.hNd = (TextView) findViewById(a.f.ala_person_forbid_this);
-        this.hNg = findViewById(a.f.ala_person_forbid_this_divider);
-        this.hNe = (TextView) findViewById(a.f.ala_person_forbid_forever);
-        this.hNh = findViewById(a.f.ala_person_forbid_this_divider);
-        this.hNf = (TextView) findViewById(a.f.ala_person_admin);
-        this.bYR = (TextView) findViewById(a.f.ala_person_manage_cancel);
-        this.hNd.setOnClickListener(this);
-        this.hNe.setOnClickListener(this);
-        this.hNf.setOnClickListener(this);
-        this.bYR.setOnClickListener(this);
+        this.hIx = (TextView) findViewById(a.f.ala_person_forbid_this);
+        this.hIA = findViewById(a.f.ala_person_forbid_this_divider);
+        this.hIy = (TextView) findViewById(a.f.ala_person_forbid_forever);
+        this.hIB = findViewById(a.f.ala_person_forbid_this_divider);
+        this.hIz = (TextView) findViewById(a.f.ala_person_admin);
+        this.bUf = (TextView) findViewById(a.f.ala_person_manage_cancel);
+        this.hIx.setOnClickListener(this);
+        this.hIy.setOnClickListener(this);
+        this.hIz.setOnClickListener(this);
+        this.bUf.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.hNj != null) {
-            if (view == this.hNd) {
-                if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmW()) {
+        if (this.hID != null) {
+            if (view == this.hIx) {
+                if (this.hIC != null && this.hIC.user_info != null) {
+                    if (cje()) {
                         TiebaInitialize.log("c12271");
-                        a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.1
-                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                        a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.1
+                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                             public void onConfirm() {
-                                if (a.this.hNi != null && a.this.hNi.user_info != null) {
-                                    a.this.hNi.user_info.is_block = 0;
-                                    a.this.hNj.aO(a.this.hNi.user_info.user_id, a.this.hNk);
+                                if (a.this.hIC != null && a.this.hIC.user_info != null) {
+                                    a.this.hIC.user_info.is_block = 0;
+                                    a.this.hID.aO(a.this.hIC.user_info.user_id, a.this.hIE);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.h.ala_person_relieve_forbidden_confirm_tip), this.hNi.user_info.getNameShow()));
+                        }, String.format(getContext().getResources().getString(a.h.ala_person_relieve_forbidden_confirm_tip), this.hIC.user_info.getNameShow()));
                         return;
                     }
                     TiebaInitialize.log("c12267");
-                    a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.2
-                        @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                    a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.2
+                        @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                         public void onConfirm() {
-                            if (a.this.hNi != null && a.this.hNi.user_info != null) {
-                                a.this.hNi.user_info.is_block = 1;
-                                a.this.hNj.aM(a.this.hNi.user_info.user_id, a.this.hNk);
+                            if (a.this.hIC != null && a.this.hIC.user_info != null) {
+                                a.this.hIC.user_info.is_block = 1;
+                                a.this.hID.aM(a.this.hIC.user_info.user_id, a.this.hIE);
                             }
                         }
-                    }, String.format(getContext().getResources().getString(a.h.ala_person_forbid_this_confirm_tip), this.hNi.user_info.getNameShow()));
+                    }, String.format(getContext().getResources().getString(a.h.ala_person_forbid_this_confirm_tip), this.hIC.user_info.getNameShow()));
                 }
-            } else if (view == this.hNe) {
-                if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmV()) {
+            } else if (view == this.hIy) {
+                if (this.hIC != null && this.hIC.user_info != null) {
+                    if (cjd()) {
                         TiebaInitialize.log("c12271");
-                        a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.3
-                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                        a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.3
+                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                             public void onConfirm() {
-                                if (a.this.hNi != null && a.this.hNi.user_info != null) {
-                                    a.this.hNi.user_info.is_block = 0;
-                                    a.this.hNj.aP(a.this.hNi.user_info.user_id, a.this.hNk);
+                                if (a.this.hIC != null && a.this.hIC.user_info != null) {
+                                    a.this.hIC.user_info.is_block = 0;
+                                    a.this.hID.aP(a.this.hIC.user_info.user_id, a.this.hIE);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.h.ala_person_relieve_forbidden_confirm_tip), this.hNi.user_info.getNameShow()));
+                        }, String.format(getContext().getResources().getString(a.h.ala_person_relieve_forbidden_confirm_tip), this.hIC.user_info.getNameShow()));
                         return;
                     }
                     TiebaInitialize.log("c12268");
-                    a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.4
-                        @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                    a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.4
+                        @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                         public void onConfirm() {
-                            if (a.this.hNi != null && a.this.hNi.user_info != null) {
-                                a.this.hNi.user_info.is_block = 2;
-                                a.this.hNj.aN(a.this.hNi.user_info.user_id, a.this.hNk);
+                            if (a.this.hIC != null && a.this.hIC.user_info != null) {
+                                a.this.hIC.user_info.is_block = 2;
+                                a.this.hID.aN(a.this.hIC.user_info.user_id, a.this.hIE);
                             }
                         }
-                    }, String.format(getContext().getResources().getString(a.h.ala_person_forbid_forever_confirm_tip), this.hNi.user_info.getNameShow()));
+                    }, String.format(getContext().getResources().getString(a.h.ala_person_forbid_forever_confirm_tip), this.hIC.user_info.getNameShow()));
                 }
-            } else if (view == this.hNf) {
-                if (this.hNi != null && this.hNi.login_user_info != null) {
-                    if (cmX()) {
+            } else if (view == this.hIz) {
+                if (this.hIC != null && this.hIC.login_user_info != null) {
+                    if (cjf()) {
                         TiebaInitialize.log("c12270");
-                        a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.5
-                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                        a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.5
+                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                             public void onConfirm() {
-                                if (a.this.hNi != null && a.this.hNi.login_user_info != null) {
-                                    a.this.hNi.login_user_info.is_live_admin = 1;
-                                    a.this.hNj.aQ(a.this.hNi.user_info.user_id, a.this.hNk);
+                                if (a.this.hIC != null && a.this.hIC.login_user_info != null) {
+                                    a.this.hIC.login_user_info.is_live_admin = 1;
+                                    a.this.hID.aQ(a.this.hIC.user_info.user_id, a.this.hIE);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.h.ala_person_appoint_admin_confirm_tip), this.hNi.user_info.getNameShow()));
-                    } else if (cmY()) {
+                        }, String.format(getContext().getResources().getString(a.h.ala_person_appoint_admin_confirm_tip), this.hIC.user_info.getNameShow()));
+                    } else if (cjg()) {
                         TiebaInitialize.log("c12272");
-                        a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.6
-                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                        a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.6
+                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                             public void onConfirm() {
-                                if (a.this.hNi != null && a.this.hNi.login_user_info != null) {
-                                    a.this.hNi.login_user_info.is_live_admin = 0;
-                                    a.this.hNj.aR(a.this.hNi.user_info.user_id, a.this.hNk);
+                                if (a.this.hIC != null && a.this.hIC.login_user_info != null) {
+                                    a.this.hIC.login_user_info.is_live_admin = 0;
+                                    a.this.hID.aR(a.this.hIC.user_info.user_id, a.this.hIE);
                                 }
                             }
-                        }, String.format(getContext().getResources().getString(a.h.ala_person_fire_admin_confirm_tip), this.hNi.user_info.getNameShow()));
-                    } else if (cmZ()) {
+                        }, String.format(getContext().getResources().getString(a.h.ala_person_fire_admin_confirm_tip), this.hIC.user_info.getNameShow()));
+                    } else if (cjh()) {
                         TiebaInitialize.log("c12269");
-                        a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.7
-                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
+                        a(new InterfaceC0671a() { // from class: com.baidu.tieba.ala.liveroom.r.a.7
+                            @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0671a
                             public void onConfirm() {
-                                if (a.this.hNi != null && a.this.hNi.login_user_info != null) {
-                                    a.this.hNi.login_user_info.is_live_admin = 0;
-                                    a.this.hNj.xz(a.this.hNk);
+                                if (a.this.hIC != null && a.this.hIC.login_user_info != null) {
+                                    a.this.hIC.login_user_info.is_live_admin = 0;
+                                    a.this.hID.vT(a.this.hIE);
                                 }
                             }
                         }, getContext().getResources().getString(a.h.ala_person_resign_admin_confirm_tip));
                     }
                 }
-            } else if (view == this.bYR) {
-                this.hNj.onCancel();
+            } else if (view == this.bUf) {
+                this.hID.onCancel();
             }
         }
     }
 
-    private void a(final InterfaceC0688a interfaceC0688a, String str) {
+    private void a(final InterfaceC0671a interfaceC0671a, String str) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -187,8 +187,8 @@ public class a extends Dialog implements View.OnClickListener {
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                if (interfaceC0688a != null) {
-                    interfaceC0688a.onConfirm();
+                if (interfaceC0671a != null) {
+                    interfaceC0671a.onConfirm();
                 }
             }
         });
@@ -209,88 +209,88 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void b(PersonUserData personUserData, boolean z, String str) {
-        this.hNi = personUserData;
-        this.boZ = z;
-        this.aGB = str;
-        if (this.hNi != null && this.hNi.user_info != null && this.hNi.user_info.extInfoJson != null) {
-            if (this.hNi.user_info.extInfoJson.optInt("is_mysterious_man") == 1) {
-                this.hNk = 1;
+        this.hIC = personUserData;
+        this.bkm = z;
+        this.aBO = str;
+        if (this.hIC != null && this.hIC.user_info != null && this.hIC.user_info.extInfoJson != null) {
+            if (this.hIC.user_info.extInfoJson.optInt("is_mysterious_man") == 1) {
+                this.hIE = 1;
             }
         }
-        if (cna() || cnb()) {
-            xx(8);
-            xy(8);
-        } else if (cmV()) {
-            xx(8);
-            this.hNe.setText(a.h.ala_person_relieve_forbidden_forever);
-        } else if (cmW()) {
-            xx(0);
-            this.hNd.setText(a.h.ala_person_relieve_forbidden_this);
-            this.hNe.setText(a.h.ala_person_forbid_forever);
+        if (cji() || cjj()) {
+            vR(8);
+            vS(8);
+        } else if (cjd()) {
+            vR(8);
+            this.hIy.setText(a.h.ala_person_relieve_forbidden_forever);
+        } else if (cje()) {
+            vR(0);
+            this.hIx.setText(a.h.ala_person_relieve_forbidden_this);
+            this.hIy.setText(a.h.ala_person_forbid_forever);
         } else {
-            xx(0);
-            this.hNd.setText(a.h.ala_person_forbid_this);
-            this.hNe.setText(a.h.ala_person_forbid_forever);
+            vR(0);
+            this.hIx.setText(a.h.ala_person_forbid_this);
+            this.hIy.setText(a.h.ala_person_forbid_forever);
         }
-        if (cmU()) {
-            this.hNf.setVisibility(8);
-            this.hNh.setVisibility(8);
-        } else if (cmY()) {
-            this.hNf.setText(a.h.ala_person_fire_admin);
-        } else if (cmX()) {
-            this.hNf.setText(a.h.ala_person_appoint_admin);
-        } else if (cna() && cmZ()) {
-            this.hNf.setText(a.h.ala_person_resign_admin);
+        if (cjc()) {
+            this.hIz.setVisibility(8);
+            this.hIB.setVisibility(8);
+        } else if (cjg()) {
+            this.hIz.setText(a.h.ala_person_fire_admin);
+        } else if (cjf()) {
+            this.hIz.setText(a.h.ala_person_appoint_admin);
+        } else if (cji() && cjh()) {
+            this.hIz.setText(a.h.ala_person_resign_admin);
         } else {
-            this.hNf.setVisibility(8);
-            this.hNh.setVisibility(8);
+            this.hIz.setVisibility(8);
+            this.hIB.setVisibility(8);
         }
     }
 
     public void a(b bVar) {
-        this.hNj = bVar;
+        this.hID = bVar;
     }
 
-    private boolean cmU() {
-        return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block <= 0) ? false : true;
+    private boolean cjc() {
+        return (this.hIC == null || this.hIC.user_info == null || this.hIC.user_info.is_block <= 0) ? false : true;
     }
 
-    private boolean cmV() {
-        return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block != 2) ? false : true;
+    private boolean cjd() {
+        return (this.hIC == null || this.hIC.user_info == null || this.hIC.user_info.is_block != 2) ? false : true;
     }
 
-    private boolean cmW() {
-        return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block != 1) ? false : true;
+    private boolean cje() {
+        return (this.hIC == null || this.hIC.user_info == null || this.hIC.user_info.is_block != 1) ? false : true;
     }
 
-    private boolean cmX() {
-        return this.hNi != null && this.hNi.user_info != null && this.boZ && this.hNi.user_info.is_live_admin == 0;
+    private boolean cjf() {
+        return this.hIC != null && this.hIC.user_info != null && this.bkm && this.hIC.user_info.is_live_admin == 0;
     }
 
-    private boolean cmY() {
-        return this.hNi != null && this.hNi.user_info != null && this.boZ && this.hNi.user_info.is_live_admin == 1;
+    private boolean cjg() {
+        return this.hIC != null && this.hIC.user_info != null && this.bkm && this.hIC.user_info.is_live_admin == 1;
     }
 
-    private boolean cmZ() {
-        return (this.hNi == null || this.hNi.login_user_info == null || this.boZ || this.hNi.login_user_info.is_live_admin != 1) ? false : true;
+    private boolean cjh() {
+        return (this.hIC == null || this.hIC.login_user_info == null || this.bkm || this.hIC.login_user_info.is_live_admin != 1) ? false : true;
     }
 
-    private boolean cna() {
-        return (this.hNi == null || this.hNi.user_info == null || TextUtils.isEmpty(this.aGB) || !this.aGB.equals(this.hNi.user_info.user_id)) ? false : true;
+    private boolean cji() {
+        return (this.hIC == null || this.hIC.user_info == null || TextUtils.isEmpty(this.aBO) || !this.aBO.equals(this.hIC.user_info.user_id)) ? false : true;
     }
 
-    private boolean cnb() {
-        return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_live_admin != 1) ? false : true;
+    private boolean cjj() {
+        return (this.hIC == null || this.hIC.user_info == null || this.hIC.user_info.is_live_admin != 1) ? false : true;
     }
 
-    private void xx(int i) {
-        this.hNd.setVisibility(i);
-        this.hNg.setVisibility(i);
+    private void vR(int i) {
+        this.hIx.setVisibility(i);
+        this.hIA.setVisibility(i);
     }
 
-    private void xy(int i) {
-        this.hNe.setVisibility(i);
-        this.hNh.setVisibility(i);
+    private void vS(int i) {
+        this.hIy.setVisibility(i);
+        this.hIB.setVisibility(i);
     }
 
     public void resize() {

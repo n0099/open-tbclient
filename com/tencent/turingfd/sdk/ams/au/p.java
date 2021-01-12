@@ -5,13 +5,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p implements k {
     @Override // com.tencent.turingfd.sdk.ams.au.k
     public n a(Context context) {
         Bundle call;
         Uri parse = Uri.parse(y.a(y.av));
-        String a2 = y.a(y.f13854a);
+        String a2 = y.a(y.f13554a);
         if (Build.VERSION.SDK_INT >= 17) {
             ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
             try {

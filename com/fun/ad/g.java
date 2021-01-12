@@ -17,14 +17,14 @@ import com.win.opensdk.PBInitialize;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Boolean> f8079a = new HashMap();
+    public static Map<String, Boolean> f7779a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8080b;
+    public static String f7780b;
     public static String c;
     public static String d;
     public static String e;
@@ -226,7 +226,7 @@ public final class g {
             case 24:
             case 25:
             case 26:
-                return f8080b;
+                return f7780b;
             default:
                 return null;
         }
@@ -258,11 +258,11 @@ public final class g {
     public static void a(FunAdConfig funAdConfig, List<ar> list) {
         Boolean bool;
         for (ar arVar : list) {
-            m.a("AdSdkInitializer init platform type: " + arVar.f8056b + ", id: " + arVar.f8055a);
-            String str = arVar.f8055a;
-            if (!TextUtils.isEmpty(str) && ((bool = f8079a.get(str)) == null || !bool.booleanValue())) {
-                f8079a.put(str, true);
-                String str2 = arVar.f8056b;
+            m.a("AdSdkInitializer init platform type: " + arVar.f7756b + ", id: " + arVar.f7755a);
+            String str = arVar.f7755a;
+            if (!TextUtils.isEmpty(str) && ((bool = f7779a.get(str)) == null || !bool.booleanValue())) {
+                f7779a.put(str, true);
+                String str2 = arVar.f7756b;
                 char c2 = 65535;
                 int hashCode = str2.hashCode();
                 if (hashCode != 3407) {
@@ -284,12 +284,12 @@ public final class g {
                     case 0:
                         Context appContext = funAdConfig.getAppContext();
                         e = str;
-                        TTAdSdk.init(appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView()).appName(funAdConfig.getAppName()).titleBarTheme(funAdConfig.getTitleBarTheme()).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).supportMultiProcess(funAdConfig.isSupportMultiProcess()).asyncInit(funAdConfig.isAsyncInit()).build());
+                        TTAdSdk.init(appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView()).appName(funAdConfig.getAppName()).titleBarTheme(funAdConfig.getTitleBarTheme()).allowShowNotify(false).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).supportMultiProcess(funAdConfig.isSupportMultiProcess()).asyncInit(funAdConfig.isAsyncInit()).build());
                         continue;
                     case 1:
                         Context appContext2 = funAdConfig.getAppContext();
                         d = str;
-                        KsAdSDK.init(appContext2, new SdkConfig.Builder().appId(str).appName(funAdConfig.getAppName()).showNotification(true).debug(false).canReadICCID(true).canReadNearbyWifiList(true).canReadMacAddress(true).build());
+                        KsAdSDK.init(appContext2, new SdkConfig.Builder().appId(str).appName(funAdConfig.getAppName()).showNotification(false).debug(false).canReadICCID(true).canReadNearbyWifiList(true).canReadMacAddress(true).build());
                         continue;
                     case 2:
                         Context appContext3 = funAdConfig.getAppContext();
@@ -299,7 +299,7 @@ public final class g {
                         continue;
                     case 3:
                         Context appContext4 = funAdConfig.getAppContext();
-                        f8080b = str;
+                        f7780b = str;
                         PBInitialize.init(appContext4, str);
                         continue;
                 }

@@ -27,25 +27,25 @@ import com.baidu.tieba.tbadkCore.v;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
-    private View epV;
-    public BannerFlowView laN;
-    private TextView laO;
-    private LinearLayout laP;
-    private TextView laQ;
-    private TextView laR;
-    IndicatorView laS;
-    private TbImageView laT;
-    private RelativeLayout laU;
-    private TextView laV;
-    private TbImageView laW;
-    private TextView laX;
-    private CommonImageButton laY;
+    private View elg;
+    public BannerFlowView kWh;
+    private TextView kWi;
+    private LinearLayout kWj;
+    private TextView kWk;
+    private TextView kWl;
+    IndicatorView kWm;
+    private TbImageView kWn;
+    private RelativeLayout kWo;
+    private TextView kWp;
+    private TbImageView kWq;
+    private TextView kWr;
+    private CommonImageButton kWs;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.tbadk.core.view.viewpager.bannerflow.a {
-        private PlayPicInfoCard.b lbd;
+        private PlayPicInfoCard.b kWx;
         private String url;
 
         public a() {
@@ -53,7 +53,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
 
         public void b(PlayPicInfoCard.b bVar) {
             this.url = bVar.pic;
-            this.lbd = bVar;
+            this.kWx = bVar;
         }
 
         @Override // com.baidu.tbadk.core.view.viewpager.bannerflow.a
@@ -62,8 +62,8 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         }
 
         @Override // com.baidu.tbadk.core.view.viewpager.bannerflow.a
-        public Object bzc() {
-            return this.lbd;
+        public Object bvi() {
+            return this.kWx;
         }
     }
 
@@ -74,51 +74,51 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PlayPicInfoCard.b bVar) {
         if (bVar == null) {
-            ao.setViewTextColor(this.laR, R.color.CAM_X0101);
+            ao.setViewTextColor(this.kWl, R.color.CAM_X0101);
         } else {
-            a(this.laR, bVar.kYB, bVar.kYC, R.color.CAM_X0101);
+            a(this.kWl, bVar.kTW, bVar.kTX, R.color.CAM_X0101);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View ddI() {
-        this.epV = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.card_play_pic_info, (ViewGroup) null);
-        this.laN = (BannerFlowView) z(this.epV, R.id.banner);
-        if (this.eXu.getOrignalPage() instanceof SwipeBackLayout.c) {
-            this.laN.setSwipeControlInterface((SwipeBackLayout.c) this.eXu.getOrignalPage());
+    protected View cZQ() {
+        this.elg = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.card_play_pic_info, (ViewGroup) null);
+        this.kWh = (BannerFlowView) z(this.elg, R.id.banner);
+        if (this.eSJ.getOrignalPage() instanceof SwipeBackLayout.c) {
+            this.kWh.setSwipeControlInterface((SwipeBackLayout.c) this.eSJ.getOrignalPage());
         }
-        this.laN.setDisableParentEvent(false);
-        this.laN.setMaxScrollCountLimit(100);
-        this.laT = (TbImageView) z(this.epV, R.id.float_icon);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.laN.getLayoutParams();
+        this.kWh.setDisableParentEvent(false);
+        this.kWh.setMaxScrollCountLimit(100);
+        this.kWn = (TbImageView) z(this.elg, R.id.float_icon);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kWh.getLayoutParams();
         layoutParams.height = (int) ((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) * 0.5f) + 0.5f);
-        this.laN.setLayoutParams(layoutParams);
-        this.laQ = (TextView) z(this.epV, R.id.title_bottom);
-        this.laP = (LinearLayout) z(this.epV, R.id.ll_bottom);
-        this.laR = (TextView) z(this.epV, R.id.title_on);
-        this.laS = (IndicatorView) z(this.epV, R.id.indicator);
-        this.laO = (TextView) z(this.epV, R.id.title_top);
-        this.laU = (RelativeLayout) z(this.epV, R.id.bottom_relative_layout);
-        this.laV = (TextView) z(this.laU, R.id.forum_name);
-        this.laW = (TbImageView) z(this.laU, R.id.icon);
-        this.laX = (TextView) z(this.laU, R.id.text);
-        this.laY = (CommonImageButton) z(this.laU, R.id.notice_button);
-        return this.epV;
+        this.kWh.setLayoutParams(layoutParams);
+        this.kWk = (TextView) z(this.elg, R.id.title_bottom);
+        this.kWj = (LinearLayout) z(this.elg, R.id.ll_bottom);
+        this.kWl = (TextView) z(this.elg, R.id.title_on);
+        this.kWm = (IndicatorView) z(this.elg, R.id.indicator);
+        this.kWi = (TextView) z(this.elg, R.id.title_top);
+        this.kWo = (RelativeLayout) z(this.elg, R.id.bottom_relative_layout);
+        this.kWp = (TextView) z(this.kWo, R.id.forum_name);
+        this.kWq = (TbImageView) z(this.kWo, R.id.icon);
+        this.kWr = (TextView) z(this.kWo, R.id.text);
+        this.kWs = (CommonImageButton) z(this.kWo, R.id.notice_button);
+        return this.elg;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(PlayPicInfoCard playPicInfoCard, int i) {
-        com.baidu.tbadk.r.a.a(this.eXu, getRootView());
-        ao.setBackgroundResource(this.epV, R.drawable.addresslist_item_bg);
-        ao.setViewTextColor(this.laO, R.color.CAM_X0105);
-        ao.setViewTextColor(this.laQ, R.color.CAM_X0105);
-        this.laS.setSelector(ao.getDrawable(R.drawable.dot_live_s));
-        this.laS.setDrawable(ao.getDrawable(R.drawable.dot_live_n));
-        ao.setViewTextColor(this.laV, R.color.CAM_X0111);
-        ao.setBackgroundResource(this.laV, R.drawable.label_bg_tie_n);
-        ao.setViewTextColor(this.laX, R.color.CAM_X0110);
+        com.baidu.tbadk.r.a.a(this.eSJ, getRootView());
+        ao.setBackgroundResource(this.elg, R.drawable.addresslist_item_bg);
+        ao.setViewTextColor(this.kWi, R.color.CAM_X0105);
+        ao.setViewTextColor(this.kWk, R.color.CAM_X0105);
+        this.kWm.setSelector(ao.getDrawable(R.drawable.dot_live_s));
+        this.kWm.setDrawable(ao.getDrawable(R.drawable.dot_live_n));
+        ao.setViewTextColor(this.kWp, R.color.CAM_X0111);
+        ao.setBackgroundResource(this.kWp, R.drawable.label_bg_tie_n);
+        ao.setViewTextColor(this.kWr, R.color.CAM_X0110);
         a((PlayPicInfoCard.b) null);
     }
 
@@ -126,99 +126,99 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void d(final PlayPicInfoCard playPicInfoCard) {
-        this.laO.setMaxLines(playPicInfoCard.getMaxLineForToptitle());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.laN.getLayoutParams();
+        this.kWi.setMaxLines(playPicInfoCard.getMaxLineForToptitle());
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kWh.getLayoutParams();
         if (playPicInfoCard.getRatio() > 0.0d) {
             int ratio = (int) (playPicInfoCard.getRatio() * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()));
             if (Math.abs(ratio - layoutParams.height) > 10) {
                 layoutParams.height = ratio;
-                this.laN.setLayoutParams(layoutParams);
+                this.kWh.setLayoutParams(layoutParams);
             }
         } else {
             layoutParams.height = (int) ((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) * 0.5f) + 0.5f);
-            this.laN.setLayoutParams(layoutParams);
+            this.kWh.setLayoutParams(layoutParams);
         }
         if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 0) {
-            this.laN.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, !TextUtils.isEmpty(playPicInfoCard.getImageResList().get(0).desc));
+            this.kWh.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, !TextUtils.isEmpty(playPicInfoCard.getImageResList().get(0).desc));
         } else {
-            this.laN.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, false);
+            this.kWh.setDescOnPic(playPicInfoCard.getDescOnPic() == 1, false);
         }
         if (playPicInfoCard.getDuration() >= 5000) {
-            this.laN.setAutoScrollIntervalTime(playPicInfoCard.getDuration());
+            this.kWh.setAutoScrollIntervalTime(playPicInfoCard.getDuration());
         } else {
-            this.laN.setAutoScrollIntervalTime(5000L);
+            this.kWh.setAutoScrollIntervalTime(5000L);
         }
-        this.laN.setData(d(playPicInfoCard));
+        this.kWh.setData(d(playPicInfoCard));
         if (playPicInfoCard.getDescOnPic() != 1) {
-            this.laR.setVisibility(8);
+            this.kWl.setVisibility(8);
             if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 1) {
-                this.laQ.setMaxWidth(((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24)) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds20)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24) * playPicInfoCard.getImageResList().size()));
-                this.laQ.setText(playPicInfoCard.getImageResList().get(0).desc);
-                this.laS.setVisibility(0);
-                this.laS.setCount(playPicInfoCard.getImageResList().size());
+                this.kWk.setMaxWidth(((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24)) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds20)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24) * playPicInfoCard.getImageResList().size()));
+                this.kWk.setText(playPicInfoCard.getImageResList().get(0).desc);
+                this.kWm.setVisibility(0);
+                this.kWm.setCount(playPicInfoCard.getImageResList().size());
                 setIndicatorViewPosition(playPicInfoCard);
-                this.laP.setVisibility(0);
-                this.laO.setVisibility(8);
+                this.kWj.setVisibility(0);
+                this.kWi.setVisibility(8);
             } else if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() == 1) {
                 if (playPicInfoCard.getDescOnPic() == 2) {
-                    this.laO.setText(playPicInfoCard.getImageResList().get(0).desc);
-                    this.laO.setVisibility(0);
-                    this.laP.setVisibility(8);
+                    this.kWi.setText(playPicInfoCard.getImageResList().get(0).desc);
+                    this.kWi.setVisibility(0);
+                    this.kWj.setVisibility(8);
                 } else {
-                    this.laP.setVisibility(0);
-                    this.laQ.setMaxWidth(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24));
-                    this.laQ.setText(playPicInfoCard.getImageResList().get(0).desc);
-                    this.laO.setVisibility(8);
-                    this.laS.setVisibility(8);
+                    this.kWj.setVisibility(0);
+                    this.kWk.setMaxWidth(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24));
+                    this.kWk.setText(playPicInfoCard.getImageResList().get(0).desc);
+                    this.kWi.setVisibility(8);
+                    this.kWm.setVisibility(8);
                 }
             }
         } else {
             if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 0) {
-                this.laR.setVisibility(0);
+                this.kWl.setVisibility(0);
                 if (playPicInfoCard.getImageResList().size() > 1) {
-                    this.laR.setMaxWidth(((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24)) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds20)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24) * playPicInfoCard.getImageResList().size()));
+                    this.kWl.setMaxWidth(((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24)) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds20)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24) * playPicInfoCard.getImageResList().size()));
                 } else {
-                    this.laR.setMaxWidth(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24));
+                    this.kWl.setMaxWidth(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds24));
                 }
-                this.laR.setText(playPicInfoCard.getImageResList().get(0).desc);
+                this.kWl.setText(playPicInfoCard.getImageResList().get(0).desc);
                 a(playPicInfoCard.getImageResList().get(0));
             } else {
-                this.laR.setVisibility(8);
+                this.kWl.setVisibility(8);
             }
-            this.laO.setVisibility(8);
-            this.laP.setVisibility(8);
+            this.kWi.setVisibility(8);
+            this.kWj.setVisibility(8);
         }
-        this.laN.setOnItemClickListener(new b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0792a>() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.1
+        this.kWh.setOnItemClickListener(new b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0775a>() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.view.viewpager.b.a
             /* renamed from: a */
-            public void c(a.C0792a c0792a, com.baidu.tbadk.core.view.viewpager.bannerflow.a aVar) {
-                if (aVar.bzc() instanceof PlayPicInfoCard.b) {
-                    PlayPicInfoCard.b bVar = (PlayPicInfoCard.b) aVar.bzc();
+            public void c(a.C0775a c0775a, com.baidu.tbadk.core.view.viewpager.bannerflow.a aVar) {
+                if (aVar.bvi() instanceof PlayPicInfoCard.b) {
+                    PlayPicInfoCard.b bVar = (PlayPicInfoCard.b) aVar.bvi();
                     if (!TextUtils.isEmpty(bVar.scheme)) {
-                        s.cvb().mG(true);
+                        s.crj().mC(true);
                         com.baidu.tieba.lego.e d = com.baidu.tieba.lego.i.d(bVar.statistics, bVar.statTab, playPicInfoCard.getCardType(), playPicInfoCard.getItemId());
-                        d.fG("obj_id", bVar.picId);
-                        d.fG(TiebaInitialize.Params.OBJ_URL, bVar.scheme);
+                        d.fF("obj_id", bVar.picId);
+                        d.fF(TiebaInitialize.Params.OBJ_URL, bVar.scheme);
                         d.bz("obj_locate", PlayPicInfoCardView.this.getStatPosition());
                         d.a(playPicInfoCard);
-                        v.h(PlayPicInfoCardView.this.eXu, bVar.scheme);
+                        v.h(PlayPicInfoCardView.this.eSJ, bVar.scheme);
                     }
                 }
             }
         });
-        this.laN.setOnPageSelected(new BannerFlowView.a() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.2
+        this.kWh.setOnPageSelected(new BannerFlowView.a() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.2
             @Override // com.baidu.tieba.lego.card.view.l
             public void aP(float f) {
                 if (playPicInfoCard.getDescOnPic() != 1) {
-                    PlayPicInfoCardView.this.laS.setPosition(f);
+                    PlayPicInfoCardView.this.kWm.setPosition(f);
                 }
             }
 
             @Override // com.baidu.tieba.lego.card.view.l
-            public void Fr(int i) {
+            public void DL(int i) {
                 if (playPicInfoCard.getDescOnPic() != 1) {
-                    PlayPicInfoCardView.this.laS.setCount(i);
+                    PlayPicInfoCardView.this.kWm.setCount(i);
                 }
             }
 
@@ -227,24 +227,24 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 List<PlayPicInfoCard.b> imageResList = playPicInfoCard.getImageResList();
                 if (imageResList != null && imageResList.size() > i) {
                     if (playPicInfoCard.getDescOnPic() != 1) {
-                        PlayPicInfoCardView.this.laR.setVisibility(8);
+                        PlayPicInfoCardView.this.kWl.setVisibility(8);
                         if (!TextUtils.isEmpty(imageResList.get(i).desc)) {
-                            PlayPicInfoCardView.this.laQ.setText(imageResList.get(i).desc);
+                            PlayPicInfoCardView.this.kWk.setText(imageResList.get(i).desc);
                             return;
                         } else {
-                            PlayPicInfoCardView.this.laP.setVisibility(8);
+                            PlayPicInfoCardView.this.kWj.setVisibility(8);
                             return;
                         }
                     }
                     if (!TextUtils.isEmpty(imageResList.get(i).desc)) {
-                        PlayPicInfoCardView.this.laR.setText(imageResList.get(i).desc);
+                        PlayPicInfoCardView.this.kWl.setText(imageResList.get(i).desc);
                         PlayPicInfoCardView.this.a(imageResList.get(i));
-                        PlayPicInfoCardView.this.laR.setVisibility(0);
+                        PlayPicInfoCardView.this.kWl.setVisibility(0);
                     } else {
-                        PlayPicInfoCardView.this.laR.setVisibility(8);
+                        PlayPicInfoCardView.this.kWl.setVisibility(8);
                     }
-                    if (PlayPicInfoCardView.this.laN != null) {
-                        PlayPicInfoCardView.this.laN.setDescOnPic(true, !TextUtils.isEmpty(imageResList.get(i).desc));
+                    if (PlayPicInfoCardView.this.kWh != null) {
+                        PlayPicInfoCardView.this.kWh.setDescOnPic(true, !TextUtils.isEmpty(imageResList.get(i).desc));
                     }
                 }
             }
@@ -254,8 +254,8 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (playPicInfoCard.getImageResList().get(0) != null) {
-                        v.h(PlayPicInfoCardView.this.eXu, playPicInfoCard.getImageResList().get(0).scheme);
-                        s.cvb().mG(true);
+                        v.h(PlayPicInfoCardView.this.eSJ, playPicInfoCard.getImageResList().get(0).scheme);
+                        s.crj().mC(true);
                     }
                 }
             });
@@ -264,28 +264,28 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         }
         c(playPicInfoCard);
         b(playPicInfoCard);
-        this.laN.setIndicatorViewPosition(playPicInfoCard.getShowDot());
+        this.kWh.setIndicatorViewPosition(playPicInfoCard.getShowDot());
     }
 
     private void setIndicatorViewPosition(PlayPicInfoCard playPicInfoCard) {
         switch (playPicInfoCard.getShowDot()) {
             case 0:
-                this.laS.setVisibility(8);
+                this.kWm.setVisibility(8);
                 return;
             case 1:
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.laS.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kWm.getLayoutParams();
                 layoutParams.gravity = 85;
-                this.laS.setLayoutParams(layoutParams);
-                this.laS.setVisibility(0);
+                this.kWm.setLayoutParams(layoutParams);
+                this.kWm.setVisibility(0);
                 return;
             case 2:
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.laS.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.kWm.getLayoutParams();
                 layoutParams2.gravity = 81;
-                this.laS.setLayoutParams(layoutParams2);
-                this.laS.setVisibility(0);
+                this.kWm.setLayoutParams(layoutParams2);
+                this.kWm.setVisibility(0);
                 return;
             default:
-                this.laS.setVisibility(8);
+                this.kWm.setVisibility(8);
                 return;
         }
     }
@@ -293,67 +293,67 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     private void b(PlayPicInfoCard playPicInfoCard) {
         PlayPicInfoCard.c waterMark = playPicInfoCard.getWaterMark();
         if (waterMark == null) {
-            this.laT.setVisibility(8);
+            this.kWn.setVisibility(8);
             return;
         }
-        this.laT.setVisibility(0);
-        String str = isNightMode() ? waterMark.kYE : waterMark.picUrl;
-        ((RelativeLayout.LayoutParams) this.laT.getLayoutParams()).setMargins(com.baidu.adp.lib.util.l.dip2px(this.eXu.getPageActivity(), waterMark.kYF), com.baidu.adp.lib.util.l.dip2px(this.eXu.getPageActivity(), waterMark.kYG), 0, 0);
-        this.laT.startLoad(str, 10, false);
+        this.kWn.setVisibility(0);
+        String str = isNightMode() ? waterMark.kTZ : waterMark.picUrl;
+        ((RelativeLayout.LayoutParams) this.kWn.getLayoutParams()).setMargins(com.baidu.adp.lib.util.l.dip2px(this.eSJ.getPageActivity(), waterMark.kUa), com.baidu.adp.lib.util.l.dip2px(this.eSJ.getPageActivity(), waterMark.kUb), 0, 0);
+        this.kWn.startLoad(str, 10, false);
     }
 
     private void c(PlayPicInfoCard playPicInfoCard) {
         final PlayPicInfoCard.a bottomInfo = playPicInfoCard.getBottomInfo();
         if (bottomInfo == null || !bottomInfo.isValid()) {
-            this.laU.setVisibility(8);
+            this.kWo.setVisibility(8);
             return;
         }
-        this.laU.setVisibility(0);
+        this.kWo.setVisibility(0);
         if (TextUtils.isEmpty(bottomInfo.mForumName)) {
-            this.laV.setVisibility(8);
+            this.kWp.setVisibility(8);
         } else {
-            this.laV.setVisibility(0);
-            this.laV.setText(bottomInfo.mForumName);
-            this.laV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.4
+            this.kWp.setVisibility(0);
+            this.kWp.setText(bottomInfo.mForumName);
+            this.kWp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TextUtils.isEmpty(bottomInfo.mScheme)) {
-                        v.h(PlayPicInfoCardView.this.eXu, bottomInfo.mScheme);
+                        v.h(PlayPicInfoCardView.this.eSJ, bottomInfo.mScheme);
                     }
                 }
             });
         }
-        if (bottomInfo.kYz != null) {
-            a(this.laX, this.laW, bottomInfo.kYz);
+        if (bottomInfo.kTU != null) {
+            a(this.kWr, this.kWq, bottomInfo.kTU);
         }
-        if (bottomInfo.kYA != null) {
-            this.laY.setVisibility(0);
-            com.baidu.adp.lib.util.l.addToParentArea(this.eXu.getPageActivity(), this.laY, 20, 20, 20, 20);
-            final com.baidu.tieba.lego.card.model.a aVar = bottomInfo.kYA;
-            this.laY.a(bottomInfo.kYA);
-            this.laY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.5
+        if (bottomInfo.kTV != null) {
+            this.kWs.setVisibility(0);
+            com.baidu.adp.lib.util.l.addToParentArea(this.eSJ.getPageActivity(), this.kWs, 20, 20, 20, 20);
+            final com.baidu.tieba.lego.card.model.a aVar = bottomInfo.kTV;
+            this.kWs.a(bottomInfo.kTV);
+            this.kWs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.PlayPicInfoCardView.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (bg.checkUpIsLogin(PlayPicInfoCardView.this.eXu.getPageActivity())) {
-                        com.baidu.tieba.lego.a.b.dde().k(bottomInfo.kYA, bottomInfo.kYA.ddu());
+                    if (bg.checkUpIsLogin(PlayPicInfoCardView.this.eSJ.getPageActivity())) {
+                        com.baidu.tieba.lego.a.b.cZm().k(bottomInfo.kTV, bottomInfo.kTV.cZC());
                         ((CommonImageButton) view).a(aVar);
                     }
                 }
             });
             return;
         }
-        this.laY.setVisibility(8);
+        this.kWs.setVisibility(8);
     }
 
     private void a(TextView textView, TbImageView tbImageView, com.baidu.tieba.lego.card.model.b bVar) {
-        String str = isNightMode() ? bVar.kYp : bVar.url;
+        String str = isNightMode() ? bVar.kTK : bVar.url;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);
             tbImageView.startLoad(str, 10, false);
         } else {
             tbImageView.setVisibility(8);
-            textView.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(com.baidu.tieba.lego.card.f.qc(bVar.type)), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(com.baidu.tieba.lego.card.f.ov(bVar.type)), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         textView.setText(bVar.content);
     }

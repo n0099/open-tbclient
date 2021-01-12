@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -24,7 +25,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h extends com.baidu.platform.base.d {
     private TransitResultNode a(int i, JSONObject jSONObject) {
         LatLng latLng = null;
@@ -34,7 +35,7 @@ public class h extends com.baidu.platform.base.d {
         String optString = jSONObject.optString(ActVideoSetting.WIFI_DISPLAY);
         String optString2 = jSONObject.optString("city_name");
         int optInt = i == 1 ? jSONObject.optInt("city_code") : jSONObject.optInt("city_id");
-        JSONObject optJSONObject = jSONObject.optJSONObject("location");
+        JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
         if (optJSONObject != null) {
             latLng = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
@@ -251,7 +252,7 @@ public class h extends com.baidu.platform.base.d {
                     poiInfo.address = jSONObject.optString("address");
                     poiInfo.uid = jSONObject.optString("uid");
                     poiInfo.name = jSONObject.optString("name");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("location");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
                     if (optJSONObject != null) {
                         poiInfo.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {

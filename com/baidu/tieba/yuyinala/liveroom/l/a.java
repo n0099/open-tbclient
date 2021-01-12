@@ -11,16 +11,16 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.yuyinala.liveroom.introduce.d;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.f;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a implements c {
-    private x bzc;
+    private x buq;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void ah(x xVar) {
-        this.bzc = xVar;
+        this.buq = xVar;
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
         hashMap.put("listener", this);
@@ -28,50 +28,50 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements c {
     }
 
     @Override // com.baidu.live.e.c
-    public void CV() {
-        new f(getPageContext().getPageActivity()).ai(this.bzc);
+    public void za() {
+        new f(getPageContext().getPageActivity()).ai(this.buq);
     }
 
     @Override // com.baidu.live.e.c
-    public void CW() {
-        if (this.bzc != null && this.bzc.aLl != null) {
-            new d(getPageContext().getPageActivity()).af(this.bzc);
+    public void zb() {
+        if (this.buq != null && this.buq.aGy != null) {
+            new d(getPageContext().getPageActivity()).af(this.buq);
         }
     }
 
     @Override // com.baidu.live.e.c
-    public void CX() {
+    public void zc() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bzc);
+        hashMap.put("ala_live_show_data", this.buq);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501007, hashMap));
     }
 
     @Override // com.baidu.live.e.c
-    public void CY() {
+    public void zd() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bzc);
+        hashMap.put("ala_live_show_data", this.buq);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501006, hashMap));
     }
 
     @Override // com.baidu.live.e.c
-    public void CZ() {
+    public void ze() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
         HashMap hashMap = new HashMap(2);
         hashMap.put("context", getPageContext());
-        hashMap.put("ala_live_show_data", this.bzc);
+        hashMap.put("ala_live_show_data", this.buq);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501008, hashMap));
     }
 
@@ -81,8 +81,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements c {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void DC() {
-        super.DC();
+    public void zH() {
+        super.zH();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a

@@ -18,14 +18,14 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MarqueeView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f8828a = new a(40);
+    private static a f8528a = new a(40);
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8829b;
+    private String f8529b;
     private float c;
     private int d;
     private float e;
@@ -44,22 +44,22 @@ public class MarqueeView extends View {
     private b r;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Handler.Callback {
 
         /* renamed from: b  reason: collision with root package name */
-        private Handler f8832b;
+        private Handler f8532b;
         private long e;
         private final Object c = new Object();
         private List<WeakReference<b>> d = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        private HandlerThread f8831a = new HandlerThread("marquee");
+        private HandlerThread f8531a = new HandlerThread("marquee");
 
         a(long j) {
             this.e = j;
-            this.f8831a.start();
-            this.f8832b = new Handler(this.f8831a.getLooper(), this);
+            this.f8531a.start();
+            this.f8532b = new Handler(this.f8531a.getLooper(), this);
         }
 
         private void c() {
@@ -74,7 +74,7 @@ public class MarqueeView extends View {
         }
 
         public void a() {
-            this.f8832b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
+            this.f8532b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
         }
 
         void a(b bVar) {
@@ -104,7 +104,7 @@ public class MarqueeView extends View {
         }
 
         public void b() {
-            this.f8832b.removeMessages(0);
+            this.f8532b.removeMessages(0);
         }
 
         void b(b bVar) {
@@ -138,13 +138,13 @@ public class MarqueeView extends View {
                         com.kwad.sdk.core.d.a.a(e);
                     }
                 }
-                this.f8832b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
+                this.f8532b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
             }
             return false;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
@@ -215,13 +215,13 @@ public class MarqueeView extends View {
         if (this.j) {
             return;
         }
-        f8828a.a(this.r);
+        f8528a.a(this.r);
         this.j = true;
     }
 
     public void b() {
         this.j = false;
-        f8828a.b(this.r);
+        f8528a.b(this.r);
     }
 
     @Override // android.view.View
@@ -246,7 +246,7 @@ public class MarqueeView extends View {
             case 2:
                 if (this.h < 0.0f && ((int) ((-this.h) / this.i)) >= this.n) {
                     this.n++;
-                    this.f8829b += this.p;
+                    this.f8529b += this.p;
                     break;
                 }
                 break;
@@ -257,8 +257,8 @@ public class MarqueeView extends View {
                 }
                 break;
         }
-        if (this.f8829b != null) {
-            canvas.drawText(this.f8829b, this.h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
+        if (this.f8529b != null) {
+            canvas.drawText(this.f8529b, this.h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
         }
     }
 
@@ -276,18 +276,18 @@ public class MarqueeView extends View {
                 this.h = getWidth() * this.g;
             }
             this.i = (int) a(this.p);
-            this.f8829b = str;
+            this.f8529b = str;
             return;
         }
         this.i = (int) (a(this.p) + this.m);
         this.n = 0;
         int width = (getWidth() / this.i) + 2;
-        this.f8829b = "";
-        StringBuilder sb = new StringBuilder(this.f8829b);
+        this.f8529b = "";
+        StringBuilder sb = new StringBuilder(this.f8529b);
         for (int i = 0; i <= width; i++) {
             sb.append(this.p);
         }
-        this.f8829b = sb.toString();
+        this.f8529b = sb.toString();
     }
 
     public void setRepetType(int i) {

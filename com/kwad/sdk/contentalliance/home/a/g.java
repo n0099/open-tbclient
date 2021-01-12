@@ -9,7 +9,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g extends a {
     private final ProfileVideoDetailParam c;
     private SceneImpl d;
@@ -37,15 +37,15 @@ public class g extends a {
         this.e = true;
         a(z, z2, i, 0);
         if (com.kwad.sdk.contentalliance.home.c.a()) {
-            this.f8923b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.1
+            this.f8623b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        g.this.f8922a.clear();
+                        g.this.f8622a.clear();
                     }
-                    g.this.f8922a.addAll(com.kwad.sdk.contentalliance.home.c.b());
-                    if (!g.this.f8922a.isEmpty()) {
-                        g.this.g = g.this.f8922a.get(g.this.f8922a.size() - 1).mPcursor;
+                    g.this.f8622a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    if (!g.this.f8622a.isEmpty()) {
+                        g.this.g = g.this.f8622a.get(g.this.f8622a.size() - 1).mPcursor;
                     }
                     com.kwad.sdk.contentalliance.home.c.c();
                     g.this.a(z, 0);
@@ -53,7 +53,7 @@ public class g extends a {
                 }
             });
         } else if (!e()) {
-            this.f8923b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.2
+            this.f8623b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.2
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.a(com.kwad.sdk.core.network.f.g.k, com.kwad.sdk.core.network.f.g.l);
@@ -64,13 +64,13 @@ public class g extends a {
             final p.a aVar = new p.a();
             aVar.e = this.g;
             com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.d);
-            fVar.f9466b = this.d.getPageScene();
-            aVar.f9601a = fVar;
+            fVar.f9166b = this.d.getPageScene();
+            aVar.f9301a = fVar;
             aVar.c = this.c.mAuthorId;
             aVar.d = this.c.mTabId;
             com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
             cVar.d = this.f;
-            aVar.f9602b = cVar;
+            aVar.f9302b = cVar;
             this.h = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.g.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -79,7 +79,7 @@ public class g extends a {
                 /* renamed from: a */
                 public AdResultData b(String str) {
                     JSONObject jSONObject = new JSONObject(str);
-                    AdResultData adResultData = new AdResultData(aVar.f9601a.f9465a);
+                    AdResultData adResultData = new AdResultData(aVar.f9301a.f9165a);
                     adResultData.parseJson(jSONObject);
                     return adResultData;
                 }
@@ -95,7 +95,7 @@ public class g extends a {
             this.h.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.g.4
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i2, final String str) {
-                    g.this.f8923b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.2
+                    g.this.f8623b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             g.this.a(i2, str);
@@ -107,13 +107,13 @@ public class g extends a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final AdResultData adResultData) {
-                    g.this.f8923b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.1
+                    g.this.f8623b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (z) {
-                                g.this.f8922a.clear();
+                                g.this.f8622a.clear();
                             }
-                            if (g.this.f8922a.isEmpty()) {
+                            if (g.this.f8622a.isEmpty()) {
                                 m.e();
                             }
                             ArrayList arrayList = new ArrayList();
@@ -122,7 +122,7 @@ public class g extends a {
                                     arrayList.add(adTemplate);
                                 }
                             }
-                            g.this.f8922a.addAll(arrayList);
+                            g.this.f8622a.addAll(arrayList);
                             g.this.g = adResultData.pcursor;
                             g.this.a(z, 0);
                             g.this.e = false;

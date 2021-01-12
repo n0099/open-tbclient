@@ -12,11 +12,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DanceRectView extends View {
-    private RectF[] bUr;
-    private a[] bUs;
-    private float bUt;
+    private RectF[] bPF;
+    private a[] bPG;
+    private float bPH;
     private int mColor;
     private Paint mPaint;
     private float mRadius;
@@ -28,13 +28,13 @@ public class DanceRectView extends View {
     }
 
     public void startAnim() {
-        if (this.bUs != null && this.mValueAnimator != null) {
-            ZJ();
+        if (this.bPG != null && this.mValueAnimator != null) {
+            VQ();
             this.mValueAnimator.start();
         }
     }
 
-    public void ZG() {
+    public void VN() {
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
         }
@@ -43,11 +43,11 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.bUt = (i2 - getPaddingTop()) - getPaddingBottom();
+        this.bPH = (i2 - getPaddingTop()) - getPaddingBottom();
         float paddingLeft = (((i - getPaddingLeft()) - getPaddingRight()) * 1.0f) / 7.0f;
         int paddingLeft2 = getPaddingLeft();
         for (int i5 = 0; i5 < 4; i5++) {
-            this.bUr[i5].set(paddingLeft2, this.bUt * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
+            this.bPF[i5].set(paddingLeft2, this.bPH * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
             paddingLeft2 = (int) (paddingLeft2 + (2.0f * paddingLeft));
         }
     }
@@ -55,10 +55,10 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bUr != null && this.bUs != null) {
+        if (this.bPF != null && this.bPG != null) {
             for (int i = 0; i < 4; i++) {
-                this.bUr[i].top = getPaddingTop() + (this.bUt * this.bUs[i].bUx);
-                canvas.drawRoundRect(this.bUr[i], this.mRadius, this.mRadius, this.mPaint);
+                this.bPF[i].top = getPaddingTop() + (this.bPH * this.bPG[i].bPL);
+                canvas.drawRoundRect(this.bPF[i], this.mRadius, this.mRadius, this.mPaint);
             }
         }
     }
@@ -66,9 +66,9 @@ public class DanceRectView extends View {
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
         sa();
-        ZH();
-        ZI();
-        ZK();
+        VO();
+        VP();
+        VR();
     }
 
     private void initAttrs(AttributeSet attributeSet) {
@@ -84,35 +84,35 @@ public class DanceRectView extends View {
         this.mPaint.setColor(this.mColor);
     }
 
-    private void ZH() {
-        this.bUr = new RectF[4];
+    private void VO() {
+        this.bPF = new RectF[4];
         for (int i = 0; i < 4; i++) {
-            this.bUr[i] = new RectF();
+            this.bPF[i] = new RectF();
         }
     }
 
-    private void ZI() {
-        this.bUs = new a[4];
+    private void VP() {
+        this.bPG = new a[4];
         for (int i = 0; i < 4; i++) {
-            this.bUs[i] = new a();
-            this.bUs[i].bUv = 0.25f;
+            this.bPG[i] = new a();
+            this.bPG[i].bPJ = 0.25f;
         }
-        ZJ();
+        VQ();
     }
 
-    private void ZJ() {
+    private void VQ() {
         int i = 0;
         while (i < 4) {
-            this.bUs[i].up = i != 0;
-            a aVar = this.bUs[i];
+            this.bPG[i].up = i != 0;
+            a aVar = this.bPG[i];
             float f = (i * 1.0f) / 4.0f;
-            this.bUs[i].bUx = f;
-            aVar.bUw = f;
+            this.bPG[i].bPL = f;
+            aVar.bPK = f;
             i++;
         }
     }
 
-    private void ZK() {
+    private void VR() {
         this.mValueAnimator = ValueAnimator.ofFloat(0.0f, 0.25f);
         this.mValueAnimator.setDuration(150L);
         this.mValueAnimator.setInterpolator(new LinearInterpolator());
@@ -121,16 +121,16 @@ public class DanceRectView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                for (a aVar : DanceRectView.this.bUs) {
-                    aVar.ZL();
+                for (a aVar : DanceRectView.this.bPG) {
+                    aVar.VS();
                 }
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 super.onAnimationRepeat(animator);
-                for (a aVar : DanceRectView.this.bUs) {
-                    aVar.ZM();
+                for (a aVar : DanceRectView.this.bPG) {
+                    aVar.VT();
                 }
                 DanceRectView.this.invalidate();
             }
@@ -138,7 +138,7 @@ public class DanceRectView extends View {
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.view.DanceRectView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                for (a aVar : DanceRectView.this.bUs) {
+                for (a aVar : DanceRectView.this.bPG) {
                     aVar.C(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
                 DanceRectView.this.invalidate();
@@ -147,26 +147,26 @@ public class DanceRectView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        float bUv;
-        float bUw;
-        float bUx;
+        float bPJ;
+        float bPK;
+        float bPL;
         boolean up;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ZL() {
-            if (this.bUx <= 0.0f) {
-                this.bUx = 0.0f;
-                this.bUw = 0.0f;
+        public void VS() {
+            if (this.bPL <= 0.0f) {
+                this.bPL = 0.0f;
+                this.bPK = 0.0f;
                 this.up = false;
-            } else if (this.bUx >= 1.0f - this.bUv) {
-                float f = 1.0f - this.bUv;
-                this.bUx = f;
-                this.bUw = f;
+            } else if (this.bPL >= 1.0f - this.bPJ) {
+                float f = 1.0f - this.bPJ;
+                this.bPL = f;
+                this.bPK = f;
                 this.up = true;
             }
         }
@@ -174,31 +174,31 @@ public class DanceRectView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         public void C(float f) {
             float f2 = 0.0f;
-            if (f != 0.0f && f != this.bUv) {
+            if (f != 0.0f && f != this.bPJ) {
                 if (this.up) {
-                    float f3 = this.bUw - f;
+                    float f3 = this.bPK - f;
                     if (f3 >= 0.0f) {
                         f2 = f3;
                     }
                 } else {
-                    f2 = this.bUw + f;
-                    if (f2 > 1.0f - this.bUv) {
-                        f2 = 1.0f - this.bUv;
+                    f2 = this.bPK + f;
+                    if (f2 > 1.0f - this.bPJ) {
+                        f2 = 1.0f - this.bPJ;
                     }
                 }
-                this.bUx = f2;
+                this.bPL = f2;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ZM() {
+        public void VT() {
             if (this.up) {
-                this.bUx = this.bUw - this.bUv;
+                this.bPL = this.bPK - this.bPJ;
             } else {
-                this.bUx = this.bUw + this.bUv;
+                this.bPL = this.bPK + this.bPJ;
             }
-            this.bUw = this.bUx;
-            ZL();
+            this.bPK = this.bPL;
+            VS();
         }
     }
 }

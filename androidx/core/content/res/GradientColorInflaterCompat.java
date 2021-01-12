@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.R;
-import com.baidu.platform.comapi.map.MapController;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class GradientColorInflaterCompat {
     private static final int TILE_MODE_CLAMP = 0;
     private static final int TILE_MODE_MIRROR = 2;
@@ -95,7 +94,7 @@ public final class GradientColorInflaterCompat {
             int next = xmlPullParser.next();
             if (next == 1 || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
                 break;
-            } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals(MapController.ITEM_LAYER_TAG)) {
+            } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
                 TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.GradientColorItem);
                 boolean hasValue = obtainAttributes.hasValue(R.styleable.GradientColorItem_android_color);
                 boolean hasValue2 = obtainAttributes.hasValue(R.styleable.GradientColorItem_android_offset);
@@ -137,7 +136,7 @@ public final class GradientColorInflaterCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class ColorStops {
         final int[] mColors;
         final float[] mOffsets;

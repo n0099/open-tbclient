@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
-    private HeadImageView ioZ;
-    private TextView ipa;
-    private TextView ipb;
-    private TextView ipc;
-    private com.baidu.tieba.barselect.data.a ipd;
-    private View ipe;
+    private HeadImageView ikq;
+    private TextView ikr;
+    private TextView iks;
+    private TextView ikt;
+    private com.baidu.tieba.barselect.data.a iku;
+    private View ikv;
     private TextView mName;
     private View.OnClickListener mOnClickListener;
     private BdUniqueId mPageId;
@@ -43,14 +43,14 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.CandidateSearchItemHolder.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (CandidateSearchItemHolder.this.ipd != null) {
-                    if (view2.getId() != CandidateSearchItemHolder.this.ipe.getId() && view2.getId() != CandidateSearchItemHolder.this.ioZ.getId()) {
-                        if (view2.getId() == CandidateSearchItemHolder.this.ipc.getId() && (CandidateSearchItemHolder.this.itemView.getContext() instanceof Activity) && bg.checkUpIsLogin(CandidateSearchItemHolder.this.itemView.getContext())) {
-                            if (CandidateSearchItemHolder.this.ipd.ipp) {
+                if (CandidateSearchItemHolder.this.iku != null) {
+                    if (view2.getId() != CandidateSearchItemHolder.this.ikv.getId() && view2.getId() != CandidateSearchItemHolder.this.ikq.getId()) {
+                        if (view2.getId() == CandidateSearchItemHolder.this.ikt.getId() && (CandidateSearchItemHolder.this.itemView.getContext() instanceof Activity) && bg.checkUpIsLogin(CandidateSearchItemHolder.this.itemView.getContext())) {
+                            if (CandidateSearchItemHolder.this.iku.ikG) {
                                 l.showToast(TbadkCoreApplication.getInst(), R.string.has_not_other_ticket);
                                 return;
                             }
-                            CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(CandidateSearchItemHolder.this.ipd.uid, CandidateSearchItemHolder.this.ipd.forumId, CandidateSearchItemHolder.this.ipd.tid, 3);
+                            CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(CandidateSearchItemHolder.this.iku.uid, CandidateSearchItemHolder.this.iku.forumId, CandidateSearchItemHolder.this.iku.tid, 3);
                             if (CandidateSearchItemHolder.this.mPageId == null) {
                                 if (CandidateSearchItemHolder.this.itemView.getContext() instanceof BaseActivity) {
                                     CandidateSearchItemHolder.this.mPageId = ((BaseActivity) CandidateSearchItemHolder.this.itemView.getContext()).getUniqueId();
@@ -64,34 +64,34 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                         }
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(CandidateSearchItemHolder.this.itemView.getContext()).createNormalConfig(CandidateSearchItemHolder.this.ipd.uid, CandidateSearchItemHolder.this.ipd.uid == b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(CandidateSearchItemHolder.this.itemView.getContext()).createNormalConfig(CandidateSearchItemHolder.this.iku.uid, CandidateSearchItemHolder.this.iku.uid == b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
                 }
             }
         };
-        this.ioZ = (HeadImageView) view.findViewById(R.id.img_head);
-        this.ioZ.setIsRound(true);
-        this.ioZ.setOnClickListener(this.mOnClickListener);
+        this.ikq = (HeadImageView) view.findViewById(R.id.img_head);
+        this.ikq.setIsRound(true);
+        this.ikq.setOnClickListener(this.mOnClickListener);
         this.mName = (TextView) view.findViewById(R.id.name);
-        this.ipa = (TextView) view.findViewById(R.id.num_and_vote_count);
-        this.ipb = (TextView) view.findViewById(R.id.agree_publish_reply);
-        this.ipc = (TextView) view.findViewById(R.id.btn_vote);
+        this.ikr = (TextView) view.findViewById(R.id.num_and_vote_count);
+        this.iks = (TextView) view.findViewById(R.id.agree_publish_reply);
+        this.ikt = (TextView) view.findViewById(R.id.btn_vote);
         this.itemView.setOnClickListener(this.mOnClickListener);
-        this.ipc.setOnClickListener(this.mOnClickListener);
-        this.ipe = view.findViewById(R.id.candidate_info);
-        this.ipe.setOnClickListener(this.mOnClickListener);
+        this.ikt.setOnClickListener(this.mOnClickListener);
+        this.ikv = view.findViewById(R.id.candidate_info);
+        this.ikv.setOnClickListener(this.mOnClickListener);
     }
 
     public void a(com.baidu.tieba.barselect.data.a aVar) {
-        this.ipd = aVar;
+        this.iku = aVar;
         if (aVar != null) {
-            this.ioZ.startLoad(aVar.portraitUrl, 12, false);
+            this.ikq.startLoad(aVar.portraitUrl, 12, false);
             this.mName.setText(aVar.name);
-            String valueOf = String.valueOf(aVar.ipj);
+            String valueOf = String.valueOf(aVar.ikA);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(aVar.ipj));
+                valueOf = String.format("%04d", Long.valueOf(aVar.ikA));
             }
-            a(this.ipa, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.ipk)), aVar.ipo);
-            this.ipb.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), at.ea(aVar.ipl), at.ea(aVar.ipm), at.ea(aVar.ipn)));
+            a(this.ikr, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.ikB)), aVar.ikF);
+            this.iks.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), at.ea(aVar.ikC), at.ea(aVar.ikD), at.ea(aVar.ikE)));
             onChangeSkinType();
         }
     }
@@ -99,10 +99,10 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     private void onChangeSkinType() {
         if (TbadkCoreApplication.getInst().getSkinType() != this.mSkinType) {
             ao.setViewTextColor(this.mName, R.color.CAM_X0106);
-            ao.setViewTextColor(this.ipa, R.color.CAM_X0108);
-            ao.setViewTextColor(this.ipb, R.color.CAM_X0109);
-            ao.setViewTextColor(this.ipc, R.color.CAM_X0302);
-            ao.setBackgroundResource(this.ipc, R.drawable.shape_vote_button);
+            ao.setViewTextColor(this.ikr, R.color.CAM_X0108);
+            ao.setViewTextColor(this.iks, R.color.CAM_X0109);
+            ao.setViewTextColor(this.ikt, R.color.CAM_X0302);
+            ao.setBackgroundResource(this.ikt, R.drawable.shape_vote_button);
         }
     }
 

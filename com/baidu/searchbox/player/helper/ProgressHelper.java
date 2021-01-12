@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.helper;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ProgressHelper extends AbsHandlerTask {
     private BDVideoPlayer mPlayer;
 

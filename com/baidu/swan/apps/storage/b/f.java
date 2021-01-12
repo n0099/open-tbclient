@@ -2,16 +2,16 @@ package com.baidu.swan.apps.storage.b;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends a {
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
-    public String aPB() {
-        String tR = com.baidu.swan.apps.storage.b.tR(com.baidu.swan.apps.runtime.d.aMh().getAppId());
-        if (TextUtils.isEmpty(tR)) {
+    public String aLH() {
+        String sG = com.baidu.swan.apps.storage.b.sG(com.baidu.swan.apps.runtime.d.aIn().getAppId());
+        if (TextUtils.isEmpty(sG)) {
             return "";
         }
-        return tR;
+        return sG;
     }
 
     @Override // com.baidu.swan.apps.storage.b.d

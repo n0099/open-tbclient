@@ -5,108 +5,108 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.ar;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements com.baidu.swan.apps.media.a {
-    private String doY;
-    private ar dpG;
-    private c dpH;
-    private boolean dpa;
+    private ar dkQ;
+    private c dkR;
+    private String dkj;
+    private boolean dkl;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.dpH = cVar;
-        this.doY = cVar.dkT;
-        aFw();
-        aFs();
+        this.dkR = cVar;
+        this.dkj = cVar.dge;
+        aBC();
+        aBy();
     }
 
-    private void aFs() {
-        if (!TextUtils.isEmpty(this.doY)) {
+    private void aBy() {
+        if (!TextUtils.isEmpty(this.dkj)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
 
     public void a(c cVar) {
         com.baidu.swan.apps.console.c.d("VrVideo", "update 接口");
-        if (this.dpG != null) {
-            this.dpG.a(cVar, true);
+        if (this.dkQ != null) {
+            this.dkQ.a(cVar, true);
         }
-        this.dpH = cVar;
+        this.dkR = cVar;
     }
 
-    public c aFv() {
-        return this.dpH;
+    public c aBB() {
+        return this.dkR;
     }
 
     public void b(c cVar) {
-        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.dkT);
-        if (this.dpG != null) {
-            this.dpG.a(cVar, this.mContext);
+        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.dge);
+        if (this.dkQ != null) {
+            this.dkQ.a(cVar, this.mContext);
         }
-        this.dpH = cVar;
+        this.dkR = cVar;
     }
 
-    public ar aFw() {
-        if (this.dpG == null) {
+    public ar aBC() {
+        if (this.dkQ == null) {
             com.baidu.swan.apps.console.c.i("VrVideo", "create player");
-            this.dpG = com.baidu.swan.apps.t.a.aBn().alB();
+            this.dkQ = com.baidu.swan.apps.t.a.axt().ahH();
         }
-        return this.dpG;
+        return this.dkQ;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String azY() {
-        return this.doY;
+    public String awe() {
+        return this.dkj;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aEa() {
-        return this.dpH != null ? this.dpH.dpm : "";
+    public String aAg() {
+        return this.dkR != null ? this.dkR.dkw : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.dpH.cNP;
+        return this.dkR.cJd;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aEb() {
+    public Object aAh() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fZ(boolean z) {
+    public void fV(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.dpa) {
-                aFw().resume();
+            if (this.dkl) {
+                aBC().resume();
             }
-            aFw().onForeground();
-        } else if (this.dpG != null) {
-            this.dpa = aFw().isPlaying();
-            aFw().pause();
-            aFw().onBackground();
+            aBC().Rf();
+        } else if (this.dkQ != null) {
+            this.dkl = aBC().isPlaying();
+            aBC().pause();
+            aBC().Re();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void ga(boolean z) {
+    public void fW(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("VrVideo", "onBackPressed");
-        return this.dpG != null && this.dpG.onBackPressed();
+        return this.dkQ != null && this.dkQ.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
-        if (this.dpG != null) {
-            this.dpG.stop();
-            this.dpG = null;
+        if (this.dkQ != null) {
+            this.dkQ.stop();
+            this.dkQ = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }

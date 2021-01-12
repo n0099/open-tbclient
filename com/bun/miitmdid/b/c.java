@@ -11,33 +11,33 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, String> f6037a = new HashMap();
+    private Map<String, String> f5737a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f6037a.isEmpty()) {
-            this.f6037a.put("av", sysParamters.eoN().b());
-            this.f6037a.put("sv", sysParamters.eoN().c());
-            this.f6037a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eoN().d());
-            this.f6037a.put("mf", sysParamters.eoN().e());
-            this.f6037a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f5737a.isEmpty()) {
+            this.f5737a.put("av", sysParamters.ekR().b());
+            this.f5737a.put("sv", sysParamters.ekR().c());
+            this.f5737a.put(IXAdRequestInfo.TEST_MODE, sysParamters.ekR().d());
+            this.f5737a.put("mf", sysParamters.ekR().e());
+            this.f5737a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f6037a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
-        return this.f6037a;
+        this.f5737a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
+        return this.f5737a;
     }
 
     public boolean b(boolean z, String str, String str2, String str3, String str4) {
         try {
             String a2 = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
-            b hL = b.hL(com.bun.miitmdid.utils.b.a());
-            hL.H(a());
-            hL.hb("support", String.valueOf(z ? 1 : 0));
-            hL.aX(a2);
-            hL.Yz("http://sdk.api.bjshcw.com/stat");
-            hL.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
+            b hJ = b.hJ(com.bun.miitmdid.utils.b.a());
+            hJ.H(a());
+            hJ.ha("support", String.valueOf(z ? 1 : 0));
+            hJ.aX(a2);
+            hJ.Xr("http://sdk.api.bjshcw.com/stat");
+            hJ.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).eoI();
+            }).ekM();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

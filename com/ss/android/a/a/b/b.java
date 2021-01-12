@@ -13,9 +13,9 @@ public interface b {
 
     String e();
 
-    Object eFt();
+    Object eBC();
 
-    JSONObject eFu();
+    JSONObject eBD();
 
     String f();
 

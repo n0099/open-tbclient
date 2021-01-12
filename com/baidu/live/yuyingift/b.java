@@ -12,43 +12,43 @@ import com.baidu.live.utils.s;
 import com.baidu.live.yuyingift.a.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static void f(c cVar) {
         if (cVar != null) {
             r rVar = new r();
             rVar.userId = cVar.userId;
             rVar.giftId = cVar.giftId;
-            rVar.aZQ = cVar.aZQ;
-            rVar.boI = cVar.boI;
-            List<s.a> iV = s.iV(cVar.boI);
-            rVar.boJ = new ArrayList();
-            if (iV != null && iV.size() > 0) {
+            rVar.aVd = cVar.aVd;
+            rVar.bjV = cVar.bjV;
+            List<s.a> hK = s.hK(cVar.bjV);
+            rVar.bjW = new ArrayList();
+            if (hK != null && hK.size() > 0) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= iV.size()) {
+                    if (i2 >= hK.size()) {
                         break;
                     }
                     r.a aVar = new r.a();
-                    aVar.count = cVar.beC;
+                    aVar.count = cVar.aZM;
                     aVar.giftId = cVar.giftId;
-                    if (cVar.bex != null) {
-                        aVar.aYy = cVar.bex.getThumbnail_url();
+                    if (cVar.aZH != null) {
+                        aVar.aTL = cVar.aZH.getThumbnail_url();
                     }
-                    aVar.boK = iV.get(i2).name;
-                    if (cVar.bex.GG()) {
+                    aVar.bjX = hK.get(i2).name;
+                    if (cVar.aZH.CL()) {
                         aVar.giftName = TbadkCoreApplication.getInst().getString(a.h.text_gift_graffiti);
                     } else {
-                        aVar.giftName = cVar.bex.Gy();
+                        aVar.giftName = cVar.aZH.CD();
                     }
-                    aVar.boc = cVar.bex.GJ();
-                    rVar.boJ.add(aVar);
+                    aVar.bjp = cVar.aZH.CO();
+                    rVar.bjW.add(aVar);
                     i = i2 + 1;
                 }
             }
-            rVar.aYz = cVar.aYz;
-            rVar.bof.add(Long.valueOf(rVar.aYz));
+            rVar.aTM = cVar.aTM;
+            rVar.bjs.add(Long.valueOf(rVar.aTM));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913185, rVar));
         }
     }
@@ -56,16 +56,16 @@ public class b {
     public static void g(c cVar) {
         if (cVar != null) {
             com.baidu.live.im.s sVar = new com.baidu.live.im.s();
-            List<s.a> iV = s.iV(cVar.boI);
-            sVar.boL = new ArrayList();
-            sVar.bey = cVar.bey;
-            sVar.boi = cVar.msgId;
-            sVar.bok = cVar.aYz;
-            if (iV != null && iV.size() > 0) {
-                for (int i = 0; i < iV.size(); i++) {
+            List<s.a> hK = s.hK(cVar.bjV);
+            sVar.bjY = new ArrayList();
+            sVar.aZI = cVar.aZI;
+            sVar.bjv = cVar.msgId;
+            sVar.bjx = cVar.aTM;
+            if (hK != null && hK.size() > 0) {
+                for (int i = 0; i < hK.size(); i++) {
                     s.a aVar = new s.a();
-                    aVar.boj = cVar.beC;
-                    sVar.boL.add(aVar);
+                    aVar.bjw = cVar.aZM;
+                    sVar.bjY.add(aVar);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, sVar));
@@ -73,20 +73,20 @@ public class b {
     }
 
     public static void a(c cVar, c cVar2) {
-        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.Jm(), cVar2.Jm())) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.Fr(), cVar2.Fr())) {
             com.baidu.live.im.s sVar = new com.baidu.live.im.s();
-            List<s.a> iV = com.baidu.live.utils.s.iV(cVar.boI);
-            sVar.boL = new ArrayList();
-            sVar.bey = cVar.bey;
-            sVar.boi = cVar.msgId;
-            sVar.bok = cVar.aYz;
-            sVar.bol = cVar2.msgId;
-            sVar.bon = cVar2.aYz;
-            if (iV != null && iV.size() > 0) {
+            List<s.a> hK = com.baidu.live.utils.s.hK(cVar.bjV);
+            sVar.bjY = new ArrayList();
+            sVar.aZI = cVar.aZI;
+            sVar.bjv = cVar.msgId;
+            sVar.bjx = cVar.aTM;
+            sVar.bjy = cVar2.msgId;
+            sVar.bjA = cVar2.aTM;
+            if (hK != null && hK.size() > 0) {
                 s.a aVar = new s.a();
-                aVar.boj = cVar.beC;
-                aVar.bom = cVar2.beC;
-                sVar.boL.add(aVar);
+                aVar.bjw = cVar.aZM;
+                aVar.bjz = cVar2.aZM;
+                sVar.bjY.add(aVar);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, sVar));
         }
@@ -94,15 +94,15 @@ public class b {
 
     public static void a(long j, String str, String str2, String str3, long j2, long j3, String str4) {
         com.baidu.live.im.s sVar = new com.baidu.live.im.s();
-        List<s.a> iV = com.baidu.live.utils.s.iV(str4);
-        sVar.boL = new ArrayList();
-        sVar.bey = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
-        sVar.boi = j;
-        if (iV != null && iV.size() > 0) {
+        List<s.a> hK = com.baidu.live.utils.s.hK(str4);
+        sVar.bjY = new ArrayList();
+        sVar.aZI = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        sVar.bjv = j;
+        if (hK != null && hK.size() > 0) {
             s.a aVar = new s.a();
-            aVar.boo = j2;
-            aVar.bop = j3;
-            sVar.boL.add(aVar);
+            aVar.bjB = j2;
+            aVar.bjC = j3;
+            sVar.bjY.add(aVar);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, sVar));
     }

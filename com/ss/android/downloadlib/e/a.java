@@ -19,24 +19,24 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.downloadlib.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1236a {
-        private static a pWV = new a();
+    public static class C1219a {
+        private static a pSu = new a();
     }
 
-    public static a eGB() {
-        return C1236a.pWV;
+    public static a eCL() {
+        return C1219a.pSu;
     }
 
     private a() {
     }
 
     public void a(long j, int i) {
-        d.a jc = d.eFT().jc(j);
+        d.a jc = d.eCc().jc(j);
         if (jc.a()) {
             i.b();
-        } else if (jc.pVx.l()) {
-            String c = i == 1 ? jc.pVx.c() : jc.pVx.b();
-            String a2 = i.a(jc.pVx.d(), "click");
+        } else if (jc.pQW.l()) {
+            String c = i == 1 ? jc.pQW.c() : jc.pQW.b();
+            String a2 = i.a(jc.pQW.d(), "click");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("click_type", Integer.valueOf(i));
@@ -45,12 +45,12 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            a(c, a2, jSONObject, jc.pVw, jc.pVx);
+            a(c, a2, jSONObject, jc.pQV, jc.pQW);
         }
     }
 
     public void a(long j, int i, c cVar) {
-        d.a jc = d.eFT().jc(j);
+        d.a jc = d.eCc().jc(j);
         if (jc.a()) {
             i.b();
             return;
@@ -59,18 +59,18 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         switch (i) {
             case 1:
-                str = i.a(jc.pVx.i(), "storage_deny");
+                str = i.a(jc.pQW.i(), "storage_deny");
                 break;
             case 2:
-                str = i.a(jc.pVx.e(), "click_start");
+                str = i.a(jc.pQW.e(), "click_start");
                 a(cVar, jSONObject);
                 break;
             case 3:
-                str = i.a(jc.pVx.f(), "click_pause");
+                str = i.a(jc.pQW.f(), "click_pause");
                 b(cVar, jSONObject);
                 break;
             case 4:
-                str = i.a(jc.pVx.g(), "click_continue");
+                str = i.a(jc.pQW.g(), "click_continue");
                 c(cVar, jSONObject);
                 break;
             case 5:
@@ -81,10 +81,10 @@ public class a {
                     } catch (Throwable th) {
                     }
                 }
-                str = i.a(jc.pVx.h(), "click_install");
+                str = i.a(jc.pQW.h(), "click_install");
                 break;
         }
-        a(jc.pVx.b(), str, jSONObject, jc.pVw.g(), 1, jc.pVw, jc.pVx);
+        a(jc.pQW.b(), str, jSONObject, jc.pQV.g(), 1, jc.pQV, jc.pQW);
     }
 
     public void b(long j, int i) {
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void a(String str, long j) {
-        com.ss.android.b.a.b.a jb = d.eFT().jb(j);
+        com.ss.android.b.a.b.a jb = d.eCc().jb(j);
         if (jb == null) {
             i.b();
         } else {
@@ -101,40 +101,40 @@ public class a {
     }
 
     public void a(String str, @NonNull com.ss.android.a.a.b.c cVar, @NonNull com.ss.android.a.a.b.b bVar) {
-        a(bVar.b(), str, cVar.eFx(), cVar, bVar);
+        a(bVar.b(), str, cVar.eBG(), cVar, bVar);
     }
 
     public void a(String str, @NonNull d.a aVar) {
-        a(aVar.pVx.b(), str, aVar.pVw.eFx(), aVar.pVw, aVar.pVx);
+        a(aVar.pQW.b(), str, aVar.pQV.eBG(), aVar.pQV, aVar.pQW);
     }
 
     public void a(String str, JSONObject jSONObject, @NonNull d.a aVar) {
-        a(aVar.pVx.b(), str, jSONObject, aVar.pVw, aVar.pVx);
+        a(aVar.pQW.b(), str, jSONObject, aVar.pQV, aVar.pQW);
     }
 
     public void a(String str, int i, d.a aVar) {
-        a(aVar.pVx.b(), str, null, i, 2, aVar.pVw, aVar.pVx);
+        a(aVar.pQW.b(), str, null, i, 2, aVar.pQV, aVar.pQW);
     }
 
     public void a(long j, boolean z, int i) {
-        d.a jc = d.eFT().jc(j);
+        d.a jc = d.eCc().jc(j);
         if (jc.a()) {
             i.b();
-        } else if (jc.pVw.eFy() != null) {
+        } else if (jc.pQV.eBH() != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("click_type", Integer.valueOf(i));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            a(jc.pVx.b(), z ? "deeplink_quickapp_success" : "deeplink_quickapp_failed", jSONObject, jc.pVw, jc.pVx);
+            a(jc.pQW.b(), z ? "deeplink_quickapp_success" : "deeplink_quickapp_failed", jSONObject, jc.pQV, jc.pQW);
         }
     }
 
     private void a(c cVar, JSONObject jSONObject) {
         try {
             c(cVar, jSONObject);
-            com.ss.android.b.a.b.a j = d.eFT().j(cVar);
+            com.ss.android.b.a.b.a j = d.eCc().j(cVar);
             if (j != null) {
                 jSONObject.put("is_update_download", j.I() ? 1 : 2);
                 e.a(j, jSONObject);
@@ -147,20 +147,20 @@ public class a {
     private void b(c cVar, JSONObject jSONObject) {
         com.ss.android.b.a.b.a j;
         double d;
-        if (jSONObject != null && (j = d.eFT().j(cVar)) != null) {
+        if (jSONObject != null && (j = d.eCc().j(cVar)) != null) {
             try {
                 c(cVar, jSONObject);
-                jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - j.eFI()));
-                jSONObject.putOpt("click_download_size", Long.valueOf(j.eFJ()));
-                jSONObject.putOpt("download_length", Long.valueOf(cVar.eIz()));
-                jSONObject.putOpt("download_apk_size", Long.valueOf(cVar.ejL()));
+                jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - j.eBR()));
+                jSONObject.putOpt("click_download_size", Long.valueOf(j.eBS()));
+                jSONObject.putOpt("download_length", Long.valueOf(cVar.eEJ()));
+                jSONObject.putOpt("download_apk_size", Long.valueOf(cVar.efR()));
                 j.d();
-                g.eFW().d(j);
+                g.eCf().d(j);
                 jSONObject.put("click_pause_times", j.c());
-                long ejL = cVar.ejL();
-                long eIz = cVar.eIz();
-                if (eIz >= 0 && ejL > 0) {
-                    d = eIz / ejL;
+                long efR = cVar.efR();
+                long eEJ = cVar.eEJ();
+                if (eEJ >= 0 && efR > 0) {
+                    d = eEJ / efR;
                 } else {
                     d = 0.0d;
                 }
@@ -179,10 +179,10 @@ public class a {
                 jSONObject.putOpt("fail_msg", j.i());
                 jSONObject.put("download_failed_times", j.a());
                 jSONObject.put("can_show_notification", com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2);
-                jSONObject.put("first_speed_time", cVar.epM());
-                jSONObject.put("all_connect_time", cVar.eIr());
-                jSONObject.put("download_prepare_time", cVar.eFH());
-                jSONObject.put("download_time", cVar.eIT() + cVar.eIr() + cVar.eFH());
+                jSONObject.put("first_speed_time", cVar.elQ());
+                jSONObject.put("all_connect_time", cVar.eEB());
+                jSONObject.put("download_prepare_time", cVar.eBQ());
+                jSONObject.put("download_time", cVar.eFd() + cVar.eEB() + cVar.eBQ());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -192,16 +192,16 @@ public class a {
     public void c(c cVar, JSONObject jSONObject) {
         if (cVar != null) {
             try {
-                jSONObject.putOpt("total_bytes", Long.valueOf(cVar.ejL()));
-                jSONObject.putOpt("cur_bytes", Long.valueOf(cVar.eIz()));
-                jSONObject.putOpt("chunk_count", Integer.valueOf(cVar.eJl()));
+                jSONObject.putOpt("total_bytes", Long.valueOf(cVar.efR()));
+                jSONObject.putOpt("cur_bytes", Long.valueOf(cVar.eEJ()));
+                jSONObject.putOpt("chunk_count", Integer.valueOf(cVar.eFv()));
                 jSONObject.putOpt("app_name", cVar.i());
-                jSONObject.putOpt("network_quality", cVar.eIB());
+                jSONObject.putOpt("network_quality", cVar.eEL());
                 jSONObject.putOpt("save_path", cVar.k());
-                com.ss.android.b.a.b.a Sg = d.eFT().Sg(cVar.g());
-                if (Sg != null) {
-                    jSONObject.putOpt("click_download_time", Long.valueOf(Sg.eFI()));
-                    jSONObject.putOpt("click_download_size", Long.valueOf(Sg.eFJ()));
+                com.ss.android.b.a.b.a Qz = d.eCc().Qz(cVar.g());
+                if (Qz != null) {
+                    jSONObject.putOpt("click_download_time", Long.valueOf(Qz.eBR()));
+                    jSONObject.putOpt("click_download_size", Long.valueOf(Qz.eBS()));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -214,7 +214,7 @@ public class a {
     }
 
     public void a(long j, com.ss.android.socialbase.downloader.e.a aVar) {
-        d.a jc = d.eFT().jc(j);
+        d.a jc = d.eCc().jc(j);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("download_time", 0);
@@ -225,7 +225,7 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        a(jc.pVx.b(), "download_failed", jSONObject, jc.pVw, jc.pVx);
+        a(jc.pQW.b(), "download_failed", jSONObject, jc.pQV, jc.pQW);
     }
 
     public void a(String str, String str2, com.ss.android.b.a.b.a aVar) {
@@ -261,14 +261,14 @@ public class a {
     }
 
     public void a(c cVar) {
-        com.ss.android.b.a.b.a j = d.eFT().j(cVar);
+        com.ss.android.b.a.b.a j = d.eCc().j(cVar);
         if (j != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 c(cVar, jSONObject);
                 j.a(System.currentTimeMillis());
                 a(j.x(), "download_resume", jSONObject, j);
-                g.eFW().d(j);
+                g.eCf().d(j);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -282,18 +282,18 @@ public class a {
 
     public void a(c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         if (cVar != null) {
-            com.ss.android.b.a.b.a j = d.eFT().j(cVar);
+            com.ss.android.b.a.b.a j = d.eCc().j(cVar);
             if (j == null) {
                 i.b();
-            } else if (!j.f13220a.get()) {
+            } else if (!j.f12920a.get()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     b.a(jSONObject, cVar, true);
                     jSONObject.putOpt("fail_status", Integer.valueOf(j.h()));
                     jSONObject.putOpt("fail_msg", j.i());
                     jSONObject.put("download_failed_times", j.a());
-                    if (cVar.ejL() > 0) {
-                        jSONObject.put("download_percent", cVar.eIz() / cVar.ejL());
+                    if (cVar.efR() > 0) {
+                        jSONObject.put("download_percent", cVar.eEJ() / cVar.efR());
                     }
                     jSONObject.put("download_status", cVar.w());
                     long currentTimeMillis = System.currentTimeMillis();
@@ -305,7 +305,7 @@ public class a {
                     }
                     jSONObject.put("is_update_download", j.I() ? 1 : 2);
                     jSONObject.put("can_show_notification", com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2);
-                    jSONObject.put("has_send_download_failed_finally", j.f13221b.get() ? 1 : 2);
+                    jSONObject.put("has_send_download_failed_finally", j.f12921b.get() ? 1 : 2);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -316,10 +316,10 @@ public class a {
 
     public void b(c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
         if (cVar != null) {
-            com.ss.android.b.a.b.a j = d.eFT().j(cVar);
+            com.ss.android.b.a.b.a j = d.eCc().j(cVar);
             if (j == null) {
                 i.b();
-            } else if (!j.f13220a.get()) {
+            } else if (!j.f12920a.get()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     c(cVar, jSONObject);
@@ -332,17 +332,17 @@ public class a {
                     }
                     j.b();
                     jSONObject.put("download_failed_times", j.a());
-                    if (cVar.ejL() > 0) {
-                        jSONObject.put("download_percent", cVar.eIz() / cVar.ejL());
+                    if (cVar.efR() > 0) {
+                        jSONObject.put("download_percent", cVar.eEJ() / cVar.efR());
                     }
-                    jSONObject.put("has_send_download_failed_finally", j.f13221b.get() ? 1 : 2);
+                    jSONObject.put("has_send_download_failed_finally", j.f12921b.get() ? 1 : 2);
                     e.a(j, jSONObject);
                     jSONObject.put("is_update_download", j.I() ? 1 : 2);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 a(j.x(), "download_failed", jSONObject, j);
-                g.eFW().d(j);
+                g.eCf().d(j);
             }
         }
     }
@@ -353,7 +353,7 @@ public class a {
 
     private void a(String str, String str2, JSONObject jSONObject, long j, int i, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar) {
         try {
-            a(new d.a().aap(i.a(str, "embeded_ad")).aaq(str2).Bv(cVar.t()).iT(cVar.d()).aar(cVar.u()).iU(j).aas(bVar.a()).gW(cVar.eFw()).eZ(i.a(f(cVar), bVar.eFu(), jSONObject)).bF(bVar.eFt()).RY(i).Bu(bVar.m()).eFD());
+            a(new d.a().Zh(i.a(str, "embeded_ad")).Zi(str2).Br(cVar.t()).iT(cVar.d()).Zj(cVar.u()).iU(j).Zk(bVar.a()).gW(cVar.eBF()).eZ(i.a(f(cVar), bVar.eBD(), jSONObject)).bF(bVar.eBC()).Qr(i).Bq(bVar.m()).eBM());
         } catch (Exception e) {
             i.a(e);
         }
@@ -361,7 +361,7 @@ public class a {
 
     private void b(String str, String str2, JSONObject jSONObject, com.ss.android.b.a.b.a aVar) {
         try {
-            a(new d.a().aap(i.a(str, "embeded_ad")).aaq(str2).Bv(aVar.p()).iT(aVar.j()).aar(aVar.o()).iU(aVar.k()).aas(aVar.y()).eZ(i.a(g(aVar), jSONObject)).RY(2).Bu(aVar.u()).eFD());
+            a(new d.a().Zh(i.a(str, "embeded_ad")).Zi(str2).Br(aVar.p()).iT(aVar.j()).Zj(aVar.o()).iU(aVar.k()).Zk(aVar.y()).eZ(i.a(g(aVar), jSONObject)).Qr(2).Bq(aVar.u()).eBM());
         } catch (Exception e) {
             i.a(e);
         }
@@ -370,7 +370,7 @@ public class a {
     private JSONObject f(com.ss.android.a.a.b.c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            i.a(cVar.eFx(), jSONObject);
+            i.a(cVar.eBG(), jSONObject);
             jSONObject.putOpt("download_url", cVar.a());
             jSONObject.putOpt("package_name", cVar.v());
             jSONObject.putOpt("android_int", Integer.valueOf(Build.VERSION.SDK_INT));
@@ -398,11 +398,11 @@ public class a {
     }
 
     private void a(com.ss.android.a.a.d.d dVar) {
-        if (j.eGd() != null) {
+        if (j.eCm() != null) {
             if (dVar.e()) {
-                j.eGd().a(dVar);
+                j.eCm().a(dVar);
             } else {
-                j.eGd().b(dVar);
+                j.eCm().b(dVar);
             }
         }
     }

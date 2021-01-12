@@ -6,9 +6,9 @@ import com.baidu.swan.apps.performance.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements a<JSONObject> {
-    private JSONArray dNn = new JSONArray();
+    private JSONArray dIB = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -33,22 +33,22 @@ public class b implements a<JSONObject> {
 
     public void cj(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dNn.put(jSONObject);
+            this.dIB.put(jSONObject);
         }
     }
 
-    public JSONObject aOQ() {
+    public JSONObject aKW() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.dNn);
-            jSONObject.put("performance", e.aHy());
+            jSONObject.put("launchLog", this.dIB);
+            jSONObject.put("performance", e.aDE());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.t.a.aAv().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.awB().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -58,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.dNn = new JSONArray();
+        this.dIB = new JSONArray();
     }
 }

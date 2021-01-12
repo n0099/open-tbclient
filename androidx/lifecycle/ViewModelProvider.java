@@ -4,13 +4,13 @@ import android.app.Application;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ViewModelProvider {
     private static final String DEFAULT_KEY = "androidx.lifecycle.ViewModelProvider.DefaultKey";
     private final Factory mFactory;
     private final ViewModelStore mViewModelStore;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface Factory {
         @NonNull
         <T extends ViewModel> T create(@NonNull Class<T> cls);
@@ -49,7 +49,7 @@ public class ViewModelProvider {
         return t;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NewInstanceFactory implements Factory {
         @Override // androidx.lifecycle.ViewModelProvider.Factory
         @NonNull
@@ -64,7 +64,7 @@ public class ViewModelProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AndroidViewModelFactory extends NewInstanceFactory {
         private static AndroidViewModelFactory sInstance;
         private Application mApplication;

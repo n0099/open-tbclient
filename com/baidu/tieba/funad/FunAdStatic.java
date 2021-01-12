@@ -5,16 +5,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.h.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FunAdStatic {
     public static String Tag = "tag";
 
     static {
-        com.baidu.tieba.h.b.jQy.set(new d());
-        cPt();
+        com.baidu.tieba.h.b.jLS.set(new d());
+        cLB();
     }
 
-    private static void cPt() {
+    private static void cLB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new CustomMessageTask.CustomRunnable<a.b>() { // from class: com.baidu.tieba.funad.FunAdStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<a.b> run(CustomMessage<a.b> customMessage) {

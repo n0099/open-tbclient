@@ -12,7 +12,7 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatPrefs {
     private static final String FILE_NAME = "player_floating_sp";
     private static final String FLOATING_LOCATION_X = "floating_location_x";
@@ -22,7 +22,7 @@ public final class FloatPrefs {
     private static final c prefs$delegate = d.b(FloatPrefs$Companion$prefs$2.INSTANCE);
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Companion {
         static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(Companion.class), "prefs", "getPrefs()Lcom/baidu/searchbox/player/utils/SharedPrefsWrapper;"))};
 

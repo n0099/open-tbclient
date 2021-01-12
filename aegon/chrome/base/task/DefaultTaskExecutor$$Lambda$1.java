@@ -1,7 +1,7 @@
 package aegon.chrome.base.task;
 
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class DefaultTaskExecutor$$Lambda$1 implements Callable {
     private static final DefaultTaskExecutor$$Lambda$1 instance = new DefaultTaskExecutor$$Lambda$1();
 

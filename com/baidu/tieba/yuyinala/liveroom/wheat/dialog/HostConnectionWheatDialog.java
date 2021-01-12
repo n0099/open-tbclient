@@ -49,28 +49,28 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HostConnectionWheatDialog extends a implements DialogInterface.OnDismissListener, View.OnClickListener, ViewPager.OnPageChangeListener {
-    private CustomMessageListener aYr;
-    public CustomMessageListener bih;
+    private CustomMessageListener aTE;
+    public CustomMessageListener bdo;
     private List<View> mList;
-    private CustomMessageListener oCA;
-    private TextView oCX;
-    private TextView oCY;
-    private TextView oCZ;
-    private CustomMessageListener oCq;
-    private BaseViewPager oDa;
-    private j oDb;
-    private RelativeLayout oDc;
-    private RelativeLayout oDd;
-    private RelativeLayout oDe;
-    private ConnectionWheatApplyListView oDf;
-    private int oDg;
-    private CustomMessageListener oDh;
+    private CustomMessageListener oxL;
+    private CustomMessageListener oxV;
+    private ConnectionWheatApplyListView oyA;
+    private int oyB;
+    private CustomMessageListener oyC;
+    private TextView oys;
+    private TextView oyt;
+    private TextView oyu;
+    private BaseViewPager oyv;
+    private j oyw;
+    private RelativeLayout oyx;
+    private RelativeLayout oyy;
+    private RelativeLayout oyz;
 
     public HostConnectionWheatDialog(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.aYr = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.11
+        this.aTE = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -79,25 +79,25 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         };
-        this.oCA = new CustomMessageListener(2501012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.12
+        this.oxV = new CustomMessageListener(2501012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501012 && HostConnectionWheatDialog.this.oDa != null && HostConnectionWheatDialog.this.oDa.getCurrentItem() == 0) {
-                    HostConnectionWheatDialog.this.mH(false);
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501012 && HostConnectionWheatDialog.this.oyv != null && HostConnectionWheatDialog.this.oyv.getCurrentItem() == 0) {
+                    HostConnectionWheatDialog.this.mD(false);
                 }
             }
         };
-        this.oDh = new CustomMessageListener(2501068) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.2
+        this.oyC = new CustomMessageListener(2501068) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501068 && HostConnectionWheatDialog.this.oDa != null && HostConnectionWheatDialog.this.oDa.getCurrentItem() == 1) {
-                    HostConnectionWheatDialog.this.mH(false);
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501068 && HostConnectionWheatDialog.this.oyv != null && HostConnectionWheatDialog.this.oyv.getCurrentItem() == 1) {
+                    HostConnectionWheatDialog.this.mD(false);
                 }
             }
         };
-        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.3
+        this.bdo = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,7 +106,7 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         };
-        this.oCq = new CustomMessageListener(2501071) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.4
+        this.oxL = new CustomMessageListener(2501071) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -115,38 +115,38 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         };
-        NH(80);
-        zT(true);
-        zU(true);
+        Ma(80);
+        zP(true);
+        zQ(true);
         g((DialogInterface.OnDismissListener) this);
     }
 
     private void initView() {
-        this.oDa = (BaseViewPager) findViewById(a.f.connection_wheat_viewpager);
-        this.oCX = (TextView) findViewById(a.f.tv_connection_wheat_apply);
-        this.oCY = (TextView) findViewById(a.f.tv_connection_wheat_manager);
-        this.oCZ = (TextView) findViewById(a.f.tv_connection_wheat_invite);
-        this.oDc = (RelativeLayout) findViewById(a.f.rl_connection_wheat_apply);
-        this.oDd = (RelativeLayout) findViewById(a.f.rl_connection_wheat_manager);
-        this.oDe = (RelativeLayout) findViewById(a.f.rl_connection_wheat_invite);
-        this.oDa.setOnPageChangeListener(this);
+        this.oyv = (BaseViewPager) findViewById(a.f.connection_wheat_viewpager);
+        this.oys = (TextView) findViewById(a.f.tv_connection_wheat_apply);
+        this.oyt = (TextView) findViewById(a.f.tv_connection_wheat_manager);
+        this.oyu = (TextView) findViewById(a.f.tv_connection_wheat_invite);
+        this.oyx = (RelativeLayout) findViewById(a.f.rl_connection_wheat_apply);
+        this.oyy = (RelativeLayout) findViewById(a.f.rl_connection_wheat_manager);
+        this.oyz = (RelativeLayout) findViewById(a.f.rl_connection_wheat_invite);
+        this.oyv.setOnPageChangeListener(this);
     }
 
     private void initListener() {
-        this.oCX.setOnClickListener(this);
-        this.oCY.setOnClickListener(this);
-        this.oCZ.setOnClickListener(this);
+        this.oys.setOnClickListener(this);
+        this.oyt.setOnClickListener(this);
+        this.oyu.setOnClickListener(this);
     }
 
-    private void dCG() {
+    private void dyO() {
         this.mList = new ArrayList();
-        this.oDf = new ConnectionWheatApplyListView(this.oAe.getPageActivity());
-        this.oDf.setTbPageContext(this.oAe);
-        this.oDf.setApplyPosition(this.oDg);
-        this.oDf.setOnItemClickLister(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.1
+        this.oyA = new ConnectionWheatApplyListView(this.ovz.getPageActivity());
+        this.oyA.setTbPageContext(this.ovz);
+        this.oyA.setApplyPosition(this.oyB);
+        this.oyA.setOnItemClickLister(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.a
-            public void Nx(int i) {
-                HostConnectionWheatDialog.this.oCX.setText(i > 0 ? TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_request_text_2) + i : TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_request_text_2));
+            public void LQ(int i) {
+                HostConnectionWheatDialog.this.oys.setText(i > 0 ? TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_request_text_2) + i : TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_request_text_2));
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.a
@@ -163,12 +163,12 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         });
-        this.mList.add(this.oDf);
-        ConnectionWheatManagerListView connectionWheatManagerListView = new ConnectionWheatManagerListView(this.oAe.getPageActivity());
+        this.mList.add(this.oyA);
+        ConnectionWheatManagerListView connectionWheatManagerListView = new ConnectionWheatManagerListView(this.ovz.getPageActivity());
         connectionWheatManagerListView.setListener(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.a
-            public void Nz(int i) {
-                HostConnectionWheatDialog.this.oCY.setText(i > 0 ? TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_manager_text) + i : TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_manager_text));
+            public void LS(int i) {
+                HostConnectionWheatDialog.this.oyt.setText(i > 0 ? TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_manager_text) + i : TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_manager_text));
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.a
@@ -188,8 +188,8 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
             }
         });
         this.mList.add(connectionWheatManagerListView);
-        ConnectionWheatInviteListView connectionWheatInviteListView = new ConnectionWheatInviteListView(this.oAe.getPageActivity());
-        connectionWheatInviteListView.setTbPageContext(this.oAe);
+        ConnectionWheatInviteListView connectionWheatInviteListView = new ConnectionWheatInviteListView(this.ovz.getPageActivity());
+        connectionWheatInviteListView.setTbPageContext(this.ovz);
         connectionWheatInviteListView.setOnItemClickLister(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.6
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.c.a
             public void a(n nVar) {
@@ -203,11 +203,11 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                    if (aat != null && aat.aLl != null) {
-                        jSONObject.put("live_id", aat.aLl.live_id);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
-                        int roomMode = aat.aLq.getRoomMode();
+                    x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                    if (WA != null && WA.aGy != null) {
+                        jSONObject.put("live_id", WA.aGy.live_id);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
+                        int roomMode = WA.aGD.getRoomMode();
                         if (roomMode == 0) {
                             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "normal");
                         } else if (roomMode == 1) {
@@ -220,39 +220,39 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                     BdLog.e(e);
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "micinvite_clk").setContentExt(jSONObject));
-                if (HostConnectionWheatDialog.this.oDb == null) {
-                    HostConnectionWheatDialog.this.oDb = new j();
+                if (HostConnectionWheatDialog.this.oyw == null) {
+                    HostConnectionWheatDialog.this.oyw = new j();
                 }
                 com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("click_apply_wheat_anchor_1", false);
-                int i2 = HostConnectionWheatDialog.this.oDg;
-                if (o.efg().efw()) {
+                int i2 = HostConnectionWheatDialog.this.oyB;
+                if (o.ebo().ebE()) {
                     if (!z || i2 < 5) {
                         if (!z && i2 < 5) {
                             i = 5;
                         }
                     }
-                    HostConnectionWheatDialog.this.oDb.a(nVar, i);
+                    HostConnectionWheatDialog.this.oyw.a(nVar, i);
                 }
                 i = i2;
-                HostConnectionWheatDialog.this.oDb.a(nVar, i);
+                HostConnectionWheatDialog.this.oyw.a(nVar, i);
             }
         });
         this.mList.add(connectionWheatInviteListView);
-        this.oDa.setAdapter(new ConnectionWheatPagerAdapter(this.mList));
-        NL(0);
+        this.oyv.setAdapter(new ConnectionWheatPagerAdapter(this.mList));
+        Me(0);
     }
 
-    public void NK(int i) {
-        this.oDg = i;
+    public void Md(int i) {
+        this.oyB = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.live.data.e eVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+            x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
             }
             jSONObject.put("accept_uid", eVar.uk);
             jSONObject.put("error_code", 0);
@@ -260,13 +260,13 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, "click", UbcStatConstant.Page.AUDIO_LIVE_ROOM, "owner_accept_apply_invite").setContentExt(jSONObject));
-        com.baidu.tieba.yuyinala.liveroom.wheat.c.a.eeJ().b(eVar.uk, eVar.cuid, eVar.aJi, eVar.aJk, "1");
-        com.baidu.tieba.yuyinala.liveroom.wheat.c.a.eeJ().a(new a.InterfaceC0955a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.7
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0955a
-            public void Wp(String str) {
+        com.baidu.tieba.yuyinala.liveroom.wheat.c.a.eaR().b(eVar.uk, eVar.cuid, eVar.aEv, eVar.aEx, "1");
+        com.baidu.tieba.yuyinala.liveroom.wheat.c.a.eaR().a(new a.InterfaceC0938a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.7
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0938a
+            public void Vh(String str) {
                 View view = (View) HostConnectionWheatDialog.this.mList.get(0);
                 if (view instanceof ConnectionWheatApplyListView) {
-                    ((ConnectionWheatApplyListView) view).Wb(str);
+                    ((ConnectionWheatApplyListView) view).UT(str);
                 }
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.7.1
                     @Override // java.lang.Runnable
@@ -276,14 +276,14 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }, 300L);
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0955a
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0938a
             public void onSuccess() {
-                if (HostConnectionWheatDialog.this.oDf != null) {
-                    HostConnectionWheatDialog.this.oDf.zV(false);
+                if (HostConnectionWheatDialog.this.oyA != null) {
+                    HostConnectionWheatDialog.this.oyA.zR(false);
                 }
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0955a
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.a.InterfaceC0938a
             public void onFail() {
             }
         });
@@ -293,28 +293,28 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
     public void k(AlaWheatInfoData alaWheatInfoData) {
         new i().a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.8
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.i.a
-            public void Wv(String str) {
-                if (o.efg().Wc(str) && !o.efg().jn(str)) {
+            public void Vn(String str) {
+                if (o.ebo().UU(str) && !o.ebo().ic(str)) {
                     HostConnectionWheatDialog.this.dismiss();
                 }
-                o.efg().bi(str, false);
+                o.ebo().bi(str, false);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009, Headers.REFRESH));
             }
-        }).a(this.oAe, alaWheatInfoData.userName, alaWheatInfoData.uk);
+        }).a(this.ovz, alaWheatInfoData.userName, alaWheatInfoData.uk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(final AlaWheatInfoData alaWheatInfoData) {
-        if (o.efg().Wc(alaWheatInfoData.uk)) {
+        if (o.ebo().UU(alaWheatInfoData.uk)) {
             String str = alaWheatInfoData.isOpenMike() ? "1" : "0";
             m mVar = new m();
-            mVar.gO(alaWheatInfoData.uk, str);
+            mVar.gN(alaWheatInfoData.uk, str);
             mVar.a(new m.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.9
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
-                public void zP(boolean z) {
+                public void zL(boolean z) {
                     String string;
                     alaWheatInfoData.mikeStatus = alaWheatInfoData.isOpenMike() ? "1" : "0";
-                    HostConnectionWheatDialog.this.mH(false);
+                    HostConnectionWheatDialog.this.mD(false);
                     if (z) {
                         if (alaWheatInfoData.isOpenMike()) {
                             string = TbadkCoreApplication.getInst().getString(a.h.yuyin_sdk_connect_wheat_mic_open_txt);
@@ -326,32 +326,32 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
-                public void efe() {
+                public void ebm() {
                 }
             });
             return;
         }
         String str2 = alaWheatInfoData.isOpenMike() ? "1" : "0";
         m mVar2 = new m();
-        mVar2.gO(alaWheatInfoData.uk, str2);
+        mVar2.gN(alaWheatInfoData.uk, str2);
         mVar2.a(new m.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.HostConnectionWheatDialog.10
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
-            public void zP(boolean z) {
+            public void zL(boolean z) {
                 alaWheatInfoData.mikeStatus = alaWheatInfoData.isOpenMike() ? "1" : "0";
-                HostConnectionWheatDialog.this.mH(false);
+                HostConnectionWheatDialog.this.mD(false);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
-            public void efe() {
+            public void ebm() {
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str, String str2, String str3, int i, String str4) {
-        x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-        if (aat != null && aat.aKQ != null && aat.mLiveInfo != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.oAe.getPageActivity(), ExtraParamsManager.getDecryptUserId(str), str2, str3, i, 0, null, null, 0L, 0L, 0L, 0, Long.toString(aat.mLiveInfo.group_id), Long.toString(aat.mLiveInfo.live_id), false, null, null, str4, "")));
+        x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+        if (WA != null && WA.aGd != null && WA.mLiveInfo != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.ovz.getPageActivity(), ExtraParamsManager.getDecryptUserId(str), str2, str3, i, 0, null, null, 0L, 0L, 0L, 0, Long.toString(WA.mLiveInfo.group_id), Long.toString(WA.mLiveInfo.live_id), false, null, null, str4, "")));
         }
     }
 
@@ -370,12 +370,12 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UD() {
+    protected boolean QI() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UE() {
+    protected boolean QJ() {
         return true;
     }
 
@@ -392,41 +392,41 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
             th.printStackTrace();
         }
         setCurrentPage(0);
-        o.efg().zR(true);
-        MessageManager.getInstance().registerListener(this.aYr);
-        MessageManager.getInstance().registerListener(this.oCA);
-        MessageManager.getInstance().registerListener(this.oDh);
-        MessageManager.getInstance().registerListener(this.bih);
-        MessageManager.getInstance().registerListener(this.oCq);
+        o.ebo().zN(true);
+        MessageManager.getInstance().registerListener(this.aTE);
+        MessageManager.getInstance().registerListener(this.oxV);
+        MessageManager.getInstance().registerListener(this.oyC);
+        MessageManager.getInstance().registerListener(this.bdo);
+        MessageManager.getInstance().registerListener(this.oxL);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected void initData() {
         initView();
         initListener();
-        dCG();
+        dyO();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oCX) {
+        if (view == this.oys) {
             setCurrentPage(0);
-        } else if (view == this.oCY) {
+        } else if (view == this.oyt) {
             setCurrentPage(1);
-        } else if (view == this.oCZ) {
+        } else if (view == this.oyu) {
             setCurrentPage(2);
         }
     }
 
     private void setCurrentPage(int i) {
-        if (this.oDa != null) {
-            this.oDa.setCurrentItem(i);
+        if (this.oyv != null) {
+            this.oyv.setCurrentItem(i);
         }
     }
 
-    public void mH(boolean z) {
-        if (this.oDa != null) {
-            J(z, this.oDa.getCurrentItem());
+    public void mD(boolean z) {
+        if (this.oyv != null) {
+            J(z, this.oyv.getCurrentItem());
         }
     }
 
@@ -434,23 +434,23 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
         if (this.mList != null && this.mList.size() > i) {
             View view = this.mList.get(i);
             if (view instanceof ConnectionWheatApplyListView) {
-                ((ConnectionWheatApplyListView) view).zV(z);
+                ((ConnectionWheatApplyListView) view).zR(z);
             } else if (view instanceof ConnectionWheatManagerListView) {
-                ((ConnectionWheatManagerListView) view).efh();
+                ((ConnectionWheatManagerListView) view).ebp();
             } else if (view instanceof ConnectionWheatInviteListView) {
-                ((ConnectionWheatInviteListView) view).zV(z);
+                ((ConnectionWheatInviteListView) view).zR(z);
             }
         }
     }
 
-    private void NL(int i) {
-        if (this.oDc != null && this.oDd != null && this.oDe != null) {
-            this.oDc.setSelected(i == 0);
-            this.oDd.setSelected(i == 1);
-            this.oDe.setSelected(i == 2);
-            this.oCX.setTypeface(this.oDc.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            this.oCY.setTypeface(this.oDd.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            this.oCZ.setTypeface(this.oDe.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+    private void Me(int i) {
+        if (this.oyx != null && this.oyy != null && this.oyz != null) {
+            this.oyx.setSelected(i == 0);
+            this.oyy.setSelected(i == 1);
+            this.oyz.setSelected(i == 2);
+            this.oys.setTypeface(this.oyx.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            this.oyt.setTypeface(this.oyy.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            this.oyu.setTypeface(this.oyz.isSelected() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             if (this.mList != null && this.mList.size() > i) {
                 View view = this.mList.get(i);
                 if (view instanceof ConnectionWheatApplyListView) {
@@ -460,7 +460,7 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         }
-        mH(false);
+        mD(false);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -469,7 +469,7 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        NL(i);
+        Me(i);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -490,12 +490,12 @@ public class HostConnectionWheatDialog extends a implements DialogInterface.OnDi
                 }
             }
         }
-        o.efg().zR(false);
-        MessageManager.getInstance().unRegisterListener(this.bih);
-        MessageManager.getInstance().unRegisterListener(this.oCq);
-        MessageManager.getInstance().unRegisterListener(this.aYr);
-        MessageManager.getInstance().unRegisterListener(this.oCA);
-        MessageManager.getInstance().unRegisterListener(this.oDh);
-        o.efg().zR(false);
+        o.ebo().zN(false);
+        MessageManager.getInstance().unRegisterListener(this.bdo);
+        MessageManager.getInstance().unRegisterListener(this.oxL);
+        MessageManager.getInstance().unRegisterListener(this.aTE);
+        MessageManager.getInstance().unRegisterListener(this.oxV);
+        MessageManager.getInstance().unRegisterListener(this.oyC);
+        o.ebo().zN(false);
     }
 }

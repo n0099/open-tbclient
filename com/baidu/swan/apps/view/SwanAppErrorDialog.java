@@ -5,10 +5,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private TextView dDU;
+    private TextView dzi;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog, android.app.Activity
@@ -16,11 +16,11 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
-        this.dDU = (TextView) findViewById(a.f.dialog_message);
-        this.dDU.setGravity(17);
+        this.dzi = (TextView) findViewById(a.f.dialog_message);
+        this.dzi.setGravity(17);
     }
 
-    public static BaseActivityDialog.a aSy() {
+    public static BaseActivityDialog.a aOE() {
         return new BaseActivityDialog.a(SwanAppErrorDialog.class);
     }
 }

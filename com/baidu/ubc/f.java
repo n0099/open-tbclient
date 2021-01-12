@@ -2,19 +2,19 @@ package com.baidu.ubc;
 
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
-    public HashSet<String> oNd = new HashSet<>();
-    public HashSet<String> oNe = new HashSet<>();
-    public HashSet<String> oNf = new HashSet<>();
-    public HashSet<String> oNg = new HashSet<>();
-    public HashSet<String> oNh = new HashSet<>();
-    public HashMap<String, String> oNi = new HashMap<>();
-    public HashMap<String, String> oNj = new HashMap<>();
-    public HashMap<String, m> oNk = new HashMap<>();
-    public HashSet<String> oNl = new HashSet<>();
-    public HashSet<String> oNm = new HashSet<>();
-    public HashMap<String, String> oNn = new HashMap<>();
-    public HashMap<String, String> oNo = new HashMap<>();
-    public HashMap<String, Integer> oNp = new HashMap<>();
+    public HashSet<String> oIy = new HashSet<>();
+    public HashSet<String> oIz = new HashSet<>();
+    public HashSet<String> oIA = new HashSet<>();
+    public HashSet<String> oIB = new HashSet<>();
+    public HashSet<String> oIC = new HashSet<>();
+    public HashMap<String, String> oID = new HashMap<>();
+    public HashMap<String, String> oIE = new HashMap<>();
+    public HashMap<String, m> oIF = new HashMap<>();
+    public HashSet<String> oIG = new HashSet<>();
+    public HashSet<String> oIH = new HashSet<>();
+    public HashMap<String, String> oII = new HashMap<>();
+    public HashMap<String, String> oIJ = new HashMap<>();
+    public HashMap<String, Integer> oIK = new HashMap<>();
 }

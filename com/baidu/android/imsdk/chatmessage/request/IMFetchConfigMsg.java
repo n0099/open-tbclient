@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMFetchConfigMsg extends Message {
     private static final int MAX_COUNT = 50;
     public static final String TAG = IMFetchConfigMsg.class.getSimpleName();
@@ -76,7 +76,7 @@ public class IMFetchConfigMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class FetchConfigTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;

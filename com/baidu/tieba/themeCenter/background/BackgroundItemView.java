@@ -15,34 +15,34 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.SkinProgressView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundItemView extends LinearLayout {
-    private int eSI;
-    private int eSJ;
-    private View.OnClickListener jgS;
-    private TextView jnJ;
-    private TbImageView lit;
-    private TbImageView liu;
+    private int eNX;
+    private int eNY;
+    private View.OnClickListener jcl;
+    private TextView jjc;
+    private TbImageView ldN;
+    private TbImageView ldO;
     private Context mContext;
     private View mRootView;
-    private ImageView nAO;
-    private DressItemData nAq;
-    private TbImageView nBD;
-    private SkinProgressView nBE;
-    private d nBl;
+    private DressItemData nvL;
+    private d nwG;
+    private TbImageView nwY;
+    private SkinProgressView nwZ;
+    private ImageView nwj;
 
     public BackgroundItemView(Context context) {
         super(context);
-        this.jgS = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
+        this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nAq != null && BackgroundItemView.this.nBl != null) {
-                    if (view == BackgroundItemView.this.nBE) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.a(BackgroundItemView.this.nAq, false);
-                    } else if (view == BackgroundItemView.this.lit) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.e(BackgroundItemView.this.nAq);
+                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
+                    if (view == BackgroundItemView.this.nwZ) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                    } else if (view == BackgroundItemView.this.ldN) {
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
                     }
                 }
             }
@@ -53,16 +53,16 @@ public class BackgroundItemView extends LinearLayout {
 
     public BackgroundItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jgS = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
+        this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nAq != null && BackgroundItemView.this.nBl != null) {
-                    if (view == BackgroundItemView.this.nBE) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.a(BackgroundItemView.this.nAq, false);
-                    } else if (view == BackgroundItemView.this.lit) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.e(BackgroundItemView.this.nAq);
+                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
+                    if (view == BackgroundItemView.this.nwZ) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                    } else if (view == BackgroundItemView.this.ldN) {
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
                     }
                 }
             }
@@ -73,16 +73,16 @@ public class BackgroundItemView extends LinearLayout {
 
     public BackgroundItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.jgS = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
+        this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nAq != null && BackgroundItemView.this.nBl != null) {
-                    if (view == BackgroundItemView.this.nBE) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.a(BackgroundItemView.this.nAq, false);
-                    } else if (view == BackgroundItemView.this.lit) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nAq.getPropsId()));
-                        BackgroundItemView.this.nBl.e(BackgroundItemView.this.nAq);
+                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
+                    if (view == BackgroundItemView.this.nwZ) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                    } else if (view == BackgroundItemView.this.ldN) {
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
+                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
                     }
                 }
             }
@@ -92,50 +92,50 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     private void initView() {
-        this.eSI = (l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) / 3;
-        this.eSJ = (int) (this.eSI / 0.66d);
+        this.eNX = (l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) / 3;
+        this.eNY = (int) (this.eNX / 0.66d);
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.background_item, this);
-        this.lit = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
-        this.liu = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.liu.setDefaultResource(R.drawable.transparent_bg);
-        this.liu.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nBD = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
-        this.nBD.setDefaultResource(R.drawable.transparent_bg);
-        this.nBD.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nAO = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.jnJ = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
-        this.nBE = (SkinProgressView) this.mRootView.findViewById(R.id.view_bg_use);
-        this.nBE.setOnClickListener(this.jgS);
-        this.lit.setOnClickListener(this.jgS);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.lit.getLayoutParams();
-        layoutParams.height = this.eSJ;
-        layoutParams.width = this.eSI;
-        this.lit.setLayoutParams(layoutParams);
+        this.ldN = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
+        this.ldO = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.ldO.setDefaultResource(R.drawable.transparent_bg);
+        this.ldO.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nwY = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
+        this.nwY.setDefaultResource(R.drawable.transparent_bg);
+        this.nwY.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nwj = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.jjc = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
+        this.nwZ = (SkinProgressView) this.mRootView.findViewById(R.id.view_bg_use);
+        this.nwZ.setOnClickListener(this.jcl);
+        this.ldN.setOnClickListener(this.jcl);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ldN.getLayoutParams();
+        layoutParams.height = this.eNY;
+        layoutParams.width = this.eNX;
+        this.ldN.setLayoutParams(layoutParams);
     }
 
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nAq = dressItemData;
+            this.nvL = dressItemData;
             Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
             if (dressItemData.getPropsId() == 0) {
-                ao.setImageResource(this.lit, R.drawable.pic_bg_moren);
+                ao.setImageResource(this.ldN, R.drawable.pic_bg_moren);
             } else {
-                this.lit.setImageBitmap(null);
-                this.lit.startLoad(dressItemData.getExampleImgUrl(), 10, false);
+                this.ldN.setImageBitmap(null);
+                this.ldN.startLoad(dressItemData.getExampleImgUrl(), 10, false);
             }
-            this.jnJ.setText(dressItemData.getTitle());
+            this.jjc.setText(dressItemData.getTitle());
             if (valueOf.booleanValue()) {
-                this.nAO.setVisibility(0);
-                ao.setImageResource(this.nAO, R.drawable.icon_choose_photo);
+                this.nwj.setVisibility(0);
+                ao.setImageResource(this.nwj, R.drawable.icon_choose_photo);
             } else {
-                this.nAO.setVisibility(8);
+                this.nwj.setVisibility(8);
             }
-            this.liu.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nBD.startLoad(dressItemData.getPropsStateImg(), 10, false);
+            this.ldO.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.nwY.startLoad(dressItemData.getPropsStateImg(), 10, false);
             if (valueOf.booleanValue()) {
-                this.nBE.n(0, 0.0f);
+                this.nwZ.n(0, 0.0f);
             } else {
-                this.nBE.n(4, 0.0f);
+                this.nwZ.n(4, 0.0f);
             }
             setVisibility(0);
         }
@@ -146,6 +146,6 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     public void setController(d dVar) {
-        this.nBl = dVar;
+        this.nwG = dVar;
     }
 }

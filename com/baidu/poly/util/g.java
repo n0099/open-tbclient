@@ -1,15 +1,15 @@
 package com.baidu.poly.util;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
-    private static Context cpA;
+    private static Context ckK;
 
-    public static Context afM() {
-        return cpA;
+    public static Context abT() {
+        return ckK;
     }
 
     public static void b(Context context) {
-        cpA = context;
+        ckK = context;
     }
 }

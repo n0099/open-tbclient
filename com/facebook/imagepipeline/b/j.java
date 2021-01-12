@@ -5,53 +5,53 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class j implements f {
-    private static j pBS = null;
+    private static j pxr = null;
 
     protected j() {
     }
 
-    public static synchronized j exq() {
+    public static synchronized j ety() {
         j jVar;
         synchronized (j.class) {
-            if (pBS == null) {
-                pBS = new j();
+            if (pxr == null) {
+                pxr = new j();
             }
-            jVar = pBS;
+            jVar = pxr;
         }
         return jVar;
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj) {
-        return new c(Z(imageRequest.eBx()).toString(), imageRequest.eBz(), imageRequest.eBA(), imageRequest.eBB(), null, null, obj);
+        return new c(W(imageRequest.exF()).toString(), imageRequest.exH(), imageRequest.exI(), imageRequest.exJ(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj) {
         String str;
         com.facebook.cache.common.b bVar;
-        com.facebook.imagepipeline.request.b eBF = imageRequest.eBF();
-        if (eBF != null) {
-            bVar = eBF.eAG();
-            str = eBF.getClass().getName();
+        com.facebook.imagepipeline.request.b exN = imageRequest.exN();
+        if (exN != null) {
+            bVar = exN.ewO();
+            str = exN.getClass().getName();
         } else {
             str = null;
             bVar = null;
         }
-        return new c(Z(imageRequest.eBx()).toString(), imageRequest.eBz(), imageRequest.eBA(), imageRequest.eBB(), bVar, str, obj);
+        return new c(W(imageRequest.exF()).toString(), imageRequest.exH(), imageRequest.exI(), imageRequest.exJ(), bVar, str, obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj) {
-        return a(imageRequest, imageRequest.eBx(), obj);
+        return a(imageRequest, imageRequest.exF(), obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Uri uri, @Nullable Object obj) {
-        return new com.facebook.cache.common.g(Z(uri).toString());
+        return new com.facebook.cache.common.g(W(uri).toString());
     }
 
-    protected Uri Z(Uri uri) {
+    protected Uri W(Uri uri) {
         return uri;
     }
 }

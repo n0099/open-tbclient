@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance.detail.ad.presenter.a;
 
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.contentalliance.detail.b {
     public c() {
         a((Presenter) new com.kwad.sdk.contentalliance.detail.a.a.a());

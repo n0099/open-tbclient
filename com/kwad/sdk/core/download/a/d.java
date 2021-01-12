@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9398a;
+    public int f9098a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected e f9399b;
+    protected e f9099b;
     protected KsDrawAd.AdInteractionListener c;
     @NonNull
     public AdBaseFrameLayout d;

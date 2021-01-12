@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends IntentConfig {
     public b(Context context, int i, String str, String str2, int i2, boolean z, String str3, String str4, String str5, long j, String str6, String str7, String str8, String str9) {
         super(context);

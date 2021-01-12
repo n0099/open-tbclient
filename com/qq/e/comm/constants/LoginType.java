@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum LoginType {
     Unknow(0),
     WeiXin(1),
@@ -7,14 +7,14 @@ public enum LoginType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11843a;
+    private int f11543a;
 
     LoginType(int i) {
-        this.f11843a = i;
+        this.f11543a = i;
         ordinal();
     }
 
     public final int getValue() {
-        return this.f11843a;
+        return this.f11543a;
     }
 }

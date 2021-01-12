@@ -65,14 +65,14 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1427a = -1;
+    public static int f1433a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f1428b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
+    private static final String[] f1434b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
     private static int c = -1;
 
     private static boolean A(Context context) {
@@ -234,7 +234,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f1427a = z ? 1 : 0;
+                f1433a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -1067,13 +1067,13 @@ public final class m {
     public static synchronized boolean j(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f1427a == -1) {
+            if (f1433a == -1) {
                 try {
-                    f1427a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f1433a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception e) {
                 }
             }
-            z = f1427a == 1;
+            z = f1433a == 1;
         }
         return z;
     }
@@ -1405,7 +1405,7 @@ public final class m {
                 if (strArr != null) {
                     if (!a(context, packageManager, strArr)) {
                         if (!a(context, strArr)) {
-                            String[] strArr2 = f1428b;
+                            String[] strArr2 = f1434b;
                             int length = strArr2.length;
                             int i = 0;
                             while (true) {

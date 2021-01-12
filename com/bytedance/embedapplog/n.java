@@ -3,11 +3,11 @@ package com.bytedance.embedapplog;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.baidu.mobstat.Config;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-public class n extends ch {
+class n extends ch {
     private final Context e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ public class n extends ch {
         }
         jSONObject.put("density_dpi", i);
         jSONObject.put("display_density", str);
-        jSONObject.put("resolution", displayMetrics.heightPixels + "x" + displayMetrics.widthPixels);
+        jSONObject.put("resolution", displayMetrics.heightPixels + Config.EVENT_HEAT_X + displayMetrics.widthPixels);
         return true;
     }
 }

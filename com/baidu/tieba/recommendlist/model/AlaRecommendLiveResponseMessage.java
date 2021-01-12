@@ -3,10 +3,10 @@ package com.baidu.tieba.recommendlist.model;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.recommendlist.data.e;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
-    public e mWn;
-    public e mWo;
+    public e mRC;
+    public e mRD;
 
     public AlaRecommendLiveResponseMessage() {
         super(1021193);
@@ -19,15 +19,15 @@ public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("follow");
             if (optJSONObject2 != null) {
-                this.mWn = new e();
-                this.mWn.type = 0;
-                this.mWn.parserJson(optJSONObject2);
+                this.mRC = new e();
+                this.mRC.type = 0;
+                this.mRC.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("recommend");
             if (optJSONObject3 != null) {
-                this.mWo = new e();
-                this.mWo.type = 1;
-                this.mWo.parserJson(optJSONObject3);
+                this.mRD = new e();
+                this.mRD.type = 1;
+                this.mRD.parserJson(optJSONObject3);
             }
         }
     }

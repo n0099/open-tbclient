@@ -14,34 +14,34 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
-    private final List<d> aHo;
-    private final List<e> aHp;
-    private e aHq;
-    private AlaLiveRoomPanelTabHost aHr;
-    private com.baidu.live.bottompanel.a aHs;
-    private boolean aHt;
-    private a aHu;
+    private final List<d> aCB;
+    private final List<e> aCC;
+    private e aCD;
+    private AlaLiveRoomPanelTabHost aCE;
+    private com.baidu.live.bottompanel.a aCF;
+    private boolean aCG;
+    private a aCH;
     private float mDownX;
     private Scroller mScroller;
     private int mTouchSlop;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Dy();
+        void zD();
     }
 
     public AlaAudienceLiveRoomBottomPanelView(Context context) {
         super(context);
-        this.aHo = new LinkedList();
-        this.aHp = new LinkedList();
+        this.aCB = new LinkedList();
+        this.aCC = new LinkedList();
         this.mDownX = 0.0f;
-        this.aHt = false;
-        this.aHu = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
+        this.aCG = false;
+        this.aCH = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
             @Override // com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.a
-            public void Dy() {
-                AlaAudienceLiveRoomBottomPanelView.this.Dx();
+            public void zD() {
+                AlaAudienceLiveRoomBottomPanelView.this.zC();
             }
         };
         init();
@@ -51,17 +51,17 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
         setOrientation(0);
         this.mScroller = new Scroller(getContext());
         this.mTouchSlop = BdUtilHelper.getScreenDimensions(getContext())[0] / 4;
-        this.aHr = new AlaLiveRoomPanelTabHost(getContext());
-        this.aHr.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
+        this.aCE = new AlaLiveRoomPanelTabHost(getContext());
+        this.aCE.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.a
             public void a(int i, d dVar) {
-                if (dVar != null && dVar.Mi() != 1) {
+                if (dVar != null && dVar.In() != 1) {
                     BdUtilHelper.hideSoftKeyPad(AlaAudienceLiveRoomBottomPanelView.this.getContext(), AlaAudienceLiveRoomBottomPanelView.this);
                 }
             }
         });
-        addView(this.aHr);
-        this.aHs = new com.baidu.live.bottompanel.a(getContext(), this.aHu);
+        addView(this.aCE);
+        this.aCF = new com.baidu.live.bottompanel.a(getContext(), this.aCH);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -75,44 +75,44 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
     }
 
     public void setTabCtlList(List<d> list) {
-        this.aHo.clear();
+        this.aCB.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aHo.addAll(list);
+            this.aCB.addAll(list);
         }
-        Collections.sort(this.aHo, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
+        Collections.sort(this.aCB, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(d dVar, d dVar2) {
-                return dVar.Mi() - dVar2.Mi();
+                return dVar.In() - dVar2.In();
             }
         });
-        this.aHr.setData(this.aHo, true);
+        this.aCE.setData(this.aCB, true);
     }
 
     public void setPageCtlList(List<e> list) {
-        this.aHp.clear();
+        this.aCC.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aHp.addAll(list);
+            this.aCC.addAll(list);
         }
     }
 
-    public boolean Dx() {
-        if (this.aHq != null) {
-            View rootView = this.aHs.getRootView();
+    public boolean zC() {
+        if (this.aCD != null) {
+            View rootView = this.aCF.getRootView();
             this.mScroller.startScroll(rootView.getMeasuredWidth(), 0, -rootView.getMeasuredWidth(), 0);
-            this.aHq.enterBackground();
+            this.aCD.enterBackground();
             removeView(rootView);
-            this.aHs.reset();
-            this.aHq = null;
-            this.aHt = false;
+            this.aCF.reset();
+            this.aCD = null;
+            this.aCG = false;
             return true;
         }
         return false;
     }
 
     public void setPageSelectedListener(AlaLiveRoomPanelTabHost.b bVar) {
-        this.aHr.setPageSelectedListener(bVar);
+        this.aCE.setPageSelectedListener(bVar);
     }
 
     @Override // android.view.View
@@ -131,7 +131,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aHt) {
+        if (this.aCG) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mDownX = (int) motionEvent.getX();
@@ -150,7 +150,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aHt) {
+        if (this.aCG) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                 default:
@@ -159,10 +159,10 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                     this.mDownX = 0.0f;
                     return false;
                 case 2:
-                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.aHq == null) {
+                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.aCD == null) {
                         return true;
                     }
-                    Dx();
+                    zC();
                     return true;
             }
         }

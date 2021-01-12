@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class y extends com.vivo.push.y {
     public y() {
         super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);

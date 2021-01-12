@@ -11,7 +11,7 @@ import com.ksad.lottie.model.layer.Layer;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class s {
     public static Layer a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         String nextString;
@@ -154,7 +154,7 @@ public class s {
                     }
                     break;
                 case 3717:
-                    if (nextName.equals("ty")) {
+                    if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
                         c = 3;
                         break;
                     }

@@ -24,25 +24,25 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class f {
-    private View.OnTouchListener bTP = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.a.f.1
+    private View.OnTouchListener bPd = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.a.f.1
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (f.this.jJI != null) {
-                f.this.jJI.onTouchEvent(motionEvent);
+            if (f.this.jFc != null) {
+                f.this.jFc.onTouchEvent(motionEvent);
                 return false;
             }
             return false;
         }
     };
-    private com.baidu.tieba.f.a jJI;
-    private BdTypeRecyclerView jVV;
-    private com.baidu.tieba.pb.pb.adapter.b lYh;
+    private com.baidu.tieba.f.a jFc;
+    private BdTypeRecyclerView jRq;
+    private com.baidu.tieba.pb.pb.adapter.b lTD;
 
     public f(BdTypeRecyclerView bdTypeRecyclerView, com.baidu.tieba.pb.pb.adapter.b bVar) {
-        this.jVV = bdTypeRecyclerView;
-        this.lYh = bVar;
-        bdTypeRecyclerView.setOnTouchListener(this.bTP);
-        this.jJI = new com.baidu.tieba.f.a();
+        this.jRq = bdTypeRecyclerView;
+        this.lTD = bVar;
+        bdTypeRecyclerView.setOnTouchListener(this.bPd);
+        this.jFc = new com.baidu.tieba.f.a();
     }
 
     public void H(com.baidu.tieba.pb.data.f fVar) {
@@ -51,10 +51,10 @@ public class f {
             if (fVar.getForum() != null) {
                 str = fVar.getForum().getFirst_class();
             }
-            List<ThreadInfo> dnn = fVar.dnn();
+            List<ThreadInfo> djv = fVar.djv();
             LinkedList linkedList = new LinkedList();
-            c(dnn, linkedList, str);
-            this.lYh.cC(linkedList);
+            c(djv, linkedList, str);
+            this.lTD.cC(linkedList);
         }
     }
 
@@ -66,14 +66,14 @@ public class f {
             ThreadInfo threadInfo = list.get(i2);
             if (threadInfo != null) {
                 bz bzVar2 = new bz();
-                bzVar2.eOY = i2 + 1;
+                bzVar2.eKn = i2 + 1;
                 bzVar2.a(threadInfo);
-                if (bzVar2.bti() != null) {
-                    bzVar2.bti().eSm = str;
+                if (bzVar2.bpo() != null) {
+                    bzVar2.bpo().eNB = str;
                 }
-                if ((k.ad(bzVar2) || l.ad(bzVar2)) && bzVar2.getType() != bz.eTo) {
+                if ((k.ad(bzVar2) || l.ad(bzVar2)) && bzVar2.getType() != bz.eOD) {
                     k aE = aE(bzVar2);
-                    if (aE != null && (bzVar = aE.eMv) != null && bzVar.bti() != null && !StringUtils.isNull(bzVar.bti().forumName)) {
+                    if (aE != null && (bzVar = aE.eHK) != null && bzVar.bpo() != null && !StringUtils.isNull(bzVar.bpo().forumName)) {
                         aE.tid = bzVar2.getTid();
                         aE.position = i;
                         h(aE);
@@ -85,11 +85,11 @@ public class f {
                         aD.tid = bzVar2.getTid();
                         aD.position = i;
                         if (aD instanceof k) {
-                            if (bzVar2.bsz() == 1) {
+                            if (bzVar2.boF() == 1) {
                                 b(aD);
-                                aD.eSI = imageWidthAndHeight[0];
-                                aD.eSJ = imageWidthAndHeight[1];
-                            } else if (bzVar2.bsz() >= 2) {
+                                aD.eNX = imageWidthAndHeight[0];
+                                aD.eNY = imageWidthAndHeight[1];
+                            } else if (bzVar2.boF() >= 2) {
                                 c(aD);
                             } else {
                                 e(aD);
@@ -99,23 +99,23 @@ public class f {
                         }
                     }
                     if (aD != null && aD.isValid()) {
-                        aD.eMv.bqT();
-                        if (!bzVar2.bqa() && bzVar2.brr() != null) {
-                            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar2.brr().getName_show()));
-                            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(16, bzVar2.brr().getUserId()) { // from class: com.baidu.tieba.pb.pb.main.a.f.2
+                        aD.eHK.bmZ();
+                        if (!bzVar2.bmg() && bzVar2.bnx() != null) {
+                            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar2.bnx().getName_show()));
+                            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(16, bzVar2.bnx().getUserId()) { // from class: com.baidu.tieba.pb.pb.main.a.f.2
                                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                                 public void onClick(View view) {
                                     aq aj;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aD instanceof k) {
-                                        aj = ((k) aD).cvC();
+                                        aj = ((k) aD).crK();
                                     } else {
                                         aj = aD instanceof l ? ((l) aD).aj(null) : null;
                                     }
                                     TiebaStatic.log(aj);
                                 }
                             }, 0, format.length() - 1, 33);
-                            aD.eMv.a(spannableString);
+                            aD.eHK.a(spannableString);
                         }
                         list2.add(aD);
                     }
@@ -136,12 +136,12 @@ public class f {
 
     private k aE(bz bzVar) {
         k kVar = new k();
-        kVar.eMv = bzVar;
+        kVar.eHK = bzVar;
         kVar.isLinkThread = bzVar.isLinkThread();
         if (!bzVar.isLinkThread()) {
-            kVar.izS = bzVar.bru();
+            kVar.ivl = bzVar.bnA();
         }
-        kVar.izT = true;
+        kVar.ivm = true;
         return kVar;
     }
 
@@ -152,12 +152,12 @@ public class f {
         if (k.ad(bzVar)) {
             k kVar = new k();
             kVar.isLinkThread = bzVar.isLinkThread();
-            kVar.eSB = bzVar.bsw();
-            if (!bzVar.isLinkThread() && !bzVar.bsw()) {
-                kVar.izS = bzVar.bru();
+            kVar.eNQ = bzVar.boC();
+            if (!bzVar.isLinkThread() && !bzVar.boC()) {
+                kVar.ivl = bzVar.bnA();
             }
-            kVar.eMv = bzVar;
-            kVar.izT = true;
+            kVar.eHK = bzVar;
+            kVar.ivm = true;
             return kVar;
         } else if (l.ad(bzVar)) {
             return new l(bzVar);
@@ -167,37 +167,37 @@ public class f {
     }
 
     private void b(com.baidu.tieba.card.data.b bVar) {
-        ((k) bVar).izg = true;
+        ((k) bVar).iuz = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
     private void c(com.baidu.tieba.card.data.b bVar) {
-        ((k) bVar).eSu = true;
+        ((k) bVar).eNJ = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
     private void e(com.baidu.tieba.card.data.b bVar) {
-        ((k) bVar).eSr = true;
+        ((k) bVar).eNG = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
     private void f(com.baidu.tieba.card.data.b bVar) {
-        ((l) bVar).izh = true;
+        ((l) bVar).iuA = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
     }
 
     private void h(com.baidu.tieba.card.data.b bVar) {
-        bVar.eSH = true;
+        bVar.eNW = true;
         bVar.setSupportType(BaseCardInfo.SupportType.TOP);
     }
 
     private void j(com.baidu.tieba.card.data.b bVar) {
         if (bVar instanceof k) {
-            ((k) bVar).eSw = true;
+            ((k) bVar).eNL = true;
         } else if (bVar instanceof l) {
-            ((l) bVar).eSw = true;
+            ((l) bVar).eNL = true;
         } else if (bVar instanceof j) {
-            ((j) bVar).eSw = true;
+            ((j) bVar).eNL = true;
         }
         bVar.setSupportType(BaseCardInfo.SupportType.BOTTOM);
     }

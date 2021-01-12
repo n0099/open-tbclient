@@ -8,26 +8,26 @@ import java.util.Locale;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f14606a;
+    public final int f14306a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f995a;
+    public final String f994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f14607b;
+    public final String f14307b;
     public final String c;
     public final String d;
     public final String e;
     public final String f;
 
     public k(String str, String str2, String str3, String str4, String str5, String str6, int i) {
-        this.f995a = str;
-        this.f14607b = str2;
+        this.f994a = str;
+        this.f14307b = str2;
         this.c = str3;
         this.d = str4;
         this.e = str5;
         this.f = str6;
-        this.f14606a = i;
+        this.f14306a = i;
     }
 
     public static boolean a() {
@@ -53,19 +53,19 @@ public class k {
     }
 
     public ap.b a(ap.b bVar, Context context, d dVar, String str) {
-        bVar.f939a = context.getPackageName();
-        bVar.f942b = this.f995a;
+        bVar.f938a = context.getPackageName();
+        bVar.f941b = this.f994a;
         bVar.h = this.c;
-        bVar.c = this.f14607b;
+        bVar.c = this.f14307b;
         bVar.g = "5";
         bVar.d = "XMPUSH-PASS";
-        bVar.f941a = false;
+        bVar.f940a = false;
         bVar.e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 39, "cpvn", "3_7_5", "cpvc", 30705, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
         bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
         if (a(context)) {
             bVar.f += String.format(",%1$s:%2$s", "ab", str);
         }
-        bVar.f938a = dVar;
+        bVar.f937a = dVar;
         return bVar;
     }
 }

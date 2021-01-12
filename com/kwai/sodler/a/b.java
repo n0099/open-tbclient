@@ -15,15 +15,15 @@ import com.kwai.sodler.lib.j;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f11295a = false;
+    private static boolean f10995a = false;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (!f11295a) {
+            if (!f10995a) {
                 j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
                 j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -54,7 +54,7 @@ public class b {
                         }
                     }
                 });
-                f11295a = true;
+                f10995a = true;
             }
         }
     }

@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void FC(int i);
+        void DW(int i);
 
-        void dgK();
+        void dcS();
     }
 
     public static void a(TbPageContext<?> tbPageContext, final BubbleListData.BubbleData bubbleData, final a aVar) {
         if (bubbleData != null) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar2.jI(false);
+            aVar2.jE(false);
             Date date = new Date();
             Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
             String dateStringDay = at.getDateStringDay(date);
@@ -43,7 +43,7 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.FC(bubbleData.getBcode());
+                        a.this.DW(bubbleData.getBcode());
                     }
                 }
             });
@@ -52,26 +52,26 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.dgK();
+                        a.this.dcS();
                     }
                 }
             });
             aVar2.b(tbPageContext);
-            aVar2.btY();
+            aVar2.bqe();
         }
     }
 
     public static void b(TbPageContext<?> tbPageContext, final BubbleListData.BubbleData bubbleData, final a aVar) {
         if (bubbleData != null) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar2.jI(false);
-            aVar2.Bo(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
+            aVar2.jE(false);
+            aVar2.Ad(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
             aVar2.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.memberCenter.bubble.c.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.FC(bubbleData.getBcode());
+                        a.this.DW(bubbleData.getBcode());
                     }
                 }
             });
@@ -80,12 +80,12 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.dgK();
+                        a.this.dcS();
                     }
                 }
             });
             aVar2.b(tbPageContext);
-            aVar2.btY();
+            aVar2.bqe();
         }
     }
 }

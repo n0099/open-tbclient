@@ -4,39 +4,39 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class al {
-    public static final int ajs = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-    public static final int ajt = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-    public static final int aju = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-    private static final int ajv = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-    private static final int ajw = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-    public static final int ajx = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-    boolean ajy = false;
-    int ajz = ajv;
-    int ajA = ajw;
-    int ajB = ajx;
-    int ajC = ajs;
-    int ajD = 0;
-    int ajE = ajt;
-    int ajF = aju;
-    int ajG = R.color.CAM_X0205;
+    public static final int aiB = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    public static final int aiC = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+    public static final int aiD = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+    private static final int aiE = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    private static final int aiF = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+    public static final int aiG = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+    boolean aiH = false;
+    int aiI = aiE;
+    int aiJ = aiF;
+    int aiK = aiG;
+    int aiL = aiB;
+    int aiM = 0;
+    int aiN = aiC;
+    int aiO = aiD;
+    int aiP = R.color.CAM_X0205;
+
+    public void bx(int i) {
+        this.aiI = i;
+    }
+
+    public void by(int i) {
+        this.aiL = i;
+    }
 
     public void bz(int i) {
-        this.ajz = i;
+        this.aiM = i;
     }
 
     public void bA(int i) {
-        this.ajC = i;
+        this.aiN = i;
     }
 
     public void bB(int i) {
-        this.ajD = i;
-    }
-
-    public void bC(int i) {
-        this.ajE = i;
-    }
-
-    public void bD(int i) {
-        this.ajF = i;
+        this.aiO = i;
     }
 }

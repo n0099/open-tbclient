@@ -1,6 +1,6 @@
 package org.apache.http.conn;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConnectionPoolTimeoutException extends ConnectTimeoutException {
     public ConnectionPoolTimeoutException() {
         throw new RuntimeException("Stub!");

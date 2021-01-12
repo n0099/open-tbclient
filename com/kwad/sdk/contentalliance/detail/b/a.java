@@ -13,7 +13,7 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.a {
     private int h;
     private AdTemplate i;
@@ -79,7 +79,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f8702a = this.e;
+        cVar.f8402a = this.e;
         cVar.j = this.i;
         cVar.i = this.h;
         cVar.q = this.j;

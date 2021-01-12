@@ -1,5 +1,7 @@
 package com.baidubce.util;
 
+import android.net.http.Headers;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidubce.BceErrorResponse;
 import com.baidubce.http.BceHttpResponse;
 import com.baidubce.model.AbstractBceResponse;
@@ -36,7 +38,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JsonUtils {
     public static void loadFromString(String str, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
         JSONObject jSONObject = new JSONObject(str);
@@ -51,7 +53,7 @@ public class JsonUtils {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 BucketSummary bucketSummary = new BucketSummary();
                 bucketSummary.setName(optJSONObject.getString("name"));
-                bucketSummary.setLocation(optJSONObject.getString("location"));
+                bucketSummary.setLocation(optJSONObject.getString(Headers.LOCATION));
                 bucketSummary.setCreationDate(DateUtils.parseAlternateIso8601Date(optJSONObject.getString("creationDate")));
                 arrayList.add(bucketSummary);
             }
@@ -88,7 +90,7 @@ public class JsonUtils {
                     BosObjectSummary bosObjectSummary = new BosObjectSummary();
                     bosObjectSummary.setETag(optJSONObject2.getString("eTag"));
                     bosObjectSummary.setKey(optJSONObject2.getString("key"));
-                    bosObjectSummary.setSize(optJSONObject2.getLong("size"));
+                    bosObjectSummary.setSize(optJSONObject2.getLong(TiebaInitialize.LogFields.SIZE));
                     bosObjectSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject2.getString("lastModified")));
                     bosObjectSummary.setStorageClass(optJSONObject2.getString("storageClass"));
                     JSONObject jSONObject3 = optJSONObject2.getJSONObject("owner");
@@ -148,7 +150,7 @@ public class JsonUtils {
         } else if (abstractBceResponse.getClass() == CompleteMultipartUploadResponse.class) {
             abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
             abstractBceResponse.getClass().getMethod("setKey", String.class).invoke(abstractBceResponse, jSONObject.get("key"));
-            abstractBceResponse.getClass().getMethod("setLocation", String.class).invoke(abstractBceResponse, jSONObject.get("location"));
+            abstractBceResponse.getClass().getMethod("setLocation", String.class).invoke(abstractBceResponse, jSONObject.get(Headers.LOCATION));
             abstractBceResponse.getClass().getMethod("setETag", String.class).invoke(abstractBceResponse, jSONObject.get("eTag"));
         } else if (abstractBceResponse.getClass() == ListMultipartUploadsResponse.class) {
             abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
@@ -212,7 +214,7 @@ public class JsonUtils {
                 PartSummary partSummary = new PartSummary();
                 partSummary.setPartNumber(optJSONObject5.getInt("partNumber"));
                 partSummary.setETag(optJSONObject5.getString("eTag"));
-                partSummary.setSize(optJSONObject5.getInt("size"));
+                partSummary.setSize(optJSONObject5.getInt(TiebaInitialize.LogFields.SIZE));
                 partSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject5.getString("lastModified")));
                 arrayList9.add(partSummary);
             }

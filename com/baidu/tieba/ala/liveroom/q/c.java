@@ -10,85 +10,85 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements a {
-    private CustomMessageListener bXd;
-    private PopupWindow.OnDismissListener gMZ;
-    private d hLr;
+    private CustomMessageListener bSr;
+    private PopupWindow.OnDismissListener gIt;
+    private d hGL;
     private Activity mContext;
 
     public c(Activity activity) {
         this.mContext = activity;
-        aag();
+        Wn();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
-    public void ie(String str) {
-        this.hLr = new d(this.mContext);
-        this.hLr.setOnDismissListener(this.gMZ);
-        this.hLr.getWebView().setBackgroundColor(ih(str));
+    public void gT(String str) {
+        this.hGL = new d(this.mContext);
+        this.hGL.setOnDismissListener(this.gIt);
+        this.hGL.getWebView().setBackgroundColor(gW(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.hLr).a(this.hLr.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aaf = gVar.aaf();
-        for (com.baidu.live.view.web.a aVar : aaf) {
-            this.hLr.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.hGL).a(this.hGL.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wm = gVar.Wm();
+        for (com.baidu.live.view.web.a aVar : Wm) {
+            this.hGL.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hLr.GA(str);
+        this.hGL.Fp(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void resume() {
-        if (this.hLr != null && this.hLr.isShowing() && this.hLr.getWebView() != null) {
-            this.hLr.getWebView().onResume();
+        if (this.hGL != null && this.hGL.isShowing() && this.hGL.getWebView() != null) {
+            this.hGL.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void pause() {
-        if (this.hLr != null && this.hLr.isShowing() && this.hLr.getWebView() != null) {
-            this.hLr.getWebView().onPause();
+        if (this.hGL != null && this.hGL.isShowing() && this.hGL.getWebView() != null) {
+            this.hGL.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hLr != null) {
-            this.hLr.aah();
+        if (this.hGL != null) {
+            this.hGL.Wo();
         }
     }
 
-    public void dU(int i) {
-        if (this.hLr != null && this.hLr.isShowing()) {
-            this.hLr.dU(i);
+    public void co(int i) {
+        if (this.hGL != null && this.hGL.isShowing()) {
+            this.hGL.co(i);
         }
     }
 
-    public void Id() {
+    public void Ei() {
         dismiss();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void release() {
-        Id();
-        MessageManager.getInstance().unRegisterListener(this.bXd);
-        this.bXd = null;
+        Ei();
+        MessageManager.getInstance().unRegisterListener(this.bSr);
+        this.bSr = null;
     }
 
-    private void aag() {
-        if (this.bXd == null) {
-            this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.q.c.1
+    private void Wn() {
+        if (this.bSr == null) {
+            this.bSr = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.q.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (c.this.hLr != null && c.this.hLr.isShowing()) {
-                        c.this.hLr.dismiss();
+                    if (c.this.hGL != null && c.this.hGL.isShowing()) {
+                        c.this.hGL.dismiss();
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.bXd);
+        MessageManager.getInstance().registerListener(this.bSr);
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

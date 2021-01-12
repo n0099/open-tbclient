@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.bm;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
-    public c iNN;
+    public c iJg;
     public boolean hasMore = true;
-    public boolean alQ = true;
-    public int iNM = 0;
+    public boolean akY = true;
+    public int iJf = 0;
     public int refreshCount = 0;
-    public boolean geO = true;
-    public ArrayList<n> iNL = new ArrayList<>();
-    public bm iNK = new bm();
+    public boolean gae = true;
+    public ArrayList<n> iJe = new ArrayList<>();
+    public bm iJd = new bm();
 }

@@ -16,9 +16,9 @@ public abstract class a {
     private final long mFileLength;
     private final String mFileMd5;
     protected final String mFileName;
-    private final int nvb;
-    private final int nvc;
-    private e nvd;
+    private final int nqv;
+    private final int nqw;
+    private e nqx;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.nvc = i2;
+        this.nqw = i2;
         this.mFileLength = j;
         this.mFileMd5 = str2;
-        this.nvb = i;
+        this.nqv = i;
     }
 
     public void a(e eVar) {
-        this.nvd = eVar;
+        this.nqx = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Li(int i) {
-        if (this.nvd != null) {
-            this.nvd.aX(i / 100.0f);
+    public void JB(int i) {
+        if (this.nqx != null) {
+            this.nqx.aX(i / 100.0f);
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class a {
         } else {
             z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             zVar.addPostData("chunk_no", String.valueOf(i));
-            zVar.addPostData("chunk_sum", String.valueOf(this.nvc));
+            zVar.addPostData("chunk_sum", String.valueOf(this.nqw));
             zVar.addPostData("chunk_size", String.valueOf(b2.length));
             zVar.addPostData("video_size", String.valueOf(this.mFileLength));
             zVar.addPostData("video_md5", this.mFileMd5);
@@ -74,16 +74,16 @@ public abstract class a {
                 return null;
             }
             d dVar2 = new d();
-            if (zVar.bvR().bwB().isRequestSuccess()) {
-                dVar2.videoUrl = TO(postMultiNetData);
+            if (zVar.brX().bsH().isRequestSuccess()) {
+                dVar2.videoUrl = SG(postMultiNetData);
                 return dVar2;
             }
-            if (zVar.bvR().bwB().isNetSuccess()) {
-                dVar2.errorNo = zVar.bvR().bwB().mServerErrorCode;
+            if (zVar.brX().bsH().isNetSuccess()) {
+                dVar2.errorNo = zVar.brX().bsH().mServerErrorCode;
             } else {
-                dVar2.errorNo = zVar.bvR().bwB().mNetErrorCode;
+                dVar2.errorNo = zVar.brX().bsH().mNetErrorCode;
             }
-            dVar2.errorMessage = zVar.bvR().bwB().mErrorString;
+            dVar2.errorMessage = zVar.brX().bsH().mErrorString;
             return dVar2;
         }
     }
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.nvc) {
-            i2 = (int) (this.mFileLength - ((i - 1) * this.nvb));
+        if (i == this.nqw) {
+            i2 = (int) (this.mFileLength - ((i - 1) * this.nqv));
         } else {
-            i2 = this.nvb;
+            i2 = this.nqv;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.nvb);
+                randomAccessFile.seek((i - 1) * this.nqv);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String TO(String str) {
+    private String SG(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

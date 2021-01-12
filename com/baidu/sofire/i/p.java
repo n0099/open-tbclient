@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5557a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4081a, "c", "d", "e", "f"};
+    private static final String[] f5274a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4043a, "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -18,7 +18,7 @@ public final class p {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f5557a[i / 16] + f5557a[i % 16]);
+            stringBuffer.append(f5274a[i / 16] + f5274a[i % 16]);
         }
         return stringBuffer.toString();
     }

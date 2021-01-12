@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private String ewK;
-    private ArrayList<String> nWU;
-    private final String odF = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String erX;
+    private ArrayList<String> nSp;
+    private final String nYY = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.nWU)) {
+        if (spannable != null && !x.isEmpty(this.nSp)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nWU.iterator();
+                Iterator<String> it = this.nSp.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (x.isEmpty(dXR())) {
+        if (x.isEmpty(dTZ())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -113,20 +113,20 @@ public class c {
         }
     }
 
-    public void bm(ArrayList<String> arrayList) {
-        this.nWU = arrayList;
+    public void bh(ArrayList<String> arrayList) {
+        this.nSp = arrayList;
     }
 
-    public ArrayList<String> dXR() {
-        return this.nWU;
+    public ArrayList<String> dTZ() {
+        return this.nSp;
     }
 
-    public void Ve(String str) {
-        this.ewK = str;
+    public void TW(String str) {
+        this.erX = str;
     }
 
-    public String dXV() {
-        return this.ewK;
+    public String dUd() {
+        return this.erX;
     }
 
     private void c(Spannable spannable) {

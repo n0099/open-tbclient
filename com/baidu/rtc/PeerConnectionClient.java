@@ -6,6 +6,7 @@ import android.media.MediaCodecList;
 import android.os.Environment;
 import android.util.Log;
 import com.baidu.ala.helper.StreamConfig;
+import com.baidu.mobstat.Config;
 import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.m;
 import io.flutter.plugin.platform.PlatformPlugin;
@@ -50,56 +51,56 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     private Context context;
-    private b cwA;
-    private PeerConnectionFactory cwB;
-    private JavaAudioDeviceModule.SamplesReadyCallback cwC;
-    private boolean cwE;
-    private AudioTrack cwF;
-    private VideoSink cwG;
-    private SurfaceTextureHelper cwH;
-    private RtpSender cwI;
-    private VideoTrack cwJ;
-    private boolean cwL;
-    private JavaAudioDeviceModule.RemoteSamplesReadyCallback cwN;
-    private MediaStream cwP;
-    private MediaConstraints cwQ;
-    private c cwS;
-    private String cwT;
-    private VideoTrack cwV;
-    private boolean cwW;
-    private MediaConstraints cwX;
-    private Timer cwY;
-    private MediaConstraints cwv;
-    private MediaConstraints cww;
-    private AudioSource cwx;
-    private boolean cwz;
-    private VideoCapturer cxb;
-    private boolean cxc;
-    private int cxd;
-    private VideoSource cxe;
+    private MediaConstraints crE;
+    private MediaConstraints crF;
+    private AudioSource crG;
+    private boolean crI;
+    private b crJ;
+    private PeerConnectionFactory crK;
+    private JavaAudioDeviceModule.SamplesReadyCallback crL;
+    private boolean crN;
+    private AudioTrack crO;
+    private VideoSink crP;
+    private SurfaceTextureHelper crQ;
+    private RtpSender crR;
+    private VideoTrack crS;
+    private boolean crU;
+    private JavaAudioDeviceModule.RemoteSamplesReadyCallback crW;
+    private MediaStream crY;
+    private MediaConstraints crZ;
+    private c csb;
+    private String csc;
+    private VideoTrack cse;
+    private boolean csf;
+    private MediaConstraints csg;
+    private Timer csh;
+    private VideoCapturer csk;
+    private boolean csl;
+    private int csm;
+    private VideoSource csn;
     private JavaAudioDeviceModule.ExternalSamplesReadyCallback externalSamplesCallback;
     private int videoHeight;
     private int videoWidth;
     PeerConnectionFactory.Options options = null;
-    private Map<BigInteger, TimerTask> cxa = new ConcurrentHashMap();
-    private Map<BigInteger, TimerTask> cwZ = new ConcurrentHashMap();
+    private Map<BigInteger, TimerTask> csj = new ConcurrentHashMap();
+    private Map<BigInteger, TimerTask> csi = new ConcurrentHashMap();
     private boolean mHasVideo = true;
     private boolean mHasAudio = true;
-    private boolean cwM = false;
-    private int cwK = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    private boolean crV = false;
+    private int crT = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     private int mAudioChannel = 1;
-    private boolean cwD = true;
-    private DataChannel cwy = null;
-    Map<BigInteger, Integer> cwU = new ConcurrentHashMap();
-    private boolean cwO = false;
-    private JavaAudioDeviceModule cwu = null;
+    private boolean crM = true;
+    private DataChannel crH = null;
+    Map<BigInteger, Integer> csd = new ConcurrentHashMap();
+    private boolean crX = false;
+    private JavaAudioDeviceModule crD = null;
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-    private ConcurrentHashMap<BigInteger, com.baidu.rtc.a> cwR = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<BigInteger, com.baidu.rtc.a> csa = new ConcurrentHashMap<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum StatsEventsType {
         GET_AUDIOLEVEL_EVENT,
         GET_QUALITY_MONITOR_EVENT,
@@ -107,17 +108,17 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a implements PeerConnection.Observer {
-        private PeerConnection cwi;
-        private com.baidu.rtc.a cxo;
+        private PeerConnection crr;
+        private com.baidu.rtc.a csx;
 
         private a() {
         }
 
         public void a(com.baidu.rtc.a aVar) {
-            this.cxo = aVar;
-            this.cwi = aVar.cwi;
+            this.csx = aVar;
+            this.crr = aVar.crr;
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -128,17 +129,17 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.cwi == null || PeerConnectionClient.this.cwE) {
+                        if (a.this.crr == null || PeerConnectionClient.this.crN) {
                             return;
                         }
                         Log.d("PCRTCClient", "=========== onAddStream ==========");
                         if (mediaStream.videoTracks.size() == 1) {
-                            PeerConnectionClient.this.cwV = mediaStream.videoTracks.get(0);
-                            PeerConnectionClient.this.cwV.setEnabled(true);
-                            a.this.cxo.cwl = PeerConnectionClient.this.cwV;
-                            PeerConnectionClient.this.cwA.b(a.this.cxo);
+                            PeerConnectionClient.this.cse = mediaStream.videoTracks.get(0);
+                            PeerConnectionClient.this.cse.setEnabled(true);
+                            a.this.csx.cru = PeerConnectionClient.this.cse;
+                            PeerConnectionClient.this.crJ.b(a.this.csx);
                         }
-                        PeerConnectionClient.this.cwA.a(mediaStream.videoTracks.size() != 0, mediaStream.audioTracks.size() != 0, a.this.cxo.cwh);
+                        PeerConnectionClient.this.crJ.a(mediaStream.videoTracks.size() != 0, mediaStream.audioTracks.size() != 0, a.this.csx.crq);
                     }
                 });
             }
@@ -169,7 +170,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PeerConnectionClient.this.cwA.a(iceCandidate, a.this.cxo.cwh);
+                        PeerConnectionClient.this.crJ.a(iceCandidate, a.this.csx.crq);
                     }
                 });
             }
@@ -183,7 +184,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        PeerConnectionClient.this.cwA.onIceCandidatesRemoved(iceCandidateArr);
+                        PeerConnectionClient.this.crJ.onIceCandidatesRemoved(iceCandidateArr);
                     }
                 });
             }
@@ -199,11 +200,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     public void run() {
                         Log.d("PCRTCClient", "IceConnectionState: " + iceConnectionState);
                         if (iceConnectionState == PeerConnection.IceConnectionState.CONNECTED) {
-                            PeerConnectionClient.this.cwA.ail();
+                            PeerConnectionClient.this.crJ.aer();
                         } else if (iceConnectionState == PeerConnection.IceConnectionState.DISCONNECTED) {
-                            PeerConnectionClient.this.cwA.aim();
+                            PeerConnectionClient.this.crJ.aes();
                         } else if (iceConnectionState == PeerConnection.IceConnectionState.FAILED) {
-                            PeerConnectionClient.this.cwA.ain();
+                            PeerConnectionClient.this.crJ.aet();
                         }
                     }
                 });
@@ -228,7 +229,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        PeerConnectionClient.this.cwV = null;
+                        PeerConnectionClient.this.cse = null;
                     }
                 });
             }
@@ -250,7 +251,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(Boolean bool, Boolean bool2, BigInteger bigInteger);
 
@@ -262,105 +263,105 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
         void a(StatsReport[] statsReportArr, BigInteger bigInteger, StatsEventsType statsEventsType);
 
-        void ail();
+        void aer();
 
-        void aim();
+        void aes();
 
-        void ain();
+        void aet();
 
-        void aio();
+        void aeu();
 
         void b(com.baidu.rtc.a aVar);
 
-        void kp(String str);
+        void je(String str);
 
         void l(ByteBuffer byteBuffer);
 
         void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class c {
-        public final boolean cxA;
-        public final boolean cxB;
-        public final boolean cxC;
-        public final boolean cxD;
-        public final boolean cxE;
-        public final boolean cxF;
-        public final boolean cxG;
-        public final int cxH;
-        public final boolean cxI;
-        public final boolean cxJ;
-        public final boolean cxK;
-        public RtcParameterSettings.RtcAudioChannel cxL;
-        public final boolean cxM;
-        public final String cxN;
-        public final boolean cxO;
-        public final int cxP;
-        public final int cxQ;
-        public final int cxd;
-        public RtcParameterSettings.RtcAudioBitrateMode cxu;
-        public final String cxv;
-        public final int cxw;
-        public final int cxx;
-        public final boolean cxy;
-        public final boolean cxz;
+        public RtcParameterSettings.RtcAudioBitrateMode csD;
+        public final String csE;
+        public final int csF;
+        public final int csG;
+        public final boolean csH;
+        public final boolean csI;
+        public final boolean csJ;
+        public final boolean csK;
+        public final boolean csL;
+        public final boolean csM;
+        public final boolean csN;
+        public final boolean csO;
+        public final boolean csP;
+        public final int csQ;
+        public final boolean csR;
+        public final boolean csS;
+        public final boolean csT;
+        public RtcParameterSettings.RtcAudioChannel csU;
+        public final boolean csV;
+        public final String csW;
+        public final boolean csX;
+        public final int csY;
+        public final int csZ;
+        public final int csm;
         public final int videoHeight;
         public final int videoWidth;
 
         public c(boolean z, int i, int i2, int i3, String str, boolean z2, int i4, String str2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, boolean z8, boolean z9, boolean z10, boolean z11, boolean z12, boolean z13, int i7, RtcParameterSettings.RtcAudioBitrateMode rtcAudioBitrateMode, RtcParameterSettings.RtcAudioChannel rtcAudioChannel, int i8, boolean z14) {
-            this.cxK = z;
+            this.csT = z;
             this.videoWidth = i;
             this.videoHeight = i2;
-            this.cxd = i3;
-            this.cxN = str;
-            this.cxO = z2;
-            this.cxx = i4;
-            this.cxv = str2;
-            this.cxJ = z3;
-            this.cxM = z4;
-            this.cxz = z5;
-            this.cxA = z6;
-            this.cxB = z7;
-            this.cxP = i5;
-            this.cxQ = i6;
-            this.cxI = z8;
-            this.cxy = z9;
-            this.cxC = z10;
-            this.cxD = z11;
-            this.cxG = z12;
-            this.cxE = z13;
-            this.cxw = i7;
-            this.cxu = rtcAudioBitrateMode;
-            this.cxL = rtcAudioChannel;
-            this.cxH = i8;
-            this.cxF = z14;
+            this.csm = i3;
+            this.csW = str;
+            this.csX = z2;
+            this.csG = i4;
+            this.csE = str2;
+            this.csS = z3;
+            this.csV = z4;
+            this.csI = z5;
+            this.csJ = z6;
+            this.csK = z7;
+            this.csY = i5;
+            this.csZ = i6;
+            this.csR = z8;
+            this.csH = z9;
+            this.csL = z10;
+            this.csM = z11;
+            this.csP = z12;
+            this.csN = z13;
+            this.csF = i7;
+            this.csD = rtcAudioBitrateMode;
+            this.csU = rtcAudioChannel;
+            this.csQ = i8;
+            this.csO = z14;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class d implements SdpObserver {
-        private c cwg;
-        private BigInteger cwh;
-        private PeerConnection cwi;
-        private d cwj;
-        private boolean cwk;
-        private SessionDescription cxR;
+        private c crp;
+        private BigInteger crq;
+        private PeerConnection crr;
+        private d crs;
+        private boolean crt;
+        private SessionDescription cta;
 
         d() {
         }
 
         public void a(com.baidu.rtc.a aVar) {
-            this.cwi = aVar.cwi;
-            this.cwj = aVar.cwj;
-            this.cwh = aVar.cwh;
-            this.cwk = aVar.cwk;
-            this.cwg = aVar.cwg;
+            this.crr = aVar.crr;
+            this.crs = aVar.crs;
+            this.crq = aVar.crq;
+            this.crt = aVar.crt;
+            this.crp = aVar.crp;
         }
 
         public void close() {
-            this.cwi = null;
+            this.crr = null;
         }
 
         @Override // org.webrtc.SdpObserver
@@ -373,18 +374,18 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public void onCreateSuccess(SessionDescription sessionDescription) {
             Log.e("PCRTCClient", "SDP on create success");
             final SessionDescription sessionDescription2 = new SessionDescription(sessionDescription.type, sessionDescription.description);
-            this.cxR = sessionDescription2;
+            this.cta = sessionDescription2;
             if (PeerConnectionClient.this.executor.isShutdown()) {
                 Log.w("PCRTCClient", "executor is already shutdown");
             } else {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.d.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (d.this.cwi == null || PeerConnectionClient.this.cwE) {
+                        if (d.this.crr == null || PeerConnectionClient.this.crN) {
                             return;
                         }
                         Log.d("PCRTCClient", "Set local SDP from " + sessionDescription2.type);
-                        d.this.cwi.setLocalDescription(d.this.cwj, sessionDescription2);
+                        d.this.crr.setLocalDescription(d.this.crs, sessionDescription2);
                     }
                 });
             }
@@ -404,21 +405,21 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 PeerConnectionClient.this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.d.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (d.this.cwi == null || PeerConnectionClient.this.cwE) {
+                        if (d.this.crr == null || PeerConnectionClient.this.crN) {
                             return;
                         }
-                        if (!d.this.cwk) {
-                            if (d.this.cwi.getLocalDescription() == null) {
+                        if (!d.this.crt) {
+                            if (d.this.crr.getLocalDescription() == null) {
                                 Log.d("PCRTCClient", "answer Remote SDP set succesfully");
                                 return;
                             }
                             Log.d("PCRTCClient", "answer Local SDP set succesfully");
-                            PeerConnectionClient.this.cwA.a(d.this.cxR, d.this.cwh);
-                        } else if (d.this.cwi.getRemoteDescription() != null) {
+                            PeerConnectionClient.this.crJ.a(d.this.cta, d.this.crq);
+                        } else if (d.this.crr.getRemoteDescription() != null) {
                             Log.d("PCRTCClient", "Remote SDP set succesfully");
                         } else {
                             Log.d("PCRTCClient", "Local SDP set succesfully");
-                            PeerConnectionClient.this.cwA.a(d.this.cxR, d.this.cwh, d.this.cxR.description.contains("profile-level-id=640c1f"));
+                            PeerConnectionClient.this.crJ.a(d.this.cta, d.this.crq, d.this.cta.description.contains("profile-level-id=640c1f"));
                         }
                     }
                 });
@@ -437,47 +438,47 @@ public class PeerConnectionClient implements DataChannel.Observer {
         new PeerConnection.RTCConfiguration(arrayList);
         a aVar = new a();
         d dVar = new d();
-        PeerConnection createPeerConnection = this.cwB.createPeerConnection(arrayList, aVar);
+        PeerConnection createPeerConnection = this.crK.createPeerConnection(arrayList, aVar);
         com.baidu.rtc.a aVar2 = new com.baidu.rtc.a();
-        aVar2.cwh = bigInteger;
-        aVar2.cwj = dVar;
-        aVar2.cwi = createPeerConnection;
-        aVar2.cwk = z;
-        aVar2.cwm = -1;
-        aVar2.cwg = this.cwS;
-        this.cwR.put(bigInteger, aVar2);
+        aVar2.crq = bigInteger;
+        aVar2.crs = dVar;
+        aVar2.crr = createPeerConnection;
+        aVar2.crt = z;
+        aVar2.crv = -1;
+        aVar2.crp = this.csb;
+        this.csa.put(bigInteger, aVar2);
         aVar.a(aVar2);
         dVar.a(aVar2);
         DataChannel.Init init = new DataChannel.Init();
-        if (this.cwM && z) {
-            this.cwy = createPeerConnection.createDataChannel("JanusDataChannel", init);
+        if (this.crV && z) {
+            this.crH = createPeerConnection.createDataChannel("JanusDataChannel", init);
         }
         Log.d("PCRTCClient", "Peer connection created.");
         return createPeerConnection;
     }
 
     private VideoTrack a(EglBase.Context context, VideoCapturer videoCapturer) {
-        this.cxe = this.cwB.createVideoSource(false);
-        this.cwH = SurfaceTextureHelper.create("video renderer", context);
-        videoCapturer.initialize(this.cwH, this.context, this.cxe.getCapturerObserver());
-        videoCapturer.startCapture(this.videoWidth, this.videoHeight, this.cxd);
-        this.cwJ = this.cwB.createVideoTrack("ARDAMSv0", this.cxe);
-        this.cwJ.setEnabled(this.cwW);
-        this.cwJ.addSink(this.cwG);
-        return this.cwJ;
+        this.csn = this.crK.createVideoSource(false);
+        this.crQ = SurfaceTextureHelper.create("video renderer", context);
+        videoCapturer.initialize(this.crQ, this.context, this.csn.getCapturerObserver());
+        videoCapturer.startCapture(this.videoWidth, this.videoHeight, this.csm);
+        this.crS = this.crK.createVideoTrack("ARDAMSv0", this.csn);
+        this.crS.setEnabled(this.csf);
+        this.crS.addSink(this.crP);
+        return this.crS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(PeerConnectionClient peerConnectionClient, Integer num) {
-        if (peerConnectionClient.cwI == null) {
+        if (peerConnectionClient.crR == null) {
             return;
         }
         Log.d("PCRTCClient", "Requested max video bitrate: " + num);
-        if (peerConnectionClient.cwI == null) {
+        if (peerConnectionClient.crR == null) {
             Log.w("PCRTCClient", "Sender is not ready.");
             return;
         }
-        RtpParameters parameters = peerConnectionClient.cwI.getParameters();
+        RtpParameters parameters = peerConnectionClient.crR.getParameters();
         if (parameters.encodings.size() == 0) {
             Log.w("PCRTCClient", "RtpParameters are not ready.");
             return;
@@ -485,7 +486,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         for (RtpParameters.Encoding encoding : parameters.encodings) {
             encoding.maxBitrateBps = num == null ? null : Integer.valueOf(num.intValue() * 1000);
         }
-        if (!peerConnectionClient.cwI.setParameters(parameters)) {
+        if (!peerConnectionClient.crR.setParameters(parameters)) {
             Log.e("PCRTCClient", "RtpSender.setParameters failed.");
         }
         Log.d("PCRTCClient", "Configured max video bitrate to: " + num);
@@ -493,10 +494,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final BigInteger bigInteger, final StatsEventsType statsEventsType) {
-        if (this.cwR.get(bigInteger).cwi.getStats(new StatsObserver() { // from class: com.baidu.rtc.PeerConnectionClient.14
+        if (this.csa.get(bigInteger).crr.getStats(new StatsObserver() { // from class: com.baidu.rtc.PeerConnectionClient.14
             @Override // org.webrtc.StatsObserver
             public void onComplete(StatsReport[] statsReportArr) {
-                PeerConnectionClient.this.cwA.a(statsReportArr, bigInteger, statsEventsType);
+                PeerConnectionClient.this.crJ.a(statsReportArr, bigInteger, statsEventsType);
             }
         }, null)) {
             return;
@@ -506,118 +507,118 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EglBase.Context context, BigInteger bigInteger) {
-        if (this.cwB == null || this.cwE) {
+        if (this.crK == null || this.crN) {
             Log.e("PCRTCClient", "Peerconnection factory is not created");
             return;
         }
-        Log.d("PCRTCClient", "PCConstraints: " + this.cwQ.toString());
+        Log.d("PCRTCClient", "PCConstraints: " + this.crZ.toString());
         Log.d("PCRTCClient", "EGLContext: " + context);
         PeerConnection a2 = a(bigInteger, true);
-        this.cwP = this.cwB.createLocalMediaStream("ARDAMS");
+        this.crY = this.crK.createLocalMediaStream("ARDAMS");
         if (this.mHasVideo) {
-            this.cwP.addTrack(a(context, this.cxb));
+            this.crY.addTrack(a(context, this.csk));
         }
         if (this.mHasAudio) {
-            this.cwP.addTrack(aig());
+            this.crY.addTrack(aem());
         }
-        a2.addStream(this.cwP);
+        a2.addStream(this.crY);
         g(bigInteger);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aif() {
+    public void ael() {
         Log.d("PCRTCClient", "Closing peer connection.");
-        this.cwY.cancel();
-        if (this.cwR != null) {
-            int size = this.cwR.size();
+        this.csh.cancel();
+        if (this.csa != null) {
+            int size = this.csa.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.rtc.a aVar = (com.baidu.rtc.a) this.cwR.values().toArray()[i];
-                aVar.cwi.close();
-                aVar.cwi.dispose();
-                aVar.cwi = null;
-                aVar.cwj.close();
+                com.baidu.rtc.a aVar = (com.baidu.rtc.a) this.csa.values().toArray()[i];
+                aVar.crr.close();
+                aVar.crr.dispose();
+                aVar.crr = null;
+                aVar.crs.close();
             }
         }
         Log.d("PCRTCClient", "Closing audio source.");
-        if (this.cwx != null) {
-            this.cwx.dispose();
-            this.cwx = null;
+        if (this.crG != null) {
+            this.crG.dispose();
+            this.crG = null;
         }
         Log.d("PCRTCClient", "Stopping capture.");
-        if (this.cxb != null) {
+        if (this.csk != null) {
             try {
-                this.cxb.stopCapture();
-                this.cxc = true;
-                this.cxb.dispose();
-                this.cxb = null;
+                this.csk.stopCapture();
+                this.csl = true;
+                this.csk.dispose();
+                this.csk = null;
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
         Log.d("PCRTCClient", "Closing video source.");
-        if (this.cxe != null) {
-            this.cxe.dispose();
-            this.cxe = null;
+        if (this.csn != null) {
+            this.csn.dispose();
+            this.csn = null;
         }
-        if (this.cwH != null) {
-            this.cwH.dispose();
-            this.cwH = null;
+        if (this.crQ != null) {
+            this.crQ.dispose();
+            this.crQ = null;
         }
         Log.d("PCRTCClient", "Closing peer connection factory.");
-        if (this.cwB != null) {
-            this.cwB.dispose();
-            this.cwB = null;
+        if (this.crK != null) {
+            this.crK.dispose();
+            this.crK = null;
         }
         this.options = null;
         Log.d("PCRTCClient", "Closing peer connection done.");
-        this.cwA.aio();
+        this.crJ.aeu();
         PeerConnectionFactory.stopInternalTracingCapture();
         PeerConnectionFactory.shutdownInternalTracer();
     }
 
-    private AudioTrack aig() {
-        this.cwx = this.cwB.createAudioSource(this.cww);
-        this.cwF = this.cwB.createAudioTrack("ARDAMSa0", this.cwx);
-        this.cwF.setEnabled(this.cwz);
-        return this.cwF;
+    private AudioTrack aem() {
+        this.crG = this.crK.createAudioSource(this.crF);
+        this.crO = this.crK.createAudioTrack("ARDAMSa0", this.crG);
+        this.crO.setEnabled(this.crI);
+        return this.crO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aih() {
-        this.cwQ = new MediaConstraints();
-        this.cwQ.optional.add(new MediaConstraints.KeyValuePair("DtlsSrtpKeyAgreement", "true"));
-        this.videoWidth = this.cwS.videoWidth;
-        this.videoHeight = this.cwS.videoHeight;
-        this.cxd = this.cwS.cxd;
+    public void aen() {
+        this.crZ = new MediaConstraints();
+        this.crZ.optional.add(new MediaConstraints.KeyValuePair("DtlsSrtpKeyAgreement", "true"));
+        this.videoWidth = this.csb.videoWidth;
+        this.videoHeight = this.csb.videoHeight;
+        this.csm = this.csb.csm;
         if (this.videoWidth == 0 || this.videoHeight == 0) {
             this.videoWidth = PlatformPlugin.DEFAULT_SYSTEM_UI;
             this.videoHeight = 720;
         }
-        if (this.cxd == 0) {
-            this.cxd = 30;
+        if (this.csm == 0) {
+            this.csm = 30;
         }
-        Logging.d("PCRTCClient", "Capturing format: " + this.videoWidth + "x" + this.videoHeight + "@" + this.cxd);
-        this.cww = new MediaConstraints();
-        if (this.cwS.cxJ) {
+        Logging.d("PCRTCClient", "Capturing format: " + this.videoWidth + Config.EVENT_HEAT_X + this.videoHeight + "@" + this.csm);
+        this.crF = new MediaConstraints();
+        if (this.csb.csS) {
             Log.d("PCRTCClient", "Disabling audio processing");
-            this.cww.mandatory.add(new MediaConstraints.KeyValuePair("googEchoCancellation", "false"));
-            this.cww.mandatory.add(new MediaConstraints.KeyValuePair("googAutoGainControl", "false"));
-            this.cww.mandatory.add(new MediaConstraints.KeyValuePair("googHighpassFilter", "false"));
-            this.cww.mandatory.add(new MediaConstraints.KeyValuePair("googNoiseSuppression", "false"));
+            this.crF.mandatory.add(new MediaConstraints.KeyValuePair("googEchoCancellation", "false"));
+            this.crF.mandatory.add(new MediaConstraints.KeyValuePair("googAutoGainControl", "false"));
+            this.crF.mandatory.add(new MediaConstraints.KeyValuePair("googHighpassFilter", "false"));
+            this.crF.mandatory.add(new MediaConstraints.KeyValuePair("googNoiseSuppression", "false"));
         }
-        this.cwX = new MediaConstraints();
+        this.csg = new MediaConstraints();
         if (this.mHasAudio) {
-            this.cwX.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
+            this.csg.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
         }
         if (this.mHasVideo) {
-            this.cwX.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
+            this.csg.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
         }
-        if (this.cwM) {
-            this.cwX.mandatory.add(new MediaConstraints.KeyValuePair("data", "true"));
+        if (this.crV) {
+            this.csg.mandatory.add(new MediaConstraints.KeyValuePair("data", "true"));
         }
     }
 
-    public static PeerConnectionClient aii() {
+    public static PeerConnectionClient aeo() {
         PeerConnectionClient peerConnectionClient;
         synchronized (PeerConnectionClient.class) {
             try {
@@ -630,44 +631,44 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQ(Context context) {
+    public void bP(Context context) {
         boolean z = false;
-        if (this.cwS.cxK) {
+        if (this.csb.csT) {
             PeerConnectionFactory.startInternalTracingCapture(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "webrtc-trace.txt");
         }
         Log.d("PCRTCClient", "Create peer connection factory. Use video: true");
-        this.cwE = false;
-        this.cwT = "VP8";
-        if (this.cwS.cxN != null) {
-            if (this.cwS.cxN.equals("VP9")) {
-                this.cwT = "VP9";
-            } else if (this.cwS.cxN.equals("H264")) {
-                this.cwT = "H264";
+        this.crN = false;
+        this.csc = "VP8";
+        if (this.csb.csW != null) {
+            if (this.csb.csW.equals("VP9")) {
+                this.csc = "VP9";
+            } else if (this.csb.csW.equals("H264")) {
+                this.csc = "H264";
             }
         }
-        Log.d("PCRTCClient", "Pereferred video codec: " + this.cwT);
-        if (this.cwS.cxM) {
+        Log.d("PCRTCClient", "Pereferred video codec: " + this.csc);
+        if (this.csb.csV) {
             Log.d("PCRTCClient", "Allow OpenSL ES audio if device supports it");
             WebRtcAudioManager.setBlacklistDeviceForOpenSLESUsage(false);
         } else {
             Log.d("PCRTCClient", "Disable OpenSL ES audio even if device supports it");
             WebRtcAudioManager.setBlacklistDeviceForOpenSLESUsage(true);
         }
-        if (this.cwS.cxz) {
+        if (this.csb.csI) {
             Log.d("PCRTCClient", "Disable built-in AEC even if device supports it");
             WebRtcAudioUtils.setWebRtcBasedAcousticEchoCanceler(true);
         } else {
             Log.d("PCRTCClient", "Enable built-in AEC if device supports it");
             WebRtcAudioUtils.setWebRtcBasedAcousticEchoCanceler(false);
         }
-        if (this.cwS.cxA) {
+        if (this.csb.csJ) {
             Log.d("PCRTCClient", "Disable built-in AGC even if device supports it");
             WebRtcAudioUtils.setWebRtcBasedAutomaticGainControl(true);
         } else {
             Log.d("PCRTCClient", "Enable built-in AGC if device supports it");
             WebRtcAudioUtils.setWebRtcBasedAutomaticGainControl(false);
         }
-        if (this.cwS.cxB) {
+        if (this.csb.csK) {
             Log.d("PCRTCClient", "Disable built-in NS even if device supports it");
             WebRtcAudioUtils.setWebRtcBasedNoiseSuppressor(true);
         } else {
@@ -675,20 +676,20 @@ public class PeerConnectionClient implements DataChannel.Observer {
             WebRtcAudioUtils.setWebRtcBasedNoiseSuppressor(false);
         }
         this.context = context;
-        this.cwv = new MediaConstraints();
-        this.cwv.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
-        this.cwv.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
-        String str = this.cwS.cxC ? "WebRTC-FlexFEC-03-Advertised/Enabled/WebRTC-FlexFEC-03/Enabled/" : "";
-        if (this.cwS.cxD) {
+        this.crE = new MediaConstraints();
+        this.crE.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
+        this.crE.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
+        String str = this.csb.csL ? "WebRTC-FlexFEC-03-Advertised/Enabled/WebRTC-FlexFEC-03/Enabled/" : "";
+        if (this.csb.csM) {
             str = str + "BRTC.Fixed.Resolution/Enabled/";
         }
-        if (this.cwS.cxH == 0 || this.cwS.cxH == 1 || this.cwS.cxH == 2) {
-            str = str + "BRTC-Encoder-BitrateMode/" + this.cwS.cxH + "/";
+        if (this.csb.csQ == 0 || this.csb.csQ == 1 || this.csb.csQ == 2) {
+            str = str + "BRTC-Encoder-BitrateMode/" + this.csb.csQ + "/";
         }
-        if (this.cwS.cxE) {
+        if (this.csb.csN) {
             str = (str + "WebRTC-H264HighProfile/Enabled/") + "WebRTC-MediaTekH264/Enabled/";
         }
-        if (this.cwS.cxF) {
+        if (this.csb.csO) {
             str = str + "BRTC.HisiH264HW/Enabled/";
         }
         int i = 0;
@@ -708,16 +709,16 @@ public class PeerConnectionClient implements DataChannel.Observer {
             }
             i++;
         }
-        if (this.cwS.cxG || z) {
+        if (this.csb.csP || z) {
             str = str + "BRTC.Required.Resolustion.Aligment32/Enabled/";
         }
         PeerConnectionFactory.initialize(PeerConnectionFactory.InitializationOptions.builder(context).setFieldTrials(str).createInitializationOptions());
-        AudioDeviceModule aij = aij();
-        this.cwu = (JavaAudioDeviceModule) aij;
-        this.cwB = PeerConnectionFactory.builder().setAudioDeviceModule(aij).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
+        AudioDeviceModule aep = aep();
+        this.crD = (JavaAudioDeviceModule) aep;
+        this.crK = PeerConnectionFactory.builder().setAudioDeviceModule(aep).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
         Log.d("PCRTCClient", "Peer connection factory created.");
-        aij.release();
-        if (!this.cwO) {
+        aep.release();
+        if (!this.crX) {
             Logging.enableLogToDebugOutput(Logging.Severity.LS_ERROR);
             return;
         }
@@ -727,10 +728,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     private void g(BigInteger bigInteger) {
-        for (RtpSender rtpSender : this.cwR.get(bigInteger).cwi.getSenders()) {
+        for (RtpSender rtpSender : this.csa.get(bigInteger).crr.getSenders()) {
             if (rtpSender.track() != null && rtpSender.track().kind().equals("video")) {
                 Log.d("PCRTCClient", "Found video sender.");
-                this.cwI = rtpSender;
+                this.crR = rtpSender;
             }
         }
     }
@@ -744,39 +745,39 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PeerConnectionClient.this.cwE) {
+                    if (PeerConnectionClient.this.crN) {
                         return;
                     }
-                    PeerConnectionClient.this.cwA.kp(str);
-                    PeerConnectionClient.this.cwE = true;
+                    PeerConnectionClient.this.crJ.je(str);
+                    PeerConnectionClient.this.crN = true;
                 }
             });
         }
     }
 
     public void a(final Context context, c cVar, b bVar) {
-        this.cwS = cVar;
-        this.cwA = bVar;
+        this.csb = cVar;
+        this.crJ = bVar;
         this.context = null;
-        this.cwB = null;
-        this.cxc = false;
-        this.cwE = false;
-        this.cwP = null;
-        this.cxb = null;
-        this.cwW = !cVar.cxy;
-        this.cwJ = null;
-        this.cwV = null;
-        this.cwI = null;
-        this.cwz = !cVar.cxI;
-        this.cwF = null;
-        this.cwY = new Timer();
+        this.crK = null;
+        this.csl = false;
+        this.crN = false;
+        this.crY = null;
+        this.csk = null;
+        this.csf = !cVar.csH;
+        this.crS = null;
+        this.cse = null;
+        this.crR = null;
+        this.crI = !cVar.csR;
+        this.crO = null;
+        this.csh = new Timer();
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    PeerConnectionClient.this.bQ(context);
+                    PeerConnectionClient.this.bP(context);
                 }
             });
         }
@@ -789,29 +790,29 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    PeerConnection peerConnection = ((com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger)).cwi;
-                    d dVar = ((com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger)).cwj;
-                    if (peerConnection == null || PeerConnectionClient.this.cwE) {
+                    PeerConnection peerConnection = ((com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger)).crr;
+                    d dVar = ((com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger)).crs;
+                    if (peerConnection == null || PeerConnectionClient.this.crN) {
                         return;
                     }
                     String str = sessionDescription.description;
                     m.a aVar = new m.a();
-                    aVar.cys = PeerConnectionClient.this.cwS.cxu == RtcParameterSettings.RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
-                    aVar.cyt = PeerConnectionClient.this.cwS.cxw;
-                    aVar.cyw = PeerConnectionClient.this.cwS.cxL == RtcParameterSettings.RtcAudioChannel.RTC_AUDIO_STEREO;
-                    peerConnection.setRemoteDescription(dVar, new SessionDescription(sessionDescription.type, m.a(PeerConnectionClient.this.cwS.cxv, str, aVar)));
+                    aVar.ctE = PeerConnectionClient.this.csb.csD == RtcParameterSettings.RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
+                    aVar.ctF = PeerConnectionClient.this.csb.csF;
+                    aVar.ctI = PeerConnectionClient.this.csb.csU == RtcParameterSettings.RtcAudioChannel.RTC_AUDIO_STEREO;
+                    peerConnection.setRemoteDescription(dVar, new SessionDescription(sessionDescription.type, m.a(PeerConnectionClient.this.csb.csE, str, aVar)));
                 }
             });
         }
     }
 
     public void a(final EglBase.Context context, VideoSink videoSink, VideoCapturer videoCapturer, final BigInteger bigInteger) {
-        if (this.cwS == null) {
+        if (this.csb == null) {
             Log.e("PCRTCClient", "Creating peer connection without initializing factory.");
             return;
         }
-        this.cwG = videoSink;
-        this.cxb = videoCapturer;
+        this.crP = videoSink;
+        this.csk = videoCapturer;
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
@@ -819,7 +820,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        PeerConnectionClient.this.aih();
+                        PeerConnectionClient.this.aen();
                         PeerConnectionClient.this.a(context, bigInteger);
                     } catch (Exception e) {
                         PeerConnectionClient peerConnectionClient = PeerConnectionClient.this;
@@ -832,18 +833,18 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     public void a(JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback) {
-        this.cwN = remoteSamplesReadyCallback;
+        this.crW = remoteSamplesReadyCallback;
     }
 
     public void a(JavaAudioDeviceModule.SamplesReadyCallback samplesReadyCallback) {
-        this.cwC = samplesReadyCallback;
+        this.crL = samplesReadyCallback;
     }
 
     public void a(boolean z, int i, final BigInteger bigInteger, final StatsEventsType statsEventsType) {
         TimerTask timerTask = null;
         if (!z) {
             if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                timerTask = this.cxa.get(bigInteger);
+                timerTask = this.csj.get(bigInteger);
             } else {
                 StatsEventsType statsEventsType2 = StatsEventsType.GET_QUALITY_MONITOR_EVENT;
             }
@@ -855,9 +856,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
         try {
             if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                timerTask = this.cxa.get(bigInteger);
+                timerTask = this.csj.get(bigInteger);
             } else if (statsEventsType == StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                this.cwZ.get(bigInteger);
+                this.csi.get(bigInteger);
             }
             if (timerTask != null) {
                 timerTask.cancel();
@@ -877,18 +878,18 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 }
             };
             if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                this.cxa.put(bigInteger, timerTask2);
+                this.csj.put(bigInteger, timerTask2);
             } else if (statsEventsType == StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                this.cwZ.put(bigInteger, timerTask2);
+                this.csi.put(bigInteger, timerTask2);
             }
-            this.cwY.schedule(timerTask2, 0L, i);
+            this.csh.schedule(timerTask2, 0L, i);
         } catch (Exception e) {
             Log.e("PCRTCClient", "Can not schedule statistics timer", e);
         }
     }
 
-    AudioDeviceModule aij() {
-        AudioDeviceModule createAudioDeviceModule = JavaAudioDeviceModule.builder(this.context).setSamplesReadyCallback(this.cwC).setRemoteSamplesReadyCallback(this.cwN).setExternalAudioRecord(this.cwL).setUseHardwareAcousticEchoCanceler(!this.cwS.cxz).setUseHardwareNoiseSuppressor(!this.cwS.cxB).setAudioRecordErrorCallback(new JavaAudioDeviceModule.AudioRecordErrorCallback() { // from class: com.baidu.rtc.PeerConnectionClient.11
+    AudioDeviceModule aep() {
+        AudioDeviceModule createAudioDeviceModule = JavaAudioDeviceModule.builder(this.context).setSamplesReadyCallback(this.crL).setRemoteSamplesReadyCallback(this.crW).setExternalAudioRecord(this.crU).setUseHardwareAcousticEchoCanceler(!this.csb.csI).setUseHardwareNoiseSuppressor(!this.csb.csK).setAudioRecordErrorCallback(new JavaAudioDeviceModule.AudioRecordErrorCallback() { // from class: com.baidu.rtc.PeerConnectionClient.11
             @Override // org.webrtc.audio.JavaAudioDeviceModule.AudioRecordErrorCallback
             public void onWebRtcAudioRecordError(String str) {
                 Log.e("PCRTCClient", "onWebRtcAudioRecordError: " + str);
@@ -923,29 +924,29 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 Log.e("PCRTCClient", "onWebRtcAudioTrackStartError: " + audioTrackStartErrorCode + ". " + str);
                 PeerConnectionClient.this.reportError(str);
             }
-        }).setSampleRate(this.cwK).setUseStereoInput(this.mAudioChannel > 1).setUseStereoOutput(this.mAudioChannel > 1).createAudioDeviceModule();
-        if (this.cwL && (createAudioDeviceModule instanceof JavaAudioDeviceModule)) {
+        }).setSampleRate(this.crT).setUseStereoInput(this.mAudioChannel > 1).setUseStereoOutput(this.mAudioChannel > 1).createAudioDeviceModule();
+        if (this.crU && (createAudioDeviceModule instanceof JavaAudioDeviceModule)) {
             this.externalSamplesCallback = ((JavaAudioDeviceModule) createAudioDeviceModule).getExternalSamplesReadyCallback();
         }
         return createAudioDeviceModule;
     }
 
-    public void aik() {
+    public void aeq() {
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PeerConnectionClient.this.cxb == null || PeerConnectionClient.this.cxc) {
+                    if (PeerConnectionClient.this.csk == null || PeerConnectionClient.this.csl) {
                         return;
                     }
                     Log.d("PCRTCClient", "Stop video source.");
                     try {
-                        PeerConnectionClient.this.cxb.stopCapture();
+                        PeerConnectionClient.this.csk.stopCapture();
                     } catch (InterruptedException e) {
                     }
-                    PeerConnectionClient.this.cxc = true;
+                    PeerConnectionClient.this.csl = true;
                 }
             });
         }
@@ -959,13 +960,13 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 @Override // java.lang.Runnable
                 public void run() {
                     PeerConnection a2 = PeerConnectionClient.this.a(bigInteger, false);
-                    d dVar = ((com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger)).cwj;
-                    if (a2 == null || PeerConnectionClient.this.cwE) {
+                    d dVar = ((com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger)).crs;
+                    if (a2 == null || PeerConnectionClient.this.crN) {
                         return;
                     }
                     a2.setRemoteDescription(dVar, sessionDescription);
                     Log.d("PCRTCClient", "PC create ANSWER");
-                    a2.createAnswer(((com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger)).cwj, PeerConnectionClient.this.cwv);
+                    a2.createAnswer(((com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger)).crs, PeerConnectionClient.this.crE);
                 }
             });
         }
@@ -975,7 +976,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.10
             @Override // java.lang.Runnable
             public void run() {
-                PeerConnectionClient.this.aif();
+                PeerConnectionClient.this.ael();
             }
         });
         try {
@@ -994,56 +995,60 @@ public class PeerConnectionClient implements DataChannel.Observer {
         });
     }
 
-    public void es(final boolean z) {
+    public void eo(final boolean z) {
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.16
                 @Override // java.lang.Runnable
                 public void run() {
-                    PeerConnectionClient.this.cwz = z;
-                    if (PeerConnectionClient.this.cwF != null) {
-                        PeerConnectionClient.this.cwF.setEnabled(PeerConnectionClient.this.cwz);
+                    PeerConnectionClient.this.crI = z;
+                    if (PeerConnectionClient.this.crO != null) {
+                        PeerConnectionClient.this.crO.setEnabled(PeerConnectionClient.this.crI);
                     }
                 }
             });
         }
     }
 
-    public void et(boolean z) {
-        this.cwO = z;
+    public void ep(boolean z) {
+        this.crX = z;
     }
 
-    public void eu(boolean z) {
-        this.cwL = z;
+    public void eq(boolean z) {
+        this.crU = z;
     }
 
-    public void ev(boolean z) {
+    public void er(boolean z) {
         this.mHasAudio = z;
     }
 
-    public void ew(boolean z) {
-        this.cwM = z;
+    public void es(boolean z) {
+        this.crV = z;
     }
 
-    public void ex(boolean z) {
+    public void et(boolean z) {
         this.mHasVideo = z;
     }
 
-    public void ey(final boolean z) {
+    public void eu(final boolean z) {
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    PeerConnectionClient.this.cwW = z;
-                    if (PeerConnectionClient.this.cwJ != null) {
-                        PeerConnectionClient.this.cwJ.setEnabled(PeerConnectionClient.this.cwW);
+                    PeerConnectionClient.this.csf = z;
+                    if (PeerConnectionClient.this.crS != null) {
+                        PeerConnectionClient.this.crS.setEnabled(PeerConnectionClient.this.csf);
                     }
                 }
             });
         }
+    }
+
+    public void fQ(int i) {
+        this.crT = i;
     }
 
     public void h(final BigInteger bigInteger) {
@@ -1054,25 +1059,21 @@ public class PeerConnectionClient implements DataChannel.Observer {
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.rtc.a aVar;
-                if (PeerConnectionClient.this.cwR == null || (aVar = (com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger)) == null) {
+                if (PeerConnectionClient.this.csa == null || (aVar = (com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger)) == null) {
                     return;
                 }
-                if (aVar.cwi != null) {
-                    aVar.cwi.close();
-                    aVar.cwi.dispose();
-                    aVar.cwi = null;
+                if (aVar.crr != null) {
+                    aVar.crr.close();
+                    aVar.crr.dispose();
+                    aVar.crr = null;
                 }
-                if (aVar.cwj != null) {
-                    aVar.cwj.close();
-                    aVar.cwj = null;
+                if (aVar.crs != null) {
+                    aVar.crs.close();
+                    aVar.crs = null;
                 }
-                PeerConnectionClient.this.cwR.remove(bigInteger);
+                PeerConnectionClient.this.csa.remove(bigInteger);
             }
         });
-    }
-
-    public void hx(int i) {
-        this.cwK = i;
     }
 
     public void i(final BigInteger bigInteger) {
@@ -1082,20 +1083,20 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.rtc.a aVar = (com.baidu.rtc.a) PeerConnectionClient.this.cwR.get(bigInteger);
-                    PeerConnection peerConnection = aVar.cwi;
-                    if (peerConnection == null || PeerConnectionClient.this.cwE) {
+                    com.baidu.rtc.a aVar = (com.baidu.rtc.a) PeerConnectionClient.this.csa.get(bigInteger);
+                    PeerConnection peerConnection = aVar.crr;
+                    if (peerConnection == null || PeerConnectionClient.this.crN) {
                         return;
                     }
                     Log.d("PCRTCClient", "PC Create OFFER");
-                    peerConnection.createOffer(aVar.cwj, PeerConnectionClient.this.cwX);
+                    peerConnection.createOffer(aVar.crs, PeerConnectionClient.this.csg);
                 }
             });
         }
     }
 
     public com.baidu.rtc.a j(BigInteger bigInteger) {
-        return this.cwR.get(bigInteger);
+        return this.csa.get(bigInteger);
     }
 
     @Override // org.webrtc.DataChannel.Observer
@@ -1104,7 +1105,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     @Override // org.webrtc.DataChannel.Observer
     public void onMessage(DataChannel.Buffer buffer) {
-        this.cwA.l(buffer.data);
+        this.crJ.l(buffer.data);
     }
 
     @Override // org.webrtc.DataChannel.Observer
@@ -1122,8 +1123,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PeerConnectionClient.this.cwu != null) {
-                        PeerConnectionClient.this.cwu.setSpeakerMute(z);
+                    if (PeerConnectionClient.this.crD != null) {
+                        PeerConnectionClient.this.crD.setSpeakerMute(z);
                     }
                 }
             });

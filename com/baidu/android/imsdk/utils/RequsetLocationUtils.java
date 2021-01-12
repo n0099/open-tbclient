@@ -3,13 +3,14 @@ package com.baidu.android.imsdk.utils;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequsetLocationUtils extends BaseUtils {
     public static Location getLocatioin(Context context) {
         String str;
         if (context.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
-            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
             List<String> providers = locationManager.getProviders(true);
             if (providers.contains("gps")) {
                 str = "gps";

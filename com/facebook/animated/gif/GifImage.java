@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes3.dex */
 public class GifImage implements c, b {
-    private static volatile boolean prN;
+    private static volatile boolean pni;
     @d
     private long mNativeContext;
 
@@ -40,17 +40,17 @@ public class GifImage implements c, b {
 
     private native int nativeGetWidth();
 
-    private static synchronized void etk() {
+    private static synchronized void epq() {
         synchronized (GifImage.class) {
-            if (!prN) {
-                prN = true;
+            if (!pni) {
+                pni = true;
                 SoLoaderShim.loadLibrary("gifimage");
             }
         }
     }
 
     public static GifImage N(long j, int i) {
-        etk();
+        epq();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -108,13 +108,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: PZ */
-    public GifFrame Qc(int i) {
+    /* renamed from: Os */
+    public GifFrame Ov(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean etl() {
+    public boolean epr() {
         return false;
     }
 
@@ -124,16 +124,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Qa(int i) {
-        GifFrame Qc = Qc(i);
+    public AnimatedDrawableFrameInfo Ot(int i) {
+        GifFrame Ov = Ov(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Qc.getXOffset(), Qc.getYOffset(), Qc.getWidth(), Qc.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Qb(Qc.etj()));
+            return new AnimatedDrawableFrameInfo(i, Ov.getXOffset(), Ov.getYOffset(), Ov.getWidth(), Ov.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Ou(Ov.epp()));
         } finally {
-            Qc.dispose();
+            Ov.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod Qb(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod Ou(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

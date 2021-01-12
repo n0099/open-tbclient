@@ -2,7 +2,7 @@ package org.apache.http.client.methods;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpGet extends HttpRequestBase {
     public static final String METHOD_NAME = "GET";
 

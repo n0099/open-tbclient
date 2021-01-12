@@ -1,6 +1,6 @@
 package com.baidu.swan.game.ad.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
-    public String ebZ;
-    public String eca;
+    public String dXn;
+    public String dXo;
 }

@@ -15,46 +15,46 @@ public class AdExtParam {
 
     /* loaded from: classes.dex */
     public static class a {
-        private HashMap fOL;
+        private HashMap fKe;
 
         private a() {
         }
 
-        public static a bIt() {
+        public static a bEB() {
             a aVar = new a();
-            aVar.fOL = new HashMap();
-            aVar.fOL.put(AdExtParam.KEY_IADEX, c.bIA());
+            aVar.fKe = new HashMap();
+            aVar.fKe.put(AdExtParam.KEY_IADEX, c.bEI());
             return aVar;
         }
 
-        public a tc(int i) {
-            this.fOL.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
+        public a rw(int i) {
+            this.fKe.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
             return this;
         }
 
-        public a td(int i) {
-            this.fOL.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
+        public a rx(int i) {
+            this.fKe.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
             return this;
         }
 
-        public a EA(String str) {
-            this.fOL.put(AdExtParam.KEY_SHOUBAI_CUID, str);
+        public a Dp(String str) {
+            this.fKe.put(AdExtParam.KEY_SHOUBAI_CUID, str);
             return this;
         }
 
-        public a EB(String str) {
-            this.fOL.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+        public a Dq(String str) {
+            this.fKe.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
-        public a EC(String str) {
-            this.fOL.put("forum_name", str);
+        public a Dr(String str) {
+            this.fKe.put("forum_name", str);
             return this;
         }
 
-        public String bIu() {
+        public String bEC() {
             try {
-                return new Gson().toJson(this.fOL);
+                return new Gson().toJson(this.fKe);
             } catch (Exception e) {
                 return "";
             }

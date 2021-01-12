@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends AbstractExecutorService {
-    private static final a psR = new a();
+    private static final a pon = new a();
 
-    public static a etS() {
-        return psR;
+    public static a epY() {
+        return pon;
     }
 
     private a() {

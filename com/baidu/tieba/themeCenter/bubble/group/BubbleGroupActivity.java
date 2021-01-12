@@ -7,22 +7,22 @@ import com.baidu.tbadk.m.d;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
-    private BubbleGroupModel nCr;
-    private c nCs;
-    private com.baidu.tieba.themeCenter.bubble.all.a nCt;
-    private BubbleGroupModel.a nCu = new BubbleGroupModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupActivity.1
+    private BubbleGroupModel nxM;
+    private c nxN;
+    private com.baidu.tieba.themeCenter.bubble.all.a nxO;
+    private BubbleGroupModel.a nxP = new BubbleGroupModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupActivity.1
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.a
         public void a(int i, String str, e eVar, List<b> list) {
-            BubbleGroupActivity.this.hideLoadingView(BubbleGroupActivity.this.nCs.getRootView());
-            BubbleGroupActivity.this.nCs.cQv();
+            BubbleGroupActivity.this.hideLoadingView(BubbleGroupActivity.this.nxN.getRootView());
+            BubbleGroupActivity.this.nxN.cMD();
             if (i == 0) {
-                BubbleGroupActivity.this.nCs.a(eVar, list, BubbleGroupActivity.this.nCr.dMw());
+                BubbleGroupActivity.this.nxN.a(eVar, list, BubbleGroupActivity.this.nxM.dIE());
                 return;
             }
             BubbleGroupActivity.this.showToast(str);
-            BubbleGroupActivity.this.nCs.cDo();
+            BubbleGroupActivity.this.nxN.czw();
         }
     };
 
@@ -30,21 +30,21 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nCr = new BubbleGroupModel(this);
-        this.nCr.a(this.nCu);
-        this.nCt = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
-        this.nCs = new c(this, this.nCt);
-        this.nCs.cQu();
-        showLoadingView(this.nCs.getRootView());
-        this.nCr.LoadData();
+        this.nxM = new BubbleGroupModel(this);
+        this.nxM.a(this.nxP);
+        this.nxO = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
+        this.nxN = new c(this, this.nxO);
+        this.nxN.cMC();
+        showLoadingView(this.nxN.getRootView());
+        this.nxM.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nCs != null) {
-            this.nCs.bCP();
+        if (this.nxN != null) {
+            this.nxN.byV();
         }
     }
 
@@ -57,9 +57,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nCr != null && this.nCs != null) {
-            showLoadingView(this.nCs.getRootView());
-            this.nCr.LoadData();
+        if (this.nxM != null && this.nxN != null) {
+            showLoadingView(this.nxN.getRootView());
+            this.nxM.LoadData();
         }
     }
 

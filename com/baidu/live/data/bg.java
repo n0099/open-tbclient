@@ -1,28 +1,28 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bg {
-    public AlaLiveInfoData aQM;
-    public bb aQN;
-    public AlaLiveUserInfoData aQy;
+    public AlaLiveUserInfoData aLL;
+    public AlaLiveInfoData aLZ;
+    public bb aMa;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aQy = new AlaLiveUserInfoData();
-                this.aQy.parserJson(optJSONObject);
+                this.aLL = new AlaLiveUserInfoData();
+                this.aLL.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {
-                this.aQM = new AlaLiveInfoData();
-                this.aQM.parserJson(optJSONObject2);
+                this.aLZ = new AlaLiveInfoData();
+                this.aLZ.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
             if (optJSONObject3 != null) {
-                this.aQN = new bb();
-                this.aQN.parserJson(optJSONObject3);
+                this.aMa = new bb();
+                this.aMa.parserJson(optJSONObject3);
             }
         }
     }

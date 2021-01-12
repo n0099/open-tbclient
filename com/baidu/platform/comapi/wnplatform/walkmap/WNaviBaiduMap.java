@@ -7,25 +7,25 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
-import com.baidu.platform.comjni.map.basemap.NABaseMap;
+import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WNaviBaiduMap {
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f4705b;
+    private static long f4468b;
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private NABaseMap f4706a = new NABaseMap();
+    private JNIBaseMap f4469a = new JNIBaseMap();
 
     public void setId(long j) {
-        f4705b = j;
+        f4468b = j;
     }
 
     public static long getId() {
-        return f4705b;
+        return f4468b;
     }
 
     public float getZoomLevel() {
@@ -123,6 +123,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f4706a.getZoomToBound(f4705b, bundle, i, i2);
+        return this.f4469a.GetZoomToBound(f4468b, bundle);
     }
 }

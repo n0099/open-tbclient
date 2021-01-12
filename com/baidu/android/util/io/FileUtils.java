@@ -25,7 +25,7 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FileUtils {
     static final int BUFFER_SIZE = 1024;
     private static final boolean DEBUG = false;

@@ -2,22 +2,22 @@ package com.ksad.download;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f8208a;
+    private static Context f7908a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static File f8209b;
+    private static File f7909b;
     private static a c;
 
     public static Context a() {
-        return f8208a;
+        return f7908a;
     }
 
     public static void a(Context context) {
-        f8208a = context.getApplicationContext();
+        f7908a = context.getApplicationContext();
     }
 
     public static void a(a aVar) {
@@ -25,7 +25,7 @@ public final class b {
     }
 
     public static void a(File file) {
-        f8209b = file;
+        f7909b = file;
     }
 
     public static void a(String str) {
@@ -33,6 +33,6 @@ public final class b {
     }
 
     public static File b() {
-        return f8209b;
+        return f7909b;
     }
 }

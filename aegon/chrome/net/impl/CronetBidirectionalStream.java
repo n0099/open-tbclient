@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     public static final /* synthetic */ boolean $assertionsDisabled = !CronetBidirectionalStream.class.desiredAssertionStatus();
     public boolean mEndOfStreamWritten;
@@ -38,12 +38,12 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     public UrlResponseInfoImpl mResponseInfo;
     public int mWriteState;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private final class OnReadCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private final class OnWriteCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
         public final boolean mEndOfStream;

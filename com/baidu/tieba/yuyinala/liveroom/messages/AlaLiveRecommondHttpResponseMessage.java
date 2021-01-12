@@ -2,23 +2,23 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveRecommondHttpResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.yuyinala.liveroom.k.c ort;
+    private com.baidu.tieba.yuyinala.liveroom.k.c omL;
 
     public AlaLiveRecommondHttpResponseMessage() {
         super(1031037);
     }
 
-    public com.baidu.tieba.yuyinala.liveroom.k.c edg() {
-        return this.ort;
+    public com.baidu.tieba.yuyinala.liveroom.k.c dZo() {
+        return this.omL;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.ort = new com.baidu.tieba.yuyinala.liveroom.k.c();
-            this.ort.parserJson(jSONObject);
+            this.omL = new com.baidu.tieba.yuyinala.liveroom.k.c();
+            this.omL.parserJson(jSONObject);
         }
     }
 }

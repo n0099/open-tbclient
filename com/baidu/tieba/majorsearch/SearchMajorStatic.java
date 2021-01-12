@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchMajorActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SearchMajorStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SearchMajorActivityConfig.class, SearchMajorActivity.class);
-        dgF();
+        dcN();
     }
 
-    private static void dgF() {
+    private static void dcN() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_SEARCH_MAJOR, TbConfig.URL_SEARCH_MAJOR, SearchMajorHttpResponsedMessage.class, false, false, true, false);
     }
 }

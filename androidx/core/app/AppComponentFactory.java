@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationTargetException;
 @RequiresApi(28)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppComponentFactory extends android.app.AppComponentFactory {
     @Override // android.app.AppComponentFactory
     public final Activity instantiateActivity(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {

@@ -17,22 +17,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.Lego.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ScrollFragmentAdapter extends PagerAdapter {
-    private BdUniqueId fJu;
-    private LegoHotPageView lcj;
+    private BdUniqueId fEN;
+    private LegoHotPageView kXD;
     private Context mContext;
     private int mPrimaryPosition = -1;
     private int mFirstPosition = -1;
-    private g kWo = new g() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentAdapter.1
+    private g kRJ = new g() { // from class: com.baidu.tieba.lego.indicator.ScrollFragmentAdapter.1
         @Override // com.baidu.tieba.lego.g
         public void a(e eVar, int i) {
             if (i >= 0 && ScrollFragmentAdapter.this.list != null && ScrollFragmentAdapter.this.list.size() > 0) {
                 Iterator it = ScrollFragmentAdapter.this.list.iterator();
                 while (it.hasNext()) {
                     com.baidu.tieba.lego.c.c cVar = (com.baidu.tieba.lego.c.c) it.next();
-                    if (cVar != null && cVar.deE() != null && eVar == cVar.deE()) {
-                        cVar.Fu(i);
+                    if (cVar != null && cVar.daM() != null && eVar == cVar.daM()) {
+                        cVar.DO(i);
                         return;
                     }
                 }
@@ -40,24 +40,24 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         }
     };
     private ArrayList<com.baidu.tieba.lego.c.c> list = new ArrayList<>();
-    private ArrayList<LegoListView> gMM = new ArrayList<>();
+    private ArrayList<LegoListView> gIg = new ArrayList<>();
 
     public ScrollFragmentAdapter(Context context, d dVar, com.baidu.tieba.lego.c cVar, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.fJu = bdUniqueId;
-        this.gMM.add(a(dVar));
-        this.gMM.add(a(dVar));
-        this.gMM.add(a(dVar));
-        this.lcj = new LegoHotPageView(context);
-        this.lcj.setPageUniqueId(bdUniqueId);
-        this.lcj.setCallback(cVar);
+        this.fEN = bdUniqueId;
+        this.gIg.add(a(dVar));
+        this.gIg.add(a(dVar));
+        this.gIg.add(a(dVar));
+        this.kXD = new LegoHotPageView(context);
+        this.kXD.setPageUniqueId(bdUniqueId);
+        this.kXD.setCallback(cVar);
     }
 
     private LegoListView a(d dVar) {
         LegoListView legoListView = new LegoListView(this.mContext);
-        legoListView.l(this.fJu);
+        legoListView.l(this.fEN);
         legoListView.setCallback(dVar);
-        legoListView.setScrollCallback(this.kWo);
+        legoListView.setScrollCallback(this.kRJ);
         return legoListView;
     }
 
@@ -77,7 +77,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
             Iterator<com.baidu.tieba.lego.c.c> it = this.list.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.lego.c.c next = it.next();
-                if (next != null && next.deE() != null && j == next.deE().lcg && TextUtils.equals(str, next.deE().itemId)) {
+                if (next != null && next.daM() != null && j == next.daM().kXA && TextUtils.equals(str, next.daM().itemId)) {
                     next.a(z, dataRes, z2, i);
                     notifyDataSetChanged();
                     a(j, str, next);
@@ -88,14 +88,14 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void c(long j, String str, String str2, int i) {
-        if (j == this.lcj.getTagCode()) {
-            this.lcj.bc(str2, i);
-        } else if (this.gMM != null) {
-            Iterator<LegoListView> it = this.gMM.iterator();
+        if (j == this.kXD.getTagCode()) {
+            this.kXD.bc(str2, i);
+        } else if (this.gIg != null) {
+            Iterator<LegoListView> it = this.gIg.iterator();
             while (it.hasNext()) {
                 LegoListView next = it.next();
                 if (next != null && next.t(j, str)) {
-                    next.NR(str2);
+                    next.MJ(str2);
                     return;
                 }
             }
@@ -103,14 +103,14 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void p(long j, String str) {
-        if (this.lcj != null) {
-            this.lcj.p(j, str);
+        if (this.kXD != null) {
+            this.kXD.p(j, str);
         }
     }
 
     private void a(long j, String str, com.baidu.tieba.lego.c.c cVar) {
-        if (this.gMM != null) {
-            Iterator<LegoListView> it = this.gMM.iterator();
+        if (this.gIg != null) {
+            Iterator<LegoListView> it = this.gIg.iterator();
             while (it.hasNext()) {
                 LegoListView next = it.next();
                 if (next != null && next.t(j, str)) {
@@ -129,24 +129,24 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         return this.list.size();
     }
 
-    private View deK() {
+    private View daS() {
         int i = this.mPrimaryPosition;
         if (i == this.mFirstPosition) {
-            return this.lcj;
+            return this.kXD;
         }
-        return (View) x.getItem(this.gMM, i % 3);
+        return (View) x.getItem(this.gIg, i % 3);
     }
 
     public void setFirstPosition(int i) {
         this.mFirstPosition = i;
     }
 
-    public void deL() {
-        View deK = deK();
-        if (deK instanceof LegoHotPageView) {
-            ((LegoHotPageView) deK).setViewBackGround();
-        } else if (deK instanceof LegoListView) {
-            ((LegoListView) deK).setViewBackGround();
+    public void daT() {
+        View daS = daS();
+        if (daS instanceof LegoHotPageView) {
+            ((LegoHotPageView) daS).setViewBackGround();
+        } else if (daS instanceof LegoListView) {
+            ((LegoListView) daS).setViewBackGround();
         }
     }
 
@@ -154,11 +154,11 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.mPrimaryPosition != i) {
-            deL();
+            daT();
             this.mPrimaryPosition = i;
-            VoiceManager gX = com.baidu.tieba.tbadkCore.voice.b.gX(this.mContext);
-            if (gX != null) {
-                gX.stopPlay();
+            VoiceManager gV = com.baidu.tieba.tbadkCore.voice.b.gV(this.mContext);
+            if (gV != null) {
+                gV.stopPlay();
             }
             if (obj instanceof LegoListView) {
                 ((LegoListView) obj).setViewForeground();
@@ -170,17 +170,17 @@ public class ScrollFragmentAdapter extends PagerAdapter {
 
     public void a(long j, String str, DataRes dataRes, boolean z) {
         if (x.getCount(this.list) <= 0) {
-            if (this.lcj != null) {
-                this.lcj.a(dataRes, z);
+            if (this.kXD != null) {
+                this.kXD.a(dataRes, z);
             }
         } else if (j == 0 && ((com.baidu.tieba.lego.c.c) x.getItem(this.list, this.mFirstPosition)) != null) {
-            this.lcj.a(dataRes, z);
+            this.kXD.a(dataRes, z);
         } else {
             Iterator<com.baidu.tieba.lego.c.c> it = this.list.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.lego.c.c next = it.next();
-                if (next != null && next.deE() != null && j == next.deE().lcg && TextUtils.equals(str, next.deE().itemId)) {
-                    this.lcj.a(dataRes, z);
+                if (next != null && next.daM() != null && j == next.daM().kXA && TextUtils.equals(str, next.daM().itemId)) {
+                    this.kXD.a(dataRes, z);
                     return;
                 }
             }
@@ -190,17 +190,17 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.mFirstPosition) {
-            if (this.lcj.getParent() != null) {
-                viewGroup.removeView(this.lcj);
+            if (this.kXD.getParent() != null) {
+                viewGroup.removeView(this.kXD);
             }
             com.baidu.tieba.lego.c.c cVar = (com.baidu.tieba.lego.c.c) x.getItem(this.list, i);
             if (cVar != null) {
-                this.lcj.setTagInfo(cVar.deE());
+                this.kXD.setTagInfo(cVar.daM());
             }
-            viewGroup.addView(this.lcj);
-            return this.lcj;
+            viewGroup.addView(this.kXD);
+            return this.kXD;
         }
-        LegoListView legoListView = this.gMM.get(i % 3);
+        LegoListView legoListView = this.gIg.get(i % 3);
         if (legoListView.getParent() != null) {
             viewGroup.removeView(legoListView);
         }
@@ -219,10 +219,10 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         if (i < 0 || i >= count) {
             return null;
         }
-        if (this.list == null || this.list.get(i) == null || this.list.get(i).deE() == null) {
+        if (this.list == null || this.list.get(i) == null || this.list.get(i).daM() == null) {
             return null;
         }
-        return this.list.get(i).deE().tag_name;
+        return this.list.get(i).daM().tag_name;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -231,11 +231,11 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void onChangeSkin(int i) {
-        if (this.gMM != null) {
-            if (this.lcj != null) {
-                this.lcj.onChangeSkinType(i);
+        if (this.gIg != null) {
+            if (this.kXD != null) {
+                this.kXD.onChangeSkinType(i);
             }
-            Iterator<LegoListView> it = this.gMM.iterator();
+            Iterator<LegoListView> it = this.gIg.iterator();
             while (it.hasNext()) {
                 LegoListView next = it.next();
                 if (next != null) {

@@ -18,37 +18,37 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements af {
-    private final String bcI;
-    private com.baidu.live.gift.d.a bib;
+    private final String aXU;
+    private com.baidu.live.gift.d.a bdk;
     private Context mContext;
 
     public a(Context context) {
-        this.bcI = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
+        this.aXU = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
         this.mContext = context;
         initModel();
     }
 
     @Override // com.baidu.live.gift.af
-    public void hk(String str) {
-        this.bib.hB(str);
+    public void fY(String str) {
+        this.bdk.gp(str);
     }
 
     @Override // com.baidu.live.gift.af
-    public void Id() {
+    public void Ei() {
     }
 
     @Override // com.baidu.live.gift.af
     public void release() {
-        if (this.bib != null) {
-            this.bib.release();
+        if (this.bdk != null) {
+            this.bdk.release();
         }
     }
 
     private void initModel() {
-        this.bib = new com.baidu.live.gift.d.a();
-        this.bib.a(new com.baidu.live.gift.d.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.bdk = new com.baidu.live.gift.d.a();
+        this.bdk.a(new com.baidu.live.gift.d.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.d.b, com.baidu.live.gift.d.c.a
             public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<k> arrayList3, List<k> list, int i2) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3, list, i2);
@@ -66,7 +66,7 @@ public class a implements af {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, List<h> list, List<k> list2, int i) {
         if (z) {
-            z.HJ().a(list, list2, i);
+            z.DO().a(list, list2, i);
         }
     }
 
@@ -80,17 +80,17 @@ public class a implements af {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.bib == null) {
-                this.bib = new com.baidu.live.gift.d.a();
+            if (this.bdk == null) {
+                this.bdk = new com.baidu.live.gift.d.a();
             }
-            this.bib.hB("gift_send_101");
+            this.bdk.gp("gift_send_101");
         }
     }
 
-    private void hC(String str) {
+    private void gq(String str) {
         if (str != null) {
             HashSet<Object> hashSet = new HashSet();
-            String string = SharedPrefHelper.getInstance().getString(this.bcI, "");
+            String string = SharedPrefHelper.getInstance().getString(this.aXU, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -106,38 +106,38 @@ public class a implements af {
             for (Object obj : hashSet) {
                 jSONArray2.put(obj);
             }
-            SharedPrefHelper.getInstance().putString(this.bcI, jSONArray2.toString());
-            AlaGiftTabView.bdJ.remove(str);
+            SharedPrefHelper.getInstance().putString(this.aXU, jSONArray2.toString());
+            AlaGiftTabView.aYV.remove(str);
         }
     }
 
     private void E(String str, int i) {
         List<h> datas;
         if (i == 0) {
-            hC(str);
+            gq(str);
         }
-        if (!TextUtils.isEmpty(str) && (datas = z.HJ().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = z.DO().getDatas()) != null) {
             ArrayList<h> arrayList = new ArrayList(datas);
             for (h hVar : arrayList) {
-                List<g> Hb = hVar.Hb();
-                if (Hb != null) {
+                List<g> Dg = hVar.Dg();
+                if (Dg != null) {
                     if (i == 0) {
-                        Iterator<g> it = Hb.iterator();
+                        Iterator<g> it = Dg.iterator();
                         while (it.hasNext()) {
-                            if (it.next().Gx().equals(str)) {
+                            if (it.next().CC().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : Hb) {
-                            if (gVar.Gx().equals(str)) {
-                                gVar.aXF.aXU = i;
+                        for (g gVar : Dg) {
+                            if (gVar.CC().equals(str)) {
+                                gVar.aSS.aTh = i;
                             }
                         }
                     }
                 }
             }
-            z.HJ().H(arrayList);
+            z.DO().H(arrayList);
         }
     }
 }

@@ -6,7 +6,7 @@ import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
     private AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative
@@ -14,7 +14,7 @@ public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
     private VodAdaptiveDataSpec mDataSpec = new VodAdaptiveDataSpec();
     private VodAdaptiveInit mVodAdaptiveInitValue;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VodAdaptiveDataSpec {
         String headers;
         String manifestJson;
@@ -22,7 +22,7 @@ public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
         long durMs = -1;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VodAdaptiveInit {
         public String rateConfig = "";
         public int devResWidth = 720;

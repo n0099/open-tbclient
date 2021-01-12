@@ -7,11 +7,11 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.ap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g implements com.kwad.sdk.core.i.b, ap.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private Set<a> f9835b;
+    private Set<a> f9535b;
     private Set<com.kwad.sdk.core.i.c> c;
     @NonNull
     private View f;
@@ -20,9 +20,9 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
     private boolean e = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private final ap f9834a = new ap(this);
+    private final ap f9534a = new ap(this);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -33,8 +33,8 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
     }
 
     private void a(boolean z) {
-        if (this.f9835b != null) {
-            for (a aVar : this.f9835b) {
+        if (this.f9535b != null) {
+            for (a aVar : this.f9535b) {
                 if (aVar != null) {
                     aVar.a(z);
                 }
@@ -62,15 +62,15 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
     }
 
     public void a() {
-        this.f9834a.removeMessages(1);
-        this.f9834a.sendEmptyMessage(1);
+        this.f9534a.removeMessages(1);
+        this.f9534a.sendEmptyMessage(1);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 1) {
             a(d());
-            this.f9834a.sendEmptyMessageDelayed(1, 500L);
+            this.f9534a.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
@@ -89,14 +89,14 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
         if (aVar == null) {
             return;
         }
-        if (this.f9835b == null) {
-            this.f9835b = new HashSet();
+        if (this.f9535b == null) {
+            this.f9535b = new HashSet();
         }
-        this.f9835b.add(aVar);
+        this.f9535b.add(aVar);
     }
 
     public void b() {
-        this.f9834a.removeCallbacksAndMessages(null);
+        this.f9534a.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.core.i.b
@@ -108,16 +108,16 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
     }
 
     public void b(a aVar) {
-        if (aVar == null || this.f9835b == null) {
+        if (aVar == null || this.f9535b == null) {
             return;
         }
-        this.f9835b.remove(aVar);
+        this.f9535b.remove(aVar);
     }
 
     public void c() {
         b();
-        if (this.f9835b != null) {
-            this.f9835b.clear();
+        if (this.f9535b != null) {
+            this.f9535b.clear();
         }
         if (this.c != null) {
             this.c.clear();

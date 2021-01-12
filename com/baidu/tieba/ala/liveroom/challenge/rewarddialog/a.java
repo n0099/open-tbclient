@@ -1,24 +1,24 @@
 package com.baidu.tieba.ala.liveroom.challenge.rewarddialog;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.live.tieba.pb.interactionpopupwindow.a<d, AlaChallengeRewardData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c {
     public a(TbPageContext tbPageContext, AlaChallengeRewardData alaChallengeRewardData) {
         super(tbPageContext, new d(tbPageContext), alaChallengeRewardData);
-        if (this.bKA instanceof d) {
-            ((d) this.bKA).a(this);
+        if (this.bFO instanceof d) {
+            ((d) this.bFO).a(this);
         }
-        gp(80);
-        da(true);
+        eI(80);
+        cW(true);
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UD() {
+    public boolean QI() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UE() {
+    public boolean QJ() {
         return true;
     }
 

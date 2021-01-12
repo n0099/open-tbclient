@@ -6,15 +6,15 @@ import android.graphics.PointF;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class i extends f<PointF> {
-    private final PointF EB;
-    private final float[] EC;
-    private h ED;
-    private PathMeasure EE;
+    private final float[] EA;
+    private h EB;
+    private PathMeasure EC;
+    private final PointF Ez;
 
     public i(List<? extends com.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.EB = new PointF();
-        this.EC = new float[2];
+        this.Ez = new PointF();
+        this.EA = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,16 +28,16 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path iv = hVar.iv();
         if (iv == null) {
-            return aVar.HN;
+            return aVar.HL;
         }
-        if (this.Ev == null || (pointF = (PointF) this.Ev.c(hVar.BU, hVar.HQ.floatValue(), hVar.HN, hVar.HO, iI(), f, getProgress())) == null) {
-            if (this.ED != hVar) {
-                this.EE = new PathMeasure(iv, false);
-                this.ED = hVar;
+        if (this.Et == null || (pointF = (PointF) this.Et.c(hVar.BS, hVar.HO.floatValue(), hVar.HL, hVar.HM, iI(), f, getProgress())) == null) {
+            if (this.EB != hVar) {
+                this.EC = new PathMeasure(iv, false);
+                this.EB = hVar;
             }
-            this.EE.getPosTan(this.EE.getLength() * f, this.EC, null);
-            this.EB.set(this.EC[0], this.EC[1]);
-            return this.EB;
+            this.EC.getPosTan(this.EC.getLength() * f, this.EA, null);
+            this.Ez.set(this.EA[0], this.EA[1]);
+            return this.Ez;
         }
         return pointF;
     }

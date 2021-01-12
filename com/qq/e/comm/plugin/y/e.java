@@ -2,18 +2,18 @@ package com.qq.e.comm.plugin.y;
 
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12999a;
+    private int f12699a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13000b;
+    private int f12700b;
 
     public e(int i) {
         a(NotificationStyle.EXPANDABLE_IMAGE_URL, Integer.valueOf(i));
-        this.f12999a = i;
+        this.f12699a = i;
     }
 
     @Override // com.qq.e.comm.plugin.y.b
@@ -33,12 +33,12 @@ public class e extends b {
 
     public e b(int i) {
         a("vl", Integer.valueOf(i));
-        this.f13000b = i;
+        this.f12700b = i;
         return this;
     }
 
     @Override // com.qq.e.comm.plugin.y.b
     public String toString() {
-        return "ei=" + this.f12999a + " , vl=" + this.f13000b;
+        return "ei=" + this.f12699a + " , vl=" + this.f12700b;
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.a;
 
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azs() {
+    public String avy() {
         return "onZoom";
     }
 
@@ -15,7 +15,7 @@ public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.a aVar) {
         a(aVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Integer) {
-            aVar.iZ(((Integer) command.obj).intValue());
+            aVar.ht(((Integer) command.obj).intValue());
         }
     }
 }

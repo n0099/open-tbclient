@@ -33,11 +33,11 @@ public enum CardLinkageManager {
                             BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                             if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                                 if (baseCardInfo2.isSupportFull()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).pJ(0).pK(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(0).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportTop()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).pJ(1).pK(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(1).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportBottom()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).pJ(2).pK(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(2).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
                                     ao.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 }

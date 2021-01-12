@@ -1,5 +1,6 @@
 package com.baidu.platform.core.c;
 
+import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -18,11 +19,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4771b = g.class.getSimpleName();
+    private static final String f4488b = g.class.getSimpleName();
     private int c;
     private int d;
 
@@ -63,7 +64,7 @@ public class g extends com.baidu.platform.base.d {
                     return false;
             }
         } catch (JSONException e) {
-            Log.e(f4771b, "Parse poi search failed", e);
+            Log.e(f4488b, "Parse poi search failed", e);
             poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
         }
@@ -101,7 +102,7 @@ public class g extends com.baidu.platform.base.d {
                 poiInfo.setUid(jSONObject2.optString("uid"));
                 poiInfo.setPhoneNum(jSONObject2.optString("telephone"));
                 poiInfo.setDetail(jSONObject2.optInt("detail"));
-                poiInfo.setLocation(a(jSONObject2.optJSONObject("location")));
+                poiInfo.setLocation(a(jSONObject2.optJSONObject(Headers.LOCATION)));
                 String optString = jSONObject2.optString("detail_info");
                 if (optString != null && optString.length() != 0) {
                     poiInfo.setPoiDetailInfo(b(optString));
@@ -147,7 +148,7 @@ public class g extends com.baidu.platform.base.d {
             }
             return poiDetailInfo;
         } catch (JSONException e) {
-            Log.e(f4771b, "Parse poi search detail info failed", e);
+            Log.e(f4488b, "Parse poi search detail info failed", e);
             return null;
         }
     }
@@ -166,7 +167,7 @@ public class g extends com.baidu.platform.base.d {
                 poiChildrenInfo.setName(optJSONObject.optString("name"));
                 poiChildrenInfo.setShowName(optJSONObject.optString("show_name"));
                 poiChildrenInfo.setTag(optJSONObject.optString("tag"));
-                poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject("location")));
+                poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject(Headers.LOCATION)));
                 poiChildrenInfo.setAddress(optJSONObject.optString("address"));
                 arrayList.add(poiChildrenInfo);
             }
@@ -232,7 +233,7 @@ public class g extends com.baidu.platform.base.d {
             poiResult.error = a(str, poiResult) ? SearchResult.ERRORNO.NO_ERROR : SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return poiResult;
         } catch (JSONException e) {
-            Log.e(f4771b, "Parse poi search error", e);
+            Log.e(f4488b, "Parse poi search error", e);
             poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return poiResult;
         }

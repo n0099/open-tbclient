@@ -20,7 +20,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DrawableContainer extends Drawable implements Drawable.Callback {
     private static final boolean DEBUG = false;
     private static final boolean DEFAULT_DITHER = true;
@@ -562,7 +562,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class DrawableContainerState extends Drawable.ConstantState {
         boolean mAutoMirrored;
         boolean mCanConstantState;
@@ -1059,7 +1059,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class BlockInvalidateCallback implements Drawable.Callback {
         private Drawable.Callback mCallback;
 

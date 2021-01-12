@@ -18,27 +18,27 @@ import android.widget.ImageView;
 public class RoundImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7066a;
+    private int f6766a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7067b;
+    private int f6767b;
 
     public RoundImageView(Context context) {
         super(context);
-        this.f7066a = 0;
-        this.f7067b = 0;
+        this.f6766a = 0;
+        this.f6767b = 0;
     }
 
     public RoundImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f7066a = 0;
-        this.f7067b = 0;
+        this.f6766a = 0;
+        this.f6767b = 0;
     }
 
     public RoundImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7066a = 0;
-        this.f7067b = 0;
+        this.f6766a = 0;
+        this.f6767b = 0;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -60,21 +60,21 @@ public class RoundImageView extends ImageView {
                     super.onDraw(canvas);
                     return;
                 }
-                if (this.f7066a == 0) {
-                    this.f7066a = getWidth();
+                if (this.f6766a == 0) {
+                    this.f6766a = getWidth();
                 }
-                if (this.f7067b == 0) {
-                    this.f7067b = getHeight();
+                if (this.f6767b == 0) {
+                    this.f6767b = getHeight();
                 }
                 try {
-                    bitmap3 = a(bitmap2, (this.f7066a < this.f7067b ? this.f7066a : this.f7067b) / 2);
+                    bitmap3 = a(bitmap2, (this.f6766a < this.f6767b ? this.f6766a : this.f6767b) / 2);
                 } catch (Throwable th2) {
                     bitmap3 = null;
                 }
                 if (bitmap3 == null) {
                     super.onDraw(canvas);
                 } else {
-                    canvas.drawBitmap(bitmap3, (this.f7066a / 2) - i, (this.f7067b / 2) - i, (Paint) null);
+                    canvas.drawBitmap(bitmap3, (this.f6766a / 2) - i, (this.f6767b / 2) - i, (Paint) null);
                 }
             }
         }

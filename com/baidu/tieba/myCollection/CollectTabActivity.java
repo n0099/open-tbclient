@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a lsQ;
-    private CustomMessageListener lsR = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a loj;
+    private CustomMessageListener lok = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -29,8 +29,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.lsQ.djd()) {
-                    CollectTabActivity.this.lsQ.tU(z);
+                if (i != -1 && i == CollectTabActivity.this.loj.dfl()) {
+                    CollectTabActivity.this.loj.tQ(z);
                 }
             }
         }
@@ -41,13 +41,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.lsQ = new a(this);
-        registerListener(this.lsR);
-        djc();
+        this.loj = new a(this);
+        registerListener(this.lok);
+        dfk();
         aa(getIntent());
     }
 
-    protected void djc() {
+    protected void dfk() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -59,19 +59,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.lsQ.aX(aVar.getList());
+        this.loj.aS(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.lsQ.onChangeSkinType(i);
+        this.loj.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lsQ.djf()) {
-            this.lsQ.tT(!this.lsQ.djg());
+        if (view == this.loj.dfn()) {
+            this.loj.tP(!this.loj.dfo());
         }
     }
 
@@ -79,8 +79,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.djh().tV(true);
-        b.djh().tW(false);
+        b.dfp().tR(true);
+        b.dfp().tS(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -88,16 +88,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.djh().tV(false);
+        b.dfp().tR(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment dje = this.lsQ.dje();
-        if (dje != null) {
-            dje.onActivityResult(i, i2, intent);
+        Fragment dfm = this.loj.dfm();
+        if (dfm != null) {
+            dfm.onActivityResult(i, i2, intent);
         }
     }
 
@@ -131,7 +131,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 }
                 Map<String, String> paramPair = be.getParamPair(decode);
                 if (paramPair != null) {
-                    TiebaStatic.log(new aq("c10320").dX("obj_locate", paramPair.get("obj_locate")).an("obj_type", 1).dX("obj_source", paramPair.get("obj_source")).dX(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2)).an(TiebaInitialize.Params.OBJ_TO, 4).an("obj_name", TbadkCoreApplication.getInst().getStartType()).an(TiebaInitialize.Params.OBJ_PARAM3, 1));
+                    TiebaStatic.log(new aq("c10320").dW("obj_locate", paramPair.get("obj_locate")).an("obj_type", 1).dW("obj_source", paramPair.get("obj_source")).dW(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2)).an(TiebaInitialize.Params.OBJ_TO, 4).an("obj_name", TbadkCoreApplication.getInst().getStartType()).an(TiebaInitialize.Params.OBJ_PARAM3, 1));
                 }
             }
         }

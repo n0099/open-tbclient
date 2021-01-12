@@ -7,19 +7,19 @@ import com.kwad.sdk.glide.webp.WebpHeaderParser;
 import com.kwad.sdk.glide.webp.WebpImage;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10668a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.AnimatedWebpBitmapDecoder.DisableBitmap", false);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f10368a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.AnimatedWebpBitmapDecoder.DisableBitmap", false);
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10669b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10369b;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e c;
     private final com.kwad.sdk.glide.load.resource.d.b d;
 
     public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f10669b = bVar;
+        this.f10369b = bVar;
         this.c = eVar;
         this.d = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
     }
@@ -47,14 +47,14 @@ public class a {
     }
 
     public boolean a(InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10668a)).booleanValue()) {
+        if (((Boolean) eVar.a(f10368a)).booleanValue()) {
             return false;
         }
-        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.f10669b));
+        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.f10369b));
     }
 
     public boolean a(ByteBuffer byteBuffer, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10668a)).booleanValue()) {
+        if (((Boolean) eVar.a(f10368a)).booleanValue()) {
             return false;
         }
         return WebpHeaderParser.c(WebpHeaderParser.a(byteBuffer));

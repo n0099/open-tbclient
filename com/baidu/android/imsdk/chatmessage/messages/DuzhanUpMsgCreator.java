@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DuzhanUpMsgCreator {
     private static final String TAG = "DuzhanUpMsgCreateor";
     private static int REQ_TYPE_BOX = 0;

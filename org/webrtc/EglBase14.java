@@ -11,9 +11,10 @@ import android.opengl.EGLSurface;
 import android.os.Build;
 import android.view.Surface;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class EglBase14 implements EglBase {
     private static final int CURRENT_SDK_VERSION = Build.VERSION.SDK_INT;
     private static final int EGLExt_SDK_VERSION = 18;
@@ -24,7 +25,7 @@ class EglBase14 implements EglBase {
     private EGLSurface eglSurface = EGL14.EGL_NO_SURFACE;
     private EGLDisplay eglDisplay = getEglDisplay();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Context implements EglBase.Context {
         private final EGLContext egl14Context;
 
@@ -130,7 +131,7 @@ class EglBase14 implements EglBase {
         }
         this.eglSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i, 12374, i2, 12344}, 0);
         if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-            throw new RuntimeException("Failed to create pixel buffer surface with size " + i + "x" + i2 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
+            throw new RuntimeException("Failed to create pixel buffer surface with size " + i + Config.EVENT_HEAT_X + i2 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
         }
     }
 

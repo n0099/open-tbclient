@@ -6,59 +6,60 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import com.baidu.mapapi.UIMsg;
 import com.win.opensdk.core.Info;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ce {
-    private Info qdE;
-    boolean qdm;
-    Handler qer = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ce.1
+    boolean pYL;
+    Handler pZQ = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ce.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
-                case 1101:
-                    ce.this.qer.removeMessages(1101);
-                    if (!ce.this.qdm && ce.this.eA(ce.this.qfu)) {
-                        if (ce.this.qfJ != null) {
-                            ce.this.qfJ.eKp();
+                case UIMsg.f_FUN.FUN_ID_SCH_POI /* 1101 */:
+                    ce.this.pZQ.removeMessages(UIMsg.f_FUN.FUN_ID_SCH_POI);
+                    if (!ce.this.pYL && ce.this.eA(ce.this.qaT)) {
+                        if (ce.this.qbi != null) {
+                            ce.this.qbi.eGz();
                         }
-                        ce.this.qdm = true;
+                        ce.this.pYL = true;
                         return;
                     }
-                    ce.this.qer.sendEmptyMessageDelayed(1101, 300L);
+                    ce.this.pZQ.sendEmptyMessageDelayed(UIMsg.f_FUN.FUN_ID_SCH_POI, 300L);
                     return;
                 default:
                     return;
             }
         }
     };
-    a qfJ;
-    View qfu;
+    private Info pZd;
+    View qaT;
+    a qbi;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void eKp();
+        void eGz();
     }
 
     public final void a(View view, Info info, final a aVar) {
-        this.qfu = view;
-        this.qfJ = aVar;
-        this.qdE = info;
+        this.qaT = view;
+        this.qbi = aVar;
+        this.pZd = info;
         try {
-            if (!this.qdm) {
-                this.qer.sendEmptyMessage(1101);
+            if (!this.pYL) {
+                this.pZQ.sendEmptyMessage(UIMsg.f_FUN.FUN_ID_SCH_POI);
             }
-            this.qfu.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.win.opensdk.ce.2
+            this.qaT.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.win.opensdk.ce.2
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public final void onScrollChanged() {
                     try {
-                        if (!ce.this.qdm && ce.this.eA(ce.this.qfu)) {
-                            ce.this.qer.removeMessages(1101);
-                            ce.this.qfu.getViewTreeObserver().removeOnScrollChangedListener(this);
+                        if (!ce.this.pYL && ce.this.eA(ce.this.qaT)) {
+                            ce.this.pZQ.removeMessages(UIMsg.f_FUN.FUN_ID_SCH_POI);
+                            ce.this.qaT.getViewTreeObserver().removeOnScrollChangedListener(this);
                             if (aVar != null) {
-                                aVar.eKp();
+                                aVar.eGz();
                             }
-                            ce.this.qdm = true;
+                            ce.this.pYL = true;
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -73,7 +74,7 @@ public final class ce {
     public final boolean eA(View view) {
         if (view != null && view.isShown()) {
             Rect rect = new Rect();
-            return !(!view.getGlobalVisibleRect(rect) || this.qdE == null || (((double) rect.width()) > (((double) view.getMeasuredWidth()) * this.qdE.getSper()) ? 1 : (((double) rect.width()) == (((double) view.getMeasuredWidth()) * this.qdE.getSper()) ? 0 : -1)) < 0 || (((double) rect.height()) > (((double) view.getMeasuredHeight()) * this.qdE.getSper()) ? 1 : (((double) rect.height()) == (((double) view.getMeasuredHeight()) * this.qdE.getSper()) ? 0 : -1)) < 0);
+            return !(!view.getGlobalVisibleRect(rect) || this.pZd == null || (((double) rect.width()) > (((double) view.getMeasuredWidth()) * this.pZd.getSper()) ? 1 : (((double) rect.width()) == (((double) view.getMeasuredWidth()) * this.pZd.getSper()) ? 0 : -1)) < 0 || (((double) rect.height()) > (((double) view.getMeasuredHeight()) * this.pZd.getSper()) ? 1 : (((double) rect.height()) == (((double) view.getMeasuredHeight()) * this.pZd.getSper()) ? 0 : -1)) < 0);
         }
         return false;
     }

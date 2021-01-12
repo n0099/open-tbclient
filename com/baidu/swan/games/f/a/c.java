@@ -12,14 +12,14 @@ import com.baidu.swan.apps.statistic.i;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a cQM;
-    private String ehY = "";
+    private com.baidu.swan.games.f.a cMa;
+    private String edl = "";
 
     public c(com.baidu.swan.games.f.a aVar) {
-        this.cQM = aVar;
+        this.cMa = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,58 +28,58 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.cQM.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.cQM.aZJ().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.ehY.equals(str)) {
-                this.ehY = str;
-                db(str, str2);
-                com.baidu.swan.games.v.c.ya(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+            Log.e("V8Exception", this.cMa.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.cMa.aVP().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.edl.equals(str)) {
+                this.edl = str;
+                da(str, str2);
+                com.baidu.swan.games.v.c.wP(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 i.a(v8ExceptionInfo);
-                DuMixGameSurfaceView bak = com.baidu.swan.games.j.a.bai().bak();
-                if (bak != null) {
-                    bak.d(v8ExceptionInfo);
+                DuMixGameSurfaceView aWq = com.baidu.swan.games.j.a.aWo().aWq();
+                if (aWq != null) {
+                    aWq.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
-    private void db(String str, String str2) {
-        if (this.cQM.aZH() != null) {
-            this.cQM.aZH().dispatchEvent(new a().xk(str + "\n" + str2).xl("").aZQ());
+    private void da(String str, String str2) {
+        if (this.cMa.aVN() != null) {
+            this.cMa.aVN().dispatchEvent(new a().vZ(str + "\n" + str2).wa("").aVW());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String ehY;
-        private JSEvent ehZ = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String eia;
+        private String edl;
+        private JSEvent edm = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String edn;
 
-        public a xk(String str) {
-            this.ehY = str;
+        public a vZ(String str) {
+            this.edl = str;
             return this;
         }
 
-        public a xl(String str) {
-            this.eia = str;
+        public a wa(String str) {
+            this.edn = str;
             return this;
         }
 
-        public JSEvent aZQ() {
+        public JSEvent aVW() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.ehY);
-                jSONObject.put("stack", this.eia);
+                jSONObject.put("message", this.edl);
+                jSONObject.put("stack", this.edn);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.ehZ.data = jSONObject;
+                this.edm.data = jSONObject;
             }
-            return this.ehZ;
+            return this.edm;
         }
     }
 }

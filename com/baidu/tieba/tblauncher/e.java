@@ -14,10 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class e {
-    private TbPageContext eXu;
+    private TbPageContext eSJ;
 
     public e(TbPageContext tbPageContext) {
-        this.eXu = tbPageContext;
+        this.eSJ = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
@@ -30,16 +30,16 @@ public class e {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                String string = this.eXu.getString(R.string.des_page_home_recommend);
+                String string = this.eSJ.getString(R.string.des_page_home_recommend);
                 bh bhVar = new bh();
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
                 if (matcher.find()) {
                     bhVar.tid = matcher.group(1);
                 }
                 if (stringExtra.equals(string)) {
-                    bhVar.eRE = 1;
+                    bhVar.eMT = 1;
                 } else {
-                    bhVar.eRE = 2;
+                    bhVar.eMT = 2;
                     bhVar.tabName = stringExtra;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, bhVar));
@@ -49,11 +49,11 @@ public class e {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.cHb() != null) {
-                    dVar.cHb().setCurrentTabByType(i);
-                    FragmentTabHost.b pW = dVar.cHb().pW(i);
-                    if (pW != null && (pW.mContentFragment instanceof g)) {
-                        ((g) pW.mContentFragment).C(intent);
+                if (dVar != null && dVar.cDj() != null) {
+                    dVar.cDj().setCurrentTabByType(i);
+                    FragmentTabHost.b op = dVar.cDj().op(i);
+                    if (op != null && (op.mContentFragment instanceof g)) {
+                        ((g) op.mContentFragment).C(intent);
                     }
                 }
             }

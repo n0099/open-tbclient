@@ -4,9 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class l {
     @Nullable
     public static Location a(Context context) {
@@ -14,7 +15,7 @@ public class l {
             return null;
         }
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
             Location a2 = locationManager.isProviderEnabled("gps") ? a(context, locationManager) : null;
             if (a2 == null && locationManager.isProviderEnabled("network")) {
                 a2 = b(context, locationManager);

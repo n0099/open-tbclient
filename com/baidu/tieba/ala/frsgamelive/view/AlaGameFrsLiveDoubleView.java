@@ -7,10 +7,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveDoubleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> {
-    private b gYu;
-    private b gYv;
+    private b gTO;
+    private b gTP;
 
     public AlaGameFrsLiveDoubleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -19,8 +19,8 @@ public class AlaGameFrsLiveDoubleView extends com.baidu.tieba.card.b<com.baidu.t
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gYu.onChangeSkinType(tbPageContext, i);
-        this.gYv.onChangeSkinType(tbPageContext, i);
+        this.gTO.onChangeSkinType(tbPageContext, i);
+        this.gTP.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -32,19 +32,19 @@ public class AlaGameFrsLiveDoubleView extends com.baidu.tieba.card.b<com.baidu.t
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
         if (aVar != null) {
-            this.gYu.a(aVar.gZa);
-            this.gYv.a(aVar.gZb);
+            this.gTO.a(aVar.gUu);
+            this.gTP.a(aVar.gUv);
         }
     }
 
     public void c(g gVar) {
-        this.gYu.d(gVar);
-        this.gYv.d(gVar);
+        this.gTO.d(gVar);
+        this.gTP.d(gVar);
     }
 
     public void setLabelName(String str) {
-        this.gYu.setLabelName(str);
-        this.gYv.setLabelName(str);
+        this.gTO.setLabelName(str);
+        this.gTP.setLabelName(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -52,22 +52,22 @@ public class AlaGameFrsLiveDoubleView extends com.baidu.tieba.card.b<com.baidu.t
     }
 
     private void initView() {
-        this.gYu = new b(getTbPageContext());
-        this.gYv = new b(getTbPageContext());
+        this.gTO = new b(getTbPageContext());
+        this.gTP = new b(getTbPageContext());
         ViewGroup viewGroup = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup.addView(this.gYu.getView());
+        viewGroup.addView(this.gTO.getView());
         viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
-        viewGroup.addView(this.gYv.getView());
+        viewGroup.addView(this.gTP.getView());
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveDoubleView gYw;
+        public AlaGameFrsLiveDoubleView gTQ;
 
         public AlaGameFrsLiveDoubleViewHolder(AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView) {
             super(alaGameFrsLiveDoubleView.getView());
-            this.gYw = alaGameFrsLiveDoubleView;
+            this.gTQ = alaGameFrsLiveDoubleView;
         }
     }
 }

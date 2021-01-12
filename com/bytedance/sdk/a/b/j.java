@@ -10,33 +10,33 @@ import java.util.Set;
 import javax.net.ssl.SSLPeerUnverifiedException;
 /* loaded from: classes4.dex */
 public final class j {
-    public static final j plq = new a().eru();
+    public static final j pgK = new a().eny();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<b> f6259b;
-    private final com.bytedance.sdk.a.b.a.i.c plr;
+    private final Set<b> f5959b;
+    private final com.bytedance.sdk.a.b.a.i.c pgL;
 
     j(Set<b> set, com.bytedance.sdk.a.b.a.i.c cVar) {
-        this.f6259b = set;
-        this.plr = cVar;
+        this.f5959b = set;
+        this.pgL = cVar;
     }
 
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.plr, ((j) obj).plr) && this.f6259b.equals(((j) obj).f6259b);
+        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.pgL, ((j) obj).pgL) && this.f5959b.equals(((j) obj).f5959b);
     }
 
     public int hashCode() {
-        return ((this.plr != null ? this.plr.hashCode() : 0) * 31) + this.f6259b.hashCode();
+        return ((this.pgL != null ? this.pgL.hashCode() : 0) * 31) + this.f5959b.hashCode();
     }
 
     public void a(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
         List<b> a2 = a(str);
         if (!a2.isEmpty()) {
-            if (this.plr != null) {
-                list = this.plr.u(list, str);
+            if (this.pgL != null) {
+                list = this.pgL.u(list, str);
             }
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -51,14 +51,14 @@ public final class j {
                         if (fVar == null) {
                             fVar = d(x509Certificate);
                         }
-                        if (bVar.pjM.equals(fVar)) {
+                        if (bVar.pfh.equals(fVar)) {
                             return;
                         }
                     } else if (bVar.c.equals("sha1/")) {
                         if (fVar2 == null) {
                             fVar2 = c(x509Certificate);
                         }
-                        if (bVar.pjM.equals(fVar2)) {
+                        if (bVar.pfh.equals(fVar2)) {
                             return;
                         }
                     } else {
@@ -85,7 +85,7 @@ public final class j {
 
     List<b> a(String str) {
         List<b> emptyList = Collections.emptyList();
-        for (b bVar : this.f6259b) {
+        for (b bVar : this.f5959b) {
             if (bVar.a(str)) {
                 if (emptyList.isEmpty()) {
                     emptyList = new ArrayList<>();
@@ -98,7 +98,7 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j a(com.bytedance.sdk.a.b.a.i.c cVar) {
-        return com.bytedance.sdk.a.b.a.c.a(this.plr, cVar) ? this : new j(this.f6259b, cVar);
+        return com.bytedance.sdk.a.b.a.c.a(this.pgL, cVar) ? this : new j(this.f5959b, cVar);
     }
 
     public static String a(Certificate certificate) {
@@ -121,31 +121,31 @@ public final class j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6261a;
+        final String f5961a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f6262b;
+        final String f5962b;
         final String c;
-        final com.bytedance.sdk.a.a.f pjM;
+        final com.bytedance.sdk.a.a.f pfh;
 
         boolean a(String str) {
-            if (this.f6261a.startsWith("*.")) {
+            if (this.f5961a.startsWith("*.")) {
                 int indexOf = str.indexOf(46);
-                return (str.length() - indexOf) + (-1) == this.f6262b.length() && str.regionMatches(false, indexOf + 1, this.f6262b, 0, this.f6262b.length());
+                return (str.length() - indexOf) + (-1) == this.f5962b.length() && str.regionMatches(false, indexOf + 1, this.f5962b, 0, this.f5962b.length());
             }
-            return str.equals(this.f6262b);
+            return str.equals(this.f5962b);
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof b) && this.f6261a.equals(((b) obj).f6261a) && this.c.equals(((b) obj).c) && this.pjM.equals(((b) obj).pjM);
+            return (obj instanceof b) && this.f5961a.equals(((b) obj).f5961a) && this.c.equals(((b) obj).c) && this.pfh.equals(((b) obj).pfh);
         }
 
         public int hashCode() {
-            return ((((this.f6261a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.pjM.hashCode();
+            return ((((this.f5961a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.pfh.hashCode();
         }
 
         public String toString() {
-            return this.c + this.pjM.b();
+            return this.c + this.pfh.b();
         }
     }
 
@@ -153,10 +153,10 @@ public final class j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<b> f6260a = new ArrayList();
+        private final List<b> f5960a = new ArrayList();
 
-        public j eru() {
-            return new j(new LinkedHashSet(this.f6260a), null);
+        public j eny() {
+            return new j(new LinkedHashSet(this.f5960a), null);
         }
     }
 }

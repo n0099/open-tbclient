@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.PhotoShareInfo;
 import com.kwad.sdk.live.a.b;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f9565a = new Handler(Looper.getMainLooper());
+    private static final Handler f9265a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         @MainThread
         void a(int i, String str);
@@ -46,7 +46,7 @@ public class k {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull j jVar, final int i, final String str) {
-                k.f9565a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.2.2
+                k.f9265a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.d("PhotoShareUrlRequestManager", "load onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -58,7 +58,7 @@ public class k {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull j jVar, @NonNull final PhotoShareInfo photoShareInfo) {
-                k.f9565a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.2.1
+                k.f9265a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         aVar.a(photoShareInfo);
@@ -92,7 +92,7 @@ public class k {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.live.a.b bVar, final int i, final String str) {
-                k.f9565a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.4.2
+                k.f9265a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.4.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.d("PhotoShareUrlRequestManager", "load onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -104,7 +104,7 @@ public class k {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.live.a.b bVar, @NonNull final PhotoShareInfo photoShareInfo) {
-                k.f9565a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.4.1
+                k.f9265a.post(new Runnable() { // from class: com.kwad.sdk.core.g.k.4.1
                     @Override // java.lang.Runnable
                     public void run() {
                         aVar2.a(photoShareInfo);

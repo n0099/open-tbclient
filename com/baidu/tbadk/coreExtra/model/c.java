@@ -56,11 +56,11 @@ public class c {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        CZ(str2);
+                        BO(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        CZ(str2);
+                        BO(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCg() {
+    public void bym() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,10 +79,10 @@ public class c {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void CZ(String str) {
+    public void BO(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
-            ea(str, localUrl);
+            dZ(str, localUrl);
         }
     }
 
@@ -91,7 +91,7 @@ public class c {
         return GetFile != null && GetFile.exists() && GetFile.isFile();
     }
 
-    private void ea(String str, String str2) {
+    private void dZ(String str, String str2) {
         if (j.isWifiNet()) {
             new a(str, av.getNameMd5FromUrl(str), str2).execute(new String[0]);
         }
@@ -100,7 +100,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private z cmJ = null;
+        private z chV = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -117,8 +117,8 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.cmJ = new z(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.cmJ.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.chV = new z(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.chV.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(n.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
                         n.DelFile(av.getNameMd5FromUrl(this.mLocalUrl));
@@ -137,7 +137,7 @@ public class c {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new c().bCg();
+                new c().bym();
             }
         }
     }

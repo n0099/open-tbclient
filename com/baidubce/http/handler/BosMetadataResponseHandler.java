@@ -5,7 +5,7 @@ import com.baidubce.http.BceHttpResponse;
 import com.baidubce.http.Headers;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.services.bos.model.BosResponseMetadata;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BosMetadataResponseHandler implements HttpResponseHandler {
     @Override // com.baidubce.http.handler.HttpResponseHandler
     public boolean handle(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws Exception {

@@ -8,7 +8,7 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.az;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     String A;
     BrowserType B;
@@ -17,10 +17,10 @@ public class f {
     private Future<com.qq.e.comm.plugin.s.b> E;
 
     /* renamed from: a  reason: collision with root package name */
-    final com.qq.e.comm.plugin.ad.e f12244a;
+    final com.qq.e.comm.plugin.ad.e f11944a;
 
     /* renamed from: b  reason: collision with root package name */
-    final int f12245b;
+    final int f11945b;
     final String c;
     final boolean d;
     final boolean e;
@@ -46,14 +46,14 @@ public class f {
     final int y;
     final com.qq.e.comm.plugin.y.c z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private com.qq.e.comm.plugin.s.a f12246a;
+        private com.qq.e.comm.plugin.s.a f11946a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f12247b;
+        private String f11947b;
         private int c;
         private com.qq.e.comm.plugin.ad.f e;
         private boolean j;
@@ -65,7 +65,7 @@ public class f {
         private boolean k = true;
 
         public a(com.qq.e.comm.plugin.s.a aVar, View view) {
-            this.f12246a = aVar;
+            this.f11946a = aVar;
             this.c = com.qq.e.comm.plugin.ad.a.a().b(view);
             this.j = aVar.ah() ? false : true;
         }
@@ -81,7 +81,7 @@ public class f {
         }
 
         public a a(String str) {
-            this.f12247b = str;
+            this.f11947b = str;
             return this;
         }
 
@@ -122,15 +122,15 @@ public class f {
 
     private f(a aVar) {
         boolean z = true;
-        this.D = aVar.f12246a;
-        this.f12244a = this.D.C();
-        this.f12245b = this.D.a_();
+        this.D = aVar.f11946a;
+        this.f11944a = this.D.C();
+        this.f11945b = this.D.a_();
         this.c = this.D.s();
         this.d = this.D.ah();
         String af = this.D.af();
         this.e = az.b(af);
         this.f = this.e ? af : null;
-        this.g = com.qq.e.comm.plugin.util.d.a(this.f12245b);
+        this.g = com.qq.e.comm.plugin.util.d.a(this.f11945b);
         if (com.qq.e.comm.plugin.util.b.b(this.D)) {
             this.h = true;
         } else if (com.qq.e.comm.plugin.util.b.c(this.D)) {
@@ -142,7 +142,7 @@ public class f {
         this.j = this.g && this.D.aa();
         this.k = this.D.w();
         this.l = ((this.D instanceof com.qq.e.comm.plugin.rewardvideo.d) && ((com.qq.e.comm.plugin.rewardvideo.d) this.D).ao() == com.qq.e.comm.plugin.rewardvideo.e.PAGE) ? z : false;
-        this.m = aVar.f12247b;
+        this.m = aVar.f11947b;
         this.n = aVar.c;
         this.o = aVar.d;
         this.p = aVar.e;

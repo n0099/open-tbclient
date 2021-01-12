@@ -10,14 +10,14 @@ import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2334a = "bduss";
+    private static final String f2284a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2335b = "certinfo";
+    private static final String f2285b = "certinfo";
     private static final String c = "authtoken";
     private static final String d = "outer";
 

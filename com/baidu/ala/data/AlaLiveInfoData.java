@@ -1,6 +1,7 @@
 package com.baidu.ala.data;
 
 import alaim.LiveInfo;
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -9,7 +10,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
     public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;
@@ -120,7 +121,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
             this.flower_count = jSONObject.optInt("flower_count");
             this.start_time = jSONObject.optInt("start_time");
             this.end_time = jSONObject.optInt("end_time");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.channel_id = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID);
             this.channel_name = jSONObject.optString("channel_name");
             this.live_status = jSONObject.optInt("live_status");

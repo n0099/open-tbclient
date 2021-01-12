@@ -5,13 +5,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaDailyTaskInitialize {
     static {
-        bRp();
+        bNx();
     }
 
-    private static void bRp() {
+    private static void bNx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913278, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaDailyTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.h.a> run(CustomMessage<Context> customMessage) {

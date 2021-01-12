@@ -27,10 +27,10 @@ public class f {
     private static volatile f d;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile ServerSocket f7564a;
+    private volatile ServerSocket f7264a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile int f7565b;
+    private volatile int f7265b;
     private volatile com.bytedance.sdk.openadsdk.j.b.c e;
     private volatile com.bytedance.sdk.openadsdk.j.a.c f;
     private volatile com.bytedance.sdk.openadsdk.j.a.b g;
@@ -67,14 +67,14 @@ public class f {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                f.this.f7564a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
-                f.this.f7565b = f.this.f7564a.getLocalPort();
-                if (f.this.f7565b == -1) {
+                f.this.f7264a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
+                f.this.f7265b = f.this.f7264a.getLocalPort();
+                if (f.this.f7265b == -1) {
                     f.b("socket not bound", "");
                     f.this.e();
                     return;
                 }
-                j.a("127.0.0.1", f.this.f7565b);
+                j.a("127.0.0.1", f.this.f7265b);
                 if (f.this.g() && f.this.c.compareAndSet(0, 1)) {
                     if (e.c) {
                         Log.i("TAG_PROXY_ProxyServer", "proxy server start!");
@@ -83,7 +83,7 @@ public class f {
                     while (f.this.c.get() == 1) {
                         try {
                             try {
-                                Socket accept = f.this.f7564a.accept();
+                                Socket accept = f.this.f7264a.accept();
                                 com.bytedance.sdk.openadsdk.j.b.c cVar = f.this.e;
                                 if (cVar != null) {
                                     com.bytedance.sdk.openadsdk.k.a.a().b(new g.a().a(cVar).a(accept).a(f.this.i).a(), 10);
@@ -208,9 +208,9 @@ public class f {
                 b("url", "combine proxy url error");
                 return strArr[0];
             } else if (z) {
-                return "http://127.0.0.1:" + this.f7565b + "?f=1" + ETAG.ITEM_SEPARATOR + a3;
+                return "http://127.0.0.1:" + this.f7265b + "?f=1" + ETAG.ITEM_SEPARATOR + a3;
             } else {
-                return "http://127.0.0.1:" + this.f7565b + "?" + a3;
+                return "http://127.0.0.1:" + this.f7265b + "?" + a3;
             }
         }
     }
@@ -224,7 +224,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (this.c.compareAndSet(1, 2) || this.c.compareAndSet(0, 2)) {
-            com.bytedance.sdk.openadsdk.j.g.d.a(this.f7564a);
+            com.bytedance.sdk.openadsdk.j.g.d.a(this.f7264a);
             f();
         }
     }
@@ -249,7 +249,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        final com.bytedance.sdk.openadsdk.k.b bVar = new com.bytedance.sdk.openadsdk.k.b(new a("127.0.0.1", this.f7565b), 5, 1);
+        final com.bytedance.sdk.openadsdk.k.b bVar = new com.bytedance.sdk.openadsdk.k.b(new a("127.0.0.1", this.f7265b), 5, 1);
         com.bytedance.sdk.openadsdk.k.a.a().a(new com.bytedance.sdk.openadsdk.k.c() { // from class: com.bytedance.sdk.openadsdk.j.f.3
             @Override // java.lang.Runnable
             public void run() {
@@ -282,14 +282,14 @@ public class f {
     public static final class a implements Callable<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f7570a;
+        private final String f7270a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f7571b;
+        private final int f7271b;
 
         a(String str, int i) {
-            this.f7570a = str;
-            this.f7571b = i;
+            this.f7270a = str;
+            this.f7271b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -298,11 +298,11 @@ public class f {
         public Boolean call() {
             Socket socket;
             try {
-                socket = new Socket(this.f7570a, this.f7571b);
+                socket = new Socket(this.f7270a, this.f7271b);
                 try {
                     socket.setSoTimeout(2000);
                     OutputStream outputStream = socket.getOutputStream();
-                    outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7593a));
+                    outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7293a));
                     outputStream.flush();
                 } catch (Throwable th) {
                     th = th;
@@ -329,11 +329,11 @@ public class f {
     private void h() {
         Socket socket = null;
         try {
-            socket = this.f7564a.accept();
+            socket = this.f7264a.accept();
             socket.setSoTimeout(2000);
             if ("Ping".equals(new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine())) {
                 OutputStream outputStream = socket.getOutputStream();
-                outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7593a));
+                outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.j.g.d.f7293a));
                 outputStream.flush();
             }
         } catch (IOException e) {

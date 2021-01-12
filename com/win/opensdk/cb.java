@@ -4,48 +4,48 @@ import androidx.core.view.ViewCompat;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class cb {
-    ByteBuffer qfm;
-    ca qfq;
-    final byte[] qdZ = new byte[256];
+    ByteBuffer qaL;
+    ca qaP;
+    final byte[] pZy = new byte[256];
     int java = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void eKp() {
+    public final void eGz() {
         boolean z = false;
-        while (!z && !java() && this.qfq.f44case <= Integer.MAX_VALUE) {
-            switch (eKS()) {
+        while (!z && !java() && this.qaP.f43case <= Integer.MAX_VALUE) {
+            switch (eHc()) {
                 case 33:
-                    switch (eKS()) {
+                    switch (eHc()) {
                         case 1:
                             b();
                             continue;
                         case 249:
-                            this.qfq.qfs = new bz();
-                            eKS();
-                            int eKS = eKS();
-                            this.qfq.qfs.c = (eKS & 28) >> 2;
-                            if (this.qfq.qfs.c == 0) {
-                                this.qfq.qfs.c = 1;
+                            this.qaP.qaR = new bz();
+                            eHc();
+                            int eHc = eHc();
+                            this.qaP.qaR.c = (eHc & 28) >> 2;
+                            if (this.qaP.qaR.c == 0) {
+                                this.qaP.qaR.c = 1;
                             }
-                            this.qfq.qfs.qdM = (eKS & 1) != 0;
-                            short s = this.qfm.getShort();
+                            this.qaP.qaR.pZl = (eHc & 1) != 0;
+                            short s = this.qaL.getShort();
                             if (s < 2) {
                                 s = 10;
                             }
-                            this.qfq.qfs.e = s * 10;
-                            this.qfq.qfs.d = eKS();
-                            eKS();
+                            this.qaP.qaR.e = s * 10;
+                            this.qaP.qaR.d = eHc();
+                            eHc();
                             continue;
                         case GDiffPatcher.COPY_INT_INT /* 254 */:
                             b();
                             continue;
                         case 255:
-                            eKB();
+                            eGL();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = str + ((char) this.qdZ[i]);
+                                str = str + ((char) this.pZy[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
                                 a();
@@ -59,37 +59,37 @@ public final class cb {
                             continue;
                     }
                 case 44:
-                    if (this.qfq.qfs == null) {
-                        this.qfq.qfs = new bz();
+                    if (this.qaP.qaR == null) {
+                        this.qaP.qaR = new bz();
                     }
-                    this.qfq.qfs.java = this.qfm.getShort();
-                    this.qfq.qfs.f42case = this.qfm.getShort();
-                    this.qfq.qfs.f14035a = this.qfm.getShort();
-                    this.qfq.qfs.f14036b = this.qfm.getShort();
-                    int eKS2 = eKS();
-                    boolean z2 = (eKS2 & 128) != 0;
-                    int pow = (int) Math.pow(2.0d, (eKS2 & 7) + 1);
-                    this.qfq.qfs.qdm = (eKS2 & 64) != 0;
+                    this.qaP.qaR.java = this.qaL.getShort();
+                    this.qaP.qaR.f41case = this.qaL.getShort();
+                    this.qaP.qaR.f13735a = this.qaL.getShort();
+                    this.qaP.qaR.f13736b = this.qaL.getShort();
+                    int eHc2 = eHc();
+                    boolean z2 = (eHc2 & 128) != 0;
+                    int pow = (int) Math.pow(2.0d, (eHc2 & 7) + 1);
+                    this.qaP.qaR.pYL = (eHc2 & 64) != 0;
                     if (z2) {
-                        this.qfq.qfs.f43java = Ts(pow);
+                        this.qaP.qaR.f42java = RL(pow);
                     } else {
-                        this.qfq.qfs.f43java = null;
+                        this.qaP.qaR.f42java = null;
                     }
-                    this.qfq.qfs.f = this.qfm.position();
-                    eKS();
+                    this.qaP.qaR.f = this.qaL.position();
+                    eHc();
                     b();
                     if (java()) {
                         break;
                     } else {
-                        this.qfq.f44case++;
-                        this.qfq.qen.add(this.qfq.qfs);
+                        this.qaP.f43case++;
+                        this.qaP.pZM.add(this.qaP.qaR);
                         break;
                     }
                 case 59:
                     z = true;
                     break;
                 default:
-                    this.qfq.java = 1;
+                    this.qaP.java = 1;
                     break;
             }
         }
@@ -97,11 +97,11 @@ public final class cb {
 
     private void a() {
         do {
-            eKB();
-            if (this.qdZ[0] == 1) {
-                this.qfq.g = (this.qdZ[1] & 255) | ((this.qdZ[2] & 255) << 8);
-                if (this.qfq.g == 0) {
-                    this.qfq.g = -1;
+            eGL();
+            if (this.pZy[0] == 1) {
+                this.qaP.g = (this.pZy[1] & 255) | ((this.pZy[2] & 255) << 8);
+                if (this.qaP.g == 0) {
+                    this.qaP.g = -1;
                 }
             }
             if (this.java <= 0) {
@@ -111,33 +111,33 @@ public final class cb {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void eKq() {
+    public final void eGA() {
         String str = "";
         for (int i = 0; i < 6; i++) {
-            str = str + ((char) eKS());
+            str = str + ((char) eHc());
         }
         if (!str.startsWith("GIF")) {
-            this.qfq.java = 1;
+            this.qaP.java = 1;
             return;
         }
-        this.qfq.f14037a = this.qfm.getShort();
-        this.qfq.f14038b = this.qfm.getShort();
-        int eKS = eKS();
-        this.qfq.qdm = (eKS & 128) != 0;
-        this.qfq.c = 2 << (eKS & 7);
-        this.qfq.d = eKS();
-        this.qfq.e = eKS();
-        if (this.qfq.qdm && !java()) {
-            this.qfq.f45java = Ts(this.qfq.c);
-            this.qfq.f = this.qfq.f45java[this.qfq.d];
+        this.qaP.f13737a = this.qaL.getShort();
+        this.qaP.f13738b = this.qaL.getShort();
+        int eHc = eHc();
+        this.qaP.pYL = (eHc & 128) != 0;
+        this.qaP.c = 2 << (eHc & 7);
+        this.qaP.d = eHc();
+        this.qaP.e = eHc();
+        if (this.qaP.pYL && !java()) {
+            this.qaP.f44java = RL(this.qaP.c);
+            this.qaP.f = this.qaP.f44java[this.qaP.d];
         }
     }
 
-    private int[] Ts(int i) {
+    private int[] RL(int i) {
         int[] iArr = null;
         byte[] bArr = new byte[i * 3];
         try {
-            this.qfm.get(bArr);
+            this.qaL.get(bArr);
             iArr = new int[256];
             int i2 = 0;
             int i3 = 0;
@@ -152,51 +152,51 @@ public final class cb {
                 i3 = i8;
             }
         } catch (BufferUnderflowException e) {
-            this.qfq.java = 1;
+            this.qaP.java = 1;
         }
         return iArr;
     }
 
     private void b() {
-        int eKS;
+        int eHc;
         do {
             try {
-                eKS = eKS();
-                this.qfm.position(this.qfm.position() + eKS);
+                eHc = eHc();
+                this.qaL.position(this.qaL.position() + eHc);
             } catch (IllegalArgumentException e) {
                 return;
             }
-        } while (eKS > 0);
+        } while (eHc > 0);
     }
 
-    private int eKB() {
-        this.java = eKS();
+    private int eGL() {
+        this.java = eHc();
         int i = 0;
         if (this.java > 0) {
             while (i < this.java) {
                 try {
                     int i2 = this.java - i;
-                    this.qfm.get(this.qdZ, i, i2);
+                    this.qaL.get(this.pZy, i, i2);
                     i += i2;
                 } catch (Exception e) {
-                    this.qfq.java = 1;
+                    this.qaP.java = 1;
                 }
             }
         }
         return i;
     }
 
-    private int eKS() {
+    private int eHc() {
         try {
-            return this.qfm.get() & 255;
+            return this.qaL.get() & 255;
         } catch (Exception e) {
-            this.qfq.java = 1;
+            this.qaP.java = 1;
             return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean java() {
-        return this.qfq.java != 0;
+        return this.qaP.java != 0;
     }
 }

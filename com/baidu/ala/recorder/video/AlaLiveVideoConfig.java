@@ -1,10 +1,9 @@
 package com.baidu.ala.recorder.video;
 
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
-import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
@@ -30,7 +29,7 @@ public class AlaLiveVideoConfig {
     private VideoEncoderConfig mVideoEncoderConfig;
     private int mVideoGOP;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class VideoEncoderConfig {
         public String x264Param;
     }
@@ -38,7 +37,7 @@ public class AlaLiveVideoConfig {
     public AlaLiveVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
+        this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
@@ -79,7 +78,7 @@ public class AlaLiveVideoConfig {
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
+        this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
@@ -112,7 +111,7 @@ public class AlaLiveVideoConfig {
     private AlaLiveVideoConfig() {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
+        this.mOutputWidth = 540;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;

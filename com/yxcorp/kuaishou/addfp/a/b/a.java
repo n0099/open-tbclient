@@ -1,5 +1,5 @@
 package com.yxcorp.kuaishou.addfp.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void a(com.yxcorp.kuaishou.addfp.a.a.a aVar);
 

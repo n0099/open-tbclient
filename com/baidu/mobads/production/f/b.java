@@ -16,7 +16,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private boolean A;
     private boolean B;

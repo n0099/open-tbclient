@@ -4,23 +4,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
 public class g extends BaseCardInfo {
-    private BdUniqueId Ws;
-    private n Xy;
+    private BdUniqueId Wq;
+    private n Xw;
 
     public void g(BdUniqueId bdUniqueId) {
-        this.Ws = bdUniqueId;
+        this.Wq = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return this.Ws;
+        return this.Wq;
     }
 
     public void a(n nVar) {
-        this.Xy = nVar;
+        this.Xw = nVar;
     }
 
     public n qx() {
-        return this.Xy;
+        return this.Xw;
     }
 }

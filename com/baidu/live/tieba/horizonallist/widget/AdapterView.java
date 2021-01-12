@@ -16,12 +16,12 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
-    e bJa;
-    c bJb;
-    d bJc;
-    private AdapterView<T>.f bJd;
+    e bEo;
+    c bEp;
+    d bEq;
+    private AdapterView<T>.f bEr;
     AccessibilityManager mAccessibilityManager;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
@@ -50,17 +50,17 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     protected int mSyncPosition;
     protected long mSyncWidth;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         boolean b(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface e {
         void c(AdapterView<?> adapterView, View view, int i, long j);
 
@@ -125,20 +125,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.bJb = cVar;
+        this.bEp = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.bJb;
+        return this.bEp;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.bJb != null) {
+        if (this.bEp != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.bJb.a(this, view, i, j);
+            this.bEp.a(this, view, i, j);
             return true;
         }
         return false;
@@ -148,22 +148,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.bJc = dVar;
+        this.bEq = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.bJc;
+        return this.bEq;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.bJa = eVar;
+        this.bEo = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.bJa;
+        return this.bEo;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -377,9 +377,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class b extends DataSetObserver {
-        private Parcelable bJe = null;
+        private Parcelable bEs = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -390,9 +390,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.bJe != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.bJe);
-                this.bJe = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.bEs != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.bEs);
+                this.bEs = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -404,7 +404,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.bJe = AdapterView.this.onSaveInstanceState();
+                this.bEs = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;
@@ -422,11 +422,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.bJd);
+        removeCallbacks(this.bEr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -443,12 +443,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.bJa != null || this.mAccessibilityManager.isEnabled()) {
+        if (this.bEo != null || this.mAccessibilityManager.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.bJd == null) {
-                    this.bJd = new f();
+                if (this.bEr == null) {
+                    this.bEr = new f();
                 }
-                post(this.bJd);
+                post(this.bEr);
                 return;
             }
             fireOnSelected();
@@ -458,13 +458,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.bJa != null) {
+        if (this.bEo != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.bJa.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.bEo.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.bJa.d(this);
+            this.bEo.d(this);
         }
     }
 

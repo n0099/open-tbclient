@@ -5,48 +5,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class c {
-    public static void EZ(String str) {
+    public static void DO(String str) {
         AccountData currentAccountInfo;
         if (!StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-            com.baidu.tbadk.core.sharedPref.b.bvr().putString("key_youngster_verify", a(new com.baidu.tbadk.youngster.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+            com.baidu.tbadk.core.sharedPref.b.brx().putString("key_youngster_verify", a(new com.baidu.tbadk.youngster.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
         }
     }
 
-    public static void bMD() {
-        com.baidu.tbadk.core.sharedPref.b.bvr().remove("key_youngster_verify");
+    public static void bIL() {
+        com.baidu.tbadk.core.sharedPref.b.brx().remove("key_youngster_verify");
     }
 
-    public static boolean bME() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_youngster_verify", "");
+    public static boolean bIM() {
+        String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("key_youngster_verify", "");
         if (StringUtils.isNull(string)) {
-            bMD();
+            bIL();
             return false;
         }
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
-            bMD();
+            bIL();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a Fb = Fb(string);
-        if (Fb != null && !StringUtils.isNull(Fb.getUid()) && Fb.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(Fb.getPortrait()) && Fb.getPortrait().equals(currentAccountInfo.getPortrait())) {
+        com.baidu.tbadk.youngster.a.a DQ = DQ(string);
+        if (DQ != null && !StringUtils.isNull(DQ.getUid()) && DQ.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(DQ.getPortrait()) && DQ.getPortrait().equals(currentAccountInfo.getPortrait())) {
             return true;
         }
-        bMD();
+        bIL();
         return false;
     }
 
-    public static boolean Fa(String str) {
+    public static boolean DP(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_youngster_verify", "");
+        String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("key_youngster_verify", "");
         if (StringUtils.isNull(string)) {
-            bMD();
+            bIL();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a Fb = Fb(string);
-        if (Fb != null) {
-            return str.equals(Fb.getPassword());
+        com.baidu.tbadk.youngster.a.a DQ = DQ(string);
+        if (DQ != null) {
+            return str.equals(DQ.getPassword());
         }
         return false;
     }
@@ -58,7 +58,7 @@ public class c {
         return aVar.getUid() + "," + aVar.getPortrait() + "," + aVar.getPassword();
     }
 
-    private static com.baidu.tbadk.youngster.a.a Fb(String str) {
+    private static com.baidu.tbadk.youngster.a.a DQ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

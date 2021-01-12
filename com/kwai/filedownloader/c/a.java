@@ -5,22 +5,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC1169a extends Binder implements a {
+    /* loaded from: classes4.dex */
+    public static abstract class AbstractBinderC1152a extends Binder implements a {
 
         /* renamed from: com.kwai.filedownloader.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        private static class C1170a implements a {
+        /* loaded from: classes4.dex */
+        private static class C1153a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f11181a;
+            private IBinder f10881a;
 
-            C1170a(IBinder iBinder) {
-                this.f11181a = iBinder;
+            C1153a(IBinder iBinder) {
+                this.f10881a = iBinder;
             }
 
             @Override // com.kwai.filedownloader.c.a
@@ -34,7 +34,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f11181a.transact(1, obtain, null, 1);
+                    this.f10881a.transact(1, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -42,11 +42,11 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f11181a;
+                return this.f10881a;
             }
         }
 
-        public AbstractBinderC1169a() {
+        public AbstractBinderC1152a() {
             attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
         }
 
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1170a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1153a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

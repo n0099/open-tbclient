@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class v extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> implements com.baidu.adp.widget.ListView.w, com.baidu.tieba.a.f, com.baidu.tieba.card.y, com.baidu.tieba.card.z, com.baidu.tieba.frs.b.d {
-    private String aji;
-    private int jpp;
+    private String air;
+    private int jkI;
 
     public v(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.jpp = 3;
+        this.jkI = 3;
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId2;
     }
@@ -32,9 +32,9 @@ public class v extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.h) new com.baidu.card.aa(this.mPageContext.getPageActivity()));
         com.baidu.card.l lVar = new com.baidu.card.l(this.mPageContext.getPageActivity());
-        lVar.tk();
+        lVar.sZ();
         aVar.a((com.baidu.card.h) lVar);
-        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.iKI);
+        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.iGb);
         a2.setSourceForPb(3);
         ThreadCardViewHolder<bz> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
         threadCardViewHolder.setPageId(this.mPageId);
@@ -51,28 +51,28 @@ public class v extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         if (byVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
             return null;
         }
-        threadCardViewHolder.ty().setPage(this.aji);
-        threadCardViewHolder.ty().setPosition(i);
-        threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        byVar.eMv.bsF();
+        threadCardViewHolder.tm().setPage(this.air);
+        threadCardViewHolder.tm().setPosition(i);
+        threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eHK);
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        byVar.eHK.boL();
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.adp.widget.ListView.w
     public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
         if ((nVar instanceof by) && (view.getTag() instanceof ThreadCardViewHolder)) {
-            bz bzVar = ((by) nVar).eMv;
+            bz bzVar = ((by) nVar).eHK;
             bzVar.objType = 1;
-            ay.a((com.baidu.tbadk.core.data.a) bzVar, view.getContext(), this.jpp, false);
-            ((ThreadCardViewHolder) view.getTag()).ty().b(new a.C0090a(1));
-            com.baidu.tieba.frs.b.a.a(bzVar, 1, this.mPageId, jpq, getTbPageTag());
+            ay.a((com.baidu.tbadk.core.data.a) bzVar, view.getContext(), this.jkI, false);
+            ((ThreadCardViewHolder) view.getTag()).tm().b(new a.C0089a(1));
+            com.baidu.tieba.frs.b.a.a(bzVar, 1, this.mPageId, jkJ, getTbPageTag());
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fl(String str) {
-        this.aji = str;
+    public void Ea(String str) {
+        this.air = str;
     }
 
     @Override // com.baidu.tieba.card.y
@@ -80,16 +80,16 @@ public class v extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
     }
 
     @Override // com.baidu.tieba.card.y
-    public void wt(int i) {
-        this.jpp = i;
+    public void uN(int i) {
+        this.jkI = i;
     }
 
     @Override // com.baidu.tieba.card.z
-    public void px(boolean z) {
+    public void pt(boolean z) {
     }
 
     @Override // com.baidu.tieba.frs.b.d
     public com.baidu.tieba.frs.b.b getStatisticMetaData() {
-        return jpq;
+        return jkJ;
     }
 }

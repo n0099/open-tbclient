@@ -4,14 +4,14 @@ import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b implements IXAdProdInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f3558a;
+    private d f3520a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IXAdConstants4PDK.SlotType f3559b;
+    private IXAdConstants4PDK.SlotType f3521b;
     private JSONObject c;
     private boolean d = false;
 
@@ -26,7 +26,7 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getApt() {
-        return this.f3558a.getApt();
+        return this.f3520a.getApt();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
@@ -35,33 +35,33 @@ public class b implements IXAdProdInfo {
     }
 
     public b(d dVar, IXAdConstants4PDK.SlotType slotType) {
-        this.f3558a = dVar;
-        this.f3559b = slotType;
+        this.f3520a = dVar;
+        this.f3521b = slotType;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getRequestAdWidth() {
-        return this.f3558a.getW();
+        return this.f3520a.getW();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getRequestAdHeight() {
-        return this.f3558a.getH();
+        return this.f3520a.getH();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getAdPlacementId() {
-        return this.f3558a.getApid();
+        return this.f3520a.getApid();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getProdType() {
-        return this.f3558a.getProd();
+        return this.f3520a.getProd();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public IXAdConstants4PDK.SlotType getType() {
-        return this.f3559b;
+        return this.f3521b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
@@ -80,6 +80,6 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getAdRequestURL() {
-        return this.f3558a.b();
+        return this.f3520a.b();
     }
 }

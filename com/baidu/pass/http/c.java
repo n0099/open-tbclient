@@ -3,15 +3,15 @@ package com.baidu.pass.http;
 /* synthetic */ class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f4139a = new int[Method.values().length];
+    static final /* synthetic */ int[] f4101a = new int[Method.values().length];
 
     static {
         try {
-            f4139a[Method.GET.ordinal()] = 1;
+            f4101a[Method.GET.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f4139a[Method.POST.ordinal()] = 2;
+            f4101a[Method.POST.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
     }

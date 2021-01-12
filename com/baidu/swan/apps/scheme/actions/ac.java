@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ac extends aa {
     public ac(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/ubcFlowJar");

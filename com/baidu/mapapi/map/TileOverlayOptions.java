@@ -4,19 +4,19 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+import com.baidu.mapapi.model.inner.GeoPoint;
+/* loaded from: classes6.dex */
 public final class TileOverlayOptions {
     private static Bundle c;
     private static final String j = TileOverlayOptions.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private TileProvider f2890b;
+    private TileProvider f2779b;
     public int datasource;
     public String urlString;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2889a = 209715200;
+    private int f2778a = 209715200;
     private int d = 20;
     private int e = 3;
     private int f = 15786414;
@@ -44,23 +44,23 @@ public final class TileOverlayOptions {
         c.putInt("datasource", this.datasource);
         c.putInt("maxDisplay", this.d);
         c.putInt("minDisplay", this.e);
-        c.putInt("sdktiletmpmax", this.f2889a);
+        c.putInt("sdktiletmpmax", this.f2778a);
         return c;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TileOverlay a(BaiduMap baiduMap) {
-        return new TileOverlay(baiduMap, this.f2890b);
+        return new TileOverlay(baiduMap, this.f2779b);
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
-        this.f2889a = i;
+        this.f2778a = i;
         return this;
     }
 
     public TileOverlayOptions setPositionFromBounds(LatLngBounds latLngBounds) {
         if (latLngBounds == null) {
-            throw new IllegalArgumentException("BDMapSDKException: bound can not be null");
+            throw new IllegalArgumentException("bound can not be null");
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLngBounds.northeast);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(latLngBounds.southwest);
@@ -69,7 +69,7 @@ public final class TileOverlayOptions {
         double latitudeE62 = ll2mc2.getLatitudeE6();
         double longitudeE62 = ll2mc.getLongitudeE6();
         if (latitudeE6 <= latitudeE62 || longitudeE62 <= longitudeE6) {
-            Log.e(j, "BDMapSDKException: bounds is illegal, use default bounds");
+            Log.e(j, "bounds is illegal, use default bounds");
         } else {
             c.putInt("rectr", (int) longitudeE62);
             c.putInt("rectb", (int) latitudeE62);
@@ -97,7 +97,7 @@ public final class TileOverlayOptions {
         } else {
             this.datasource = 0;
         }
-        this.f2890b = tileProvider;
+        this.f2779b = tileProvider;
         int maxDisLevel = tileProvider.getMaxDisLevel();
         int minDisLevel = tileProvider.getMinDisLevel();
         if (maxDisLevel > 21 || minDisLevel < 3) {

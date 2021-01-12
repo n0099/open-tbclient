@@ -5,7 +5,7 @@ import android.media.AudioRecord;
 import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.recorder.audio.IAudioService;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlaStdRecorder implements IAudioService {
     private AlaAudioConfig mAudioConfig = null;
     private volatile AudioRecord mAudioRecord = null;

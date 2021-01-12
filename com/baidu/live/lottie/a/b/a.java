@@ -5,20 +5,20 @@ import androidx.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.baidu.live.lottie.e.a<K>> Eu;
+    private final List<? extends com.baidu.live.lottie.e.a<K>> Es;
     @Nullable
-    protected com.baidu.live.lottie.e.c<A> buh;
+    protected com.baidu.live.lottie.e.c<A> bpt;
     @Nullable
-    private com.baidu.live.lottie.e.a<K> bui;
-    final List<InterfaceC0194a> listeners = new ArrayList();
-    private boolean Et = false;
+    private com.baidu.live.lottie.e.a<K> bpu;
+    final List<InterfaceC0185a> listeners = new ArrayList();
+    private boolean Er = false;
     private float progress = 0.0f;
 
     /* renamed from: com.baidu.live.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0194a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0185a {
         void is();
     }
 
@@ -26,15 +26,15 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.baidu.live.lottie.e.a<K>> list) {
-        this.Eu = list;
+        this.Es = list;
     }
 
     public void iG() {
-        this.Et = true;
+        this.Er = true;
     }
 
-    public void b(InterfaceC0194a interfaceC0194a) {
-        this.listeners.add(interfaceC0194a);
+    public void b(InterfaceC0185a interfaceC0185a) {
+        this.listeners.add(interfaceC0185a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -62,61 +62,61 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.baidu.live.lottie.e.a<K> PJ() {
-        if (this.bui != null && this.bui.l(this.progress)) {
-            return this.bui;
+    private com.baidu.live.lottie.e.a<K> LO() {
+        if (this.bpu != null && this.bpu.l(this.progress)) {
+            return this.bpu;
         }
-        com.baidu.live.lottie.e.a<K> aVar = this.Eu.get(this.Eu.size() - 1);
+        com.baidu.live.lottie.e.a<K> aVar = this.Es.get(this.Es.size() - 1);
         if (this.progress < aVar.jY()) {
-            for (int size = this.Eu.size() - 1; size >= 0; size--) {
-                aVar = this.Eu.get(size);
+            for (int size = this.Es.size() - 1; size >= 0; size--) {
+                aVar = this.Es.get(size);
                 if (aVar.l(this.progress)) {
                     break;
                 }
             }
         }
-        this.bui = aVar;
+        this.bpu = aVar;
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float iI() {
-        if (this.Et) {
+        if (this.Er) {
             return 0.0f;
         }
-        com.baidu.live.lottie.e.a<K> PJ = PJ();
-        if (PJ.kB()) {
+        com.baidu.live.lottie.e.a<K> LO = LO();
+        if (LO.kB()) {
             return 0.0f;
         }
-        return (this.progress - PJ.jY()) / (PJ.iL() - PJ.jY());
+        return (this.progress - LO.jY()) / (LO.iL() - LO.jY());
     }
 
     private float iJ() {
-        com.baidu.live.lottie.e.a<K> PJ = PJ();
-        if (PJ.kB()) {
+        com.baidu.live.lottie.e.a<K> LO = LO();
+        if (LO.kB()) {
             return 0.0f;
         }
-        return PJ.HP.getInterpolation(iI());
+        return LO.HN.getInterpolation(iI());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float iK() {
-        if (this.Eu.isEmpty()) {
+        if (this.Es.isEmpty()) {
             return 0.0f;
         }
-        return this.Eu.get(0).jY();
+        return this.Es.get(0).jY();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     float iL() {
-        if (this.Eu.isEmpty()) {
+        if (this.Es.isEmpty()) {
             return 1.0f;
         }
-        return this.Eu.get(this.Eu.size() - 1).iL();
+        return this.Es.get(this.Es.size() - 1).iL();
     }
 
     public A getValue() {
-        return a(PJ(), iJ());
+        return a(LO(), iJ());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.baidu.live.lottie.e.c<A> cVar) {
-        if (this.buh != null) {
-            this.buh.b(null);
+        if (this.bpt != null) {
+            this.bpt.b(null);
         }
-        this.buh = cVar;
+        this.bpt = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

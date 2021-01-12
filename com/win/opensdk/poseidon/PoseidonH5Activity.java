@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.win.opensdk.activitys.H5Activity;
 import com.win.opensdk.core.Info;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PoseidonH5Activity extends H5Activity {
     @Override // com.win.opensdk.activitys.H5Activity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {

@@ -10,57 +10,56 @@ import android.os.Build;
 import android.util.Log;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class t {
-    private static t prw = null;
+    private static t pmR = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private ConnectivityManager f8037b;
+    private ConnectivityManager f7737b;
     private ConnectivityManager.NetworkCallback d;
     private boolean e;
     private volatile boolean f = false;
-    private Network prx;
+    private Network pmS;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void d(Network network);
     }
 
     private t(Context context) {
-        this.f8037b = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f7737b = (ConnectivityManager) context.getSystemService("connectivity");
     }
 
     public boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.prx != null;
+            return this.pmS != null;
         }
         return this.f;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static t m59if(Context context) {
-        if (prw == null) {
+    public static t id(Context context) {
+        if (pmR == null) {
             synchronized (t.class) {
-                if (prw == null) {
-                    prw = new t(context);
+                if (pmR == null) {
+                    pmR = new t(context);
                 }
             }
         }
-        return prw;
+        return pmR;
     }
 
     @TargetApi(21)
     public void a(final a aVar) {
         NetworkInfo networkInfo;
         if (Build.VERSION.SDK_INT >= 21) {
-            if (this.prx != null && !this.e && (networkInfo = this.f8037b.getNetworkInfo(this.prx)) != null && networkInfo.isAvailable()) {
+            if (this.pmS != null && !this.e && (networkInfo = this.f7737b.getNetworkInfo(this.pmS)) != null && networkInfo.isAvailable()) {
                 Log.e("HttpUtils", "reuse network: ");
-                aVar.d(this.prx);
+                aVar.d(this.pmS);
                 return;
             }
             if (this.d != null) {
                 try {
-                    this.f8037b.unregisterNetworkCallback(this.d);
+                    this.f7737b.unregisterNetworkCallback(this.d);
                 } catch (Exception e) {
                     e.printStackTrace();
                     this.d = null;
@@ -71,7 +70,7 @@ public class t {
             this.d = new ConnectivityManager.NetworkCallback() { // from class: com.cmic.sso.sdk.e.t.1
                 @Override // android.net.ConnectivityManager.NetworkCallback
                 public void onAvailable(Network network) {
-                    t.this.prx = network;
+                    t.this.pmS = network;
                     aVar.d(network);
                     t.this.e = false;
                 }
@@ -81,7 +80,7 @@ public class t {
                     t.this.e = true;
                 }
             };
-            this.f8037b.requestNetwork(build, this.d);
+            this.f7737b.requestNetwork(build, this.d);
         }
     }
 
@@ -89,11 +88,11 @@ public class t {
         try {
             if (Build.VERSION.SDK_INT < 21) {
                 this.f = false;
-                this.f8037b.stopUsingNetworkFeature(0, "enableHIPRI");
-            } else if (this.f8037b != null && this.d != null) {
-                this.f8037b.unregisterNetworkCallback(this.d);
+                this.f7737b.stopUsingNetworkFeature(0, "enableHIPRI");
+            } else if (this.f7737b != null && this.d != null) {
+                this.f7737b.unregisterNetworkCallback(this.d);
                 this.d = null;
-                this.prx = null;
+                this.pmS = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,19 +133,19 @@ public class t {
     }
 
     public boolean a(String str) {
-        this.f8037b.startUsingNetworkFeature(0, "enableHIPRI");
+        this.f7737b.startUsingNetworkFeature(0, "enableHIPRI");
         for (int i = 0; i < 30; i++) {
             try {
-                if (this.f8037b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
+                if (this.f7737b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                     break;
                 }
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {
-                com.cmic.sso.sdk.d.a.prm.add(e);
+                com.cmic.sso.sdk.d.a.pmH.add(e);
                 c.a("WifiNetworkUtils", "check hipri failed");
             }
         }
-        this.f = this.f8037b.requestRouteToHost(5, b(c(str)));
+        this.f = this.f7737b.requestRouteToHost(5, b(c(str)));
         c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f);
         return this.f;
     }

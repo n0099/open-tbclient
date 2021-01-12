@@ -1,17 +1,12 @@
 package com.baidu.mapapi.walknavi.adapter;
 
 import android.graphics.drawable.Drawable;
-import android.os.Message;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface IWRouteGuidanceListener {
     void onArriveDest();
 
-    void onFinalEnd(Message message);
-
     void onGpsStatusChange(CharSequence charSequence, Drawable drawable);
-
-    void onIndoorEnd(Message message);
 
     void onReRouteComplete();
 

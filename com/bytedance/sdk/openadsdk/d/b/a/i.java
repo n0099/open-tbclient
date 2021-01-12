@@ -15,17 +15,17 @@ import java.util.Map;
 public final class i implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f7187a;
+    private final com.bytedance.sdk.openadsdk.d.b.c f6887a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.e f7188b;
+    private final com.bytedance.sdk.openadsdk.d.e f6888b;
     private final com.bytedance.sdk.openadsdk.d.b.d c;
     private final d d;
     private final com.bytedance.sdk.openadsdk.d.b.b.b e = com.bytedance.sdk.openadsdk.d.b.b.b.a();
 
     public i(com.bytedance.sdk.openadsdk.d.b.c cVar, com.bytedance.sdk.openadsdk.d.e eVar, com.bytedance.sdk.openadsdk.d.b.d dVar, d dVar2) {
-        this.f7187a = cVar;
-        this.f7188b = eVar;
+        this.f6887a = cVar;
+        this.f6888b = eVar;
         this.c = dVar;
         this.d = dVar2;
     }
@@ -41,7 +41,7 @@ public final class i implements w {
     private List<String> a(Field field) {
         com.bytedance.sdk.openadsdk.d.a.c cVar = (com.bytedance.sdk.openadsdk.d.a.c) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.f7188b.a(field));
+            return Collections.singletonList(this.f6888b.a(field));
         }
         String a2 = cVar.a();
         String[] b2 = cVar.b();
@@ -62,7 +62,7 @@ public final class i implements w {
         if (!Object.class.isAssignableFrom(a2)) {
             return null;
         }
-        return new a(this.f7187a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.d.c.a<?>) aVar, (Class<?>) a2));
+        return new a(this.f6887a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.d.c.a<?>) aVar, (Class<?>) a2));
     }
 
     private b a(final com.bytedance.sdk.openadsdk.d.f fVar, final Field field, String str, final com.bytedance.sdk.openadsdk.d.c.a<?> aVar, boolean z, boolean z2) {
@@ -70,7 +70,7 @@ public final class i implements w {
         com.bytedance.sdk.openadsdk.d.a.b bVar = (com.bytedance.sdk.openadsdk.d.a.b) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.b.class);
         final v<?> vVar = null;
         if (bVar != null) {
-            vVar = this.d.a(this.f7187a, fVar, aVar, bVar);
+            vVar = this.d.a(this.f6887a, fVar, aVar, bVar);
         }
         final boolean z3 = vVar != null;
         if (vVar == null) {
@@ -162,14 +162,14 @@ public final class i implements w {
     public static final class a<T> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.bytedance.sdk.openadsdk.d.b.i<T> f7191a;
+        private final com.bytedance.sdk.openadsdk.d.b.i<T> f6891a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Map<String, b> f7192b;
+        private final Map<String, b> f6892b;
 
         a(com.bytedance.sdk.openadsdk.d.b.i<T> iVar, Map<String, b> map) {
-            this.f7191a = iVar;
-            this.f7192b = map;
+            this.f6891a = iVar;
+            this.f6892b = map;
         }
 
         @Override // com.bytedance.sdk.openadsdk.d.v
@@ -178,11 +178,11 @@ public final class i implements w {
                 aVar.j();
                 return null;
             }
-            T a2 = this.f7191a.a();
+            T a2 = this.f6891a.a();
             try {
                 aVar.c();
                 while (aVar.e()) {
-                    b bVar = this.f7192b.get(aVar.g());
+                    b bVar = this.f6892b.get(aVar.g());
                     if (bVar == null || !bVar.j) {
                         aVar.n();
                     } else {
@@ -206,7 +206,7 @@ public final class i implements w {
             }
             cVar.d();
             try {
-                for (b bVar : this.f7192b.values()) {
+                for (b bVar : this.f6892b.values()) {
                     if (bVar.a(t)) {
                         cVar.a(bVar.h);
                         bVar.a(cVar, t);

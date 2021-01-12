@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import java.util.List;
@@ -16,17 +15,17 @@ public class f implements Runnable {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f6882a;
+    private static volatile f f6582a;
 
     public static f a() {
-        if (f6882a == null) {
+        if (f6582a == null) {
             synchronized (i.class) {
-                if (f6882a == null) {
-                    f6882a = new f();
+                if (f6582a == null) {
+                    f6582a = new f();
                 }
             }
         }
-        return f6882a;
+        return f6582a;
     }
 
     private f() {
@@ -50,10 +49,10 @@ public class f implements Runnable {
                     if (gVar != null) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (gVar.f6884b != null && gVar.c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, 0L) > gVar.d * 1000) {
+                            if (gVar.f6584b != null && gVar.c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, 0L) > gVar.d * 1000) {
                                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, Long.valueOf(currentTimeMillis));
                                 Intent intent = new Intent();
-                                intent.setAction(gVar.f6883a);
+                                intent.setAction(gVar.f6583a);
                                 intent.setPackage(gVar.c);
                                 p.a().startService(intent);
                                 a(gVar, 1);
@@ -82,7 +81,7 @@ public class f implements Runnable {
             jSONObject.put("wk_status", i);
             jSONObject.put("app_id", com.bytedance.sdk.openadsdk.core.i.c().e());
             jSONObject.put("package_name", aj.d());
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_GEO, c());
+            jSONObject.put("geo", c());
             jSONObject.put("ad_sdk_version", "3.2.5.1");
             jSONObject.put("os", 1);
             jSONObject.put("os_version", Build.VERSION.RELEASE + "");
@@ -91,8 +90,8 @@ public class f implements Runnable {
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("ad_package_name", gVar.c);
-            jSONObject.put("action", gVar.f6883a);
-            jSONObject.put("service", gVar.f6884b);
+            jSONObject.put("action", gVar.f6583a);
+            jSONObject.put("service", gVar.f6584b);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -104,8 +103,8 @@ public class f implements Runnable {
         if (a2 != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("latitude", a2.f7864a);
-                jSONObject.put("longitude", a2.f7865b);
+                jSONObject.put("latitude", a2.f7564a);
+                jSONObject.put("longitude", a2.f7565b);
                 return jSONObject;
             } catch (Exception e) {
             }

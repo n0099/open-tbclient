@@ -8,28 +8,28 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RedTipImageView extends ImageView {
     private float mDensity;
     private Paint mPaint;
-    private boolean oYF;
-    private a oYN;
+    private boolean oUd;
+    private a oUl;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        int Yn;
+        int Yl;
         int color;
-        int fye;
+        int ftw;
         float radius;
 
         a() {
             RedTipImageView.this.mDensity = RedTipImageView.this.getContext().getResources().getDisplayMetrics().density;
             this.radius = (float) (3.5d * RedTipImageView.this.mDensity);
-            this.Yn = (int) (RedTipImageView.this.mDensity * 3.0f);
-            this.fye = (int) (RedTipImageView.this.mDensity * 3.0f);
+            this.Yl = (int) (RedTipImageView.this.mDensity * 3.0f);
+            this.ftw = (int) (RedTipImageView.this.mDensity * 3.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }
@@ -37,44 +37,44 @@ public class RedTipImageView extends ImageView {
 
     public RedTipImageView(Context context) {
         super(context);
-        this.oYF = false;
+        this.oUd = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oYF = false;
+        this.oUd = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oYF = false;
+        this.oUd = false;
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.oYN = new a();
+        this.oUl = new a();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.oYF) {
-            float width = ((getWidth() - this.oYN.fye) + (this.mDensity * 3.0f)) - this.oYN.radius;
-            float f = (this.oYN.Yn + this.oYN.radius) - (this.mDensity * 3.0f);
+        if (this.oUd) {
+            float width = ((getWidth() - this.oUl.ftw) + (this.mDensity * 3.0f)) - this.oUl.radius;
+            float f = (this.oUl.Yl + this.oUl.radius) - (this.mDensity * 3.0f);
             Log.d("RedTipImageView", "cx = " + width + " cy= " + f);
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.oYN.color);
+            this.mPaint.setColor(this.oUl.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.oYN.radius, this.mPaint);
+            canvas.drawCircle(width, f, this.oUl.radius, this.mPaint);
             this.mPaint.setColor(color);
         }
     }
 
     public void setTipOn(boolean z) {
-        this.oYF = z;
+        this.oUd = z;
         invalidate();
     }
 }

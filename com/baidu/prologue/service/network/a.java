@@ -12,10 +12,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static final Executor THREAD_POOL_EXECUTOR;
-    private static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
+    private static final boolean DEBUG = com.baidu.prologue.a.a.a.coo;
     private static Handler sHandler = new Handler(Looper.getMainLooper());
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
@@ -39,17 +39,17 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.prologue.service.network.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0332a {
+    /* loaded from: classes5.dex */
+    public static class C0315a {
         String name;
         Runnable runnable;
 
-        private C0332a() {
+        private C0315a() {
         }
     }
 
-    /* loaded from: classes6.dex */
-    private static class b extends AsyncTask<C0332a, Object, Object> {
+    /* loaded from: classes5.dex */
+    private static class b extends AsyncTask<C0315a, Object, Object> {
         private b() {
         }
 
@@ -57,13 +57,13 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         /* renamed from: a */
-        public Object doInBackground(C0332a... c0332aArr) {
+        public Object doInBackground(C0315a... c0315aArr) {
             String str;
             Process.setThreadPriority(10);
             try {
-                if (c0332aArr[0] != null && c0332aArr[0].runnable != null) {
-                    if (!TextUtils.isEmpty(c0332aArr[0].name)) {
-                        str = c0332aArr[0].name;
+                if (c0315aArr[0] != null && c0315aArr[0].runnable != null) {
+                    if (!TextUtils.isEmpty(c0315aArr[0].name)) {
+                        str = c0315aArr[0].name;
                     } else {
                         str = "noname";
                     }
@@ -71,7 +71,7 @@ public final class a {
                     if (a.DEBUG) {
                         Log.d("AsyncTaskAssistant", "start to run task " + str);
                     }
-                    c0332aArr[0].runnable.run();
+                    c0315aArr[0].runnable.run();
                     return null;
                 }
                 return null;
@@ -83,9 +83,9 @@ public final class a {
     }
 
     public static void execute(Runnable runnable, String str) {
-        C0332a c0332a = new C0332a();
-        c0332a.runnable = runnable;
-        c0332a.name = str;
-        new b().execute(c0332a);
+        C0315a c0315a = new C0315a();
+        c0315a.runnable = runnable;
+        c0315a.name = str;
+        new b().execute(c0315a);
     }
 }

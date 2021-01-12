@@ -11,17 +11,17 @@ import android.view.View;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VoteStatusView extends View {
-    private boolean itf;
-    public int itg;
-    public int ith;
-    public int iti;
-    private Path itj;
-    private Path itk;
-    private Path itl;
-    private Path itm;
-    private Path itn;
+    public int ioA;
+    public int ioB;
+    private Path ioC;
+    private Path ioD;
+    private Path ioE;
+    private Path ioF;
+    private Path ioG;
+    private boolean ioy;
+    public int ioz;
     private Paint mPaint;
     private Shader mShader;
     private int status;
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.itf = true;
+        this.ioy = true;
         initUI();
     }
 
     private void initUI() {
-        this.iti = ao.getColor(R.color.CAM_X0204);
-        this.itg = ao.getColor(R.color.CAM_X0303);
-        this.ith = ao.getColor(R.color.CAM_X0302);
+        this.ioB = ao.getColor(R.color.CAM_X0204);
+        this.ioz = ao.getColor(R.color.CAM_X0303);
+        this.ioA = ao.getColor(R.color.CAM_X0302);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.iti);
-        this.itj = new Path();
-        this.itk = new Path();
-        this.itl = new Path();
-        this.itm = new Path();
-        this.itn = new Path();
+        this.mPaint.setColor(this.ioB);
+        this.ioC = new Path();
+        this.ioD = new Path();
+        this.ioE = new Path();
+        this.ioF = new Path();
+        this.ioG = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.itj.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.itk.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.itl.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.itm.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.itn.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.iti);
+        this.ioC.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.ioD.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.ioE.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.ioF.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.ioG.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.ioB);
         this.mPaint.setShader(null);
-        if (this.mShader == null || this.itf) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.itg, this.ith, Shader.TileMode.CLAMP);
-            this.itf = false;
+        if (this.mShader == null || this.ioy) {
+            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.ioz, this.ioA, Shader.TileMode.CLAMP);
+            this.ioy = false;
         }
-        if (this.status == d.iso) {
+        if (this.status == d.inH) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.itn, this.mPaint);
-        canvas.drawPath(this.itl, this.mPaint);
-        if (this.status == d.isn) {
+        canvas.drawPath(this.ioG, this.mPaint);
+        canvas.drawPath(this.ioE, this.mPaint);
+        if (this.status == d.inG) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.itm, this.mPaint);
-        canvas.drawPath(this.itk, this.mPaint);
-        if (this.status == d.ism) {
+        canvas.drawPath(this.ioF, this.mPaint);
+        canvas.drawPath(this.ioD, this.mPaint);
+        if (this.status == d.inF) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.itj, this.mPaint);
+        canvas.drawPath(this.ioC, this.mPaint);
     }
 
-    public void vU(int i) {
-        this.itg = ao.getColor(i, R.color.CAM_X0303);
-        this.ith = ao.getColor(i, R.color.CAM_X0302);
-        this.iti = ao.getColor(i, R.color.CAM_X0204);
-        this.itf = true;
+    public void uo(int i) {
+        this.ioz = ao.getColor(i, R.color.CAM_X0303);
+        this.ioA = ao.getColor(i, R.color.CAM_X0302);
+        this.ioB = ao.getColor(i, R.color.CAM_X0204);
+        this.ioy = true;
         invalidate();
     }
 }

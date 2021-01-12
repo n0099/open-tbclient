@@ -1,17 +1,18 @@
 package com.qq.e.comm.plugin.y;
 
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f12996a = new JSONObject();
+    private JSONObject f12696a = new JSONObject();
 
     public JSONObject a() {
-        return this.f12996a;
+        return this.f12696a;
     }
 
     void a(int i) {
@@ -19,7 +20,7 @@ class b {
     }
 
     void a(long j) {
-        a("ts", Long.valueOf(j));
+        a(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(j));
     }
 
     public void a(c cVar) {
@@ -40,13 +41,13 @@ class b {
             return;
         }
         try {
-            this.f12996a.put(str, obj);
+            this.f12696a.put(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public String toString() {
-        return this.f12996a.toString();
+        return this.f12696a.toString();
     }
 }

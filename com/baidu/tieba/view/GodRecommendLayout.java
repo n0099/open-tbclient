@@ -43,17 +43,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GodRecommendLayout extends LinearLayout {
-    private List<String> aQL;
-    private RecyclerView iPZ;
-    private l iQe;
-    private CustomMessageListener iQg;
-    private RecyclerView.OnScrollListener ioM;
+    private List<String> aLY;
+    private RecyclerView iLs;
+    private l iLx;
+    private CustomMessageListener iLz;
+    private RecyclerView.OnScrollListener ikd;
     private final Context mContext;
     private TextView mTitleView;
-    private TextView nSo;
-    private GodRecommendListAdapter nSp;
-    private boolean nSq;
-    private com.baidu.tbadk.h.f nSr;
+    private TextView nNJ;
+    private GodRecommendListAdapter nNK;
+    private boolean nNL;
+    private com.baidu.tbadk.h.f nNM;
 
     public GodRecommendLayout(Context context) {
         this(context, null);
@@ -65,25 +65,25 @@ public class GodRecommendLayout extends LinearLayout {
 
     public GodRecommendLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aQL = new ArrayList();
-        this.nSq = true;
-        this.iQg = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.view.GodRecommendLayout.1
+        this.aLY = new ArrayList();
+        this.nNL = true;
+        this.iLz = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.view.GodRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (GodRecommendLayout.this.iQe == null) {
-                            GodRecommendLayout.this.iQe = new l(new j());
+                        if (GodRecommendLayout.this.iLx == null) {
+                            GodRecommendLayout.this.iLx = new l(new j());
                         }
-                        GodRecommendLayout.this.iQe.a(GodRecommendLayout.this.iPZ, 1);
-                    } else if (GodRecommendLayout.this.iQe != null) {
-                        GodRecommendLayout.this.iQe.qL();
+                        GodRecommendLayout.this.iLx.a(GodRecommendLayout.this.iLs, 1);
+                    } else if (GodRecommendLayout.this.iLx != null) {
+                        GodRecommendLayout.this.iLx.qL();
                     }
                 }
             }
         };
-        this.nSr = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.view.GodRecommendLayout.2
+        this.nNM = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.view.GodRecommendLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i2, long j) {
@@ -99,11 +99,11 @@ public class GodRecommendLayout extends LinearLayout {
                 }
             }
         };
-        this.ioM = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.view.GodRecommendLayout.3
+        this.ikd = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.view.GodRecommendLayout.3
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
                 super.onScrollStateChanged(recyclerView, i2);
-                GodRecommendLayout.this.aQL.clear();
+                GodRecommendLayout.this.aLY.clear();
             }
         };
         this.mContext = context;
@@ -127,71 +127,71 @@ public class GodRecommendLayout extends LinearLayout {
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
-        this.nSo = (TextView) findViewById(R.id.change);
-        this.iPZ = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.nSp = new GodRecommendListAdapter(this.mContext);
-        this.nSp.setOnItemCoverListener(this.nSr);
-        this.iPZ.setAdapter(this.nSp);
-        this.iPZ.setClipChildren(false);
+        this.nNJ = (TextView) findViewById(R.id.change);
+        this.iLs = (RecyclerView) findViewById(R.id.thread_card_list);
+        this.nNK = new GodRecommendListAdapter(this.mContext);
+        this.nNK.setOnItemCoverListener(this.nNM);
+        this.iLs.setAdapter(this.nNK);
+        this.iLs.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            this.iQe = new l(new j());
-            this.iQe.a(this.iPZ, 1);
+            this.iLx = new l(new j());
+            this.iLx.a(this.iLs, 1);
         }
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds21);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44);
-        this.iPZ.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.iPZ.setItemAnimator(new DefaultItemAnimator());
-        this.iPZ.addItemDecoration(new SpaceItemDecoration(dimens2, dimens, dimens2));
-        this.iPZ.addOnScrollListener(this.ioM);
+        this.iLs.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.iLs.setItemAnimator(new DefaultItemAnimator());
+        this.iLs.addItemDecoration(new SpaceItemDecoration(dimens2, dimens, dimens2));
+        this.iLs.addOnScrollListener(this.ikd);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nSo, R.color.CAM_X0101);
+        ao.setViewTextColor(this.nNJ, R.color.CAM_X0101);
         ao.setBackgroundColor(this, R.color.CAM_X0604);
-        this.nSp.notifyDataSetChanged();
+        this.nNK.notifyDataSetChanged();
     }
 
     public void setData(br brVar) {
         if (brVar != null) {
-            this.nSp.setData(brVar.bqE());
-            this.nSp.notifyDataSetChanged();
-            this.iPZ.scrollToPosition(0);
-            this.aQL.clear();
-            this.nSq = true;
+            this.nNK.setData(brVar.bmK());
+            this.nNK.notifyDataSetChanged();
+            this.iLs.scrollToPosition(0);
+            this.aLY.clear();
+            this.nNL = true;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.iQg.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iQg);
-        this.nSp.setPageUniqueId(bdUniqueId);
+        this.iLz.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iLz);
+        this.nNK.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.nSp.setPageContext(tbPageContext);
+        this.nNK.setPageContext(tbPageContext);
     }
 
     public void setRefreshListener(View.OnClickListener onClickListener) {
-        this.nSo.setOnClickListener(onClickListener);
+        this.nNJ.setOnClickListener(onClickListener);
     }
 
     public void setCouldStatistic(boolean z) {
-        this.nSq = z;
+        this.nNL = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class GodRecommendListAdapter extends RecyclerView.Adapter<GodViewHolder> {
-        private com.baidu.tbadk.h.f<MetaData> aks;
-        private BdUniqueId fqR;
+        private com.baidu.tbadk.h.f<MetaData> ajB;
+        private BdUniqueId fmh;
         private Context mContext;
         private List<MetaData> mData;
         private TbPageContext mPageContext;
 
         public void setOnItemCoverListener(com.baidu.tbadk.h.f<MetaData> fVar) {
-            this.aks = fVar;
+            this.ajB = fVar;
         }
 
         public GodRecommendListAdapter(Context context) {
@@ -217,13 +217,13 @@ public class GodRecommendLayout extends LinearLayout {
             if (godViewHolder == null || this.mData == null || (metaData = this.mData.get(i)) == null) {
                 return;
             }
-            godViewHolder.rP(metaData.isNewGod());
+            godViewHolder.rL(metaData.isNewGod());
             a(metaData, godViewHolder);
             c(metaData, godViewHolder);
             e(metaData, godViewHolder);
             b(metaData, godViewHolder);
-            if (this.aks != null) {
-                this.aks.b(godViewHolder.itemView, metaData, i, i);
+            if (this.ajB != null) {
+                this.ajB.b(godViewHolder.itemView, metaData, i, i);
             }
             godViewHolder.onChangeSkinType();
             godViewHolder.itemView.setTag(R.id.tag_user_id, metaData);
@@ -243,12 +243,12 @@ public class GodRecommendLayout extends LinearLayout {
         /* renamed from: a */
         public void onViewAttachedToWindow(@NonNull GodViewHolder godViewHolder) {
             super.onViewAttachedToWindow(godViewHolder);
-            if (GodRecommendLayout.this.nSq && godViewHolder.itemView != null && (godViewHolder.itemView.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
+            if (GodRecommendLayout.this.nNL && godViewHolder.itemView != null && (godViewHolder.itemView.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) godViewHolder.itemView.getTag(R.id.tag_holder)).booleanValue();
                 MetaData metaData = (MetaData) godViewHolder.itemView.getTag(R.id.tag_user_id);
-                if (booleanValue && !GodRecommendLayout.this.aQL.contains(metaData.getUserId())) {
-                    GodRecommendLayout.this.aQL.add(metaData.getUserId());
-                    TiebaStatic.log(new aq("c13902").dX("uid", metaData.getUserId()));
+                if (booleanValue && !GodRecommendLayout.this.aLY.contains(metaData.getUserId())) {
+                    GodRecommendLayout.this.aLY.add(metaData.getUserId());
+                    TiebaStatic.log(new aq("c13902").dW("uid", metaData.getUserId()));
                     godViewHolder.itemView.setTag(R.id.tag_holder, false);
                 }
             }
@@ -259,14 +259,14 @@ public class GodRecommendLayout extends LinearLayout {
         /* renamed from: b */
         public void onViewDetachedFromWindow(@NonNull GodViewHolder godViewHolder) {
             super.onViewDetachedFromWindow(godViewHolder);
-            if (GodRecommendLayout.this.aQL.isEmpty() && godViewHolder.itemView != null) {
+            if (GodRecommendLayout.this.aLY.isEmpty() && godViewHolder.itemView != null) {
                 godViewHolder.itemView.setTag(R.id.tag_holder, true);
             }
         }
 
         private void a(final MetaData metaData, final GodViewHolder godViewHolder) {
-            godViewHolder.jYk.setData(metaData, true);
-            godViewHolder.jYk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.GodRecommendLayout.GodRecommendListAdapter.1
+            godViewHolder.jTF.setData(metaData, true);
+            godViewHolder.jTF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.GodRecommendLayout.GodRecommendListAdapter.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     GodRecommendListAdapter.this.d(metaData, godViewHolder);
@@ -275,9 +275,9 @@ public class GodRecommendLayout extends LinearLayout {
         }
 
         private void b(MetaData metaData, GodViewHolder godViewHolder) {
-            com.baidu.tbadk.core.view.userLike.c cVar = godViewHolder.alC;
+            com.baidu.tbadk.core.view.userLike.c cVar = godViewHolder.akK;
             if (cVar != null) {
-                cVar.l(this.fqR);
+                cVar.l(this.fmh);
                 cVar.a(metaData);
             }
         }
@@ -288,22 +288,22 @@ public class GodRecommendLayout extends LinearLayout {
                 if (!StringUtils.isNull(metaData.getName_show())) {
                     string = metaData.getName_show();
                 }
-                godViewHolder.eLt.setText(string);
+                godViewHolder.eGI.setText(string);
                 if (metaData.isNewGod()) {
-                    ao.setViewTextColor(godViewHolder.eLt, R.color.CAM_X0301);
+                    ao.setViewTextColor(godViewHolder.eGI, R.color.CAM_X0301);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void d(MetaData metaData, GodViewHolder godViewHolder) {
-            if (this.aks != null) {
-                this.aks.a(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
+            if (this.ajB != null) {
+                this.ajB.a(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
             }
         }
 
         private void e(MetaData metaData, GodViewHolder godViewHolder) {
-            String lB;
+            String lx;
             if (metaData != null && godViewHolder != null) {
                 String str = null;
                 if (metaData.isBaijiahaoUser()) {
@@ -312,11 +312,11 @@ public class GodRecommendLayout extends LinearLayout {
                     str = metaData.getNewGodData().getFieldName();
                 }
                 if (!at.isEmpty(str)) {
-                    lB = str + ag.lB(metaData.isVideoGod());
+                    lx = str + ag.lx(metaData.isVideoGod());
                 } else {
-                    lB = ag.lB(metaData.isVideoGod());
+                    lx = ag.lx(metaData.isVideoGod());
                 }
-                godViewHolder.jYj.setText(lB);
+                godViewHolder.jTE.setText(lx);
             }
         }
 
@@ -325,60 +325,60 @@ public class GodRecommendLayout extends LinearLayout {
         }
 
         public void setPageUniqueId(BdUniqueId bdUniqueId) {
-            this.fqR = bdUniqueId;
+            this.fmh = bdUniqueId;
         }
 
         /* loaded from: classes.dex */
         public class GodViewHolder extends RecyclerView.ViewHolder {
-            public com.baidu.tbadk.core.view.userLike.c alC;
-            public TextView eLt;
-            public TextView jYj;
-            public HeadPendantClickableView jYk;
-            public DynamicUserLikeButton jYl;
-            private boolean jYm;
+            public com.baidu.tbadk.core.view.userLike.c akK;
+            public TextView eGI;
+            public TextView jTE;
+            public HeadPendantClickableView jTF;
+            public DynamicUserLikeButton jTG;
+            private boolean jTH;
             public LinearLayout mContainer;
 
             public GodViewHolder(View view) {
                 super(view);
-                this.jYm = false;
+                this.jTH = false;
                 this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-                this.jYk = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-                this.jYk.getHeadView().setIsRound(true);
-                this.jYk.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.jYk.getHeadView().setDefaultResource(17170445);
-                this.jYk.getHeadView().setPlaceHolder(1);
-                this.jYk.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds1));
-                this.jYk.getHeadView().setBorderColor(ao.getColor(R.color.CAM_X0401));
-                this.eLt = (TextView) view.findViewById(R.id.concern_user_name);
-                this.jYj = (TextView) view.findViewById(R.id.concern_user_desc);
-                this.jYl = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-                this.jYl.setGodRecommendStyle(true);
-                this.jYl.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.view.GodRecommendLayout.GodRecommendListAdapter.GodViewHolder.1
+                this.jTF = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+                this.jTF.getHeadView().setIsRound(true);
+                this.jTF.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.jTF.getHeadView().setDefaultResource(17170445);
+                this.jTF.getHeadView().setPlaceHolder(1);
+                this.jTF.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds1));
+                this.jTF.getHeadView().setBorderColor(ao.getColor(R.color.CAM_X0401));
+                this.eGI = (TextView) view.findViewById(R.id.concern_user_name);
+                this.jTE = (TextView) view.findViewById(R.id.concern_user_desc);
+                this.jTG = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+                this.jTG.setGodRecommendStyle(true);
+                this.jTG.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.view.GodRecommendLayout.GodRecommendListAdapter.GodViewHolder.1
                     @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                     public void cQ(View view2) {
-                        if (GodViewHolder.this.alC != null && GodViewHolder.this.alC.byS() != null && !GodViewHolder.this.alC.byS().getIsLike()) {
-                            TiebaStatic.log(new aq("c13903").dX("friend_uid", GodViewHolder.this.alC.byS().getUserId()).dX("obj_name", GodViewHolder.this.jYj.getText().toString()));
+                        if (GodViewHolder.this.akK != null && GodViewHolder.this.akK.buY() != null && !GodViewHolder.this.akK.buY().getIsLike()) {
+                            TiebaStatic.log(new aq("c13903").dW("friend_uid", GodViewHolder.this.akK.buY().getUserId()).dW("obj_name", GodViewHolder.this.jTE.getText().toString()));
                         }
                     }
                 });
-                this.alC = new com.baidu.tbadk.core.view.userLike.c(GodRecommendListAdapter.this.mPageContext, this.jYl);
-                this.alC.kh(true);
+                this.akK = new com.baidu.tbadk.core.view.userLike.c(GodRecommendListAdapter.this.mPageContext, this.jTG);
+                this.akK.kd(true);
             }
 
             public void onChangeSkinType() {
-                if (!this.jYm) {
-                    ao.setViewTextColor(this.eLt, R.color.CAM_X0101);
+                if (!this.jTH) {
+                    ao.setViewTextColor(this.eGI, R.color.CAM_X0101);
                 } else {
-                    ao.setViewTextColor(this.eLt, R.color.CAM_X0301);
+                    ao.setViewTextColor(this.eGI, R.color.CAM_X0301);
                 }
-                ao.setViewTextColor(this.jYj, R.color.CAM_X0101);
-                this.jYl.bxP();
-                com.baidu.tbadk.core.util.f.a.bwV().qq(0).qw(R.color.CAM_X0614).qr(R.color.CAM_X0614).qy(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds1)).ae(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds10)).bz(this.mContainer);
+                ao.setViewTextColor(this.jTE, R.color.CAM_X0101);
+                this.jTG.btV();
+                com.baidu.tbadk.core.util.f.a.btb().oJ(0).oP(R.color.CAM_X0614).oK(R.color.CAM_X0614).oR(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds1)).ae(com.baidu.adp.lib.util.l.getDimens(GodRecommendListAdapter.this.mContext, R.dimen.tbds10)).bz(this.mContainer);
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public void rP(boolean z) {
-                this.jYm = z;
+            public void rL(boolean z) {
+                this.jTH = z;
             }
         }
     }

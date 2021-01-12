@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicInteger f6893a = new AtomicInteger(1);
+    private static AtomicInteger f6593a = new AtomicInteger(1);
 
     public static boolean a() {
-        return f6893a.get() == 1;
+        return f6593a.get() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,11 +25,11 @@ public class j {
         boolean z2 = true;
         if (i == 1 || i == 2) {
             try {
-                if (f6893a.get() == i) {
+                if (f6593a.get() == i) {
                     z2 = false;
                 } else {
                     try {
-                        f6893a.set(i);
+                        f6593a.set(i);
                     } catch (Throwable th2) {
                         th = th2;
                         z = true;

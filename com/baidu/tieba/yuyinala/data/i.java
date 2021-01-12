@@ -4,42 +4,42 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i extends BaseData {
-    private ArrayList<c> gto;
-    private g olJ;
-    private int olK = 10;
+    private ArrayList<c> goH;
+    private g ohe;
+    private int ohf = 10;
 
     public ArrayList<c> getList() {
-        return this.gto;
+        return this.goH;
     }
 
-    public g ebR() {
-        return this.olJ;
+    public g dXZ() {
+        return this.ohe;
     }
 
-    public int ebS() {
-        return this.olK;
+    public int dYa() {
+        return this.ohf;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.olK = jSONObject.optInt("rank_size");
+            this.ohf = jSONObject.optInt("rank_size");
             JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
             if (optJSONArray != null) {
-                this.gto = new ArrayList<>();
+                this.goH = new ArrayList<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     c cVar = new c();
                     cVar.parserJson(optJSONObject);
-                    this.gto.add(cVar);
+                    this.goH.add(cVar);
                 }
             }
-            this.olJ = new g();
+            this.ohe = new g();
             JSONObject optJSONObject2 = jSONObject.optJSONObject("charm_data");
             if (optJSONObject2 != null) {
-                this.olJ.parserJson(optJSONObject2);
+                this.ohe.parserJson(optJSONObject2);
             }
         }
     }

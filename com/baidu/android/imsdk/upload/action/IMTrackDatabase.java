@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMTrackDatabase {
     public static final String DB_NAME = "im_track.db";
     private static final int DB_VERSION = 1;
@@ -33,7 +33,7 @@ public class IMTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum AckEnum {
         ackId,
         type,
@@ -46,7 +46,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum ConnectionEnum {
         connectionId,
         startTime,
@@ -61,7 +61,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum CrashEnum {
         crashId,
         exception,
@@ -73,7 +73,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum DbEnum {
         dbId,
         tableName,
@@ -90,7 +90,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum MsgEnum {
         msgId,
         msgCount,
@@ -105,7 +105,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum RequestEnum {
         id,
         method,
@@ -120,7 +120,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum UiEnum {
         uiId,
         category,
@@ -908,7 +908,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context context;
         private static final String SQL_TABLE_CREATE_UI = "CREATE TABLE ui (" + UiEnum.uiId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UiEnum.category.name() + " TEXT, " + UiEnum.page.name() + " TEXT, " + UiEnum.startTime.name() + " LONG, " + UiEnum.endTime.name() + " LONG, " + UiEnum.duration.name() + " LONG, " + UiEnum.ext.name() + " TEXT, " + UiEnum.aliasId.name() + " LONG NOT NULL );";

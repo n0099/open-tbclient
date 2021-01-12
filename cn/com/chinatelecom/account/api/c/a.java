@@ -19,17 +19,17 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1119a = a.class.getSimpleName();
+    private static final String f1118a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, String> f1120b = new HashMap<>();
+    private static HashMap<String, String> f1119b = new HashMap<>();
 
     public static long a(Context context) {
         return c.b(context, "key_difference_time", 0L);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x005a, code lost:
-        r2.f1108a = b(r1, "gw_auth");
+        r2.f1107a = b(r1, "gw_auth");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -42,7 +42,7 @@ public final class a {
                 Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
                 List<String> list = headerFields.get("p");
                 if (list != null && list.size() > 0) {
-                    bVar.f1109b = a(context, list.get(0));
+                    bVar.f1108b = a(context, list.get(0));
                 }
                 List<String> list2 = headerFields.get(SM.SET_COOKIE);
                 if (list2 != null && list2.size() > 0) {
@@ -67,14 +67,14 @@ public final class a {
     }
 
     public static String a(Context context, cn.com.chinatelecom.account.api.b.e eVar, String str, Network network, boolean z) {
-        if (eVar == null || TextUtils.isEmpty(eVar.f1116b)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.f1115b)) {
             return "{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}";
         }
-        if (eVar.f1115a == -1) {
-            return eVar.f1116b;
+        if (eVar.f1114a == -1) {
+            return eVar.f1115b;
         }
         try {
-            JSONObject jSONObject = new JSONObject(eVar.f1116b);
+            JSONObject jSONObject = new JSONObject(eVar.f1115b);
             if (jSONObject != null) {
                 int optInt = jSONObject.optInt("result");
                 String optString = jSONObject.optString("data");
@@ -116,7 +116,7 @@ public final class a {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        return eVar.f1116b;
+        return eVar.f1115b;
     }
 
     public static String a(Context context, String str, String str2) {
@@ -183,7 +183,7 @@ public final class a {
     }
 
     public static String a(String str) {
-        return (TextUtils.isEmpty(str) || !f1120b.containsKey(str)) ? "" : f1120b.get(str);
+        return (TextUtils.isEmpty(str) || !f1119b.containsKey(str)) ? "" : f1119b.get(str);
     }
 
     private static synchronized void a(Context context, int i) {
@@ -206,7 +206,7 @@ public final class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f1120b.put(str, str2);
+        f1119b.put(str, str2);
     }
 
     public static synchronized boolean a(Context context, String str) {
@@ -264,7 +264,7 @@ public final class a {
 
     private static void c(Context context) {
         JSONObject jSONObject = null;
-        String str = cn.com.chinatelecom.account.api.b.c.a(context, "https://open.e.189.cn/openapi/special/getTimeStamp.do", "", null, null, false, 0, "reqTimestamp").f1116b;
+        String str = cn.com.chinatelecom.account.api.b.c.a(context, "https://open.e.189.cn/openapi/special/getTimeStamp.do", "", null, null, false, 0, "reqTimestamp").f1115b;
         if (TextUtils.isEmpty(str)) {
             return;
         }

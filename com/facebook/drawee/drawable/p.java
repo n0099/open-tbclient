@@ -4,25 +4,25 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        public static final b pxI = j.pxR;
-        public static final b pxJ = i.pxR;
-        public static final b pxK = g.pxR;
-        public static final b pxL = h.pxR;
-        public static final b pxM = c.pxR;
-        public static final b pxN = e.pxR;
-        public static final b pxO = d.pxR;
-        public static final b pxP = k.pxR;
-        public static final b pxQ = f.pxR;
+        public static final b ptg = j.ptp;
+        public static final b pth = i.ptp;
+        public static final b pti = g.ptp;
+        public static final b ptj = h.ptp;
+        public static final b ptk = c.ptp;
+        public static final b ptl = e.ptp;
+        public static final b ptm = d.ptp;
+        public static final b ptn = k.ptp;
+        public static final b pto = f.ptp;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface l {
         Object getState();
     }
@@ -40,8 +40,8 @@ public class p {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int evJ = aVar.evJ();
-            for (int i2 = 0; i2 < evJ; i2++) {
+            int erQ = aVar.erQ();
+            for (int i2 = 0; i2 < erQ; i2++) {
                 o z = z(aVar.getDrawable(i2));
                 if (z != null) {
                     return z;
@@ -51,7 +51,7 @@ public class p {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements b {
         public abstract void a(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
 
@@ -62,9 +62,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class j extends a {
-        public static final b pxR = new j();
+        public static final b ptp = new j();
 
         private j() {
         }
@@ -80,9 +80,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class i extends a {
-        public static final b pxR = new i();
+        public static final b ptp = new i();
 
         private i() {
         }
@@ -99,9 +99,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class f extends a {
-        public static final b pxR = new f();
+        public static final b ptp = new f();
 
         private f() {
         }
@@ -118,9 +118,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class g extends a {
-        public static final b pxR = new g();
+        public static final b ptp = new g();
 
         private g() {
         }
@@ -138,9 +138,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class h extends a {
-        public static final b pxR = new h();
+        public static final b ptp = new h();
 
         private h() {
         }
@@ -158,9 +158,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class c extends a {
-        public static final b pxR = new c();
+        public static final b ptp = new c();
 
         private c() {
         }
@@ -175,9 +175,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class e extends a {
-        public static final b pxR = new e();
+        public static final b ptp = new e();
 
         private e() {
         }
@@ -195,9 +195,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class d extends a {
-        public static final b pxR = new d();
+        public static final b ptp = new d();
 
         private d() {
         }
@@ -223,9 +223,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class k extends a {
-        public static final b pxR = new k();
+        public static final b ptp = new k();
 
         private k() {
         }

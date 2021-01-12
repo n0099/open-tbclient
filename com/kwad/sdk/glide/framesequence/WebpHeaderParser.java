@@ -10,13 +10,13 @@ import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebpHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10286a = a();
+    public static final boolean f9986a = a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum WebpImageType {
         WEBP_SIMPLE(false, false),
         WEBP_LOSSLESS(false, false),
@@ -43,14 +43,14 @@ public class WebpHeaderParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10287a;
+        private final ByteBuffer f9987a;
 
         a(ByteBuffer byteBuffer) {
-            this.f10287a = byteBuffer;
+            this.f9987a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
@@ -61,22 +61,22 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public long a(long j) {
-            int min = (int) Math.min(this.f10287a.remaining(), j);
-            this.f10287a.position(this.f10287a.position() + min);
+            int min = (int) Math.min(this.f9987a.remaining(), j);
+            this.f9987a.position(this.f9987a.position() + min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int b() {
-            if (this.f10287a.remaining() < 1) {
+            if (this.f9987a.remaining() < 1) {
                 return -1;
             }
-            return this.f10287a.get();
+            return this.f9987a.get();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         int a();
 
@@ -85,19 +85,19 @@ public class WebpHeaderParser {
         int b();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class c implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f10288a;
+        private final InputStream f9988a;
 
         c(InputStream inputStream) {
-            this.f10288a = inputStream;
+            this.f9988a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int a() {
-            return ((this.f10288a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f10288a.read() & 255);
+            return ((this.f9988a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f9988a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
@@ -107,10 +107,10 @@ public class WebpHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f10288a.skip(j2);
+                long skip = this.f9988a.skip(j2);
                 if (skip > 0) {
                     j2 -= skip;
-                } else if (this.f10288a.read() == -1) {
+                } else if (this.f9988a.read() == -1) {
                     break;
                 } else {
                     j2--;
@@ -121,7 +121,7 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.framesequence.WebpHeaderParser.b
         public int b() {
-            return this.f10288a.read();
+            return this.f9988a.read();
         }
     }
 

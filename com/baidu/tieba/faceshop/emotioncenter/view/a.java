@@ -36,85 +36,85 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.a.c;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements View.OnClickListener, c {
-    private BdTypeListView gAY;
-    private NoNetworkView gCe;
-    private PbListView gCf;
-    private g gLj;
-    private View iXL;
-    private RelativeLayout iXM;
-    private TextView iXN;
-    private ImageView iXO;
-    private com.baidu.tieba.faceshop.emotioncenter.a iXP;
-    private EmotionCenterForumView iXQ;
-    private EmotionCenterChangeView iXR;
-    private com.baidu.tieba.faceshop.emotioncenter.adapter.a iXS;
-    private EmotionCenterData iXT;
-    private com.baidu.tieba.faceshop.emotioncenter.a.a iXU;
-    private LinearLayout iXV;
-    private ImageView iXW;
-    private TextView iXX;
+    private g gGD;
+    private BdTypeListView gwr;
+    private NoNetworkView gxx;
+    private PbListView gxy;
+    private View iTe;
+    private RelativeLayout iTf;
+    private TextView iTg;
+    private ImageView iTh;
+    private com.baidu.tieba.faceshop.emotioncenter.a iTi;
+    private EmotionCenterForumView iTj;
+    private EmotionCenterChangeView iTk;
+    private com.baidu.tieba.faceshop.emotioncenter.adapter.a iTl;
+    private EmotionCenterData iTm;
+    private com.baidu.tieba.faceshop.emotioncenter.a.a iTn;
+    private LinearLayout iTo;
+    private ImageView iTp;
+    private TextView iTq;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.g mPullView;
     private RelativeLayout mRootView;
-    private Animation iXH = null;
-    private boolean iXY = true;
-    private int iXZ = 0;
-    private String iYa = "";
+    private Animation iTa = null;
+    private boolean iTr = true;
+    private int iTs = 0;
+    private String iTt = "";
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mRootView = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_emotion_center_layout, (ViewGroup) null);
-        this.gCe = new NoNetworkView(tbPageContext.getPageActivity());
-        this.gCe.setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
+        this.gxx = new NoNetworkView(tbPageContext.getPageActivity());
+        this.gxx.setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
         if (j.isNetWorkAvailable()) {
-            this.gCe.setVisibility(8);
+            this.gxx.setVisibility(8);
         }
-        this.mRootView.addView(this.gCe);
-        this.gAY = (BdTypeListView) this.mRootView.findViewById(R.id.emotion_center_list);
-        this.gAY.setDivider(null);
+        this.mRootView.addView(this.gxx);
+        this.gwr = (BdTypeListView) this.mRootView.findViewById(R.id.emotion_center_list);
+        this.gwr.setDivider(null);
         this.mPullView = new com.baidu.tbadk.core.view.g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.gAY.setPullRefresh(this.mPullView);
-        this.gCf = new PbListView(tbPageContext.getPageActivity());
-        this.gCf.createView();
-        this.iXP = new com.baidu.tieba.faceshop.emotioncenter.a(this.mPageContext);
-        this.iXP.getView().setVisibility(8);
-        this.iXQ = new EmotionCenterForumView(this.mPageContext);
-        this.iXQ.setVisibility(8);
-        this.iXS = new com.baidu.tieba.faceshop.emotioncenter.adapter.a(this.mPageContext, this.gAY);
-        this.iXR = new EmotionCenterChangeView(this.mPageContext);
-        this.iXR.setVisibility(8);
-        this.gAY.addHeaderView(this.iXP.getView());
-        this.gAY.addHeaderView(this.iXQ);
-        this.gAY.addHeaderView(this.iXR);
-        this.iXL = this.mRootView.findViewById(R.id.emotion_add_layout);
-        this.iXM = (RelativeLayout) this.mRootView.findViewById(R.id.emotion_add_layout);
-        this.iXN = (TextView) this.mRootView.findViewById(R.id.add_emotion_tv);
-        this.iXO = (ImageView) this.mRootView.findViewById(R.id.icon_add);
-        this.iXL.setOnClickListener(this);
-        this.iXV = (LinearLayout) this.mRootView.findViewById(R.id.emotion_upload_status);
-        this.iXV.setClickable(false);
-        this.iXV.setOnClickListener(this);
-        this.iXV.setVisibility(8);
-        this.iXW = (ImageView) this.mRootView.findViewById(R.id.uploading_status_img);
-        this.iXX = (TextView) this.mRootView.findViewById(R.id.add_emotion_upload_status);
+        this.gwr.setPullRefresh(this.mPullView);
+        this.gxy = new PbListView(tbPageContext.getPageActivity());
+        this.gxy.createView();
+        this.iTi = new com.baidu.tieba.faceshop.emotioncenter.a(this.mPageContext);
+        this.iTi.getView().setVisibility(8);
+        this.iTj = new EmotionCenterForumView(this.mPageContext);
+        this.iTj.setVisibility(8);
+        this.iTl = new com.baidu.tieba.faceshop.emotioncenter.adapter.a(this.mPageContext, this.gwr);
+        this.iTk = new EmotionCenterChangeView(this.mPageContext);
+        this.iTk.setVisibility(8);
+        this.gwr.addHeaderView(this.iTi.getView());
+        this.gwr.addHeaderView(this.iTj);
+        this.gwr.addHeaderView(this.iTk);
+        this.iTe = this.mRootView.findViewById(R.id.emotion_add_layout);
+        this.iTf = (RelativeLayout) this.mRootView.findViewById(R.id.emotion_add_layout);
+        this.iTg = (TextView) this.mRootView.findViewById(R.id.add_emotion_tv);
+        this.iTh = (ImageView) this.mRootView.findViewById(R.id.icon_add);
+        this.iTe.setOnClickListener(this);
+        this.iTo = (LinearLayout) this.mRootView.findViewById(R.id.emotion_upload_status);
+        this.iTo.setClickable(false);
+        this.iTo.setOnClickListener(this);
+        this.iTo.setVisibility(8);
+        this.iTp = (ImageView) this.mRootView.findViewById(R.id.uploading_status_img);
+        this.iTq = (TextView) this.mRootView.findViewById(R.id.add_emotion_upload_status);
         showLoadingView();
     }
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.gLj = new g(this.mPageContext.getPageActivity());
-            this.gLj.attachView(this.mRootView, false);
-            this.gLj.onChangeSkinType();
+            this.gGD = new g(this.mPageContext.getPageActivity());
+            this.gGD.attachView(this.mRootView, false);
+            this.gGD.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gLj != null) {
-            this.gLj.dettachView(this.mRootView);
-            this.gLj = null;
+        if (this.gGD != null) {
+            this.gGD.dettachView(this.mRootView);
+            this.gGD = null;
         }
     }
 
@@ -122,17 +122,17 @@ public class a implements View.OnClickListener, c {
         return this.mRootView;
     }
 
-    public View cCG() {
-        return this.gCe;
+    public View cyO() {
+        return this.gxx;
     }
 
     public void a(EmotionPackageData emotionPackageData) {
         if (emotionPackageData != null) {
-            if (this.iXR != null) {
-                this.iXR.a(emotionPackageData);
+            if (this.iTk != null) {
+                this.iTk.a(emotionPackageData);
             }
-            if (this.iXS != null) {
-                this.iXS.a(emotionPackageData);
+            if (this.iTl != null) {
+                this.iTl.a(emotionPackageData);
             }
         }
     }
@@ -140,215 +140,215 @@ public class a implements View.OnClickListener, c {
     public void d(EmotionCenterData emotionCenterData) {
         if (emotionCenterData != null) {
             hideLoadingView();
-            if (x.isEmpty(this.iXR.getDataList())) {
-                this.iXR.cCD();
-                this.iXR.setVisibility(0);
+            if (x.isEmpty(this.iTk.getDataList())) {
+                this.iTk.cyL();
+                this.iTk.setVisibility(0);
             }
-            this.iXT = emotionCenterData;
-            if (this.iXY) {
-                this.iXZ = b.toInt(emotionCenterData.is_bazhu, 0);
-                this.iYa = emotionCenterData.bazhu_message;
-                this.iXY = false;
+            this.iTm = emotionCenterData;
+            if (this.iTr) {
+                this.iTs = b.toInt(emotionCenterData.is_bazhu, 0);
+                this.iTt = emotionCenterData.bazhu_message;
+                this.iTr = false;
             }
             if (emotionCenterData.banner != null) {
-                this.iXP.getView().setVisibility(0);
-                this.iXP.l(this.mPageContext.getUniqueId());
-                this.iXP.a(new com.baidu.tieba.faceshop.emotioncenter.data.c(emotionCenterData.banner));
-                this.iXP.byV();
+                this.iTi.getView().setVisibility(0);
+                this.iTi.l(this.mPageContext.getUniqueId());
+                this.iTi.a(new com.baidu.tieba.faceshop.emotioncenter.data.c(emotionCenterData.banner));
+                this.iTi.bvb();
             }
             if (emotionCenterData.forum != null) {
-                this.iXQ.setVisibility(0);
-                this.iXQ.setData(emotionCenterData.forum);
+                this.iTj.setVisibility(0);
+                this.iTj.setData(emotionCenterData.forum);
             }
             if (!x.isEmpty(emotionCenterData.package_list)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.faceshop.emotioncenter.data.a());
                 for (EmotionPackageData emotionPackageData : emotionCenterData.package_list) {
                     com.baidu.tieba.faceshop.emotioncenter.data.b bVar = new com.baidu.tieba.faceshop.emotioncenter.data.b();
-                    bVar.iXh = emotionPackageData;
+                    bVar.iSA = emotionPackageData;
                     arrayList.add(bVar);
                 }
-                this.iXS.setDatas(arrayList);
+                this.iTl.setDatas(arrayList);
             }
-            this.iXS.notifyDataSetChanged();
+            this.iTl.notifyDataSetChanged();
         }
     }
 
     public void e(EmotionCenterData emotionCenterData) {
         if (emotionCenterData != null) {
-            this.iXT = emotionCenterData;
-            if (!x.isEmpty(this.iXT.package_list)) {
+            this.iTm = emotionCenterData;
+            if (!x.isEmpty(this.iTm.package_list)) {
                 ArrayList arrayList = new ArrayList();
                 for (EmotionPackageData emotionPackageData : emotionCenterData.package_list) {
                     com.baidu.tieba.faceshop.emotioncenter.data.b bVar = new com.baidu.tieba.faceshop.emotioncenter.data.b();
-                    bVar.iXh = emotionPackageData;
+                    bVar.iSA = emotionPackageData;
                     arrayList.add(bVar);
                 }
-                this.iXS.cJ(arrayList);
+                this.iTl.cJ(arrayList);
             }
-            this.iXS.notifyDataSetChanged();
+            this.iTl.notifyDataSetChanged();
         }
     }
 
-    public void cCH() {
-        if (this.iXU != null) {
-            this.iXU.dismiss();
+    public void cyP() {
+        if (this.iTn != null) {
+            this.iTn.dismiss();
         }
         endAnimation();
-        this.iXV.setVisibility(8);
-        this.iXL.setVisibility(0);
+        this.iTo.setVisibility(8);
+        this.iTe.setVisibility(0);
     }
 
-    public void cCI() {
-        if (this.iXU != null) {
-            this.iXU.dismiss();
+    public void cyQ() {
+        if (this.iTn != null) {
+            this.iTn.dismiss();
         }
         startAnimation();
-        this.iXV.setVisibility(0);
-        this.iXL.setVisibility(8);
-        ao.setBackgroundColor(this.iXV, R.color.CAM_X0201);
-        ao.setImageResource(this.iXW, R.drawable.emotion_uploading_bar_refresh);
-        ao.setViewTextColor(this.iXX, R.color.CAM_X0302);
-        this.iXX.setText(R.string.emotion_uploading);
-        this.iXV.setClickable(false);
+        this.iTo.setVisibility(0);
+        this.iTe.setVisibility(8);
+        ao.setBackgroundColor(this.iTo, R.color.CAM_X0201);
+        ao.setImageResource(this.iTp, R.drawable.emotion_uploading_bar_refresh);
+        ao.setViewTextColor(this.iTq, R.color.CAM_X0302);
+        this.iTq.setText(R.string.emotion_uploading);
+        this.iTo.setClickable(false);
     }
 
-    public void cCJ() {
-        if (this.iXU != null) {
-            this.iXU.dismiss();
+    public void cyR() {
+        if (this.iTn != null) {
+            this.iTn.dismiss();
         }
         endAnimation();
-        this.iXV.setVisibility(0);
-        this.iXL.setVisibility(8);
-        ao.setBackgroundColor(this.iXV, R.color.CAM_X0201);
-        ao.setImageResource(this.iXW, R.drawable.emotion_update_fail);
-        ao.setViewTextColor(this.iXX, R.color.common_color_10037);
-        this.iXX.setText(R.string.emotion_center_upload_failed);
-        this.iXV.setClickable(true);
+        this.iTo.setVisibility(0);
+        this.iTe.setVisibility(8);
+        ao.setBackgroundColor(this.iTo, R.color.CAM_X0201);
+        ao.setImageResource(this.iTp, R.drawable.emotion_update_fail);
+        ao.setViewTextColor(this.iTq, R.color.common_color_10037);
+        this.iTq.setText(R.string.emotion_center_upload_failed);
+        this.iTo.setClickable(true);
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.iXH == null) {
-            this.iXH = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.refresh_rotate);
-            this.iXH.setInterpolator(new LinearInterpolator());
-            this.iXH.setFillAfter(true);
+        if (this.iTa == null) {
+            this.iTa = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.refresh_rotate);
+            this.iTa.setInterpolator(new LinearInterpolator());
+            this.iTa.setFillAfter(true);
         }
-        return this.iXH;
+        return this.iTa;
     }
 
     public void startAnimation() {
-        if (this.iXW != null) {
-            this.iXW.startAnimation(getClickRotateAnimation());
+        if (this.iTp != null) {
+            this.iTp.startAnimation(getClickRotateAnimation());
         }
     }
 
     public void endAnimation() {
-        if (this.iXW != null) {
-            this.iXW.clearAnimation();
+        if (this.iTp != null) {
+            this.iTp.clearAnimation();
         }
     }
 
-    public int cCK() {
-        return this.iXZ;
+    public int cyS() {
+        return this.iTs;
     }
 
     public void completePullRefresh() {
-        this.gAY.completePullRefresh();
+        this.gwr.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bUE() {
-        if (this.gCf != null) {
-            if (this.gCf.getView().getParent() == null) {
-                this.gAY.setNextPage(this.gCf);
+    public void bQM() {
+        if (this.gxy != null) {
+            if (this.gxy.getView().getParent() == null) {
+                this.gwr.setNextPage(this.gxy);
             }
-            this.gCf.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.gCf.endLoadData();
+            this.gxy.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.gxy.endLoadData();
         }
     }
 
-    public void bUF() {
-        if (this.gCf != null) {
-            if (this.gCf.getView().getParent() == null) {
-                this.gAY.setNextPage(this.gCf);
+    public void bQN() {
+        if (this.gxy != null) {
+            if (this.gxy.getView().getParent() == null) {
+                this.gwr.setNextPage(this.gxy);
             }
-            this.gCf.showLoadingViewWithoutEmptyView();
-            this.gCf.startLoadData();
+            this.gxy.showLoadingViewWithoutEmptyView();
+            this.gxy.startLoadData();
         }
     }
 
-    public void bVG() {
-        if (this.gCf != null) {
-            this.gCf.endLoadData();
+    public void bRO() {
+        if (this.gxy != null) {
+            this.gxy.endLoadData();
         }
-        this.gAY.setNextPage(null);
+        this.gwr.setNextPage(null);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.gAY.setOnSrollToBottomListener(eVar);
+        this.gwr.setOnSrollToBottomListener(eVar);
     }
 
     public void onChangeSkinType(int i) {
-        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0204);
-        this.gCf.changeSkin(i);
+        this.gxy.setContainerBackgroundColorResId(R.color.CAM_X0204);
+        this.gxy.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.iXS.notifyDataSetChanged();
-        ao.setBackgroundColor(this.iXM, R.color.CAM_X0201);
-        this.gAY.setBackgroundColor(ao.getColor(R.color.CAM_X0201));
+        this.iTl.notifyDataSetChanged();
+        ao.setBackgroundColor(this.iTf, R.color.CAM_X0201);
+        this.gwr.setBackgroundColor(ao.getColor(R.color.CAM_X0201));
         ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        this.gCe.onChangeSkinType(this.mPageContext, i);
-        if (this.iXQ != null) {
-            this.iXQ.onChangeSkin(i);
+        this.gxx.onChangeSkinType(this.mPageContext, i);
+        if (this.iTj != null) {
+            this.iTj.onChangeSkin(i);
         }
-        if (this.iXM != null) {
-            ao.setBackgroundColor(this.iXM, R.color.cp_bg_line_d_alpha90, i);
+        if (this.iTf != null) {
+            ao.setBackgroundColor(this.iTf, R.color.cp_bg_line_d_alpha90, i);
         }
-        if (this.iXN != null) {
-            ao.setViewTextColor(this.iXN, R.color.CAM_X0302, i);
+        if (this.iTg != null) {
+            ao.setViewTextColor(this.iTg, R.color.CAM_X0302, i);
         }
-        if (this.iXO != null) {
-            ao.setImageResource(this.iXO, R.drawable.emotion_bar_add_icon);
+        if (this.iTh != null) {
+            ao.setImageResource(this.iTh, R.drawable.emotion_bar_add_icon);
         }
-        if (this.iXV != null) {
-            ao.setBackgroundColor(this.iXM, R.color.cp_bg_line_d_alpha90, i);
+        if (this.iTo != null) {
+            ao.setBackgroundColor(this.iTf, R.color.cp_bg_line_d_alpha90, i);
         }
-        if (this.iXW != null) {
-            ao.setImageResource(this.iXW, R.drawable.emotion_uploading_bar_refresh);
+        if (this.iTp != null) {
+            ao.setImageResource(this.iTp, R.drawable.emotion_uploading_bar_refresh);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iXL) {
-            if (this.iXT != null) {
-                if (this.iXZ != 0) {
-                    if (this.iXU == null) {
-                        this.iXU = new com.baidu.tieba.faceshop.emotioncenter.a.a(this.mPageContext.getPageActivity(), this.iXZ);
-                        this.iXU.a(this);
+        if (view == this.iTe) {
+            if (this.iTm != null) {
+                if (this.iTs != 0) {
+                    if (this.iTn == null) {
+                        this.iTn = new com.baidu.tieba.faceshop.emotioncenter.a.a(this.mPageContext.getPageActivity(), this.iTs);
+                        this.iTn.a(this);
                     }
-                    this.iXU.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+                    this.iTn.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
                     Rect rect = new Rect();
                     this.mPageContext.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                    this.iXU.showAtLocation(this.mRootView, 81, 0, this.mPageContext.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
+                    this.iTn.showAtLocation(this.mRootView, 81, 0, this.mPageContext.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
                     return;
                 }
-                cCy();
+                cyG();
             }
-        } else if (view == this.iXV) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), this.iXZ == 1, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
+        } else if (view == this.iTo) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), this.iTs == 1, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
         }
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-    public void cCx() {
-        if (this.iXZ == 1) {
+    public void cyF() {
+        if (this.iTs == 1) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), true, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
-        } else if (!TextUtils.isEmpty(this.iYa)) {
+        } else if (!TextUtils.isEmpty(this.iTt)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            aVar.Bo(this.iYa);
+            aVar.Ad(this.iTt);
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.faceshop.emotioncenter.view.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -361,16 +361,16 @@ public class a implements View.OnClickListener, c {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.mPageContext).btY();
+            aVar.b(this.mPageContext).bqe();
         }
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-    public void cCy() {
+    public void cyG() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
     }
 
-    public EmotionCenterChangeView cCL() {
-        return this.iXR;
+    public EmotionCenterChangeView cyT() {
+        return this.iTk;
     }
 }

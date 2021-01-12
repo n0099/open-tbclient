@@ -7,13 +7,13 @@ import com.bytedance.tea.crash.g.d;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7932a;
+    private Context f7632a;
 
     @Override // com.bytedance.tea.crash.d.b
     public void a(long j, Thread thread, Throwable th) {
-        com.bytedance.tea.crash.c.a a2 = com.bytedance.tea.crash.c.a.a(j, this.f7932a, thread, th);
-        d.a(this.f7932a, com.bytedance.tea.crash.c.JAVA.a(), Thread.currentThread().getName());
-        com.bytedance.tea.crash.upload.a.esK().a(e.esA().a(com.bytedance.tea.crash.c.JAVA, a2).a());
+        com.bytedance.tea.crash.c.a a2 = com.bytedance.tea.crash.c.a.a(j, this.f7632a, thread, th);
+        d.a(this.f7632a, com.bytedance.tea.crash.c.JAVA.a(), Thread.currentThread().getName());
+        com.bytedance.tea.crash.upload.a.eoQ().a(e.eoG().a(com.bytedance.tea.crash.c.JAVA, a2).a());
     }
 
     @Override // com.bytedance.tea.crash.d.b
@@ -22,6 +22,6 @@ public class c implements b {
     }
 
     public c(Context context) {
-        this.f7932a = context;
+        this.f7632a = context;
     }
 }

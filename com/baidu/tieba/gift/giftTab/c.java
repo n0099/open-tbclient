@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.tbadk.core.data.ah;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private String aJs;
-    private List<ah> aYa;
+    private String aEF;
+    private List<ah> aTn;
     private int categoryId;
 
     public int getCategoryId() {
@@ -17,14 +17,14 @@ public class c {
     }
 
     public void setCategoryName(String str) {
-        this.aJs = str;
+        this.aEF = str;
     }
 
-    public List<ah> Hb() {
-        return this.aYa;
+    public List<ah> Dg() {
+        return this.aTn;
     }
 
     public void G(List<ah> list) {
-        this.aYa = list;
+        this.aTn = list;
     }
 }

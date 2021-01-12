@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.decoder.ec;
 
 import com.google.zxing.pdf417.PDF417Common;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ModulusGF {
     public static final ModulusGF PDF417_GF = new ModulusGF(PDF417Common.NUMBER_OF_CODEWORDS, 3);
     private final int[] expTable;

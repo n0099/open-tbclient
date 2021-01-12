@@ -1,10 +1,10 @@
 package com.kuaishou.aegon;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class k implements Runnable {
-    private final SignalStrengthListener pSn;
+    private final SignalStrengthListener pNN;
 
     private k(SignalStrengthListener signalStrengthListener) {
-        this.pSn = signalStrengthListener;
+        this.pNN = signalStrengthListener;
     }
 
     public static Runnable b(SignalStrengthListener signalStrengthListener) {
@@ -13,6 +13,6 @@ final /* synthetic */ class k implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pSn.nativeOnSignalStrengthChanged();
+        this.pNN.nativeOnSignalStrengthChanged();
     }
 }

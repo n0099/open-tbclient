@@ -1,22 +1,22 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2103a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
+    private static final String f2053a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2104b = "86";
+    private static final String f2054b = "86";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        if (str.startsWith(f2104b)) {
-            return str.substring(f2104b.length());
+        if (str.startsWith(f2054b)) {
+            return str.substring(f2054b.length());
         }
         return str;
     }

@@ -2,7 +2,7 @@ package com.baidubce.services.vod.model;
 
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenerateMediaIdRequest extends VodBceRequest {
     @Override // com.baidubce.model.AbstractBceRequest
     public AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials) {

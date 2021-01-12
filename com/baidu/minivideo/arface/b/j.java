@@ -6,21 +6,21 @@ import android.util.Log;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
-    private com.baidu.minivideo.arface.a.a clA;
-    private File cld;
-    private File cle;
-    private List<b> cly = new ArrayList();
-    private a clz;
+    private List<b> cgL = new ArrayList();
+    private a cgM;
+    private com.baidu.minivideo.arface.a.a cgN;
+    private File cgq;
+    private File cgr;
     private int mProgress;
     private long mTotalSize;
     private String mUrl;
 
     public j(String str, File file) {
         this.mUrl = str;
-        this.cld = file;
-        this.cle = new File(this.cld.getAbsolutePath() + ".loading");
+        this.cgq = file;
+        this.cgr = new File(this.cgq.getAbsolutePath() + ".loading");
     }
 
     public String getUrl() {
@@ -32,57 +32,57 @@ public class j {
     }
 
     public boolean isLoaded() {
-        return this.cld != null && this.cld.exists();
+        return this.cgq != null && this.cgq.exists();
     }
 
     public boolean isLoading() {
-        return this.clz != null && this.clz.isLoading();
+        return this.cgM != null && this.cgM.isLoading();
     }
 
     public File getLocalFile() {
-        return this.cld;
+        return this.cgq;
     }
 
     public void a(b bVar) {
         if (isLoaded()) {
             if (bVar != null) {
-                bVar.e(this, this.cld.getAbsolutePath());
+                bVar.e(this, this.cgq.getAbsolutePath());
                 return;
             }
             return;
         }
-        if (bVar != null && !this.cly.contains(bVar)) {
-            this.cly.add(bVar);
+        if (bVar != null && !this.cgL.contains(bVar)) {
+            this.cgL.add(bVar);
         }
-        aew();
+        aaD();
     }
 
-    private void aew() {
+    private void aaD() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
-                    if (this.clz == null) {
-                        this.clz = new a();
-                        this.clz.I(this);
+                    if (this.cgM == null) {
+                        this.cgM = new a();
+                        this.cgM.I(this);
                     }
-                    com.baidu.minivideo.arface.a.b adM = com.baidu.minivideo.arface.b.adM();
-                    if (adM != null) {
-                        adM.a(this.mUrl, this.cle.getParent(), this.cle.getName(), this.clz);
+                    com.baidu.minivideo.arface.a.b ZT = com.baidu.minivideo.arface.b.ZT();
+                    if (ZT != null) {
+                        ZT.a(this.mUrl, this.cgr.getParent(), this.cgr.getName(), this.cgM);
                     }
                 }
             }
         }
     }
 
-    protected boolean jM(String str) {
+    protected boolean iB(String str) {
         boolean z;
         boolean z2 = true;
         File file = new File(str);
         try {
             if (isDebug()) {
-                d("onCompleted-unzip:" + str + "\nto " + this.cld.getAbsolutePath());
+                d("onCompleted-unzip:" + str + "\nto " + this.cgq.getAbsolutePath());
             }
-            File file2 = new File(this.cld + ".ziping");
+            File file2 = new File(this.cgq + ".ziping");
             if (file2.exists()) {
                 if (isDebug()) {
                     d("delete older exists " + file2);
@@ -96,7 +96,7 @@ public class j {
                 d("unzipFile Exception : " + e.getMessage() + " " + str);
                 z = false;
             }
-            if (!z || !o(file2)) {
+            if (!z || !n(file2)) {
                 z2 = false;
             }
             if (!z2) {
@@ -105,18 +105,18 @@ public class j {
                 }
                 com.baidu.minivideo.arface.utils.f.deleteFileOrDir(file2);
             } else {
-                z2 &= file2.renameTo(this.cld);
+                z2 &= file2.renameTo(this.cgq);
             }
         } catch (Exception e2) {
             d("Exception on onFileLoaderCompledted " + e2.getMessage());
             e2.printStackTrace();
             z2 = false;
         }
-        com.baidu.minivideo.arface.utils.f.r(file);
+        com.baidu.minivideo.arface.utils.f.q(file);
         return z2;
     }
 
-    protected boolean o(File file) {
+    protected boolean n(File file) {
         return true;
     }
 
@@ -130,16 +130,16 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a<T> implements com.baidu.minivideo.arface.a.a {
-        private T clB;
+        private T cgO;
         private boolean mIsLoading;
 
         private a() {
         }
 
         public void I(T t) {
-            this.clB = t;
+            this.cgO = t;
         }
 
         public boolean isLoading() {
@@ -155,17 +155,17 @@ public class j {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= j.this.cly.size()) {
+                if (i2 >= j.this.cgL.size()) {
                     break;
                 }
-                b bVar = (b) j.this.cly.get(i2);
+                b bVar = (b) j.this.cgL.get(i2);
                 if (bVar != null) {
-                    bVar.J(this.clB);
+                    bVar.J(this.cgO);
                 }
                 i = i2 + 1;
             }
-            if (j.this.clA != null) {
-                j.this.clA.onStarted();
+            if (j.this.cgN != null) {
+                j.this.cgN.onStarted();
             }
         }
 
@@ -178,17 +178,17 @@ public class j {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= j.this.cly.size()) {
+                if (i2 >= j.this.cgL.size()) {
                     break;
                 }
-                b bVar = (b) j.this.cly.get(i2);
+                b bVar = (b) j.this.cgL.get(i2);
                 if (bVar != null) {
-                    bVar.a(this.clB, j, z);
+                    bVar.a(this.cgO, j, z);
                 }
                 i = i2 + 1;
             }
-            if (j.this.clA != null) {
-                j.this.clA.onConnected(j, z);
+            if (j.this.cgN != null) {
+                j.this.cgN.onConnected(j, z);
             }
         }
 
@@ -200,17 +200,17 @@ public class j {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= j.this.cly.size()) {
+                    if (i3 >= j.this.cgL.size()) {
                         break;
                     }
-                    b bVar = (b) j.this.cly.get(i3);
+                    b bVar = (b) j.this.cgL.get(i3);
                     if (bVar != null) {
-                        bVar.a(this.clB, j, j2, i);
+                        bVar.a(this.cgO, j, j2, i);
                     }
                     i2 = i3 + 1;
                 }
-                if (j.this.clA != null) {
-                    j.this.clA.onProgress(j, j2, i);
+                if (j.this.cgN != null) {
+                    j.this.cgN.onProgress(j, j2, i);
                 }
             }
         }
@@ -224,7 +224,7 @@ public class j {
             new Thread() { // from class: com.baidu.minivideo.arface.b.j.a.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    j.this.jM(str);
+                    j.this.iB(str);
                     a.this.k(null);
                 }
             }.start();
@@ -232,7 +232,7 @@ public class j {
         }
 
         protected void k(final Exception exc) {
-            if (j.this.cly != null && !j.this.cly.isEmpty()) {
+            if (j.this.cgL != null && !j.this.cgL.isEmpty()) {
                 final boolean isLoaded = j.this.isLoaded();
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.minivideo.arface.b.j.a.2
                     /* JADX DEBUG: Multi-variable search result rejected for r0v16, resolved type: com.baidu.minivideo.arface.b.j$b */
@@ -244,34 +244,34 @@ public class j {
                         if (isLoaded) {
                             while (true) {
                                 int i2 = i;
-                                if (i2 >= j.this.cly.size()) {
+                                if (i2 >= j.this.cgL.size()) {
                                     break;
                                 }
-                                b bVar = (b) j.this.cly.get(i2);
+                                b bVar = (b) j.this.cgL.get(i2);
                                 if (bVar != 0) {
-                                    bVar.e(a.this.clB, j.this.cld.getAbsolutePath());
+                                    bVar.e(a.this.cgO, j.this.cgq.getAbsolutePath());
                                 }
                                 i = i2 + 1;
                             }
-                            if (j.this.clA != null) {
-                                j.this.clA.onCompleted(j.this.cld.getAbsolutePath());
+                            if (j.this.cgN != null) {
+                                j.this.cgN.onCompleted(j.this.cgq.getAbsolutePath());
                                 return;
                             }
                             return;
                         }
                         while (true) {
                             int i3 = i;
-                            if (i3 >= j.this.cly.size()) {
+                            if (i3 >= j.this.cgL.size()) {
                                 break;
                             }
-                            b bVar2 = (b) j.this.cly.get(i3);
+                            b bVar2 = (b) j.this.cgL.get(i3);
                             if (bVar2 != 0) {
-                                bVar2.a(a.this.clB, exc);
+                                bVar2.a(a.this.cgO, exc);
                             }
                             i = i3 + 1;
                         }
-                        if (j.this.clA != null) {
-                            j.this.clA.onFailed(exc);
+                        if (j.this.cgN != null) {
+                            j.this.cgN.onFailed(exc);
                         }
                     }
                 });
@@ -283,14 +283,14 @@ public class j {
             if (j.this.isDebug()) {
                 d("onDownloadPaused");
             }
-            for (int i = 0; i < j.this.cly.size(); i++) {
-                b bVar = (b) j.this.cly.get(i);
+            for (int i = 0; i < j.this.cgL.size(); i++) {
+                b bVar = (b) j.this.cgL.get(i);
                 if (bVar != null) {
-                    bVar.onDownloadPaused(this.clB);
+                    bVar.onDownloadPaused(this.cgO);
                 }
             }
-            if (j.this.clA != null) {
-                j.this.clA.onDownloadPaused();
+            if (j.this.cgN != null) {
+                j.this.cgN.onDownloadPaused();
             }
             this.mIsLoading = false;
         }
@@ -300,14 +300,14 @@ public class j {
             if (j.this.isDebug()) {
                 d("onDownloadCanceled");
             }
-            for (int i = 0; i < j.this.cly.size(); i++) {
-                b bVar = (b) j.this.cly.get(i);
+            for (int i = 0; i < j.this.cgL.size(); i++) {
+                b bVar = (b) j.this.cgL.get(i);
                 if (bVar != null) {
-                    bVar.K(this.clB);
+                    bVar.K(this.cgO);
                 }
             }
-            if (j.this.clA != null) {
-                j.this.clA.onDownloadCanceled();
+            if (j.this.cgN != null) {
+                j.this.cgN.onDownloadCanceled();
             }
             this.mIsLoading = false;
         }
@@ -317,17 +317,17 @@ public class j {
             if (j.this.isDebug()) {
                 d("onFailed: " + j.this.mUrl + "\n" + (exc != null ? exc.getMessage() : ""));
             }
-            if (j.this.cle.exists()) {
-                j.this.cle.delete();
+            if (j.this.cgr.exists()) {
+                j.this.cgr.delete();
             }
-            for (int i = 0; i < j.this.cly.size(); i++) {
-                b bVar = (b) j.this.cly.get(i);
+            for (int i = 0; i < j.this.cgL.size(); i++) {
+                b bVar = (b) j.this.cgL.get(i);
                 if (bVar != null) {
-                    bVar.a(this.clB, exc);
+                    bVar.a(this.cgO, exc);
                 }
             }
-            if (j.this.clA != null) {
-                j.this.clA.onFailed(exc);
+            if (j.this.cgN != null) {
+                j.this.cgN.onFailed(exc);
             }
             this.mIsLoading = false;
         }
@@ -337,7 +337,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b<T> {
         public void J(T t) {
         }

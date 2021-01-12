@@ -3,7 +3,7 @@ package com.baidu.live.b;
 import android.app.Activity;
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, Activity activity, int i);
 

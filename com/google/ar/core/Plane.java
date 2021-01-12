@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Plane extends TrackableBase {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Plane(long j, Session session) {
@@ -24,7 +24,7 @@ public class Plane extends TrackableBase {
 
     private native boolean nativeIsPoseInPolygon(long j, long j2, h hVar);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Type {
         HORIZONTAL_UPWARD_FACING(0),
         HORIZONTAL_DOWNWARD_FACING(1),

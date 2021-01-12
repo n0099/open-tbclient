@@ -7,15 +7,15 @@ import android.os.Message;
 import android.util.SparseArray;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class t extends Handler {
-    private /* synthetic */ p AT;
+    private /* synthetic */ p AR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(p pVar, Looper looper) {
         super(looper);
-        this.AT = pVar;
+        this.AR = pVar;
     }
 
     @Override // android.os.Handler
@@ -35,42 +35,42 @@ public final class t extends Handler {
         int i3;
         SparseArray sparseArray2;
         int i4;
-        bArr = this.AT.f1071b;
+        bArr = this.AR.f1070b;
         synchronized (bArr) {
-            tencentLiteLocationListener = this.AT.Aw;
+            tencentLiteLocationListener = this.AR.Aw;
         }
         if (tencentLiteLocationListener == null) {
             return;
         }
         switch (message.what) {
             case 1001:
-                adVar3 = this.AT.AQ;
+                adVar3 = this.AR.AP;
                 if (adVar3 != null) {
-                    j3 = this.AT.x;
+                    j3 = this.AR.x;
                     if (j3 > 0 && tencentLiteLocationListener != null) {
-                        adVar4 = this.AT.AQ;
-                        i3 = this.AT.z;
+                        adVar4 = this.AR.AP;
+                        i3 = this.AR.z;
                         sparseArray2 = p.Au;
-                        i4 = this.AT.z;
+                        i4 = this.AR.z;
                         tencentLiteLocationListener.onLocationChanged(adVar4, i3, (String) sparseArray2.get(i4));
                     }
                 }
-                j = this.AT.x;
+                j = this.AR.x;
                 if (j > 0) {
-                    j2 = this.AT.x;
+                    j2 = this.AR.x;
                     sendEmptyMessageDelayed(1001, j2);
                     return;
                 }
                 return;
             case 1002:
-                adVar = this.AT.AQ;
+                adVar = this.AR.AP;
                 if (adVar == null || tencentLiteLocationListener == null) {
                     return;
                 }
-                adVar2 = this.AT.AQ;
-                i = this.AT.z;
+                adVar2 = this.AR.AP;
+                i = this.AR.z;
                 sparseArray = p.Au;
-                i2 = this.AT.z;
+                i2 = this.AR.z;
                 tencentLiteLocationListener.onLocationChanged(adVar2, i, (String) sparseArray.get(i2));
                 return;
             case 1003:

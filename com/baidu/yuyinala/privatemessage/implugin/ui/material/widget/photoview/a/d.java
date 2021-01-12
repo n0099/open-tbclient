@@ -1,11 +1,11 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a;
 
 import android.view.MotionEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void a(e eVar);
 
-    boolean eni();
+    boolean ejn();
 
     boolean isDragging();
 

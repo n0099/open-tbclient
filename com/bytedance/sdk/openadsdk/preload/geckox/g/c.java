@@ -13,22 +13,22 @@ import java.util.concurrent.atomic.AtomicLong;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Pair<FileLock, AtomicLong>> f7787a = new HashMap();
+    private static final Map<String, Pair<FileLock, AtomicLong>> f7487a = new HashMap();
 
     public static void a(String str) throws Exception {
-        synchronized (f7787a) {
-            Pair<FileLock, AtomicLong> pair = f7787a.get(str);
+        synchronized (f7487a) {
+            Pair<FileLock, AtomicLong> pair = f7487a.get(str);
             if (pair == null) {
                 pair = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
-                f7787a.put(str, pair);
+                f7487a.put(str, pair);
             }
             ((AtomicLong) pair.second).incrementAndGet();
         }
     }
 
     public static void b(String str) throws Exception {
-        synchronized (f7787a) {
-            Pair<FileLock, AtomicLong> pair = f7787a.get(str);
+        synchronized (f7487a) {
+            Pair<FileLock, AtomicLong> pair = f7487a.get(str);
             if (pair == null) {
                 throw new RuntimeException("using.lock illegal state");
             }
@@ -38,16 +38,16 @@ public class c {
             }
             if (decrementAndGet == 0) {
                 ((FileLock) pair.first).a();
-                f7787a.remove(str);
+                f7487a.remove(str);
             }
         }
     }
 
     public static void c(String str) throws Exception {
-        synchronized (f7787a) {
+        synchronized (f7487a) {
             FileLock b2 = FileLock.b(str);
             if (b2 != null) {
-                Pair<FileLock, AtomicLong> pair = f7787a.get(str);
+                Pair<FileLock, AtomicLong> pair = f7487a.get(str);
                 if (pair != null && ((AtomicLong) pair.second).get() != 0) {
                     b2.a();
                     FileLock.a(str, Process.myPid());

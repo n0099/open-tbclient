@@ -5,7 +5,7 @@ import com.kwai.filedownloader.f.f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static b a(Map<String, List<String>> map, b bVar, List<String> list) {
         int e = bVar.e();
@@ -16,7 +16,7 @@ public class d {
             if (a2 == null) {
                 throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e), bVar.c()));
             }
-            if (com.kwai.filedownloader.f.d.f11228a) {
+            if (com.kwai.filedownloader.f.d.f10928a) {
                 com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e), arrayList);
             }
             bVar.f();

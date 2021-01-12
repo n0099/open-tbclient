@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static void deleteFileOrDir(File file) {
         if (file.isDirectory()) {
             deleteDir(file);
         } else {
-            r(file);
+            q(file);
         }
     }
 
@@ -39,24 +39,24 @@ public class f {
         }
     }
 
-    public static boolean r(File file) {
+    public static boolean q(File file) {
         if (file != null && file.exists()) {
             return file.delete();
         }
         return false;
     }
 
-    public static boolean s(File file) {
+    public static boolean r(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [231=4] */
-    public static String t(File file) {
+    public static String s(File file) {
         Throwable th;
         FileInputStream fileInputStream;
         String str = null;
         try {
-            if (s(file)) {
+            if (r(file)) {
                 try {
                     fileInputStream = new FileInputStream(file);
                     try {

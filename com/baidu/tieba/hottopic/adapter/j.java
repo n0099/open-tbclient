@@ -18,35 +18,35 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.hottopic.holder.RelateTopicForumItemHolder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j extends BaseAdapter {
-    private String fgR;
-    private RelateTopicForumActivity kpl;
+    private String fci;
+    private RelateTopicForumActivity kkG;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private View.OnClickListener kpm = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.j.1
+    private View.OnClickListener kkH = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.j.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            if (j.this.kpl != null && j.this.kpl.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+            if (j.this.kkG != null && j.this.kkG.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) j.this.dataList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").dX("fid", String.valueOf(relateForumItemData.forumId)).an("obj_type", com.baidu.tieba.hottopic.data.k.kry).dX("topic_id", j.this.fgR));
+                    TiebaStatic.log(new aq("c10371").dW("fid", String.valueOf(relateForumItemData.forumId)).an("obj_type", com.baidu.tieba.hottopic.data.k.kmT).dW("topic_id", j.this.fci));
                 }
                 if (at.isForumName(relateForumItemData.forumName)) {
-                    j.this.kpl.jYX.gr(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    j.this.kkG.jUs.gq(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
     };
 
     public j(RelateTopicForumActivity relateTopicForumActivity) {
-        this.kpl = relateTopicForumActivity;
+        this.kkG = relateTopicForumActivity;
     }
 
     public void c(List<RelateForumItemData> list, String str) {
         this.dataList.clear();
         this.dataList.addAll(list);
-        this.fgR = str;
+        this.fci = str;
         notifyDataSetChanged();
     }
 
@@ -69,39 +69,39 @@ public class j extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         RelateTopicForumItemHolder relateTopicForumItemHolder;
         if (view == null) {
-            view = LayoutInflater.from(this.kpl.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.kkG.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
             RelateTopicForumItemHolder relateTopicForumItemHolder2 = new RelateTopicForumItemHolder(view);
             view.setTag(relateTopicForumItemHolder2);
-            relateTopicForumItemHolder2.ksA.setOnClickListener(this.kpm);
+            relateTopicForumItemHolder2.knV.setOnClickListener(this.kkH);
             relateTopicForumItemHolder = relateTopicForumItemHolder2;
         } else {
             relateTopicForumItemHolder = (RelateTopicForumItemHolder) view.getTag();
         }
-        relateTopicForumItemHolder.ksA.setTag(Integer.valueOf(i));
+        relateTopicForumItemHolder.knV.setTag(Integer.valueOf(i));
         if (this.dataList != null && this.dataList.get(i) != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (relateTopicForumItemHolder.akW != skinType) {
-                ao.setViewTextColor(relateTopicForumItemHolder.ksx, R.color.CAM_X0105, 1);
-                ao.setViewTextColor(relateTopicForumItemHolder.jOX, R.color.CAM_X0108, 1);
-                ao.setViewTextColor(relateTopicForumItemHolder.jOY, R.color.CAM_X0108, 1);
-                ao.setViewTextColor(relateTopicForumItemHolder.ksy, R.color.CAM_X0108, 1);
-                ao.setViewTextColor(relateTopicForumItemHolder.ksz, R.color.CAM_X0108, 1);
-                ao.setViewTextColor(relateTopicForumItemHolder.hmK, R.color.CAM_X0109, 1);
-                ao.setBackgroundResource(relateTopicForumItemHolder.ibo, R.color.CAM_X0204);
-                ao.setBackgroundResource(relateTopicForumItemHolder.ksA, R.drawable.btn_appdownload);
+            if (relateTopicForumItemHolder.akf != skinType) {
+                ao.setViewTextColor(relateTopicForumItemHolder.knS, R.color.CAM_X0105, 1);
+                ao.setViewTextColor(relateTopicForumItemHolder.jKr, R.color.CAM_X0108, 1);
+                ao.setViewTextColor(relateTopicForumItemHolder.jKs, R.color.CAM_X0108, 1);
+                ao.setViewTextColor(relateTopicForumItemHolder.knT, R.color.CAM_X0108, 1);
+                ao.setViewTextColor(relateTopicForumItemHolder.knU, R.color.CAM_X0108, 1);
+                ao.setViewTextColor(relateTopicForumItemHolder.hie, R.color.CAM_X0109, 1);
+                ao.setBackgroundResource(relateTopicForumItemHolder.hWH, R.color.CAM_X0204);
+                ao.setBackgroundResource(relateTopicForumItemHolder.knV, R.drawable.btn_appdownload);
                 ao.setBackgroundResource(view, R.drawable.list_item_selector);
-                relateTopicForumItemHolder.akW = skinType;
+                relateTopicForumItemHolder.akf = skinType;
             }
-            relateTopicForumItemHolder.ksx.setText(this.dataList.get(i).forumName);
+            relateTopicForumItemHolder.knS.setText(this.dataList.get(i).forumName);
             if (!StringUtils.isNULL(this.dataList.get(i).forumAvatar)) {
-                relateTopicForumItemHolder.ksw.startLoad(this.dataList.get(i).forumAvatar, 10, false);
+                relateTopicForumItemHolder.knR.startLoad(this.dataList.get(i).forumAvatar, 10, false);
             }
-            relateTopicForumItemHolder.jOX.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
-            relateTopicForumItemHolder.jOY.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
-            relateTopicForumItemHolder.hmK.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
-            d(relateTopicForumItemHolder.ksA, this.dataList.get(i).isLiked);
+            relateTopicForumItemHolder.jKr.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
+            relateTopicForumItemHolder.jKs.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
+            relateTopicForumItemHolder.hie.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
+            d(relateTopicForumItemHolder.knV, this.dataList.get(i).isLiked);
             if (i == this.dataList.size() - 1) {
-                dk(relateTopicForumItemHolder.ibo);
+                dk(relateTopicForumItemHolder.hWH);
             }
         }
         return view;

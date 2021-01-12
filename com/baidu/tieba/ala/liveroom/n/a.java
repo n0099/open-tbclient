@@ -7,18 +7,18 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends Dialog {
-    public InterfaceC0686a hEL;
-    public String hEM;
+    public InterfaceC0669a hAf;
+    public String hAg;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0686a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0669a {
         void onConfirm();
     }
 
-    public abstract void ez(String str, String str2);
+    public abstract void ey(String str, String str2);
 
     public abstract void initView();
 
@@ -29,16 +29,16 @@ public abstract class a extends Dialog {
 
     public void init() {
         initView();
-        JK();
+        FP();
     }
 
-    private void JK() {
+    private void FP() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        ciJ();
+        ceR();
     }
 
-    public void ciJ() {
+    public void ceR() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,11 +56,11 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0686a interfaceC0686a) {
-        this.hEL = interfaceC0686a;
+    public void a(InterfaceC0669a interfaceC0669a) {
+        this.hAf = interfaceC0669a;
     }
 
-    public String ciK() {
-        return this.hEM;
+    public String ceS() {
+        return this.hAg;
     }
 }

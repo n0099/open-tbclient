@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImBarrageItemGiftCountView extends TextView {
     public ImBarrageItemGiftCountView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);

@@ -14,7 +14,7 @@ import com.baidu.adp.lib.service.AsyncService;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j Qq;
+    private static j Qo;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static boolean mSupportWap = true;
     private long mNetChangedTime;
@@ -28,7 +28,7 @@ public class j {
     private String mProxyHost = null;
     private int mProxyPort = -1;
     private boolean isOpenNetChangedMessage = true;
-    private Runnable Qr = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
+    private Runnable Qp = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             try {
@@ -61,7 +61,7 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        Qq = null;
+        Qo = null;
     }
 
     private void getCurNetState() {
@@ -257,10 +257,10 @@ public class j {
     public static synchronized j nK() {
         j jVar;
         synchronized (j.class) {
-            if (Qq == null) {
-                Qq = new j();
+            if (Qo == null) {
+                Qo = new j();
             }
-            jVar = Qq;
+            jVar = Qo;
         }
         return jVar;
     }
@@ -272,7 +272,7 @@ public class j {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            AsyncService.INSTANCE.sendRunnable(j.nK().Qr);
+            AsyncService.INSTANCE.sendRunnable(j.nK().Qp);
         }
     }
 

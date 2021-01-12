@@ -3,19 +3,19 @@ package com.baidu.mobads.vo;
 import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3560a;
+    private int f3522a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Boolean f3561b;
+    private Boolean f3523b;
     private String c;
     private int d;
     private int e;
@@ -33,8 +33,8 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f3560a = 0;
-        this.f3561b = false;
+        this.f3522a = 0;
+        this.f3523b = false;
         this.i = -1;
         this.j = -1;
         this.p = new ArrayList<>();
@@ -42,7 +42,7 @@ public class c implements IXAdResponseInfo {
         com.baidu.mobads.c.a.c = str;
         JSONObject jSONObject = new JSONObject(str);
         try {
-            JSONArray jSONArray = jSONObject.getJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
+            JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
@@ -54,10 +54,10 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.f3560a = jSONObject.optInt("n", 0);
-        this.d = jSONObject.optInt("x", 0);
+        this.f3522a = jSONObject.optInt("n", 0);
+        this.d = jSONObject.optInt(Config.EVENT_HEAT_X, 0);
         this.e = jSONObject.optInt("y", 0);
-        this.f3561b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
+        this.f3523b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
         this.c = jSONObject.optString("u", "");
         this.f = jSONObject.optString("exp2", "{}");
         this.g = jSONObject.optString("ext_act", "{}");
@@ -83,22 +83,22 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f3560a;
+        return this.f3522a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f3560a = i;
+        this.f3522a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public Boolean getOpenPointModeForWall() {
-        return this.f3561b;
+        return this.f3523b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setOpenPointModeForWall(Boolean bool) {
-        this.f3561b = bool;
+        this.f3523b = bool;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

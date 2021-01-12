@@ -16,18 +16,18 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
-    private static final long jsb = TimeUnit.DAYS.toMillis(1);
-    private static final long jsc = TimeUnit.HOURS.toMillis(1);
-    private static final long jsd = TimeUnit.MINUTES.toMillis(1);
-    private static final long jse = TimeUnit.SECONDS.toMillis(1);
-    private TextView jsf;
-    private TextView jsg;
-    private TextView jsh;
-    private TextView jsi;
-    private TextView jsj;
-    private TextView jsk;
-    private TextView jsl;
-    private TextView jsm;
+    private static final long jnv = TimeUnit.DAYS.toMillis(1);
+    private static final long jnw = TimeUnit.HOURS.toMillis(1);
+    private static final long jnx = TimeUnit.MINUTES.toMillis(1);
+    private static final long jny = TimeUnit.SECONDS.toMillis(1);
+    private TextView jnA;
+    private TextView jnB;
+    private TextView jnC;
+    private TextView jnD;
+    private TextView jnE;
+    private TextView jnF;
+    private TextView jnG;
+    private TextView jnz;
     private Context mContext;
     private View mRootView;
     private CountDownTimer mTimer;
@@ -58,42 +58,42 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     protected void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-        this.jsf = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
-        this.jsg = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
-        this.jsh = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
-        this.jsi = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
-        this.jsj = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
-        this.jsk = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
-        this.jsl = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
-        this.jsm = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
+        this.jnz = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
+        this.jnA = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
+        this.jnB = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
+        this.jnC = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
+        this.jnD = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
+        this.jnE = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
+        this.jnF = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
+        this.jnG = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
     }
 
     public void setData(long j) {
-        ao.setViewTextColor(this.jsf, R.color.CAM_X0111);
-        ao.setViewTextColor(this.jsg, R.color.CAM_X0108);
-        ao.setBackgroundColor(this.jsf, R.color.common_color_10060);
-        ao.setViewTextColor(this.jsh, R.color.CAM_X0111);
-        ao.setViewTextColor(this.jsi, R.color.CAM_X0108);
-        ao.setBackgroundColor(this.jsh, R.color.common_color_10060);
-        ao.setViewTextColor(this.jsj, R.color.CAM_X0111);
-        ao.setViewTextColor(this.jsk, R.color.CAM_X0108);
-        ao.setBackgroundColor(this.jsj, R.color.common_color_10060);
-        ao.setViewTextColor(this.jsl, R.color.CAM_X0111);
-        ao.setViewTextColor(this.jsm, R.color.CAM_X0108);
-        ao.setBackgroundColor(this.jsl, R.color.common_color_10060);
-        if (j <= jse) {
-            this.jsf.setText("0");
-            this.jsh.setText("0");
-            this.jsj.setText("0");
-            this.jsl.setText("0");
+        ao.setViewTextColor(this.jnz, R.color.CAM_X0111);
+        ao.setViewTextColor(this.jnA, R.color.CAM_X0108);
+        ao.setBackgroundColor(this.jnz, R.color.common_color_10060);
+        ao.setViewTextColor(this.jnB, R.color.CAM_X0111);
+        ao.setViewTextColor(this.jnC, R.color.CAM_X0108);
+        ao.setBackgroundColor(this.jnB, R.color.common_color_10060);
+        ao.setViewTextColor(this.jnD, R.color.CAM_X0111);
+        ao.setViewTextColor(this.jnE, R.color.CAM_X0108);
+        ao.setBackgroundColor(this.jnD, R.color.common_color_10060);
+        ao.setViewTextColor(this.jnF, R.color.CAM_X0111);
+        ao.setViewTextColor(this.jnG, R.color.CAM_X0108);
+        ao.setBackgroundColor(this.jnF, R.color.common_color_10060);
+        if (j <= jny) {
+            this.jnz.setText("0");
+            this.jnB.setText("0");
+            this.jnD.setText("0");
+            this.jnF.setText("0");
             return;
         }
-        if (j / jsb <= 0) {
-            this.jsf.setVisibility(8);
-            this.jsg.setVisibility(8);
+        if (j / jnv <= 0) {
+            this.jnz.setVisibility(8);
+            this.jnA.setVisibility(8);
         } else {
-            this.jsf.setVisibility(0);
-            this.jsg.setVisibility(0);
+            this.jnz.setVisibility(0);
+            this.jnA.setVisibility(0);
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -114,10 +114,10 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onTick(long j) {
             FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.jsf.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.jsb)));
-                frsLotteryCountDownView.jsh.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.jsb) / FrsLotteryCountDownView.jsc)));
-                frsLotteryCountDownView.jsj.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.jsb) % FrsLotteryCountDownView.jsc) / FrsLotteryCountDownView.jsd)));
-                frsLotteryCountDownView.jsl.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.jsb) % FrsLotteryCountDownView.jsc) % FrsLotteryCountDownView.jsd) / FrsLotteryCountDownView.jse)));
+                frsLotteryCountDownView.jnz.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.jnv)));
+                frsLotteryCountDownView.jnB.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.jnv) / FrsLotteryCountDownView.jnw)));
+                frsLotteryCountDownView.jnD.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.jnv) % FrsLotteryCountDownView.jnw) / FrsLotteryCountDownView.jnx)));
+                frsLotteryCountDownView.jnF.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.jnv) % FrsLotteryCountDownView.jnw) % FrsLotteryCountDownView.jnx) / FrsLotteryCountDownView.jny)));
                 return;
             }
             e.mB().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
@@ -127,7 +127,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.jsl.setText("0");
+                frsLotteryCountDownView.jnF.setText("0");
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeCardInUser;
@@ -29,7 +28,7 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
             this.cardId = jSONObject.optLong("props_id");
             this.cardImageUrlAndroid = jSONObject.optString("img_android");
             this.cardImageUrlIos = jSONObject.optString("img_ios");
-            this.freeLevel = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
+            this.freeLevel = jSONObject.optInt("level", 0);
             this.coordinate = jSONObject.optString("coordinate");
         }
     }

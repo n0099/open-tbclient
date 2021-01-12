@@ -9,13 +9,13 @@ import org.json.JSONObject;
 public class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f11691b;
-    private com.pgl.sys.a.a.a pUy;
+    private Context f11391b;
+    private com.pgl.sys.a.a.a pPY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, com.pgl.sys.a.a.a aVar) {
-        this.pUy = aVar;
-        this.f11691b = context;
+        this.pPY = aVar;
+        this.f11391b = context;
     }
 
     @Override // java.lang.Runnable
@@ -26,17 +26,17 @@ public class b implements Runnable {
         String valueOf = String.valueOf(System.currentTimeMillis());
         try {
             str = com.pgl.a.a.a.b() + "/v1/getInfoPgl";
-            long timeInMillis = com.pgl.sys.ces.b.a().f11696a ? Calendar.getInstance().getTimeInMillis() : 0L;
-            bArr = (byte[]) com.pgl.sys.ces.a.meta(301, this.f11691b, null);
-            long timeInMillis2 = com.pgl.sys.ces.b.a().f11696a ? Calendar.getInstance().getTimeInMillis() : 0L;
-            if (com.pgl.sys.ces.b.a().f11696a) {
+            long timeInMillis = com.pgl.sys.ces.b.a().f11396a ? Calendar.getInstance().getTimeInMillis() : 0L;
+            bArr = (byte[]) com.pgl.sys.ces.a.meta(301, this.f11391b, null);
+            long timeInMillis2 = com.pgl.sys.ces.b.a().f11396a ? Calendar.getInstance().getTimeInMillis() : 0L;
+            if (com.pgl.sys.ces.b.a().f11396a) {
                 Log.d("CZL_Efficient", "[Efficient] selas : " + (timeInMillis2 - timeInMillis));
             }
         } catch (Throwable th) {
             try {
-                a.f11689a = 500;
+                a.f11389a = 500;
             } finally {
-                com.pgl.sys.ces.b.a().reportNow("SS-" + a.f11689a);
+                com.pgl.sys.ces.b.a().reportNow("SS-" + a.f11389a);
             }
         }
         if (bArr == null || bArr.length <= 0) {
@@ -55,21 +55,21 @@ public class b implements Runnable {
                 f.a((i2 + 1) * 3 * 1000);
                 i2++;
             } else if (i3 == 200) {
-                a.f11690b = true;
+                a.f11390b = true;
                 a.d = jSONObject.getString("token_id");
                 i = i3;
             } else if (i3 == 202) {
-                a.f11690b = true;
+                a.f11390b = true;
                 String string = jSONObject.getString("token_id");
                 a.d = string;
-                com.pgl.sys.ces.a.meta(302, this.f11691b, string);
+                com.pgl.sys.ces.a.meta(302, this.f11391b, string);
                 i = i3;
             }
         }
         i = i3;
-        a.f11689a = i;
-        if (this.pUy != null) {
-            this.pUy.a(a.a());
+        a.f11389a = i;
+        if (this.pPY != null) {
+            this.pPY.a(a.a());
         }
     }
 }

@@ -3,32 +3,32 @@ package com.ss.android.socialbase.appdownloader.f.a;
 public class i extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Throwable f13349a;
+    protected Throwable f13049a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected int f13350b;
+    protected int f13050b;
     protected int c;
 
     public i(String str, h hVar, Throwable th) {
         super((str == null ? "" : str + " ") + (hVar == null ? "" : "(position:" + hVar.d() + ") ") + (th == null ? "" : "caused by: " + th));
-        this.f13350b = -1;
+        this.f13050b = -1;
         this.c = -1;
         if (hVar != null) {
-            this.f13350b = hVar.c();
+            this.f13050b = hVar.c();
             this.c = hVar.f();
         }
-        this.f13349a = th;
+        this.f13049a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        if (this.f13349a == null) {
+        if (this.f13049a == null) {
             super.printStackTrace();
             return;
         }
         synchronized (System.err) {
             System.err.println(super.getMessage() + "; nested exception is:");
-            this.f13349a.printStackTrace();
+            this.f13049a.printStackTrace();
         }
     }
 }

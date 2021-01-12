@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.sofire.i.h;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

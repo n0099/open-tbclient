@@ -19,10 +19,10 @@ import java.util.Map;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5423a = "qrlogin_enter";
+    public static final String f5140a = "qrlogin_enter";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Map<String, String> f5424b = new HashMap();
+    private static final Map<String, String> f5141b = new HashMap();
     private static List<String> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,15 +30,15 @@ public final class k {
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ HttpHashMapWrap f5425a;
+        final /* synthetic */ HttpHashMapWrap f5142a;
 
         a(HttpHashMapWrap httpHashMapWrap) {
-            this.f5425a = httpHashMapWrap;
+            this.f5142a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.b(this.f5425a);
+            k.b(this.f5142a);
         }
     }
 
@@ -56,9 +56,9 @@ public final class k {
     }
 
     static {
-        f5424b.put("pid", "111");
-        f5424b.put("type", "1023");
-        f5424b.put(Config.DEVICE_PART, Build.MODEL);
+        f5141b.put("pid", "111");
+        f5141b.put("type", "1023");
+        f5141b.put(Config.DEVICE_PART, Build.MODEL);
         c = new ArrayList();
         c.add("share_read");
         c.add("share_silent_account");
@@ -77,7 +77,7 @@ public final class k {
         if (!TextUtils.isEmpty(str)) {
             try {
                 HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-                httpHashMapWrap.putAll(f5424b);
+                httpHashMapWrap.putAll(f5141b);
                 httpHashMapWrap.put("name", str);
                 httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
                 httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");

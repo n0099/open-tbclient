@@ -6,23 +6,23 @@ import android.content.ServiceConnection;
 import android.os.RemoteException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qfY;
-    public a qgk = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qbx;
+    public a qbJ = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14663b = null;
+    private String f14363b = null;
     private CountDownLatch e = new CountDownLatch(1);
     private ServiceConnection f = new e(this);
 
     private void a(boolean z) {
         try {
             if (z) {
-                this.qfY.a(this.qgk);
+                this.qbx.a(this.qbJ);
             } else {
-                this.qfY.e();
+                this.qbx.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -31,8 +31,8 @@ public final class d {
 
     public final String a() {
         try {
-            if (this.qgk != null) {
-                return this.qgk.a();
+            if (this.qbJ != null) {
+                return this.qbJ.a();
             }
         } catch (RemoteException e) {
         }
@@ -48,13 +48,13 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qfY = bVar;
+            this.qbx = bVar;
             this.d = context;
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
             if (context.bindService(intent, this.f, 1)) {
                 this.e.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qgk != null) {
+                if (this.qbJ != null) {
                     a(true);
                 } else {
                     a(false);
@@ -70,6 +70,6 @@ public final class d {
     }
 
     public final boolean b() {
-        return this.qgk != null;
+        return this.qbJ != null;
     }
 }

@@ -20,7 +20,7 @@ public class c extends Request<File> {
     private final Object e;
     @Nullable
     @GuardedBy("mLock")
-    private p.a<File> poP;
+    private p.a<File> pkk;
 
     /* loaded from: classes4.dex */
     public interface a extends p.a<File> {
@@ -30,7 +30,7 @@ public class c extends Request<File> {
     public c(String str, String str2, p.a<File> aVar) {
         super(str2, aVar);
         this.e = new Object();
-        this.poP = aVar;
+        this.pkk = aVar;
         this.c = new File(str);
         this.d = new File(str + ".tmp");
         try {
@@ -55,7 +55,7 @@ public class c extends Request<File> {
     public void cancel() {
         super.cancel();
         synchronized (this.e) {
-            this.poP = null;
+            this.pkk = null;
         }
     }
 
@@ -351,8 +351,8 @@ public class c extends Request<File> {
     }
 
     private String a(com.bytedance.sdk.adnet.core.b bVar, String str) {
-        if (bVar != null && bVar.esn() != null && !bVar.esn().isEmpty()) {
-            for (com.bytedance.sdk.adnet.core.a aVar : bVar.esn()) {
+        if (bVar != null && bVar.eot() != null && !bVar.eot().isEmpty()) {
+            for (com.bytedance.sdk.adnet.core.a aVar : bVar.eot()) {
                 if (aVar != null && TextUtils.equals(aVar.getName(), str)) {
                     return aVar.getValue();
                 }
@@ -366,10 +366,10 @@ public class c extends Request<File> {
     public void a(p<File> pVar) {
         p.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.poP;
+            aVar = this.pkk;
         }
         if (aVar != null) {
-            aVar.a(p.a(this.c, pVar.ppE));
+            aVar.a(p.a(this.c, pVar.pkY));
         }
     }
 
@@ -377,7 +377,7 @@ public class c extends Request<File> {
     protected void a(long j, long j2) {
         p.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.poP;
+            aVar = this.pkk;
         }
         if (aVar instanceof a) {
             ((a) aVar).a(j, j2);

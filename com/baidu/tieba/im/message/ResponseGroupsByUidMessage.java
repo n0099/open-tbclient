@@ -11,7 +11,7 @@ import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     private static final String CACHE_KEY_PREFIX = "p_group_info";
     private int commonGroupNum;
@@ -118,7 +118,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
             if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
-                saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.btT().Bl("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+                saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.bpZ().Aa("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
             }
         }
     }

@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<l, HomePageVideoThreadViewHolder> {
-    private BdUniqueId fJu;
-    private aa<l> iKM;
-    private com.baidu.tieba.card.l koG;
+    private BdUniqueId fEN;
+    private aa<l> iGf;
+    private com.baidu.tieba.card.l kkb;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public HomePageVideoThreadAdapter(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iKM = new aa<l>() { // from class: com.baidu.tieba.hottopic.adapter.HomePageVideoThreadAdapter.1
+        this.iGf = new aa<l>() { // from class: com.baidu.tieba.hottopic.adapter.HomePageVideoThreadAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
-                if (lVar != null && lVar.boP() != null && !StringUtils.isNull(lVar.boP().getTid()) && !StringUtils.isNull(lVar.cvp()) && HomePageVideoThreadAdapter.this.mPageContext != null && (HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
+                if (lVar != null && lVar.bkV() != null && !StringUtils.isNull(lVar.bkV().getTid()) && !StringUtils.isNull(lVar.crx()) && HomePageVideoThreadAdapter.this.mPageContext != null && (HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                     ((HotTopicActivity) HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage()).t(lVar);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.fJu = tbPageContext.getUniqueId();
+        this.fEN = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,11 +38,11 @@ public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bZ */
     public HomePageVideoThreadViewHolder e(ViewGroup viewGroup) {
-        this.koG = new com.baidu.tieba.card.l(this.mPageContext);
-        this.koG.po(false);
-        this.koG.o(this.fJu);
-        this.koG.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
-        return new HomePageVideoThreadViewHolder(this.koG);
+        this.kkb = new com.baidu.tieba.card.l(this.mPageContext);
+        this.kkb.pk(false);
+        this.kkb.o(this.fEN);
+        this.kkb.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
+        return new HomePageVideoThreadViewHolder(this.kkb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,40 +50,40 @@ public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
         if (lVar != null) {
-            lVar.yA(i + 1);
+            lVar.wT(i + 1);
             lVar.sourceType = 1;
         }
-        homePageVideoThreadViewHolder.koI.a(lVar);
-        homePageVideoThreadViewHolder.koI.c(this.iKM);
+        homePageVideoThreadViewHolder.kkd.a(lVar);
+        homePageVideoThreadViewHolder.kkd.c(this.iGf);
         if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
             this.mPageContext.getOrignalPage().s(lVar);
         }
         return homePageVideoThreadViewHolder.getView();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements com.baidu.tieba.play.e {
-        public com.baidu.tieba.card.l koI;
+        public com.baidu.tieba.card.l kkd;
 
         public HomePageVideoThreadViewHolder(com.baidu.tieba.card.l lVar) {
             super(lVar.getView());
-            this.koI = lVar;
+            this.kkd = lVar;
         }
 
         @Override // com.baidu.tieba.play.e
         public boolean isPlayStarted() {
-            if (this.koI == null) {
+            if (this.kkd == null) {
                 return false;
             }
-            return this.koI.isPlayStarted();
+            return this.kkd.isPlayStarted();
         }
 
         @Override // com.baidu.tieba.play.e
         public boolean isPlaying() {
-            if (this.koI == null) {
+            if (this.kkd == null) {
                 return false;
             }
-            return this.koI.isPlaying();
+            return this.kkd.isPlaying();
         }
 
         @Override // com.baidu.tieba.play.e
@@ -93,40 +93,40 @@ public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<
 
         @Override // com.baidu.tieba.play.e
         public void startPlay() {
-            if (this.koI != null) {
-                this.koI.startPlay();
+            if (this.kkd != null) {
+                this.kkd.startPlay();
             }
         }
 
         @Override // com.baidu.tieba.play.e
         public void stopPlay() {
-            if (this.koI != null) {
-                this.koI.stopPlay();
+            if (this.kkd != null) {
+                this.kkd.stopPlay();
             }
         }
 
         @Override // com.baidu.tieba.play.e
         public View getVideoContainer() {
-            if (this.koI == null) {
+            if (this.kkd == null) {
                 return null;
             }
-            return this.koI.getVideoContainer();
+            return this.kkd.getVideoContainer();
         }
 
         @Override // com.baidu.tieba.play.e
         public String getPlayUrl() {
-            if (this.koI == null) {
+            if (this.kkd == null) {
                 return null;
             }
-            return this.koI.getPlayUrl();
+            return this.kkd.getPlayUrl();
         }
 
         @Override // com.baidu.tieba.play.e
         public int getCurrentPosition() {
-            if (this.koI == null) {
+            if (this.kkd == null) {
                 return 0;
             }
-            return this.koI.getCurrentPosition();
+            return this.kkd.getCurrentPosition();
         }
     }
 }

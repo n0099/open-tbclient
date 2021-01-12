@@ -3,7 +3,7 @@ package com.baidu.swan.videoplayer;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class d {
     public static boolean bo(View view) {
         if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {

@@ -3,16 +3,16 @@ package com.kwai.video.ksvodplayerkit.HttpDns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements Comparable<a> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f11325a;
+    public final String f11025a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f11326b;
+    public final String f11026b;
     @Nullable
     public final f c;
     @Nullable
@@ -25,15 +25,15 @@ public class a implements Comparable<a> {
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable f fVar, Map<String, String> map) {
-        this.f11325a = str;
-        this.f11326b = str2;
+        this.f11025a = str;
+        this.f11026b = str2;
         this.c = fVar;
         this.d = map;
     }
 
     public a(@NonNull String str, @NonNull String str2, @NonNull String str3, @Nullable f fVar) {
-        this.f11325a = str;
-        this.f11326b = str3;
+        this.f11025a = str;
+        this.f11026b = str3;
         this.c = fVar;
         this.e = str2;
         this.d = null;
@@ -55,7 +55,7 @@ public class a implements Comparable<a> {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.f11326b != null ? this.f11326b.equals(aVar.f11326b) : aVar.f11326b == null;
+            return this.f11026b != null ? this.f11026b.equals(aVar.f11026b) : aVar.f11026b == null;
         }
         return false;
     }

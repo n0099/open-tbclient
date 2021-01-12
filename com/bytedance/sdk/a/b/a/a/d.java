@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public final class d implements Closeable, Flushable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Pattern f6156a;
+    static final Pattern f5856a;
     static final /* synthetic */ boolean j;
     final int c;
     int f;
@@ -22,92 +22,92 @@ public final class d implements Closeable, Flushable {
     private long l;
     private long m;
     private final Runnable o;
-    final com.bytedance.sdk.a.b.a.f.a piC;
-    final LinkedHashMap<String, b> piD;
-    private final Executor piE;
-    com.bytedance.sdk.a.a.d piu;
+    com.bytedance.sdk.a.a.d pdP;
+    final com.bytedance.sdk.a.b.a.f.a pdX;
+    final LinkedHashMap<String, b> pdY;
+    private final Executor pdZ;
 
     static {
         j = !d.class.desiredAssertionStatus();
-        f6156a = Pattern.compile("[a-z0-9_-]{1,120}");
+        f5856a = Pattern.compile("[a-z0-9_-]{1,120}");
     }
 
     synchronized void a(a aVar, boolean z) throws IOException {
         synchronized (this) {
-            b bVar = aVar.piF;
-            if (bVar.piK != aVar) {
+            b bVar = aVar.pea;
+            if (bVar.pef != aVar) {
                 throw new IllegalStateException();
             }
             if (z && !bVar.e) {
                 for (int i = 0; i < this.c; i++) {
-                    if (!aVar.piG[i]) {
+                    if (!aVar.peb[i]) {
                         aVar.b();
                         throw new IllegalStateException("Newly created entry didn't create value for index " + i);
-                    } else if (!this.piC.b(bVar.piJ[i])) {
+                    } else if (!this.pdX.b(bVar.pee[i])) {
                         aVar.b();
                         break;
                     }
                 }
             }
             for (int i2 = 0; i2 < this.c; i2++) {
-                File file = bVar.piJ[i2];
+                File file = bVar.pee[i2];
                 if (z) {
-                    if (this.piC.b(file)) {
-                        File file2 = bVar.piI[i2];
-                        this.piC.a(file, file2);
-                        long j2 = bVar.phA[i2];
-                        long am = this.piC.am(file2);
-                        bVar.phA[i2] = am;
-                        this.l = (this.l - j2) + am;
+                    if (this.pdX.b(file)) {
+                        File file2 = bVar.ped[i2];
+                        this.pdX.a(file, file2);
+                        long j2 = bVar.pcY[i2];
+                        long al = this.pdX.al(file2);
+                        bVar.pcY[i2] = al;
+                        this.l = (this.l - j2) + al;
                     }
                 } else {
-                    this.piC.a(file);
+                    this.pdX.a(file);
                 }
             }
             this.f++;
-            bVar.piK = null;
+            bVar.pef = null;
             if (bVar.e | z) {
                 bVar.e = true;
-                this.piu.YG("CLEAN").PM(32);
-                this.piu.YG(bVar.f6157a);
-                bVar.a(this.piu);
-                this.piu.PM(10);
+                this.pdP.Xy("CLEAN").Of(32);
+                this.pdP.Xy(bVar.f5857a);
+                bVar.a(this.pdP);
+                this.pdP.Of(10);
                 if (z) {
                     long j3 = this.m;
                     this.m = 1 + j3;
                     bVar.g = j3;
                 }
             } else {
-                this.piD.remove(bVar.f6157a);
-                this.piu.YG("REMOVE").PM(32);
-                this.piu.YG(bVar.f6157a);
-                this.piu.PM(10);
+                this.pdY.remove(bVar.f5857a);
+                this.pdP.Xy("REMOVE").Of(32);
+                this.pdP.Xy(bVar.f5857a);
+                this.pdP.Of(10);
             }
-            this.piu.flush();
+            this.pdP.flush();
             if (this.l > this.k || a()) {
-                this.piE.execute(this.o);
+                this.pdZ.execute(this.o);
             }
         }
     }
 
     boolean a() {
-        return this.f >= 2000 && this.f >= this.piD.size();
+        return this.f >= 2000 && this.f >= this.pdY.size();
     }
 
     boolean a(b bVar) throws IOException {
-        if (bVar.piK != null) {
-            bVar.piK.a();
+        if (bVar.pef != null) {
+            bVar.pef.a();
         }
         for (int i = 0; i < this.c; i++) {
-            this.piC.a(bVar.piI[i]);
-            this.l -= bVar.phA[i];
-            bVar.phA[i] = 0;
+            this.pdX.a(bVar.ped[i]);
+            this.l -= bVar.pcY[i];
+            bVar.pcY[i] = 0;
         }
         this.f++;
-        this.piu.YG("REMOVE").PM(32).YG(bVar.f6157a).PM(10);
-        this.piD.remove(bVar.f6157a);
+        this.pdP.Xy("REMOVE").Of(32).Xy(bVar.f5857a).Of(10);
+        this.pdY.remove(bVar.f5857a);
         if (a()) {
-            this.piE.execute(this.o);
+            this.pdZ.execute(this.o);
             return true;
         }
         return true;
@@ -128,7 +128,7 @@ public final class d implements Closeable, Flushable {
         if (this.g) {
             d();
             c();
-            this.piu.flush();
+            this.pdP.flush();
         }
     }
 
@@ -138,21 +138,21 @@ public final class d implements Closeable, Flushable {
         if (!this.g || this.h) {
             this.h = true;
         } else {
-            for (b bVar : (b[]) this.piD.values().toArray(new b[this.piD.size()])) {
-                if (bVar.piK != null) {
-                    bVar.piK.b();
+            for (b bVar : (b[]) this.pdY.values().toArray(new b[this.pdY.size()])) {
+                if (bVar.pef != null) {
+                    bVar.pef.b();
                 }
             }
             c();
-            this.piu.close();
-            this.piu = null;
+            this.pdP.close();
+            this.pdP = null;
             this.h = true;
         }
     }
 
     void c() throws IOException {
         while (this.l > this.k) {
-            a(this.piD.values().iterator().next());
+            a(this.pdY.values().iterator().next());
         }
         this.i = false;
     }
@@ -160,29 +160,29 @@ public final class d implements Closeable, Flushable {
     /* loaded from: classes4.dex */
     public final class a {
         private boolean d;
-        final b piF;
-        final boolean[] piG;
-        final /* synthetic */ d piH;
+        final b pea;
+        final boolean[] peb;
+        final /* synthetic */ d pec;
 
         void a() {
-            if (this.piF.piK == this) {
-                for (int i = 0; i < this.piH.c; i++) {
+            if (this.pea.pef == this) {
+                for (int i = 0; i < this.pec.c; i++) {
                     try {
-                        this.piH.piC.a(this.piF.piJ[i]);
+                        this.pec.pdX.a(this.pea.pee[i]);
                     } catch (IOException e) {
                     }
                 }
-                this.piF.piK = null;
+                this.pea.pef = null;
             }
         }
 
         public void b() throws IOException {
-            synchronized (this.piH) {
+            synchronized (this.pec) {
                 if (this.d) {
                     throw new IllegalStateException();
                 }
-                if (this.piF.piK == this) {
-                    this.piH.a(this, false);
+                if (this.pea.pef == this) {
+                    this.pec.a(this, false);
                 }
                 this.d = true;
             }
@@ -194,17 +194,17 @@ public final class d implements Closeable, Flushable {
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6157a;
+        final String f5857a;
         boolean e;
         long g;
-        final long[] phA;
-        final File[] piI;
-        final File[] piJ;
-        a piK;
+        final long[] pcY;
+        final File[] ped;
+        final File[] pee;
+        a pef;
 
         void a(com.bytedance.sdk.a.a.d dVar) throws IOException {
-            for (long j : this.phA) {
-                dVar.PM(32).il(j);
+            for (long j : this.pcY) {
+                dVar.Of(32).il(j);
             }
         }
     }

@@ -6,14 +6,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
     /* JADX WARN: Removed duplicated region for block: B:50:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String v(File file) {
+    public static String u(File file) {
         Exception exc;
         FileInputStream fileInputStream;
         int read;
@@ -36,7 +36,7 @@ public class h {
                         messageDigest.update(bArr, 0, read);
                     } catch (Exception e) {
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
+                        if (com.baidu.prologue.a.b.a.cop.get().acv()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {
@@ -51,17 +51,17 @@ public class h {
                         return "";
                     }
                 } while (read > 0);
-                String E = E(messageDigest.digest());
+                String D = D(messageDigest.digest());
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                        return E;
+                        return D;
                     } catch (IOException e3) {
                         e3.printStackTrace();
-                        return E;
+                        return D;
                     }
                 }
-                return E;
+                return D;
             } catch (Throwable th) {
                 th = th;
                 if (0 != 0) {
@@ -84,7 +84,7 @@ public class h {
         }
     }
 
-    public static String E(byte[] bArr) {
+    public static String D(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b2 : bArr) {

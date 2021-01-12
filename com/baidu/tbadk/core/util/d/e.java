@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.util.av;
 import java.io.File;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.e.e<a> {
-    private final n ffk = new n();
+    private final n faB = new n();
 
     public e() {
-        this.ffk.jS(true);
+        this.faB.jO(true);
     }
 
     @Override // com.baidu.adp.lib.e.e
@@ -25,7 +25,7 @@ public class e implements com.baidu.adp.lib.e.e<a> {
         return null;
     }
 
-    private void bwQ() {
+    private void bsW() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.setSubFolder(true);
@@ -48,8 +48,8 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: e */
     public a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bwQ();
-        com.baidu.adp.widget.ImageView.a a2 = this.ffk.a(str, str2, i, i2, bVar, objArr);
+        bsW();
+        com.baidu.adp.widget.ImageView.a a2 = this.faB.a(str, str2, i, i2, bVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.lh().b(a3) && a3.getFileInfo() != null) {
@@ -63,8 +63,8 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: f */
     public a b(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bwQ();
-        com.baidu.adp.widget.ImageView.a b2 = this.ffk.b(str, str2, i, i2, bVar, objArr);
+        bsW();
+        com.baidu.adp.widget.ImageView.a b2 = this.faB.b(str, str2, i, i2, bVar, objArr);
         if (b2 != null && b2.getByteData() != null) {
             DiskFileOperate a2 = a(b2, str2);
             if (com.baidu.adp.lib.Disk.d.lh().b(a2) && a2.getFileInfo() != null) {
@@ -76,17 +76,17 @@ public class e implements com.baidu.adp.lib.e.e<a> {
 
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
-        this.ffk.a(str, obj, i, i2, objArr);
+        this.faB.a(str, obj, i, i2, objArr);
     }
 
     @Override // com.baidu.adp.lib.e.e
     public BdAsyncTaskParallel mz() {
-        return this.ffk.mz();
+        return this.faB.mz();
     }
 
     @Override // com.baidu.adp.lib.e.e
     public int mA() {
-        return this.ffk.mA();
+        return this.faB.mA();
     }
 
     /* loaded from: classes.dex */
@@ -103,11 +103,11 @@ public class e implements com.baidu.adp.lib.e.e<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public com.baidu.adp.widget.ImageView.a ffl;
+        public com.baidu.adp.widget.ImageView.a faC;
         public String path;
 
         public a(com.baidu.adp.widget.ImageView.a aVar, String str) {
-            this.ffl = aVar;
+            this.faC = aVar;
             this.path = str;
         }
     }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.mobstat.MtjConfig;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ar {
     public static void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         at.a().a(feedTrackStrategy);

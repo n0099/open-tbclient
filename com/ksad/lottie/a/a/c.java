@@ -8,14 +8,14 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class c implements d, l, a.InterfaceC1078a {
+/* loaded from: classes4.dex */
+public class c implements d, l, a.InterfaceC1061a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Matrix f8233a;
+    private final Matrix f7933a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Path f8234b;
+    private final Path f7934b;
     private final RectF c;
     private final String d;
     private final List<b> e;
@@ -31,8 +31,8 @@ public class c implements d, l, a.InterfaceC1078a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, String str, List<b> list, @Nullable com.ksad.lottie.model.a.l lVar) {
-        this.f8233a = new Matrix();
-        this.f8234b = new Path();
+        this.f7933a = new Matrix();
+        this.f7934b = new Path();
         this.c = new RectF();
         this.d = str;
         this.f = fVar;
@@ -86,37 +86,37 @@ public class c implements d, l, a.InterfaceC1078a {
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1061a
     public void a() {
         this.f.invalidateSelf();
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.f8233a.set(matrix);
+        this.f7933a.set(matrix);
         if (this.h != null) {
-            this.f8233a.preConcat(this.h.d());
+            this.f7933a.preConcat(this.h.d());
             i = (int) ((((this.h.a().e().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.e.size() - 1; size >= 0; size--) {
             b bVar = this.e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).a(canvas, this.f8233a, i);
+                ((d) bVar).a(canvas, this.f7933a, i);
             }
         }
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.f8233a.set(matrix);
+        this.f7933a.set(matrix);
         if (this.h != null) {
-            this.f8233a.preConcat(this.h.d());
+            this.f7933a.preConcat(this.h.d());
         }
         this.c.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.e.size() - 1; size >= 0; size--) {
             b bVar = this.e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).a(this.c, this.f8233a);
+                ((d) bVar).a(this.c, this.f7933a);
                 if (rectF.isEmpty()) {
                     rectF.set(this.c);
                 } else {
@@ -162,23 +162,23 @@ public class c implements d, l, a.InterfaceC1078a {
         if (this.h != null) {
             return this.h.d();
         }
-        this.f8233a.reset();
-        return this.f8233a;
+        this.f7933a.reset();
+        return this.f7933a;
     }
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        this.f8233a.reset();
+        this.f7933a.reset();
         if (this.h != null) {
-            this.f8233a.set(this.h.d());
+            this.f7933a.set(this.h.d());
         }
-        this.f8234b.reset();
+        this.f7934b.reset();
         for (int size = this.e.size() - 1; size >= 0; size--) {
             b bVar = this.e.get(size);
             if (bVar instanceof l) {
-                this.f8234b.addPath(((l) bVar).d(), this.f8233a);
+                this.f7934b.addPath(((l) bVar).d(), this.f7933a);
             }
         }
-        return this.f8234b;
+        return this.f7934b;
     }
 }

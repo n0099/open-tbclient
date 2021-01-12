@@ -24,8 +24,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import protobuf.NewpushGroupRepair;
 /* loaded from: classes.dex */
 public class a {
-    private static a kHe = null;
-    private final CustomMessageListener kGi = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.a.3
+    private static a kCz = null;
+    private final CustomMessageListener kBD = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,31 +34,31 @@ public class a {
             }
         }
     };
-    private Handler kHf;
-    private ConcurrentHashMap<Long, GroupMsgData> kHg;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> kHh;
-    private ConcurrentHashMap<Long, Runnable> kHi;
-    private Vector<Long> kHj;
+    private Handler kCA;
+    private ConcurrentHashMap<Long, GroupMsgData> kCB;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> kCC;
+    private ConcurrentHashMap<Long, Runnable> kCD;
+    private Vector<Long> kCE;
     private Handler mHandler;
 
-    public static a cZk() {
-        if (kHe == null) {
+    public static a cVs() {
+        if (kCz == null) {
             synchronized (a.class) {
-                if (kHe == null) {
-                    kHe = new a();
+                if (kCz == null) {
+                    kCz = new a();
                 }
             }
         }
-        return kHe;
+        return kCz;
     }
 
     private a() {
         this.mHandler = null;
-        this.kHf = null;
-        this.kHg = null;
-        this.kHh = null;
-        this.kHi = null;
-        this.kHj = null;
+        this.kCA = null;
+        this.kCB = null;
+        this.kCC = null;
+        this.kCD = null;
+        this.kCE = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.im.push.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -67,11 +67,11 @@ public class a {
                         MessageUtils.updateGroupNotExist(message.getData());
                         return;
                     case 10002:
-                        MessageManager.getInstance().registerListener(a.this.kGi);
+                        MessageManager.getInstance().registerListener(a.this.kBD);
                         return;
                     case 10003:
                         if (message.getData() != null && message.getData().containsKey(TbEnum.SystemMessage.KEY_GROUP_ID)) {
-                            a.this.kHj.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
+                            a.this.kCE.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
                             return;
                         }
                         return;
@@ -80,11 +80,11 @@ public class a {
                 }
             }
         };
-        this.kHf = new Handler(Looper.myLooper());
-        this.kHg = new ConcurrentHashMap<>();
-        this.kHh = new ConcurrentHashMap<>();
-        this.kHi = new ConcurrentHashMap<>();
-        this.kHj = new Vector<>();
+        this.kCA = new Handler(Looper.myLooper());
+        this.kCB = new ConcurrentHashMap<>();
+        this.kCC = new ConcurrentHashMap<>();
+        this.kCD = new ConcurrentHashMap<>();
+        this.kCE = new Vector<>();
         this.mHandler.sendEmptyMessage(10002);
     }
 
@@ -93,9 +93,9 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo bo = j.cXx().bo(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo bo = j.cTF().bo(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(bo != null)) {
-                if (!this.kHj.contains(Long.valueOf(groupId))) {
+                if (!this.kCE.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
@@ -103,10 +103,10 @@ public class a {
             }
             long sid = bo.getSid();
             long gZ = com.baidu.tieba.im.util.b.gZ(bo.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.kHg.get(Long.valueOf(groupId));
+            GroupMsgData groupMsgData3 = this.kCB.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.kHg.put(Long.valueOf(groupId), groupMsgData4);
+                this.kCB.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -130,9 +130,9 @@ public class a {
                 }
             }
             if (z) {
-                this.kHj.remove(Long.valueOf(groupId));
+                this.kCE.remove(Long.valueOf(groupId));
             }
-            if (!this.kHj.contains(Long.valueOf(groupId))) {
+            if (!this.kCE.contains(Long.valueOf(groupId))) {
                 a(sid, groupId, groupMsgData.getGroupInfo().getUserType(), gZ);
             }
         }
@@ -144,7 +144,7 @@ public class a {
             bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.kHh.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.kCC.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -152,13 +152,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.kHj.add(Long.valueOf(j));
+            this.kCE.add(Long.valueOf(j));
             gR(j);
         }
     }
 
     private List<ChatMessage> gQ(long j) {
-        GroupMsgData groupMsgData = this.kHg.get(Long.valueOf(j));
+        GroupMsgData groupMsgData = this.kCB.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -186,12 +186,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.kHg.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.kCB.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
                 gT(j2);
-            } else if (!this.kHi.containsKey(Long.valueOf(j2))) {
+            } else if (!this.kCD.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -201,7 +201,7 @@ public class a {
         Runnable runnable = new Runnable() { // from class: com.baidu.tieba.im.push.a.2
             @Override // java.lang.Runnable
             public void run() {
-                GroupMsgData groupMsgData = (GroupMsgData) a.this.kHg.get(Long.valueOf(j2));
+                GroupMsgData groupMsgData = (GroupMsgData) a.this.kCB.get(Long.valueOf(j2));
                 if (groupMsgData == null) {
                     a.this.gT(j2);
                     return;
@@ -225,15 +225,15 @@ public class a {
                 long j5 = j4;
                 a.this.gT(j2);
                 if (j5 > j) {
-                    a.this.kHh.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
-                    com.baidu.tieba.im.a.b.cYU().c(j2, 1L, 0L, true);
-                    a.this.kHj.add(Long.valueOf(j2));
+                    a.this.kCC.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
+                    com.baidu.tieba.im.a.b.cVc().c(j2, 1L, 0L, true);
+                    a.this.kCE.add(Long.valueOf(j2));
                     a.this.gR(j2);
                 }
             }
         };
-        this.kHf.postDelayed(runnable, b.cZl().lc().getTimeOutAuto());
-        this.kHi.put(Long.valueOf(j2), runnable);
+        this.kCA.postDelayed(runnable, b.cVt().lc().getTimeOutAuto());
+        this.kCD.put(Long.valueOf(j2), runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,17 +247,17 @@ public class a {
     }
 
     public NewpushGroupRepair gS(long j) {
-        if (this.kHh.containsKey(Long.valueOf(j))) {
-            return this.kHh.remove(Long.valueOf(j));
+        if (this.kCC.containsKey(Long.valueOf(j))) {
+            return this.kCC.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gT(long j) {
-        Runnable remove = this.kHi.remove(Long.valueOf(j));
+        Runnable remove = this.kCD.remove(Long.valueOf(j));
         if (remove != null) {
-            this.kHf.removeCallbacks(remove);
+            this.kCA.removeCallbacks(remove);
         }
     }
 
@@ -291,20 +291,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.kHf != null) {
-            this.kHf.removeCallbacksAndMessages(null);
+        if (this.kCA != null) {
+            this.kCA.removeCallbacksAndMessages(null);
         }
-        if (this.kHi != null) {
-            for (Map.Entry<Long, Runnable> entry : this.kHi.entrySet()) {
+        if (this.kCD != null) {
+            for (Map.Entry<Long, Runnable> entry : this.kCD.entrySet()) {
                 gT(entry.getKey().longValue());
             }
-            this.kHi.clear();
+            this.kCD.clear();
         }
-        if (this.kHg != null) {
-            this.kHg.clear();
+        if (this.kCB != null) {
+            this.kCB.clear();
         }
-        if (this.kHj != null) {
-            this.kHj.clear();
+        if (this.kCE != null) {
+            this.kCE.clear();
         }
     }
 }

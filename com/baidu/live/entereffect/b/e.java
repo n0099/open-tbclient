@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private com.baidu.live.im.data.b aWA;
-    private List<com.baidu.live.im.data.b> aWz;
+    private List<com.baidu.live.im.data.b> aRM;
+    private com.baidu.live.im.data.b aRN;
 
-    public static e FQ() {
-        return a.aWC;
+    public static e BV() {
+        return a.aRP;
     }
 
     public void j(com.baidu.live.im.data.b bVar) {
-        if (this.aWz == null) {
-            this.aWz = new ArrayList();
+        if (this.aRM == null) {
+            this.aRM = new ArrayList();
         }
-        if (k(bVar) || this.aWz.size() < com.baidu.live.af.a.SE().bwi.aOT) {
-            this.aWz.add(bVar);
+        if (k(bVar) || this.aRM.size() < com.baidu.live.af.a.OJ().bru.aKg) {
+            this.aRM.add(bVar);
         }
     }
 
@@ -27,38 +27,38 @@ public class e {
     }
 
     public boolean hasMsg() {
-        return (this.aWz == null || this.aWz.isEmpty()) ? false : true;
+        return (this.aRM == null || this.aRM.isEmpty()) ? false : true;
     }
 
-    public boolean FM() {
-        return this.aWA != null;
+    public boolean BR() {
+        return this.aRN != null;
     }
 
-    public com.baidu.live.im.data.b FN() {
+    public com.baidu.live.im.data.b BS() {
         if (hasMsg()) {
-            this.aWA = this.aWz.remove(0);
+            this.aRN = this.aRM.remove(0);
         } else {
-            this.aWA = null;
+            this.aRN = null;
         }
-        return this.aWA;
+        return this.aRN;
     }
 
-    public com.baidu.live.im.data.b FO() {
-        return this.aWA;
+    public com.baidu.live.im.data.b BT() {
+        return this.aRN;
     }
 
     public void release() {
-        this.aWA = null;
-        if (this.aWz != null) {
-            this.aWz.clear();
+        this.aRN = null;
+        if (this.aRM != null) {
+            this.aRM.clear();
         }
     }
 
     private e() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static final e aWC = new e();
+        private static final e aRP = new e();
     }
 }

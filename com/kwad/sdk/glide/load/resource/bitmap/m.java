@@ -6,15 +6,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m implements com.kwad.sdk.glide.load.h<Drawable> {
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.h<Bitmap> f10586b;
+    private final com.kwad.sdk.glide.load.h<Bitmap> f10286b;
     private final boolean c;
 
     public m(com.kwad.sdk.glide.load.h<Bitmap> hVar, boolean z) {
-        this.f10586b = hVar;
+        this.f10286b = hVar;
         this.c = z;
     }
 
@@ -34,7 +34,7 @@ public class m implements com.kwad.sdk.glide.load.h<Drawable> {
             }
             return sVar;
         }
-        com.kwad.sdk.glide.load.engine.s<Bitmap> a4 = this.f10586b.a(context, a3, i, i2);
+        com.kwad.sdk.glide.load.engine.s<Bitmap> a4 = this.f10286b.a(context, a3, i, i2);
         if (a4.equals(a3)) {
             a4.d_();
             return sVar;
@@ -48,19 +48,19 @@ public class m implements com.kwad.sdk.glide.load.h<Drawable> {
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        this.f10586b.a(messageDigest);
+        this.f10286b.a(messageDigest);
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof m) {
-            return this.f10586b.equals(((m) obj).f10586b);
+            return this.f10286b.equals(((m) obj).f10286b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.f10586b.hashCode();
+        return this.f10286b.hashCode();
     }
 }

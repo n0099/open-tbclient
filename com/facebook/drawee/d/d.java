@@ -3,9 +3,9 @@ package com.facebook.drawee.d;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface d {
-    d Y(Uri uri);
+    d V(Uri uri);
 
     d bp(Object obj);
 
@@ -13,5 +13,5 @@ public interface d {
 
     d c(@Nullable a aVar);
 
-    a evG();
+    a erN();
 }

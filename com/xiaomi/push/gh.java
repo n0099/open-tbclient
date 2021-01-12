@@ -8,28 +8,28 @@ import java.util.Map;
 public class gh extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f14345a;
+    private a f14045a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f470a;
+    private final Map<String, String> f469a;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f14346a = new a("get");
+        public static final a f14046a = new a("get");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f14347b = new a("set");
+        public static final a f14047b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f471a;
+        private String f470a;
 
         private a(String str) {
-            this.f471a = str;
+            this.f470a = str;
         }
 
         public static a a(String str) {
@@ -37,11 +37,11 @@ public class gh extends gj {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (f14346a.toString().equals(lowerCase)) {
-                return f14346a;
+            if (f14046a.toString().equals(lowerCase)) {
+                return f14046a;
             }
-            if (f14347b.toString().equals(lowerCase)) {
-                return f14347b;
+            if (f14047b.toString().equals(lowerCase)) {
+                return f14047b;
             }
             if (d.toString().equals(lowerCase)) {
                 return d;
@@ -56,36 +56,36 @@ public class gh extends gj {
         }
 
         public String toString() {
-            return this.f471a;
+            return this.f470a;
         }
     }
 
     public gh() {
-        this.f14345a = a.f14346a;
-        this.f470a = new HashMap();
+        this.f14045a = a.f14046a;
+        this.f469a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
-        this.f14345a = a.f14346a;
-        this.f470a = new HashMap();
+        this.f14045a = a.f14046a;
+        this.f469a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f14345a = a.a(bundle.getString("ext_iq_type"));
+            this.f14045a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.f14345a != null) {
-            a2.putString("ext_iq_type", this.f14345a.toString());
+        if (this.f14045a != null) {
+            a2.putString("ext_iq_type", this.f14045a.toString());
         }
         return a2;
     }
 
     @Override // com.xiaomi.push.gj
     public a a() {
-        return this.f14345a;
+        return this.f14045a;
     }
 
     @Override // com.xiaomi.push.gj
@@ -104,11 +104,11 @@ public class gh extends gj {
         if (k() != null) {
             sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f470a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f469a.entrySet()) {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        if (this.f14345a == null) {
+        if (this.f14045a == null) {
             sb.append("type=\"get\">");
         } else {
             sb.append("type=\"").append(a()).append("\">");
@@ -120,7 +120,7 @@ public class gh extends gj {
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m348a());
+            sb.append(a2.m344a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -128,14 +128,14 @@ public class gh extends gj {
 
     public void a(a aVar) {
         if (aVar == null) {
-            this.f14345a = a.f14346a;
+            this.f14045a = a.f14046a;
         } else {
-            this.f14345a = aVar;
+            this.f14045a = aVar;
         }
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f470a.putAll(map);
+        this.f469a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gj

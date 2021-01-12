@@ -7,18 +7,18 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class r extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1074a = 0;
+    private long f1073a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ p f1075b;
+    private /* synthetic */ p f1074b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.f1075b = pVar;
+        this.f1074b = pVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -34,7 +34,7 @@ public final class r extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
             StringBuilder sb = new StringBuilder("Network:");
-            wVar = this.f1075b.AA;
+            wVar = this.f1074b.AA;
             String sb2 = sb.append(wVar.d()).toString();
             if (booleanExtra) {
                 new StringBuilder().append(sb2).append(" not found");
@@ -46,10 +46,10 @@ public final class r extends BroadcastReceiver {
             }
             new StringBuilder().append(sb2).append(" connected");
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f1074a > 1000) {
-                sVar = this.f1075b.Ay;
+            if (currentTimeMillis - this.f1073a > 1000) {
+                sVar = this.f1074b.Ay;
                 p.a(sVar, 2001, null, 1000L);
-                this.f1074a = currentTimeMillis;
+                this.f1073a = currentTimeMillis;
             }
         } catch (Throwable th) {
         }

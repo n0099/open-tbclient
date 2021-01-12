@@ -17,15 +17,15 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i extends aa {
-    private final int dWA;
-    private final String dWB;
+    private final int dRO;
+    private final String dRP;
 
     public i(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.dWA = 10008;
-        this.dWB = "app not installed";
+        this.dRO = 10008;
+        this.dRP = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -45,11 +45,11 @@ public class i extends aa {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int vv = vv(optString2);
+        int uk = uk(optString2);
         final b.a aVar = new b.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", vv);
-        eVar.aMx().b(context, "mapp_i_login", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.1
+        bundle.putInt("key_login_mode", uk);
+        eVar.aID().b(context, "mapp_i_login", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -72,16 +72,16 @@ public class i extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.runtime.e eVar, Activity activity, final b.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        eVar.aMx().a(activity, aVar, bundle, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<f.c>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.2
+        eVar.aID().a(activity, aVar, bundle, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<f.c>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
             public void L(com.baidu.swan.apps.setting.oauth.h<f.c> hVar) {
                 if (!hVar.isOk()) {
                     com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", hVar.getErrorCode() + " " + aVar.toString());
-                    String hR = com.baidu.swan.apps.setting.oauth.c.hR(hVar.getErrorCode());
-                    if (!TextUtils.isEmpty(hR)) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), hR).toString());
+                    String gk = com.baidu.swan.apps.setting.oauth.c.gk(hVar.getErrorCode());
+                    if (!TextUtils.isEmpty(gk)) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), gk).toString());
                     } else {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                     }
@@ -103,7 +103,7 @@ public class i extends aa {
         });
     }
 
-    private int vv(String str) {
+    private int uk(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

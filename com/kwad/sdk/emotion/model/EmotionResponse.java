@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final String KEY_EMOTION_RESPONSE_LIST = "emotionPackageList";
     private static final long serialVersionUID = -5365732599060399342L;

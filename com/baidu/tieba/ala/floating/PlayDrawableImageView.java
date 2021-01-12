@@ -7,31 +7,31 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.floating.PlayDrawable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PlayDrawableImageView extends ImageView {
-    private PlayDrawable gWs;
+    private PlayDrawable gRM;
 
     public PlayDrawableImageView(Context context) {
         super(context);
-        this.gWs = null;
+        this.gRM = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gWs = null;
+        this.gRM = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gWs = null;
+        this.gRM = null;
         init();
     }
 
     private void init() {
-        this.gWs = new PlayDrawable();
-        setImageDrawable(this.gWs);
+        this.gRM = new PlayDrawable();
+        setImageDrawable(this.gRM);
         setBackgroundResource(a.e.video_player_playbtn_bg);
         setIconState(PlayDrawable.IconState.PLAY_STATE);
     }
@@ -43,8 +43,8 @@ public class PlayDrawableImageView extends ImageView {
     }
 
     public void setIconState(PlayDrawable.IconState iconState) {
-        if (this.gWs != null) {
-            this.gWs.setIconState(iconState);
+        if (this.gRM != null) {
+            this.gRM.setIconState(iconState);
         }
     }
 

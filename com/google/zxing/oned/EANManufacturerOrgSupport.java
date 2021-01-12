@@ -3,13 +3,13 @@ package com.google.zxing.oned;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.platform.comapi.UIMsg;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.qq.e.comm.constants.ErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();
@@ -67,13 +67,13 @@ final class EANManufacturerOrgSupport {
             add(new int[]{489}, "HK");
             add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
             add(new int[]{500, 509}, "GB");
-            add(new int[]{520}, "GR");
+            add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
             add(new int[]{528}, ExpandedProductParsedResult.POUND);
             add(new int[]{529}, "CY");
             add(new int[]{531}, "MK");
             add(new int[]{535}, "MT");
-            add(new int[]{UIMsg.MsgDefine.MSG_USERINFO_SECURE}, "IE");
-            add(new int[]{UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 549}, "BE/LU");
+            add(new int[]{539}, "IE");
+            add(new int[]{540, 549}, "BE/LU");
             add(new int[]{560}, "PT");
             add(new int[]{569}, "IS");
             add(new int[]{570, 579}, "DK");

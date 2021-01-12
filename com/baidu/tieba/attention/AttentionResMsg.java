@@ -39,14 +39,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                 if (optJSONObject2 != null) {
                     j jVar = new j();
                     jVar.forumId = optJSONObject2.optString("id");
-                    jVar.aWS = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                    jVar.aSf = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
                     jVar.forumName = optJSONObject2.optString("name");
                     jVar.level = optJSONObject2.optInt("level_id");
-                    jVar.fCy = optJSONObject2.optInt("this_week_post") == 1;
+                    jVar.fxQ = optJSONObject2.optInt("this_week_post") == 1;
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                     if (optJSONObject3 != null) {
-                        jVar.fCz = optJSONObject3.optInt("can_post") == 1;
-                        jVar.fCA = optJSONObject3.optString("block_info");
+                        jVar.fxR = optJSONObject3.optInt("can_post") == 1;
+                        jVar.fxS = optJSONObject3.optString("block_info");
                     }
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -71,8 +71,8 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                     }
                     jVar.isForumBusinessAccount = optJSONObject2.optInt("is_forum_business_account") == 1;
                     if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
-                        jVar.fCB = new PostPrefixData();
-                        jVar.fCB.parserJson(optJSONObject);
+                        jVar.fxT = new PostPrefixData();
+                        jVar.fxT.parserJson(optJSONObject);
                     }
                     this.mSelectForumDataList.add(jVar);
                 }

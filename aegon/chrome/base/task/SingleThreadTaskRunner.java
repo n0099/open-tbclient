@@ -1,4 +1,4 @@
 package aegon.chrome.base.task;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface SingleThreadTaskRunner extends TaskRunner {
 }

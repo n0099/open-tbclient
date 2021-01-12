@@ -5,7 +5,7 @@ import com.baidu.searchbox.config.AppConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class CloudControlUBCData {
     public static final String KEY_COUNT = "count";
     public static final String KEY_ITEMS = "items";

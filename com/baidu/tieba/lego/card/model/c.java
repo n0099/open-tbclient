@@ -3,25 +3,25 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserView;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private final String kYv;
-    private final int kYw;
-    private final int kYx;
-    private final String kYy;
+    private final String kTQ;
+    private final int kTR;
+    private final int kTS;
+    private final String kTT;
 
     private c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.kYv = jSONObject.optString("moreText");
-            this.kYw = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("moreColor", ""));
-            this.kYx = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("moreColorNight", ""));
-            this.kYy = jSONObject.optString("moreScheme");
+            this.kTQ = jSONObject.optString("moreText");
+            this.kTR = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("moreColor", ""));
+            this.kTS = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("moreColorNight", ""));
+            this.kTT = jSONObject.optString("moreScheme");
             return;
         }
-        this.kYv = "";
-        this.kYw = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.kYx = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.kYy = "";
+        this.kTQ = "";
+        this.kTR = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.kTS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.kTT = "";
     }
 
     public static c ey(JSONObject jSONObject) {
@@ -29,22 +29,22 @@ public class c {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.kYv);
+        return !TextUtils.isEmpty(this.kTQ);
     }
 
-    public String ddC() {
-        return this.kYv;
+    public String cZK() {
+        return this.kTQ;
     }
 
-    public int ddD() {
-        return this.kYw;
+    public int cZL() {
+        return this.kTR;
     }
 
-    public String ddE() {
-        return this.kYy;
+    public String cZM() {
+        return this.kTT;
     }
 
-    public int ddF() {
-        return this.kYx;
+    public int cZN() {
+        return this.kTS;
     }
 }

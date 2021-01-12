@@ -5,33 +5,33 @@ import com.bytedance.sdk.a.b.y;
 public final class h extends com.bytedance.sdk.a.b.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f6180a;
+    private final String f5880a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final long f6181b;
-    private final com.bytedance.sdk.a.a.e pjC;
+    private final long f5881b;
+    private final com.bytedance.sdk.a.a.e peX;
 
     public h(String str, long j, com.bytedance.sdk.a.a.e eVar) {
-        this.f6180a = str;
-        this.f6181b = j;
-        this.pjC = eVar;
+        this.f5880a = str;
+        this.f5881b = j;
+        this.peX = eVar;
     }
 
     @Override // com.bytedance.sdk.a.b.c
-    public y eqP() {
-        if (this.f6180a != null) {
-            return y.YT(this.f6180a);
+    public y emT() {
+        if (this.f5880a != null) {
+            return y.XL(this.f5880a);
         }
         return null;
     }
 
     @Override // com.bytedance.sdk.a.b.c
     public long b() {
-        return this.f6181b;
+        return this.f5881b;
     }
 
     @Override // com.bytedance.sdk.a.b.c
-    public com.bytedance.sdk.a.a.e eqQ() {
-        return this.pjC;
+    public com.bytedance.sdk.a.a.e emU() {
+        return this.peX;
     }
 }

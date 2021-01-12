@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaSdkData implements Serializable {
     public String mcastsIds;
     public String roomId;

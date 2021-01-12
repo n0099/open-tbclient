@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.RouteInfo;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class RouteTracker implements RouteInfo {
     public RouteTracker(HttpHost httpHost, InetAddress inetAddress) {
         throw new RuntimeException("Stub!");

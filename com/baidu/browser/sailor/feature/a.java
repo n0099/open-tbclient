@@ -3,16 +3,16 @@ package com.baidu.browser.sailor.feature;
 import android.content.Context;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
     private static final String TAG = "BdSailorFeature";
     private Map<String, b> mClientsMap = new HashMap();
     protected Context mContext;
-    private Enum<EnumC0086a> mStatus;
+    private Enum<EnumC0084a> mStatus;
 
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    enum EnumC0086a {
+    /* loaded from: classes14.dex */
+    enum EnumC0084a {
         ENABLE,
         DISABLE
     }
@@ -30,11 +30,11 @@ public class a {
     }
 
     public void disable() {
-        this.mStatus = EnumC0086a.DISABLE;
+        this.mStatus = EnumC0084a.DISABLE;
     }
 
     public void enable() {
-        this.mStatus = EnumC0086a.ENABLE;
+        this.mStatus = EnumC0084a.ENABLE;
     }
 
     public b getListenerFromActivity(String str) {
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean isEnable() {
-        return this.mStatus == EnumC0086a.ENABLE;
+        return this.mStatus == EnumC0084a.ENABLE;
     }
 
     public void regActivityResultCallback(String str, b bVar) {

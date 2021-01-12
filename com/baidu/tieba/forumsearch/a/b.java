@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.a, CardViewHolder<com.baidu.tieba.forumsearch.c.b>> {
     private TbPageContext mPageContext;
 
@@ -26,7 +26,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.a aVar, CardViewHolder<com.baidu.tieba.forumsearch.c.b> cardViewHolder) {
-        cardViewHolder.cvH().a(aVar);
+        cardViewHolder.crP().a(aVar);
         return cardViewHolder.getView();
     }
 }

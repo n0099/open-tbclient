@@ -2,7 +2,7 @@ package com.fun.ad.sdk;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FunAdConfig {
     public static final int TITLE_BAR_THEME_DARK = 1;
     public static final int TITLE_BAR_THEME_LIGHT = 0;
@@ -23,7 +23,7 @@ public final class FunAdConfig {
     public boolean videoDataFlowAutoStart;
     public boolean videoSoundEnable;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         public static final long AD_EXPIRED_INTERVAL = 900000;
         public Context appContext;

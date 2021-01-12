@@ -6,26 +6,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final InputStream f12456a;
+    protected final InputStream f12156a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final File f12457b;
+    protected final File f12157b;
     protected final c c;
     protected String d;
 
     public a(InputStream inputStream, File file, c cVar) {
-        this.f12456a = inputStream;
-        this.f12457b = file;
+        this.f12156a = inputStream;
+        this.f12157b = file;
         this.c = cVar;
     }
 
     public int a() {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(this.f12457b, true);
+            FileOutputStream fileOutputStream = new FileOutputStream(this.f12157b, true);
             try {
                 int a2 = a(fileOutputStream);
                 try {

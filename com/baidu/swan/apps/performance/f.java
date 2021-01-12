@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -22,35 +22,35 @@ public class f implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
         String str;
         long B;
         String optString;
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (hybridUbcFlow != null && !hybridUbcFlow.dtd.isEmpty() && DEBUG && aMl != null) {
-            HybridUbcFlow.SubmitStrategy aHr = hybridUbcFlow.aHr();
-            if (!hybridUbcFlow.dtb.contains("fe_route_start")) {
+        com.baidu.swan.apps.runtime.e aIr = com.baidu.swan.apps.runtime.e.aIr();
+        if (hybridUbcFlow != null && !hybridUbcFlow.don.isEmpty() && DEBUG && aIr != null) {
+            HybridUbcFlow.SubmitStrategy aDx = hybridUbcFlow.aDx();
+            if (!hybridUbcFlow.dol.contains("fe_route_start")) {
                 str = "na_first_receive_action";
             } else {
                 str = "fe_route_start";
             }
-            if (aHr == HybridUbcFlow.SubmitStrategy.ROUTE) {
+            if (aDx == HybridUbcFlow.SubmitStrategy.ROUTE) {
                 B = hybridUbcFlow.B("fe_first_render_start", str);
             } else {
-                B = aHr == HybridUbcFlow.SubmitStrategy.ROUTE_NA ? hybridUbcFlow.B("na_push_page_end", str) : hybridUbcFlow.B("web_widget_first_screen_finish", str);
+                B = aDx == HybridUbcFlow.SubmitStrategy.ROUTE_NA ? hybridUbcFlow.B("na_push_page_end", str) : hybridUbcFlow.B("web_widget_first_screen_finish", str);
             }
             if (B < 1) {
                 B = 1;
             }
-            String name = aMl.getName();
+            String name = aIr.getName();
             if (TextUtils.isEmpty(name)) {
                 name = "";
             }
-            Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + name + " appID: " + (!TextUtils.isEmpty(aMl.id) ? aMl.id : "") + " launchId ：" + (aMl.ajv() != null ? aMl.ajv().aCP() : "") + " speedLog\n");
+            Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + name + " appID: " + (!TextUtils.isEmpty(aIr.id) ? aIr.id : "") + " launchId ：" + (aIr.afB() != null ? aIr.afB().ayV() : "") + " speedLog\n");
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 100; i++) {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
             Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
             long j = 0;
-            long aHE = hybridUbcFlow.dtd.get(0).aHE();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.dtd) {
+            long aDK = hybridUbcFlow.don.get(0).aDK();
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.don) {
                 long B2 = hybridUbcFlow.B(ubcFlowEvent.id, str);
                 boolean z = B2 < 0;
                 boolean z2 = B2 > B;
@@ -84,17 +84,17 @@ public class f implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
                         sb2.append("#");
                     }
                 }
-                sb2.append(z2 ? ">" : "]").append(String.format(Locale.getDefault(), " %5d", Long.valueOf(B2))).append(String.format("  %s", ubcFlowEvent.aHF())).append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(ubcFlowEvent.aHE() - aHE))).append(ubcFlowEvent.id);
-                if (ubcFlowEvent.aHG()) {
+                sb2.append(z2 ? ">" : "]").append(String.format(Locale.getDefault(), " %5d", Long.valueOf(B2))).append(String.format("  %s", ubcFlowEvent.aDL())).append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(ubcFlowEvent.aDK() - aDK))).append(ubcFlowEvent.id);
+                if (ubcFlowEvent.aDM()) {
                     sb2.append("(LocalRecord)");
                 }
                 Log.i("RouteReporter", sb2.toString());
                 j = B2;
             }
-            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.dtd.size());
+            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.don.size());
             StringBuilder sb3 = new StringBuilder();
             sb3.append("\n\n小程序路由总时长：========> " + B);
-            sb3.append("\nsub_state :" + (TextUtils.equals(hybridUbcFlow.ri("sub_state"), "0") ? "无需下载分包" : "需要下载分包")).append("\npreload :" + (TextUtils.equals(hybridUbcFlow.ri("preload"), "0") ? "未完成" : "已完成")).append("\nhasWebViewWidget :" + (TextUtils.equals(hybridUbcFlow.ri("web_widget_state"), "0") ? "无webview组件" : "有webview组件")).append("\ntype ：" + (TextUtils.isEmpty(hybridUbcFlow.aHf().optString("type")) ? "" : optString));
+            sb3.append("\nsub_state :" + (TextUtils.equals(hybridUbcFlow.pX("sub_state"), "0") ? "无需下载分包" : "需要下载分包")).append("\npreload :" + (TextUtils.equals(hybridUbcFlow.pX("preload"), "0") ? "未完成" : "已完成")).append("\nhasWebViewWidget :" + (TextUtils.equals(hybridUbcFlow.pX("web_widget_state"), "0") ? "无webview组件" : "有webview组件")).append("\ntype ：" + (TextUtils.isEmpty(hybridUbcFlow.aDl().optString("type")) ? "" : optString));
             Log.i("RouteReporter", "Report ： " + sb3.toString());
         }
     }

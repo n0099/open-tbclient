@@ -7,17 +7,17 @@ import android.view.Display;
 import android.view.WindowManager;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static DisplayMetrics pbG;
-    private static DisplayMetrics pbH;
+    private static DisplayMetrics oXc;
+    private static DisplayMetrics oXd;
 
     public static void a(DisplayMetrics displayMetrics) {
-        pbG = displayMetrics;
+        oXc = displayMetrics;
     }
 
-    public static void hJ(Context context) {
-        if (eoa() == null) {
+    public static void hH(Context context) {
+        if (ekf() == null) {
             initDisplayMetrics(context);
         }
     }
@@ -51,15 +51,15 @@ public class a {
     }
 
     @Deprecated
-    public static DisplayMetrics enZ() {
-        return pbG;
+    public static DisplayMetrics eke() {
+        return oXc;
     }
 
     public static void b(DisplayMetrics displayMetrics) {
-        pbH = displayMetrics;
+        oXd = displayMetrics;
     }
 
-    public static DisplayMetrics eoa() {
-        return pbH;
+    public static DisplayMetrics ekf() {
+        return oXd;
     }
 }

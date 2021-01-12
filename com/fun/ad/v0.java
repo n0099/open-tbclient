@@ -2,7 +2,6 @@ package com.fun.ad;
 
 import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -16,56 +15,56 @@ import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class v0 extends NativeAdContainer {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8138a;
+    public TextView f7838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f8139b;
+    public TextView f7839b;
     public Button c;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements NativeADEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ah f8140a;
+        public final /* synthetic */ ah f7840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ au.a f8141b;
+        public final /* synthetic */ au.a f7841b;
         public final /* synthetic */ NativeUnifiedADData c;
 
         public a(ah ahVar, au.a aVar, NativeUnifiedADData nativeUnifiedADData) {
-            this.f8140a = ahVar;
-            this.f8141b = aVar;
+            this.f7840a = ahVar;
+            this.f7841b = aVar;
             this.c = nativeUnifiedADData;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             m.a("GDTNativeUnifiedAd onADClicked");
-            ah ahVar = this.f8140a;
+            ah ahVar = this.f7840a;
             if (ahVar != null) {
-                ((aa) ahVar).c(this.f8141b.f8060a);
+                ((aa) ahVar).c(this.f7841b.f7760a);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADError(AdError adError) {
             m.a("GDTNativeUnifiedAd onADError");
-            ah ahVar = this.f8140a;
+            ah ahVar = this.f7840a;
             if (ahVar != null) {
-                ((aa) ahVar).a(this.f8141b.f8060a, adError.getErrorCode(), adError.getErrorMsg());
+                ((aa) ahVar).a(this.f7841b.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADExposed() {
             m.a("GDTNativeUnifiedAd onADExposed");
-            ah ahVar = this.f8140a;
+            ah ahVar = this.f7840a;
             if (ahVar != null) {
-                ((aa) ahVar).d(this.f8141b.f8060a);
+                ((aa) ahVar).d(this.f7841b.f7760a);
             }
         }
 
@@ -73,9 +72,9 @@ public abstract class v0 extends NativeAdContainer {
         public void onADStatusChanged() {
             m.a("GDTNativeUnifiedAd onADStatusChanged");
             v0.this.a(this.c);
-            ah ahVar = this.f8140a;
+            ah ahVar = this.f7840a;
             if (ahVar != null) {
-                String str = this.f8141b.f8060a;
+                String str = this.f7841b.f7760a;
                 if (((aa) ahVar) == null) {
                     throw null;
                 }
@@ -103,19 +102,11 @@ public abstract class v0 extends NativeAdContainer {
     }
 
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
-        this.f8139b.setText(nativeUnifiedADData.getTitle());
-        this.f8138a.setText(nativeUnifiedADData.getDesc());
+        this.f7839b.setText(nativeUnifiedADData.getTitle());
+        this.f7838a.setText(nativeUnifiedADData.getDesc());
         nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
         nativeUnifiedADData.setNativeAdEventListener(new a(ahVar, aVar, nativeUnifiedADData));
         a(nativeUnifiedADData);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(this.c);
-        nativeUnifiedADData.bindCTAViews(arrayList);
-        String cTAText = nativeUnifiedADData.getCTAText();
-        if (TextUtils.isEmpty(cTAText)) {
-            return;
-        }
-        this.c.setText(cTAText);
     }
 
     public void a(NativeUnifiedADData nativeUnifiedADData) {
@@ -147,8 +138,8 @@ public abstract class v0 extends NativeAdContainer {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8138a = (TextView) findViewById(R.id.ad_description);
-        this.f8139b = (TextView) findViewById(R.id.ad_title);
+        this.f7838a = (TextView) findViewById(R.id.ad_description);
+        this.f7839b = (TextView) findViewById(R.id.ad_title);
         this.c = (Button) findViewById(R.id.ad_creative);
     }
 }

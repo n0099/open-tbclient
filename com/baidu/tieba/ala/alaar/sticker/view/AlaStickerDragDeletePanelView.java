@@ -11,16 +11,16 @@ import androidx.annotation.Nullable;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaStickerDragDeletePanelView extends RelativeLayout {
-    private RelativeLayout gwE;
-    private View gwF;
-    private ImageView gwG;
-    private TextView gwH;
-    private TextView gwI;
-    private View gwJ;
-    private View gwK;
-    private View gwL;
+    private RelativeLayout grX;
+    private View grY;
+    private ImageView grZ;
+    private TextView gsa;
+    private TextView gsb;
+    private View gsc;
+    private View gsd;
+    private View gse;
 
     public AlaStickerDragDeletePanelView(Context context) {
         super(context);
@@ -39,59 +39,59 @@ public class AlaStickerDragDeletePanelView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(getContext()).inflate(a.g.ala_sticker_delete_panel, this);
-        this.gwE = (RelativeLayout) findViewById(a.f.delete_panel_top);
-        this.gwF = findViewById(a.f.delete_panel_top_bg);
-        this.gwJ = findViewById(a.f.delete_panel_delete_info);
-        this.gwG = (ImageView) findViewById(a.f.delete_panel_delete_img);
-        this.gwH = (TextView) findViewById(a.f.delete_panel_delete_text);
-        this.gwK = findViewById(a.f.delete_panel_im);
-        this.gwL = findViewById(a.f.delete_panel_im_right);
-        this.gwI = (TextView) findViewById(a.f.delete_panel_bottom);
+        this.grX = (RelativeLayout) findViewById(a.f.delete_panel_top);
+        this.grY = findViewById(a.f.delete_panel_top_bg);
+        this.gsc = findViewById(a.f.delete_panel_delete_info);
+        this.grZ = (ImageView) findViewById(a.f.delete_panel_delete_img);
+        this.gsa = (TextView) findViewById(a.f.delete_panel_delete_text);
+        this.gsd = findViewById(a.f.delete_panel_im);
+        this.gse = findViewById(a.f.delete_panel_im_right);
+        this.gsb = (TextView) findViewById(a.f.delete_panel_bottom);
     }
 
-    public void mm(boolean z) {
+    public void mi(boolean z) {
         if (z) {
-            this.gwF.setBackgroundResource(a.c.color_live_sticker_red_40);
-            this.gwG.setBackgroundResource(a.e.icon_live_paste_delete_on_n);
-            this.gwH.setText(a.h.ala_live_sticker_delete);
+            this.grY.setBackgroundResource(a.c.color_live_sticker_red_40);
+            this.grZ.setBackgroundResource(a.e.icon_live_paste_delete_on_n);
+            this.gsa.setText(a.h.ala_live_sticker_delete);
             return;
         }
-        this.gwF.setBackgroundResource(a.c.color_live_sticker_red_50);
-        this.gwG.setBackgroundResource(a.e.icon_live_paste_delete_n);
-        this.gwH.setText(a.h.ala_live_sticker_delete_move);
+        this.grY.setBackgroundResource(a.c.color_live_sticker_red_50);
+        this.grZ.setBackgroundResource(a.e.icon_live_paste_delete_n);
+        this.gsa.setText(a.h.ala_live_sticker_delete_move);
     }
 
     public void setTopDeletePanelHeight(int i) {
         if (i > getResources().getDimensionPixelOffset(a.d.sdk_ds30)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gwE.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.grX.getLayoutParams();
             layoutParams.height = i;
-            this.gwE.setLayoutParams(layoutParams);
+            this.grX.setLayoutParams(layoutParams);
         } else {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gwE.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.grX.getLayoutParams();
             layoutParams2.height = getTopDeletePanelHeight();
-            this.gwE.setLayoutParams(layoutParams2);
+            this.grX.setLayoutParams(layoutParams2);
         }
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gwJ.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gsc.getLayoutParams();
             layoutParams3.addRule(12);
             layoutParams3.bottomMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds40);
-            this.gwJ.setLayoutParams(layoutParams3);
+            this.gsc.setLayoutParams(layoutParams3);
             return;
         }
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gwJ.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gsc.getLayoutParams();
         layoutParams4.addRule(15);
-        this.gwJ.setLayoutParams(layoutParams4);
+        this.gsc.setLayoutParams(layoutParams4);
     }
 
     public int getTopDeletePanelBottom() {
-        return this.gwE.getBottom();
+        return this.grX.getBottom();
     }
 
     public void setDeleteBottomHeight(int i) {
         if (i > 0) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gwI.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsb.getLayoutParams();
             layoutParams.height = i;
-            this.gwI.setLayoutParams(layoutParams);
+            this.gsb.setLayoutParams(layoutParams);
         }
     }
 
@@ -104,13 +104,13 @@ public class AlaStickerDragDeletePanelView extends RelativeLayout {
     }
 
     public void setImMsgViewSize(int i, int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gwK.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsd.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
-        this.gwK.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gwL.getLayoutParams();
+        this.gsd.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gse.getLayoutParams();
         layoutParams2.width = BdUtilHelper.getEquipmentWidth(getContext()) - i;
         layoutParams2.height = i2;
-        this.gwL.setLayoutParams(layoutParams2);
+        this.gse.setLayoutParams(layoutParams2);
     }
 }

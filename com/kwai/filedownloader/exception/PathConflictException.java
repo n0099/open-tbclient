@@ -1,7 +1,7 @@
 package com.kwai.filedownloader.exception;
 
 import com.kwai.filedownloader.f.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PathConflictException extends IllegalAccessException {
     private final int mAnotherSamePathTaskId;
     private final String mDownloadingConflictPath;

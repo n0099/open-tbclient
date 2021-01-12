@@ -11,10 +11,10 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.webSocket.c {
     private static Handler sHandler = new Handler();
-    private SocketMessageTask Jb;
-    private CoderException Je;
-    private SocketMessage Jf;
-    private g Jg;
+    private SocketMessageTask IZ;
+    private CoderException Jc;
+    private SocketMessage Jd;
+    private g Je;
     public long allDataReadTime;
     public long firstByteReachTime;
     private volatile int mSequenceId = 0;
@@ -25,19 +25,19 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     private long mStartSendTime = 0;
 
     public e(SocketMessage socketMessage, SocketMessageTask socketMessageTask, g gVar) {
-        this.Jf = null;
-        this.Jg = null;
-        this.Jb = null;
+        this.Jd = null;
+        this.Je = null;
+        this.IZ = null;
         if (socketMessage == null || socketMessageTask == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
-        this.Jb = socketMessageTask;
-        this.Jf = socketMessage;
-        this.Jg = gVar;
+        this.IZ = socketMessageTask;
+        this.Jd = socketMessage;
+        this.Je = gVar;
     }
 
     public int getMaxRetryCount() {
-        int retry = this.Jb.getRetry();
+        int retry = this.IZ.getRetry();
         if (retry > 1) {
             return retry;
         }
@@ -45,27 +45,27 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     private void reportSendError(int i) {
-        if (this.Jg != null && this.mIsValid) {
-            this.Jg.a(i, this);
+        if (this.Je != null && this.mIsValid) {
+            this.Je.a(i, this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportSendTimeOut() {
-        if (this.Jg != null && this.mIsValid) {
-            this.Jg.b(this);
+        if (this.Je != null && this.mIsValid) {
+            this.Je.b(this);
         }
     }
 
     private void reportSendFinish() {
-        if (this.Jg != null && this.mIsValid) {
-            this.Jg.c(this);
+        if (this.Je != null && this.mIsValid) {
+            this.Je.c(this);
         }
     }
 
     private void reportSendStart() {
-        if (this.Jg != null && this.mIsValid) {
-            this.Jg.d(this);
+        if (this.Je != null && this.mIsValid) {
+            this.Je.d(this);
         }
     }
 
@@ -99,10 +99,10 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.mStartSendTime == 0) {
             this.mStartSendTime = System.currentTimeMillis();
         }
-        i.debug("SenderData", this.Jf.getCmd(), this.Jf.getClientLogID(), this.mSequenceId, "StartSend", 0, "SenderData: start send size = " + (getBinaryData() != null ? getBinaryData().length : 0));
+        i.debug("SenderData", this.Jd.getCmd(), this.Jd.getClientLogID(), this.mSequenceId, "StartSend", 0, "SenderData: start send size = " + (getBinaryData() != null ? getBinaryData().length : 0));
         sHandler.removeCallbacks(getTimeOutChecker());
-        if (this.Jb.getTimeOut() != null) {
-            sHandler.postDelayed(getTimeOutChecker(), this.Jb.getTimeOut().getTimeOutAuto());
+        if (this.IZ.getTimeOut() != null) {
+            sHandler.postDelayed(getTimeOutChecker(), this.IZ.getTimeOut().getTimeOutAuto());
         }
         reportSendStart();
     }
@@ -116,39 +116,39 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     @Override // com.baidu.adp.lib.webSocket.n
     public void onFinishSend() {
         int i;
-        int cmd = this.Jf.getCmd();
+        int cmd = this.Jd.getCmd();
         if (getBinaryData() != null) {
             int length = getBinaryData().length;
-            this.Jf.setEncodedBinarySize(length);
+            this.Jd.setEncodedBinarySize(length);
             i = length;
         } else {
             i = 0;
         }
-        i.debug("SenderData", cmd, this.Jf.getClientLogID(), this.mSequenceId, "FinishSend", 0, "SenderData: finish send  size = " + i);
-        if (!this.Jb.getNeedAck()) {
+        i.debug("SenderData", cmd, this.Jd.getClientLogID(), this.mSequenceId, "FinishSend", 0, "SenderData: finish send  size = " + i);
+        if (!this.IZ.getNeedAck()) {
             sHandler.removeCallbacks(getTimeOutChecker());
         }
         reportSendFinish();
     }
 
     public CoderException kO() {
-        return this.Je;
+        return this.Jc;
     }
 
     public boolean isNeedAck() {
-        return this.Jb.getNeedAck();
+        return this.IZ.getNeedAck();
     }
 
     public int getPriority() {
-        return this.Jb.getPriority();
+        return this.IZ.getPriority();
     }
 
     public SocketMessage kP() {
-        return this.Jf;
+        return this.Jd;
     }
 
     public SocketMessageTask kQ() {
-        return this.Jb;
+        return this.IZ;
     }
 
     @Override // com.baidu.adp.lib.webSocket.c
@@ -156,30 +156,30 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.mStartSendTime == 0) {
             this.mStartSendTime = System.currentTimeMillis();
         }
-        this.Je = null;
+        this.Jc = null;
         com.baidu.adp.framework.client.socket.coder.b kT = com.baidu.adp.framework.client.socket.coder.b.kT();
         this.mSequenceId = f.kR().getSequenceId();
-        if (this.Jf != null) {
-            this.Jf.setSquencedId(this.mSequenceId);
+        if (this.Jd != null) {
+            this.Jd.setSquencedId(this.mSequenceId);
             BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-            long clientLogID = this.Jf == null ? -1L : this.Jf.getClientLogID();
+            long clientLogID = this.Jd == null ? -1L : this.Jd.getClientLogID();
             String valueOf = String.valueOf(this.mSequenceId & 4294967295L);
             Object[] objArr = new Object[2];
             objArr[0] = "cmd";
-            objArr[1] = Integer.valueOf(this.Jf == null ? -1 : this.Jf.getCmd());
+            objArr[1] = Integer.valueOf(this.Jd == null ? -1 : this.Jd.getCmd());
             bdStatisticsManager.newDebug(BdStatsConstant.SubType.SEQID, clientLogID, valueOf, objArr);
         }
         try {
-            return kT.a(this.Jf, this.mSequenceId, this.Jb.getNeedCompress(), this.Jb.getNeedEncrypt());
+            return kT.a(this.Jd, this.mSequenceId, this.IZ.getNeedCompress(), this.IZ.getNeedEncrypt());
         } catch (CoderException e) {
-            this.Je = e;
+            this.Jc = e;
             return null;
         }
     }
 
     public int getCmd() {
-        if (this.Jf != null) {
-            return this.Jf.getCmd();
+        if (this.Jd != null) {
+            return this.Jd.getCmd();
         }
         return 0;
     }
@@ -189,7 +189,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     public boolean canRetry() {
-        return this.Jb.isCanRetry();
+        return this.IZ.isCanRetry();
     }
 
     public int getRetryConnectTimes() {

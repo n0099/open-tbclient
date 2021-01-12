@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.ExcZan.ExcZanResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ChosenPbZanSocketResponse extends SocketResponsedMessage {
     public ChosenPbZanSocketResponse() {
         super(CmdConfigSocket.CMD_CHOSEN_PB_PRAISE);

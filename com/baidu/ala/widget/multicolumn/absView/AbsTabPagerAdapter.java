@@ -2,7 +2,7 @@ package com.baidu.ala.widget.multicolumn.absView;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsTabPagerAdapter extends FragmentPagerAdapter {
     public abstract int getPageType(int i);
 

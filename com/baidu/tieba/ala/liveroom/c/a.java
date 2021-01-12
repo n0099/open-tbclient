@@ -15,20 +15,20 @@ import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.p.a;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private CustomMessageListener aYs;
-    private AlertDialog hqm;
-    private View hqn;
-    private ImageView hqo;
-    private View hqp;
-    private View hqq;
-    private int hqr;
-    private com.baidu.live.p.a hqs;
-    private String hqt;
-    private int hqu;
-    private a.InterfaceC0199a hqv;
-    private CustomMessageListener hqw;
+    private CustomMessageListener aTF;
+    private AlertDialog hlF;
+    private View hlG;
+    private ImageView hlH;
+    private View hlI;
+    private View hlJ;
+    private int hlK;
+    private com.baidu.live.p.a hlL;
+    private String hlM;
+    private int hlN;
+    private a.InterfaceC0190a hlO;
+    private CustomMessageListener hlP;
     private View.OnClickListener mOnClickListener;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private View mRoot;
@@ -36,13 +36,13 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hqr = 1;
-        this.hqu = 2;
-        this.hqv = new a.InterfaceC0199a() { // from class: com.baidu.tieba.ala.liveroom.c.a.1
-            @Override // com.baidu.live.p.a.InterfaceC0199a
-            public void fj(int i) {
+        this.hlK = 1;
+        this.hlN = 2;
+        this.hlO = new a.InterfaceC0190a() { // from class: com.baidu.tieba.ala.liveroom.c.a.1
+            @Override // com.baidu.live.p.a.InterfaceC0190a
+            public void dD(int i) {
                 if (i == 1) {
-                    if (a.this.hqr == 3) {
+                    if (a.this.hlK == 3) {
                         a.this.mTbPageContext.showToast(a.this.mTbPageContext.getPageActivity().getResources().getString(a.h.ala_attention_guide_open_toast_firsttime_txt));
                     } else {
                         a.this.mTbPageContext.showToast(a.this.mTbPageContext.getPageActivity().getResources().getString(a.h.ala_attention_guide_open_toast_normal_txt));
@@ -52,7 +52,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 }
             }
 
-            @Override // com.baidu.live.p.a.InterfaceC0199a
+            @Override // com.baidu.live.p.a.InterfaceC0190a
             public void onFailed(String str) {
                 a.this.mTbPageContext.showToast(str);
             }
@@ -60,113 +60,113 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.mOnDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.c.a.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                a.this.wI(a.this.hqu);
-                a.this.hqu = 2;
+                a.this.vc(a.this.hlN);
+                a.this.hlN = 2;
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.c.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == a.f.id_ala_liveroom_attention_guide_cancel_btn) {
-                    a.this.hqu = 2;
-                    a.this.ccR();
+                    a.this.hlN = 2;
+                    a.this.bYZ();
                 } else if (view.getId() == a.f.id_ala_liveroom_attention_guide_open_btn) {
-                    a.this.hqu = 1;
-                    a.this.ccR();
+                    a.this.hlN = 1;
+                    a.this.bYZ();
                 } else if (view.getId() == a.f.id_ala_attention_guide_selectbox_wrapper) {
-                    a.this.hqo.setSelected(a.this.hqo.isSelected() ? false : true);
+                    a.this.hlH.setSelected(a.this.hlH.isSelected() ? false : true);
                 }
             }
         };
-        this.aYs = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.c.a.4
+        this.aTF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.c.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.ccR();
+                a.this.bYZ();
             }
         };
-        this.hqw = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.c.a.5
+        this.hlP = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.c.a.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    a.this.hqr = ((Integer) customResponsedMessage.getData()).intValue();
+                    a.this.hlK = ((Integer) customResponsedMessage.getData()).intValue();
                 }
-                a.this.ccQ();
+                a.this.bYY();
             }
         };
         this.mTbPageContext = tbPageContext;
         initView();
         initModel();
-        MessageManager.getInstance().registerListener(this.aYs);
-        MessageManager.getInstance().registerListener(this.hqw);
+        MessageManager.getInstance().registerListener(this.aTF);
+        MessageManager.getInstance().registerListener(this.hlP);
     }
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_liveroom_attention_guide_layout, (ViewGroup) null);
-        this.hqo = (ImageView) this.mRoot.findViewById(a.f.id_ala_attention_guide_selectbox_iv);
-        this.hqn = this.mRoot.findViewById(a.f.id_ala_attention_guide_selectbox_wrapper);
-        this.hqp = this.mRoot.findViewById(a.f.id_ala_liveroom_attention_guide_cancel_btn);
-        this.hqq = this.mRoot.findViewById(a.f.id_ala_liveroom_attention_guide_open_btn);
-        this.hqp.setOnClickListener(this.mOnClickListener);
-        this.hqq.setOnClickListener(this.mOnClickListener);
-        this.hqn.setOnClickListener(this.mOnClickListener);
+        this.hlH = (ImageView) this.mRoot.findViewById(a.f.id_ala_attention_guide_selectbox_iv);
+        this.hlG = this.mRoot.findViewById(a.f.id_ala_attention_guide_selectbox_wrapper);
+        this.hlI = this.mRoot.findViewById(a.f.id_ala_liveroom_attention_guide_cancel_btn);
+        this.hlJ = this.mRoot.findViewById(a.f.id_ala_liveroom_attention_guide_open_btn);
+        this.hlI.setOnClickListener(this.mOnClickListener);
+        this.hlJ.setOnClickListener(this.mOnClickListener);
+        this.hlG.setOnClickListener(this.mOnClickListener);
     }
 
     private void initModel() {
-        this.hqs = new com.baidu.live.p.a();
-        this.hqs.a(this.hqv);
+        this.hlL = new com.baidu.live.p.a();
+        this.hlL.a(this.hlO);
     }
 
-    public void Id(String str) {
-        this.hqt = str;
+    public void GS(String str) {
+        this.hlM = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wI(int i) {
-        int i2 = this.hqo.isSelected() ? 1 : 2;
-        if (this.hqs != null) {
-            this.hqs.i(this.hqt, i, i2);
+    public void vc(int i) {
+        int i2 = this.hlH.isSelected() ? 1 : 2;
+        if (this.hlL != null) {
+            this.hlL.i(this.hlM, i, i2);
         }
     }
 
-    public void ccQ() {
-        if (this.hqm == null || !this.hqm.isShowing()) {
-            this.hqo.setSelected(true);
-            if (this.hqm == null) {
-                this.hqm = new AlertDialog.Builder(getPageContext().getPageActivity(), a.i.sdk_dialog_window).create();
-                ShowUtil.showDialog(this.hqm, getPageContext().getPageActivity());
+    public void bYY() {
+        if (this.hlF == null || !this.hlF.isShowing()) {
+            this.hlH.setSelected(true);
+            if (this.hlF == null) {
+                this.hlF = new AlertDialog.Builder(getPageContext().getPageActivity(), a.i.sdk_dialog_window).create();
+                ShowUtil.showDialog(this.hlF, getPageContext().getPageActivity());
             }
-            Window window = this.hqm.getWindow();
+            Window window = this.hlF.getWindow();
             if (window != null) {
                 window.setGravity(17);
                 window.setBackgroundDrawableResource(17170445);
-                this.hqm.setContentView(this.mRoot);
+                this.hlF.setContentView(this.mRoot);
             }
-            this.hqm.setCanceledOnTouchOutside(false);
-            this.hqm.setOnDismissListener(this.mOnDismissListener);
+            this.hlF.setCanceledOnTouchOutside(false);
+            this.hlF.setOnDismissListener(this.mOnDismissListener);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccR() {
-        if (this.hqm != null && this.hqm.isShowing()) {
-            this.hqm.dismiss();
+    public void bYZ() {
+        if (this.hlF != null && this.hlF.isShowing()) {
+            this.hlF.dismiss();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
-        ccR();
-        if (this.hqs != null) {
-            this.hqs.onDestroy();
+        bYZ();
+        if (this.hlL != null) {
+            this.hlL.onDestroy();
         }
-        if (this.aYs != null) {
-            MessageManager.getInstance().unRegisterListener(this.aYs);
+        if (this.aTF != null) {
+            MessageManager.getInstance().unRegisterListener(this.aTF);
         }
-        if (this.hqw != null) {
-            MessageManager.getInstance().unRegisterListener(this.hqw);
+        if (this.hlP != null) {
+            MessageManager.getInstance().unRegisterListener(this.hlP);
         }
     }
 }

@@ -16,11 +16,11 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes4.dex */
 public class e {
-    private static final e pkY = eqY();
-    private static final Logger pkL = Logger.getLogger(z.class.getName());
+    private static final e pgs = enc();
+    private static final Logger pgf = Logger.getLogger(z.class.getName());
 
-    public static e erb() {
-        return pkY;
+    public static e eng() {
+        return pgs;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class e {
     }
 
     public void a(int i, String str, Throwable th) {
-        pkL.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
+        pgf.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public boolean b(String str) {
@@ -59,7 +59,7 @@ public class e {
     }
 
     public Object a(String str) {
-        if (pkL.isLoggable(Level.FINE)) {
+        if (pgf.isLoggable(Level.FINE)) {
             return new Throwable(str);
         }
         return null;
@@ -91,22 +91,22 @@ public class e {
     public com.bytedance.sdk.a.b.a.i.c b(SSLSocketFactory sSLSocketFactory) {
         X509TrustManager a2 = a(sSLSocketFactory);
         if (a2 == null) {
-            throw new IllegalStateException("Unable to extract the trust manager on " + erb() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
+            throw new IllegalStateException("Unable to extract the trust manager on " + eng() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
         }
         return a(a2);
     }
 
-    private static e eqY() {
-        e eqY = a.eqY();
-        if (eqY == null) {
-            b era = b.era();
-            if (era == null) {
-                e eqY2 = c.eqY();
-                return eqY2 == null ? new e() : eqY2;
+    private static e enc() {
+        e enc = a.enc();
+        if (enc == null) {
+            b enf = b.enf();
+            if (enf == null) {
+                e enc2 = c.enc();
+                return enc2 == null ? new e() : enc2;
             }
-            return era;
+            return enf;
         }
-        return eqY;
+        return enc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -116,8 +116,8 @@ public class e {
         for (int i = 0; i < size; i++) {
             w wVar = list.get(i);
             if (wVar != w.HTTP_1_0) {
-                cVar.PM(wVar.toString().length());
-                cVar.YG(wVar.toString());
+                cVar.Of(wVar.toString().length());
+                cVar.Xy(wVar.toString());
             }
         }
         return cVar.q();

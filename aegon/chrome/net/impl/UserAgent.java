@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class UserAgent {
     public static final Object sLock = new Object();
     public static int sVersionCode = 0;

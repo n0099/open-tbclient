@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UbcStatisticManager {
     private static final long FLOW_LOOP_DURATION = 60000;
     public static volatile UbcStatisticManager mInstance = new UbcStatisticManager();
@@ -685,7 +685,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class FlowData {
         public Object flow;
         public JSONObject formattedValue;
@@ -697,7 +697,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class SlotData {
         public String category;
         public JSONObject option;

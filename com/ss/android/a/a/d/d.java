@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13201a;
+    private String f12901a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f13202b;
+    private final String f12902b;
     private final String c;
     private final boolean d;
     private final long e;
@@ -28,8 +28,8 @@ public class d {
     private final JSONObject o;
 
     d(a aVar) {
-        this.f13201a = aVar.f13203a;
-        this.f13202b = aVar.f13204b;
+        this.f12901a = aVar.f12903a;
+        this.f12902b = aVar.f12904b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -41,7 +41,7 @@ public class d {
         this.k = aVar.l;
         this.m = aVar.n;
         this.n = aVar.o;
-        this.o = aVar.axv;
+        this.o = aVar.asJ;
         this.l = aVar.m;
     }
 
@@ -49,11 +49,11 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13203a;
-        private JSONObject axv;
+        private String f12903a;
+        private JSONObject asJ;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13204b;
+        private String f12904b;
         private String c;
         private long e;
         private String f;
@@ -68,17 +68,17 @@ public class d {
         private boolean d = false;
         private boolean n = false;
 
-        public a Bu(boolean z) {
+        public a Bq(boolean z) {
             this.n = z;
             return this;
         }
 
-        public a aap(String str) {
-            this.f13204b = str;
+        public a Zh(String str) {
+            this.f12904b = str;
             return this;
         }
 
-        public a aaq(String str) {
+        public a Zi(String str) {
             this.c = str;
             return this;
         }
@@ -93,12 +93,12 @@ public class d {
             return this;
         }
 
-        public a aar(String str) {
+        public a Zj(String str) {
             this.f = str;
             return this;
         }
 
-        public a Bv(boolean z) {
+        public a Br(boolean z) {
             this.d = z;
             return this;
         }
@@ -113,7 +113,7 @@ public class d {
             return this;
         }
 
-        public a RY(int i) {
+        public a Qr(int i) {
             this.k = i;
             return this;
         }
@@ -123,14 +123,14 @@ public class d {
             return this;
         }
 
-        public a aas(String str) {
+        public a Zk(String str) {
             this.m = str;
             return this;
         }
 
-        public d eFD() {
-            if (TextUtils.isEmpty(this.f13203a)) {
-                this.f13203a = "umeng";
+        public d eBM() {
+            if (TextUtils.isEmpty(this.f12903a)) {
+                this.f12903a = "umeng";
             }
             JSONObject jSONObject = new JSONObject();
             if (this.h == null) {
@@ -146,24 +146,24 @@ public class d {
                 }
                 if (this.n) {
                     this.o = this.c;
-                    this.axv = new JSONObject();
+                    this.asJ = new JSONObject();
                     Iterator<String> keys = this.h.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        this.axv.put(next, this.h.get(next));
+                        this.asJ.put(next, this.h.get(next));
                     }
-                    this.axv.put("category", this.f13203a);
-                    this.axv.put("tag", this.f13204b);
-                    this.axv.put("value", this.e);
-                    this.axv.put("ext_value", this.g);
+                    this.asJ.put("category", this.f12903a);
+                    this.asJ.put("tag", this.f12904b);
+                    this.asJ.put("value", this.e);
+                    this.asJ.put("ext_value", this.g);
                     if (!TextUtils.isEmpty(this.m)) {
-                        this.axv.put("refer", this.m);
+                        this.asJ.put("refer", this.m);
                     }
                     if (this.d) {
-                        if (!this.axv.has("log_extra") && !TextUtils.isEmpty(this.f)) {
-                            this.axv.put("log_extra", this.f);
+                        if (!this.asJ.has("log_extra") && !TextUtils.isEmpty(this.f)) {
+                            this.asJ.put("log_extra", this.f);
                         }
-                        this.axv.put("is_ad_event", "1");
+                        this.asJ.put("is_ad_event", "1");
                     }
                 }
                 if (this.d) {
@@ -186,7 +186,7 @@ public class d {
     }
 
     public String a() {
-        return this.f13202b;
+        return this.f12902b;
     }
 
     public String b() {
@@ -206,6 +206,6 @@ public class d {
     }
 
     public String toString() {
-        return "category: " + this.f13201a + "\ttag: " + this.f13202b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
+        return "category: " + this.f12901a + "\ttag: " + this.f12902b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
     }
 }

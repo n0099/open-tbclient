@@ -13,10 +13,10 @@ import java.lang.reflect.Method;
 public class ag implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f7846a = Thread.getDefaultUncaughtExceptionHandler();
+    private Thread.UncaughtExceptionHandler f7546a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7847b;
+    private String f7547b;
 
     public static ag a() {
         return new ag();
@@ -34,12 +34,12 @@ public class ag implements Thread.UncaughtExceptionHandler {
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                     externalFilesDir.mkdirs();
-                    this.f7847b = externalFilesDir.getPath();
+                    this.f7547b = externalFilesDir.getPath();
                 }
-                if (TextUtils.isEmpty(this.f7847b)) {
+                if (TextUtils.isEmpty(this.f7547b)) {
                     File file = new File(a2.getFilesDir(), "TTCache");
                     file.mkdirs();
-                    this.f7847b = file.getPath();
+                    this.f7547b = file.getPath();
                 }
             } catch (Throwable th) {
             }
@@ -61,8 +61,8 @@ public class ag implements Thread.UncaughtExceptionHandler {
         if (z) {
             a(thread, th);
         }
-        if (this.f7846a != null && this.f7846a != this) {
-            this.f7846a.uncaughtException(thread, th);
+        if (this.f7546a != null && this.f7546a != this) {
+            this.f7546a.uncaughtException(thread, th);
         }
     }
 
@@ -83,12 +83,12 @@ public class ag implements Thread.UncaughtExceptionHandler {
             r4 = 1
             r1 = 0
             r3 = 0
-            java.lang.String r5 = r12.f7847b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r5 = r12.f7547b     // Catch: java.lang.Throwable -> L170
             boolean r5 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L170
             if (r5 == 0) goto L10
             r12.b()     // Catch: java.lang.Throwable -> L170
         L10:
-            java.lang.String r5 = r12.f7847b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r5 = r12.f7547b     // Catch: java.lang.Throwable -> L170
             boolean r5 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L170
             if (r5 == 0) goto L23
             if (r2 == 0) goto L1d
@@ -100,7 +100,7 @@ public class ag implements Thread.UncaughtExceptionHandler {
             return
         L23:
             java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L170
-            java.lang.String r1 = r12.f7847b     // Catch: java.lang.Throwable -> L170
+            java.lang.String r1 = r12.f7547b     // Catch: java.lang.Throwable -> L170
             java.lang.String r3 = "tt_crash_count.properties"
             r6.<init>(r1, r3)     // Catch: java.lang.Throwable -> L170
             boolean r1 = r6.exists()     // Catch: java.lang.Throwable -> L170

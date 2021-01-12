@@ -16,16 +16,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG;
-    private static final boolean pbE;
-    public static double pbF;
+    private static final boolean oXa;
+    public static double oXb;
 
     static {
-        pbE = Build.VERSION.SDK_INT >= 11;
+        oXa = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        pbF = 1.778d;
+        oXb = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -188,7 +188,7 @@ public class b {
 
     @TargetApi(11)
     private static void e(BitmapFactory.Options options) {
-        if (pbE) {
+        if (oXa) {
             options.inMutable = true;
         }
     }
@@ -219,10 +219,10 @@ public class b {
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? Pm(floor) : (floor / 8) * 8;
+        return floor <= 8 ? NF(floor) : (floor / 8) * 8;
     }
 
-    private static int Pm(int i) throws IllegalArgumentException {
+    private static int NF(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }

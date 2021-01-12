@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class b implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1665a;
+    static final /* synthetic */ boolean f1614a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f1666b = 6;
+    private static final int f1615b = 6;
     private static final int c = 64;
     private static final int d = 63;
     private static final long e = -1;
@@ -26,7 +26,7 @@ public class b implements Serializable, Cloneable {
     private transient boolean i;
 
     static {
-        f1665a = !b.class.desiredAssertionStatus();
+        f1614a = !b.class.desiredAssertionStatus();
         f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
@@ -128,13 +128,13 @@ public class b implements Serializable, Cloneable {
     }
 
     private void h() {
-        if (!f1665a && this.h != 0 && this.g[this.h - 1] == 0) {
+        if (!f1614a && this.h != 0 && this.g[this.h - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f1665a && (this.h < 0 || this.h > this.g.length)) {
+        if (!f1614a && (this.h < 0 || this.h > this.g.length)) {
             throw new AssertionError();
         }
-        if (!f1665a && this.h != this.g.length && this.g[this.h] != 0) {
+        if (!f1614a && this.h != this.g.length && this.g[this.h] != 0) {
             throw new AssertionError();
         }
     }

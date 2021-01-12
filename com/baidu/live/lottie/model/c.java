@@ -2,22 +2,22 @@ package com.baidu.live.lottie.model;
 
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private final String Fk;
-    private final float Fl;
+    private final String Fi;
+    private final float Fj;
     private final String name;
     private final String style;
 
     public c(String str, String str2, String str3, float f) {
-        this.Fk = str;
+        this.Fi = str;
         this.name = str2;
         this.style = str3;
-        this.Fl = f;
+        this.Fj = f;
     }
 
     public String iW() {
-        return this.Fk;
+        return this.Fi;
     }
 
     public String getName() {

@@ -7,11 +7,11 @@ import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ad implements aj<com.ksad.lottie.model.content.h> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f8270a = new ad();
+    public static final ad f7970a = new ad();
 
     private ad() {
     }

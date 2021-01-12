@@ -2,7 +2,7 @@ package com.kwad.sdk.glide.request;
 
 import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends a<f> {
     @NonNull
     @CheckResult

@@ -3,11 +3,11 @@ package com.kwad.sdk.contentalliance.detail.photo.f;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.kwad.sdk.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a<T extends View> extends com.kwad.sdk.contentalliance.detail.b implements d<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    protected T f8814b = null;
+    protected T f8514b = null;
     protected LinearLayout c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,9 +27,9 @@ public abstract class a<T extends View> extends com.kwad.sdk.contentalliance.det
 
     /* JADX INFO: Access modifiers changed from: protected */
     public T f() {
-        if (this.f8814b == null) {
-            this.f8814b = g();
+        if (this.f8514b == null) {
+            this.f8514b = g();
         }
-        return this.f8814b;
+        return this.f8514b;
     }
 }

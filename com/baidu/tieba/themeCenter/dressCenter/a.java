@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
 import tbclient.GetThemeList.ThemeCarousel;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
     private String linkUrl;
     private String picUrl;
@@ -12,7 +12,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bpn() {
+    public String blt() {
         return this.linkUrl;
     }
 

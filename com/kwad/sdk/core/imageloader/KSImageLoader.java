@@ -31,7 +31,7 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ao;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KSImageLoader {
     public static DisplayImageOptions IMGOPTION_ENTRY;
     public static DisplayImageOptions IMGOPTION_NORMAL = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
@@ -39,7 +39,7 @@ public class KSImageLoader {
     public static DisplayImageOptions IMGOPTION_TUBE;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class InnerImageLoadingListener implements ImageLoadingListener {
         @Nullable
         AdTemplate adTemplate;

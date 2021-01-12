@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
 import tbclient.ThemeBgProp;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private List<DressItemData> mAvatarPendantList;
-    private String nAG;
+    private String nwb;
 
     public void a(ThemePendantInMain themePendantInMain) {
         if (themePendantInMain != null) {
-            this.nAG = themePendantInMain.pendant_category;
+            this.nwb = themePendantInMain.pendant_category;
             this.mAvatarPendantList = new ArrayList();
             for (ThemeBgProp themeBgProp : themePendantInMain.props) {
                 this.mAvatarPendantList.add(new DressItemData(themeBgProp));
@@ -20,11 +20,11 @@ public class a {
         }
     }
 
-    public String dSF() {
-        return this.nAG;
+    public String dON() {
+        return this.nwb;
     }
 
-    public List<DressItemData> dSG() {
+    public List<DressItemData> dOO() {
         return this.mAvatarPendantList;
     }
 }

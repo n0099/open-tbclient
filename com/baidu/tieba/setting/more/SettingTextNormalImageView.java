@@ -14,34 +14,34 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SettingTextNormalImageView extends FrameLayout {
-    private LinearLayout fAp;
-    private ImageView fAu;
+    private LinearLayout fvH;
+    private ImageView fvM;
     private Context mContext;
-    private TbImageView ndd;
+    private TbImageView mYy;
     private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bDg();
+        bzm();
         i(attributeSet);
-        sk(TbadkCoreApplication.getInst().getSkinType());
+        qE(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
         this.mContext = context;
-        bDg();
-        sk(TbadkCoreApplication.getInst().getSkinType());
+        bzm();
+        qE(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void sk(int i) {
+    public void qE(int i) {
         ao.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
-        SvgManager.bwr().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
-        this.ndd.invalidate();
+        SvgManager.bsx().a(this.fvM, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        setBackgroundDrawable(ao.ox(R.color.CAM_X0205));
+        this.mYy.invalidate();
     }
 
     public void setText(String str) {
@@ -49,17 +49,17 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.ndd.bJM();
-        this.ndd.setConrers(0);
-        this.ndd.setImageResource(i);
+        this.mYy.bFU();
+        this.mYy.setConrers(0);
+        this.mYy.setImageResource(i);
     }
 
-    private void bDg() {
+    private void bzm() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.fAp = (LinearLayout) findViewById(R.id.container);
+        this.fvH = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.ndd = (TbImageView) findViewById(R.id.icon);
-        this.fAu = (ImageView) findViewById(R.id.arrow);
+        this.mYy = (TbImageView) findViewById(R.id.icon);
+        this.fvM = (ImageView) findViewById(R.id.arrow);
     }
 
     private void i(AttributeSet attributeSet) {
@@ -73,7 +73,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (color > -1) {
             this.textView.setTextColor(color);
         }
-        this.fAp.setClickable(false);
-        this.fAp.setFocusable(false);
+        this.fvH.setClickable(false);
+        this.fvH.setFocusable(false);
     }
 }

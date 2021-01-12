@@ -18,20 +18,20 @@ import java.util.Set;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12117a = j.class.getSimpleName();
+    private static final String f11817a = j.class.getSimpleName();
     private static volatile j f;
 
     /* renamed from: b  reason: collision with root package name */
-    private File f12118b = g();
+    private File f11818b = g();
     private File c = ah.j();
     private Set<String> d;
     private Set<String> e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(File file);
 
@@ -67,7 +67,7 @@ public class j {
             u.a(new com.qq.e.comm.plugin.y.e(1110104));
         }
         try {
-            ai.a(f12117a, "get response from cache: " + str);
+            ai.a(f11817a, "get response from cache: " + str);
             return new FileInputStream(b2);
         } catch (IOException e) {
             e.printStackTrace();
@@ -91,7 +91,7 @@ public class j {
 
             @Override // com.qq.e.comm.plugin.j.a
             public void a(com.qq.e.comm.plugin.j.c cVar) {
-                ai.b(j.f12117a, "download fail, url = " + str + " ,errorCode:" + cVar.a() + ", errorMsg:" + cVar.b());
+                ai.b(j.f11817a, "download fail, url = " + str + " ,errorCode:" + cVar.a() + ", errorMsg:" + cVar.b());
                 com.qq.e.comm.plugin.y.e eVar = new com.qq.e.comm.plugin.y.e(1110106);
                 com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
                 dVar.a("url", str);
@@ -104,7 +104,7 @@ public class j {
 
             @Override // com.qq.e.comm.plugin.j.a
             public void a(File file2, long j) {
-                ai.a(j.f12117a, "download success, url=" + str + ", time = " + j);
+                ai.a(j.f11817a, "download success, url=" + str + ", time = " + j);
                 com.qq.e.comm.plugin.y.g gVar = new com.qq.e.comm.plugin.y.g(aVar == az.a.IMAGE ? 2060001 : 2060003);
                 gVar.b(j);
                 if (file2.exists()) {
@@ -135,7 +135,7 @@ public class j {
     }
 
     private File b(String str) {
-        return a(str, this.f12118b);
+        return a(str, this.f11818b);
     }
 
     private FileInputStream b(String str, az.a aVar) {
@@ -152,7 +152,7 @@ public class j {
 
             @Override // com.qq.e.comm.plugin.ab.j.a
             public void a(Exception exc) {
-                ai.a(j.f12117a, exc.getMessage());
+                ai.a(j.f11817a, exc.getMessage());
                 try {
                     exchanger.exchange(null);
                 } catch (InterruptedException e) {
@@ -168,11 +168,11 @@ public class j {
         try {
             return (FileInputStream) exchanger.exchange(null, 3L, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            ai.a(f12117a, "download InterruptedException, url = " + str, e);
+            ai.a(f11817a, "download InterruptedException, url = " + str, e);
             return null;
         } catch (TimeoutException e2) {
             e2.printStackTrace();
-            ai.a(f12117a, "download TimeoutException, url = " + str, e2);
+            ai.a(f11817a, "download TimeoutException, url = " + str, e2);
             u.a(new com.qq.e.comm.plugin.y.e(1110107));
             return null;
         }
@@ -194,13 +194,13 @@ public class j {
     }
 
     private File g() {
-        if (this.f12118b == null) {
-            this.f12118b = ah.l();
+        if (this.f11818b == null) {
+            this.f11818b = ah.l();
         }
-        if (!this.f12118b.exists()) {
-            this.f12118b.mkdirs();
+        if (!this.f11818b.exists()) {
+            this.f11818b.mkdirs();
         }
-        return this.f12118b;
+        return this.f11818b;
     }
 
     public File a(String str) {
@@ -210,21 +210,21 @@ public class j {
     public FileInputStream a(Uri uri) {
         String uri2 = uri.toString();
         if (TextUtils.isEmpty(uri2)) {
-            ai.a(f12117a, "url == null or empty");
+            ai.a(f11817a, "url == null or empty");
             return null;
         }
         String a2 = az.a(uri);
         az.a c = az.c(a2);
         if (b().contains(a2)) {
-            ai.a(f12117a, "proxy image: " + uri2);
+            ai.a(f11817a, "proxy image: " + uri2);
             u.a(new com.qq.e.comm.plugin.y.e(1110101));
             return a(uri2, c);
         } else if (c().contains(a2)) {
-            ai.a(f12117a, "proxy resource: " + uri2);
+            ai.a(f11817a, "proxy resource: " + uri2);
             u.a(new com.qq.e.comm.plugin.y.e(1110109));
             return a(uri2, c);
         } else {
-            ai.a(f12117a, "proxy fail: " + uri2);
+            ai.a(f11817a, "proxy fail: " + uri2);
             if (GDTADManager.getInstance().getSM().getInteger("web_proxy_not_hit_event", 0) == 1) {
                 com.qq.e.comm.plugin.y.e eVar = new com.qq.e.comm.plugin.y.e(1110105);
                 eVar.a(new com.qq.e.comm.plugin.y.d().a("url", uri2));
@@ -237,11 +237,11 @@ public class j {
 
     public void a(String str, a aVar) {
         if (TextUtils.isEmpty(str)) {
-            ai.a(f12117a, "downloadImage url is empty or null");
+            ai.a(f11817a, "downloadImage url is empty or null");
             return;
         }
         if (new File(g(), ah.a(str)).exists()) {
-            ai.a(f12117a, str + ": 对应的文件本地已存在");
+            ai.a(f11817a, str + ": 对应的文件本地已存在");
         } else {
             a(str, g(), az.a.IMAGE, aVar);
         }

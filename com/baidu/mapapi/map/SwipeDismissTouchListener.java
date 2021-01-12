@@ -7,14 +7,14 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2876a;
+    private int f2763a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2877b;
+    private int f2764b;
     private int c;
     private long d;
     private View e;
@@ -30,7 +30,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 
@@ -41,8 +41,8 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     public SwipeDismissTouchListener(View view, Object obj, DismissCallbacks dismissCallbacks) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
-        this.f2876a = viewConfiguration.getScaledTouchSlop();
-        this.f2877b = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.f2763a = viewConfiguration.getScaledTouchSlop();
+        this.f2764b = viewConfiguration.getScaledMinimumFlingVelocity();
         this.c = viewConfiguration.getScaledMaximumFlingVelocity();
         this.d = view.getContext().getResources().getInteger(17694720);
         this.e = view;
@@ -57,8 +57,8 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
         int height = this.e.getHeight();
         ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.d);
-        duration.addListener(new v(this, layoutParams, height));
-        duration.addUpdateListener(new w(this, layoutParams));
+        duration.addListener(new p(this, layoutParams, height));
+        duration.addUpdateListener(new q(this, layoutParams));
         duration.start();
     }
 
@@ -93,7 +93,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     if (Math.abs(rawX) > this.g / 3 && this.j) {
                         z = rawX > 0.0f;
                         z2 = true;
-                    } else if (this.f2877b > abs || abs > this.c || abs2 >= abs || abs2 >= abs || !this.j) {
+                    } else if (this.f2764b > abs || abs > this.c || abs2 >= abs || abs2 >= abs || !this.j) {
                         z = false;
                         z2 = false;
                     } else {
@@ -102,7 +102,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                         z2 = z3;
                     }
                     if (z2) {
-                        this.e.animate().translationX(z ? this.g : -this.g).setDuration(this.d).setListener(new u(this));
+                        this.e.animate().translationX(z ? this.g : -this.g).setDuration(this.d).setListener(new o(this));
                     } else if (this.j) {
                         this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
                     }
@@ -120,9 +120,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     this.m.addMovement(motionEvent);
                     float rawX2 = motionEvent.getRawX() - this.h;
                     float rawY = motionEvent.getRawY() - this.i;
-                    if (Math.abs(rawX2) > this.f2876a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
+                    if (Math.abs(rawX2) > this.f2763a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
                         this.j = true;
-                        this.k = rawX2 > 0.0f ? this.f2876a : -this.f2876a;
+                        this.k = rawX2 > 0.0f ? this.f2763a : -this.f2763a;
                         this.e.getParent().requestDisallowInterceptTouchEvent(true);
                         if (!this.o) {
                             this.o = true;

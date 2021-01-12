@@ -2,14 +2,14 @@ package org.webrtc;
 
 import androidx.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtpReceiver {
     @Nullable
     private MediaStreamTrack cachedTrack;
     private long nativeObserver;
     private long nativeRtpReceiver;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onFirstPacketReceived(MediaStreamTrack.MediaType mediaType);

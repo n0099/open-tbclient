@@ -11,10 +11,10 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> TU = new HashMap();
-    private static final Object TV = new Object();
-    private static DateFormat TW = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
-    private LinkedList<a> TX = new LinkedList<>();
+    private static final Map<String, b> TS = new HashMap();
+    private static final Object TT = new Object();
+    private static DateFormat TU = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private LinkedList<a> TV = new LinkedList<>();
     private long startTime;
     private String type;
 
@@ -22,16 +22,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!TU.containsKey(str)) {
-            synchronized (TV) {
-                if (!TU.containsKey(str)) {
+        if (!TS.containsKey(str)) {
+            synchronized (TT) {
+                if (!TS.containsKey(str)) {
                     b bVar = new b(str);
-                    TU.put(str, bVar);
+                    TS.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return TU.get(str);
+        return TS.get(str);
     }
 
     public static b pk() {
@@ -49,7 +49,7 @@ public class b {
     public void trace(String str, String str2) {
         pl();
         pm();
-        this.TX.add(new a(str, str2));
+        this.TV.add(new a(str, str2));
     }
 
     private void pl() {
@@ -59,18 +59,18 @@ public class b {
     }
 
     private void pm() {
-        while (this.TX.size() >= 70) {
-            this.TX.poll();
+        while (this.TV.size() >= 70) {
+            this.TV.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + TW.format(new Date(this.startTime)) + PerfFrameTrackUIUtil.SEPERATOR_ARROR);
-        for (int i = 0; i < this.TX.size(); i++) {
-            a aVar = this.TX.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.TY, TW.format(new Date(aVar.time))));
-            if (i < this.TX.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + TU.format(new Date(this.startTime)) + PerfFrameTrackUIUtil.SEPERATOR_ARROR);
+        for (int i = 0; i < this.TV.size(); i++) {
+            a aVar = this.TV.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.TW, TU.format(new Date(aVar.time))));
+            if (i < this.TV.size() - 1) {
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR);
             }
         }
@@ -81,13 +81,13 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private String TY;
+        private String TW;
         private String method;
         private long time;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.TY = str2;
+            this.TW = str2;
             this.time = j;
         }
 

@@ -4,23 +4,23 @@ import android.os.Handler;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.platform.comapi.walknavi.d.g;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Handler f4466b = new Handler();
+    private static Handler f4249b = new Handler();
     private static final String c = e.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    final Runnable f4467a;
+    final Runnable f4250a;
     private g d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final e f4468a = new e(null);
+        static final e f4251a = new e(null);
     }
 
     /* synthetic */ e(f fVar) {
@@ -40,12 +40,12 @@ public class e {
     }
 
     private e() {
-        this.f4467a = new f(this);
+        this.f4250a = new f(this);
         this.d = new g();
     }
 
     public static e c() {
-        return a.f4468a;
+        return a.f4251a;
     }
 
     public void a(b bVar) {
@@ -103,18 +103,18 @@ public class e {
     }
 
     public void a(String str, String str2) {
-        if (f4466b != null && this.f4467a != null) {
-            f4466b.removeCallbacks(this.f4467a);
+        if (f4249b != null && this.f4250a != null) {
+            f4249b.removeCallbacks(this.f4250a);
         }
         this.d.a(str, str2);
     }
 
     public void b(String str, String str2) {
-        if (f4466b != null && this.f4467a != null) {
-            f4466b.removeCallbacks(this.f4467a);
+        if (f4249b != null && this.f4250a != null) {
+            f4249b.removeCallbacks(this.f4250a);
         }
         this.d.a(str, str2);
-        f4466b.postDelayed(this.f4467a, 30000L);
+        f4249b.postDelayed(this.f4250a, 30000L);
     }
 
     public boolean b(String str) {

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.ak.a.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startAccelerometer");
@@ -61,11 +61,11 @@ public class a extends aa {
             }
             c.i("accelerometer", " init ");
             final k kVar = new k("accelerometerChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.a.a aPZ = com.baidu.swan.apps.ak.a.a.aPZ();
-            aPZ.w(context, a.C0403a.mb(optParamsAsJo.optString("interval")));
-            aPZ.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
-                @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0377a
-                public void b(double[] dArr) {
+            com.baidu.swan.apps.ak.a.a aMf = com.baidu.swan.apps.ak.a.a.aMf();
+            aMf.w(context, a.C0386a.kQ(optParamsAsJo.optString("interval")));
+            aMf.a(new a.InterfaceC0360a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
+                @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0360a
+                public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
                         return;
@@ -74,7 +74,7 @@ public class a extends aa {
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, dArr);
                 }
             });
-            aPZ.aQa();
+            aMf.aMg();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;
@@ -85,9 +85,9 @@ public class a extends aa {
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k kVar, double[] dArr) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("x", dArr[0]);
+            jSONObject.put(Config.EVENT_HEAT_X, dArr[0]);
             jSONObject.put("y", dArr[1]);
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, dArr[2]);
+            jSONObject.put("z", dArr[2]);
             kVar.a(unitedSchemeEntity, callbackHandler, jSONObject);
         } catch (JSONException e) {
             c.e("accelerometer", "handle compass,json error，" + e.toString());

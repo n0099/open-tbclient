@@ -33,28 +33,28 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.live.guardclub.h {
-    private x aGe;
-    private ViewGroup bRX;
+    private x aBr;
+    private ViewGroup bNl;
     protected Context context;
-    private com.baidu.live.guardclub.l gZo;
-    protected com.baidu.tieba.ala.guardclub.view.b gZp;
-    private com.baidu.live.guardclub.a gZq;
-    private com.baidu.tieba.ala.guardclub.view.a gZr;
+    private com.baidu.live.guardclub.l gUI;
+    protected com.baidu.tieba.ala.guardclub.view.b gUJ;
+    private com.baidu.live.guardclub.a gUK;
+    private com.baidu.tieba.ala.guardclub.view.a gUL;
     private boolean isHost;
     private String otherParams;
-    private BdUniqueId gQC = BdUniqueId.gen();
-    private boolean bkK = false;
+    private BdUniqueId gLW = BdUniqueId.gen();
+    private boolean bfU = false;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.aGe != null && b.this.aGe.aKu != null && ViewHelper.checkUpIsLogin(b.this.context)) {
-                b.this.HB("");
+            if (b.this.aBr != null && b.this.aBr.aFH != null && ViewHelper.checkUpIsLogin(b.this.context)) {
+                b.this.Gq("");
             }
         }
     };
-    CustomMessageListener gPs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.b.4
+    CustomMessageListener gKM = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -67,47 +67,47 @@ public class b implements com.baidu.live.guardclub.h {
             }
         }
     };
-    private HttpMessageListener gZs = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.b.5
+    private HttpMessageListener gUM = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.b.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage)) {
                 GuardClubInfoHttpResponseMessage guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage;
-                if (b.this.aGe != null && b.this.aGe.aKu != null && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.bkF != null && guardClubInfoHttpResponseMessage.bkF.anchorId == b.this.aGe.aKu.userId) {
-                    b.this.gZq = guardClubInfoHttpResponseMessage.bkF;
-                    b.this.bkK = guardClubInfoHttpResponseMessage.bkK;
-                    if (b.this.gZp != null) {
-                        b.this.gZp.b(b.this.bkK, guardClubInfoHttpResponseMessage.bkN);
+                if (b.this.aBr != null && b.this.aBr.aFH != null && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.bfP != null && guardClubInfoHttpResponseMessage.bfP.anchorId == b.this.aBr.aFH.userId) {
+                    b.this.gUK = guardClubInfoHttpResponseMessage.bfP;
+                    b.this.bfU = guardClubInfoHttpResponseMessage.bfU;
+                    if (b.this.gUJ != null) {
+                        b.this.gUJ.b(b.this.bfU, guardClubInfoHttpResponseMessage.bfX);
                     }
-                    if (b.this.bkK) {
+                    if (b.this.bfU) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913120));
                     }
-                    if ((httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.guardclub.b) && ((com.baidu.live.guardclub.b) httpResponsedMessage.getOrginalMessage()).Lu()) {
-                        b.this.a(String.valueOf(guardClubInfoHttpResponseMessage.bkF.id), guardClubInfoHttpResponseMessage.bkO, guardClubInfoHttpResponseMessage.bkN, guardClubInfoHttpResponseMessage.bkG);
+                    if ((httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.guardclub.b) && ((com.baidu.live.guardclub.b) httpResponsedMessage.getOrginalMessage()).Hz()) {
+                        b.this.a(String.valueOf(guardClubInfoHttpResponseMessage.bfP.id), guardClubInfoHttpResponseMessage.bfY, guardClubInfoHttpResponseMessage.bfX, guardClubInfoHttpResponseMessage.bfQ);
                     }
                 }
             }
         }
     };
-    CustomMessageListener gZt = new CustomMessageListener(2913106) { // from class: com.baidu.tieba.ala.guardclub.b.6
+    CustomMessageListener gUN = new CustomMessageListener(2913106) { // from class: com.baidu.tieba.ala.guardclub.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof String) {
-                b.this.HB((String) customResponsedMessage.getData());
+                b.this.Gq((String) customResponsedMessage.getData());
             } else {
-                b.this.HB("");
+                b.this.Gq("");
             }
         }
     };
-    CustomMessageListener gZu = new CustomMessageListener(2913119) { // from class: com.baidu.tieba.ala.guardclub.b.7
+    CustomMessageListener gUO = new CustomMessageListener(2913119) { // from class: com.baidu.tieba.ala.guardclub.b.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b.this.bYF();
+            b.this.bUN();
         }
     };
-    HttpMessageListener gZv = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.b.8
+    HttpMessageListener gUP = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.b.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -122,11 +122,11 @@ public class b implements com.baidu.live.guardclub.h {
                 }
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    if (b.this.gZq != null && b.this.gZq.id == guardClubJoinHttpResponseMessage.bkP) {
-                        b.this.bYG();
+                    if (b.this.gUK != null && b.this.gUK.id == guardClubJoinHttpResponseMessage.bfZ) {
+                        b.this.bUO();
                     }
-                } else if (!guardClubJoinHttpResponseMessage.bkS) {
-                    guardClubJoinHttpResponseMessage.bkS = true;
+                } else if (!guardClubJoinHttpResponseMessage.bgc) {
+                    guardClubJoinHttpResponseMessage.bgc = true;
                     String errorString2 = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString2)) {
                         errorString2 = "加入真爱团失败";
@@ -139,64 +139,64 @@ public class b implements com.baidu.live.guardclub.h {
 
     public b(Context context) {
         this.context = context;
-        MessageManager.getInstance().registerListener(this.gPs);
-        MessageManager.getInstance().registerListener(this.gZs);
-        MessageManager.getInstance().registerListener(this.gZt);
-        MessageManager.getInstance().registerListener(this.gZu);
-        MessageManager.getInstance().registerListener(this.gZv);
+        MessageManager.getInstance().registerListener(this.gKM);
+        MessageManager.getInstance().registerListener(this.gUM);
+        MessageManager.getInstance().registerListener(this.gUN);
+        MessageManager.getInstance().registerListener(this.gUO);
+        MessageManager.getInstance().registerListener(this.gUP);
     }
 
     protected boolean aw(ViewGroup viewGroup) {
         if (viewGroup == null) {
             return false;
         }
-        if (this.gZp == null) {
-            this.gZp = new com.baidu.tieba.ala.guardclub.view.b(this.context, this.isHost, this.onClickListener);
+        if (this.gUJ == null) {
+            this.gUJ = new com.baidu.tieba.ala.guardclub.view.b(this.context, this.isHost, this.onClickListener);
         }
-        if (this.bRX != null && this.bRX.indexOfChild(this.gZp.getView()) >= 0) {
-            this.bRX.removeView(this.gZp.getView());
+        if (this.bNl != null && this.bNl.indexOfChild(this.gUJ.getView()) >= 0) {
+            this.bNl.removeView(this.gUJ.getView());
         }
-        this.bRX = viewGroup;
+        this.bNl = viewGroup;
         return true;
     }
 
     @Override // com.baidu.live.guardclub.h
     public void a(com.baidu.live.guardclub.l lVar) {
-        this.gZo = lVar;
+        this.gUI = lVar;
     }
 
     @Override // com.baidu.live.guardclub.h
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, x xVar) {
-        bq bqVar = com.baidu.live.af.a.SE().bCb;
-        if (bqVar != null && bqVar.aRE != null && bqVar.aRE.aUf) {
+        bq bqVar = com.baidu.live.af.a.OJ().bxp;
+        if (bqVar != null && bqVar.aMR != null && bqVar.aMR.aPs) {
             if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && aw(viewGroup)) {
-                this.aGe = xVar;
-                this.gZq = null;
-                this.gZp.reset();
+                this.aBr = xVar;
+                this.gUK = null;
+                this.gUJ.reset();
             }
         }
     }
 
     @Override // com.baidu.live.guardclub.h
-    public void Bf() {
-        this.gZq = null;
-        if (this.gZr != null) {
-            this.gZr.dismiss();
+    public void xk() {
+        this.gUK = null;
+        if (this.gUL != null) {
+            this.gUL.dismiss();
         }
     }
 
     @Override // com.baidu.live.guardclub.h
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gPs);
-        MessageManager.getInstance().unRegisterListener(this.gZs);
-        MessageManager.getInstance().unRegisterListener(this.gZt);
-        MessageManager.getInstance().unRegisterListener(this.gZu);
-        MessageManager.getInstance().unRegisterListener(this.gZv);
-        if (this.gZp != null) {
-            this.gZp.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gKM);
+        MessageManager.getInstance().unRegisterListener(this.gUM);
+        MessageManager.getInstance().unRegisterListener(this.gUN);
+        MessageManager.getInstance().unRegisterListener(this.gUO);
+        MessageManager.getInstance().unRegisterListener(this.gUP);
+        if (this.gUJ != null) {
+            this.gUJ.onDestroy();
         }
-        if (this.gZr != null) {
-            this.gZr.dismiss();
+        if (this.gUL != null) {
+            this.gUL.dismiss();
         }
     }
 
@@ -206,17 +206,17 @@ public class b implements com.baidu.live.guardclub.h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HB(String str) {
-        if (this.context != null && this.aGe != null && this.aGe.aKu != null && this.aGe.mLiveInfo != null) {
-            long j = this.aGe.aKu.userId;
-            long j2 = this.aGe.mLiveInfo.live_id;
-            long j3 = this.aGe.mLiveInfo.room_id;
-            String str2 = this.aGe.mLiveInfo.feed_id;
+    public void Gq(String str) {
+        if (this.context != null && this.aBr != null && this.aBr.aFH != null && this.aBr.mLiveInfo != null) {
+            long j = this.aBr.aFH.userId;
+            long j2 = this.aBr.mLiveInfo.live_id;
+            long j3 = this.aBr.mLiveInfo.room_id;
+            String str2 = this.aBr.mLiveInfo.feed_id;
             GuardClubInfoActivityConfig guardClubInfoActivityConfig = new GuardClubInfoActivityConfig(this.context, j, j2, this.isHost, this.otherParams, false, str);
             guardClubInfoActivityConfig.setRoomId(j3);
             guardClubInfoActivityConfig.setFeedId(str2);
-            guardClubInfoActivityConfig.setAnchorInfo(this.aGe.aKu.nickName, this.aGe.aKu.portrait);
-            guardClubInfoActivityConfig.setIsClubMember(this.bkK);
+            guardClubInfoActivityConfig.setAnchorInfo(this.aBr.aFH.nickName, this.aBr.aFH.portrait);
+            guardClubInfoActivityConfig.setIsClubMember(this.bfU);
             guardClubInfoActivityConfig.setRequestCode(RequestResponseCode.REQUEST_GUARD_CLUB_INFO);
             guardClubInfoActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, guardClubInfoActivityConfig));
@@ -226,29 +226,29 @@ public class b implements com.baidu.live.guardclub.h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z, com.baidu.live.guardclub.f fVar, String str2) {
         if (z) {
-            bYE();
-        } else if (fVar.bkX > 0) {
-            es(str, str2);
+            bUM();
+        } else if (fVar.bgh > 0) {
+            er(str, str2);
         }
     }
 
-    private void bYE() {
-        this.gZr = new com.baidu.tieba.ala.guardclub.view.a(this.context);
-        this.gZr.a(new a.InterfaceC0652a() { // from class: com.baidu.tieba.ala.guardclub.b.2
-            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0652a
+    private void bUM() {
+        this.gUL = new com.baidu.tieba.ala.guardclub.view.a(this.context);
+        this.gUL.a(new a.InterfaceC0635a() { // from class: com.baidu.tieba.ala.guardclub.b.2
+            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0635a
             public void onConfirm() {
-                if (b.this.bYF()) {
-                    b.this.gZr.dismiss();
+                if (b.this.bUN()) {
+                    b.this.gUL.dismiss();
                 }
             }
 
-            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0652a
+            @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0635a
             public void onCancel() {
-                b.this.gZr.dismiss();
+                b.this.gUL.dismiss();
             }
         });
-        bi LA = com.baidu.live.guardclub.g.Ly().LA();
-        this.gZr.Y(0, LA != null ? LA.aRf : "");
+        bi HF = com.baidu.live.guardclub.g.HD().HF();
+        this.gUL.Z(0, HF != null ? HF.aMs : "");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x006a  */
@@ -257,16 +257,16 @@ public class b implements com.baidu.live.guardclub.h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void es(String str, final String str2) {
+    private void er(String str, final String str2) {
         JSONException e;
         boolean z;
         boolean z2;
         boolean z3 = false;
-        bi LA = com.baidu.live.guardclub.g.Ly().LA();
-        if (LA != null && LA.aRd > 0) {
+        bi HF = com.baidu.live.guardclub.g.HD().HF();
+        if (HF != null && HF.aMq > 0) {
             ArrayList<com.baidu.tieba.ala.guardclub.model.a> arrayList = new ArrayList();
             String b2 = com.baidu.live.utils.k.b(new Date());
-            String string = com.baidu.live.d.Ba().getString("guardclub_attenuat_daily", "");
+            String string = com.baidu.live.d.xf().getString("guardclub_attenuat_daily", "");
             if (TextUtils.isEmpty(string)) {
                 z2 = false;
             } else {
@@ -294,7 +294,7 @@ public class b implements com.baidu.live.guardclub.h {
                             }
                             if (!z3) {
                             }
-                            com.baidu.live.d.Ba().putString("guardclub_attenuat_daily", jSONArray2.toString());
+                            com.baidu.live.d.xf().putString("guardclub_attenuat_daily", jSONArray2.toString());
                         }
                     }
                 } catch (JSONException e3) {
@@ -306,16 +306,16 @@ public class b implements com.baidu.live.guardclub.h {
                 com.baidu.tieba.ala.guardclub.model.a aVar = new com.baidu.tieba.ala.guardclub.model.a();
                 aVar.id = str;
                 aVar.date = b2;
-                aVar.bsA = 0;
+                aVar.bnO = 0;
                 arrayList.add(aVar);
             }
             JSONArray jSONArray22 = new JSONArray();
             for (com.baidu.tieba.ala.guardclub.model.a aVar2 : arrayList) {
                 if (aVar2.id.equals(str)) {
-                    if (aVar2.bsA >= LA.aRd) {
+                    if (aVar2.bnO >= HF.aMq) {
                         z3 = true;
                     } else {
-                        aVar2.bsA++;
+                        aVar2.bnO++;
                     }
                 }
                 try {
@@ -325,17 +325,17 @@ public class b implements com.baidu.live.guardclub.h {
                 }
             }
             if (!z3) {
-                this.gZr = new com.baidu.tieba.ala.guardclub.view.a(this.context);
-                this.gZr.a(new a.InterfaceC0652a() { // from class: com.baidu.tieba.ala.guardclub.b.3
-                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0652a
+                this.gUL = new com.baidu.tieba.ala.guardclub.view.a(this.context);
+                this.gUL.a(new a.InterfaceC0635a() { // from class: com.baidu.tieba.ala.guardclub.b.3
+                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0635a
                     public void onConfirm() {
-                        b.this.gZr.dismiss();
-                        if (b.this.gZo != null) {
-                            b.this.gZo.LD();
+                        b.this.gUL.dismiss();
+                        if (b.this.gUI != null) {
+                            b.this.gUI.HI();
                         }
                     }
 
-                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0652a
+                    @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0635a
                     public void onCancel() {
                         if (!TextUtils.isEmpty(str2)) {
                             StringBuilder sb = new StringBuilder(str2);
@@ -349,46 +349,46 @@ public class b implements com.baidu.live.guardclub.h {
                         }
                     }
                 });
-                this.gZr.Y(1, LA.aRe);
+                this.gUL.Z(1, HF.aMr);
             }
-            com.baidu.live.d.Ba().putString("guardclub_attenuat_daily", jSONArray22.toString());
+            com.baidu.live.d.xf().putString("guardclub_attenuat_daily", jSONArray22.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bYF() {
+    public boolean bUN() {
         long j;
-        if (this.gZq == null) {
+        if (this.gUK == null) {
             return false;
         }
-        bi LA = com.baidu.live.guardclub.g.Ly().LA();
-        if (LA == null || LA.aQY <= 0) {
+        bi HF = com.baidu.live.guardclub.g.HD().HF();
+        if (HF == null || HF.aMl <= 0) {
             j = 1000;
         } else {
-            j = LA.aQY;
+            j = HF.aMl;
         }
         if (TbadkCoreApplication.getInst().currentAccountTdouNum >= j) {
-            vX(this.gZq.id);
+            ur(this.gUK.id);
             return true;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(this.context, 0L, this.otherParams, true, "", true)));
         return false;
     }
 
-    public void vX(int i) {
+    public void ur(int i) {
         com.baidu.live.guardclub.c cVar = new com.baidu.live.guardclub.c();
-        cVar.eQ(i);
-        cVar.a(this.gZq);
+        cVar.dk(i);
+        cVar.a(this.gUK);
         cVar.setParams();
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public void bYG() {
-        if (this.aGe != null && this.aGe.aKu != null) {
+    public void bUO() {
+        if (this.aBr != null && this.aBr.aFH != null) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
-            bVar.setAnchorId(this.aGe.aKu.userId);
+            bVar.setAnchorId(this.aBr.aFH.userId);
             bVar.setParams();
-            bVar.setTag(this.gQC);
+            bVar.setTag(this.gLW);
             MessageManager.getInstance().sendMessage(bVar);
         }
     }

@@ -43,26 +43,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.a;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppAbTestStatic {
     public static String Tag = "tag";
-    private static boolean gnr = false;
-    private static h gns = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
+    private static boolean giK = false;
+    private static h giL = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
-                SwanAppAbTestStatic.bQj();
+                SwanAppAbTestStatic.bMr();
             }
             return true;
         }
     };
 
     static {
-        if (ad.bvZ()) {
-            bQj();
+        if (ad.bsf()) {
+            bMr();
         } else {
-            g.bGG().a(PrivacyPolicyEvent.class, gns, BdUniqueId.gen());
+            g.bCN().a(PrivacyPolicyEvent.class, giL, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -72,15 +72,15 @@ public class SwanAppAbTestStatic {
                         l.showToast(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
                     } else {
                         aq aqVar = new aq("c13606");
-                        aqVar.dX("obj_id", customMessage.getData());
+                        aqVar.dW("obj_id", customMessage.getData());
                         TiebaStatic.log(aqVar);
                         if (b.kC().currentActivity() != null) {
                             Uri parse = Uri.parse(customMessage.getData());
-                            SwanAppAbTestStatic.y(parse);
+                            SwanAppAbTestStatic.B(parse);
                             SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
                         } else {
                             Uri parse2 = Uri.parse(customMessage.getData());
-                            SwanAppAbTestStatic.y(parse2);
+                            SwanAppAbTestStatic.B(parse2);
                             SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse2);
                         }
                     }
@@ -109,7 +109,7 @@ public class SwanAppAbTestStatic {
                 }
             }
         });
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.4
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -133,7 +133,7 @@ public class SwanAppAbTestStatic {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    TiebaStatic.log(new aq("c13274").dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("obj_id", str2).dX("obj_source", "web_search").dX("obj_name", str3));
+                    TiebaStatic.log(new aq("c13274").dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("obj_id", str2).dW("obj_source", "web_search").dW("obj_name", str3));
                 }
                 return 0;
             }
@@ -150,7 +150,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    com.baidu.tieba.aiapps.apps.a.a.bQk().a((GetUserInfoResult) null);
+                    com.baidu.tieba.aiapps.apps.a.a.bMs().a((GetUserInfoResult) null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.5.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -161,12 +161,12 @@ public class SwanAppAbTestStatic {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                        com.baidu.swan.apps.storage.c.h.aPI().putString("bd_box_display_name", getUserInfoResult.displayname);
-                        com.baidu.swan.apps.storage.c.h.aPI().putString("bd_box_uid", getUserInfoResult.uid);
-                        com.baidu.swan.apps.storage.c.h.aPI().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                        com.baidu.swan.apps.storage.c.h.aPI().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                        com.baidu.swan.apps.storage.c.h.aPI().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                        com.baidu.tieba.aiapps.apps.a.a.bQk().a(getUserInfoResult);
+                        com.baidu.swan.apps.storage.c.h.aLO().putString("bd_box_display_name", getUserInfoResult.displayname);
+                        com.baidu.swan.apps.storage.c.h.aLO().putString("bd_box_uid", getUserInfoResult.uid);
+                        com.baidu.swan.apps.storage.c.h.aLO().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                        com.baidu.swan.apps.storage.c.h.aLO().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                        com.baidu.swan.apps.storage.c.h.aLO().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                        com.baidu.tieba.aiapps.apps.a.a.bMs().a(getUserInfoResult);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -188,11 +188,11 @@ public class SwanAppAbTestStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 String version = c.getVersion();
-                String le = com.baidu.swan.apps.swancore.b.le(0);
-                String le2 = com.baidu.swan.apps.swancore.b.le(1);
+                String jy = com.baidu.swan.apps.swancore.b.jy(0);
+                String jy2 = com.baidu.swan.apps.swancore.b.jy(1);
                 TbadkCoreApplication.getInst().setSdk_ver(version);
-                TbadkCoreApplication.getInst().setFramework_ver(le);
-                TbadkCoreApplication.getInst().setSwan_game_ver(le2);
+                TbadkCoreApplication.getInst().setFramework_ver(jy);
+                TbadkCoreApplication.getInst().setSwan_game_ver(jy2);
                 return null;
             }
         });
@@ -201,21 +201,21 @@ public class SwanAppAbTestStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bQj() {
-        if (!gnr) {
-            gnr = true;
+    public static void bMr() {
+        if (!giK) {
+            giK = true;
             SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
             if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-                com.baidu.tieba.aiapps.apps.i.a.bQX();
-                if (ProcessUtils.isMainProcess() && !com.facebook.drawee.a.a.c.euS()) {
+                com.baidu.tieba.aiapps.apps.i.a.bNf();
+                if (ProcessUtils.isMainProcess() && !com.facebook.drawee.a.a.c.eqY()) {
                     com.facebook.drawee.a.a.c.initialize(AppRuntime.getAppContext());
                 }
-                com.baidu.tieba.aiapps.apps.a.a.bQk().init(TbadkCoreApplication.getInst());
-                com.baidu.tieba.aiapps.apps.share.c.bQV().fT(TbadkCoreApplication.getInst());
-                com.baidu.helios.b.ak(TbadkCoreApplication.getInst()).b(new com.baidu.helios.c<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.7
+                com.baidu.tieba.aiapps.apps.a.a.bMs().init(TbadkCoreApplication.getInst());
+                com.baidu.tieba.aiapps.apps.share.c.bNd().fR(TbadkCoreApplication.getInst());
+                com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).b(new com.baidu.helios.c<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.7
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.helios.c
-                    /* renamed from: b */
+                    /* renamed from: c */
                     public void a(String str, Bundle bundle) {
                     }
 
@@ -226,7 +226,7 @@ public class SwanAppAbTestStatic {
                 ak.c(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.facade.requred.webview.b.aUz();
+                        com.baidu.swan.facade.requred.webview.b.aQF();
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
             }
@@ -234,7 +234,7 @@ public class SwanAppAbTestStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void y(Uri uri) {
+    public static void B(Uri uri) {
         List<String> pathSegments;
         if (uri != null && (pathSegments = uri.getPathSegments()) != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY);

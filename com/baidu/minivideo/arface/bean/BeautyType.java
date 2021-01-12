@@ -1,7 +1,7 @@
 package com.baidu.minivideo.arface.bean;
 
 import com.baidu.ar.filter.FilterParam;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum BeautyType {
     lutFile(FilterParam.LutFilter.lutFile),
     lutIntensity(FilterParam.LutFilter.lutIntensity),

@@ -22,15 +22,15 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.m;
 /* loaded from: classes.dex */
 public class BjhArticleLayout extends RelativeLayout implements View.OnClickListener, p<com.baidu.tbadk.core.data.a>, q {
-    private com.baidu.tbadk.core.data.a ahi;
-    private View.OnClickListener ahj;
-    private aa<com.baidu.tbadk.core.data.a> ajj;
-    private TextView akH;
-    private TbImageView akI;
-    private View akJ;
-    private float akK;
-    private float akL;
-    private float akM;
+    private com.baidu.tbadk.core.data.a agr;
+    private View.OnClickListener ags;
+    private aa<com.baidu.tbadk.core.data.a> ais;
+    private TextView ajQ;
+    private TbImageView ajR;
+    private View ajS;
+    private float ajT;
+    private float ajU;
+    private float ajV;
     private TextView mTitle;
     private int tbds21;
     private int tbds30;
@@ -41,39 +41,39 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     public BjhArticleLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akK = l.getDimens(context, R.dimen.tbds10);
+        this.ajT = l.getDimens(context, R.dimen.tbds10);
         this.tbds21 = l.getDimens(context, R.dimen.tbds21);
-        this.akL = l.getDimens(context, R.dimen.tbds16);
+        this.ajU = l.getDimens(context, R.dimen.tbds16);
         this.tbds30 = l.getDimens(context, R.dimen.tbds30);
-        this.akM = l.getDimens(context, R.dimen.tbds44);
+        this.ajV = l.getDimens(context, R.dimen.tbds44);
         initUI();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        this.ahi = aVar;
-        bz boP = aVar.boP();
-        if (boP.isShareThread && boP.eVB != null) {
-            if (boP.eVB.ePW) {
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        this.agr = aVar;
+        bz bkV = aVar.bkV();
+        if (bkV.isShareThread && bkV.eQQ != null) {
+            if (bkV.eQQ.eLl) {
                 setVisibility(8);
                 return;
             }
-            boP = boP.eVB.bpR();
+            bkV = bkV.eQQ.blX();
         }
-        this.mTitle.setText(boP.getTitle());
-        if (StringUtils.isNull(boP.bts())) {
-            this.akH.setVisibility(8);
-            this.akI.setVisibility(8);
-            this.akJ.setVisibility(8);
+        this.mTitle.setText(bkV.getTitle());
+        if (StringUtils.isNull(bkV.bpy())) {
+            this.ajQ.setVisibility(8);
+            this.ajR.setVisibility(8);
+            this.ajS.setVisibility(8);
         } else {
-            this.akH.setVisibility(0);
-            this.akI.setVisibility(0);
-            this.akJ.setVisibility(0);
-            this.akI.startLoad(boP.bts(), 10, false);
+            this.ajQ.setVisibility(0);
+            this.ajR.setVisibility(0);
+            this.ajS.setVisibility(0);
+            this.ajR.startLoad(bkV.bpy(), 10, false);
         }
-        m.a(this.mTitle, boP.getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        m.a(this.mTitle, bkV.getId(), this.ajR.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     private void initUI() {
@@ -81,31 +81,31 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setId(R.id.bjh_content);
         this.mTitle = (TextView) findViewById(R.id.title);
-        c.bv(this.mTitle).pE(R.string.F_X01).pD(R.dimen.T_X06);
+        c.bv(this.mTitle).nX(R.string.F_X01).nW(R.dimen.T_X06);
         this.mTitle.setOnClickListener(this);
-        this.akH = (TextView) findViewById(R.id.icon);
-        this.akH.setOnClickListener(this);
-        this.akI = (TbImageView) findViewById(R.id.cover_img);
-        this.akI.setPlaceHolder(3);
-        this.akI.setOnClickListener(this);
-        this.akJ = findViewById(R.id.bottom_mask);
-        this.akJ.setOnClickListener(this);
-        if (this.akI.getLayoutParams() != null) {
-            this.akI.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.akM)) / 16.0f) * 9.0f);
+        this.ajQ = (TextView) findViewById(R.id.icon);
+        this.ajQ.setOnClickListener(this);
+        this.ajR = (TbImageView) findViewById(R.id.cover_img);
+        this.ajR.setPlaceHolder(3);
+        this.ajR.setOnClickListener(this);
+        this.ajS = findViewById(R.id.bottom_mask);
+        this.ajS.setOnClickListener(this);
+        if (this.ajR.getLayoutParams() != null) {
+            this.ajR.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.ajV)) / 16.0f) * 9.0f);
         }
-        this.akH.setTranslationY(-this.akL);
-        this.akI.setDrawCorner(true);
-        this.akI.setConrers(15);
-        this.akI.setRadiusById(R.string.J_X05);
+        this.ajQ.setTranslationY(-this.ajU);
+        this.ajR.setDrawCorner(true);
+        this.ajR.setConrers(15);
+        this.ajR.setRadiusById(R.string.J_X05);
         b.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
     }
 
     public void setSubClickListener(aa<com.baidu.tbadk.core.data.a> aaVar) {
-        this.ajj = aaVar;
+        this.ais = aaVar;
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.ahj = onClickListener;
+        this.ags = onClickListener;
     }
 
     public TextView getTitle() {
@@ -113,26 +113,26 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     }
 
     public TextView getIcon() {
-        return this.akH;
+        return this.ajQ;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ahj != null) {
-            this.ahj.onClick(view);
+        if (this.ags != null) {
+            this.ags.onClick(view);
         }
-        if (this.ajj != null) {
-            this.ajj.a(view, this.ahi);
+        if (this.ais != null) {
+            this.ais.a(view, this.agr);
         }
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahi != null && this.ahi.boP() != null) {
-            m.a(this.mTitle, this.ahi.boP().getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        if (this.agr != null && this.agr.bkV() != null) {
+            m.a(this.mTitle, this.agr.bkV().getId(), this.ajR.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
-        ao.setViewTextColor(this.akH, R.color.CAM_X0101);
-        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qt(R.color.CAM_X0606).ae(this.akK).bz(this.akH);
-        com.baidu.tbadk.core.util.f.a.bwV().qq(0).n(R.color.CAM_X0611, R.color.CAM_X0605).ag(l.getDimens(getContext(), R.dimen.tbds21)).af(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).ah(l.getDimens(getContext(), R.dimen.tbds21)).qA(128).bz(this.akJ);
+        ao.setViewTextColor(this.ajQ, R.color.CAM_X0101);
+        com.baidu.tbadk.core.util.f.a.btb().oJ(0).oM(R.color.CAM_X0606).ae(this.ajT).bz(this.ajQ);
+        com.baidu.tbadk.core.util.f.a.btb().oJ(0).n(R.color.CAM_X0611, R.color.CAM_X0605).ag(l.getDimens(getContext(), R.dimen.tbds21)).af(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).ah(l.getDimens(getContext(), R.dimen.tbds21)).oT(128).bz(this.ajS);
     }
 }

@@ -7,18 +7,18 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private CallbackHandler det;
-    public JSONObject dlM;
+    private CallbackHandler cZC;
+    public JSONObject dgX;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.det = callbackHandler;
-        this.dlM = jSONObject;
+        this.cZC = callbackHandler;
+        this.dgX = jSONObject;
     }
 
-    public void qp(String str) {
+    public void pe(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.dlM = new JSONObject(str);
+            this.dgX = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void qq(String str) {
+    public void pf(String str) {
         h(str, null);
     }
 
     public void h(String str, JSONObject jSONObject) {
-        if (this.dlM != null) {
+        if (this.dgX != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.det.handleSchemeDispatchCallback(this.dlM.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.cZC.handleSchemeDispatchCallback(this.dgX.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean aEq() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.det);
+    public boolean aAw() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.cZC);
     }
 }

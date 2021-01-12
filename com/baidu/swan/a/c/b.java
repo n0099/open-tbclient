@@ -12,7 +12,7 @@ import org.apache.http.client.methods.HttpTrace;
 public class b {
     @NonNull
     public static HttpRequestBuilder d(@NonNull com.baidu.swan.a.b.a aVar) {
-        HttpCommonRequestBuilder bfJ;
+        HttpCommonRequestBuilder bbP;
         String str = aVar.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -67,34 +67,34 @@ public class b {
         }
         switch (c) {
             case 0:
-                return a.bfF().getRequest();
+                return a.bbL().getRequest();
             case 1:
-                return a.bfF().headerRequest();
+                return a.bbL().headerRequest();
             case 2:
-                bfJ = a.bfF().bfH();
+                bbP = a.bbL().bbN();
                 break;
             case 3:
-                bfJ = a.bfF().postRequest();
+                bbP = a.bbL().postRequest();
                 break;
             case 4:
-                bfJ = a.bfF().putRequest();
+                bbP = a.bbL().putRequest();
                 break;
             case 5:
-                bfJ = a.bfF().deleteRequest();
+                bbP = a.bbL().deleteRequest();
                 break;
             case 6:
-                bfJ = a.bfF().bfI();
+                bbP = a.bbL().bbO();
                 break;
             case 7:
-                bfJ = a.bfF().bfJ();
+                bbP = a.bbL().bbP();
                 break;
             default:
-                return a.bfF().getRequest();
+                return a.bbL().getRequest();
         }
         if (aVar.requestBody != null) {
-            bfJ.requestBody(aVar.requestBody);
-            return bfJ;
+            bbP.requestBody(aVar.requestBody);
+            return bbP;
         }
-        return bfJ;
+        return bbP;
     }
 }

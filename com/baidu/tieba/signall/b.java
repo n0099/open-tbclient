@@ -1,12 +1,12 @@
 package com.baidu.tieba.signall;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends d {
-    private String nhE;
+    private String ncZ;
     private String title;
 
     public b(String str, String str2) {
         this.title = str;
-        this.nhE = str2;
+        this.ncZ = str2;
     }
 
     public String getTitle() {

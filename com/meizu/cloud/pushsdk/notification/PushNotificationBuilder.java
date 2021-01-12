@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.notification;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PushNotificationBuilder {
     protected String appLabel;
     protected Bitmap appLargeIcon;

@@ -14,19 +14,19 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class k {
-    private static SharedPreferences arG = null;
-    private static final ScheduledThreadPoolExecutor arH = new ScheduledThreadPoolExecutor(1);
-    private static final ScheduledThreadPoolExecutor arI = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences aqT = null;
+    private static final ScheduledThreadPoolExecutor aqU = new ScheduledThreadPoolExecutor(1);
+    private static final ScheduledThreadPoolExecutor aqV = new ScheduledThreadPoolExecutor(1);
 
     private static long B(Context context, String str) {
         try {
-            if (arG == null && context != null) {
-                arG = context.getSharedPreferences("last_init_crab", 4);
+            if (aqT == null && context != null) {
+                aqT = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (arG != null) {
-                return arG.getLong(str, 0L);
+            if (aqT != null) {
+                return aqT.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        arH.execute(new m(th, context));
+        aqU.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -46,22 +46,22 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    arH.schedule(pVar, 10L, TimeUnit.SECONDS);
+                    aqU.schedule(pVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    arH.execute(pVar);
+                    aqU.execute(pVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                arH.execute(pVar);
+                aqU.execute(pVar);
             }
         }
     }
 
     public static void a(byte[] bArr, String str) {
-        com.baidu.crabsdk.c.a.dx("HttpSender.uploadBlock.result: " + j.c(bArr, "Block", str));
+        com.baidu.crabsdk.c.a.ds("HttpSender.uploadBlock.result: " + j.c(bArr, "Block", str));
     }
 
-    private static synchronized void ah(Context context) {
+    private static synchronized void ag(Context context) {
         String str;
         synchronized (k.class) {
             List<String> i = i.i(context);
@@ -69,40 +69,40 @@ public final class k {
                 for (String str2 : i) {
                     com.baidu.crabsdk.c.a.v("(--#)  fileName when send  (--#)" + t(str2));
                     if (h.i(str2)) {
-                        byte[] dX = i.dX(str2);
-                        com.baidu.crabsdk.c.a.dx("HttpSender.sendRecord: " + str2);
+                        byte[] dS = i.dS(str2);
+                        com.baidu.crabsdk.c.a.ds("HttpSender.sendRecord: " + str2);
                         if (str2.contains("crab_crash_")) {
                             String t = t(str2);
                             String a2 = com.baidu.crabsdk.a.a();
-                            com.baidu.crabsdk.c.a.dx("sendCrashRecord postUrl:" + a2);
-                            String a3 = r.a(a2, dX, "Crash", t);
-                            com.baidu.crabsdk.c.a.dx("HttpSender.sendCrashRecord--->Crash");
+                            com.baidu.crabsdk.c.a.ds("sendCrashRecord postUrl:" + a2);
+                            String a3 = r.a(a2, dS, "Crash", t);
+                            com.baidu.crabsdk.c.a.ds("HttpSender.sendCrashRecord--->Crash");
                             str = a3;
                         } else if (str2.contains("crab_anr_")) {
                             String t2 = t(str2);
                             String b2 = com.baidu.crabsdk.a.b();
-                            com.baidu.crabsdk.c.a.dx("sendAnrRecord postUrl:" + b2);
-                            String a4 = r.a(b2, dX, "Anr", t2);
-                            com.baidu.crabsdk.c.a.dx("HttpSender.sendAnrRecord--->Anr");
+                            com.baidu.crabsdk.c.a.ds("sendAnrRecord postUrl:" + b2);
+                            String a4 = r.a(b2, dS, "Anr", t2);
+                            com.baidu.crabsdk.c.a.ds("HttpSender.sendAnrRecord--->Anr");
                             str = a4;
                         } else if (str2.contains("crab_catched_")) {
                             String t3 = t(str2);
                             String b3 = com.baidu.crabsdk.a.b();
-                            com.baidu.crabsdk.c.a.dx("sendExceptionRecord postUrl:" + b3);
-                            String a5 = r.a(b3, dX, "Exception", t3);
-                            com.baidu.crabsdk.c.a.dx("HttpSender.sendExceptionRecord--->Exception");
+                            com.baidu.crabsdk.c.a.ds("sendExceptionRecord postUrl:" + b3);
+                            String a5 = r.a(b3, dS, "Exception", t3);
+                            com.baidu.crabsdk.c.a.ds("HttpSender.sendExceptionRecord--->Exception");
                             str = a5;
                         } else if (str2.contains("crab_block_")) {
-                            String c = j.c(dX, "Block", t(str2));
-                            com.baidu.crabsdk.c.a.dx("HttpSender.sendExceptionRecord--->Block");
+                            String c = j.c(dS, "Block", t(str2));
+                            com.baidu.crabsdk.c.a.ds("HttpSender.sendExceptionRecord--->Block");
                             str = c;
                         } else {
                             str = null;
                         }
-                        com.baidu.crabsdk.c.a.dx("HttpSender.doUpload.result: " + str);
+                        com.baidu.crabsdk.c.a.ds("HttpSender.doUpload.result: " + str);
                         if (TextUtils.isEmpty(str)) {
                             h.j(str2);
-                            com.baidu.crabsdk.c.a.dy("result is empty!");
+                            com.baidu.crabsdk.c.a.dt("result is empty!");
                         } else if (str == null || !str.equals("N/A")) {
                             int i2 = -100;
                             try {
@@ -112,7 +112,7 @@ public final class k {
                                 } else if (jSONObject.has("errNo")) {
                                     i2 = ((Integer) jSONObject.get("errNo")).intValue();
                                 }
-                                com.baidu.crabsdk.c.a.dx("###--> errno = " + i2);
+                                com.baidu.crabsdk.c.a.ds("###--> errno = " + i2);
                                 switch (i2) {
                                     case -1:
                                         h.j(str2);
@@ -166,9 +166,9 @@ public final class k {
                                 e2.printStackTrace();
                             }
                         } else {
-                            com.baidu.crabsdk.c.a.dy("not connected to server!");
+                            com.baidu.crabsdk.c.a.dt("not connected to server!");
                         }
-                        f.arB = true;
+                        f.aqO = true;
                     } else {
                         i.deleteFile(str2);
                         h.k(str2);
@@ -179,21 +179,21 @@ public final class k {
     }
 
     public static Future b(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        return arI.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
+        return aqV.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
     }
 
     public static void b(Context context, Throwable th) {
-        arH.execute(new n(context, th));
+        aqU.execute(new n(context, th));
     }
 
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (arG == null && context != null) {
-                arG = context.getSharedPreferences("last_init_crab", 4);
+            if (aqT == null && context != null) {
+                aqT = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (arG != null) {
-                arG.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (aqT != null) {
+                aqT.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -206,9 +206,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            arH.schedule(lVar, 10L, TimeUnit.SECONDS);
+            aqU.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            arH.execute(lVar);
+            aqU.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -217,7 +217,7 @@ public final class k {
     public static synchronized void k(Context context) {
         synchronized (k.class) {
             if (i.d(context, "dmp", true).size() == 0) {
-                com.baidu.crabsdk.c.a.dy("No Native Crash files!!");
+                com.baidu.crabsdk.c.a.dt("No Native Crash files!!");
             } else {
                 String I = com.baidu.crabsdk.b.o.I();
                 if ("NONE".equals(I) || RomUtils.UNKNOWN.equals(I)) {
@@ -247,20 +247,20 @@ public final class k {
         String str;
         String str2;
         long j;
-        byte[] dX;
+        byte[] dS;
         String str3;
-        String dD;
-        String dD2;
+        String dy;
+        String dy2;
         synchronized (k.class) {
             List<String> A = i.A(context, "pid_");
             if (A.size() > 0) {
                 for (String str4 : A) {
                     if (str4.endsWith(".ydg")) {
-                        com.baidu.crabsdk.c.a.dx("Deleting " + str4 + " " + i.deleteFile(str4));
+                        com.baidu.crabsdk.c.a.ds("Deleting " + str4 + " " + i.deleteFile(str4));
                     }
                 }
             } else {
-                com.baidu.crabsdk.c.a.dx("There is no .ydg files.");
+                com.baidu.crabsdk.c.a.ds("There is no .ydg files.");
             }
             List<String> d = i.d(context, ".dmp", true);
             if (d.size() == 0) {
@@ -270,7 +270,7 @@ public final class k {
                 List<String> d3 = i.d(context, ".logcat", false);
                 List<String> d4 = i.d(context, ".ldg", false);
                 for (String str5 : d) {
-                    com.baidu.crabsdk.c.a.dx("Absolute native file path@lastModifiedTime: " + str5);
+                    com.baidu.crabsdk.c.a.ds("Absolute native file path@lastModifiedTime: " + str5);
                     if (str5.contains("@")) {
                         String[] split = str5.split("@");
                         String str6 = split[0];
@@ -281,7 +281,7 @@ public final class k {
                         str2 = str5;
                     }
                     String t = t(str2);
-                    com.baidu.crabsdk.c.a.dx("Native fileNameOnly: " + t);
+                    com.baidu.crabsdk.c.a.ds("Native fileNameOnly: " + t);
                     long j2 = 0;
                     if (str != null) {
                         try {
@@ -298,17 +298,17 @@ public final class k {
                             j2 = System.currentTimeMillis();
                             com.baidu.crabsdk.c.a.a("C:dump time parse error!", e2);
                         }
-                        dX = i.dX(str2);
-                        if (dX != null || dX.length == 0) {
+                        dS = i.dS(str2);
+                        if (dS != null || dS.length == 0) {
                             com.baidu.crabsdk.c.a.w("Read dump file error!");
                         } else {
-                            String encodeToString = Base64.encodeToString(dX, 0);
+                            String encodeToString = Base64.encodeToString(dS, 0);
                             String str7 = null;
                             if (d3.contains(str2 + ".logcat")) {
                                 com.baidu.crabsdk.c.a.v("Found .logcat files relative with dump files.");
-                                byte[] dX2 = i.dX(str2 + ".logcat");
-                                if (dX2 != null && dX2.length > 0) {
-                                    str7 = new String(dX2);
+                                byte[] dS2 = i.dS(str2 + ".logcat");
+                                if (dS2 != null && dS2.length > 0) {
+                                    str7 = new String(dS2);
                                 }
                                 str3 = str7;
                             } else {
@@ -319,22 +319,22 @@ public final class k {
                             JSONObject jSONObject2 = null;
                             if (d4.contains(str2 + ".ldg")) {
                                 com.baidu.crabsdk.c.a.v("Found .ldg files relative with dump files.");
-                                byte[] dX3 = i.dX(str2 + ".ldg");
-                                if (dX3 != null && dX3.length > 0 && (dD2 = com.baidu.crabsdk.c.d.dD(new String(dX3))) != null) {
-                                    jSONObject2 = new JSONObject(dD2);
+                                byte[] dS3 = i.dS(str2 + ".ldg");
+                                if (dS3 != null && dS3.length > 0 && (dy2 = com.baidu.crabsdk.c.d.dy(new String(dS3))) != null) {
+                                    jSONObject2 = new JSONObject(dy2);
                                 }
                             }
                             if (d2.contains(str2 + ".crab")) {
                                 com.baidu.crabsdk.c.a.v("Found .crab files relative with dump files.");
-                                byte[] dX4 = i.dX(str2 + ".crab");
-                                if (dX4 != null && dX4.length > 0 && (dD = com.baidu.crabsdk.c.d.dD(new String(dX4))) != null) {
-                                    jSONObject = new JSONObject(dD);
+                                byte[] dS4 = i.dS(str2 + ".crab");
+                                if (dS4 != null && dS4.length > 0 && (dy = com.baidu.crabsdk.c.d.dy(new String(dS4))) != null) {
+                                    jSONObject = new JSONObject(dy);
                                     jSONObject.put("phoneTime", j);
                                 }
                             }
                             if (jSONObject == null) {
-                                jSONObject = g.ag(context);
-                                com.baidu.crabsdk.c.c.a(jSONObject, g.b(j, false));
+                                jSONObject = g.af(context);
+                                com.baidu.crabsdk.c.c.a(jSONObject, g.c(j, false));
                             }
                             if (encodeToString != null) {
                                 jSONObject.put("dump", encodeToString);
@@ -350,17 +350,17 @@ public final class k {
                                 com.baidu.crabsdk.c.a.w("Error, uploadDumpData is invalid!");
                             } else {
                                 try {
-                                    byte[] dA = com.baidu.crabsdk.c.c.dA(str8);
+                                    byte[] dv = com.baidu.crabsdk.c.c.dv(str8);
                                     String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, UUID.randomUUID().toString());
                                     try {
-                                        byte[] b2 = com.baidu.crabsdk.c.d.b(dA, c);
+                                        byte[] b2 = com.baidu.crabsdk.c.d.b(dv, c);
                                         try {
-                                            String dE = com.baidu.crabsdk.c.e.dE(c);
+                                            String dz = com.baidu.crabsdk.c.e.dz(c);
                                             String d5 = com.baidu.crabsdk.a.d();
-                                            com.baidu.crabsdk.c.a.dx("sendNativeRecord postUrl:" + d5);
-                                            String a2 = r.a(d5, b2, "NDK", dE);
+                                            com.baidu.crabsdk.c.a.ds("sendNativeRecord postUrl:" + d5);
+                                            String a2 = r.a(d5, b2, "NDK", dz);
                                             if (TextUtils.isEmpty(a2)) {
-                                                com.baidu.crabsdk.c.a.dy("result is empty!");
+                                                com.baidu.crabsdk.c.a.dt("result is empty!");
                                             } else if (a2 == null || !a2.equals("N/A")) {
                                                 int i = -100;
                                                 try {
@@ -370,7 +370,7 @@ public final class k {
                                                     } else if (jSONObject3.has("errNo")) {
                                                         i = ((Integer) jSONObject3.get("errNo")).intValue();
                                                     }
-                                                    com.baidu.crabsdk.c.a.dx("###--> native errno = " + i);
+                                                    com.baidu.crabsdk.c.a.ds("###--> native errno = " + i);
                                                     switch (i) {
                                                         case -1:
                                                             break;
@@ -385,7 +385,7 @@ public final class k {
                                                     com.baidu.crabsdk.c.a.w("handle crash result json error, exception is " + e3);
                                                 }
                                             } else {
-                                                com.baidu.crabsdk.c.a.dy("not connected to server!");
+                                                com.baidu.crabsdk.c.a.dt("not connected to server!");
                                             }
                                         } catch (Exception e4) {
                                             com.baidu.crabsdk.c.a.a("RSAUtils.encryptIntoBase64 Error!!", e4);
@@ -400,8 +400,8 @@ public final class k {
                         }
                     }
                     j = j2;
-                    dX = i.dX(str2);
-                    if (dX != null) {
+                    dS = i.dS(str2);
+                    if (dS != null) {
                     }
                     com.baidu.crabsdk.c.a.w("Read dump file error!");
                 }
@@ -410,7 +410,7 @@ public final class k {
     }
 
     public static void m(Context context) {
-        arH.execute(new q(context));
+        aqU.execute(new q(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -423,16 +423,16 @@ public final class k {
                 } else if (com.baidu.crabsdk.a.p) {
                     com.baidu.crabsdk.c.a.v("upload immediately!");
                     h.a(0L);
-                    ah(context);
+                    ag(context);
                 } else if ("WIFI".equals(I)) {
                     h.a(0L);
-                    ah(context);
+                    ag(context);
                 } else if (com.baidu.crabsdk.a.r) {
                     com.baidu.crabsdk.c.a.v("network is not wifi, and UPLOAD_CRASH_ONLY_WIFI is true!");
                 } else if ("MOBILE".equals(I) && h.ab()) {
                     com.baidu.crabsdk.c.a.v("upload without wifi!");
                     h.a(0L);
-                    ah(context);
+                    ag(context);
                 } else {
                     com.baidu.crabsdk.c.a.v("network is not wifi!");
                 }

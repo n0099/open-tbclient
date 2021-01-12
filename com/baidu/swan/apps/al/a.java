@@ -2,25 +2,25 @@ package com.baidu.swan.apps.al;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private a dQz = null;
-    private long dQA = 0;
-    private long dQB = 0;
-    private long dQC = 2;
+    private a dLN = null;
+    private long dLO = 0;
+    private long dLP = 0;
+    private long dLQ = 2;
     private String mDesc = "";
-    private String dQD = "";
+    private String dLR = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean dQE = false;
+    private boolean dLS = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aQG()), Long.valueOf(aQA()), Long.valueOf(aQB()), Long.valueOf(aQC()), aQD()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aMM()), Long.valueOf(aMG()), Long.valueOf(aMH()), Long.valueOf(aMI()), aMJ()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aQA()), Long.valueOf(aQB()), Long.valueOf(aQC())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aMG()), Long.valueOf(aMH()), Long.valueOf(aMI())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aQF()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aML()));
         }
         return sb.toString();
     }
@@ -30,33 +30,33 @@ public final class a {
     }
 
     public a cU(long j) {
-        this.dQC = a(j, 9L, "platform");
+        this.dLQ = a(j, 9L, "platform");
         return this;
     }
 
-    public long aQA() {
-        return this.dQC;
+    public long aMG() {
+        return this.dLQ;
     }
 
     public a cV(long j) {
-        this.dQA = a(j, 999L, "feature");
+        this.dLO = a(j, 999L, "feature");
         return this;
     }
 
-    public long aQB() {
-        return this.dQA;
+    public long aMH() {
+        return this.dLO;
     }
 
     public a cW(long j) {
-        this.dQB = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+        this.dLP = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long aQC() {
-        return this.dQB;
+    public long aMI() {
+        return this.dLP;
     }
 
-    public a ux(String str) {
+    public a tm(String str) {
         if (str == null) {
             str = "";
         }
@@ -64,33 +64,33 @@ public final class a {
         return this;
     }
 
-    public String aQD() {
+    public String aMJ() {
         return this.mDesc;
     }
 
-    public a uy(String str) {
+    public a tn(String str) {
         if (str == null) {
             str = "";
         }
-        this.dQD = str;
+        this.dLR = str;
         return this;
     }
 
-    public String aQE() {
-        return this.dQD;
+    public String aMK() {
+        return this.dLR;
     }
 
-    public a uz(String str) {
+    public a to(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder aQF() {
+    public StringBuilder aML() {
         return this.mDetails;
     }
 
-    public long aQG() {
-        return (aQA() * 10000000) + (aQB() * 10000) + (aQC() * 1);
+    public long aMM() {
+        return (aMG() * 10000000) + (aMH() * 10000) + (aMI() * 1);
     }
 
     public a cX(long j) {
@@ -101,18 +101,18 @@ public final class a {
         return this;
     }
 
-    public boolean aQH() {
-        return this.dQE;
+    public boolean aMN() {
+        return this.dLS;
     }
 
-    public void aQI() {
-        this.dQE = true;
+    public void aMO() {
+        this.dLS = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            uz("illegalFallback " + str + "::" + j);
+            to("illegalFallback " + str + "::" + j);
         }
         return z ? j2 : j;
     }

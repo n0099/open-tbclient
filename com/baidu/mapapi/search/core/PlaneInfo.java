@@ -2,15 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PlaneInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<PlaneInfo> CREATOR = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2959a;
+    private double f2841a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2960b;
+    private String f2842b;
     private double c;
     private String d;
 
@@ -20,8 +20,8 @@ public class PlaneInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public PlaneInfo(Parcel parcel) {
         super(parcel);
-        this.f2959a = parcel.readDouble();
-        this.f2960b = parcel.readString();
+        this.f2841a = parcel.readDouble();
+        this.f2842b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readString();
     }
@@ -32,7 +32,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public String getAirlines() {
-        return this.f2960b;
+        return this.f2842b;
     }
 
     public String getBooking() {
@@ -40,7 +40,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public double getDiscount() {
-        return this.f2959a;
+        return this.f2841a;
     }
 
     public double getPrice() {
@@ -48,7 +48,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setAirlines(String str) {
-        this.f2960b = str;
+        this.f2842b = str;
     }
 
     public void setBooking(String str) {
@@ -56,7 +56,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setDiscount(double d) {
-        this.f2959a = d;
+        this.f2841a = d;
     }
 
     public void setPrice(double d) {
@@ -66,8 +66,8 @@ public class PlaneInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2959a);
-        parcel.writeString(this.f2960b);
+        parcel.writeDouble(this.f2841a);
+        parcel.writeString(this.f2842b);
         parcel.writeDouble(this.c);
         parcel.writeString(this.d);
     }

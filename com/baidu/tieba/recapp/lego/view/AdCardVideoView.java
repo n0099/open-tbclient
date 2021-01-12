@@ -14,9 +14,9 @@ import com.baidu.tieba.recapp.lego.a.a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdCardVideoView extends AdCardBaseView implements m {
-    public DistributeVideoView mMY;
+    public DistributeVideoView mIr;
     private TbPageContext mTbPageContext;
 
     public AdCardVideoView(TbPageContext<?> tbPageContext) {
@@ -32,33 +32,33 @@ public class AdCardVideoView extends AdCardBaseView implements m {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void ec(View view) {
         if (view != null) {
-            float Jg = Jg(R.string.J_X05);
-            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Jg, Jg, Jg, Jg, Jg, Jg, Jg, Jg});
+            float Hz = Hz(R.string.J_X05);
+            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Hz, Hz, Hz, Hz, Hz, Hz, Hz, Hz});
             ((XfremodeRoundLayout) view).setLayerType(2, null);
-            this.mMY = (DistributeVideoView) view.findViewById(R.id.advert_video);
-            this.mMY.setHolderView(view);
+            this.mIr = (DistributeVideoView) view.findViewById(R.id.advert_video);
+            this.mIr.setHolderView(view);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.videoInfo != null) {
-            this.mMY.setPageContext(this.mTbPageContext);
-            this.mMY.setVideoTailFrameData(adCard.tailFrame);
-            this.mMY.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
-            this.mMY.setChargeInfo(adCard.chargeInfo);
-            this.mMY.setScheme(adCard.getScheme());
-            this.mMY.setAdInfo(adCard);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mMY.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mOx.getLayoutParams();
+            this.mIr.setPageContext(this.mTbPageContext);
+            this.mIr.setVideoTailFrameData(adCard.tailFrame);
+            this.mIr.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
+            this.mIr.setChargeInfo(adCard.chargeInfo);
+            this.mIr.setScheme(adCard.getScheme());
+            this.mIr.setAdInfo(adCard);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mIr.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mJT.getLayoutParams();
             if (adCard.goodsStyle == 14) {
-                ViewGroup.LayoutParams layoutParams3 = this.mOW.getLayoutParams();
-                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mOC * 2)) / 2;
+                ViewGroup.LayoutParams layoutParams3 = this.mKs.getLayoutParams();
+                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mJY * 2)) / 2;
                 layoutParams.width = equipmentWidth;
                 layoutParams2.width = equipmentWidth;
-                int Je = a.Je(layoutParams.width);
-                layoutParams.height = Je;
-                layoutParams2.height = Je;
+                int Hx = a.Hx(layoutParams.width);
+                layoutParams.height = Hx;
+                layoutParams2.height = Hx;
                 layoutParams.gravity = 3;
                 layoutParams2.gravity = 3;
             } else {
@@ -67,9 +67,9 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                 layoutParams.gravity = 1;
                 layoutParams2.gravity = 1;
             }
-            this.mOx.requestLayout();
+            this.mJT.requestLayout();
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.mMY.updateTailFrameView(advertAppInfo);
+            this.mIr.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null) {
                 int i = -1;
                 String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.page) ? getPageTypeByBusiness() : advertAppInfo.page;
@@ -77,13 +77,13 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                     i = advertAppInfo.advertAppContext.pn;
                     pageTypeByBusiness = advertAppInfo.advertAppContext.page;
                 }
-                this.mMY.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+                this.mIr.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }
-            this.mMY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
+            this.mIr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdCardVideoView.this.mMY.jump2DownloadDetailPage();
-                    AdCardVideoView.this.dFo();
+                    AdCardVideoView.this.mIr.jump2DownloadDetailPage();
+                    AdCardVideoView.this.dBw();
                 }
             });
         }
@@ -106,7 +106,7 @@ public class AdCardVideoView extends AdCardBaseView implements m {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
-        this.mMY.setDownloadCallback(cVar);
+        this.mIr.setDownloadCallback(cVar);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -116,6 +116,6 @@ public class AdCardVideoView extends AdCardBaseView implements m {
 
     @Override // com.baidu.tieba.recapp.m
     public j getVideoOrVrView() {
-        return this.mMY;
+        return this.mIr;
     }
 }

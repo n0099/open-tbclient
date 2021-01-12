@@ -26,19 +26,19 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.ad;
 /* loaded from: classes2.dex */
 public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
-    View.OnClickListener aHh;
-    private TbPageContext eXu;
-    private RelativeLayout jtj;
-    private LinearLayout jtk;
-    private TbImageView jtl;
-    private TextView jtm;
-    private TextView jtn;
-    private TextView jto;
-    private TextView jtp;
-    private View jtq;
-    private TextView jtr;
-    private ImageView jts;
-    private View jtt;
+    View.OnClickListener aCu;
+    private TbPageContext eSJ;
+    private RelativeLayout joD;
+    private LinearLayout joE;
+    private TbImageView joF;
+    private TextView joG;
+    private TextView joH;
+    private TextView joI;
+    private TextView joJ;
+    private View joK;
+    private TextView joL;
+    private ImageView joM;
+    private View joN;
     private int mSkinType;
     private ce news_info;
     private cb top_code;
@@ -46,116 +46,116 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public FrsU9ViewHolder(TbPageContext tbPageContext, View view, BdUniqueId bdUniqueId) {
         super(view);
         this.mSkinType = 3;
-        this.aHh = new View.OnClickListener() { // from class: com.baidu.tieba.frs.extra.adapter.FrsU9ViewHolder.1
+        this.aCu = new View.OnClickListener() { // from class: com.baidu.tieba.frs.extra.adapter.FrsU9ViewHolder.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (bg.checkUpIsLogin(FrsU9ViewHolder.this.eXu.getPageActivity()) && l.isNetOk()) {
-                    if (view2 == FrsU9ViewHolder.this.jtj) {
-                        if (FrsU9ViewHolder.this.top_code != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.top_code.btF())) {
-                            TiebaStatic.eventStat(FrsU9ViewHolder.this.eXu.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                            be.bwv().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.top_code.btF()});
+                if (bg.checkUpIsLogin(FrsU9ViewHolder.this.eSJ.getPageActivity()) && l.isNetOk()) {
+                    if (view2 == FrsU9ViewHolder.this.joD) {
+                        if (FrsU9ViewHolder.this.top_code != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.top_code.bpL())) {
+                            TiebaStatic.eventStat(FrsU9ViewHolder.this.eSJ.getPageActivity(), "num_click", "click", 1, new Object[0]);
+                            be.bsB().b((TbPageContext) j.K(FrsU9ViewHolder.this.eSJ.getPageActivity()), new String[]{FrsU9ViewHolder.this.top_code.bpL()});
                         }
-                    } else if (view2 == FrsU9ViewHolder.this.jtk && FrsU9ViewHolder.this.news_info != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.news_info.btM())) {
-                        TiebaStatic.eventStat(FrsU9ViewHolder.this.eXu.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                        be.bwv().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.news_info.btM()});
+                    } else if (view2 == FrsU9ViewHolder.this.joE && FrsU9ViewHolder.this.news_info != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.news_info.bpS())) {
+                        TiebaStatic.eventStat(FrsU9ViewHolder.this.eSJ.getPageActivity(), "info_click", "click", 1, "page", "frs");
+                        be.bsB().b((TbPageContext) j.K(FrsU9ViewHolder.this.eSJ.getPageActivity()), new String[]{FrsU9ViewHolder.this.news_info.bpS()});
                     }
                 }
             }
         };
-        this.eXu = tbPageContext;
-        this.jtj = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.jtk = (LinearLayout) view.findViewById(R.id.u9_news_info);
-        this.jtl = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.jtl.setPageId(bdUniqueId);
-        this.jtm = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.jtn = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.jto = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.jtp = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.jtq = view.findViewById(R.id.u9_top_code_divider);
-        this.jts = (ImageView) view.findViewById(R.id.news_info_img);
-        this.jts.setBackgroundDrawable(ao.getDrawable(R.drawable.icon_frs_news));
-        this.jtr = (TextView) view.findViewById(R.id.news_info_text);
-        this.jtt = view.findViewById(R.id.frs_list_item_u9_top_line);
-        ao.setBackgroundResource(this.jtp, R.drawable.frs_star_btn_like);
-        ao.setViewTextColor(this.jtp, R.drawable.frs_text_color_selector);
-        cJx();
+        this.eSJ = tbPageContext;
+        this.joD = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.joE = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.joF = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.joF.setPageId(bdUniqueId);
+        this.joG = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.joH = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.joI = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.joJ = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.joK = view.findViewById(R.id.u9_top_code_divider);
+        this.joM = (ImageView) view.findViewById(R.id.news_info_img);
+        this.joM.setBackgroundDrawable(ao.getDrawable(R.drawable.icon_frs_news));
+        this.joL = (TextView) view.findViewById(R.id.news_info_text);
+        this.joN = view.findViewById(R.id.frs_list_item_u9_top_line);
+        ao.setBackgroundResource(this.joJ, R.drawable.frs_star_btn_like);
+        ao.setViewTextColor(this.joJ, R.drawable.frs_text_color_selector);
+        cFF();
     }
 
     public void a(ad adVar) {
         if (adVar != null) {
-            cb dOB = adVar.dOB();
-            ce dOC = adVar.dOC();
-            this.top_code = dOB;
-            this.news_info = dOC;
-            if (adVar.dOA()) {
-                this.jtt.setVisibility(0);
+            cb dKJ = adVar.dKJ();
+            ce dKK = adVar.dKK();
+            this.top_code = dKJ;
+            this.news_info = dKK;
+            if (adVar.dKI()) {
+                this.joN.setVisibility(0);
             } else {
-                this.jtt.setVisibility(8);
+                this.joN.setVisibility(8);
             }
             if (this.top_code == null) {
-                this.jtj.setVisibility(8);
-                this.jtq.setVisibility(8);
+                this.joD.setVisibility(8);
+                this.joK.setVisibility(8);
             } else if (StringUtils.isNull(this.top_code.getSummary())) {
-                this.jtj.setVisibility(8);
-                this.jtq.setVisibility(8);
+                this.joD.setVisibility(8);
+                this.joK.setVisibility(8);
             } else {
-                this.jtj.setVisibility(0);
-                this.jtq.setVisibility(0);
-                this.jtl.startLoad(this.top_code.getImgUrl(), 10, false);
-                this.jtm.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(dOB.btJ())) {
-                    this.jtp.setVisibility(8);
+                this.joD.setVisibility(0);
+                this.joK.setVisibility(0);
+                this.joF.startLoad(this.top_code.getImgUrl(), 10, false);
+                this.joG.setText(this.top_code.getSummary());
+                if (StringUtils.isNull(dKJ.bpP())) {
+                    this.joJ.setVisibility(8);
                 } else {
-                    this.jtp.setText(dOB.btJ());
-                    this.jtp.setVisibility(0);
+                    this.joJ.setText(dKJ.bpP());
+                    this.joJ.setVisibility(0);
                 }
-                int btG = this.top_code.btG();
-                if (btG == 1 || btG == 2) {
-                    if (StringUtils.isNull(this.top_code.btH())) {
-                        this.jtn.setVisibility(8);
+                int bpM = this.top_code.bpM();
+                if (bpM == 1 || bpM == 2) {
+                    if (StringUtils.isNull(this.top_code.bpN())) {
+                        this.joH.setVisibility(8);
                     } else {
-                        String str = this.eXu.getResources().getString(R.string.u9_shengyu) + this.top_code.btH();
+                        String str = this.eSJ.getResources().getString(R.string.u9_shengyu) + this.top_code.bpN();
                         SpannableString spannableString = new SpannableString(str);
-                        UtilHelper.setSpan(spannableString, str, this.top_code.btH(), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
-                        this.jtn.setText(spannableString);
-                        this.jtn.setVisibility(0);
+                        UtilHelper.setSpan(spannableString, str, this.top_code.bpN(), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+                        this.joH.setText(spannableString);
+                        this.joH.setVisibility(0);
                     }
-                    if (dOB.btI() <= 0) {
-                        this.jto.setVisibility(8);
+                    if (dKJ.bpO() <= 0) {
+                        this.joI.setVisibility(8);
                     } else {
-                        String str2 = this.eXu.getResources().getString(R.string.u9_worth) + this.top_code.btI();
+                        String str2 = this.eSJ.getResources().getString(R.string.u9_worth) + this.top_code.bpO();
                         SpannableString spannableString2 = new SpannableString(str2);
-                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.btI()), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
-                        this.jto.setText(spannableString2);
-                        this.jto.setVisibility(0);
+                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.bpO()), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+                        this.joI.setText(spannableString2);
+                        this.joI.setVisibility(0);
                     }
                 } else {
-                    this.jto.setVisibility(8);
-                    this.jtn.setText(dOB.getSubTitle());
-                    this.jtn.setVisibility(0);
+                    this.joI.setVisibility(8);
+                    this.joH.setText(dKJ.getSubTitle());
+                    this.joH.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(dOC.getSummary())) {
-                this.jtk.setVisibility(8);
+            if (this.news_info == null || StringUtils.isNull(dKK.getSummary())) {
+                this.joE.setVisibility(8);
                 return;
             }
-            this.jtk.setVisibility(0);
-            this.jtr.setText(dOC.getSummary());
+            this.joE.setVisibility(0);
+            this.joL.setText(dKK.getSummary());
         }
     }
 
-    public void cJx() {
-        this.jtj.setOnClickListener(this.aHh);
-        this.jtk.setOnClickListener(this.aHh);
+    public void cFF() {
+        this.joD.setOnClickListener(this.aCu);
+        this.joE.setOnClickListener(this.aCu);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.jts, R.drawable.icon_frs_news);
-            ao.setBackgroundResource(this.jtp, R.drawable.frs_star_btn_like);
-            ao.setViewTextColor(this.jtp, R.drawable.frs_text_color_selector);
-            this.eXu.getLayoutMode().setNightMode(i == 1);
-            this.eXu.getLayoutMode().onModeChanged(getView());
+            ao.setBackgroundResource(this.joM, R.drawable.icon_frs_news);
+            ao.setBackgroundResource(this.joJ, R.drawable.frs_star_btn_like);
+            ao.setViewTextColor(this.joJ, R.drawable.frs_text_color_selector);
+            this.eSJ.getLayoutMode().setNightMode(i == 1);
+            this.eSJ.getLayoutMode().onModeChanged(getView());
             this.mSkinType = i;
         }
     }

@@ -5,7 +5,7 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.photo.d.e;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k extends a<e> {
     private SlidePlayViewPager d;
     private com.kwad.sdk.contentalliance.detail.photo.d.e e;
@@ -20,19 +20,19 @@ public class k extends a<e> {
     }
 
     private void p() {
-        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(this.f8693a.j, this.f8693a.i);
+        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(this.f8393a.j, this.f8393a.i);
         if (this.e == null || !this.e.isShowing()) {
             this.e = new com.kwad.sdk.contentalliance.detail.photo.d.e(o(), dVar);
             this.e.a(new e.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.k.1
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void a() {
-                    k.this.f8693a.n = true;
+                    k.this.f8393a.n = true;
                     k.this.d.a(false, 3);
                 }
 
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void b() {
-                    k.this.f8693a.n = false;
+                    k.this.f8393a.n = false;
                     k.this.d.a(true, 3);
                 }
             });
@@ -44,8 +44,8 @@ public class k extends a<e> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((e) this.f8814b).setOnClickListener(this);
-        this.d = this.f8693a.l;
+        ((e) this.f8514b).setOnClickListener(this);
+        this.d = this.f8393a.l;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,11 +71,11 @@ public class k extends a<e> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.kwad.sdk.core.response.b.c.c(this.f8693a.j)) {
+        if (com.kwad.sdk.core.response.b.c.c(this.f8393a.j)) {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         } else {
             p();
         }
-        com.kwad.sdk.core.report.e.c(this.f8693a.j);
+        com.kwad.sdk.core.report.e.c(this.f8393a.j);
     }
 }

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static String C(Context context, String str, String str2) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);

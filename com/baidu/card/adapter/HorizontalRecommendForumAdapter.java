@@ -21,15 +21,15 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> akq = new ArrayList<>();
-    private boolean akr;
-    private f<bl> aks;
+    private boolean ajA;
+    private f<bl> ajB;
+    private ArrayList<com.baidu.tbadk.mvc.b.a> ajz = new ArrayList<>();
     private int mFrom;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public void setOnItemCoverListener(f<bl> fVar) {
-        this.aks = fVar;
+        this.ajB = fVar;
     }
 
     public HorizontalRecommendForumAdapter(TbPageContext<?> tbPageContext, int i) {
@@ -39,8 +39,8 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
         if (arrayList != null) {
-            this.akq.clear();
-            this.akq.addAll(arrayList);
+            this.ajz.clear();
+            this.ajz.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -54,15 +54,15 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.akq != null && this.akq.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.akq.get(i);
+        if (this.ajz != null && this.ajz.size() > 0) {
+            com.baidu.tbadk.mvc.b.a aVar = this.ajz.get(i);
             if ((viewHolder instanceof a) && (aVar instanceof m)) {
                 ((a) viewHolder).a((m) aVar);
             } else if ((viewHolder instanceof b) && (aVar instanceof bl)) {
                 bl blVar = (bl) aVar;
                 ((b) viewHolder).a(blVar);
-                if (this.aks != null) {
-                    this.aks.b(viewHolder.itemView, blVar, i, i);
+                if (this.ajB != null) {
+                    this.ajB.b(viewHolder.itemView, blVar, i, i);
                 }
             }
         }
@@ -70,10 +70,10 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.akq.get(i) instanceof bl) {
+        if (this.ajz.get(i) instanceof bl) {
             return 1;
         }
-        if (this.akq.get(i) instanceof m) {
+        if (this.ajz.get(i) instanceof m) {
             return 2;
         }
         return 0;
@@ -81,19 +81,19 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.akq == null) {
+        if (this.ajz == null) {
             return 0;
         }
-        return this.akq.size();
+        return this.ajz.size();
     }
 
     /* loaded from: classes.dex */
     class b extends RecyclerView.ViewHolder {
-        private bl akA;
-        private BarImageView akt;
-        private ImageView aku;
-        private TextView akv;
-        private TextView akw;
+        private BarImageView ajC;
+        private ImageView ajD;
+        private TextView ajE;
+        private TextView ajF;
+        private bl ajJ;
         private String attention;
         private View mRootView;
 
@@ -101,16 +101,16 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.akt = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.aku = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.akv = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.akw = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.ajC = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.ajD = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.ajE = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.ajF = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.adapter.HorizontalRecommendForumAdapter.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (HorizontalRecommendForumAdapter.this.aks != null) {
+                    if (HorizontalRecommendForumAdapter.this.ajB != null) {
                         int adapterPosition = b.this.getAdapterPosition();
-                        HorizontalRecommendForumAdapter.this.aks.a(view2, b.this.akA, adapterPosition, adapterPosition);
+                        HorizontalRecommendForumAdapter.this.ajB.a(view2, b.this.ajJ, adapterPosition, adapterPosition);
                     }
                 }
             });
@@ -118,37 +118,37 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
         public void a(bl blVar) {
             if (blVar != null) {
-                this.akA = blVar;
-                this.akt.setShowOval(true);
-                this.akt.setShowOuterBorder(false);
-                this.akt.setShowInnerBorder(true);
-                this.akt.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.akt.setStrokeColorResId(R.color.CAM_X0401);
-                this.aku.setVisibility(8);
-                this.akt.setVisibility(0);
-                this.akt.startLoad(blVar.getAvatar(), 10, false);
+                this.ajJ = blVar;
+                this.ajC.setShowOval(true);
+                this.ajC.setShowOuterBorder(false);
+                this.ajC.setShowInnerBorder(true);
+                this.ajC.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.ajC.setStrokeColorResId(R.color.CAM_X0401);
+                this.ajD.setVisibility(8);
+                this.ajC.setVisibility(0);
+                this.ajC.startLoad(blVar.getAvatar(), 10, false);
                 if (at.getChineseAndEnglishLength(blVar.getForumName()) <= 10) {
-                    this.akv.setText(blVar.getForumName());
+                    this.ajE.setText(blVar.getForumName());
                 } else {
-                    this.akv.setText(at.cutChineseAndEnglishWithSuffix(blVar.getForumName(), 8, StringHelper.STRING_MORE));
+                    this.ajE.setText(at.cutChineseAndEnglishWithSuffix(blVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.akw.setText(this.attention + " " + at.dZ(blVar.bqv()));
+                this.ajF.setText(this.attention + " " + at.dZ(blVar.bmB()));
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            ao.setViewTextColor(this.akv, R.color.CAM_X0105);
-            ao.setViewTextColor(this.akw, R.color.CAM_X0109);
+            ao.setViewTextColor(this.ajE, R.color.CAM_X0105);
+            ao.setViewTextColor(this.ajF, R.color.CAM_X0109);
         }
     }
 
     /* loaded from: classes.dex */
     class a extends RecyclerView.ViewHolder {
-        private BarImageView akt;
-        private ImageView aku;
-        private TextView akv;
-        private TextView akw;
+        private BarImageView ajC;
+        private ImageView ajD;
+        private TextView ajE;
+        private TextView ajF;
         private String attention;
         private View mRootView;
 
@@ -156,16 +156,16 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.akt = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.aku = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.akv = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.akw = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.ajC = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.ajD = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.ajE = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.ajF = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.adapter.HorizontalRecommendForumAdapter.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (HorizontalRecommendForumAdapter.this.aks != null) {
+                    if (HorizontalRecommendForumAdapter.this.ajB != null) {
                         int adapterPosition = a.this.getAdapterPosition();
-                        HorizontalRecommendForumAdapter.this.aks.a(view2, null, adapterPosition, adapterPosition);
+                        HorizontalRecommendForumAdapter.this.ajB.a(view2, null, adapterPosition, adapterPosition);
                     }
                 }
             });
@@ -173,18 +173,18 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
         public void a(m mVar) {
             if (mVar != null) {
-                this.aku.setVisibility(0);
-                this.akt.setVisibility(8);
-                SvgManager.bwr().a(this.aku, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
-                this.akv.setText(R.string.forum_square_title);
-                this.akw.setText(R.string.forum_square_desc_1);
+                this.ajD.setVisibility(0);
+                this.ajC.setVisibility(8);
+                SvgManager.bsx().a(this.ajD, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                this.ajE.setText(R.string.forum_square_title);
+                this.ajF.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            ao.setViewTextColor(this.akv, R.color.CAM_X0105);
-            ao.setViewTextColor(this.akw, R.color.CAM_X0109);
+            ao.setViewTextColor(this.ajE, R.color.CAM_X0105);
+            ao.setViewTextColor(this.ajF, R.color.CAM_X0109);
         }
     }
 
@@ -193,6 +193,6 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
     }
 
     public void setHasLikeForum(boolean z) {
-        this.akr = z;
+        this.ajA = z;
     }
 }

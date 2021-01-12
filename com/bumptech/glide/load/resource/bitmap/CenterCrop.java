@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CenterCrop extends BitmapTransformation {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.CenterCrop";
     private static final byte[] ID_BYTES = ID.getBytes(CHARSET);

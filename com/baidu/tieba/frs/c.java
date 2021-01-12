@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.BawuThrones;
 /* loaded from: classes.dex */
 public class c {
-    private v jdX;
-    private BawuThrones jdY;
+    private v iZq;
+    private BawuThrones iZr;
 
     private c() {
     }
 
-    public static c cEc() {
-        return a.jdZ;
+    public static c cAk() {
+        return a.iZs;
     }
 
     public void a(BawuThrones bawuThrones) {
-        this.jdY = bawuThrones;
+        this.iZr = bawuThrones;
     }
 
-    public BawuThrones cEd() {
-        return this.jdY;
+    public BawuThrones cAl() {
+        return this.iZr;
     }
 
-    public void eY(String str, String str2) {
+    public void eX(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
@@ -33,23 +33,23 @@ public class c {
     }
 
     public void b(TbPageContext tbPageContext, String str, String str2) {
-        if (this.jdX == null) {
-            this.jdX = new v();
+        if (this.iZq == null) {
+            this.iZq = new v();
         }
-        this.jdX.b(tbPageContext, str, str2);
+        this.iZq.b(tbPageContext, str, str2);
     }
 
     public void destory() {
-        this.jdY = null;
-        if (this.jdX != null) {
-            this.jdX.onDestory();
+        this.iZr = null;
+        if (this.iZq != null) {
+            this.iZq.onDestory();
         }
-        this.jdX = null;
+        this.iZq = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static c jdZ = new c();
+        private static c iZs = new c();
     }
 }

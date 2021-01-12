@@ -30,7 +30,7 @@ public class c extends a {
                     if (dVar == null) {
                         return null;
                     }
-                    Li((int) (30.0f + ((50.0f * i2) / size)));
+                    JB((int) (30.0f + ((50.0f * i2) / size)));
                     if (!StringUtils.isNull(dVar.videoUrl) || dVar.errorNo != 0) {
                         return dVar;
                     }

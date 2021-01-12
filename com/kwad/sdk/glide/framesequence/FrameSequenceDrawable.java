@@ -16,7 +16,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     private static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
@@ -71,14 +71,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         Bitmap a(int i, int i2);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }

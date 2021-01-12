@@ -1,21 +1,21 @@
 package com.baidu.mobstat;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3720a;
+    private String f3682a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f3721b;
+    private long f3683b;
     private long c;
     private boolean d;
     private long e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
-        this.f3720a = str;
-        this.f3721b = j;
+        this.f3682a = str;
+        this.f3683b = j;
         this.c = j2;
         this.e = j3;
         this.d = z;
@@ -26,11 +26,11 @@ public class ap {
     }
 
     public String a() {
-        return this.f3720a;
+        return this.f3682a;
     }
 
     public long b() {
-        return this.f3721b;
+        return this.f3683b;
     }
 
     public long c() {
@@ -53,7 +53,7 @@ public class ap {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", str);
-            jSONObject.put("s", this.f3721b);
+            jSONObject.put("s", this.f3683b);
             jSONObject.put("e", this.c);
             jSONObject.put("user", this.d ? 1 : 0);
             return jSONObject;

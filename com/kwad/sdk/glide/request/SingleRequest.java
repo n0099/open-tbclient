@@ -8,6 +8,7 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.g.a.a;
 import com.kwad.sdk.glide.g.k;
@@ -19,13 +20,13 @@ import com.kwad.sdk.glide.request.a.i;
 import com.kwad.sdk.glide.request.a.j;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SingleRequest<R> implements a.c, i, c, g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pools.Pool<SingleRequest<?>> f10633a = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1136a<SingleRequest<?>>() { // from class: com.kwad.sdk.glide.request.SingleRequest.1
+    private static final Pools.Pool<SingleRequest<?>> f10333a = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1119a<SingleRequest<?>>() { // from class: com.kwad.sdk.glide.request.SingleRequest.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1136a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1119a
         /* renamed from: a */
         public SingleRequest<?> b() {
             return new SingleRequest<>();
@@ -39,7 +40,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
     private RuntimeException D;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f10634b;
+    private boolean f10334b;
     @Nullable
     private final String d;
     private final com.kwad.sdk.glide.g.a.c e;
@@ -70,7 +71,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
     private Drawable z;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -94,7 +95,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
     }
 
     public static <R> SingleRequest<R> a(Context context, com.kwad.sdk.glide.e eVar, Object obj, Class<R> cls, a<?> aVar, int i, int i2, Priority priority, j<R> jVar, e<R> eVar2, @Nullable List<e<R>> list, d dVar, com.kwad.sdk.glide.load.engine.i iVar, com.kwad.sdk.glide.request.b.c<? super R> cVar, Executor executor) {
-        SingleRequest<R> singleRequest = (SingleRequest<R>) f10633a.acquire();
+        SingleRequest<R> singleRequest = (SingleRequest<R>) f10333a.acquire();
         if (singleRequest == null) {
             singleRequest = new SingleRequest<>();
         }
@@ -108,14 +109,14 @@ public final class SingleRequest<R> implements a.c, i, c, g {
         glideException.setOrigin(this.D);
         int e = this.i.e();
         if (e <= i) {
-            Log.w("Glide", "Load failed for " + this.j + " with size [" + this.B + "x" + this.C + "]", glideException);
+            Log.w("Glide", "Load failed for " + this.j + " with size [" + this.B + Config.EVENT_HEAT_X + this.C + "]", glideException);
             if (e <= 4) {
                 glideException.logRootCauses("Glide");
             }
         }
         this.v = null;
         this.x = Status.FAILED;
-        this.f10634b = true;
+        this.f10334b = true;
         if (this.q != null) {
             z = false;
             for (e<R> eVar : this.q) {
@@ -127,7 +128,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
         if (!((this.f != null && this.f.a(glideException, this.j, this.p, r())) | z)) {
             n();
         }
-        this.f10634b = false;
+        this.f10334b = false;
         t();
     }
 
@@ -142,9 +143,9 @@ public final class SingleRequest<R> implements a.c, i, c, g {
         this.x = Status.COMPLETE;
         this.u = sVar;
         if (this.i.e() <= 3) {
-            Log.d("Glide", "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.j + " with size [" + this.B + "x" + this.C + "] in " + com.kwad.sdk.glide.g.f.a(this.w) + " ms");
+            Log.d("Glide", "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.j + " with size [" + this.B + Config.EVENT_HEAT_X + this.C + "] in " + com.kwad.sdk.glide.g.f.a(this.w) + " ms");
         }
-        this.f10634b = true;
+        this.f10334b = true;
         if (this.q != null) {
             z = false;
             for (e<R> eVar : this.q) {
@@ -156,7 +157,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
         if (!((this.f != null && this.f.a(r, this.j, this.p, dataSource, r2)) | z)) {
             this.p.a(r, this.s.a(dataSource, r2));
         }
-        this.f10634b = false;
+        this.f10334b = false;
         s();
     }
 
@@ -207,7 +208,7 @@ public final class SingleRequest<R> implements a.c, i, c, g {
     }
 
     private void j() {
-        if (this.f10634b) {
+        if (this.f10334b) {
             throw new IllegalStateException("You can't start or clear loads in RequestListener or Target callbacks. If you're trying to start a fallback request when a load fails, use RequestBuilder#error(RequestBuilder). Otherwise consider posting your into() or clear() calls to the main thread using a Handler instead.");
         }
     }
@@ -456,6 +457,6 @@ public final class SingleRequest<R> implements a.c, i, c, g {
         this.B = -1;
         this.C = -1;
         this.D = null;
-        f10633a.release(this);
+        f10333a.release(this);
     }
 }

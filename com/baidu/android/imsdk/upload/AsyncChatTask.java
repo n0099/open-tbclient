@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferListener {
     public static final int FORMAT_AAC = 2;
     public static final int FORMAT_AMR = 1;

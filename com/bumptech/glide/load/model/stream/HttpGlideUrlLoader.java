@@ -12,7 +12,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static final Option<Integer> TIMEOUT = Option.memory("com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.Timeout", Integer.valueOf((int) TbConfig.NOTIFY_YUN_PUSH));
     @Nullable
@@ -46,7 +46,7 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
         return true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
         private final ModelCache<GlideUrl, GlideUrl> modelCache = new ModelCache<>(500);
 

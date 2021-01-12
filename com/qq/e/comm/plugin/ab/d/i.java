@@ -6,41 +6,41 @@ import com.qq.e.comm.plugin.ab.f.j;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f12063a;
+    private f f11763a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.f.e f12064b;
+    private com.qq.e.comm.plugin.ab.f.e f11764b;
 
     public void a(f fVar) {
-        this.f12063a = fVar;
+        this.f11763a = fVar;
     }
 
     public void a(com.qq.e.comm.plugin.ab.f.e eVar) {
-        this.f12064b = eVar;
+        this.f11764b = eVar;
     }
 
     public void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        if (this.f12063a != null) {
-            this.f12063a.a(str);
+        if (this.f11763a != null) {
+            this.f11763a.a(str);
         }
     }
 
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         super.onPageStarted(webView, str, bitmap);
-        if (this.f12063a != null) {
-            this.f12063a.a(str, bitmap);
+        if (this.f11763a != null) {
+            this.f11763a.a(str, bitmap);
         }
     }
 
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         super.onReceivedError(webView, i, str, str2);
-        if (this.f12063a != null) {
-            this.f12063a.a(i, str, str2);
+        if (this.f11763a != null) {
+            this.f11763a.a(i, str, str2);
         }
     }
 
@@ -51,14 +51,14 @@ public class i extends j {
     @Override // com.qq.e.comm.plugin.ab.f.j
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         boolean shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, str);
-        if (this.f12063a != null) {
+        if (this.f11763a != null) {
             if (shouldOverrideUrlLoading) {
-                this.f12063a.d_();
+                this.f11763a.d_();
             }
-            this.f12063a.b(str);
+            this.f11763a.b(str);
         }
-        if (this.f12064b != null && com.qq.e.comm.plugin.ab.b.a.a(Uri.parse(str))) {
-            this.f12064b.a(str);
+        if (this.f11764b != null && com.qq.e.comm.plugin.ab.b.a.a(Uri.parse(str))) {
+            this.f11764b.a(str);
         }
         return shouldOverrideUrlLoading;
     }

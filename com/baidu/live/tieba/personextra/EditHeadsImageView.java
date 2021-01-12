@@ -8,46 +8,46 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EditHeadsImageView extends DragImageView {
-    private int bKS;
-    private int bKT;
-    private float bKU;
-    private float bKV;
-    private int bKX;
+    private int bGg;
+    private int bGh;
+    private float bGi;
+    private float bGj;
+    private int bGl;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bKS = 0;
-        this.bKT = 0;
-        this.bKU = 0.42857143f;
-        this.bKX = 0;
-        this.bKV = 1.0f;
+        this.bGg = 0;
+        this.bGh = 0;
+        this.bGi = 0.42857143f;
+        this.bGl = 0;
+        this.bGj = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bKS = 0;
-        this.bKT = 0;
-        this.bKU = 0.42857143f;
-        this.bKX = 0;
-        this.bKV = 1.0f;
+        this.bGg = 0;
+        this.bGh = 0;
+        this.bGi = 0.42857143f;
+        this.bGl = 0;
+        this.bGj = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.bKS = 0;
-        this.bKT = 0;
-        this.bKU = 0.42857143f;
-        this.bKX = 0;
-        this.bKV = 1.0f;
+        this.bGg = 0;
+        this.bGh = 0;
+        this.bGi = 0.42857143f;
+        this.bGl = 0;
+        this.bGj = 1.0f;
         init();
     }
 
     private void init() {
-        this.bKX = getResources().getColor(a.c.sdk_ph_common_color_10226);
+        this.bGl = getResources().getColor(a.c.sdk_ph_common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -62,30 +62,30 @@ public class EditHeadsImageView extends DragImageView {
     @Override // com.baidu.live.tbadk.widget.DragImageView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.bKV * getWidth();
+        float width = this.bGj * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.bKS = (int) (((i4 - i2) - width) * this.bKU);
-        this.bKT = (int) (((i4 - i2) - width) * (1.0f - this.bKU));
-        setOffset(0, this.bKS, 0, this.bKT);
+        this.bGg = (int) (((i4 - i2) - width) * this.bGi);
+        this.bGh = (int) (((i4 - i2) - width) * (1.0f - this.bGi));
+        setOffset(0, this.bGg, 0, this.bGh);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        canvas.drawColor(this.bKX);
+        canvas.drawColor(this.bGl);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap dc(boolean z) {
+    public Bitmap cY(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.bKS, getWidth(), (getHeight() - this.bKT) - this.bKS);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.bGg, getWidth(), (getHeight() - this.bGh) - this.bGg);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 48, 48, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -98,7 +98,7 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.bKV = f;
+        this.bGj = f;
         invalidate();
     }
 }

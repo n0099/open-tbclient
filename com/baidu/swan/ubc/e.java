@@ -12,21 +12,21 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private static volatile IRemoteUBCService eAW;
-    private static Map<String, Integer> eAX = new HashMap();
-    private static Set<String> eAY = new HashSet();
+    private static volatile IRemoteUBCService ewh;
+    private static Map<String, Integer> ewi = new HashMap();
+    private static Set<String> ewj = new HashSet();
 
     static {
-        eAY.add("606");
-        eAY.add("671");
-        eAX.put("606", -1);
-        eAX.put("671", -1);
+        ewj.add("606");
+        ewj.add("671");
+        ewi.put("606", -1);
+        ewi.put("671", -1);
     }
 
-    public static final l bio() {
-        return com.baidu.swan.apps.z.b.aGZ();
+    public static final l beu() {
+        return com.baidu.swan.apps.z.b.aDf();
     }
 
     public static final void onEvent(String str) {
@@ -46,35 +46,35 @@ public class e {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        if (com.baidu.swan.b.d.bjh()) {
-            p.biL().onEvent(str, map, i);
+        if (com.baidu.swan.b.d.bfn()) {
+            p.beR().onEvent(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
-            str2 = dC(str, str2);
+        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
+            str2 = dB(str, str2);
         }
-        if (com.baidu.swan.b.d.bjh()) {
-            p.biL().onEvent(str, str2, i);
+        if (com.baidu.swan.b.d.bfn()) {
+            p.beR().onEvent(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.adK()) {
             n(str, jSONObject);
         }
-        if (com.baidu.swan.b.d.bjh()) {
-            p.biL().onEvent(str, jSONObject, i);
+        if (com.baidu.swan.b.d.bfn()) {
+            p.beR().onEvent(str, jSONObject, i);
         }
     }
 
-    public static final Flow zv(String str) {
+    public static final Flow yk(String str) {
         return n(str, "", 0);
     }
 
     public static Flow n(String str, String str2, int i) {
-        return p.biL().n(str, str2, i);
+        return p.beR().n(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,35 +83,35 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService bip() throws RemoteException {
-        if (eAW == null) {
+    public static IRemoteUBCService bev() throws RemoteException {
+        if (ewh == null) {
             synchronized (e.class) {
-                if (eAW == null) {
+                if (ewh == null) {
                     IBinder K = IPCServiceManager.K("open_log", true);
                     if (K == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
                     if (K != null) {
-                        eAW = IRemoteUBCService.Stub.asInterface(K);
+                        ewh = IRemoteUBCService.Stub.asInterface(K);
                     }
                 }
             }
         }
-        return eAW;
+        return ewh;
     }
 
-    private static String dC(String str, String str2) {
-        l bio;
+    private static String dB(String str, String str2) {
+        l beu;
         Integer valueOf;
-        if (eAY.contains(str) && (bio = bio()) != null && bio.aGY()) {
+        if (ewj.contains(str) && (beu = beu()) != null && beu.aDe()) {
             synchronized (e.class) {
-                Integer num = eAX.get(str);
+                Integer num = ewi.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str3 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.biW().getInt(str3, 0));
+                    num = Integer.valueOf(u.bfc().getInt(str3, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -122,8 +122,8 @@ public class e {
                     JSONObject jSONObject = new JSONObject(str2);
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
-                    u.biW().putInt("ubc_counter" + str, valueOf.intValue());
-                    eAX.put(str, valueOf);
+                    u.bfc().putInt("ubc_counter" + str, valueOf.intValue());
+                    ewi.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }
@@ -132,17 +132,17 @@ public class e {
     }
 
     private static JSONObject n(String str, JSONObject jSONObject) {
-        l bio;
+        l beu;
         Integer valueOf;
-        if (eAY.contains(str) && (bio = bio()) != null && bio.aGY()) {
+        if (ewj.contains(str) && (beu = beu()) != null && beu.aDe()) {
             synchronized (e.class) {
-                Integer num = eAX.get(str);
+                Integer num = ewi.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str2 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.biW().getInt(str2, 0));
+                    num = Integer.valueOf(u.bfc().getInt(str2, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -151,8 +151,8 @@ public class e {
                         valueOf = Integer.valueOf(num.intValue() + 1);
                     }
                     jSONObject.put("counter", valueOf);
-                    u.biW().putInt("ubc_counter" + str, valueOf.intValue());
-                    eAX.put(str, valueOf);
+                    u.bfc().putInt("ubc_counter" + str, valueOf.intValue());
+                    ewi.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }

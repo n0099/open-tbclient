@@ -1,12 +1,12 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class PngChunk {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f10794a;
+    public final String f10494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f10795b;
+    public final boolean f10495b;
     public final boolean c;
     public final boolean d;
     protected final com.kwad.sdk.pngencrypt.k e;
@@ -14,7 +14,7 @@ public abstract class PngChunk {
     private boolean h = false;
     protected int g = -1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum ChunkOrderingConstraint {
         NONE,
         BEFORE_PLTE_AND_IDAT,
@@ -49,16 +49,16 @@ public abstract class PngChunk {
     }
 
     public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.f10794a = str;
+        this.f10494a = str;
         this.e = kVar;
-        this.f10795b = b.b(str);
+        this.f10495b = b.b(str);
         this.c = b.c(str);
         this.d = b.d(str);
     }
 
     public int a() {
         if (this.f != null) {
-            return this.f.f10801a;
+            return this.f.f10501a;
         }
         return -1;
     }
@@ -84,6 +84,6 @@ public abstract class PngChunk {
     }
 
     public String toString() {
-        return "chunk id= " + this.f10794a + " (len=" + a() + " offset=" + b() + ")";
+        return "chunk id= " + this.f10494a + " (len=" + a() + " offset=" + b() + ")";
     }
 }

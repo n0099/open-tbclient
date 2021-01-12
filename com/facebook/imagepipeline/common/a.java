@@ -20,10 +20,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", QQ(this.from), QQ(this.to));
+        return String.format(null, "%s-%s", Pj(this.from), Pj(this.to));
     }
 
-    private static String QQ(int i) {
+    private static String Pj(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -42,12 +42,12 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a QR(int i) {
+    public static a Pk(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a QS(int i) {
+    public static a Pl(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }

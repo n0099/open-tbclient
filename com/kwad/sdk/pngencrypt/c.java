@@ -5,7 +5,7 @@ import com.kwad.sdk.pngencrypt.chunk.ChunkLoadBehaviour;
 import com.kwad.sdk.pngencrypt.chunk.q;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends b {
     protected k e;
     protected k f;
@@ -96,10 +96,10 @@ public class c extends b {
             }
             this.i = new com.kwad.sdk.pngencrypt.chunk.e(this.e);
         }
-        if (chunkReader.f10785a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().c)) {
-            this.k += chunkReader.a().f10801a;
+        if (chunkReader.f10485a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().c)) {
+            this.k += chunkReader.a().f10501a;
         }
-        if (chunkReader.f10785a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
+        if (chunkReader.f10485a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
             try {
                 this.i.a(this.r.a(chunkReader.a(), j()), this.h);
             } catch (PngjException e) {

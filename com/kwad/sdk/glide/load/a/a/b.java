@@ -1,7 +1,7 @@
 package com.kwad.sdk.glide.load.a.a;
 
 import android.net.Uri;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static boolean a(int i, int i2) {
         return i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= 384;

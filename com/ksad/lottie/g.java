@@ -3,14 +3,14 @@ package com.ksad.lottie;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f8325a;
+    private final int f8025a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8326b;
+    private final int f8026b;
     private final String c;
     private final String d;
     private final String e;
@@ -19,8 +19,8 @@ public class g {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public g(int i, int i2, String str, String str2, String str3) {
-        this.f8325a = i;
-        this.f8326b = i2;
+        this.f8025a = i;
+        this.f8026b = i2;
         this.c = str;
         this.d = str2;
         this.e = str3;

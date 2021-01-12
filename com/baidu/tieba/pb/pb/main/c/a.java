@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes2.dex */
 public abstract class a {
-    protected a.InterfaceC0089a ahg;
-    protected TbPageContext eXu;
-    protected aa lZQ;
-    protected OriginalThreadInfo lZR;
+    protected a.InterfaceC0088a agp;
+    protected TbPageContext eSJ;
+    protected aa lVm;
+    protected OriginalThreadInfo lVn;
     protected int mSkinType = 3;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
@@ -20,14 +20,14 @@ public abstract class a {
     public abstract void onChangeSkinType(TbPageContext tbPageContext, int i);
 
     public a(TbPageContext tbPageContext) {
-        this.eXu = tbPageContext;
+        this.eSJ = tbPageContext;
     }
 
     public void a(aa aaVar) {
-        this.lZQ = aaVar;
+        this.lVm = aaVar;
     }
 
-    public void a(a.InterfaceC0089a interfaceC0089a) {
-        this.ahg = interfaceC0089a;
+    public void a(a.InterfaceC0088a interfaceC0088a) {
+        this.agp = interfaceC0088a;
     }
 }

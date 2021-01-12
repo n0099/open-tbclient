@@ -1,9 +1,9 @@
 package com.kwai.video.cache;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfflineCacheVodAdaptiveTaskBuilder extends OfflineCacheTaskBuilderBase {
     private VodAdaptiveInit mVodAdaptiveInitValue;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VodAdaptiveInit {
         public int devResHeigh;
         public int devResWidth;

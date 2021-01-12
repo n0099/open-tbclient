@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class d<T extends d> implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7475a;
+    private String f7175a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7476b;
+    private String f7176b;
     private String c;
     private String e;
     private String h;
@@ -102,11 +102,11 @@ public class d<T extends d> implements b {
     }
 
     public String c() {
-        return this.f7475a;
+        return this.f7175a;
     }
 
     public T a(String str) {
-        this.f7475a = str;
+        this.f7175a = str;
         return q();
     }
 
@@ -120,11 +120,11 @@ public class d<T extends d> implements b {
     }
 
     public String e() {
-        return this.f7476b;
+        return this.f7176b;
     }
 
     public T c(String str) {
-        this.f7476b = str;
+        this.f7176b = str;
         return q();
     }
 

@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
-    private final int fna;
-    private ThreadForumEnterButton fnb;
-    private ThreadForumEnterButton fnc;
-    private ThreadForumEnterButton fnd;
-    private View fne;
-    private int fnf;
-    private int fng;
+    private final int fiq;
+    private ThreadForumEnterButton fir;
+    private ThreadForumEnterButton fis;
+    private ThreadForumEnterButton fit;
+    private View fiu;
+    private int fiv;
+    private int fiw;
 
     public ThreadForumEnterButtonContainer(Context context) {
         this(context, null);
@@ -27,53 +27,53 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fna = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.fiq = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.fnb = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.fnc = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.fnd = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.fne = findViewById(R.id.bottom_placeholder);
-        this.fnf = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.fna) / 2;
-        this.fng = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.fna * 2)) / 3;
+        this.fir = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.fis = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.fit = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.fiu = findViewById(R.id.bottom_placeholder);
+        this.fiv = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.fiq) / 2;
+        this.fiw = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.fiq * 2)) / 3;
     }
 
     public void setBottomPlaceHolderVisibility(boolean z) {
-        this.fne.setVisibility(z ? 0 : 8);
+        this.fiu.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType() {
-        if (this.fnb != null) {
-            this.fnb.onChangeSkinType();
+        if (this.fir != null) {
+            this.fir.onChangeSkinType();
         }
-        if (this.fnc != null) {
-            this.fnc.onChangeSkinType();
+        if (this.fis != null) {
+            this.fis.onChangeSkinType();
         }
-        if (this.fnd != null) {
-            this.fnd.onChangeSkinType();
+        if (this.fit != null) {
+            this.fit.onChangeSkinType();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        if (this.fnb != null) {
-            this.fnb.setAfterClickListener(onClickListener);
+        if (this.fir != null) {
+            this.fir.setAfterClickListener(onClickListener);
         }
-        if (this.fnc != null) {
-            this.fnc.setAfterClickListener(onClickListener);
+        if (this.fis != null) {
+            this.fis.setAfterClickListener(onClickListener);
         }
-        if (this.fnd != null) {
-            this.fnd.setAfterClickListener(onClickListener);
+        if (this.fit != null) {
+            this.fit.setAfterClickListener(onClickListener);
         }
     }
 
     public void setFrom(int i) {
-        if (this.fnb != null) {
-            this.fnb.setFrom(i);
+        if (this.fir != null) {
+            this.fir.setFrom(i);
         }
-        if (this.fnc != null) {
-            this.fnc.setFrom(i);
+        if (this.fis != null) {
+            this.fis.setFrom(i);
         }
-        if (this.fnd != null) {
-            this.fnd.setFrom(i);
+        if (this.fit != null) {
+            this.fit.setFrom(i);
         }
     }
 }

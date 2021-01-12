@@ -11,19 +11,19 @@ public final class c {
     private static String sProcessName = null;
 
     public static String getCurProcessName(Context context) {
-        ActivityManager.RunningAppProcessInfo T;
-        if (TextUtils.isEmpty(sProcessName) && (T = T(context)) != null) {
-            sProcessName = T.processName;
+        ActivityManager.RunningAppProcessInfo S;
+        if (TextUtils.isEmpty(sProcessName) && (S = S(context)) != null) {
+            sProcessName = S.processName;
         }
         return sProcessName;
     }
 
-    public static boolean S(Context context) {
+    public static boolean R(Context context) {
         String curProcessName = getCurProcessName(context);
         return curProcessName != null && curProcessName.equals("com.baidu.browser.apps");
     }
 
-    public static ActivityManager.RunningAppProcessInfo T(Context context) {
+    public static ActivityManager.RunningAppProcessInfo S(Context context) {
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {

@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
     private static String a(Context context, String str) {
         try {

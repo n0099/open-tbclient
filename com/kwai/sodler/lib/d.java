@@ -12,18 +12,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d implements com.kwai.sodler.lib.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f11308a;
+    private final Context f11008a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, com.kwai.sodler.lib.a.a> f11309b = new HashMap();
+    private final Map<String, com.kwai.sodler.lib.a.a> f11009b = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
-        this.f11308a = context.getApplicationContext();
+        this.f11008a = context.getApplicationContext();
     }
 
     private com.kwai.sodler.lib.a.a a(com.kwai.sodler.lib.a.f fVar, com.kwai.sodler.lib.a.a aVar) {
@@ -47,7 +47,7 @@ public class d implements com.kwai.sodler.lib.a.d {
                         return a3;
                     }
                     a.a("Sodler.loader", "Load plugin from installed path.");
-                    aVar.a(this.f11308a, b3);
+                    aVar.a(this.f11008a, b3);
                     a(i, aVar);
                     return aVar;
                 }
@@ -60,7 +60,7 @@ public class d implements com.kwai.sodler.lib.a.d {
             String b4 = b2.e().b(aVar);
             aVar.c(b4);
             a.b("Sodler.loader", "installed ." + b4);
-            aVar.a(this.f11308a, b4);
+            aVar.a(this.f11008a, b4);
             a(i, aVar);
             if (e.endsWith(b2.b().e())) {
                 com.kwai.sodler.lib.c.a.a(e);
@@ -104,7 +104,7 @@ public class d implements com.kwai.sodler.lib.a.d {
 
     public synchronized com.kwai.sodler.lib.a.a a(String str) {
         com.kwai.sodler.lib.a.a aVar;
-        aVar = this.f11309b.get(str);
+        aVar = this.f11009b.get(str);
         if (aVar != null) {
             if (!aVar.b()) {
                 aVar = null;
@@ -125,12 +125,12 @@ public class d implements com.kwai.sodler.lib.a.d {
             c(fVar);
         } else {
             fVar.t();
-            com.kwai.sodler.lib.a.a aVar2 = this.f11309b.get(fVar.i());
+            com.kwai.sodler.lib.a.a aVar2 = this.f11009b.get(fVar.i());
             if (aVar2 == null || !aVar2.b()) {
                 a.b("Sodler.loader", "------choose best plugin------------");
                 a.b("Sodler.loader", "-------远程存在------------");
                 List<com.kwai.sodler.lib.b.a> r = fVar.r();
-                com.kwai.sodler.lib.b.b a2 = f.a(this.f11308a, fVar);
+                com.kwai.sodler.lib.b.b a2 = f.a(this.f11008a, fVar);
                 if (a2 == null) {
                     fVar.a(-1);
                     d(fVar);
@@ -151,7 +151,7 @@ public class d implements com.kwai.sodler.lib.a.d {
                                 break;
                             }
                             aVar = it.next();
-                            if (a2.f11304b.equals(aVar.f11302b)) {
+                            if (a2.f11004b.equals(aVar.f11002b)) {
                                 break;
                             }
                         }
@@ -163,11 +163,11 @@ public class d implements com.kwai.sodler.lib.a.d {
                                 a(fVar, new PluginError.NotWifiDownloadError("It can be downloaded only on WiFi", 2007));
                             }
                         } else {
-                            String b2 = fVar.b().e().b(aVar.f11301a, aVar.f11302b);
+                            String b2 = fVar.b().e().b(aVar.f11001a, aVar.f11002b);
                             fVar.d(b2);
                             fVar.e(b2);
                             fVar.a(1);
-                            fVar.b(aVar.f11302b);
+                            fVar.b(aVar.f11002b);
                             a.b("Sodler.loader", "-------本地找到--------" + b2);
                         }
                     }
@@ -231,7 +231,7 @@ public class d implements com.kwai.sodler.lib.a.d {
     public synchronized void a(String str, com.kwai.sodler.lib.a.a aVar) {
         if (aVar != null) {
             if (aVar.b()) {
-                this.f11309b.put(str, aVar);
+                this.f11009b.put(str, aVar);
             }
         }
     }

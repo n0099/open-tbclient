@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Logging {
     private static final Logger fallbackLogger = createFallbackLogger();
     @Nullable
@@ -15,7 +15,7 @@ public class Logging {
     private static Severity loggableSeverity;
     private static volatile boolean loggingEnabled;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum Severity {
         LS_VERBOSE,
         LS_INFO,
@@ -25,7 +25,7 @@ public class Logging {
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum TraceLevel {
         TRACE_NONE(0),
         TRACE_STATEINFO(1),

@@ -4,26 +4,20 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2800a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f2801b;
+    static final /* synthetic */ boolean f2700a;
 
     static {
-        f2800a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f2801b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f2700a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
     }
 
     public static BitmapDescriptor fromAsset(String str) {
@@ -34,7 +28,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f2800a || a2 != null) {
+            if (f2700a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }
@@ -63,14 +57,14 @@ public class BitmapDescriptorFactory {
                 matrix.postScale(2.0f, 2.0f);
                 bitmap = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
                 fromBitmap = fromBitmap(bitmap);
-            } else if (densityDpi > 320) {
+            } else if (densityDpi <= 320 || densityDpi > 480) {
+                fromBitmap = fromBitmap(a2);
+                bitmap = null;
+            } else {
                 Matrix matrix2 = new Matrix();
                 matrix2.postScale(1.5f, 1.5f);
                 bitmap = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix2, true);
                 fromBitmap = fromBitmap(bitmap);
-            } else {
-                fromBitmap = fromBitmap(a2);
-                bitmap = null;
             }
             a2.recycle();
             if (bitmap != null) {
@@ -91,76 +85,34 @@ public class BitmapDescriptorFactory {
     }
 
     public static BitmapDescriptor fromFile(String str) {
-        Context context;
-        if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
+        if (str == null || str.equals("")) {
             return null;
         }
         try {
-            FileInputStream openFileInput = context.openFileInput(str);
-            Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
-            openFileInput.close();
-            if (decodeStream != null) {
-                BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
-                decodeStream.recycle();
-                return fromBitmap;
-            }
-            return null;
-        } catch (FileNotFoundException e) {
-            Log.e(f2801b, "FileNotFoundException happened", e);
-            return null;
-        } catch (IOException e2) {
-            Log.e(f2801b, "IOException happened", e2);
-            return null;
-        }
-    }
-
-    public static BitmapDescriptor fromFileWithDpi(String str, int i) {
-        Context context;
-        if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
-            return null;
-        }
-        try {
-            FileInputStream openFileInput = context.openFileInput(str);
-            Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
-            openFileInput.close();
-            if (decodeStream != null) {
-                if (i <= 0) {
-                    i = SysOSUtil.getDensityDpi();
+            Context context = BMapManager.getContext();
+            if (context != null) {
+                FileInputStream openFileInput = context.openFileInput(str);
+                Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
+                openFileInput.close();
+                if (decodeStream != null) {
+                    BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
+                    decodeStream.recycle();
+                    return fromBitmap;
                 }
-                decodeStream.setDensity(i);
-                BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
-                decodeStream.recycle();
-                return fromBitmap;
             }
-            return null;
         } catch (FileNotFoundException e) {
-            Log.e(f2801b, "FileNotFoundException happened", e);
-            return null;
+            e.printStackTrace();
         } catch (IOException e2) {
-            Log.e(f2801b, "IOException happened", e2);
-            return null;
+            e2.printStackTrace();
         }
+        return null;
     }
 
     public static BitmapDescriptor fromPath(String str) {
-        Bitmap decodeFile;
-        if (TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+        Bitmap decodeFile = BitmapFactory.decodeFile(str);
+        if (decodeFile == null || decodeFile == null) {
             return null;
         }
-        BitmapDescriptor fromBitmap = fromBitmap(decodeFile);
-        decodeFile.recycle();
-        return fromBitmap;
-    }
-
-    public static BitmapDescriptor fromPathWithDpi(String str, int i) {
-        Bitmap decodeFile;
-        if (TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-            return null;
-        }
-        if (i <= 0) {
-            i = SysOSUtil.getDensityDpi();
-        }
-        decodeFile.setDensity(i);
         BitmapDescriptor fromBitmap = fromBitmap(decodeFile);
         decodeFile.recycle();
         return fromBitmap;
@@ -177,62 +129,19 @@ public class BitmapDescriptorFactory {
         return fromBitmap;
     }
 
-    public static BitmapDescriptor fromResourceWithDpi(int i, int i2) {
-        Bitmap decodeResource;
-        Context context = BMapManager.getContext();
-        if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i)) == null) {
-            return null;
-        }
-        if (i2 <= 0) {
-            i2 = SysOSUtil.getDensityDpi();
-        }
-        decodeResource.setDensity(i2);
-        BitmapDescriptor fromBitmap = fromBitmap(decodeResource);
-        decodeResource.recycle();
-        return fromBitmap;
-    }
-
     public static BitmapDescriptor fromView(View view) {
         if (view == null) {
             return null;
         }
-        try {
-            view.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-            view.buildDrawingCache();
-            Bitmap drawingCache = view.getDrawingCache();
-            BitmapDescriptor fromBitmap = fromBitmap(drawingCache);
-            if (drawingCache != null) {
-                drawingCache.recycle();
-            }
-            view.destroyDrawingCache();
-            return fromBitmap;
-        } catch (Exception e) {
-            return null;
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.buildDrawingCache();
+        Bitmap drawingCache = view.getDrawingCache();
+        BitmapDescriptor fromBitmap = fromBitmap(drawingCache);
+        if (drawingCache != null) {
+            drawingCache.recycle();
         }
-    }
-
-    public static BitmapDescriptor fromViewWithDpi(View view, int i) {
-        BitmapDescriptor bitmapDescriptor = null;
-        if (view != null) {
-            view.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-            view.buildDrawingCache();
-            Bitmap drawingCache = view.getDrawingCache();
-            if (drawingCache == null) {
-                Log.e(f2801b, "Get bitmap failed");
-            } else {
-                if (i <= 0) {
-                    i = SysOSUtil.getDensityDpi();
-                }
-                drawingCache.setDensity(i);
-                bitmapDescriptor = fromBitmap(drawingCache);
-                if (drawingCache != null) {
-                    drawingCache.recycle();
-                }
-                view.destroyDrawingCache();
-            }
-        }
-        return bitmapDescriptor;
+        view.destroyDrawingCache();
+        return fromBitmap;
     }
 }

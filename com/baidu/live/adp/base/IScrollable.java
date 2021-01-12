@@ -2,7 +2,7 @@ package com.baidu.live.adp.base;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IScrollable {
     BdUniqueId getUniqueId();
 

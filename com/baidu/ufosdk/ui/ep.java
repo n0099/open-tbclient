@@ -3,32 +3,32 @@ package com.baidu.ufosdk.ui;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ep extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5855a = -11821318;
+    private int f5572a = -11821318;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5856b;
+    private String f5573b;
     private eq c;
 
     public ep(String str, eq eqVar) {
-        this.f5856b = str;
+        this.f5573b = str;
         this.c = eqVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public final void onClick(View view) {
-        com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f5856b);
+        com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f5573b);
         if (this.c != null) {
-            this.c.a(this.f5856b);
+            this.c.a(this.f5573b);
         }
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public final void updateDrawState(TextPaint textPaint) {
         super.updateDrawState(textPaint);
-        textPaint.setColor(this.f5855a);
+        textPaint.setColor(this.f5572a);
     }
 }

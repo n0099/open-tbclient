@@ -3,7 +3,7 @@ package com.baidu.android.util.io;
 import android.text.TextUtils;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DocumentOpenUtil {
     public static final String DOC = "doc";
     public static final String DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";

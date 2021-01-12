@@ -17,10 +17,10 @@ public final class i {
     private static HandlerThread d;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object f13739b = new Object();
+    private static Object f13439b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f13738a = c();
+    public static final Executor f13438a = c();
 
     private static Executor c() {
         Executor threadPoolExecutor;
@@ -66,18 +66,18 @@ public final class i {
     private static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final Queue<Runnable> f13740a;
+        final Queue<Runnable> f13440a;
 
         /* renamed from: b  reason: collision with root package name */
-        Runnable f13741b;
+        Runnable f13441b;
 
         private a() {
-            this.f13740a = new LinkedList();
+            this.f13440a = new LinkedList();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f13740a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f13440a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -87,16 +87,16 @@ public final class i {
                     }
                 }
             });
-            if (this.f13741b == null) {
+            if (this.f13441b == null) {
                 a();
             }
         }
 
         protected synchronized void a() {
-            Runnable poll = this.f13740a.poll();
-            this.f13741b = poll;
+            Runnable poll = this.f13440a.poll();
+            this.f13441b = poll;
             if (poll != null) {
-                i.f13738a.execute(this.f13741b);
+                i.f13438a.execute(this.f13441b);
             }
         }
     }

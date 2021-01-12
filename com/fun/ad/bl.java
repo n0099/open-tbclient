@@ -14,11 +14,11 @@ import com.fun.ad.sdk.AdRipper;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bl extends bd {
-    public TTBannerAd pKf;
+    public TTBannerAd pFE;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements TTAdNative.BannerAdListener {
         public a() {
         }
@@ -27,11 +27,11 @@ public class bl extends bd {
         public void onBannerAdLoad(TTBannerAd tTBannerAd) {
             m.a("CSJBannerAd onBannerAdLoad");
             bl blVar = bl.this;
-            blVar.f8065b = false;
-            blVar.pKf = tTBannerAd;
-            ba baVar = blVar.pJV;
+            blVar.f7765b = false;
+            blVar.pFE = tTBannerAd;
+            ba baVar = blVar.pFu;
             if (baVar != null) {
-                ((aj) baVar).b(blVar.f8064a.f8060a);
+                ((aj) baVar).b(blVar.f7764a.f7760a);
             }
             AdRipper.ripCSJ(tTBannerAd);
         }
@@ -40,15 +40,15 @@ public class bl extends bd {
         public void onError(int i, String str) {
             m.a("CSJBannerAd onError code: " + i + ", message: " + str);
             bl blVar = bl.this;
-            blVar.f8065b = false;
-            ba baVar = blVar.pJV;
+            blVar.f7765b = false;
+            ba baVar = blVar.pFu;
             if (baVar != null) {
-                ((aj) baVar).a(blVar.f8064a.f8060a, i, str);
+                ((aj) baVar).a(blVar.f7764a.f7760a, i, str);
             }
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class b implements TTBannerAd.AdInteractionListener {
         public b() {
         }
@@ -57,9 +57,9 @@ public class bl extends bd {
         public void onAdClicked(View view, int i) {
             m.a("CSJBannerAd onAdClicked type: " + i);
             bl blVar = bl.this;
-            ax axVar = blVar.pJW;
+            ax axVar = blVar.pFv;
             if (axVar != null) {
-                ((am) axVar).a(blVar.f8064a.f8060a, view, i);
+                ((am) axVar).a(blVar.f7764a.f7760a, view, i);
             }
         }
 
@@ -67,21 +67,21 @@ public class bl extends bd {
         public void onAdShow(View view, int i) {
             m.a("CSJBannerAd onAdShow type: " + i);
             bl blVar = bl.this;
-            ax axVar = blVar.pJW;
+            ax axVar = blVar.pFv;
             if (axVar != null) {
-                ((am) axVar).b(blVar.f8064a.f8060a, view, i);
+                ((am) axVar).b(blVar.f7764a.f7760a, view, i);
             }
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class c implements TTAdDislike.DislikeInteractionCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f8071a;
+        public final /* synthetic */ View f7771a;
 
         public c(View view) {
-            this.f8071a = view;
+            this.f7771a = view;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
@@ -97,14 +97,14 @@ public class bl extends bd {
         @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
         public void onSelected(int i, String str) {
             m.a("CSJBannerAd dislike icon onSelected position: " + i + ", value: " + str);
-            View view = this.f8071a;
+            View view = this.f7771a;
             if (view != null && view.getParent() != null) {
-                ((ViewGroup) this.f8071a.getParent()).removeView(this.f8071a);
+                ((ViewGroup) this.f7771a.getParent()).removeView(this.f7771a);
             }
             bl blVar = bl.this;
-            ax axVar = blVar.pJW;
+            ax axVar = blVar.pFv;
             if (axVar != null) {
-                ((am) axVar).a(blVar.f8064a.f8060a);
+                ((am) axVar).a(blVar.f7764a.f7760a);
             }
         }
     }
@@ -116,13 +116,13 @@ public class bl extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pKf = null;
+        this.pFE = null;
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTBannerAd tTBannerAd = this.pKf;
+        TTBannerAd tTBannerAd = this.pFE;
         if (tTBannerAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTBannerAd, false)) == null) {
             return null;
         }
@@ -141,14 +141,14 @@ public class bl extends bd {
     @Override // com.fun.ad.bd
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
         super.a(context.getApplicationContext(), funAdSlot, baVar);
-        if (!this.f8065b) {
-            this.f8065b = true;
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f8064a.f8060a).setSupportDeepLink(true);
-            au.a aVar = this.f8064a;
-            this.pJX.loadBannerAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
-            ba baVar2 = this.pJV;
+        if (!this.f7765b) {
+            this.f7765b = true;
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true);
+            au.a aVar = this.f7764a;
+            this.pFw.loadBannerAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
+            ba baVar2 = this.pFu;
             if (baVar2 != null) {
-                ((aj) baVar2).a(this.f8064a.f8060a);
+                ((aj) baVar2).a(this.f7764a.f7760a);
             }
         }
     }
@@ -156,7 +156,7 @@ public class bl extends bd {
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTBannerAd tTBannerAd = this.pKf;
+        TTBannerAd tTBannerAd = this.pFE;
         if (tTBannerAd != null) {
             View bannerView = tTBannerAd.getBannerView();
             if (bannerView != null && bannerView.getParent() != null) {
@@ -166,10 +166,10 @@ public class bl extends bd {
                 funAdView.removeAllViews();
                 funAdView.addView(bannerView);
             }
-            this.pKf.setSlideIntervalTime(this.f8064a.f);
-            this.pKf.setBannerInteractionListener(new b());
-            this.pKf.setShowDislikeIcon(new c(bannerView));
-            this.pKf.setDownloadListener(new bj(null));
+            this.pFE.setSlideIntervalTime(this.f7764a.f);
+            this.pFE.setBannerInteractionListener(new b());
+            this.pFE.setShowDislikeIcon(new c(bannerView));
+            this.pFE.setDownloadListener(new bj(null));
         }
     }
 }

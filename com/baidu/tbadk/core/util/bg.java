@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bg {
-    private static int fdS = -1;
-    private static int fdT = -1;
-    private static boolean fdU = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> fdV = new com.baidu.adp.lib.d.a<>(500);
+    private static int eZj = -1;
+    private static int eZk = -1;
+    private static boolean eZl = false;
+    private static com.baidu.adp.lib.d.a<Integer, Integer> eZm = new com.baidu.adp.lib.d.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -28,33 +28,33 @@ public class bg {
         boolean bs(View view);
     }
 
-    public static void fc(Context context) {
+    public static void fa(Context context) {
         mAppContext = context;
-        fdU = true;
+        eZl = true;
     }
 
-    private static void bww() {
+    private static void bsC() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            fdT = mAppContext.getResources().getColor(R.color.common_color_10097);
-            fdS = mAppContext.getResources().getColor(R.color.common_color_10004);
+            eZk = mAppContext.getResources().getColor(R.color.common_color_10097);
+            eZj = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
-    private static int qm(int i) {
+    private static int oF(int i) {
         boolean z = true;
         if (i != 1 && i != 4) {
             z = false;
         }
-        return jQ(z);
+        return jM(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int jQ(boolean z) {
-        if (fdU) {
-            fdU = false;
-            bww();
+    public static int jM(boolean z) {
+        if (eZl) {
+            eZl = false;
+            bsC();
         }
-        return z ? fdS : fdT;
+        return z ? eZj : eZk;
     }
 
     public static void bx(View view) {
@@ -65,16 +65,16 @@ public class bg {
 
     public static void by(View view) {
         if (view != null) {
-            fdV.remove(Integer.valueOf(System.identityHashCode(view)));
+            eZm.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void k(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = fdV.get(Integer.valueOf(identityHashCode));
+        Integer num = eZm.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             l(viewGroup, i);
-            fdV.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            eZm.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -126,25 +126,25 @@ public class bg {
                         return false;
                     } else if ("skin_more_up".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jQ(z));
+                            ((RadioButton) view).setTextColor(bg.jM(z));
                         }
                         ao.setBackgroundResource(view, R.drawable.more_up);
                         return false;
                     } else if ("skin_more_middle".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jQ(z));
+                            ((RadioButton) view).setTextColor(bg.jM(z));
                         }
                         ao.setBackgroundResource(view, R.drawable.more_middle);
                         return false;
                     } else if ("skin_more_down".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jQ(z));
+                            ((RadioButton) view).setTextColor(bg.jM(z));
                         }
                         ao.setBackgroundResource(view, R.drawable.more_down);
                         return false;
                     } else if ("skin_more_all".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bg.jQ(z));
+                            ((RadioButton) view).setTextColor(bg.jM(z));
                         }
                         ao.setBackgroundResource(view, R.drawable.more_all);
                         return false;
@@ -231,13 +231,13 @@ public class bg {
 
     public static void setTextColor(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(qm(i));
+            textView.setTextColor(oF(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(qm(i));
+            checkBox.setTextColor(oF(i));
         }
     }
 

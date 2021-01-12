@@ -1,13 +1,13 @@
 package com.baidu.live.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void CV();
+    void za();
 
-    void CW();
+    void zb();
 
-    void CX();
+    void zc();
 
-    void CY();
+    void zd();
 
-    void CZ();
+    void ze();
 }

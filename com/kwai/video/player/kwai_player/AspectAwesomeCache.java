@@ -9,7 +9,7 @@ import com.kwai.video.cache.CacheSessionListener;
 import com.kwai.video.hodor.util.Timber;
 import java.lang.ref.WeakReference;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AspectAwesomeCache {
     private AwesomeCacheCallback mAwesomeCacheCallback;
     @Nullable

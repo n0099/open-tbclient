@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class RestNameValuePair implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f4009a = 847806714499261896L;
+    private static final long f3971a = 847806714499261896L;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4010b;
+    private String f3972b;
     private String c;
 
     public RestNameValuePair() {
@@ -16,7 +16,7 @@ public class RestNameValuePair implements Serializable {
     }
 
     public String getName() {
-        return this.f4010b;
+        return this.f3972b;
     }
 
     public String getValue() {
@@ -24,7 +24,7 @@ public class RestNameValuePair implements Serializable {
     }
 
     public void setName(String str) {
-        this.f4010b = str;
+        this.f3972b = str;
     }
 
     public void setValue(String str) {
@@ -32,11 +32,11 @@ public class RestNameValuePair implements Serializable {
     }
 
     public String toString() {
-        return "name = " + this.f4010b + ", value = " + this.c;
+        return "name = " + this.f3972b + ", value = " + this.c;
     }
 
     public RestNameValuePair(String str, String str2) {
-        this.f4010b = str;
+        this.f3972b = str;
         this.c = str2;
     }
 }

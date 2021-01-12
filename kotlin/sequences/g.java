@@ -5,8 +5,8 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class g<T, R> implements c<R> {
-    private final kotlin.jvm.a.b<T, R> qoB;
-    private final c<T> qop;
+    private final c<T> qjN;
+    private final kotlin.jvm.a.b<T, R> qjZ;
 
     @kotlin.e
     /* loaded from: classes5.dex */
@@ -20,12 +20,12 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = g.this.qop.iterator();
+            this.iterator = g.this.qjN.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.qoB.invoke(this.iterator.next());
+            return (R) g.this.qjZ.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -40,8 +40,8 @@ public final class g<T, R> implements c<R> {
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         p.o(cVar, "sequence");
         p.o(bVar, "transformer");
-        this.qop = cVar;
-        this.qoB = bVar;
+        this.qjN = cVar;
+        this.qjZ = bVar;
     }
 
     @Override // kotlin.sequences.c

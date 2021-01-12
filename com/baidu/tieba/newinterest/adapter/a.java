@@ -15,29 +15,29 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private int lAA;
-    private final List<com.baidu.tieba.newinterest.data.b> lAB;
-    private b lAC;
+    private int lvU;
+    private final List<com.baidu.tieba.newinterest.data.b> lvV;
+    private b lvW;
     private final Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void Gx(int i);
+        void ER(int i);
     }
 
     public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.lAB = list;
+        this.lvV = list;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lAB == null) {
+        if (this.lvV == null) {
             return 0;
         }
-        return this.lAB.size();
+        return this.lvV.size();
     }
 
     @Override // android.widget.Adapter
@@ -52,36 +52,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        final C0834a c0834a;
+        final C0817a c0817a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-            C0834a c0834a2 = new C0834a(view);
-            view.setTag(c0834a2);
-            c0834a = c0834a2;
+            C0817a c0817a2 = new C0817a(view);
+            view.setTag(c0817a2);
+            c0817a = c0817a2;
         } else {
-            c0834a = (C0834a) view.getTag();
+            c0817a = (C0817a) view.getTag();
         }
-        final com.baidu.tieba.newinterest.data.b bVar = this.lAB.get(i);
+        final com.baidu.tieba.newinterest.data.b bVar = this.lvV.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.bwr().a(c0834a.lAG, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsx().a(c0817a.lwa, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0834a.lAH.setText(bVar.getText());
-        a(c0834a.lAI, bVar);
+        c0817a.lwb.setText(bVar.getText());
+        a(c0817a.lwc, bVar);
         if (bVar.isSelected()) {
-            this.lAA++;
+            this.lvU++;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.lAA >= 10) {
+                if (!bVar.isSelected() && a.this.lvU >= 10) {
                     l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0834a.lAI, bVar);
+                a.this.a(c0817a.lwc, bVar);
                 a.this.a(bVar);
-                if (a.this.lAC != null) {
-                    a.this.lAC.Gx(a.this.lAA);
+                if (a.this.lvW != null) {
+                    a.this.lvW.ER(a.this.lvU);
                 }
                 if (bVar.isSelected()) {
                     aq aqVar = new aq("c13682");
@@ -95,9 +95,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> dld() {
+    public List<com.baidu.tieba.newinterest.data.b> dhl() {
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.lAB) {
+        for (com.baidu.tieba.newinterest.data.b bVar : this.lvV) {
             if (bVar.isSelected()) {
                 arrayList.add(bVar);
             }
@@ -106,17 +106,17 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.newinterest.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0834a {
-        public ImageView lAG;
-        public TextView lAH;
-        public ImageView lAI;
+    /* loaded from: classes7.dex */
+    public static class C0817a {
+        public ImageView lwa;
+        public TextView lwb;
+        public ImageView lwc;
 
-        public C0834a(View view) {
-            this.lAG = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lAH = (TextView) view.findViewById(R.id.interest_text);
-            this.lAI = (ImageView) view.findViewById(R.id.select_status_view);
-            ao.setViewTextColor(this.lAH, R.color.CAM_X0105);
+        public C0817a(View view) {
+            this.lwa = (ImageView) view.findViewById(R.id.interest_icon);
+            this.lwb = (TextView) view.findViewById(R.id.interest_text);
+            this.lwc = (ImageView) view.findViewById(R.id.select_status_view);
+            ao.setViewTextColor(this.lwb, R.color.CAM_X0105);
             ao.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -124,22 +124,22 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            SvgManager.bwr().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsx().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            SvgManager.bwr().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsx().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            this.lAA++;
+            this.lvU++;
         } else {
-            this.lAA--;
+            this.lvU--;
         }
     }
 
     public void a(b bVar) {
-        this.lAC = bVar;
+        this.lvW = bVar;
     }
 }

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private ArrayList<C0800a> leA = new ArrayList<>();
+    private ArrayList<C0783a> kZS = new ArrayList<>();
 
     /* renamed from: com.baidu.tieba.location.data.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0800a {
+    /* loaded from: classes7.dex */
+    public static class C0783a {
         private String lat;
         private String lng;
         private String name;
@@ -37,26 +37,26 @@ public class a {
             return this.screatString;
         }
 
-        public void Oh(String str) {
+        public void MZ(String str) {
             this.screatString = str;
         }
     }
 
-    public ArrayList<C0800a> dfy() {
-        return this.leA;
+    public ArrayList<C0783a> dbG() {
+        return this.kZS;
     }
 
-    public void aP(ArrayList<C0800a> arrayList) {
-        this.leA = arrayList;
+    public void aK(ArrayList<C0783a> arrayList) {
+        this.kZS = arrayList;
     }
 
     public void a(DataRes dataRes) {
         List<Lbs> list = dataRes.poi_info;
         if (list != null && !list.isEmpty()) {
             for (Lbs lbs : list) {
-                C0800a c0800a = new C0800a();
-                c0800a.b(lbs);
-                this.leA.add(c0800a);
+                C0783a c0783a = new C0783a();
+                c0783a.b(lbs);
+                this.kZS.add(c0783a);
             }
         }
     }

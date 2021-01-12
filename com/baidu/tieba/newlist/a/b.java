@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b.b, a> {
-    private f<com.baidu.tieba.newlist.b.b> kdd;
+    private f<com.baidu.tieba.newlist.b.b> jYy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.lCg);
-        this.kdd = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.lxA);
+        this.jYy = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newlist.b.b bVar, int i, long j) {
@@ -37,7 +37,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     /* renamed from: cp */
     public a e(ViewGroup viewGroup) {
         HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-        hotTopicListInfoItem.setOnItemCoverListener(this.kdd);
+        hotTopicListInfoItem.setOnItemCoverListener(this.jYy);
         hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicListInfoItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -57,23 +57,23 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HotTopicListInfoItem lCf;
+        private HotTopicListInfoItem lxz;
 
         a(HotTopicListInfoItem hotTopicListInfoItem) {
             super(hotTopicListInfoItem);
-            this.lCf = hotTopicListInfoItem;
+            this.lxz = hotTopicListInfoItem;
         }
 
         void a(com.baidu.tieba.newlist.b.b bVar) {
             if (bVar != null) {
-                this.lCf.a(bVar);
+                this.lxz.a(bVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.lCf.onChangeSkinType(i);
+            this.lxz.onChangeSkinType(i);
         }
     }
 }

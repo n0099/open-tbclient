@@ -1,7 +1,7 @@
 package com.baidu.tieba.barselect.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
-    public static int ism = 0;
-    public static int isn = 1;
-    public static int iso = 2;
+    public static int inF = 0;
+    public static int inG = 1;
+    public static int inH = 2;
 }

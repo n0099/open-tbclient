@@ -12,13 +12,13 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private e hkq;
-    private b hlG;
-    private c hlH;
+    private e hfJ;
+    private b hgZ;
+    private c hha;
     public TbPageContext pageContext;
-    private CustomMessageListener hkr = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
+    private CustomMessageListener hfK = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,8 +37,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.hkq.f(bVar.getUserId(), null, null, 0);
-                        a.this.hlG.a(bVar);
+                        a.this.hfJ.f(bVar.getUserId(), null, null, 0);
+                        a.this.hgZ.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -50,47 +50,47 @@ public class a {
             }
         }
     };
-    private b.a hlI = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
+    private b.a hhb = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
-        public void mK(boolean z) {
-            a.this.hlH.completePullRefresh();
-            a.this.hlH.hideNoDataView();
-            if (a.this.hlG.getUserList().size() == 0) {
-                a.this.hlH.cba();
-                a.this.hlH.bYR();
-                a.this.hlH.showNoDataView();
+        public void mG(boolean z) {
+            a.this.hha.completePullRefresh();
+            a.this.hha.hideNoDataView();
+            if (a.this.hgZ.getUserList().size() == 0) {
+                a.this.hha.bXi();
+                a.this.hha.bUZ();
+                a.this.hha.showNoDataView();
                 return;
             }
-            a.this.hlH.Zj();
-            a.this.hlH.caZ();
-            a.this.hlH.f(a.this.hlG.getUserList(), a.this.hlG.getTotalCount());
+            a.this.hha.Vq();
+            a.this.hha.bXh();
+            a.this.hha.f(a.this.hgZ.getUserList(), a.this.hgZ.getTotalCount());
             if (z) {
-                a.this.hlH.bYw();
+                a.this.hha.bUE();
             } else {
-                a.this.hlH.bYR();
+                a.this.hha.bUZ();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
-        public void aE(int i, String str) {
-            a.this.hlH.completePullRefresh();
-            a.this.hlH.hideNoDataView();
-            if (a.this.hlG.getUserList().size() > 0) {
-                if (a.this.hlG.hasMore()) {
-                    a.this.hlH.bYw();
+        public void aF(int i, String str) {
+            a.this.hha.completePullRefresh();
+            a.this.hha.hideNoDataView();
+            if (a.this.hgZ.getUserList().size() > 0) {
+                if (a.this.hgZ.hasMore()) {
+                    a.this.hha.bUE();
                 } else {
-                    a.this.hlH.bUE();
+                    a.this.hha.bQM();
                 }
                 a.this.getPageContext().showToast(str, true);
                 return;
             }
-            a.this.hlH.bYR();
-            a.this.hlH.cba();
-            a.this.hlH.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
+            a.this.hha.bUZ();
+            a.this.hha.bXi();
+            a.this.hha.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hlH.Zj();
-                    a.this.hlG.caY();
+                    a.this.hha.Vq();
+                    a.this.hgZ.bXg();
                 }
             });
         }
@@ -106,30 +106,30 @@ public class a {
     }
 
     private void cr(View view) {
-        this.hlG = new b(getPageContext());
-        this.hlG.a(this.hlI);
-        this.hkq = new e(getPageContext());
-        this.hlH = new c(getPageContext(), view);
-        this.hlH.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
+        this.hgZ = new b(getPageContext());
+        this.hgZ.a(this.hhb);
+        this.hfJ = new e(getPageContext());
+        this.hha = new c(getPageContext(), view);
+        this.hha.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.hlG.caY();
+                a.this.hgZ.bXg();
             }
         });
-        this.hlH.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
+        this.hha.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (a.this.hlG.hasMore()) {
-                    a.this.hlG.bYW();
-                    a.this.hlH.bUF();
+                if (a.this.hgZ.hasMore()) {
+                    a.this.hgZ.bVe();
+                    a.this.hha.bQN();
                 }
             }
         });
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.hkr);
-        this.hlG.caY();
+        getPageContext().registerListener(this.hfK);
+        this.hgZ.bXg();
     }
 
     public void onPause() {
@@ -148,8 +148,8 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hlH != null) {
-            this.hlH.onChangeSkinType(i);
+        if (this.hha != null) {
+            this.hha.onChangeSkinType(i);
         }
     }
 }

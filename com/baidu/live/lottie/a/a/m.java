@@ -7,21 +7,21 @@ import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.PolystarShape;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class m implements j, l, a.InterfaceC0194a {
-    private boolean DM;
+/* loaded from: classes9.dex */
+public class m implements j, l, a.InterfaceC0185a {
+    private boolean DJ;
     @Nullable
-    private r btF;
-    private final com.baidu.live.lottie.a.b.a<?, PointF> btI;
-    private final PolystarShape.Type btP;
-    private final com.baidu.live.lottie.a.b.a<?, Float> btQ;
-    private final com.baidu.live.lottie.a.b.a<?, Float> btR;
+    private r boS;
+    private final com.baidu.live.lottie.a.b.a<?, PointF> boV;
+    private final PolystarShape.Type bpc;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpd;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpe;
     @Nullable
-    private final com.baidu.live.lottie.a.b.a<?, Float> btS;
-    private final com.baidu.live.lottie.a.b.a<?, Float> btT;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpf;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpg;
     @Nullable
-    private final com.baidu.live.lottie.a.b.a<?, Float> btU;
-    private final com.baidu.live.lottie.a.b.a<?, Float> btV;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bph;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpi;
     private final com.baidu.live.lottie.h lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -29,46 +29,46 @@ public class m implements j, l, a.InterfaceC0194a {
     public m(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = hVar;
         this.name = polystarShape.getName();
-        this.btP = polystarShape.Ql();
-        this.btQ = polystarShape.Qm().PP();
-        this.btI = polystarShape.PS().PP();
-        this.btR = polystarShape.PU().PP();
-        this.btT = polystarShape.Qo().PP();
-        this.btV = polystarShape.Qq().PP();
-        if (this.btP == PolystarShape.Type.Star) {
-            this.btS = polystarShape.Qn().PP();
-            this.btU = polystarShape.Qp().PP();
+        this.bpc = polystarShape.Mq();
+        this.bpd = polystarShape.Mr().LU();
+        this.boV = polystarShape.LX().LU();
+        this.bpe = polystarShape.LZ().LU();
+        this.bpg = polystarShape.Mt().LU();
+        this.bpi = polystarShape.Mv().LU();
+        if (this.bpc == PolystarShape.Type.Star) {
+            this.bpf = polystarShape.Ms().LU();
+            this.bph = polystarShape.Mu().LU();
         } else {
-            this.btS = null;
-            this.btU = null;
+            this.bpf = null;
+            this.bph = null;
         }
-        aVar.a(this.btQ);
-        aVar.a(this.btI);
-        aVar.a(this.btR);
-        aVar.a(this.btT);
-        aVar.a(this.btV);
-        if (this.btP == PolystarShape.Type.Star) {
-            aVar.a(this.btS);
-            aVar.a(this.btU);
+        aVar.a(this.bpd);
+        aVar.a(this.boV);
+        aVar.a(this.bpe);
+        aVar.a(this.bpg);
+        aVar.a(this.bpi);
+        if (this.bpc == PolystarShape.Type.Star) {
+            aVar.a(this.bpf);
+            aVar.a(this.bph);
         }
-        this.btQ.b(this);
-        this.btI.b(this);
-        this.btR.b(this);
-        this.btT.b(this);
-        this.btV.b(this);
-        if (this.btP == PolystarShape.Type.Star) {
-            this.btS.b(this);
-            this.btU.b(this);
+        this.bpd.b(this);
+        this.boV.b(this);
+        this.bpe.b(this);
+        this.bpg.b(this);
+        this.bpi.b(this);
+        if (this.bpc == PolystarShape.Type.Star) {
+            this.bpf.b(this);
+            this.bph.b(this);
         }
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0194a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
     public void is() {
         invalidate();
     }
 
     private void invalidate() {
-        this.DM = false;
+        this.DJ = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -79,9 +79,9 @@ public class m implements j, l, a.InterfaceC0194a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).PF() == ShapeTrimPath.Type.Simultaneously) {
-                    this.btF = (r) bVar;
-                    this.btF.a(this);
+                if ((bVar instanceof r) && ((r) bVar).LK() == ShapeTrimPath.Type.Simultaneously) {
+                    this.boS = (r) bVar;
+                    this.boS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -92,11 +92,11 @@ public class m implements j, l, a.InterfaceC0194a {
 
     @Override // com.baidu.live.lottie.a.a.l
     public Path iv() {
-        if (this.DM) {
+        if (this.DJ) {
             return this.path;
         }
         this.path.reset();
-        switch (this.btP) {
+        switch (this.bpc) {
             case Star:
                 iA();
                 break;
@@ -105,8 +105,8 @@ public class m implements j, l, a.InterfaceC0194a {
                 break;
         }
         this.path.close();
-        com.baidu.live.lottie.d.f.a(this.path, this.btF);
-        this.DM = true;
+        com.baidu.live.lottie.d.f.a(this.path, this.boS);
+        this.DJ = true;
         return this.path;
     }
 
@@ -123,22 +123,22 @@ public class m implements j, l, a.InterfaceC0194a {
         float f2;
         float f3;
         float f4;
-        float floatValue = this.btQ.getValue().floatValue();
-        double radians = Math.toRadians((this.btR == null ? 0.0d : this.btR.getValue().floatValue()) - 90.0d);
+        float floatValue = this.bpd.getValue().floatValue();
+        double radians = Math.toRadians((this.bpe == null ? 0.0d : this.bpe.getValue().floatValue()) - 90.0d);
         float f5 = (float) (6.283185307179586d / floatValue);
         float f6 = f5 / 2.0f;
         float f7 = floatValue - ((int) floatValue);
         double d2 = f7 != 0.0f ? radians + ((1.0f - f7) * f6) : radians;
-        float floatValue2 = this.btT.getValue().floatValue();
-        float floatValue3 = this.btS.getValue().floatValue();
-        if (this.btU == null) {
+        float floatValue2 = this.bpg.getValue().floatValue();
+        float floatValue3 = this.bpf.getValue().floatValue();
+        if (this.bph == null) {
             f = 0.0f;
         } else {
-            f = this.btU.getValue().floatValue() / 100.0f;
+            f = this.bph.getValue().floatValue() / 100.0f;
         }
         float f8 = 0.0f;
-        if (this.btV != null) {
-            f8 = this.btV.getValue().floatValue() / 100.0f;
+        if (this.bpi != null) {
+            f8 = this.bpi.getValue().floatValue() / 100.0f;
         }
         if (f7 != 0.0f) {
             float f9 = floatValue3 + ((floatValue2 - floatValue3) * f7);
@@ -208,7 +208,7 @@ public class m implements j, l, a.InterfaceC0194a {
                 f10 = sin2;
                 f11 = cos2;
             } else {
-                PointF value = this.btI.getValue();
+                PointF value = this.boV.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -217,11 +217,11 @@ public class m implements j, l, a.InterfaceC0194a {
     }
 
     private void iB() {
-        int floor = (int) Math.floor(this.btQ.getValue().floatValue());
-        double radians = Math.toRadians((this.btR == null ? 0.0d : this.btR.getValue().floatValue()) - 90.0d);
+        int floor = (int) Math.floor(this.bpd.getValue().floatValue());
+        double radians = Math.toRadians((this.bpe == null ? 0.0d : this.bpe.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);
-        float floatValue = this.btV.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.btT.getValue().floatValue();
+        float floatValue = this.bpi.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.bpg.getValue().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
         this.path.moveTo(cos, sin);
@@ -247,7 +247,7 @@ public class m implements j, l, a.InterfaceC0194a {
                 d += f;
                 i = i2 + 1;
             } else {
-                PointF value = this.btI.getValue();
+                PointF value = this.boV.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -262,20 +262,20 @@ public class m implements j, l, a.InterfaceC0194a {
 
     @Override // com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        if (t == com.baidu.live.lottie.l.CQ) {
-            this.btQ.a(cVar);
+        if (t == com.baidu.live.lottie.l.CO) {
+            this.bpd.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CP) {
+            this.bpe.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CG) {
+            this.boV.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CQ && this.bpf != null) {
+            this.bpf.a(cVar);
         } else if (t == com.baidu.live.lottie.l.CV) {
-            this.btR.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CI) {
-            this.btI.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CW && this.btS != null) {
-            this.btS.a(cVar);
+            this.bpg.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CW && this.bph != null) {
+            this.bph.a(cVar);
         } else if (t == com.baidu.live.lottie.l.CX) {
-            this.btT.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CY && this.btU != null) {
-            this.btU.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CZ) {
-            this.btV.a(cVar);
+            this.bpi.a(cVar);
         }
     }
 }

@@ -10,66 +10,66 @@ import com.baidu.tieba.ala.liveroom.challenge.b.a;
 import com.baidu.tieba.ala.liveroom.challenge.view.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.live.liveroom.d.d {
-    private long bvY;
-    private long gqJ;
-    private c hAt;
-    private com.baidu.tieba.ala.liveroom.challenge.b.a hAu;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hAv = new ArrayList();
-    private final c.a hAw = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
+    private long brk;
+    private long gmc;
+    private long hpW;
+    private c hvN;
+    private com.baidu.tieba.ala.liveroom.challenge.b.a hvO;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hvP = new ArrayList();
+    private final c.a hvQ = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
         public void onScrollToBottom() {
-            if (b.this.hAu != null) {
-                b.this.hAu.bUq();
+            if (b.this.hvO != null) {
+                b.this.hvO.bQy();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
-        public void cha() {
-            if (b.this.hAu != null) {
-                b.this.hAu.refresh();
+        public void cdi() {
+            if (b.this.hvO != null) {
+                b.this.hvO.refresh();
             }
         }
     };
-    private final a.InterfaceC0674a hAx = new a.InterfaceC0674a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0674a
+    private final a.InterfaceC0657a hvR = new a.InterfaceC0657a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0657a
         public void f(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-            b.this.hAv = list;
-            if (b.this.hAt != null) {
-                b.this.hAt.completePullRefresh();
-                b.this.hAt.Rx();
+            b.this.hvP = list;
+            if (b.this.hvN != null) {
+                b.this.hvN.completePullRefresh();
+                b.this.hvN.NC();
                 if (ListUtils.isEmpty(list)) {
-                    b.this.hAt.cF(false);
-                    b.this.hAt.bUQ();
+                    b.this.hvN.cB(false);
+                    b.this.hvN.bQY();
                     return;
                 }
                 if (z) {
-                    b.this.hAt.bUF();
+                    b.this.hvN.bQN();
                 } else {
-                    b.this.hAt.bUE();
+                    b.this.hvN.bQM();
                 }
-                b.this.hAt.setData(list);
+                b.this.hvN.setData(list);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0674a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0657a
         public void h(int i, String str, boolean z) {
-            if (b.this.hAt != null) {
-                b.this.hAt.completePullRefresh();
-                b.this.hAt.Rx();
-                b.this.hAt.bUQ();
-                if (!ListUtils.isEmpty(b.this.hAv)) {
+            if (b.this.hvN != null) {
+                b.this.hvN.completePullRefresh();
+                b.this.hvN.NC();
+                b.this.hvN.bQY();
+                if (!ListUtils.isEmpty(b.this.hvP)) {
                     BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    b.this.hAt.cF(false);
+                    b.this.hvN.cB(false);
                 } else {
-                    b.this.hAt.cF(true);
+                    b.this.hvN.cB(true);
                 }
             }
         }
     };
-    private long huC;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private int mType;
@@ -78,24 +78,24 @@ public class b implements com.baidu.live.liveroom.d.d {
         this.mTbPageContext = tbPageContext;
         this.mType = i;
         this.mIsHost = z;
-        this.hAt = new c(this.mTbPageContext, this.mType, this.mIsHost);
-        this.hAt.a(this.hAw);
-        this.hAu = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
-        this.hAu.a(this.hAx);
+        this.hvN = new c(this.mTbPageContext, this.mType, this.mIsHost);
+        this.hvN.a(this.hvQ);
+        this.hvO = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
+        this.hvO.a(this.hvR);
     }
 
     public void e(long j, long j2, long j3) {
-        this.huC = j;
-        this.bvY = j2;
-        this.gqJ = j3;
-        this.hAt.c(this.huC, this.bvY, this.gqJ);
-        this.hAu.c(this.huC, this.bvY, this.gqJ);
-        this.hAu.refresh();
+        this.hpW = j;
+        this.brk = j2;
+        this.gmc = j3;
+        this.hvN.c(this.hpW, this.brk, this.gmc);
+        this.hvO.c(this.hpW, this.brk, this.gmc);
+        this.hvO.refresh();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.hAt.getView();
+        return this.hvN.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -104,12 +104,12 @@ public class b implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Mh() {
+    public String Im() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Mi() {
+    public short In() {
         return (short) 0;
     }
 
@@ -123,11 +123,11 @@ public class b implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.hAu != null) {
-            this.hAu.onDestroy();
+        if (this.hvO != null) {
+            this.hvO.onDestroy();
         }
-        if (this.hAt != null) {
-            this.hAt.onDestroy();
+        if (this.hvN != null) {
+            this.hvN.onDestroy();
         }
     }
 

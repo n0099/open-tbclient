@@ -17,6 +17,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.net.http.Headers;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -81,7 +82,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -90,13 +91,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -370,7 +371,7 @@ public class UtilHelper {
         boolean z;
         if (PermissionUtil.checkLocationForGoogle(context)) {
             try {
-                LocationManager locationManager = (LocationManager) context.getSystemService("location");
+                LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 if (!locationManager.isProviderEnabled("gps")) {
                     if (!locationManager.isProviderEnabled("network")) {
                         z = false;

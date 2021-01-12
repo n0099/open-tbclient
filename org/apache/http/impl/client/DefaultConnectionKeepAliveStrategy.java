@@ -4,7 +4,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultConnectionKeepAliveStrategy implements ConnectionKeepAliveStrategy {
     public DefaultConnectionKeepAliveStrategy() {
         throw new RuntimeException("Stub!");

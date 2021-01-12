@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f10164a;
+    private float f9864a;
 
     public b(@NonNull Context context) {
         this(context, null);
@@ -22,21 +22,21 @@ public class b extends LinearLayout {
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f10164a = 0.0f;
+        this.f9864a = 0.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.f10164a != 0.0f) {
+        if (this.f9864a != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             com.kwad.sdk.core.d.a.a("RatioFrameLayout", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * this.f10164a), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * this.f9864a), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
     public void setRatio(float f) {
-        this.f10164a = f;
+        this.f9864a = f;
     }
 }

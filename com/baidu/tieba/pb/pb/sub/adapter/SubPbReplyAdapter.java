@@ -27,29 +27,29 @@ public class SubPbReplyAdapter extends a<com.baidu.tieba.pb.pb.sub.a.b, SubPbRep
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.adapter.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.a.b bVar, SubPbReplyViewHolder subPbReplyViewHolder) {
-        ((SubPbReplyViewHolder) this.Wu).mdM.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
-        ((SubPbReplyViewHolder) this.Wu).onChangeSkinType();
+        ((SubPbReplyViewHolder) this.Ws).lZf.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((SubPbReplyViewHolder) this.Ws).onChangeSkinType();
         return subPbReplyViewHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class SubPbReplyViewHolder extends TypeAdapter.ViewHolder {
-        private View iwu;
+        private View irN;
+        private TextView lZf;
         private int mSkinType;
-        private TextView mdM;
 
         public SubPbReplyViewHolder(View view) {
             super(view);
             this.mSkinType = 3;
-            this.mdM = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.iwu = view.findViewById(R.id.floor_reply_top_line);
+            this.lZf = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.irN = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ao.setViewTextColor(this.mdM, R.color.CAM_X0105);
-                ao.setBackgroundColor(this.iwu, R.color.CAM_X0204);
-                ao.setBackgroundColor(this.mdM, R.color.CAM_X0201);
+                ao.setViewTextColor(this.lZf, R.color.CAM_X0105);
+                ao.setBackgroundColor(this.irN, R.color.CAM_X0204);
+                ao.setBackgroundColor(this.lZf, R.color.CAM_X0201);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

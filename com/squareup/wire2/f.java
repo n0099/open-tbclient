@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     private final Class<B> builderType;
     private final Class<M> messageType;
-    private final Map<Integer, a<M, B>> pUS;
+    private final Map<Integer, a<M, B>> pQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> D(Class<M> cls) {
@@ -34,7 +34,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         super(FieldEncoding.LENGTH_DELIMITED, cls);
         this.messageType = cls;
         this.builderType = cls2;
-        this.pUS = map;
+        this.pQs = map;
     }
 
     B newBuilder() {
@@ -60,7 +60,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         int i = m.cachedSerializedSize;
         if (i == 0) {
             int i2 = 0;
-            for (a<M, B> aVar : this.pUS.values()) {
+            for (a<M, B> aVar : this.pQs.values()) {
                 Object a2 = aVar.a((a<M, B>) m);
                 if (a2 != null) {
                     i2 = aVar.adapter().encodedSizeWithTag(aVar.tag, a2) + i2;
@@ -77,7 +77,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: a */
     public void encode(d dVar, M m) throws IOException {
-        for (a<M, B> aVar : this.pUS.values()) {
+        for (a<M, B> aVar : this.pQs.values()) {
             Object a2 = aVar.a((a<M, B>) m);
             if (a2 != null) {
                 aVar.adapter().encodeWithTag(dVar, aVar.tag, a2);
@@ -91,18 +91,18 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: c */
     public M redact(M m) {
         Message.a<M, B> newBuilder = m.newBuilder();
-        for (a<M, B> aVar : this.pUS.values()) {
-            if (aVar.pUG && aVar.pUD == WireField.Label.REQUIRED) {
+        for (a<M, B> aVar : this.pQs.values()) {
+            if (aVar.pQg && aVar.pQd == WireField.Label.REQUIRED) {
                 throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.name, this.javaType.getName()));
             }
-            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.eFe().javaType);
-            if (aVar.pUG || (isAssignableFrom && !aVar.pUD.isRepeated())) {
+            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.eBn().javaType);
+            if (aVar.pQg || (isAssignableFrom && !aVar.pQd.isRepeated())) {
                 Object a2 = aVar.a((a<M, B>) newBuilder);
                 if (a2 != null) {
                     aVar.b(newBuilder, aVar.adapter().redact(a2));
                 }
-            } else if (isAssignableFrom && aVar.pUD.isRepeated()) {
-                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.eFe());
+            } else if (isAssignableFrom && aVar.pQd.isRepeated()) {
+                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.eBn());
             }
         }
         newBuilder.clearUnknownFields();
@@ -122,10 +122,10 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: d */
     public String toString(M m) {
         StringBuilder sb = new StringBuilder();
-        for (a<M, B> aVar : this.pUS.values()) {
+        for (a<M, B> aVar : this.pQs.values()) {
             Object a2 = aVar.a((a<M, B>) m);
             if (a2 != null) {
-                sb.append(", ").append(aVar.name).append('=').append(aVar.pUG ? "██" : a2);
+                sb.append(", ").append(aVar.name).append('=').append(aVar.pQg ? "██" : a2);
             }
         }
         sb.replace(0, 2, this.messageType.getSimpleName() + '{');
@@ -136,30 +136,30 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: l */
     public M decode(c cVar) throws IOException {
-        ProtoAdapter<?> eFe;
+        ProtoAdapter<?> eBn;
         B newBuilder = newBuilder();
-        long eFg = cVar.eFg();
+        long eBp = cVar.eBp();
         while (true) {
-            int eFh = cVar.eFh();
-            if (eFh != -1) {
-                a<M, B> aVar = this.pUS.get(Integer.valueOf(eFh));
+            int eBq = cVar.eBq();
+            if (eBq != -1) {
+                a<M, B> aVar = this.pQs.get(Integer.valueOf(eBq));
                 if (aVar != null) {
                     try {
-                        if (aVar.eFd()) {
-                            eFe = aVar.adapter();
+                        if (aVar.eBm()) {
+                            eBn = aVar.adapter();
                         } else {
-                            eFe = aVar.eFe();
+                            eBn = aVar.eBn();
                         }
-                        aVar.a(newBuilder, eFe.decode(cVar));
+                        aVar.a(newBuilder, eBn.decode(cVar));
                     } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        newBuilder.addUnknownField(eFh, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        newBuilder.addUnknownField(eBq, FieldEncoding.VARINT, Long.valueOf(e.value));
                     }
                 } else {
-                    FieldEncoding eFi = cVar.eFi();
-                    newBuilder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
+                    FieldEncoding eBr = cVar.eBr();
+                    newBuilder.addUnknownField(eBq, eBr, eBr.rawProtoAdapter().decode(cVar));
                 }
             } else {
-                cVar.iS(eFg);
+                cVar.iS(eBp);
                 return (M) newBuilder.build();
             }
         }

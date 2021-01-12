@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ChangeBounds extends Transition {
     private boolean mReparent;
     private boolean mResizeClip;
@@ -351,7 +351,7 @@ public class ChangeBounds extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class ViewBounds {
         private int mBottom;
         private int mBottomRightCalls;

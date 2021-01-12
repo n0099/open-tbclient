@@ -21,17 +21,17 @@ import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f5843a;
+    private final WeakReference f5560a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5844b;
+    private String f5561b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
-        this.f5843a = new WeakReference(feedbackInputActivity);
+        this.f5560a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:70|71|(2:73|74)(1:105)|75|76|(2:78|(7:87|88|89|(2:91|(1:96)(1:95))|97|(1:93)|96)(2:82|(1:86)))|101|(1:80)|87|88|89|(0)|97|(0)|96) */
@@ -62,8 +62,8 @@ public final class ej extends Handler {
         String str5 = (String) message.obj;
         com.baidu.ufosdk.f.c.a("第一条会话：" + str5);
         if (str5.equals("newMessage") || str5.length() == 0) {
-            this.f5844b = String.valueOf(System.currentTimeMillis());
-            hashMap.put("time", this.f5844b);
+            this.f5561b = String.valueOf(System.currentTimeMillis());
+            hashMap.put("time", this.f5561b);
         } else {
             String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.e, "0");
             if (string.equals("0")) {
@@ -206,7 +206,7 @@ public final class ej extends Handler {
             feedbackInputActivity.j.notifyDataSetChanged();
             feedbackInputActivity.d.setVisibility(0);
             feedbackInputActivity.c.setVisibility(0);
-            feedbackInputActivity.f5698b.setVisibility(8);
+            feedbackInputActivity.f5415b.setVisibility(8);
             feedbackInputActivity.k.setVisibility(8);
             feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
             feedbackInputActivity.n = true;
@@ -287,7 +287,7 @@ public final class ej extends Handler {
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         super.handleMessage(message);
-        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f5843a.get();
+        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f5560a.get();
         if (feedbackInputActivity == null) {
             return;
         }
@@ -339,7 +339,7 @@ public final class ej extends Handler {
                 feedbackInputActivity.d.setVisibility(8);
                 feedbackInputActivity.c.setVisibility(8);
                 com.baidu.ufosdk.f.i.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.m);
-                feedbackInputActivity.f5698b.setVisibility(0);
+                feedbackInputActivity.f5415b.setVisibility(0);
                 feedbackInputActivity.k.setVisibility(8);
                 return;
             case 5:
@@ -432,13 +432,13 @@ public final class ej extends Handler {
                 feedbackInputActivity.startActivity(intent);
                 return;
             case 11:
-                feedbackInputActivity.K.f5861a.setVisibility(8);
+                feedbackInputActivity.K.f5578a.setVisibility(8);
                 feedbackInputActivity.K.c.setBackgroundResource(R.drawable.dialog_btn_selector);
                 feedbackInputActivity.K.c.setTextColor(-1);
                 feedbackInputActivity.K.c.setClickable(true);
-                feedbackInputActivity.K.f5862b.setFocusable(true);
-                feedbackInputActivity.K.f5862b.setFocusableInTouchMode(true);
-                feedbackInputActivity.K.f5862b.requestFocus();
+                feedbackInputActivity.K.f5579b.setFocusable(true);
+                feedbackInputActivity.K.f5579b.setFocusableInTouchMode(true);
+                feedbackInputActivity.K.f5579b.requestFocus();
                 if (((Integer) message.obj).intValue() == 0) {
                     if (feedbackInputActivity.K != null && feedbackInputActivity.K.isShowing()) {
                         feedbackInputActivity.K.dismiss();
@@ -509,7 +509,7 @@ public final class ej extends Handler {
                 if (feedbackInputActivity.g != null && feedbackInputActivity.e != null) {
                     feedbackInputActivity.g.a(feedbackInputActivity.e);
                 }
-                feedbackInputActivity.q.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f, this.f5844b);
+                feedbackInputActivity.q.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f, this.f5561b);
                 feedbackInputActivity.q.commit();
                 com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f);
                 if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || feedbackInputActivity.f == null || feedbackInputActivity.f.length() <= 0) {
@@ -550,7 +550,7 @@ public final class ej extends Handler {
                 feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
                 return;
             case 18:
-                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f5862b, 1);
+                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f5579b, 1);
                 com.baidu.ufosdk.f.c.a("show keyboard! " + message.obj.toString());
                 return;
         }

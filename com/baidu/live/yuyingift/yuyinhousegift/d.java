@@ -7,7 +7,7 @@ import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
     protected Context mContext;
 
@@ -20,22 +20,22 @@ public abstract class d {
     public List<YuyinGiftItemView> x(com.baidu.live.yuyingift.a.c cVar) {
         int i;
         ArrayList<AlaWheatInfoData> arrayList = new ArrayList();
-        List<s.a> iV = s.iV(cVar.boI);
-        if (iV == null || iV.size() <= 0) {
+        List<s.a> hK = s.hK(cVar.bjV);
+        if (hK == null || hK.size() <= 0) {
             return null;
         }
         int i2 = 0;
-        Iterator<s.a> it = iV.iterator();
+        Iterator<s.a> it = hK.iterator();
         while (true) {
             i = i2;
             if (!it.hasNext()) {
                 break;
             }
             s.a next = it.next();
-            AlaWheatInfoData aY = aY(next.uk, next.name);
-            if (aY != null) {
-                arrayList.add(aY);
-                if (aY.locationCenterX > 0.0f) {
+            AlaWheatInfoData aX = aX(next.uk, next.name);
+            if (aX != null) {
+                arrayList.add(aX);
+                if (aX.locationCenterX > 0.0f) {
                     i++;
                 }
             }
@@ -53,19 +53,19 @@ public abstract class d {
         return arrayList2;
     }
 
-    public static AlaWheatInfoData aY(String str, String str2) {
-        AlaWheatInfoData jp = com.baidu.live.aq.a.aan().jp(str);
-        if (jp == null) {
-            if (com.baidu.live.aq.a.aan().jn(str)) {
-                AlaWheatInfoData aao = com.baidu.live.aq.a.aan().aao();
-                aao.locationCenterX = 0.0f;
-                return aao;
+    public static AlaWheatInfoData aX(String str, String str2) {
+        AlaWheatInfoData ie = com.baidu.live.aq.a.Wu().ie(str);
+        if (ie == null) {
+            if (com.baidu.live.aq.a.Wu().ic(str)) {
+                AlaWheatInfoData Wv = com.baidu.live.aq.a.Wu().Wv();
+                Wv.locationCenterX = 0.0f;
+                return Wv;
             }
             AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
             alaWheatInfoData.locationCenterX = 0.0f;
             alaWheatInfoData.userName = str2;
             return alaWheatInfoData;
         }
-        return jp;
+        return ie;
     }
 }

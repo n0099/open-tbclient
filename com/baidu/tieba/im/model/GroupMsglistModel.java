@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GroupMsglistModel extends CommonGroupMsglistModel {
     private static final int MSG_COUNT_PER = 20;
     private CustomMessageListener mCustomMessageListener;
@@ -35,7 +35,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001145) {
                         boolean processHistory = GroupMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.cWv();
+                            callback.cSD();
                         }
                     }
                 }
@@ -58,8 +58,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.kFE = null;
-        aVar.kFF = null;
+        aVar.kAZ = null;
+        aVar.kBa = null;
         aVar.id = this.mGroup.getGroupId() + "";
         LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
         loadGroupHistoryMessage.setCallback(cVar);
@@ -82,8 +82,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getRecordId();
                 j2 = msgId;
             }
-            aVar.kFE = String.valueOf(j2);
-            aVar.kFF = String.valueOf(j);
+            aVar.kAZ = String.valueOf(j2);
+            aVar.kBa = String.valueOf(j);
             aVar.id = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
         }

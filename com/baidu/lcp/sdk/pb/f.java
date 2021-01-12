@@ -4,18 +4,18 @@ import android.content.Context;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class f {
-    private g aAy = new g();
-    private h aAz = new h();
+    private g avL = new g();
+    private h avM = new h();
 
     public com.baidu.lcp.sdk.connect.b f(Context context, long j) {
-        return this.aAy.g(context, j);
+        return this.avL.g(context, j);
     }
 
     public com.baidu.lcp.sdk.connect.b a(com.baidu.lcp.sdk.connect.b bVar, boolean z) {
-        return this.aAy.b(bVar, z);
+        return this.avL.b(bVar, z);
     }
 
     public com.baidu.lcp.sdk.connect.b h(InputStream inputStream) throws Exception {
-        return this.aAz.i(inputStream);
+        return this.avM.i(inputStream);
     }
 }

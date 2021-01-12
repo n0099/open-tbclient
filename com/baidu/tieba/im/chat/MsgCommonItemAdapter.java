@@ -9,12 +9,12 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, MsgViewHolder<T>> {
-    protected long gsJ;
-    protected com.baidu.adp.lib.b.a kwD;
-    protected com.baidu.adp.lib.b.b kwE;
-    private boolean kwK;
-    private boolean kwL;
-    protected int kwM;
+    protected long goc;
+    protected com.baidu.adp.lib.b.a krY;
+    protected com.baidu.adp.lib.b.b krZ;
+    private boolean ksf;
+    private boolean ksg;
+    protected int ksh;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -26,44 +26,44 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
 
     public MsgCommonItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kwD = null;
-        this.kwE = null;
-        this.gsJ = 0L;
-        this.kwK = false;
-        this.kwL = false;
+        this.krY = null;
+        this.krZ = null;
+        this.goc = 0L;
+        this.ksf = false;
+        this.ksg = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.kwD = aVar;
+        this.krY = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.kwE = bVar;
+        this.krZ = bVar;
     }
 
-    private void cWw() {
-        this.gsJ = System.currentTimeMillis() / 1000;
+    private void cSE() {
+        this.goc = System.currentTimeMillis() / 1000;
     }
 
-    public boolean cWx() {
-        return this.kwK;
+    public boolean cSF() {
+        return this.ksf;
     }
 
-    public void ss(boolean z) {
-        this.kwK = z;
+    public void so(boolean z) {
+        this.ksf = z;
     }
 
-    public boolean cWy() {
-        return this.kwL;
+    public boolean cSG() {
+        return this.ksg;
     }
 
-    public void st(boolean z) {
-        this.kwL = z;
+    public void sp(boolean z) {
+        this.ksg = z;
     }
 
-    public void DW(int i) {
-        this.kwM = i;
+    public void Cq(int i) {
+        this.ksh = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,21 +71,21 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cWw();
+        cSE();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
-        private T kwN;
+        private T ksi;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.kwN = t;
+            this.ksi = t;
         }
 
-        public T cWz() {
-            return this.kwN;
+        public T cSH() {
+            return this.ksi;
         }
     }
 }

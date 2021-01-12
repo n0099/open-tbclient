@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance;
 
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.kwad.sdk.lib.widget.recycler.a.e<AdTemplate> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.widget.recycler.a.e

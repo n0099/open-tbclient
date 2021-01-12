@@ -12,14 +12,14 @@ import com.ss.android.downloadlib.a;
 public class e extends Dialog implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f13225a;
+    private View f12925a;
 
     /* renamed from: b  reason: collision with root package name */
-    private View f13226b;
+    private View f12926b;
     private boolean e;
     private Activity f;
-    private d pVp;
-    private c pVq;
+    private d pQO;
+    private c pQP;
 
     public e(@NonNull Activity activity, @NonNull d dVar) {
         this(activity, dVar, null);
@@ -28,23 +28,23 @@ public class e extends Dialog implements c {
     public e(@NonNull Activity activity, @NonNull d dVar, c cVar) {
         super(activity, a.d.ttdownloader_translucent_dialog);
         this.f = activity;
-        this.pVp = dVar;
-        this.pVq = cVar;
+        this.pQO = dVar;
+        this.pQP = cVar;
         setCancelable(false);
         d();
     }
 
     private void d() {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
-        this.f13225a = findViewById(b());
-        this.f13226b = findViewById(c());
-        this.f13225a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
+        this.f12925a = findViewById(b());
+        this.f12926b = findViewById(c());
+        this.f12925a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.e();
             }
         });
-        this.f13226b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
+        this.f12926b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.f();
@@ -54,17 +54,17 @@ public class e extends Dialog implements c {
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int a() {
-        return this.pVq != null ? this.pVq.a() : a.c.ttdownloader_dialog_reserve_wifi;
+        return this.pQP != null ? this.pQP.a() : a.c.ttdownloader_dialog_reserve_wifi;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int b() {
-        return this.pVq != null ? this.pVq.b() : a.b.confirm_tv;
+        return this.pQP != null ? this.pQP.b() : a.b.confirm_tv;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int c() {
-        return this.pVq != null ? this.pVq.c() : a.b.cancel_tv;
+        return this.pQP != null ? this.pQP.c() : a.b.cancel_tv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,9 +85,9 @@ public class e extends Dialog implements c {
             this.f.finish();
         }
         if (this.e) {
-            this.pVp.a();
+            this.pQO.a();
         } else {
-            this.pVp.b();
+            this.pQO.b();
         }
     }
 

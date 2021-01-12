@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.schemeability.ISchemeAbility;
 import com.baidu.live.tbadk.schemeability.SchemeAbilityManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p extends com.baidu.live.view.web.a {
     private Activity context;
     private boolean isHost;
@@ -33,13 +33,13 @@ public class p extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jf(String str) {
+    public void hU(String str) {
         ISchemeAbility buildSchemeAbility;
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("uid");
-            if (optString != null && !com.baidu.live.utils.f.iN(optString)) {
+            if (optString != null && !com.baidu.live.utils.f.hC(optString)) {
                 optString = ExtraParamsManager.getDecryptUserId(optString);
             }
             boolean optBoolean = jSONObject.optBoolean("isCard");

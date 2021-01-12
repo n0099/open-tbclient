@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.live.data.x;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void C(com.baidu.live.im.data.b bVar);
 
-    void LE();
+    void HJ();
 
-    com.baidu.live.core.a.a ON();
+    com.baidu.live.core.a.a KS();
 
     void U(View view);
 
@@ -20,9 +20,9 @@ public interface b {
 
     void c(TbPageContext tbPageContext);
 
-    void dU(int i);
+    void co(int i);
 
-    void hV(String str);
+    void gK(String str);
 
     void i(x xVar);
 

@@ -7,16 +7,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f5446a;
+    private LinearLayout f5163a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f5447b;
+    private TextView f5164b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -27,20 +27,20 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class View$OnClickListenerC0353a implements View.OnClickListener {
+    class View$OnClickListenerC0336a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f5448a;
+        final /* synthetic */ View.OnClickListener f5165a;
 
-        View$OnClickListenerC0353a(View.OnClickListener onClickListener) {
-            this.f5448a = onClickListener;
+        View$OnClickListenerC0336a(View.OnClickListener onClickListener) {
+            this.f5165a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f5448a.onClick(view);
+                this.f5165a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -50,17 +50,17 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     class b implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f5450a;
+        final /* synthetic */ View.OnClickListener f5167a;
 
         b(View.OnClickListener onClickListener) {
-            this.f5450a = onClickListener;
+            this.f5167a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f5450a.onClick(view);
+                this.f5167a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -70,8 +70,8 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
         super(context, a.h.SapiSdkBeautyDialog);
         this.i = context;
         setContentView(a.f.layout_sapi_sdk_fingerprint_dialog);
-        this.f5446a = (LinearLayout) findViewById(a.e.bg_layout);
-        this.f5447b = (TextView) findViewById(a.e.title);
+        this.f5163a = (LinearLayout) findViewById(a.e.bg_layout);
+        this.f5164b = (TextView) findViewById(a.e.title);
         this.c = (TextView) findViewById(a.e.sub_title);
         this.d = (TextView) findViewById(a.e.negative_btn);
         this.e = (TextView) findViewById(a.e.positive_btn);
@@ -87,9 +87,9 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     private void c() {
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.f5446a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
+            this.f5163a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
             this.f.setImageResource(a.d.sapi_sdk_fingerprint_dark_mode);
-            this.f5447b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f5164b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
             this.c.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
             this.g.setBackgroundColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_divider_line));
             this.h.setBackgroundColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_divider_line));
@@ -129,7 +129,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, String str2) {
-        this.f5447b.setText(str);
+        this.f5164b.setText(str);
         this.c.setText(str2);
         return this;
     }
@@ -137,7 +137,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
-        this.d.setOnClickListener(new View$OnClickListenerC0353a(onClickListener));
+        this.d.setOnClickListener(new View$OnClickListenerC0336a(onClickListener));
         return this;
     }
 

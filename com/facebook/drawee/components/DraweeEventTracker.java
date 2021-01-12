@@ -2,13 +2,13 @@ package com.facebook.drawee.components;
 
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DraweeEventTracker {
-    private static final DraweeEventTracker pvD = new DraweeEventTracker();
+    private static final DraweeEventTracker prb = new DraweeEventTracker();
     private static boolean sEnabled = true;
-    private final Queue<Event> pvC = new ArrayBlockingQueue(20);
+    private final Queue<Event> pra = new ArrayBlockingQueue(20);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum Event {
         ON_SET_HIERARCHY,
         ON_CLEAR_HIERARCHY,
@@ -39,20 +39,20 @@ public class DraweeEventTracker {
     private DraweeEventTracker() {
     }
 
-    public static DraweeEventTracker evl() {
-        return sEnabled ? new DraweeEventTracker() : pvD;
+    public static DraweeEventTracker ers() {
+        return sEnabled ? new DraweeEventTracker() : prb;
     }
 
     public void a(Event event) {
         if (sEnabled) {
-            if (this.pvC.size() + 1 > 20) {
-                this.pvC.poll();
+            if (this.pra.size() + 1 > 20) {
+                this.pra.poll();
             }
-            this.pvC.add(event);
+            this.pra.add(event);
         }
     }
 
     public String toString() {
-        return this.pvC.toString();
+        return this.pra.toString();
     }
 }

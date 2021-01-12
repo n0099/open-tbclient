@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public class OneKeyLoginSdkCall {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5286a = "OneKeyLogin";
+    public static final String f5003a = "OneKeyLogin";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f5287b = 1;
+    private static final int f5004b = 1;
     private static final int c = 2;
     private static final int d = 3;
     static final String e = "CM";
@@ -75,15 +75,15 @@ public class OneKeyLoginSdkCall {
     public void a(SapiConfiguration sapiConfiguration, String str, int i2, OneKeyLoginCallback oneKeyLoginCallback) {
         JSONObject jSONObject;
         if (SapiAccountManager.getInstance().isLogin()) {
-            Log.i(f5286a, "is login");
+            Log.i(f5003a, "is login");
             b(oneKeyLoginCallback, -110, null);
             return;
         }
         if ((TextUtils.isEmpty(sapiConfiguration.chinaMobileAppID) || TextUtils.isEmpty(sapiConfiguration.chinaMobileAppKey)) ? false : true) {
             try {
-                jSONObject = com.cmic.sso.sdk.b.a.by(sapiConfiguration.context, "rsa2048").id(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.by(sapiConfiguration.context, "rsa2048").ib(sapiConfiguration.context);
             } catch (Throwable th) {
-                Log.e(f5286a, th);
+                Log.e(f5003a, th);
                 jSONObject = null;
             }
             if (jSONObject == null) {
@@ -92,7 +92,7 @@ public class OneKeyLoginSdkCall {
             }
             int optInt = jSONObject.optInt("operatortype");
             String optString = jSONObject.optString("networktype");
-            Log.i(f5286a, "operatorType = " + optInt + " netType = " + optString);
+            Log.i(f5003a, "operatorType = " + optInt + " netType = " + optString);
             if (TextUtils.isEmpty(optString)) {
                 optString = "0";
             }
@@ -166,9 +166,9 @@ public class OneKeyLoginSdkCall {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put(BaseJsonData.TAG_ERRNO, "-1");
-                jSONObject = com.cmic.sso.sdk.b.a.by(sapiConfiguration.context, "rsa2048").id(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.by(sapiConfiguration.context, "rsa2048").ib(sapiConfiguration.context);
             } catch (Throwable th) {
-                Log.e(f5286a, th);
+                Log.e(f5003a, th);
                 jSONObject = null;
             }
             if (jSONObject == null) {
@@ -177,7 +177,7 @@ public class OneKeyLoginSdkCall {
             }
             int optInt = jSONObject.optInt("operatortype");
             String optString = jSONObject.optString("networktype");
-            Log.i(f5286a, "operatorType = " + optInt + " netType = " + optString);
+            Log.i(f5003a, "operatorType = " + optInt + " netType = " + optString);
             if (TextUtils.isEmpty(optString)) {
                 optString = "0";
             }

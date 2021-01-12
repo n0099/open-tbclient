@@ -10,10 +10,10 @@ import java.util.Map;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, a> f7879a = Collections.synchronizedMap(new HashMap());
+    private static final Map<String, a> f7579a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    private static IListenerManager f7880b;
+    private static IListenerManager f7580b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -81,7 +81,7 @@ public class g {
                     }
                 }, 5);
             } else {
-                f7879a.put(str, aVar);
+                f7579a.put(str, aVar);
             }
         }
     }
@@ -90,7 +90,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f7879a.remove(str);
+        return f7579a.remove(str);
     }
 
     private static void a(final String str, final int i) {
@@ -129,9 +129,9 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static IListenerManager b() {
-        if (f7880b == null) {
-            f7880b = com.bytedance.sdk.openadsdk.multipro.aidl.a.c.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
+        if (f7580b == null) {
+            f7580b = com.bytedance.sdk.openadsdk.multipro.aidl.a.c.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(2));
         }
-        return f7880b;
+        return f7580b;
     }
 }

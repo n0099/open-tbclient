@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static Bitmap a(Context context, String str, int i, boolean z, int i2) {
         return a(context, str, i, 0, 0, z, i2);

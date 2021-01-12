@@ -5,7 +5,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

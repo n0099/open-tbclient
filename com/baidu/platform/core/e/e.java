@@ -1,13 +1,13 @@
 package com.baidu.platform.core.e;
 
 import com.baidu.mapapi.model.CoordUtil;
+import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends com.baidu.platform.base.e {
     public e(RouteShareURLOption routeShareURLOption) {
         a(routeShareURLOption);
@@ -59,9 +59,9 @@ public class e extends com.baidu.platform.base.e {
                 break;
         }
         aVar.a(IXAdRequestInfo.SN, str2);
-        aVar.a(com.baidu.fsg.base.statistics.h.f1997a, str4);
-        this.f4178a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
-        this.f4178a.a("from", "android_map_sdk");
+        aVar.a(com.baidu.fsg.base.statistics.h.f1947a, str4);
+        this.f4140a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
+        this.f4140a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

@@ -1,6 +1,7 @@
 package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,7 +45,7 @@ public class j {
                     }
                     break;
                 case 3530753:
-                    if (nextName.equals("size")) {
+                    if (nextName.equals(TiebaInitialize.LogFields.SIZE)) {
                         c2 = 1;
                         break;
                     }

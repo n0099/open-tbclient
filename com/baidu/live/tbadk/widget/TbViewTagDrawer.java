@@ -9,7 +9,7 @@ import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbViewTagDrawer {
     public static final int DEFAULT_PADDING = 16;
     private int extraHeight;

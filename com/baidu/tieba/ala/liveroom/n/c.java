@@ -2,19 +2,19 @@ package com.baidu.tieba.ala.liveroom.n;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class c {
-    boolean hFa = false;
+    boolean hAu = false;
     String date = "";
-    int bsA = 0;
+    int bnO = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasShowMax", this.hFa);
+            jSONObject.put("hasShowMax", this.hAu);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.bsA);
+            jSONObject.put("times", this.bnO);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

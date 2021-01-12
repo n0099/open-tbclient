@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LazyHeaders implements Headers {
     private volatile Map<String, String> combinedHeaders;
     private final Map<String, List<LazyHeaderFactory>> headers;
@@ -71,7 +71,7 @@ public final class LazyHeaders implements Headers {
         return this.headers.hashCode();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         private static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
         private static final String DEFAULT_USER_AGENT = getSanitizedUserAgent();
@@ -170,7 +170,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static final class StringHeaderFactory implements LazyHeaderFactory {
         private final String value;
 

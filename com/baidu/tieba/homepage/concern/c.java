@@ -13,43 +13,43 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes2.dex */
 public class c {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.boP() != null && !StringUtils.isNull(aVar.boP().getTid())) {
+        if (view != null && aVar != null && aVar.bkV() != null && !StringUtils.isNull(aVar.bkV().getTid())) {
             aq aqVar = new aq("c12352");
-            bz boP = aVar.boP();
-            if (boP.isLinkThread()) {
+            bz bkV = aVar.bkV();
+            if (bkV.isLinkThread()) {
                 aqVar.an("obj_type", 4);
-            } else if (boP.isShareThread) {
+            } else if (bkV.isShareThread) {
                 aqVar.an("obj_type", 5);
-            } else if (boP.bpY()) {
+            } else if (bkV.bme()) {
                 aqVar.an("obj_type", 6);
-            } else if (boP.btp()) {
+            } else if (bkV.bpv()) {
                 aqVar.an("obj_type", 7);
-            } else if (boP.bpZ()) {
+            } else if (bkV.bmf()) {
                 aqVar.an("obj_type", 8);
-            } else if (boP.btq()) {
+            } else if (bkV.bpw()) {
                 aqVar.an("obj_type", 9);
-            } else if (boP.getType() == bz.eSL) {
+            } else if (bkV.getType() == bz.eOa) {
                 aqVar.an("obj_type", 1);
-            } else if (boP.bpW()) {
+            } else if (bkV.bmc()) {
                 aqVar.an("obj_type", 2);
             }
             aqVar.an("obj_locate", i);
-            aqVar.dX("tid", aVar.boP().getTid());
-            aqVar.w("fid", aVar.boP().getFid());
+            aqVar.dW("tid", aVar.bkV().getTid());
+            aqVar.w("fid", aVar.bkV().getFid());
             aqVar.an("obj_source", 1);
             if (aVar instanceof com.baidu.tieba.card.data.b) {
-                aqVar.an("obj_param1", ((com.baidu.tieba.card.data.b) aVar).cvs() ? 2 : 1);
+                aqVar.an("obj_param1", ((com.baidu.tieba.card.data.b) aVar).crA() ? 2 : 1);
             }
-            if (aVar.boP().brr() != null) {
-                aqVar.dX("uid", aVar.boP().brr().getUserId());
+            if (aVar.bkV().bnx() != null) {
+                aqVar.dW("uid", aVar.bkV().bnx().getUserId());
             }
-            if (boP.getBaijiahaoData() != null) {
-                aqVar.dX("obj_id", boP.getBaijiahaoData().oriUgcNid);
+            if (bkV.getBaijiahaoData() != null) {
+                aqVar.dW("obj_id", bkV.getBaijiahaoData().oriUgcNid);
             } else {
-                aqVar.dX("obj_id", boP.getTid());
+                aqVar.dW("obj_id", bkV.getTid());
             }
             TiebaStatic.log(aqVar);
-            d(boP, i);
+            d(bkV, i);
         }
     }
 

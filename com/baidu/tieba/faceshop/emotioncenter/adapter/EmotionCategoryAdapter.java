@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.faceshop.emotioncenter.data.a, EmotionCategoryViewHolder> {
     /* JADX INFO: Access modifiers changed from: protected */
     public EmotionCategoryAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -35,11 +35,11 @@ public class EmotionCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.
         return emotionCategoryViewHolder.getView();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class EmotionCategoryViewHolder extends TypeAdapter.ViewHolder {
-        private ImageView iWZ;
-        private TextView iXa;
-        private View iXb;
+        private ImageView iSs;
+        private TextView iSt;
+        private View iSu;
         private TextView mTitle;
         private View mView;
 
@@ -52,17 +52,17 @@ public class EmotionCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.
         private void initView() {
             if (this.mView != null) {
                 this.mTitle = (TextView) this.mView.findViewById(R.id.emotion_title);
-                this.iWZ = (ImageView) this.mView.findViewById(R.id.emotion_change_iv);
-                this.iXa = (TextView) this.mView.findViewById(R.id.emotion_function);
+                this.iSs = (ImageView) this.mView.findViewById(R.id.emotion_change_iv);
+                this.iSt = (TextView) this.mView.findViewById(R.id.emotion_function);
                 this.mTitle.setText(this.mView.getResources().getText(R.string.emotion_center_quality_recommend));
-                this.iWZ.setVisibility(8);
-                this.iXa.setVisibility(8);
-                this.iXb = this.mView.findViewById(R.id.category_line_top);
+                this.iSs.setVisibility(8);
+                this.iSt.setVisibility(8);
+                this.iSu = this.mView.findViewById(R.id.category_line_top);
             }
         }
 
         public void onChangeSkin(int i) {
-            ao.setBackgroundColor(this.iXb, R.color.common_color_10312);
+            ao.setBackgroundColor(this.iSu, R.color.common_color_10312);
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0107);
         }
     }

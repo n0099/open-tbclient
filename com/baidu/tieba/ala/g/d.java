@@ -13,32 +13,32 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.message.AlaFeedBackReasonListResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BdBaseModel {
-    private boolean bOu;
-    private int[] bOv = {a.h.txt_feenback_reason1, a.h.txt_feenback_reason2, a.h.txt_feenback_reason3, a.h.txt_feenback_reason4, a.h.txt_feenback_reason5, a.h.txt_feenback_reason6, a.h.txt_feenback_reason7};
-    private final HttpMessageListener bOw = new HttpMessageListener(1021205) { // from class: com.baidu.tieba.ala.g.d.1
+    private boolean bJI;
+    private int[] bJJ = {a.h.txt_feenback_reason1, a.h.txt_feenback_reason2, a.h.txt_feenback_reason3, a.h.txt_feenback_reason4, a.h.txt_feenback_reason5, a.h.txt_feenback_reason6, a.h.txt_feenback_reason7};
+    private final HttpMessageListener bJK = new HttpMessageListener(1021205) { // from class: com.baidu.tieba.ala.g.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && d.this.hTS != null) {
-                List<com.baidu.tieba.ala.data.b> aj = d.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Xp());
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && d.this.hPm != null) {
+                List<com.baidu.tieba.ala.data.b> aj = d.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Tw());
                 if (!ListUtils.isEmpty(aj)) {
-                    d.this.hTS.ai(aj);
+                    d.this.hPm.ai(aj);
                 } else {
-                    d.this.hTS.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    d.this.hPm.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private long bvY;
-    private long gqJ;
-    private a hTS;
+    private long brk;
+    private long gmc;
+    private a hPm;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private long mUserId;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void ai(List<com.baidu.tieba.ala.data.b> list);
 
@@ -47,12 +47,12 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.hTS = aVar;
-        Xq();
-        MessageManager.getInstance().registerListener(this.bOw);
+        this.hPm = aVar;
+        Tx();
+        MessageManager.getInstance().registerListener(this.bJK);
     }
 
-    private void Xq() {
+    private void Tx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021205, TbConfig.SERVER_ADDRESS + "ala/tipoff/getTipOffType");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -70,18 +70,18 @@ public class d extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             com.baidu.tieba.ala.data.b bVar = list.get(i);
-            if (bVar.Xo() == 1) {
+            if (bVar.Tv() == 1) {
                 arrayList.add(bVar);
-            } else if (bVar.Xo() == 0 && !this.bOu) {
+            } else if (bVar.Tv() == 0 && !this.bJI) {
                 arrayList.add(bVar);
             }
         }
         return arrayList;
     }
 
-    public void Xr() {
+    public void Ty() {
         HttpMessage httpMessage = new HttpMessage(1021205);
-        httpMessage.addParam("live_id", this.bvY);
+        httpMessage.addParam("live_id", this.brk);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -97,30 +97,30 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021205);
-        MessageManager.getInstance().unRegisterListener(this.bOw);
+        MessageManager.getInstance().unRegisterListener(this.bJK);
     }
 
     public void b(long j, long j2, long j3, boolean z, boolean z2) {
-        this.bvY = j;
-        this.gqJ = j2;
+        this.brk = j;
+        this.gmc = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.bOu = z2;
+        this.bJI = z2;
     }
 
-    public List<com.baidu.tieba.ala.data.b> Xs() {
+    public List<com.baidu.tieba.ala.data.b> Tz() {
         ArrayList arrayList = new ArrayList();
-        int length = this.bOv.length;
+        int length = this.bJJ.length;
         for (int i = 0; i < length; i++) {
             com.baidu.tieba.ala.data.b bVar = new com.baidu.tieba.ala.data.b();
-            bVar.iL(this.mPageContext.getResources().getString(this.bOv[i]));
-            bVar.gB(1);
+            bVar.hA(this.mPageContext.getResources().getString(this.bJJ[i]));
+            bVar.eU(1);
             arrayList.add(bVar);
         }
-        if (!this.bOu) {
+        if (!this.bJI) {
             com.baidu.tieba.ala.data.b bVar2 = new com.baidu.tieba.ala.data.b();
-            bVar2.iL(this.mPageContext.getResources().getString(a.h.txt_feenback_reason8));
-            bVar2.gB(0);
+            bVar2.hA(this.mPageContext.getResources().getString(a.h.txt_feenback_reason8));
+            bVar2.eU(0);
             arrayList.add(bVar2);
         }
         return arrayList;

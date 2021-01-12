@@ -28,14 +28,14 @@ import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends RelativeLayout implements View.OnClickListener, b.a, com.qq.e.comm.plugin.intersitial2.fullscreen.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f12427a = GDTADManager.getInstance().getSM().getInteger("ifsvmlt", 10000);
+    private static final int f12127a = GDTADManager.getInstance().getSM().getInteger("ifsvmlt", 10000);
 
     /* renamed from: b  reason: collision with root package name */
-    private Activity f12428b;
+    private Activity f12128b;
     private com.qq.e.comm.plugin.s.a c;
     private f d;
     private com.qq.e.comm.plugin.ac.b e;
@@ -61,7 +61,7 @@ public class b extends RelativeLayout implements View.OnClickListener, b.a, com.
     private c y;
     private r z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(boolean z, int i, Exception exc);
 
@@ -89,8 +89,8 @@ public class b extends RelativeLayout implements View.OnClickListener, b.a, com.
         this.r = true;
         this.u = false;
         this.v = false;
-        this.f12428b = activity;
-        this.z = new r(this.f12428b);
+        this.f12128b = activity;
+        this.z = new r(this.f12128b);
         this.c = aVar;
         this.m = this.c.m();
         this.n = this.c.B();
@@ -104,7 +104,7 @@ public class b extends RelativeLayout implements View.OnClickListener, b.a, com.
         n();
         o();
         setOnClickListener(this);
-        this.w = new CountDownTimer(f12427a, f12427a) { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.a.b.1
+        this.w = new CountDownTimer(f12127a, f12127a) { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.a.b.1
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 GDTLogger.d("InterstitialFSVideoADView load video timeout");
@@ -496,7 +496,7 @@ public class b extends RelativeLayout implements View.OnClickListener, b.a, com.
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.p.a(this.f12428b.getWindow().getDecorView(), motionEvent, false);
+        this.p.a(this.f12128b.getWindow().getDecorView(), motionEvent, false);
         this.z.a(motionEvent);
         return super.onTouchEvent(motionEvent);
     }

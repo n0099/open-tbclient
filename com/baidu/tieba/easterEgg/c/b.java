@@ -13,33 +13,33 @@ import com.baidu.tieba.easterEgg.c;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends k {
-    private Gson eLm;
-    private c iEr;
-    private HashMap<String, String> iEs;
-    private SparseArray<String> iEt;
+    private Gson eGB;
+    private c izK;
+    private HashMap<String, String> izL;
+    private SparseArray<String> izM;
 
     public b(int i) {
         super(i);
-        this.eLm = new Gson();
-        cxe();
+        this.eGB = new Gson();
+        ctm();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.iEt.get(socketMessage.getCmd());
-        if (str != null && this.iEs != null && this.iEs.get(str) != null && this.iEr != null) {
-            this.iEr.aE(str, this.eLm.toJson(this.iEs.get(str)), this.eLm.toJson(this.eLm.toJson(socketMessage.getData())));
+        String str = this.izM.get(socketMessage.getCmd());
+        if (str != null && this.izL != null && this.izL.get(str) != null && this.izK != null) {
+            this.izK.aD(str, this.eGB.toJson(this.izL.get(str)), this.eGB.toJson(this.eGB.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void cxe() {
+    private void ctm() {
         int i;
-        this.iEt = new SparseArray<>();
+        this.izM = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!x.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -49,7 +49,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!at.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.iEt.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.izM.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -57,10 +57,10 @@ public class b extends k {
     }
 
     public void E(HashMap<String, String> hashMap) {
-        this.iEs = hashMap;
+        this.izL = hashMap;
     }
 
     public void a(c cVar) {
-        this.iEr = cVar;
+        this.izK = cVar;
     }
 }

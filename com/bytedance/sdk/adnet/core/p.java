@@ -9,14 +9,14 @@ import java.util.Map;
 public class p<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f6345a;
+    public final T f6045a;
     public boolean d;
     public long e;
     public long f;
     public Map<String, Object> g;
     public long h;
-    public final b.a ppE;
-    public final VAdError ppF;
+    public final b.a pkY;
+    public final VAdError pkZ;
 
     /* loaded from: classes4.dex */
     public interface a<T> {
@@ -42,7 +42,7 @@ public class p<T> {
     }
 
     public boolean a() {
-        return this.ppF == null;
+        return this.pkZ == null;
     }
 
     private p(T t, b.a aVar) {
@@ -50,11 +50,11 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6345a = t;
-        this.ppE = aVar;
-        this.ppF = null;
+        this.f6045a = t;
+        this.pkY = aVar;
+        this.pkZ = null;
         if (aVar != null) {
-            this.h = aVar.f6361a;
+            this.h = aVar.f6061a;
         }
     }
 
@@ -63,11 +63,11 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6345a = null;
-        this.ppE = null;
-        this.ppF = vAdError;
+        this.f6045a = null;
+        this.pkY = null;
+        this.pkZ = vAdError;
         if (this.h == 0 && vAdError != null && vAdError.networkResponse != null) {
-            this.h = vAdError.networkResponse.f6340a;
+            this.h = vAdError.networkResponse.f6040a;
         }
     }
 
@@ -82,10 +82,10 @@ public class p<T> {
     }
 
     public String a(String str, @Nullable String str2) {
-        if (this.ppE == null || this.ppE.h == null) {
+        if (this.pkY == null || this.pkY.h == null) {
             return str2;
         }
-        String str3 = this.ppE.h.get(str);
+        String str3 = this.pkY.h.get(str);
         return str3 == null ? str2 : str3;
     }
 }

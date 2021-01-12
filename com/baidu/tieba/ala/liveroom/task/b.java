@@ -18,31 +18,31 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.live.ai.c {
-    private static volatile b hOz = null;
-    private Dialog bkh;
+    private static volatile b hJT = null;
+    private Dialog bfr;
     private long currLiveId;
-    private boolean hOA = false;
-    private boolean hOB = false;
+    private boolean hJU = false;
+    private boolean hJV = false;
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b cns() {
-        if (hOz == null) {
+    public static b cjA() {
+        if (hJT == null) {
             synchronized (b.class) {
-                if (hOz == null) {
-                    hOz = new b();
+                if (hJT == null) {
+                    hJT = new b();
                 }
             }
         }
-        return hOz;
+        return hJT;
     }
 
     @Override // com.baidu.live.ai.c
-    public void If() {
-        if (this.bkh != null && this.bkh.isShowing()) {
-            Context context = this.bkh.getContext();
+    public void Ek() {
+        if (this.bfr != null && this.bfr.isShowing()) {
+            Context context = this.bfr.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -54,20 +54,20 @@ public class b implements com.baidu.live.ai.c {
                         return;
                     }
                 }
-                this.bkh.dismiss();
+                this.bfr.dismiss();
             } else {
                 return;
             }
         }
-        this.bkh = null;
+        this.bfr = null;
     }
 
     @Override // com.baidu.live.ai.c
     public void b(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.hOA = false;
-            this.hOB = false;
+            this.hJU = false;
+            this.hJV = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -78,7 +78,7 @@ public class b implements com.baidu.live.ai.c {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.hOB = true;
+            this.hJV = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -103,13 +103,13 @@ public class b implements com.baidu.live.ai.c {
     @Override // com.baidu.live.ai.c
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.hOB && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.hOA || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.hJV && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.hJU || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
                 }
-                if (System.currentTimeMillis() - this.startTime >= j2 * 1000 && aU(context)) {
+                if (System.currentTimeMillis() - this.startTime >= j2 * 1000 && aT(context)) {
                     a(context, iArr);
                 }
             }
@@ -130,17 +130,17 @@ public class b implements com.baidu.live.ai.c {
         ch chVar;
         cj cjVar;
         boolean isDebug = isDebug();
-        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo()) || !TbadkCoreApplication.isLogin() || (bqVar = com.baidu.live.af.a.SE().bCb) == null || (chVar = bqVar.aRB) == null || (cjVar = chVar.aTd) == null) {
+        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo()) || !TbadkCoreApplication.isLogin() || (bqVar = com.baidu.live.af.a.OJ().bxp) == null || (chVar = bqVar.aMO) == null || (cjVar = chVar.aOq) == null) {
             return false;
         }
         if (!(cjVar.isShow == 1)) {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
-        } else if (d.Ba().getInt("showtimes_flower_task_dialog", 0) >= cjVar.showNum && !isDebug) {
+        } else if (d.xf().getInt("showtimes_flower_task_dialog", 0) >= cjVar.showNum && !isDebug) {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
         } else {
-            boolean z = cjVar.aTr == 1;
+            boolean z = cjVar.aOE == 1;
             long j = TbadkCoreApplication.getInst().currentAccountFlowerNum;
             if (z) {
                 if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -162,12 +162,12 @@ public class b implements com.baidu.live.ai.c {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.hOA = true;
+                    this.hJU = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.hOA = true;
+                this.hJU = true;
             }
             return true;
         }
@@ -176,14 +176,14 @@ public class b implements com.baidu.live.ai.c {
     @Override // com.baidu.live.ai.c
     public void release() {
         this.currLiveId = 0L;
-        this.hOA = false;
-        this.hOB = false;
+        this.hJU = false;
+        this.hJV = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
-        If();
+        Ek();
     }
 
-    private boolean aU(Context context) {
+    private boolean aT(Context context) {
         return UtilHelper.getRealScreenOrientation(context) != 2;
     }
 }

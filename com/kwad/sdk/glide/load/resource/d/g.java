@@ -13,14 +13,14 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    final com.kwad.sdk.glide.g f10614a;
+    final com.kwad.sdk.glide.g f10314a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.b.a f10615b;
+    private final com.kwad.sdk.glide.b.a f10315b;
     private final Handler c;
     private final List<b> d;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e e;
@@ -39,20 +39,20 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.kwad.sdk.glide.request.a.h<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f10616a;
+        final int f10316a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Handler f10617b;
+        private final Handler f10317b;
         private final long c;
         private Bitmap d;
 
         a(Handler handler, int i, long j) {
-            this.f10617b = handler;
-            this.f10616a = i;
+            this.f10317b = handler;
+            this.f10316a = i;
             this.c = j;
         }
 
@@ -62,7 +62,7 @@ public class g {
 
         public void a(@NonNull Bitmap bitmap, @Nullable com.kwad.sdk.glide.request.b.b<? super Bitmap> bVar) {
             this.d = bitmap;
-            this.f10617b.sendMessageAtTime(this.f10617b.obtainMessage(1, this), this.c);
+            this.f10317b.sendMessageAtTime(this.f10317b.obtainMessage(1, this), this.c);
         }
 
         @Override // com.kwad.sdk.glide.request.a.j
@@ -71,12 +71,12 @@ public class g {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void f();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class c implements Handler.Callback {
         c() {
         }
@@ -88,7 +88,7 @@ public class g {
                 return true;
             }
             if (message.what == 2) {
-                g.this.f10614a.a((a) message.obj);
+                g.this.f10314a.a((a) message.obj);
             }
             return false;
         }
@@ -96,7 +96,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a();
     }
@@ -108,17 +108,17 @@ public class g {
 
     g(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.g gVar, com.kwad.sdk.glide.b.a aVar, Handler handler, com.kwad.sdk.glide.f<Bitmap> fVar, com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
         this.d = new ArrayList();
-        this.f10614a = gVar;
+        this.f10314a = gVar;
         handler = handler == null ? new Handler(Looper.getMainLooper(), new c()) : handler;
         this.e = eVar;
         this.c = handler;
         this.i = fVar;
-        this.f10615b = aVar;
+        this.f10315b = aVar;
         a(hVar, bitmap);
     }
 
     private static com.kwad.sdk.glide.f<Bitmap> a(com.kwad.sdk.glide.g gVar, int i, int i2) {
-        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f10517b).a(true).b(true).b(i, i2));
+        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f10217b).a(true).b(true).b(i, i2));
     }
 
     private int j() {
@@ -144,7 +144,7 @@ public class g {
         }
         if (this.h) {
             com.kwad.sdk.glide.g.j.a(this.o == null, "Pending target must be null when starting from the first frame");
-            this.f10615b.f();
+            this.f10315b.f();
             this.h = false;
         }
         if (this.o != null) {
@@ -154,10 +154,10 @@ public class g {
             return;
         }
         this.g = true;
-        long c2 = this.f10615b.c() + SystemClock.uptimeMillis();
-        this.f10615b.b();
-        this.l = new a(this.c, this.f10615b.e(), c2);
-        this.i.a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(o())).a(this.f10615b).a((com.kwad.sdk.glide.f<Bitmap>) this.l);
+        long c2 = this.f10315b.c() + SystemClock.uptimeMillis();
+        this.f10315b.b();
+        this.l = new a(this.c, this.f10315b.e(), c2);
+        this.i.a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(o())).a(this.f10315b).a((com.kwad.sdk.glide.f<Bitmap>) this.l);
     }
 
     private void n() {
@@ -244,25 +244,25 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int d() {
-        return this.f10615b.g() + j();
+        return this.f10315b.g() + j();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int e() {
         if (this.j != null) {
-            return this.j.f10616a;
+            return this.j.f10316a;
         }
         return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ByteBuffer f() {
-        return this.f10615b.a().asReadOnlyBuffer();
+        return this.f10315b.a().asReadOnlyBuffer();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int g() {
-        return this.f10615b.d();
+        return this.f10315b.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -271,18 +271,18 @@ public class g {
         n();
         l();
         if (this.j != null) {
-            this.f10614a.a(this.j);
+            this.f10314a.a(this.j);
             this.j = null;
         }
         if (this.l != null) {
-            this.f10614a.a(this.l);
+            this.f10314a.a(this.l);
             this.l = null;
         }
         if (this.o != null) {
-            this.f10614a.a(this.o);
+            this.f10314a.a(this.o);
             this.o = null;
         }
-        this.f10615b.i();
+        this.f10315b.i();
         this.k = true;
     }
 

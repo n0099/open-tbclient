@@ -5,15 +5,15 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1646a = 12323;
+    public static int f1595a = 12323;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1647b = 12324;
-    public b agV;
+    public static int f1596b = 12324;
+    public b agd;
     public JSONObject d;
     public boolean e = false;
     private JSONObject f;
@@ -29,7 +29,7 @@ public final class a {
         try {
             if (this.d == null) {
                 this.d = new JSONObject();
-                this.d.put("type", f1646a);
+                this.d.put("type", f1595a);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
@@ -44,7 +44,7 @@ public final class a {
         try {
             if (this.f == null) {
                 this.f = new JSONObject();
-                this.f.put("type", f1647b);
+                this.f.put("type", f1596b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;

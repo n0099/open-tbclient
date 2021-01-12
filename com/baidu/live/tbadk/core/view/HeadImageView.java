@@ -10,7 +10,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbClipImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HeadImageView extends TbClipImageView {
     private int bigHeadMargin;
     private int iconMargin;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.response;
 
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class StatusCodeException extends IOException {
     public static final String ERROR_MSG_FORMATED = "Server statusCode Error; statusCode=%s; response.message=%s";
     private static final int IGNORE_429_CODE = 429;

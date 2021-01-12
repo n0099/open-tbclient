@@ -11,29 +11,29 @@ import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C0059a extends GeneratedMessageLite implements b {
+    /* loaded from: classes14.dex */
+    public static final class C0060a extends GeneratedMessageLite implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<C0059a> f1401a = new AbstractParser<C0059a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.1
+        public static Parser<C0060a> f1407a = new AbstractParser<C0060a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
-            public C0059a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                return new C0059a(codedInputStream, extensionRegistryLite);
+            public C0060a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new C0060a(codedInputStream, extensionRegistryLite);
             }
         };
 
         /* renamed from: b  reason: collision with root package name */
-        private static final C0059a f1402b = new C0059a();
+        private static final C0060a f1408b = new C0060a();
         private int c;
         private long d;
         private Object e;
-        private C0060a f;
+        private C0061a f;
         private long g;
         private Object h;
         private ByteString i;
@@ -41,37 +41,37 @@ public final class a {
         private int k;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static final class C0060a extends GeneratedMessageLite implements b {
+        /* loaded from: classes14.dex */
+        public static final class C0061a extends GeneratedMessageLite implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static Parser<C0060a> f1403a = new AbstractParser<C0060a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.a.1
+            public static Parser<C0061a> f1409a = new AbstractParser<C0061a>() { // from class: com.baidu.android.pushservice.h.b.a.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.Parser
                 /* renamed from: a */
-                public C0060a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-                    return new C0060a(codedInputStream, extensionRegistryLite);
+                public C0061a parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                    return new C0061a(codedInputStream, extensionRegistryLite);
                 }
             };
 
             /* renamed from: b  reason: collision with root package name */
-            private static final C0060a f1404b = new C0060a();
+            private static final C0061a f1410b = new C0061a();
             private int c;
             private Object d;
             private byte e;
             private int f;
 
             /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public static final class C0061a extends GeneratedMessageLite.Builder<C0060a, C0061a> implements b {
+            /* loaded from: classes14.dex */
+            public static final class C0062a extends GeneratedMessageLite.Builder<C0061a, C0062a> implements b {
 
                 /* renamed from: a  reason: collision with root package name */
-                private int f1405a;
+                private int f1411a;
 
                 /* renamed from: b  reason: collision with root package name */
-                private Object f1406b = "";
+                private Object f1412b = "";
 
-                private C0061a() {
+                private C0062a() {
                     g();
                 }
 
@@ -79,27 +79,27 @@ public final class a {
                 }
 
                 /* JADX INFO: Access modifiers changed from: private */
-                public static C0061a h() {
-                    return new C0061a();
+                public static C0062a h() {
+                    return new C0062a();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
                 /* renamed from: a */
-                public C0061a clear() {
+                public C0062a clear() {
                     super.clear();
-                    this.f1406b = "";
-                    this.f1405a &= -2;
+                    this.f1412b = "";
+                    this.f1411a &= -2;
                     return this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder
                 /* renamed from: a */
-                public C0061a mergeFrom(C0060a c0060a) {
-                    if (c0060a != C0060a.a() && c0060a.c()) {
-                        this.f1405a |= 1;
-                        this.f1406b = c0060a.d;
+                public C0062a mergeFrom(C0061a c0061a) {
+                    if (c0061a != C0061a.a() && c0061a.c()) {
+                        this.f1411a |= 1;
+                        this.f1412b = c0061a.d;
                     }
                     return this;
                 }
@@ -111,64 +111,64 @@ public final class a {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public C0061a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                    C0060a c0060a = null;
+                public C0062a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+                    C0061a c0061a = null;
                     try {
                         try {
-                            C0060a parsePartialFrom = C0060a.f1403a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            C0061a parsePartialFrom = C0061a.f1409a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                             if (parsePartialFrom != null) {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (Throwable th) {
                             th = th;
-                            if (c0060a != null) {
-                                mergeFrom(c0060a);
+                            if (c0061a != null) {
+                                mergeFrom(c0061a);
                             }
                             throw th;
                         }
                     } catch (InvalidProtocolBufferException e) {
-                        C0060a c0060a2 = (C0060a) e.getUnfinishedMessage();
+                        C0061a c0061a2 = (C0061a) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th2) {
                             th = th2;
-                            c0060a = c0060a2;
-                            if (c0060a != null) {
+                            c0061a = c0061a2;
+                            if (c0061a != null) {
                             }
                             throw th;
                         }
                     }
                 }
 
-                public C0061a a(String str) {
+                public C0062a a(String str) {
                     if (str == null) {
                         throw new NullPointerException();
                     }
-                    this.f1405a |= 1;
-                    this.f1406b = str;
+                    this.f1411a |= 1;
+                    this.f1412b = str;
                     return this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
                 /* renamed from: b */
-                public C0061a clone() {
+                public C0062a clone() {
                     return h().mergeFrom(buildPartial());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
                 /* renamed from: c */
-                public C0060a getDefaultInstanceForType() {
-                    return C0060a.a();
+                public C0061a getDefaultInstanceForType() {
+                    return C0061a.a();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
                 /* renamed from: d */
-                public C0060a build() {
-                    C0060a buildPartial = buildPartial();
+                public C0061a build() {
+                    C0061a buildPartial = buildPartial();
                     if (buildPartial.isInitialized()) {
                         return buildPartial;
                     }
@@ -178,12 +178,12 @@ public final class a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
                 /* renamed from: e */
-                public C0060a buildPartial() {
-                    C0060a c0060a = new C0060a(this);
-                    int i = (this.f1405a & 1) != 1 ? 0 : 1;
-                    c0060a.d = this.f1406b;
-                    c0060a.c = i;
-                    return c0060a;
+                public C0061a buildPartial() {
+                    C0061a c0061a = new C0061a(this);
+                    int i = (this.f1411a & 1) != 1 ? 0 : 1;
+                    c0061a.d = this.f1412b;
+                    c0061a.c = i;
+                    return c0061a;
                 }
 
                 @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -193,15 +193,15 @@ public final class a {
             }
 
             static {
-                f1404b.h();
+                f1410b.h();
             }
 
-            private C0060a() {
+            private C0061a() {
                 this.e = (byte) -1;
                 this.f = -1;
             }
 
-            private C0060a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            private C0061a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
                 this.e = (byte) -1;
                 this.f = -1;
                 h();
@@ -239,22 +239,22 @@ public final class a {
                 }
             }
 
-            private C0060a(GeneratedMessageLite.Builder builder) {
+            private C0061a(GeneratedMessageLite.Builder builder) {
                 super(builder);
                 this.e = (byte) -1;
                 this.f = -1;
             }
 
-            public static C0061a a(C0060a c0060a) {
-                return e().mergeFrom(c0060a);
+            public static C0062a a(C0061a c0061a) {
+                return e().mergeFrom(c0061a);
             }
 
-            public static C0060a a() {
-                return f1404b;
+            public static C0061a a() {
+                return f1410b;
             }
 
-            public static C0061a e() {
-                return C0061a.h();
+            public static C0062a e() {
+                return C0062a.h();
             }
 
             private void h() {
@@ -264,8 +264,8 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLiteOrBuilder
             /* renamed from: b */
-            public C0060a getDefaultInstanceForType() {
-                return f1404b;
+            public C0061a getDefaultInstanceForType() {
+                return f1410b;
             }
 
             public boolean c() {
@@ -285,20 +285,20 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite
             /* renamed from: f */
-            public C0061a newBuilderForType() {
+            public C0062a newBuilderForType() {
                 return e();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite
             /* renamed from: g */
-            public C0061a toBuilder() {
+            public C0062a toBuilder() {
                 return a(this);
             }
 
             @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-            public Parser<C0060a> getParserForType() {
-                return f1403a;
+            public Parser<C0061a> getParserForType() {
+                return f1409a;
             }
 
             @Override // com.google.protobuf.MessageLite
@@ -337,22 +337,22 @@ public final class a {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$b */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes14.dex */
         public interface b extends MessageLiteOrBuilder {
         }
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$a$c */
-        /* loaded from: classes3.dex */
-        public static final class c extends GeneratedMessageLite.Builder<C0059a, c> implements b {
+        /* loaded from: classes14.dex */
+        public static final class c extends GeneratedMessageLite.Builder<C0060a, c> implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1407a;
+            private int f1413a;
 
             /* renamed from: b  reason: collision with root package name */
-            private long f1408b;
+            private long f1414b;
             private long e;
             private Object c = "";
-            private C0060a d = C0060a.a();
+            private C0061a d = C0061a.a();
             private Object f = "";
             private ByteString g = ByteString.EMPTY;
 
@@ -373,60 +373,60 @@ public final class a {
             /* renamed from: a */
             public c clear() {
                 super.clear();
-                this.f1408b = 0L;
-                this.f1407a &= -2;
+                this.f1414b = 0L;
+                this.f1413a &= -2;
                 this.c = "";
-                this.f1407a &= -3;
-                this.d = C0060a.a();
-                this.f1407a &= -5;
+                this.f1413a &= -3;
+                this.d = C0061a.a();
+                this.f1413a &= -5;
                 this.e = 0L;
-                this.f1407a &= -9;
+                this.f1413a &= -9;
                 this.f = "";
-                this.f1407a &= -17;
+                this.f1413a &= -17;
                 this.g = ByteString.EMPTY;
-                this.f1407a &= -33;
+                this.f1413a &= -33;
                 return this;
             }
 
             public c a(long j) {
-                this.f1407a |= 1;
-                this.f1408b = j;
+                this.f1413a |= 1;
+                this.f1414b = j;
                 return this;
             }
 
-            public c a(C0060a c0060a) {
-                if (c0060a == null) {
+            public c a(C0061a c0061a) {
+                if (c0061a == null) {
                     throw new NullPointerException();
                 }
-                this.d = c0060a;
-                this.f1407a |= 4;
+                this.d = c0061a;
+                this.f1413a |= 4;
                 return this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public c mergeFrom(C0059a c0059a) {
-                if (c0059a != C0059a.a()) {
-                    if (c0059a.c()) {
-                        a(c0059a.d());
+            public c mergeFrom(C0060a c0060a) {
+                if (c0060a != C0060a.a()) {
+                    if (c0060a.c()) {
+                        a(c0060a.d());
                     }
-                    if (c0059a.e()) {
-                        this.f1407a |= 2;
-                        this.c = c0059a.e;
+                    if (c0060a.e()) {
+                        this.f1413a |= 2;
+                        this.c = c0060a.e;
                     }
-                    if (c0059a.g()) {
-                        b(c0059a.h());
+                    if (c0060a.g()) {
+                        b(c0060a.h());
                     }
-                    if (c0059a.i()) {
-                        b(c0059a.j());
+                    if (c0060a.i()) {
+                        b(c0060a.j());
                     }
-                    if (c0059a.k()) {
-                        this.f1407a |= 16;
-                        this.f = c0059a.h;
+                    if (c0060a.k()) {
+                        this.f1413a |= 16;
+                        this.f = c0060a.h;
                     }
-                    if (c0059a.m()) {
-                        a(c0059a.n());
+                    if (c0060a.m()) {
+                        a(c0060a.n());
                     }
                 }
                 return this;
@@ -436,7 +436,7 @@ public final class a {
                 if (byteString == null) {
                     throw new NullPointerException();
                 }
-                this.f1407a |= 32;
+                this.f1413a |= 32;
                 this.g = byteString;
                 return this;
             }
@@ -449,29 +449,29 @@ public final class a {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public c mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                C0059a c0059a = null;
+                C0060a c0060a = null;
                 try {
                     try {
-                        C0059a parsePartialFrom = C0059a.f1401a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        C0060a parsePartialFrom = C0060a.f1407a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
                     } catch (Throwable th) {
                         th = th;
-                        if (c0059a != null) {
-                            mergeFrom(c0059a);
+                        if (c0060a != null) {
+                            mergeFrom(c0060a);
                         }
                         throw th;
                     }
                 } catch (InvalidProtocolBufferException e) {
-                    C0059a c0059a2 = (C0059a) e.getUnfinishedMessage();
+                    C0060a c0060a2 = (C0060a) e.getUnfinishedMessage();
                     try {
                         throw e;
                     } catch (Throwable th2) {
                         th = th2;
-                        c0059a = c0059a2;
-                        if (c0059a != null) {
+                        c0060a = c0060a2;
+                        if (c0060a != null) {
                         }
                         throw th;
                     }
@@ -482,7 +482,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1407a |= 2;
+                this.f1413a |= 2;
                 this.c = str;
                 return this;
             }
@@ -495,18 +495,18 @@ public final class a {
             }
 
             public c b(long j) {
-                this.f1407a |= 8;
+                this.f1413a |= 8;
                 this.e = j;
                 return this;
             }
 
-            public c b(C0060a c0060a) {
-                if ((this.f1407a & 4) != 4 || this.d == C0060a.a()) {
-                    this.d = c0060a;
+            public c b(C0061a c0061a) {
+                if ((this.f1413a & 4) != 4 || this.d == C0061a.a()) {
+                    this.d = c0061a;
                 } else {
-                    this.d = C0060a.a(this.d).mergeFrom(c0060a).buildPartial();
+                    this.d = C0061a.a(this.d).mergeFrom(c0061a).buildPartial();
                 }
-                this.f1407a |= 4;
+                this.f1413a |= 4;
                 return this;
             }
 
@@ -514,7 +514,7 @@ public final class a {
                 if (str == null) {
                     throw new NullPointerException();
                 }
-                this.f1407a |= 16;
+                this.f1413a |= 16;
                 this.f = str;
                 return this;
             }
@@ -522,15 +522,15 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
             /* renamed from: c */
-            public C0059a getDefaultInstanceForType() {
-                return C0059a.a();
+            public C0060a getDefaultInstanceForType() {
+                return C0060a.a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
             /* renamed from: d */
-            public C0059a build() {
-                C0059a buildPartial = buildPartial();
+            public C0060a build() {
+                C0060a buildPartial = buildPartial();
                 if (buildPartial.isInitialized()) {
                     return buildPartial;
                 }
@@ -540,33 +540,33 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
             /* renamed from: e */
-            public C0059a buildPartial() {
-                C0059a c0059a = new C0059a(this);
-                int i = this.f1407a;
+            public C0060a buildPartial() {
+                C0060a c0060a = new C0060a(this);
+                int i = this.f1413a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                c0059a.d = this.f1408b;
+                c0060a.d = this.f1414b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                c0059a.e = this.c;
+                c0060a.e = this.c;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                c0059a.f = this.d;
+                c0060a.f = this.d;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                c0059a.g = this.e;
+                c0060a.g = this.e;
                 if ((i & 16) == 16) {
                     i2 |= 16;
                 }
-                c0059a.h = this.f;
+                c0060a.h = this.f;
                 if ((i & 32) == 32) {
                     i2 |= 32;
                 }
-                c0059a.i = this.g;
-                c0059a.c = i2;
-                return c0059a;
+                c0060a.i = this.g;
+                c0060a.c = i2;
+                return c0060a;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -576,15 +576,15 @@ public final class a {
         }
 
         static {
-            f1402b.r();
+            f1408b.r();
         }
 
-        private C0059a() {
+        private C0060a() {
             this.j = (byte) -1;
             this.k = -1;
         }
 
-        private C0059a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        private C0060a(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             boolean z;
             this.j = (byte) -1;
             this.k = -1;
@@ -612,8 +612,8 @@ public final class a {
                                 continue;
                                 z2 = z;
                             case 26:
-                                C0060a.C0061a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
-                                this.f = (C0060a) codedInputStream.readMessage(C0060a.f1403a, extensionRegistryLite);
+                                C0061a.C0062a builder = (this.c & 4) == 4 ? this.f.toBuilder() : null;
+                                this.f = (C0061a) codedInputStream.readMessage(C0061a.f1409a, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.f);
                                     this.f = builder.buildPartial();
@@ -659,18 +659,18 @@ public final class a {
             }
         }
 
-        private C0059a(GeneratedMessageLite.Builder builder) {
+        private C0060a(GeneratedMessageLite.Builder builder) {
             super(builder);
             this.j = (byte) -1;
             this.k = -1;
         }
 
-        public static c a(C0059a c0059a) {
-            return o().mergeFrom(c0059a);
+        public static c a(C0060a c0060a) {
+            return o().mergeFrom(c0060a);
         }
 
-        public static C0059a a() {
-            return f1402b;
+        public static C0060a a() {
+            return f1408b;
         }
 
         public static c o() {
@@ -680,7 +680,7 @@ public final class a {
         private void r() {
             this.d = 0L;
             this.e = "";
-            this.f = C0060a.a();
+            this.f = C0061a.a();
             this.g = 0L;
             this.h = "";
             this.i = ByteString.EMPTY;
@@ -689,8 +689,8 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         /* renamed from: b */
-        public C0059a getDefaultInstanceForType() {
-            return f1402b;
+        public C0060a getDefaultInstanceForType() {
+            return f1408b;
         }
 
         public boolean c() {
@@ -720,8 +720,8 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<C0059a> getParserForType() {
-            return f1401a;
+        public Parser<C0060a> getParserForType() {
+            return f1407a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -749,7 +749,7 @@ public final class a {
             return i;
         }
 
-        public C0060a h() {
+        public C0061a h() {
             return this.f;
         }
 
@@ -837,15 +837,15 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface b extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static final class c extends GeneratedMessageLite implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Parser<c> f1409a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.b.a.a.c.1
+        public static Parser<c> f1415a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.b.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             /* renamed from: a */
@@ -855,7 +855,7 @@ public final class a {
         };
 
         /* renamed from: b  reason: collision with root package name */
-        private static final c f1410b = new c();
+        private static final c f1416b = new c();
         private int c;
         private int d;
         private Object e;
@@ -864,18 +864,18 @@ public final class a {
         private int h;
 
         /* renamed from: com.baidu.android.pushservice.h.b.a.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static final class C0062a extends GeneratedMessageLite.Builder<c, C0062a> implements d {
+        /* loaded from: classes14.dex */
+        public static final class C0063a extends GeneratedMessageLite.Builder<c, C0063a> implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1411a;
+            private int f1417a;
 
             /* renamed from: b  reason: collision with root package name */
-            private int f1412b;
+            private int f1418b;
             private Object c = "";
             private long d;
 
-            private C0062a() {
+            private C0063a() {
                 g();
             }
 
@@ -883,32 +883,32 @@ public final class a {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static C0062a h() {
-                return new C0062a();
+            public static C0063a h() {
+                return new C0063a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: a */
-            public C0062a clear() {
+            public C0063a clear() {
                 super.clear();
-                this.f1412b = 0;
-                this.f1411a &= -2;
+                this.f1418b = 0;
+                this.f1417a &= -2;
                 this.c = "";
-                this.f1411a &= -3;
+                this.f1417a &= -3;
                 this.d = 0L;
-                this.f1411a &= -5;
+                this.f1417a &= -5;
                 return this;
             }
 
-            public C0062a a(int i) {
-                this.f1411a |= 1;
-                this.f1412b = i;
+            public C0063a a(int i) {
+                this.f1417a |= 1;
+                this.f1418b = i;
                 return this;
             }
 
-            public C0062a a(long j) {
-                this.f1411a |= 4;
+            public C0063a a(long j) {
+                this.f1417a |= 4;
                 this.d = j;
                 return this;
             }
@@ -916,13 +916,13 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             /* renamed from: a */
-            public C0062a mergeFrom(c cVar) {
+            public C0063a mergeFrom(c cVar) {
                 if (cVar != c.a()) {
                     if (cVar.c()) {
                         a(cVar.d());
                     }
                     if (cVar.e()) {
-                        this.f1411a |= 2;
+                        this.f1417a |= 2;
                         this.c = cVar.e;
                     }
                     if (cVar.h()) {
@@ -939,11 +939,11 @@ public final class a {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public C0062a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            public C0063a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
                 c cVar = null;
                 try {
                     try {
-                        c parsePartialFrom = c.f1409a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        c parsePartialFrom = c.f1415a.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
                             mergeFrom(parsePartialFrom);
                         }
@@ -972,7 +972,7 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: b */
-            public C0062a clone() {
+            public C0063a clone() {
                 return h().mergeFrom(buildPartial());
             }
 
@@ -999,9 +999,9 @@ public final class a {
             /* renamed from: e */
             public c buildPartial() {
                 c cVar = new c(this);
-                int i = this.f1411a;
+                int i = this.f1417a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                cVar.d = this.f1412b;
+                cVar.d = this.f1418b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
@@ -1021,7 +1021,7 @@ public final class a {
         }
 
         static {
-            f1410b.m();
+            f1416b.m();
         }
 
         private c() {
@@ -1081,20 +1081,20 @@ public final class a {
             this.h = -1;
         }
 
-        public static C0062a a(c cVar) {
+        public static C0063a a(c cVar) {
             return j().mergeFrom(cVar);
         }
 
         public static c a() {
-            return f1410b;
+            return f1416b;
         }
 
         public static c a(byte[] bArr) throws InvalidProtocolBufferException {
-            return f1409a.parseFrom(bArr);
+            return f1415a.parseFrom(bArr);
         }
 
-        public static C0062a j() {
-            return C0062a.h();
+        public static C0063a j() {
+            return C0063a.h();
         }
 
         private void m() {
@@ -1107,7 +1107,7 @@ public final class a {
         @Override // com.google.protobuf.MessageLiteOrBuilder
         /* renamed from: b */
         public c getDefaultInstanceForType() {
-            return f1410b;
+            return f1416b;
         }
 
         public boolean c() {
@@ -1147,7 +1147,7 @@ public final class a {
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
         public Parser<c> getParserForType() {
-            return f1409a;
+            return f1415a;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1187,14 +1187,14 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: k */
-        public C0062a newBuilderForType() {
+        public C0063a newBuilderForType() {
             return j();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         /* renamed from: l */
-        public C0062a toBuilder() {
+        public C0063a toBuilder() {
             return a(this);
         }
 
@@ -1219,7 +1219,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface d extends MessageLiteOrBuilder {
     }
 }

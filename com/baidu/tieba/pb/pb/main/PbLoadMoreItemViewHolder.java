@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
-    private String lQs;
-    private CustomMessageListener lhp;
+    private String lLO;
+    private CustomMessageListener lcJ;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.lhp = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
+        this.lcJ = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.lhp.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.lhp);
+        this.lcJ.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lcJ);
         onChangeSkinType();
     }
 
     public void at(String str, int i) {
-        this.lQs = str;
+        this.lLO = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -70,8 +70,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lQs != null) {
-            this.mTextView.setText(this.lQs);
+        if (this.lLO != null) {
+            this.mTextView.setText(this.lLO);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

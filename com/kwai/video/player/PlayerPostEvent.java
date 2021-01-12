@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface PlayerPostEvent {
     public static final int MEDIA_BUFFERING_UPDATE = 3;
     public static final int MEDIA_ERROR = 100;
@@ -45,15 +45,15 @@ public interface PlayerPostEvent {
     public static final int MEDIA_SET_VIDEO_SIZE = 5;
     public static final int MEDIA_TIMED_TEXT = 99;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface MediaErrorType {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface MediaEventType {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface MediaInfoType {
     }
 }

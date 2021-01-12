@@ -133,11 +133,11 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         this.oA.a(algoHandleController);
     }
 
-    public void a(a.C0078a c0078a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C0079a c0079a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         this.oA.G(i);
-        if (c0078a != null) {
-            this.oA.a(Float.parseFloat(c0078a.pR), Float.parseFloat(c0078a.pS));
-            this.oA.d(Float.parseFloat(c0078a.pT));
+        if (c0079a != null) {
+            this.oA.a(Float.parseFloat(c0079a.pR), Float.parseFloat(c0079a.pS));
+            this.oA.d(Float.parseFloat(c0079a.pT));
         }
         this.oA.z(bVar.dy());
         this.oA.B(bVar.dz());

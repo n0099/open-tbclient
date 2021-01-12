@@ -1,12 +1,12 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ca {
-    public String aSA;
-    public String aSB;
-    public int aSy = 7;
-    public int aSz;
+    public int aNL = 7;
+    public int aNM;
+    public String aNN;
+    public String aNO;
     public int showStyle;
 
     public ca(JSONObject jSONObject) {
@@ -15,10 +15,10 @@ public class ca {
 
     private void parseData(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aSy = jSONObject.optInt("show_days");
-            this.aSz = jSONObject.optInt("live_recommend_switch");
-            this.aSA = jSONObject.optString("live_recommend_enter_text");
-            this.aSB = jSONObject.optString("live_recommend_text");
+            this.aNL = jSONObject.optInt("show_days");
+            this.aNM = jSONObject.optInt("live_recommend_switch");
+            this.aNN = jSONObject.optString("live_recommend_enter_text");
+            this.aNO = jSONObject.optString("live_recommend_text");
             this.showStyle = jSONObject.optInt("show_style");
         }
     }

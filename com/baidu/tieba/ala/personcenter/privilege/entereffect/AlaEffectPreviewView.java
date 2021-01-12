@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.b;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaEffectPreviewView extends LinearLayout {
-    private int bfr;
-    private TextView cWc;
-    private LinearLayout gpU;
-    private b.a ice;
-    private ObjectAnimator icf;
-    private ImageView icg;
+    private int baB;
+    private TextView cRq;
+    private LinearLayout gln;
+    private b.a hXx;
+    private ObjectAnimator hXy;
+    private ImageView hXz;
     private ImageView mIconView;
     private View mRootView;
     private int mScreenWidth;
@@ -56,13 +56,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     private void initView() {
         this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
         this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.cWc = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.gpU = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.icg = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        this.cRq = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.gln = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.hXz = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
 
     public void setAnimCompleteCallback(b.a aVar) {
-        this.ice = aVar;
+        this.hXx = aVar;
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
@@ -140,7 +140,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     }
                 }, null);
             }
-            this.cWc.setText(spannableStringBuilder);
+            this.cRq.setText(spannableStringBuilder);
             String str4 = alaEnterEffectData.color;
             if (StringUtils.isNull(str4)) {
                 str4 = "#B2FF5460";
@@ -161,36 +161,36 @@ public class AlaEffectPreviewView extends LinearLayout {
                 gradientDrawable.setColor(-1291889568);
             }
             gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.gpU.setBackgroundDrawable(gradientDrawable);
+            this.gln.setBackgroundDrawable(gradientDrawable);
             if (3 == alaEnterEffectData.categoryType) {
-                this.icg.setVisibility(0);
+                this.hXz.setVisibility(0);
             }
         }
     }
 
-    public void cqe() {
+    public void cmm() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
         this.mScreenWidth = l.getEquipmentWidth(getContext());
-        this.bfr = (this.mScreenWidth - getMeasuredWidth()) / 2;
-        this.icf = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
-        this.icf.setDuration(3500L);
-        this.icf.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
+        this.baB = (this.mScreenWidth - getMeasuredWidth()) / 2;
+        this.hXy = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
+        this.hXy.setDuration(3500L);
+        this.hXy.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return f;
             }
         });
-        this.icf.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.3
+        this.hXy.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.ice != null) {
-                    AlaEffectPreviewView.this.ice.cqg();
+                if (AlaEffectPreviewView.this.hXx != null) {
+                    AlaEffectPreviewView.this.hXx.cmo();
                 }
             }
 
@@ -202,18 +202,18 @@ public class AlaEffectPreviewView extends LinearLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.icf.setEvaluator(new a());
-        this.icf.start();
+        this.hXy.setEvaluator(new a());
+        this.hXy.start();
     }
 
     public void onDestory() {
-        if (this.icf != null) {
-            this.icf.cancel();
+        if (this.hXy != null) {
+            this.hXy.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a extends FloatEvaluator {
         private a() {
         }
@@ -225,11 +225,11 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f2;
             float f3 = f * 3500.0f;
             if (f3 <= 500.0f) {
-                f2 = (((f3 / 500.0f) - 1.0f) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.bfr;
+                f2 = (((f3 / 500.0f) - 1.0f) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.baB;
             } else if (3500.0f - f3 > 500.0f) {
-                f2 = AlaEffectPreviewView.this.bfr;
+                f2 = AlaEffectPreviewView.this.baB;
             } else {
-                f2 = ((1.0f - ((3500.0f - f3) / 500.0f)) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.bfr;
+                f2 = ((1.0f - ((3500.0f - f3) / 500.0f)) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.baB;
             }
             return Float.valueOf(f2);
         }

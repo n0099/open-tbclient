@@ -13,61 +13,61 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveFocusCircleView extends View {
-    private Paint fDz;
-    private ObjectAnimator hQu;
-    private boolean hQv;
-    private Bitmap hQw;
-    private AnimatorSet haN;
+    private Paint fyR;
+    private AnimatorSet gWh;
+    private ObjectAnimator hLO;
+    private boolean hLP;
+    private Bitmap hLQ;
     private int mBorderWidth;
 
     public AlaLiveFocusCircleView(Context context) {
         super(context);
         this.mBorderWidth = 4;
-        this.hQv = false;
+        this.hLP = false;
         init(context);
     }
 
     public AlaLiveFocusCircleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mBorderWidth = 4;
-        this.hQv = false;
+        this.hLP = false;
         init(context);
     }
 
     public AlaLiveFocusCircleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mBorderWidth = 4;
-        this.hQv = false;
+        this.hLP = false;
         init(context);
     }
 
     private void init(Context context) {
-        this.fDz = new Paint();
-        this.fDz.setAntiAlias(true);
-        this.fDz.setStyle(Paint.Style.STROKE);
-        this.fDz.setColor(Color.parseColor("#ffffffff"));
-        this.fDz.setStrokeWidth(this.mBorderWidth);
+        this.fyR = new Paint();
+        this.fyR.setAntiAlias(true);
+        this.fyR.setStyle(Paint.Style.STROKE);
+        this.fyR.setColor(Color.parseColor("#ffffffff"));
+        this.fyR.setStrokeWidth(this.mBorderWidth);
         setAlpha(0.0f);
-        this.hQw = BitmapFactory.decodeResource(context.getResources(), a.e.camera_focus);
+        this.hLQ = BitmapFactory.decodeResource(context.getResources(), a.e.camera_focus);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawBitmap(this.hQw, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.fDz);
+        canvas.drawBitmap(this.hLQ, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.fyR);
     }
 
-    public void cnU() {
-        this.hQv = true;
-        if (this.haN == null) {
+    public void ckc() {
+        this.hLP = true;
+        if (this.gWh == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, "scaleY", 3.0f, 2.0f, 1.0f);
-            this.haN = new AnimatorSet();
-            this.haN.play(ofFloat).with(ofFloat2);
-            this.haN.setInterpolator(new LinearInterpolator());
-            this.haN.setDuration(500L);
-            this.haN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1
+            this.gWh = new AnimatorSet();
+            this.gWh.play(ofFloat).with(ofFloat2);
+            this.gWh.setInterpolator(new LinearInterpolator());
+            this.gWh.setDuration(500L);
+            this.gWh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     AlaLiveFocusCircleView.this.setAlpha(1.0f);
@@ -79,17 +79,17 @@ public class AlaLiveFocusCircleView extends View {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (AlaLiveFocusCircleView.this.hQu == null) {
-                        AlaLiveFocusCircleView.this.hQu = ObjectAnimator.ofFloat(AlaLiveFocusCircleView.this, "alpha", 1.0f, 0.0f);
-                        AlaLiveFocusCircleView.this.hQu.setDuration(960L);
-                        AlaLiveFocusCircleView.this.hQu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1.1
+                    if (AlaLiveFocusCircleView.this.hLO == null) {
+                        AlaLiveFocusCircleView.this.hLO = ObjectAnimator.ofFloat(AlaLiveFocusCircleView.this, "alpha", 1.0f, 0.0f);
+                        AlaLiveFocusCircleView.this.hLO.setDuration(960L);
+                        AlaLiveFocusCircleView.this.hLO.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1.1
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationStart(Animator animator2) {
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationEnd(Animator animator2) {
-                                AlaLiveFocusCircleView.this.hQv = false;
+                                AlaLiveFocusCircleView.this.hLP = false;
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
@@ -101,7 +101,7 @@ public class AlaLiveFocusCircleView extends View {
                             }
                         });
                     }
-                    AlaLiveFocusCircleView.this.hQu.start();
+                    AlaLiveFocusCircleView.this.hLO.start();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -109,13 +109,13 @@ public class AlaLiveFocusCircleView extends View {
                 }
             });
         } else {
-            if (this.haN.isRunning()) {
-                this.haN.cancel();
+            if (this.gWh.isRunning()) {
+                this.gWh.cancel();
             }
-            if (this.hQu != null && this.hQu.isRunning()) {
-                this.hQu.cancel();
+            if (this.hLO != null && this.hLO.isRunning()) {
+                this.hLO.cancel();
             }
         }
-        this.haN.start();
+        this.gWh.start();
     }
 }

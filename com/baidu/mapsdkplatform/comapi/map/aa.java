@@ -1,10 +1,12 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
-public class aa extends x {
-    public aa() {
-        this.c = 10;
-        this.f3171b = "sdktile";
-        this.d = 1000;
-        this.e = 89077;
+/* loaded from: classes6.dex */
+public enum aa {
+    GLSurfaceView(1),
+    TextureView(2);
+    
+    private final int c;
+
+    aa(int i) {
+        this.c = i;
     }
 }

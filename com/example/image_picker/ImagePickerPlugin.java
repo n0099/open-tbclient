@@ -15,9 +15,9 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.util.sp.PreferenceUtils;
+import com.baidu.l.a.a;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.n.a.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
@@ -173,7 +173,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
             permissionJudgePolicy2.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionJudgePolicy2.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
                 if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bue();
+                    BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bqk();
                 }
                 PreferenceUtils.setBoolean("imagepicker_tost_show", true);
                 return;
@@ -210,7 +210,7 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 permissionJudgePolicy3.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                 if (permissionJudgePolicy3.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
                     if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !a.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                        BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bue();
+                        BdToast.b(currentActivity, "请到设置-隐私-照片开启照片权限").bqk();
                     }
                     PreferenceUtils.setBoolean("imagepicker_tost_show", true);
                     return;
@@ -245,8 +245,8 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     ImagePickerPlugin.notifyFlutter(0, "保存成功！", "");
                 }
             });
-            oVar.lx(false);
-            oVar.ly(true);
+            oVar.lt(false);
+            oVar.lu(true);
             oVar.execute(new String[0]);
         }
     }

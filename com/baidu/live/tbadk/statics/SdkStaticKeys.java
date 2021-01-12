@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.statics;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SdkStaticKeys {
     public static final String ACCESS_CHARMLIST = "access_charmlist";
     public static final String ACCESS_MASTER_CHARMLIST = "access_master_charmlist";

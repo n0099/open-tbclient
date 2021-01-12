@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Wire {
     public Wire(Log log) {
         throw new RuntimeException("Stub!");

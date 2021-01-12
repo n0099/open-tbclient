@@ -4,7 +4,7 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class EngineResource<Z> implements Resource<Z> {
     private int acquired;
     private final boolean isCacheable;
@@ -14,7 +14,7 @@ class EngineResource<Z> implements Resource<Z> {
     private ResourceListener listener;
     private final Resource<Z> resource;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }

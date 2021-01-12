@@ -2,22 +2,22 @@ package com.kwad.sdk.core.g.a;
 
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f9475a;
+    private h f9175a;
 
     public static k a() {
         k kVar = new k();
-        kVar.f9475a = h.a();
+        kVar.f9175a = h.a();
         return kVar;
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "modeInfo", this.f9475a);
+        o.a(jSONObject, "modeInfo", this.f9175a);
         return jSONObject;
     }
 }

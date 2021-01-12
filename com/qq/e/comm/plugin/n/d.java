@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.ai;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static h a(Context context, com.qq.e.comm.plugin.s.a aVar, com.qq.e.comm.plugin.ad.g gVar, String str, int i, com.qq.e.comm.plugin.y.c cVar) {
         if (!(aVar instanceof i)) {

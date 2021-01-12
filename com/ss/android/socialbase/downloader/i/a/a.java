@@ -9,28 +9,28 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f13462a;
+    protected int f13162a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, c> f13463b;
+    private final Map<String, c> f13163b;
     private final Map<String, d> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, c cVar) {
-        synchronized (this.f13463b) {
-            this.f13463b.put(str, cVar);
+        synchronized (this.f13163b) {
+            this.f13163b.put(str, cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        this.f13462a = i;
+        this.f13162a = i;
     }
 
     public c w(String str, List<e> list) {
         c remove;
-        synchronized (this.f13463b) {
-            remove = this.f13463b.remove(str);
+        synchronized (this.f13163b) {
+            remove = this.f13163b.remove(str);
         }
         if (remove != null) {
             if (com.ss.android.socialbase.downloader.m.d.a(remove.h(), list)) {
@@ -52,7 +52,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f13463b.get(str);
+        c cVar = this.f13163b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -88,17 +88,17 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static final class C1266a {
-        private static final a qaE = new a();
+    private static final class C1249a {
+        private static final a pWd = new a();
     }
 
-    public static a eJL() {
-        return C1266a.qaE;
+    public static a eFV() {
+        return C1249a.pWd;
     }
 
     private a() {
-        this.f13463b = new HashMap();
+        this.f13163b = new HashMap();
         this.c = new LinkedHashMap(3);
-        this.f13462a = 3;
+        this.f13162a = 3;
     }
 }

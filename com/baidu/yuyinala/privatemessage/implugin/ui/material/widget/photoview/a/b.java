@@ -4,21 +4,21 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.view.MotionEvent;
 @TargetApi(5)
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     private int mActivePointerId;
-    private int pag;
+    private int oVD;
 
     public b(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.pag = 0;
+        this.oVD = 0;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
     float ar(MotionEvent motionEvent) {
         try {
-            return motionEvent.getX(this.pag);
+            return motionEvent.getX(this.oVD);
         } catch (Exception e) {
             return motionEvent.getX();
         }
@@ -27,7 +27,7 @@ public class b extends a {
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
     float as(MotionEvent motionEvent) {
         try {
-            return motionEvent.getY(this.pag);
+            return motionEvent.getY(this.oVD);
         } catch (Exception e) {
             return motionEvent.getY();
         }
@@ -44,17 +44,17 @@ public class b extends a {
                 this.mActivePointerId = -1;
                 break;
             case 6:
-                int Pa = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.Pa(motionEvent.getAction());
-                if (motionEvent.getPointerId(Pa) == this.mActivePointerId) {
-                    int i = Pa == 0 ? 1 : 0;
+                int Nt = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.Nt(motionEvent.getAction());
+                if (motionEvent.getPointerId(Nt) == this.mActivePointerId) {
+                    int i = Nt == 0 ? 1 : 0;
                     this.mActivePointerId = motionEvent.getPointerId(i);
-                    this.bHU = motionEvent.getX(i);
-                    this.bHV = motionEvent.getY(i);
+                    this.bDi = motionEvent.getX(i);
+                    this.bDj = motionEvent.getY(i);
                     break;
                 }
                 break;
         }
-        this.pag = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
+        this.oVD = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
         return super.onTouchEvent(motionEvent);
     }
 }

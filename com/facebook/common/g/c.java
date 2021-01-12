@@ -6,49 +6,49 @@ import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c {
-    public static final boolean ptV;
-    public static final boolean ptW;
-    public static final boolean ptX;
+    private static final byte[] ppA;
+    private static final byte[] ppB;
+    private static final byte[] ppC;
+    public static final boolean ppt;
+    public static final boolean ppu;
+    public static final boolean ppv;
     @Nullable
-    public static b ptY;
-    private static boolean ptZ;
-    private static final byte[] pua;
-    private static final byte[] pub;
-    private static final byte[] puc;
-    private static final byte[] pud;
-    private static final byte[] pue;
+    public static b ppw;
+    private static boolean ppx;
+    private static final byte[] ppy;
+    private static final byte[] ppz;
 
     static {
-        ptV = Build.VERSION.SDK_INT <= 17;
-        ptW = Build.VERSION.SDK_INT >= 14;
-        ptX = eux();
-        ptY = null;
-        ptZ = false;
-        pua = Zt("RIFF");
-        pub = Zt("WEBP");
-        puc = Zt("VP8 ");
-        pud = Zt("VP8L");
-        pue = Zt("VP8X");
+        ppt = Build.VERSION.SDK_INT <= 17;
+        ppu = Build.VERSION.SDK_INT >= 14;
+        ppv = eqD();
+        ppw = null;
+        ppx = false;
+        ppy = Yl("RIFF");
+        ppz = Yl("WEBP");
+        ppA = Yl("VP8 ");
+        ppB = Yl("VP8L");
+        ppC = Yl("VP8X");
     }
 
     @Nullable
-    public static b euw() {
+    public static b eqC() {
         b bVar;
-        if (ptZ) {
-            return ptY;
+        if (ppx) {
+            return ppw;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        ptZ = true;
+        ppx = true;
         return bVar;
     }
 
-    private static byte[] Zt(String str) {
+    private static byte[] Yl(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean eux() {
+    private static boolean eqD() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean l(byte[] bArr, int i) {
-        return b(bArr, i + 12, pue) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, ppC) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, puc);
+        return b(bArr, i + 12, ppA);
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, pud);
+        return b(bArr, i + 12, ppB);
     }
 
-    public static boolean y(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, pue);
+    public static boolean x(byte[] bArr, int i, int i2) {
+        return i2 >= 21 && b(bArr, i + 12, ppC);
     }
 
     public static boolean o(byte[] bArr, int i) {
-        return b(bArr, i + 12, pue) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, ppC) && ((bArr[i + 20] & 16) == 16);
     }
 
-    public static boolean z(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, pua) && b(bArr, i + 8, pub);
+    public static boolean y(byte[] bArr, int i, int i2) {
+        return i2 >= 20 && b(bArr, i, ppy) && b(bArr, i + 8, ppz);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

@@ -11,43 +11,43 @@ import com.baidu.tbadk.TbConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private String cuF;
-    private boolean dfu;
-    private boolean dfv;
-    private JSONObject dfw;
+    private String cpN;
+    private boolean daF;
+    private boolean daG;
+    private JSONObject daH;
 
     public String getImageUrl() {
-        return this.cuF;
+        return this.cpN;
     }
 
-    public b azf() {
-        this.dfu = false;
-        this.dfv = false;
-        this.cuF = null;
-        this.dfw = azi();
-        if (this.dfw != null) {
-            this.dfu = azh();
-            if (!this.dfu) {
-                this.dfv = azg();
+    public b avl() {
+        this.daF = false;
+        this.daG = false;
+        this.cpN = null;
+        this.daH = avo();
+        if (this.daH != null) {
+            this.daF = avn();
+            if (!this.daF) {
+                this.daG = avm();
             }
         }
         return this;
     }
 
-    private boolean azg() {
-        if (d.aMh().ajl() == 0) {
-            return p(this.dfw, "bbasp_guide_");
+    private boolean avm() {
+        if (d.aIn().afr() == 0) {
+            return p(this.daH, "bbasp_guide_");
         }
-        if (d.aMh().ajl() == 1) {
-            return p(this.dfw, "bbaspg_guide_");
+        if (d.aIn().afr() == 1) {
+            return p(this.daH, "bbaspg_guide_");
         }
         return false;
     }
 
-    private boolean azh() {
-        JSONArray optJSONArray = this.dfw.optJSONArray("custom_guide_list");
+    private boolean avn() {
+        JSONArray optJSONArray = this.daH.optJSONArray("custom_guide_list");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return false;
         }
@@ -55,7 +55,7 @@ public class b {
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             String optString = optJSONObject.optString("appid", "");
-            if (e.aMn() == null || TextUtils.equals(e.aMn(), optString)) {
+            if (e.aIt() == null || TextUtils.equals(e.aIt(), optString)) {
                 return p(optJSONObject, "");
             }
         }
@@ -68,7 +68,7 @@ public class b {
     */
     private boolean p(JSONObject jSONObject, String str) {
         boolean z;
-        b.a ajv;
+        b.a afB;
         boolean z2 = false;
         if (jSONObject != null) {
             String optString = jSONObject.optString(str + "count", "3");
@@ -79,9 +79,9 @@ public class b {
             int optInt = jSONObject.optInt(str + "shown_count", 0);
             int optInt2 = jSONObject.optInt(str + "image_index", 0);
             boolean z3 = System.currentTimeMillis() - optLong > longValue * BdKVCache.MILLS_1Hour;
-            if (e.aMl() != null && (ajv = e.aMl().ajv()) != null) {
-                String aCw = ajv.aCw();
-                if (!TextUtils.isEmpty(aCw) && !aCw.startsWith("120")) {
+            if (e.aIr() != null && (afB = e.aIr().afB()) != null) {
+                String ayC = afB.ayC();
+                if (!TextUtils.isEmpty(ayC) && !ayC.startsWith("120")) {
                     z = false;
                     if (optInt < intValue && z3 && !z) {
                         z2 = true;
@@ -95,7 +95,7 @@ public class b {
                             p.a(new Runnable() { // from class: com.baidu.swan.apps.p.b.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.aPI().putString("swan_guide_toast", b.this.dfw.toString());
+                                    h.aLO().putString("swan_guide_toast", b.this.daH.toString());
                                 }
                             }, "swanCloseGuideRunnable");
                         } catch (JSONException e) {
@@ -121,12 +121,12 @@ public class b {
         if (i >= optJSONArray.length()) {
             i = 0;
         }
-        this.cuF = optJSONArray.optString(i);
+        this.cpN = optJSONArray.optString(i);
         return i;
     }
 
-    private JSONObject azi() {
-        String string = h.aPI().getString("swan_guide_toast", "");
+    private JSONObject avo() {
+        String string = h.aLO().getString("swan_guide_toast", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 return new JSONObject(string);
@@ -137,14 +137,14 @@ public class b {
     }
 
     public boolean isShow() {
-        return this.dfv || this.dfu;
+        return this.daG || this.daF;
     }
 
-    public String azj() {
-        if (this.dfu) {
+    public String avp() {
+        if (this.daF) {
             return "special";
         }
-        if (this.dfv) {
+        if (this.daG) {
             return "normal";
         }
         return null;

@@ -6,14 +6,14 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.ai;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class r implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final GestureDetector f12207a;
+    private final GestureDetector f11907a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12208b;
+    private int f11908b;
     private int c;
     private int d;
     private boolean e;
@@ -30,7 +30,7 @@ public class r implements GestureDetector.OnGestureListener {
     public r(Context context, boolean z) {
         this.e = false;
         this.j = null;
-        this.f12207a = new GestureDetector(context, this);
+        this.f11907a = new GestureDetector(context, this);
         int a2 = com.qq.e.comm.plugin.util.p.a(context);
         int b2 = com.qq.e.comm.plugin.util.p.b(context);
         if (z) {
@@ -40,9 +40,9 @@ public class r implements GestureDetector.OnGestureListener {
         }
         this.c = (GDTADManager.getInstance().getSM().getInteger("ad_scroll_event_filter_click_h_ratio", 10) * a2) / 100;
         if (GDTADManager.getInstance().getSM().getInteger("ad_scroll_event_filter_click_s_ratio", 0) != 0) {
-            this.f12208b = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.c = this.f12208b;
-            this.d = this.f12208b;
+            this.f11908b = ViewConfiguration.get(context).getScaledTouchSlop();
+            this.c = this.f11908b;
+            this.d = this.f11908b;
         }
         ai.a("手机像素 = 宽 " + a2 + " *  高 " + b2 + ", 阈值中，横向移动的像素 = " + this.c + " , 纵向移动的像素 = " + this.d, this.j);
     }
@@ -51,8 +51,8 @@ public class r implements GestureDetector.OnGestureListener {
         if (motionEvent == null) {
             return;
         }
-        if (this.f12207a != null) {
-            this.f12207a.onTouchEvent(motionEvent);
+        if (this.f11907a != null) {
+            this.f11907a.onTouchEvent(motionEvent);
         }
         this.h = (int) motionEvent.getX();
         this.i = (int) motionEvent.getY();

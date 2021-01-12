@@ -7,17 +7,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public List<AlaLiveInfoData> hVK;
-    public b hVL;
+    public List<AlaLiveInfoData> hRd;
+    public b hRe;
 
-    public List cps() {
+    public List clA() {
         int i = 0;
-        if (ListUtils.isEmpty(this.hVK)) {
+        if (ListUtils.isEmpty(this.hRd)) {
             return null;
         }
-        int count = ListUtils.getCount(this.hVK);
+        int count = ListUtils.getCount(this.hRd);
         ArrayList arrayList = new ArrayList(count / 2);
         if (count != 1) {
             while (true) {
@@ -26,14 +26,14 @@ public class d {
                     break;
                 }
                 a aVar = new a();
-                aVar.hVI = (AlaLiveInfoData) ListUtils.getItem(this.hVK, i2);
-                aVar.hVJ = (AlaLiveInfoData) ListUtils.getItem(this.hVK, i2 + 1);
+                aVar.hRb = (AlaLiveInfoData) ListUtils.getItem(this.hRd, i2);
+                aVar.hRc = (AlaLiveInfoData) ListUtils.getItem(this.hRd, i2 + 1);
                 arrayList.add(aVar);
                 i = i2 + 2;
             }
         } else {
             a aVar2 = new a();
-            aVar2.hVI = (AlaLiveInfoData) ListUtils.getItem(this.hVK, 0);
+            aVar2.hRb = (AlaLiveInfoData) ListUtils.getItem(this.hRd, 0);
             arrayList.add(aVar2);
         }
         return arrayList;
@@ -51,18 +51,18 @@ public class d {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("record_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hVK = new ArrayList(optJSONArray.length());
+                this.hRd = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                         alaLiveInfoData.parserJson(optJSONObject);
-                        this.hVK.add(alaLiveInfoData);
+                        this.hRd.add(alaLiveInfoData);
                     }
                 }
             }
-            this.hVL = new b();
-            this.hVL.parserJson(jSONObject.optJSONObject("page"));
+            this.hRe = new b();
+            this.hRe.parserJson(jSONObject.optJSONObject("page"));
         }
     }
 }

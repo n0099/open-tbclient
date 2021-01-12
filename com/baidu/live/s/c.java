@@ -1,9 +1,9 @@
 package com.baidu.live.s;
 
 import com.baidu.live.data.PersonUserData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(PersonUserData personUserData);
 
-    void u(int i, String str);
+    void v(int i, String str);
 }

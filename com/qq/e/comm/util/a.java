@@ -8,33 +8,33 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private PublicKey f13058a;
+    private PublicKey f12758a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f13059b;
+    private final boolean f12759b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C1227a {
+    /* loaded from: classes3.dex */
+    public static final class C1210a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f13060a = new a((byte) 0);
+        public static final a f12760a = new a((byte) 0);
     }
 
     private a() {
         boolean z;
         try {
-            this.f13058a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f12758a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable th) {
             z = false;
         }
-        this.f13059b = z;
+        this.f12759b = z;
     }
 
     /* synthetic */ a(byte b2) {
@@ -42,15 +42,15 @@ public class a {
     }
 
     public static a a() {
-        return C1227a.f13060a;
+        return C1210a.f12760a;
     }
 
     private String a(String str) {
-        if (this.f13058a != null) {
+        if (this.f12758a != null) {
             byte[] decode = Base64.decode(str, 0);
             try {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(2, this.f13058a);
+                cipher.init(2, this.f12758a);
                 return new String(cipher.doFinal(decode), "UTF-8").trim();
             } catch (Throwable th) {
                 GDTLogger.e("ErrorWhileVerifySigNature", th);
@@ -75,7 +75,7 @@ public class a {
         if (StringUtil.isEmpty(str2)) {
             return false;
         }
-        if (this.f13059b) {
+        if (this.f12759b) {
             String a2 = a(str);
             boolean equals = str2.equals(a2);
             GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + a2);

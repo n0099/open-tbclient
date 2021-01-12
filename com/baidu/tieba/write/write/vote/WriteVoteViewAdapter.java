@@ -23,12 +23,12 @@ import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     private List<WriteVoteItemData> mData;
     private TbPageContext mPageContext;
-    private c oiX;
-    private boolean oiW = false;
+    private c oer;
+    private boolean oeq = false;
     TextView.OnEditorActionListener mOnEditorActionListener = new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.1
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -41,13 +41,13 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface c {
-        void MS(int i);
+        void Ll(int i);
 
         void a(WriteVoteItemData writeVoteItemData, int i);
 
-        void ebF();
+        void dXN();
     }
 
     public WriteVoteViewAdapter(TbPageContext tbPageContext) {
@@ -60,7 +60,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     }
 
     public void a(c cVar) {
-        this.oiX = cVar;
+        this.oer = cVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -77,14 +77,14 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         if (viewHolder instanceof b) {
             b bVar = (b) viewHolder;
             String text = this.mData.get(i).getText();
-            bVar.ojc.setHint(String.format(this.mPageContext.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
-            bVar.ojc.setGravity(19);
+            bVar.oew.setHint(String.format(this.mPageContext.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
+            bVar.oew.setGravity(19);
             if (i < this.mData.size() - 1) {
-                bVar.ojc.setImeOptions(5);
+                bVar.oew.setImeOptions(5);
             } else {
-                bVar.ojc.setImeOptions(1);
+                bVar.oew.setImeOptions(1);
             }
-            ImageView imageView = bVar.ojd;
+            ImageView imageView = bVar.oex;
             if (this.mData.size() > 2) {
                 imageView.setVisibility(0);
             } else {
@@ -93,30 +93,30 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (WriteVoteViewAdapter.this.oiX != null) {
-                        WriteVoteViewAdapter.this.oiX.MS(i);
+                    if (WriteVoteViewAdapter.this.oer != null) {
+                        WriteVoteViewAdapter.this.oer.Ll(i);
                     }
                 }
             });
             bVar.setPosition(i);
             if (!StringUtils.isNull(text)) {
-                bVar.ojc.setText(text);
+                bVar.oew.setText(text);
             } else {
-                bVar.ojc.setText("");
+                bVar.oew.setText("");
             }
-            if (this.oiW && i == this.mData.size() - 1) {
-                bVar.ojc.requestFocus();
-                this.oiW = false;
+            if (this.oeq && i == this.mData.size() - 1) {
+                bVar.oew.requestFocus();
+                this.oeq = false;
             }
         } else if (viewHolder instanceof a) {
             a aVar = (a) viewHolder;
-            aVar.oiZ.setText(String.format(this.mPageContext.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.mData.size())));
-            aVar.ojb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.3
+            aVar.oet.setText(String.format(this.mPageContext.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.mData.size())));
+            aVar.oev.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (WriteVoteViewAdapter.this.oiX != null) {
-                        WriteVoteViewAdapter.this.oiX.ebF();
-                        WriteVoteViewAdapter.this.oiW = true;
+                    if (WriteVoteViewAdapter.this.oer != null) {
+                        WriteVoteViewAdapter.this.oer.dXN();
+                        WriteVoteViewAdapter.this.oeq = true;
                     }
                 }
             });
@@ -131,7 +131,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return !MT(i) ? 1 : 2;
+        return !Lm(i) ? 1 : 2;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -153,47 +153,47 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             gradientDrawable.setStroke(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds1), ao.getColor(R.color.CAM_X0603));
             if (viewHolder instanceof b) {
                 b bVar = (b) viewHolder;
-                bVar.ojc.setTextColor(ao.getColor(R.color.CAM_X0105));
-                bVar.ojc.setHintTextColor(ao.getColor(R.color.CAM_X0109));
-                bVar.ojc.setBackgroundDrawable(gradientDrawable);
-                SvgManager.bwr().a(bVar.ojd, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
+                bVar.oew.setTextColor(ao.getColor(R.color.CAM_X0105));
+                bVar.oew.setHintTextColor(ao.getColor(R.color.CAM_X0109));
+                bVar.oew.setBackgroundDrawable(gradientDrawable);
+                SvgManager.bsx().a(bVar.oex, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
             } else if (viewHolder instanceof a) {
                 a aVar = (a) viewHolder;
-                ao.setViewTextColor(aVar.oiZ, R.color.CAM_X0302);
-                aVar.ojb.setBackgroundDrawable(gradientDrawable);
-                SvgManager.bwr().a(aVar.oja, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+                ao.setViewTextColor(aVar.oet, R.color.CAM_X0302);
+                aVar.oev.setBackgroundDrawable(gradientDrawable);
+                SvgManager.bsx().a(aVar.oeu, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
             }
         }
     }
 
-    private boolean MT(int i) {
+    private boolean Lm(int i) {
         return this.mData != null && this.mData.size() < 20 && i == this.mData.size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b extends RecyclerView.ViewHolder {
-        public EditText ojc;
-        public ImageView ojd;
-        private d oje;
+        public EditText oew;
+        public ImageView oex;
+        private d oey;
 
         public b(View view) {
             super(view);
-            this.ojc = (EditText) view.findViewById(R.id.vote_item);
-            this.ojd = (ImageView) view.findViewById(R.id.img_delete);
-            this.oje = new d(this);
-            this.ojc.setOnEditorActionListener(WriteVoteViewAdapter.this.mOnEditorActionListener);
+            this.oew = (EditText) view.findViewById(R.id.vote_item);
+            this.oex = (ImageView) view.findViewById(R.id.img_delete);
+            this.oey = new d(this);
+            this.oew.setOnEditorActionListener(WriteVoteViewAdapter.this.mOnEditorActionListener);
         }
 
         public void setPosition(int i) {
-            this.oje.setPosition(i);
-            this.ojc.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.b.1
+            this.oey.setPosition(i);
+            this.oew.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.b.1
                 @Override // android.view.View.OnFocusChangeListener
                 public void onFocusChange(View view, boolean z) {
                     if (z) {
-                        b.this.ojc.addTextChangedListener(b.this.oje);
+                        b.this.oew.addTextChangedListener(b.this.oey);
                     } else {
-                        b.this.ojc.removeTextChangedListener(b.this.oje);
+                        b.this.oew.removeTextChangedListener(b.this.oey);
                     }
                 }
             });
@@ -201,28 +201,28 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends RecyclerView.ViewHolder {
-        public TextView oiZ;
-        public ImageView oja;
-        public RelativeLayout ojb;
+        public TextView oet;
+        public ImageView oeu;
+        public RelativeLayout oev;
 
         public a(View view) {
             super(view);
-            this.oiZ = (TextView) view.findViewById(R.id.vote_add_item);
-            this.oja = (ImageView) view.findViewById(R.id.vote_add_item_icon);
-            this.ojb = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
+            this.oet = (TextView) view.findViewById(R.id.vote_add_item);
+            this.oeu = (ImageView) view.findViewById(R.id.vote_add_item_icon);
+            this.oev = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class d implements TextWatcher {
-        private final b ojg;
+        private final b oeA;
         private int position;
 
         public d(b bVar) {
-            this.ojg = bVar;
+            this.oeA = bVar;
         }
 
         public void setPosition(int i) {
@@ -252,11 +252,11 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
                 String subStringWithEmoji = ad.subStringWithEmoji(replace, 28);
                 if (!subStringWithEmoji.equals(editable.toString())) {
-                    this.ojg.ojc.setText(subStringWithEmoji);
-                    this.ojg.ojc.setSelection(subStringWithEmoji.length());
+                    this.oeA.oew.setText(subStringWithEmoji);
+                    this.oeA.oew.setSelection(subStringWithEmoji.length());
                 }
                 writeVoteItemData.setText(subStringWithEmoji);
-                WriteVoteViewAdapter.this.oiX.a(writeVoteItemData, this.position);
+                WriteVoteViewAdapter.this.oer.a(writeVoteItemData, this.position);
             }
         }
     }

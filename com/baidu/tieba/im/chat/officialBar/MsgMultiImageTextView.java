@@ -8,9 +8,9 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.e {
-    private MultiContentView kyh;
+    private MultiContentView ktC;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
@@ -18,19 +18,19 @@ public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.e {
     }
 
     private void init() {
-        this.gFk = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.kyh = (MultiContentView) findViewById(R.id.msg_content);
+        this.gAE = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.ktC = (MultiContentView) findViewById(R.id.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<a.C0775a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-            this.kyh.setPosition(this.mPosition);
-            this.kyh.setOnItemViewLongClickListener(this.kwE);
-            this.kyh.setNeedNightMode(true);
-            this.kyh.setType(1);
-            this.kyh.setData(tbPageContext, a2, view);
+            List<a.C0758a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+            this.ktC.setPosition(this.mPosition);
+            this.ktC.setOnItemViewLongClickListener(this.krZ);
+            this.ktC.setNeedNightMode(true);
+            this.ktC.setType(1);
+            this.ktC.setData(tbPageContext, a2, view);
         }
     }
 }

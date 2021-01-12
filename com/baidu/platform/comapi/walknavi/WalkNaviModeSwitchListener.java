@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface WalkNaviModeSwitchListener {
     void onFailed();
 

@@ -9,13 +9,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends e {
-    private TextView eLt;
-    private HeadImageView jTx;
-    private TextView mST;
-    private CountDownTextView mSZ;
-    private boolean mTa;
+    private TextView eGI;
+    private HeadImageView jOS;
+    private TextView mOl;
+    private CountDownTextView mOr;
+    private boolean mOs;
 
     public c(View view, String str) {
         super(view, str);
@@ -23,63 +23,63 @@ public class c extends e {
     }
 
     private void init() {
-        this.jTx = (HeadImageView) Jr(R.id.user_portrait);
-        this.jTx.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.jTx.setDefaultBgResource(R.color.CAM_X0205);
-        this.jTx.setIsRound(true);
-        this.eLt = (TextView) Jr(R.id.user_name);
-        this.mSZ = (CountDownTextView) Jr(R.id.count_down_text);
-        this.mST = (TextView) Jr(R.id.action);
+        this.jOS = (HeadImageView) HK(R.id.user_portrait);
+        this.jOS.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.jOS.setDefaultBgResource(R.color.CAM_X0205);
+        this.jOS.setIsRound(true);
+        this.eGI = (TextView) HK(R.id.user_name);
+        this.mOr = (CountDownTextView) HK(R.id.count_down_text);
+        this.mOl = (TextView) HK(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.d.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.jTx.startLoad(fVar.mOo, 10, false);
-        this.eLt.setText(fVar.userName);
-        this.mST.setText(fVar.buttonText);
+        this.jOS.startLoad(fVar.mJK, 10, false);
+        this.eGI.setText(fVar.userName);
+        this.mOl.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.x(c.this.mRootView.getContext(), fVar.scheme, null);
-                if (c.this.mTd != null) {
-                    c.this.mTd.Jk(302);
-                    com.baidu.tieba.recapp.report.e.dFW().a(c.this.mTd);
+                if (c.this.mOv != null) {
+                    c.this.mOv.HD(302);
+                    com.baidu.tieba.recapp.report.e.dCe().a(c.this.mOv);
                 }
-                if (c.this.mTf != null) {
-                    com.baidu.tieba.lego.card.a.c.a(c.this.mTf);
+                if (c.this.mOx != null) {
+                    com.baidu.tieba.lego.card.a.c.a(c.this.mOx);
                 }
-                c.this.xo(false);
+                c.this.xk(false);
             }
         });
-        this.mSZ.update(fVar.count);
+        this.mOr.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.d.e
-    public void dGd() {
-        super.dGd();
-        this.mSZ.startCountDown();
+    public void dCl() {
+        super.dCl();
+        this.mOr.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.d.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.mSZ.setTimeoutListener(bVar);
+        this.mOr.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.d.e
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.eLt, R.color.CAM_X0101, 1);
-        ao.setViewTextColor(this.mST, R.color.CAM_X0101, 1);
-        ao.setBackgroundResource(this.mST, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        ao.setViewTextColor(this.eGI, R.color.CAM_X0101, 1);
+        ao.setViewTextColor(this.mOl, R.color.CAM_X0101, 1);
+        ao.setBackgroundResource(this.mOl, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.recapp.d.e
-    public void xo(boolean z) {
-        this.mTa = z;
-        if (this.mSZ != null) {
-            this.mSZ.setEnableTimeoutListener(this.mTa);
+    public void xk(boolean z) {
+        this.mOs = z;
+        if (this.mOr != null) {
+            this.mOr.setEnableTimeoutListener(this.mOs);
         }
     }
 }

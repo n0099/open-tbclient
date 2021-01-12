@@ -8,14 +8,14 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> qou;
-    private final kotlin.jvm.a.b<T, T> qov;
+    private final kotlin.jvm.a.a<T> qjS;
+    private final kotlin.jvm.a.b<T, T> qjT;
 
     @kotlin.e
     /* loaded from: classes5.dex */
     public static final class a implements Iterator<T> {
         private T nextItem;
-        private int qos = -2;
+        private int qjQ = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void eNc() {
+        private final void eJm() {
             T t;
-            if (this.qos == -2) {
-                t = (T) b.this.qou.invoke();
+            if (this.qjQ == -2) {
+                t = (T) b.this.qjS.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.qov;
+                kotlin.jvm.a.b bVar = b.this.qjT;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    p.eMM();
+                    p.eIW();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.qos = this.nextItem == null ? 0 : 1;
+            this.qjQ = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.qos < 0) {
-                eNc();
+            if (this.qjQ < 0) {
+                eJm();
             }
-            if (this.qos == 0) {
+            if (this.qjQ == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.qos = -1;
+            this.qjQ = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.qos < 0) {
-                eNc();
+            if (this.qjQ < 0) {
+                eJm();
             }
-            return this.qos == 1;
+            return this.qjQ == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.o(aVar, "getInitialValue");
         p.o(bVar, "getNextValue");
-        this.qou = aVar;
-        this.qov = bVar;
+        this.qjS = aVar;
+        this.qjT = bVar;
     }
 
     @Override // kotlin.sequences.c

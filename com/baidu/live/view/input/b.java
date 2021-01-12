@@ -2,25 +2,23 @@ package com.baidu.live.view.input;
 
 import android.view.View;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void t(String str, boolean z);
     }
 
-    void Bf();
+    boolean KN();
 
-    boolean OI();
+    boolean KO();
 
-    boolean OJ();
+    void cF(int i);
 
-    void cr(boolean z);
+    void cn(boolean z);
 
-    void cs(boolean z);
-
-    void el(int i);
+    void co(boolean z);
 
     View getView();
 
@@ -29,4 +27,6 @@ public interface b {
     boolean isClicked();
 
     void setClicked(boolean z);
+
+    void xk();
 }

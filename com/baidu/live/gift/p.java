@@ -4,15 +4,15 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p extends HttpMessage {
-    public Map<Long, Long> aYB;
-    public BdUniqueId aYC;
-    public long aYv;
-    public long aYw;
-    public String aYx;
-    public String aYy;
-    public long aYz;
+    public long aTI;
+    public long aTJ;
+    public String aTK;
+    public String aTL;
+    public long aTM;
+    public Map<Long, Long> aTO;
+    public BdUniqueId aTP;
     public String giftId;
     public String giftName;
     public String liveId;
@@ -22,6 +22,6 @@ public class p extends HttpMessage {
 
     public p() {
         super(1021014);
-        this.aYB = new HashMap();
+        this.aTO = new HashMap();
     }
 }

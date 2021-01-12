@@ -7,61 +7,61 @@ import com.facebook.imagepipeline.f.f;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final g puN;
-    private final h pvq;
-    private final com.facebook.common.time.b pvx;
+    private final h pqO;
+    private final com.facebook.common.time.b pqV;
+    private final g pql;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.pvx = bVar;
-        this.pvq = hVar;
-        this.puN = gVar;
+        this.pqV = bVar;
+        this.pqO = hVar;
+        this.pql = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void f(String str, Object obj) {
-        this.pvq.iA(this.pvx.now());
-        this.pvq.Zw(str);
-        this.pvq.bl(obj);
-        this.puN.a(this.pvq, 0);
+        this.pqO.iA(this.pqV.now());
+        this.pqO.Yo(str);
+        this.pqO.bl(obj);
+        this.pql.a(this.pqO, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void g(String str, @Nullable f fVar) {
-        this.pvq.iB(this.pvx.now());
-        this.pvq.Zw(str);
-        this.pvq.a(fVar);
-        this.puN.a(this.pvq, 2);
+        this.pqO.iB(this.pqV.now());
+        this.pqO.Yo(str);
+        this.pqO.a(fVar);
+        this.pql.a(this.pqO, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.pvq.iC(this.pvx.now());
-        this.pvq.Zw(str);
-        this.pvq.a(fVar);
-        this.pvq.AT(true);
-        this.puN.a(this.pvq, 3);
+        this.pqO.iC(this.pqV.now());
+        this.pqO.Yo(str);
+        this.pqO.a(fVar);
+        this.pqO.AP(true);
+        this.pql.a(this.pqO, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void h(String str, Throwable th) {
-        this.pvq.iD(this.pvx.now());
-        this.pvq.Zw(str);
-        this.pvq.AT(false);
-        this.puN.a(this.pvq, 5);
+        this.pqO.iD(this.pqV.now());
+        this.pqO.Yo(str);
+        this.pqO.AP(false);
+        this.pql.a(this.pqO, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-    public void hm(String str) {
-        super.hm(str);
-        int evh = this.pvq.evh();
-        if (evh != 3 && evh != 5) {
-            this.pvq.iE(this.pvx.now());
-            this.pvq.Zw(str);
-            this.pvq.AS(true);
-            this.puN.a(this.pvq, 4);
+    public void ga(String str) {
+        super.ga(str);
+        int ern = this.pqO.ern();
+        if (ern != 3 && ern != 5) {
+            this.pqO.iE(this.pqV.now());
+            this.pqO.Yo(str);
+            this.pqO.AO(true);
+            this.pql.a(this.pqO, 4);
         }
     }
 }

@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.setting.more.a.b;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     private Context context;
-    private b ndv;
-    private String ndw = null;
-    private boolean ndx = false;
-    private b.a ndy = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
+    private b mYQ;
+    private String mYR = null;
+    private boolean mYS = false;
+    private b.a mYT = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
         @Override // com.baidu.tieba.setting.more.a.b.a
-        public void dKp() {
-            if (a.this.ndx) {
-                a.this.ndx = false;
+        public void dGx() {
+            if (a.this.mYS) {
+                a.this.mYS = false;
             }
         }
     };
@@ -24,22 +24,22 @@ public class a {
         this.context = context;
     }
 
-    public void dKl() {
-        String dKo = dKo();
-        if (!TextUtils.isEmpty(dKo)) {
+    public void dGt() {
+        String dGw = dGw();
+        if (!TextUtils.isEmpty(dGw)) {
             stop();
-            if (c.Sv(dKo) && G(dKo, "instant", true)) {
-                this.ndx = true;
+            if (c.Rn(dGw) && G(dGw, "instant", true)) {
+                this.mYS = true;
             }
         }
     }
 
-    public void dKm() {
+    public void dGu() {
         stop();
     }
 
-    public boolean dKn() {
-        return this.ndx;
+    public boolean dGv() {
+        return this.mYS;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.setting.more.a.b */
@@ -51,27 +51,27 @@ public class a {
         } catch (Exception e) {
             BdLog.e(e);
         } finally {
-            this.ndv.a(null);
-            this.ndv = null;
+            this.mYQ.a(null);
+            this.mYQ = null;
         }
-        if (this.ndv != null) {
-            this.ndv.dKq();
+        if (this.mYQ != null) {
+            this.mYQ.dGy();
         }
-        this.ndx = false;
+        this.mYS = false;
     }
 
     private boolean G(String str, String str2, boolean z) {
-        if (this.ndv == null) {
-            Su(str);
-            this.ndv = new b(str, str2, z);
-            this.ndv.a(this.ndy);
+        if (this.mYQ == null) {
+            Rm(str);
+            this.mYQ = new b(str, str2, z);
+            this.mYQ.a(this.mYT);
             try {
-                this.ndv.start();
+                this.mYQ.start();
                 return true;
             } catch (IllegalThreadStateException e) {
                 return true;
             } catch (Exception e2) {
-                this.ndv = null;
+                this.mYQ = null;
                 BdLog.e(e2);
                 return false;
             }
@@ -79,7 +79,7 @@ public class a {
         return true;
     }
 
-    private void Su(String str) {
+    private void Rm(String str) {
         File file = new File(str);
         if (!file.exists()) {
             if (file.mkdirs()) {
@@ -93,16 +93,16 @@ public class a {
         }
     }
 
-    private String dKo() {
-        if (!TextUtils.isEmpty(this.ndw)) {
-            return this.ndw;
+    private String dGw() {
+        if (!TextUtils.isEmpty(this.mYR)) {
+            return this.mYR;
         }
-        this.ndw = c.dKs();
-        if (TextUtils.isEmpty(this.ndw)) {
-            this.ndw = c.dKt();
-        } else if (!this.ndw.endsWith(File.separator)) {
-            this.ndw += File.separator;
+        this.mYR = c.dGA();
+        if (TextUtils.isEmpty(this.mYR)) {
+            this.mYR = c.dGB();
+        } else if (!this.mYR.endsWith(File.separator)) {
+            this.mYR += File.separator;
         }
-        return this.ndw;
+        return this.mYR;
     }
 }

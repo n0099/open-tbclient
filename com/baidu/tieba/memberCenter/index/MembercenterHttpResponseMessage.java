@@ -7,7 +7,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.memberCenter.index.a.m;
 import com.squareup.wire.Wire;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     private m mMembercenter;
 
@@ -34,9 +34,9 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
                 } else {
                     str = "temp";
                 }
-                l<byte[]> dL = a.btT().dL("tb_member_center", str);
-                if (dL != null && bArr != null) {
-                    dL.setForever("member_center_cache_key", bArr);
+                l<byte[]> dK = a.bpZ().dK("tb_member_center", str);
+                if (dK != null && bArr != null) {
+                    dK.setForever("member_center_cache_key", bArr);
                 }
             }
         }

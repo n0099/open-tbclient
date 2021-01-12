@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MethodInvokeUtil {
     public static Object invoke(Method method, Class<?> cls, Object[] objArr) {
         try {

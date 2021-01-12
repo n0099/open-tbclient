@@ -9,11 +9,11 @@ import com.kwad.sdk.contentalliance.tube.model.TubeInfo;
 import com.kwad.sdk.contentalliance.tube.model.TubeProfileResultData;
 import com.kwad.sdk.contentalliance.tube.profile.TubeProfileParam;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f9269b;
+    private LinearLayout f8969b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -41,7 +41,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
             this.f.setText(String.format(o().getString(R.string.ksad_tube_update_unfinished_format_text), ag.a(valueOf, string)));
         }
         this.g.setText(ag.a(tubeInfo.summary, string));
-        this.f9269b.setVisibility(0);
+        this.f8969b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,15 +49,15 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onBind");
-        this.f9253a.e.add(this.i);
-        TubeProfileParam tubeProfileParam = this.f9253a.c;
+        this.f8953a.e.add(this.i);
+        TubeProfileParam tubeProfileParam = this.f8953a.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9253a.e.remove(this.i);
+        this.f8953a.e.remove(this.i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onCreate");
-        this.f9269b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
+        this.f8969b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
         this.c = (TextView) b(R.id.ksad_tube_name);
         this.d = (TextView) b(R.id.ksad_tube_author_name);
         this.e = (TextView) b(R.id.ksad_tube_author_name_label);

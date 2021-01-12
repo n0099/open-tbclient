@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DBGroupTableManager {
     public static final String COLUMN_TABLE_NAME = "name";
     public static final String KEY = "grouptable";

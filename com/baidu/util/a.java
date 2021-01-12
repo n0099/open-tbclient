@@ -5,29 +5,29 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f5906a;
+    private static a f5623a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f5907b;
+    private Context f5624b;
 
     private a(Context context) {
-        this.f5907b = context;
+        this.f5624b = context;
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f5906a == null) {
-                f5906a = new a(context);
+            if (f5623a == null) {
+                f5623a = new a(context);
             }
-            aVar = f5906a;
+            aVar = f5623a;
         }
         return aVar;
     }
 
     public long a(String str, String str2, long j) {
         try {
-            return this.f5907b.getSharedPreferences(str, 0).getLong(str2, j);
+            return this.f5624b.getSharedPreferences(str, 0).getLong(str2, j);
         } catch (Exception e) {
             e.printStackTrace();
             return System.currentTimeMillis();
@@ -36,7 +36,7 @@ public class a {
 
     public String a(String str, String str2, String str3) {
         try {
-            return this.f5907b.getSharedPreferences(str, 0).getString(str2, str3);
+            return this.f5624b.getSharedPreferences(str, 0).getString(str2, str3);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -44,10 +44,10 @@ public class a {
     }
 
     public void b(String str, String str2, long j) {
-        this.f5907b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
+        this.f5624b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
     }
 
     public void b(String str, String str2, String str3) {
-        this.f5907b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+        this.f5624b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
     }
 }

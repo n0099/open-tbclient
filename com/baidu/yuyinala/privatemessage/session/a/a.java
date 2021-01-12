@@ -11,23 +11,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private LayoutInflater kvQ;
+    private LayoutInflater krl;
     private Context mContext;
     private List<com.baidu.yuyinala.privatemessage.session.b.a> mDatas = new ArrayList();
-    private Set<com.baidu.yuyinala.privatemessage.session.b.a> pdy = new HashSet();
+    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oYT = new HashSet();
 
     public a(Context context, List<com.baidu.yuyinala.privatemessage.session.b.a> list) {
         this.mContext = context;
         this.mDatas.clear();
         this.mDatas.addAll(list);
         if (this.mContext != null) {
-            this.kvQ = LayoutInflater.from(context);
+            this.krl = LayoutInflater.from(context);
         }
     }
 
-    public void Ps(int i) {
+    public void NL(int i) {
         if (this.mDatas != null && this.mDatas.size() > i && i >= 0) {
             this.mDatas.remove(i);
             notifyDataSetChanged();
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Pt */
+    /* renamed from: NM */
     public com.baidu.yuyinala.privatemessage.session.b.a getItem(int i) {
         return this.mDatas.get(i);
     }
@@ -84,8 +84,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.yuyinala.privatemessage.session.viewholder.a aVar;
-        if (view == null && this.kvQ != null) {
-            view = this.kvQ.inflate(a.g.yuyin_item_user_message, viewGroup, false);
+        if (view == null && this.krl != null) {
+            view = this.krl.inflate(a.g.yuyin_item_user_message, viewGroup, false);
             com.baidu.yuyinala.privatemessage.session.viewholder.a aVar2 = new com.baidu.yuyinala.privatemessage.session.viewholder.a(view);
             view.setTag(aVar2);
             aVar = aVar2;

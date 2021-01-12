@@ -9,17 +9,17 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<Integer> f12850a;
+    private static final Set<Integer> f12550a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<Activity, Integer> f12851b = new WeakHashMap(1);
+    private Map<Activity, Integer> f12551b = new WeakHashMap(1);
 
     static {
-        f12850a = Build.VERSION.SDK_INT >= 18 ? Collections.unmodifiableSet(new HashSet(Arrays.asList(-1, 2, 10, 4, 13))) : Collections.unmodifiableSet(new HashSet(Arrays.asList(-1, 2, 10, 4)));
+        f12550a = Build.VERSION.SDK_INT >= 18 ? Collections.unmodifiableSet(new HashSet(Arrays.asList(-1, 2, 10, 4, 13))) : Collections.unmodifiableSet(new HashSet(Arrays.asList(-1, 2, 10, 4)));
     }
 
     private boolean c() {
@@ -43,24 +43,24 @@ public class ad {
     }
 
     public void b() {
-        if (this.f12851b == null) {
+        if (this.f12551b == null) {
             GDTLogger.report("HoldingActivityOrientationMap null");
             return;
         }
-        if (this.f12851b.size() > 1) {
+        if (this.f12551b.size() > 1) {
             GDTLogger.report("HoldingActivityOrientationMap is holding More than one entry");
         }
-        for (Activity activity : this.f12851b.keySet()) {
+        for (Activity activity : this.f12551b.keySet()) {
             if (activity != null) {
-                activity.setRequestedOrientation(this.f12851b.get(activity).intValue());
+                activity.setRequestedOrientation(this.f12551b.get(activity).intValue());
             }
         }
-        this.f12851b.clear();
+        this.f12551b.clear();
     }
 
     public void b(Activity activity) {
         int requestedOrientation = activity.getRequestedOrientation();
-        if (f12850a.contains(Integer.valueOf(requestedOrientation))) {
+        if (f12550a.contains(Integer.valueOf(requestedOrientation))) {
             int i = activity.getResources().getConfiguration().orientation;
             int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
             GDTLogger.d("config ORIENTATION=" + (i == 2 ? "landscape" : "patr") + " \t rotation:" + rotation);
@@ -75,7 +75,7 @@ public class ad {
             } else {
                 activity.setRequestedOrientation(1);
             }
-            this.f12851b.put(activity, Integer.valueOf(requestedOrientation));
+            this.f12551b.put(activity, Integer.valueOf(requestedOrientation));
         }
     }
 }

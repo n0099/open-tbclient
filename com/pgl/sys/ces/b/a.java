@@ -8,37 +8,37 @@ import android.hardware.SensorManager;
 import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
 public final class a implements SensorEventListener {
-    private static a pUB = null;
+    private static a pQb = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private SensorManager f11702a;
+    private SensorManager f11402a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11703b;
+    private int f11403b;
     private int c = 0;
     private float[] d = new float[3];
-    private DecimalFormat pUA = new DecimalFormat("0.0");
+    private DecimalFormat pQa = new DecimalFormat("0.0");
 
     private a(Context context) {
-        this.f11702a = null;
+        this.f11402a = null;
         Context applicationContext = context.getApplicationContext();
         if (applicationContext != null) {
-            this.f11702a = (SensorManager) applicationContext.getSystemService("sensor");
+            this.f11402a = (SensorManager) applicationContext.getSystemService("sensor");
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0017, code lost:
-        if (r3.f11702a.registerListener(r3, r3.f11702a.getDefaultSensor(1), 3) == false) goto L11;
+        if (r3.f11402a.registerListener(r3, r3.f11402a.getDefaultSensor(1), 3) == false) goto L11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private synchronized void b() {
         try {
-            if (this.f11702a != null) {
-                if (this.f11703b == 0) {
+            if (this.f11402a != null) {
+                if (this.f11403b == 0) {
                 }
-                this.f11703b++;
+                this.f11403b++;
             }
         } catch (Exception e) {
         }
@@ -46,10 +46,10 @@ public final class a implements SensorEventListener {
 
     private synchronized void c() {
         try {
-            if (this.f11702a != null) {
-                this.f11703b--;
-                if (this.f11703b == 0) {
-                    this.f11702a.unregisterListener(this);
+            if (this.f11402a != null) {
+                this.f11403b--;
+                if (this.f11403b == 0) {
+                    this.f11402a.unregisterListener(this);
                 }
             }
         } catch (Exception e) {
@@ -57,15 +57,15 @@ public final class a implements SensorEventListener {
         }
     }
 
-    public static a iu(Context context) {
-        if (pUB == null) {
+    public static a is(Context context) {
+        if (pQb == null) {
             synchronized (a.class) {
-                if (pUB == null) {
-                    pUB = new a(context);
+                if (pQb == null) {
+                    pQb = new a(context);
                 }
             }
         }
-        return pUB;
+        return pQb;
     }
 
     public String a() {
@@ -84,7 +84,7 @@ public final class a implements SensorEventListener {
             e.printStackTrace();
             return append.toString();
         } finally {
-            String str = this.pUA.format(this.d[0]) + ", " + this.pUA.format(this.d[1]) + ", " + this.pUA.format(this.d[2]);
+            String str = this.pQa.format(this.d[0]) + ", " + this.pQa.format(this.d[1]) + ", " + this.pQa.format(this.d[2]);
             c();
             this.c = 0;
         }

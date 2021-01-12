@@ -4,57 +4,57 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private long fsA;
-    private long fsB;
-    private String fsC;
-    public boolean fsM;
-    public String fsN;
-    public String fsO;
-    private int fsz;
+    private int fnO;
+    private long fnP;
+    private long fnQ;
+    private String fnR;
+    public boolean fob;
+    public String foc;
+    public String fod;
     private String name;
     private String text_color;
     private String text_color_pressed;
     private String url;
-    private int fsw = 1;
-    private int fsy = 0;
-    private int fsD = 0;
-    private int fsE = 1;
-    private int fsF = 0;
-    private int fsG = 0;
-    private int fsH = 300;
-    private int fsI = 1;
-    public int fsJ = 4;
-    public int fsK = 4;
-    public int fsL = 7;
-    private h fsx = new h();
+    private int fnL = 1;
+    private int fnN = 0;
+    private int fnS = 0;
+    private int fnT = 1;
+    private int fnU = 0;
+    private int fnV = 0;
+    private int fnW = 300;
+    private int fnX = 1;
+    public int fnY = 4;
+    public int fnZ = 4;
+    public int foa = 7;
+    private h fnM = new h();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.fsw = jSONObject.optInt("als_control", 1);
-            this.fsy = jSONObject.optInt("not_use_lego_patch", 0);
-            this.fsE = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.fsG = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.fsx.parserJson(jSONObject);
+            this.fnL = jSONObject.optInt("als_control", 1);
+            this.fnN = jSONObject.optInt("not_use_lego_patch", 0);
+            this.fnT = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.fnV = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.fnM.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.fsz = optJSONObject.optInt("log_feed_switch", 0);
-                this.fsA = optJSONObject.optLong("start_time", -1L);
-                this.fsB = optJSONObject.optLong("end_time", -1L);
-                this.fsC = optJSONObject.optString("ext_info");
+                this.fnO = optJSONObject.optInt("log_feed_switch", 0);
+                this.fnP = optJSONObject.optLong("start_time", -1L);
+                this.fnQ = optJSONObject.optLong("end_time", -1L);
+                this.fnR = optJSONObject.optString("ext_info");
             }
-            this.fsD = jSONObject.optInt("ad_collect_switch", 0);
+            this.fnS = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.fsH = optJSONObject2.optInt("interval", 300);
+                this.fnW = optJSONObject2.optInt("interval", 300);
             }
-            this.fsI = jSONObject.optInt("video_page_style", 1);
-            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("video_page_style", this.fsI);
-            this.fsF = jSONObject.optInt("ad_download_lib", 0);
+            this.fnX = jSONObject.optInt("video_page_style", 1);
+            com.baidu.tbadk.core.sharedPref.b.brx().putInt("video_page_style", this.fnX);
+            this.fnU = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.fsJ = optJSONObject3.optInt("first_floor");
-                this.fsK = optJSONObject3.optInt("prefetch_step");
-                this.fsL = optJSONObject3.optInt("step");
+                this.fnY = optJSONObject3.optInt("first_floor");
+                this.fnZ = optJSONObject3.optInt("prefetch_step");
+                this.foa = optJSONObject3.optInt("step");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
             if (optJSONObject4 != null) {
@@ -63,56 +63,56 @@ public class d {
                 this.text_color = optJSONObject4.optString("text_color");
                 this.text_color_pressed = optJSONObject4.optString("text_color_pressed");
             }
-            this.fsM = jSONObject.optInt("afd_jump_pb") == 1;
-            this.fsN = jSONObject.optString("afd_eid");
+            this.fob = jSONObject.optInt("afd_jump_pb") == 1;
+            this.foc = jSONObject.optString("afd_eid");
             JSONObject optJSONObject5 = jSONObject.optJSONObject("iadex_sniff_list_url");
             if (optJSONObject5 != null) {
-                this.fsO = optJSONObject5.optString("os_type2_iadex_url");
-                com.baidu.tbadk.util.c.ED(this.fsO);
+                this.fod = optJSONObject5.optString("os_type2_iadex_url");
+                com.baidu.tbadk.util.c.Ds(this.fod);
                 return;
             }
-            com.baidu.tbadk.util.c.ED(null);
+            com.baidu.tbadk.util.c.Ds(null);
         }
     }
 
-    public h bzx() {
-        return this.fsx;
+    public h bvD() {
+        return this.fnM;
     }
 
-    public boolean bzy() {
-        return this.fsw > 0;
+    public boolean bvE() {
+        return this.fnL > 0;
     }
 
-    public boolean bzz() {
-        if (this.fsz == 1) {
+    public boolean bvF() {
+        if (this.fnO == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.fsA < currentTimeMillis && currentTimeMillis < this.fsB;
+            return this.fnP < currentTimeMillis && currentTimeMillis < this.fnQ;
         }
         return false;
     }
 
-    public boolean bzA() {
-        return this.fsE == 1;
+    public boolean bvG() {
+        return this.fnT == 1;
     }
 
-    public boolean bzB() {
-        return this.fsG == 1;
+    public boolean bvH() {
+        return this.fnV == 1;
     }
 
-    public String bzC() {
-        return this.fsC;
+    public String bvI() {
+        return this.fnR;
     }
 
-    public boolean bzD() {
-        return this.fsD == 1;
+    public boolean bvJ() {
+        return this.fnS == 1;
     }
 
-    public int bzE() {
-        return this.fsH;
+    public int bvK() {
+        return this.fnW;
     }
 
-    public boolean bzF() {
-        return this.fsF == 0;
+    public boolean bvL() {
+        return this.fnU == 0;
     }
 
     public String getUrl() {

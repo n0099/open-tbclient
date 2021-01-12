@@ -23,24 +23,24 @@ import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.GetMemberTaskList.ImgInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
-    private String aJH;
+    private String aEU;
     private String imageUrl;
-    private c lko;
-    private d lkp;
-    private a lkq;
+    private c lfJ;
+    private d lfK;
+    private a lfL;
     private int type;
-    private boolean lkr = false;
-    private a.InterfaceC0807a lks = new a.InterfaceC0807a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.1
-        @Override // com.baidu.tieba.memberCenter.memberTask.a.InterfaceC0807a
+    private boolean lfM = false;
+    private a.InterfaceC0790a lfN = new a.InterfaceC0790a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.1
+        @Override // com.baidu.tieba.memberCenter.memberTask.a.InterfaceC0790a
         public void a(int i, String str, int i2, int i3, long j) {
-            if (i == 0 && MemberTaskCenterActivity.this.lkp != null) {
-                MemberTaskCenterActivity.this.FI(i3);
+            if (i == 0 && MemberTaskCenterActivity.this.lfK != null) {
+                MemberTaskCenterActivity.this.Ec(i3);
                 r rVar = new r();
                 rVar.setTaskId(j);
                 if (MemberTaskCenterActivity.this.type == 1 && i2 == 2) {
-                    MemberTaskCenterActivity.this.lko.he(MemberTaskCenterActivity.this.lko.dha() + i3);
+                    MemberTaskCenterActivity.this.lfJ.he(MemberTaskCenterActivity.this.lfJ.ddi() + i3);
                 }
                 if (MemberTaskCenterActivity.this.type == 2) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMBER_CENTER_UPDATE_ACTIVE_SCORES, Integer.valueOf(i3)));
@@ -48,7 +48,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 if (i2 >= 1) {
                     i2 = 1;
                 }
-                rVar.FH(i2);
+                rVar.Eb(i2);
                 MemberTaskCenterActivity.this.a(rVar, i3);
                 if (MemberTaskCenterActivity.this.type == 2) {
                     TiebaStatic.log(new aq("c11744"));
@@ -59,34 +59,34 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             }
         }
     };
-    private c.a lkt = new c.a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.2
+    private c.a lfO = new c.a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.2
         @Override // com.baidu.tieba.memberCenter.memberTask.c.a
-        public void bC(int i, String str) {
-            MemberTaskCenterActivity.this.lkp.getListView().setVisibility(8);
-            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lkp.getRootView());
-            MemberTaskCenterActivity.this.showNetRefreshView(MemberTaskCenterActivity.this.lkp.getRootView(), str, true);
+        public void bD(int i, String str) {
+            MemberTaskCenterActivity.this.lfK.getListView().setVisibility(8);
+            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lfK.getRootView());
+            MemberTaskCenterActivity.this.showNetRefreshView(MemberTaskCenterActivity.this.lfK.getRootView(), str, true);
             MemberTaskCenterActivity.this.setNetRefreshViewEmotionDefMarginTop();
         }
 
         @Override // com.baidu.tieba.memberCenter.memberTask.c.a
         public void a(List<ImgInfo> list, List<r> list2, long j) {
-            MemberTaskCenterActivity.this.lkp.getListView().setVisibility(0);
-            MemberTaskCenterActivity.this.hideNetRefreshView(MemberTaskCenterActivity.this.lkp.getRootView());
-            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lkp.getRootView());
+            MemberTaskCenterActivity.this.lfK.getListView().setVisibility(0);
+            MemberTaskCenterActivity.this.hideNetRefreshView(MemberTaskCenterActivity.this.lfK.getRootView());
+            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lfK.getRootView());
             if (list != null && list.size() >= 1 && list.get(0) != null) {
-                MemberTaskCenterActivity.this.aJH = list.get(0).jump_url;
+                MemberTaskCenterActivity.this.aEU = list.get(0).jump_url;
                 MemberTaskCenterActivity.this.imageUrl = list.get(0).img_url;
             }
-            MemberTaskCenterActivity.this.lkp.a(MemberTaskCenterActivity.this.imageUrl, list2, j);
+            MemberTaskCenterActivity.this.lfK.a(MemberTaskCenterActivity.this.imageUrl, list2, j);
         }
     };
-    private View.OnClickListener jSi = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.3
+    private View.OnClickListener jND = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
                 if (view.getId() == R.id.advert_image_view) {
-                    MemberCenterStatic.c(MemberTaskCenterActivity.this.getPageContext(), new String[]{MemberTaskCenterActivity.this.aJH});
-                    MemberTaskCenterActivity.this.lkr = true;
+                    MemberCenterStatic.c(MemberTaskCenterActivity.this.getPageContext(), new String[]{MemberTaskCenterActivity.this.aEU});
+                    MemberTaskCenterActivity.this.lfM = true;
                     TiebaStatic.log(new aq("c11747"));
                 } else if (view.getId() == R.id.task_status && (view.getTag() instanceof r)) {
                     r rVar = (r) view.getTag();
@@ -97,8 +97,8 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                         MemberTaskCenterActivity.this.a(rVar);
                     } else if (rVar.getType() == 1) {
                         MemberTaskCenterActivity.this.type = 1;
-                        if (MemberTaskCenterActivity.this.lkq != null) {
-                            MemberTaskCenterActivity.this.lkq.B(rVar.getId(), rVar.dgY());
+                        if (MemberTaskCenterActivity.this.lfL != null) {
+                            MemberTaskCenterActivity.this.lfL.B(rVar.getId(), rVar.ddg());
                         }
                     }
                 }
@@ -110,19 +110,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lkp = new d(this, this.jSi);
-        this.lko = new c();
-        this.lko.a(this.lkt);
-        this.lkq = new a();
-        this.lkq.a(this.lks);
-        this.lko.loadData();
-        showLoadingView(this.lkp.getRootView());
+        this.lfK = new d(this, this.jND);
+        this.lfJ = new c();
+        this.lfJ.a(this.lfO);
+        this.lfL = new a();
+        this.lfL.a(this.lfN);
+        this.lfJ.loadData();
+        showLoadingView(this.lfK.getRootView());
     }
 
     public void a(r rVar, int i) {
         List<r> taskList;
         if (rVar != null && i > 0) {
-            if (this.lko.getTaskList() != null && (taskList = this.lko.getTaskList()) != null && taskList.size() > 0) {
+            if (this.lfJ.getTaskList() != null && (taskList = this.lfJ.getTaskList()) != null && taskList.size() > 0) {
                 Iterator<r> it = taskList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -130,17 +130,17 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     }
                     r next = it.next();
                     if (next != null && next.getId() == rVar.getId()) {
-                        next.FH(rVar.getStatus());
+                        next.Eb(rVar.getStatus());
                         break;
                     }
                 }
             }
-            this.lkp.a(this.imageUrl, this.lko.getTaskList(), this.lko.dha());
+            this.lfK.a(this.imageUrl, this.lfJ.getTaskList(), this.lfJ.ddi());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FI(int i) {
+    public void Ec(int i) {
         if (i > 0) {
             if (this.type != 1) {
                 if (this.type == 2) {
@@ -156,16 +156,16 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        showLoadingView(this.lkp.getRootView());
-        hideNetRefreshView(this.lkp.getRootView());
-        this.lko.loadData();
+        showLoadingView(this.lfK.getRootView());
+        hideNetRefreshView(this.lfK.getRootView());
+        this.lfJ.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lkp.onChangeSkinType(i);
+        this.lfK.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,7 +173,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         if (rVar != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.oZ(R.string.tips_login_and_get_scores);
+                aVar.nt(R.string.tips_login_and_get_scores);
                 aVar.a(R.string.login, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.4
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -188,15 +188,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     }
                 });
                 aVar.b(getPageContext());
-                aVar.btY();
+                aVar.bqe();
             } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-                if (this.lkq != null) {
-                    this.lkq.B(rVar.getId(), rVar.dgY());
+                if (this.lfL != null) {
+                    this.lfL.B(rVar.getId(), rVar.ddg());
                 }
             } else {
                 final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar2.oZ(R.string.tips_nomal_member_get_scores);
-                aVar2.pb(R.color.CAM_X0305);
+                aVar2.nt(R.string.tips_nomal_member_get_scores);
+                aVar2.nv(R.color.CAM_X0305);
                 aVar2.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.6
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -213,7 +213,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     }
                 });
                 aVar2.b(getPageContext());
-                aVar2.btY();
+                aVar2.bqe();
             }
         }
     }
@@ -222,11 +222,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lkq != null) {
-            this.lkq.onDestroy();
+        if (this.lfL != null) {
+            this.lfL.onDestroy();
         }
-        if (this.lko != null) {
-            this.lko.onDestroy();
+        if (this.lfJ != null) {
+            this.lfJ.onDestroy();
         }
     }
 
@@ -234,9 +234,9 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lkr && j.isNetWorkAvailable()) {
-            this.lkr = false;
-            this.lko.loadData();
+        if (this.lfM && j.isNetWorkAvailable()) {
+            this.lfM = false;
+            this.lfJ.loadData();
         }
     }
 }

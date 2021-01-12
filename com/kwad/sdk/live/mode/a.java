@@ -6,7 +6,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static String a(@NonNull LiveInfo liveInfo) {
         return liveInfo.liveStreamId;

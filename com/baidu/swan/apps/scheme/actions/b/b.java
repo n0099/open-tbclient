@@ -12,10 +12,10 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class b extends aa {
-    protected String dJB;
-    protected boolean dJC;
+    protected String dEP;
+    protected boolean dEQ;
 
     protected abstract void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
 
@@ -23,8 +23,8 @@ public abstract class b extends aa {
 
     public b(j jVar, String str) {
         super(jVar, str);
-        this.dJB = null;
-        this.dJC = false;
+        this.dEP = null;
+        this.dEQ = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -47,17 +47,17 @@ public abstract class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.dJC = parseString.optBoolean("isFavorButton", false);
+        this.dEQ = parseString.optBoolean("isFavorButton", false);
         if (!b(eVar, unitedSchemeEntity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         }
         String optString2 = parseString.optString("slaveId");
-        String aDM = com.baidu.swan.apps.v.f.aDH().aDM();
-        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.aDH().asE()) && (TextUtils.equals(aDM, "pages/swan-news-showcase/index") || TextUtils.equals(aDM, "pages/swan-operate-news/index"))) {
+        String azS = com.baidu.swan.apps.v.f.azN().azS();
+        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.azN().aoI()) && (TextUtils.equals(azS, "pages/swan-news-showcase/index") || TextUtils.equals(azS, "pages/swan-operate-news/index"))) {
             b(eVar, unitedSchemeEntity, callbackHandler, optString);
         } else {
-            eVar.aMx().b(context, this.dJC ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            eVar.aID().b(context, this.dEQ ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */

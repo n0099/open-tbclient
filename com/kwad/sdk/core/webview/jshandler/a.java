@@ -8,35 +8,35 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.core.download.b.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9851a;
+    private final com.kwad.sdk.core.webview.a f9551a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f9852b = new Handler(Looper.getMainLooper());
+    private Handler f9552b = new Handler(Looper.getMainLooper());
     @Nullable
     private final com.kwad.sdk.core.download.b.b c;
     @Nullable
     private b d;
 
     /* renamed from: com.kwad.sdk.core.webview.jshandler.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C1121a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
+    /* loaded from: classes4.dex */
+    public static final class C1104a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f9858a;
+        public boolean f9558a;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         @WorkerThread
         void a();
     }
 
     public a(@NonNull com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.b.b bVar, @Nullable b bVar2) {
-        this.f9851a = aVar;
+        this.f9551a = aVar;
         this.c = bVar;
         if (bVar != null) {
             this.c.a(1);
@@ -52,23 +52,23 @@ public class a implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9851a.f9837b == null) {
+        if (this.f9551a.f9537b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
-        final C1121a c1121a = new C1121a();
+        final C1104a c1104a = new C1104a();
         try {
-            c1121a.parseJson(new JSONObject(str));
+            c1104a.parseJson(new JSONObject(str));
         } catch (JSONException e) {
             com.kwad.sdk.core.d.a.a(e);
         }
-        if (this.f9851a.g) {
-            this.f9852b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.1
+        if (this.f9551a.g) {
+            this.f9552b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.kwad.sdk.core.download.b.b.a(a.this.c, c1121a.f9858a);
-                    com.kwad.sdk.core.download.b.a.a(a.this.f9851a.e.getContext(), a.this.f9851a.f9837b, new a.InterfaceC1105a() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
-                        @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+                    com.kwad.sdk.core.download.b.b.a(a.this.c, c1104a.f9558a);
+                    com.kwad.sdk.core.download.b.a.a(a.this.f9551a.e.getContext(), a.this.f9551a.f9537b, new a.InterfaceC1088a() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
+                        @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
                         public void a() {
                             if (a.this.d != null) {
                                 a.this.d.a();
@@ -78,10 +78,10 @@ public class a implements com.kwad.sdk.core.webview.a.a {
                 }
             });
         } else if (this.d != null) {
-            this.f9852b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.2
+            this.f9552b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.kwad.sdk.core.download.b.b.a(a.this.c, c1121a.f9858a);
+                    com.kwad.sdk.core.download.b.b.a(a.this.c, c1104a.f9558a);
                     if (a.this.d != null) {
                         a.this.d.a();
                     }
@@ -93,7 +93,7 @@ public class a implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f9852b.removeCallbacksAndMessages(null);
+        this.f9552b.removeCallbacksAndMessages(null);
         this.d = null;
     }
 }

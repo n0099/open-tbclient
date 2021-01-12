@@ -1,7 +1,7 @@
 package aegon.chrome.base.task;
 
 import android.view.Choreographer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ChoreographerTaskRunner implements SingleThreadTaskRunner {
     public final Choreographer mChoreographer;
 

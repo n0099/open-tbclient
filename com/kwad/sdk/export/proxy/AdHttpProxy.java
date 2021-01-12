@@ -3,7 +3,7 @@ package com.kwad.sdk.export.proxy;
 import com.kwad.sdk.core.network.c;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface AdHttpProxy<Response> {
     c doGet(String str, Map<String, String> map);
 

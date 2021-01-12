@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.j;
 /* loaded from: classes5.dex */
 public class b {
-    public static final a pHU = new C1065b();
-    private static volatile c pHV = null;
+    public static final a pDt = new C1048b();
+    private static volatile c pDu = null;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -19,28 +19,28 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        eBJ().beginSection(str);
+        exR().beginSection(str);
     }
 
     public static void endSection() {
-        eBJ().endSection();
+        exR().endSection();
     }
 
-    private static c eBJ() {
-        if (pHV == null) {
+    private static c exR() {
+        if (pDu == null) {
             synchronized (b.class) {
-                if (pHV == null) {
-                    pHV = new com.facebook.imagepipeline.j.a();
+                if (pDu == null) {
+                    pDu = new com.facebook.imagepipeline.j.a();
                 }
             }
         }
-        return pHV;
+        return pDu;
     }
 
     /* renamed from: com.facebook.imagepipeline.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static final class C1065b implements a {
-        private C1065b() {
+    private static final class C1048b implements a {
+        private C1048b() {
         }
     }
 }

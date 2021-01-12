@@ -4,15 +4,15 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static volatile a c;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<AdTemplate> f8874a;
+    private List<AdTemplate> f8574a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<AdTemplate> f8875b;
+    private List<AdTemplate> f8575b;
 
     private a() {
     }
@@ -32,45 +32,45 @@ public class a {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f8874a == null) {
-            this.f8874a = new ArrayList();
+        if (this.f8574a == null) {
+            this.f8574a = new ArrayList();
         }
-        this.f8874a.clear();
-        this.f8874a.addAll(list);
+        this.f8574a.clear();
+        this.f8574a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f8874a;
+        return this.f8574a;
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f8875b == null) {
-            this.f8875b = new ArrayList();
+        if (this.f8575b == null) {
+            this.f8575b = new ArrayList();
         }
-        this.f8875b.clear();
-        this.f8875b.addAll(list);
+        this.f8575b.clear();
+        this.f8575b.addAll(list);
     }
 
     public void c() {
-        if (this.f8874a != null) {
-            this.f8874a.clear();
+        if (this.f8574a != null) {
+            this.f8574a.clear();
         }
-        this.f8874a = null;
+        this.f8574a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.f8875b;
+        return this.f8575b;
     }
 
     public void e() {
-        if (this.f8875b != null) {
-            this.f8875b.clear();
+        if (this.f8575b != null) {
+            this.f8575b.clear();
         }
-        this.f8875b = null;
+        this.f8575b = null;
     }
 }

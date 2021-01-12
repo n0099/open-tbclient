@@ -8,14 +8,14 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1957a = "/risk/init/v2/config";
+    public static final String f1907a = "/risk/init/v2/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1958b = 1;
+    public static final int f1908b = 1;
     private Context c;
     private String d;
 
@@ -46,7 +46,7 @@ public class a extends BaseBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1957a;
+        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1907a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

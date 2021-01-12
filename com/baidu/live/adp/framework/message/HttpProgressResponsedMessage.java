@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.message;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HttpProgressResponsedMessage extends CustomResponsedMessage<Object> {
     private float mProgress;
 

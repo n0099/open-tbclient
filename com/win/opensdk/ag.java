@@ -1,7 +1,9 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
+/* loaded from: classes3.dex */
 public enum ag {
-    STATE_DEFAULT("default"),
+    STATE_DEFAULT(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT),
     STATE_EXPANDED("expanded"),
     STATE_LOADING("loading"),
     STATE_HIDDEN("hidden"),
@@ -9,14 +11,14 @@ public enum ag {
     
 
     /* renamed from: java  reason: collision with other field name */
-    private String f17java;
+    private String f16java;
 
     ag(String str) {
-        this.f17java = str;
+        this.f16java = str;
     }
 
     @Override // java.lang.Enum
     public final String toString() {
-        return this.f17java;
+        return this.f16java;
     }
 }

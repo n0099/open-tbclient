@@ -31,7 +31,7 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1024c {
+    public interface InterfaceC1007c {
         void a(int i, int i2);
 
         void f();
@@ -41,7 +41,7 @@ public interface c {
 
     void a(a aVar);
 
-    void a(InterfaceC1024c interfaceC1024c);
+    void a(InterfaceC1007c interfaceC1007c);
 
     void a(e eVar);
 

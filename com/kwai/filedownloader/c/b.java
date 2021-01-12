@@ -6,21 +6,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.kwai.filedownloader.c.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements b {
 
         /* renamed from: com.kwai.filedownloader.c.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        private static class C1171a implements b {
+        /* loaded from: classes4.dex */
+        private static class C1154a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f11182a;
+            private IBinder f10882a;
 
-            C1171a(IBinder iBinder) {
-                this.f11182a = iBinder;
+            C1154a(IBinder iBinder) {
+                this.f10882a = iBinder;
             }
 
             @Override // com.kwai.filedownloader.c.b
@@ -29,7 +29,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    this.f11182a.transact(6, obtain, obtain2, 0);
+                    this.f10882a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -49,7 +49,7 @@ public interface b extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f11182a.transact(12, obtain, null, 1);
+                    this.f10882a.transact(12, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -61,7 +61,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeStrongBinder(aVar != null ? aVar.asBinder() : null);
-                    this.f11182a.transact(1, obtain, null, 1);
+                    this.f10882a.transact(1, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -87,7 +87,7 @@ public interface b extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(z3 ? 1 : 0);
-                    this.f11182a.transact(4, obtain, obtain2, 0);
+                    this.f10882a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -101,7 +101,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f11182a.transact(13, obtain, null, 1);
+                    this.f10882a.transact(13, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -114,7 +114,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(5, obtain, obtain2, 0);
+                    this.f10882a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -131,7 +131,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f11182a.transact(3, obtain, obtain2, 0);
+                    this.f10882a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -142,7 +142,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f11182a;
+                return this.f10882a;
             }
 
             @Override // com.kwai.filedownloader.c.b
@@ -151,7 +151,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeStrongBinder(aVar != null ? aVar.asBinder() : null);
-                    this.f11182a.transact(2, obtain, null, 1);
+                    this.f10882a.transact(2, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -163,7 +163,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    this.f11182a.transact(11, obtain, obtain2, 0);
+                    this.f10882a.transact(11, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -179,7 +179,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(7, obtain, obtain2, 0);
+                    this.f10882a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -195,7 +195,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(8, obtain, obtain2, 0);
+                    this.f10882a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {
@@ -210,7 +210,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    this.f11182a.transact(15, obtain, obtain2, 0);
+                    this.f10882a.transact(15, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -225,7 +225,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(9, obtain, obtain2, 0);
+                    this.f10882a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {
@@ -241,7 +241,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(10, obtain, obtain2, 0);
+                    this.f10882a.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readByte();
                 } finally {
@@ -257,7 +257,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeInt(i);
-                    this.f11182a.transact(14, obtain, obtain2, 0);
+                    this.f10882a.transact(14, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -276,7 +276,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1171a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1154a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -289,11 +289,11 @@ public interface b extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    a(a.AbstractBinderC1169a.a(parcel.readStrongBinder()));
+                    a(a.AbstractBinderC1152a.a(parcel.readStrongBinder()));
                     return true;
                 case 2:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    b(a.AbstractBinderC1169a.a(parcel.readStrongBinder()));
+                    b(a.AbstractBinderC1152a.a(parcel.readStrongBinder()));
                     return true;
                 case 3:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

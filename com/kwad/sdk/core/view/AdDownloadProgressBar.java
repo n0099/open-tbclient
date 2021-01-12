@@ -14,14 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdDownloadProgressBar extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f9812a;
+    private ImageView f9512a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f9813b;
+    private TextView f9513b;
     private View c;
     private a d;
     private com.kwad.sdk.core.view.a e;
@@ -31,28 +31,28 @@ public class AdDownloadProgressBar extends d {
     private Drawable i;
     private int j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private float f9815b;
+        private float f9515b;
         private String c;
         private boolean d;
 
         private a() {
-            this.f9815b = -1.0f;
+            this.f9515b = -1.0f;
             this.d = false;
         }
 
         void a() {
-            if (!this.d || this.f9815b < 0.0f) {
-                AdDownloadProgressBar.this.f9813b.setText(this.c);
+            if (!this.d || this.f9515b < 0.0f) {
+                AdDownloadProgressBar.this.f9513b.setText(this.c);
                 return;
             }
-            AdDownloadProgressBar.this.f9813b.setText(this.c);
+            AdDownloadProgressBar.this.f9513b.setText(this.c);
             if (AdDownloadProgressBar.this.e != null) {
-                AdDownloadProgressBar.this.f9812a.setImageDrawable(AdDownloadProgressBar.this.e);
-                AdDownloadProgressBar.this.e.a(this.f9815b);
+                AdDownloadProgressBar.this.f9512a.setImageDrawable(AdDownloadProgressBar.this.e);
+                AdDownloadProgressBar.this.e.a(this.f9515b);
             }
         }
     }
@@ -77,16 +77,16 @@ public class AdDownloadProgressBar extends d {
 
     private void b() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_download_progress_bar, (ViewGroup) this, true);
-        this.f9813b = (TextView) findViewById(R.id.ksad_status_tv);
+        this.f9513b = (TextView) findViewById(R.id.ksad_status_tv);
         this.c = findViewById(R.id.ksad_click_mask);
-        this.f9812a = (ImageView) findViewById(R.id.ksad_progress_bg);
+        this.f9512a = (ImageView) findViewById(R.id.ksad_progress_bg);
         setRadius(ao.a(getContext(), 2.0f));
         this.c.setBackgroundResource(R.drawable.ksad_download_progress_mask_bg);
     }
 
     private void c() {
-        this.f9813b.setCompoundDrawablePadding(0);
-        this.f9813b.setCompoundDrawables(null, null, null, null);
+        this.f9513b.setCompoundDrawablePadding(0);
+        this.f9513b.setCompoundDrawables(null, null, null, null);
     }
 
     private void d() {
@@ -94,8 +94,8 @@ public class AdDownloadProgressBar extends d {
         setDrawableBounds(this.g);
         setDrawableBounds(this.h);
         setDrawableBounds(this.i);
-        this.f9813b.setCompoundDrawablePadding(this.j);
-        this.f9813b.setCompoundDrawables(this.f, this.g, this.h, this.i);
+        this.f9513b.setCompoundDrawablePadding(this.j);
+        this.f9513b.setCompoundDrawables(this.f, this.g, this.h, this.i);
     }
 
     private void setDrawableBounds(@Nullable Drawable drawable) {
@@ -117,7 +117,7 @@ public class AdDownloadProgressBar extends d {
     public void a(String str, float f) {
         this.d.d = true;
         this.d.c = str;
-        this.d.f9815b = f;
+        this.d.f9515b = f;
         this.d.a();
         c();
     }
@@ -131,7 +131,7 @@ public class AdDownloadProgressBar extends d {
     }
 
     public void setProgressDrawable(@ColorInt int i) {
-        this.f9812a.setBackgroundColor(i);
+        this.f9512a.setBackgroundColor(i);
         super.setBackground(null);
         super.setForeground(null);
     }
@@ -144,18 +144,18 @@ public class AdDownloadProgressBar extends d {
     }
 
     public void setTextColor(@ColorInt int i) {
-        this.f9813b.setTextColor(i);
+        this.f9513b.setTextColor(i);
     }
 
     public void setTextIncludeFontPadding(boolean z) {
-        this.f9813b.setIncludeFontPadding(z);
+        this.f9513b.setIncludeFontPadding(z);
     }
 
     public void setTextSize(float f) {
-        this.f9813b.setTextSize(f);
+        this.f9513b.setTextSize(f);
     }
 
     public void setTextTypeface(Typeface typeface) {
-        this.f9813b.getPaint().setTypeface(typeface);
+        this.f9513b.getPaint().setTypeface(typeface);
     }
 }

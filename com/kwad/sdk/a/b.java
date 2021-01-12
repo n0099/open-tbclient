@@ -21,14 +21,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.core.view.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private KsNativeAd.AdInteractionListener f8439a;
+    private KsNativeAd.AdInteractionListener f8139a;
 
     /* renamed from: b  reason: collision with root package name */
-    private KsNativeAd.VideoPlayListener f8440b;
+    private KsNativeAd.VideoPlayListener f8140b;
     private AdBaseFrameLayout c;
     private DetailVideoView d;
     private com.kwad.sdk.a.a.b e;
@@ -56,8 +56,8 @@ public class b extends com.kwad.sdk.core.view.b {
         com.kwad.sdk.a.a.b bVar = new com.kwad.sdk.a.a.b();
         bVar.c = this.c;
         bVar.d = this.g;
-        bVar.f8437a = this.f8439a;
-        bVar.f8438b = this.f8440b;
+        bVar.f8137a = this.f8139a;
+        bVar.f8138b = this.f8140b;
         if (this.i == null && com.kwad.sdk.core.response.b.a.y(this.h)) {
             bVar.e = new com.kwad.sdk.core.download.b.b(this.g);
         } else {
@@ -124,10 +124,10 @@ public class b extends com.kwad.sdk.core.view.b {
     }
 
     public void setAdInteractionListener(KsNativeAd.AdInteractionListener adInteractionListener) {
-        this.f8439a = adInteractionListener;
+        this.f8139a = adInteractionListener;
     }
 
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
-        this.f8440b = videoPlayListener;
+        this.f8140b = videoPlayListener;
     }
 }

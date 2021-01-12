@@ -19,15 +19,15 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.c;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.e;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ConnectionWheatApplyListView extends BaseConnectionWheatListView {
-    private e oBF;
-    private g oBx;
-    private boolean oCo;
-    private c oCv;
-    private boolean oCz;
-    private b oFC;
-    private b.a oxQ;
+    private b oAX;
+    private b.a otk;
+    private g owS;
+    private boolean oxJ;
+    private c oxQ;
+    private boolean oxU;
+    private e oxa;
 
     public ConnectionWheatApplyListView(@NonNull Context context) {
         this(context, null);
@@ -46,10 +46,10 @@ public class ConnectionWheatApplyListView extends BaseConnectionWheatListView {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dCG() {
-        this.oFC = new b(getContext());
-        this.oCt.setAdapter((ListAdapter) this.oFC);
-        this.bxT.setRefreshButton(getResources().getString(a.h.yuyin_ala_connection_wheat_load_data_retry), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.1
+    protected void dyO() {
+        this.oAX = new b(getContext());
+        this.oxO.setAdapter((ListAdapter) this.oAX);
+        this.btf.setRefreshButton(getResources().getString(a.h.yuyin_ala_connection_wheat_load_data_retry), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
@@ -60,57 +60,57 @@ public class ConnectionWheatApplyListView extends BaseConnectionWheatListView {
     protected ConnectionWheatButtonView.a getConnectionWheatButtonClickListener() {
         return new ConnectionWheatButtonView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
-            public void efC() {
-                ConnectionWheatApplyListView.this.NI(ConnectionWheatApplyListView.this.oCx);
+            public void ebK() {
+                ConnectionWheatApplyListView.this.Mb(ConnectionWheatApplyListView.this.oxS);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
-            public void efD() {
-                ConnectionWheatApplyListView.this.NI(ConnectionWheatApplyListView.this.oCx < 5 ? ConnectionWheatApplyListView.this.oCx : 1);
+            public void ebL() {
+                ConnectionWheatApplyListView.this.Mb(ConnectionWheatApplyListView.this.oxS < 5 ? ConnectionWheatApplyListView.this.oxS : 1);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
-            public void efE() {
-                ConnectionWheatApplyListView.this.NI(ConnectionWheatApplyListView.this.oCx >= 5 ? ConnectionWheatApplyListView.this.oCx : 5);
+            public void ebM() {
+                ConnectionWheatApplyListView.this.Mb(ConnectionWheatApplyListView.this.oxS >= 5 ? ConnectionWheatApplyListView.this.oxS : 5);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NI(int i) {
-        if (!this.oCo) {
-            NN(i);
+    public void Mb(int i) {
+        if (!this.oxJ) {
+            Mg(i);
             return;
         }
-        if (this.oBx == null) {
-            this.oBx = new g(this.oAe);
-            this.oBx.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.3
+        if (this.owS == null) {
+            this.owS = new g(this.ovz);
+            this.owS.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.3
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onCancel() {
-                    ConnectionWheatApplyListView.this.oBx.dismiss();
+                    ConnectionWheatApplyListView.this.owS.dismiss();
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onConfirm() {
-                    ConnectionWheatApplyListView.this.eeY();
-                    ConnectionWheatApplyListView.this.oBx.dismiss();
+                    ConnectionWheatApplyListView.this.ebg();
+                    ConnectionWheatApplyListView.this.owS.dismiss();
                 }
             });
         }
-        this.oBx.show();
-        this.oBx.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_apply_text));
+        this.owS.show();
+        this.owS.setText(getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_apply_text));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeY() {
-        if (this.oBF == null) {
-            this.oBF = new e(this.oAe, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.4
+    public void ebg() {
+        if (this.oxa == null) {
+            this.oxa = new e(this.ovz, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.4
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void a(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage) {
                     if (!alaCancelApplyOrCancelInviteHttpResponseMessage.isError()) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().eej();
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().ear();
                         ConnectionWheatApplyListView.this.b(alaCancelApplyOrCancelInviteHttpResponseMessage);
-                        o.efg().zQ(false);
+                        o.ebo().zM(false);
                         BdToast.makeText(ConnectionWheatApplyListView.this.getContext(), ConnectionWheatApplyListView.this.getContext().getString(a.h.yuyin_ala_connection_wheat_cancel_success_text)).show();
                     }
                 }
@@ -120,73 +120,73 @@ public class ConnectionWheatApplyListView extends BaseConnectionWheatListView {
                 }
             });
         }
-        this.oBF.gS(getRoomId(), "1");
+        this.oxa.gR(getRoomId(), "1");
     }
 
     private String getRoomId() {
-        return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq();
+        return com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage) {
         if (alaCancelApplyOrCancelInviteHttpResponseMessage != null && alaCancelApplyOrCancelInviteHttpResponseMessage.getErrno() == 0) {
-            zV(false);
+            zR(false);
         }
     }
 
-    private void NN(final int i) {
-        d.eeO().a(getContext(), this.oAe.getPageActivity(), new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.5
+    private void Mg(final int i) {
+        d.eaW().a(getContext(), this.ovz.getPageActivity(), new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
-            public void zM(boolean z) {
+            public void zI(boolean z) {
                 if (z) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.c.c.eeN().a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.5.1
+                    com.baidu.tieba.yuyinala.liveroom.wheat.c.c.eaV().a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.5.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void dfl() {
+                        public void dbt() {
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.c.a
-                        public void eeI() {
-                            ConnectionWheatApplyListView.this.oCz = true;
-                            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().eei();
-                            o.efg().zQ(true);
-                            ConnectionWheatApplyListView.this.zV(false);
+                        public void eaQ() {
+                            ConnectionWheatApplyListView.this.oxU = true;
+                            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().eaq();
+                            o.ebo().zM(true);
+                            ConnectionWheatApplyListView.this.zR(false);
                             BdToast.makeText(ConnectionWheatApplyListView.this.getContext(), ConnectionWheatApplyListView.this.getContext().getString(a.h.yuyin_ala_connection_wheat_apply_success_text)).show();
                         }
-                    }).a(ConnectionWheatApplyListView.this.getContext(), ConnectionWheatApplyListView.this.oAe.getPageActivity(), "2", String.valueOf(i));
+                    }).a(ConnectionWheatApplyListView.this.getContext(), ConnectionWheatApplyListView.this.ovz.getPageActivity(), "2", String.valueOf(i));
                 }
             }
         });
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    public void zV(boolean z) {
+    public void zR(boolean z) {
         if (z) {
             showLoading();
         }
-        if (this.oCv == null) {
-            this.oCv = new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(this.oAe, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.6
+        if (this.oxQ == null) {
+            this.oxQ = new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(this.ovz, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.6
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                 public void a(AlaGetApplyWheatListHttpResponseMessage alaGetApplyWheatListHttpResponseMessage) {
                     ConnectionWheatApplyListView.this.b(alaGetApplyWheatListHttpResponseMessage);
                     ConnectionWheatApplyListView.this.hideLoading();
-                    ConnectionWheatApplyListView.this.efz();
+                    ConnectionWheatApplyListView.this.ebH();
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                 public void onFail(int i, String str) {
                     ConnectionWheatApplyListView.this.b((AlaGetApplyWheatListHttpResponseMessage) null);
                     ConnectionWheatApplyListView.this.hideLoading();
-                    ConnectionWheatApplyListView.this.efA();
+                    ConnectionWheatApplyListView.this.ebI();
                 }
             });
         }
-        this.oCv.request();
+        this.oxQ.request();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oFC != null) {
-            return this.oFC.getCount();
+        if (this.oAX != null) {
+            return this.oAX.getCount();
         }
         return 0;
     }
@@ -203,62 +203,62 @@ public class ConnectionWheatApplyListView extends BaseConnectionWheatListView {
             setData(null, -1);
             return;
         }
-        this.oCo = false;
-        if (alaGetApplyWheatListHttpResponseMessage.egb()) {
-            this.oCy.setVisibility(8);
+        this.oxJ = false;
+        if (alaGetApplyWheatListHttpResponseMessage.ecj()) {
+            this.oxT.setVisibility(8);
         } else {
-            this.oCy.setVisibility(0);
-            this.oCy.aj(alaGetApplyWheatListHttpResponseMessage.getCount(), alaGetApplyWheatListHttpResponseMessage.getPosition(), alaGetApplyWheatListHttpResponseMessage.egc());
+            this.oxT.setVisibility(0);
+            this.oxT.aj(alaGetApplyWheatListHttpResponseMessage.getCount(), alaGetApplyWheatListHttpResponseMessage.getPosition(), alaGetApplyWheatListHttpResponseMessage.eck());
         }
         if (alaGetApplyWheatListHttpResponseMessage.getCount() > 0 && alaGetApplyWheatListHttpResponseMessage.getPosition() > 0) {
             i = alaGetApplyWheatListHttpResponseMessage.getPosition() - 1;
-            this.oCo = true;
+            this.oxJ = true;
         }
-        setData(alaGetApplyWheatListHttpResponseMessage.ega(), i);
-        if (this.oxQ != null && this.oFC != null) {
-            this.oxQ.Nx(this.oFC.getCount());
+        setData(alaGetApplyWheatListHttpResponseMessage.eci(), i);
+        if (this.otk != null && this.oAX != null) {
+            this.otk.LQ(this.oAX.getCount());
         }
-        if (this.oCz) {
-            this.oCz = false;
-            this.oCt.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.7
+        if (this.oxU) {
+            this.oxU = false;
+            this.oxO.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatApplyListView.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    ConnectionWheatApplyListView.this.oCt.smoothScrollToPosition(i);
+                    ConnectionWheatApplyListView.this.oxO.smoothScrollToPosition(i);
                 }
             });
         }
     }
 
     private void setData(List<com.baidu.live.data.e> list, int i) {
-        if (this.oFC != null) {
-            this.oFC.setData(list, i);
+        if (this.oAX != null) {
+            this.oAX.setData(list, i);
         }
     }
 
     public void setOnItemClickLister(b.a aVar) {
-        this.oxQ = aVar;
-        if (this.oFC != null) {
-            this.oFC.setOnItemClickLister(aVar);
+        this.otk = aVar;
+        if (this.oAX != null) {
+            this.oAX.setOnItemClickLister(aVar);
         }
     }
 
-    public void Wb(String str) {
-        if (this.oFC != null) {
-            this.oFC.Wb(str);
+    public void UT(String str) {
+        if (this.oAX != null) {
+            this.oAX.UT(str);
         }
-        if (this.oxQ != null && this.oFC != null) {
-            this.oxQ.Nx(this.oFC.getCount());
+        if (this.otk != null && this.oAX != null) {
+            this.otk.LQ(this.oAX.getCount());
         }
     }
 
     public void onDestroy() {
-        if (this.oBF != null) {
-            this.oBF.onDestroy();
-            this.oBF = null;
+        if (this.oxa != null) {
+            this.oxa.onDestroy();
+            this.oxa = null;
         }
-        if (this.oCv != null) {
-            this.oCv.onDestroy();
-            this.oCv = null;
+        if (this.oxQ != null) {
+            this.oxQ.onDestroy();
+            this.oxQ = null;
         }
     }
 }

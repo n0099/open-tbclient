@@ -1,5 +1,5 @@
 package com.baidu.ala.recorder.audio;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface RtcMixedPcmDataListener {
     void onRtcAudioMixedSamplesReady(AudioSamplesInfo audioSamplesInfo);
 }

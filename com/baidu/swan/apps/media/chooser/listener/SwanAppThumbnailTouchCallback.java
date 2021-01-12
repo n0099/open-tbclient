@@ -4,14 +4,14 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import java.util.Collections;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
-    private f dnQ;
-    private SwanAppThumbnailAdapter dnR;
+    private f djd;
+    private SwanAppThumbnailAdapter dje;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.dnQ = fVar;
-        this.dnR = swanAppThumbnailAdapter;
+        this.djd = fVar;
+        this.dje = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -21,17 +21,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.dnR.aEM() == null) {
+        if (this.dje.aAS() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        if (this.dnR != null) {
-            Collections.swap(this.dnR.aEM(), adapterPosition, adapterPosition2);
-            this.dnR.notifyItemMoved(adapterPosition, adapterPosition2);
+        if (this.dje != null) {
+            Collections.swap(this.dje.aAS(), adapterPosition, adapterPosition2);
+            this.dje.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        if (this.dnQ != null) {
-            this.dnQ.ak(adapterPosition, adapterPosition2);
+        if (this.djd != null) {
+            this.djd.ak(adapterPosition, adapterPosition2);
         }
         return true;
     }

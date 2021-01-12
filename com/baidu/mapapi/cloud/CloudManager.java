@@ -4,14 +4,14 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.platform.comjni.map.cloud.ICloudCenter;
 import com.baidu.platform.comjni.map.cloud.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2773a = CloudManager.class.getSimpleName();
+    private static final String f2673a = CloudManager.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static CloudManager f2774b;
+    private static CloudManager f2674b;
     private ICloudCenter c;
 
     private CloudManager() {
@@ -26,10 +26,10 @@ public class CloudManager {
     }
 
     public static CloudManager getInstance() {
-        if (f2774b == null) {
-            f2774b = new CloudManager();
+        if (f2674b == null) {
+            f2674b = new CloudManager();
         }
-        return f2774b;
+        return f2674b;
     }
 
     public boolean boundSearch(BoundSearchInfo boundSearchInfo) {

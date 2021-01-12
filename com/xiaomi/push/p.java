@@ -10,38 +10,38 @@ import java.util.Map;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile p f14491a;
+    private static volatile p f14191a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f867a;
+    private Context f866a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f868a = new Handler(Looper.getMainLooper());
+    private Handler f867a = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Map<String, String>> f869a = new HashMap();
+    private Map<String, Map<String, String>> f868a = new HashMap();
 
     private p(Context context) {
-        this.f867a = context;
+        this.f866a = context;
     }
 
     public static p a(Context context) {
-        if (f14491a == null) {
+        if (f14191a == null) {
             synchronized (p.class) {
-                if (f14491a == null) {
-                    f14491a = new p(context);
+                if (f14191a == null) {
+                    f14191a = new p(context);
                 }
             }
         }
-        return f14491a;
+        return f14191a;
     }
 
     private synchronized String a(String str, String str2) {
         String str3;
-        if (this.f869a != null && !TextUtils.isEmpty(str)) {
+        if (this.f868a != null && !TextUtils.isEmpty(str)) {
             if (!TextUtils.isEmpty(str2)) {
                 try {
-                    Map<String, String> map = this.f869a.get(str);
+                    Map<String, String> map = this.f868a.get(str);
                     str3 = map != null ? map.get(str2) : "";
                 } catch (Throwable th) {
                     str3 = "";
@@ -53,29 +53,29 @@ public class p {
     }
 
     private synchronized void b(String str, String str2, String str3) {
-        if (this.f869a == null) {
-            this.f869a = new HashMap();
+        if (this.f868a == null) {
+            this.f868a = new HashMap();
         }
-        Map<String, String> map = this.f869a.get(str);
+        Map<String, String> map = this.f868a.get(str);
         if (map == null) {
             map = new HashMap<>();
         }
         map.put(str2, str3);
-        this.f869a.put(str, map);
+        this.f868a.put(str, map);
     }
 
     public synchronized String a(String str, String str2, String str3) {
         String a2;
         a2 = a(str, str2);
         if (TextUtils.isEmpty(a2)) {
-            a2 = this.f867a.getSharedPreferences(str, 4).getString(str2, str3);
+            a2 = this.f866a.getSharedPreferences(str, 4).getString(str2, str3);
         }
         return a2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m533a(String str, String str2, String str3) {
+    public synchronized void m529a(String str, String str2, String str3) {
         b(str, str2, str3);
-        this.f868a.post(new q(this, str, str2, str3));
+        this.f867a.post(new q(this, str, str2, str3));
     }
 }

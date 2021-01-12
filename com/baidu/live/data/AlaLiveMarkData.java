@@ -1,11 +1,10 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveMarkData implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int NOBLE_LEVEL_BARON = 2;
@@ -71,7 +70,7 @@ public class AlaLiveMarkData implements Serializable {
             this.markPicBak = this.mark_pic;
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
-            this.level = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
+            this.level = jSONObject.optInt("level", 0);
             JSONObject optJSONObject = jSONObject.optJSONObject("guard_club");
             if (optJSONObject != null) {
                 this.guardName = optJSONObject.optString("guard_name");
@@ -101,7 +100,7 @@ public class AlaLiveMarkData implements Serializable {
             jSONObject.put("mark_name", this.mark_name);
             jSONObject.put("mark_pic", this.markPicBak);
             jSONObject.put("width", this.width);
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_LEVEL, this.level);
+            jSONObject.put("level", this.level);
             jSONObject.put("guard_name", this.guardName);
             jSONObject.put("member_guard_level", this.guardLevel);
             jSONObject.put("guard_show_golden_icon", this.guardGold);
@@ -127,7 +126,7 @@ public class AlaLiveMarkData implements Serializable {
                     this.width = this.levelWidth;
                     this.height = this.levelHeight;
                 }
-            } else if (com.baidu.live.af.a.SE().bwi != null && (str = com.baidu.live.af.a.SE().bwi.aPv.get(Integer.valueOf(this.userLevel))) != null) {
+            } else if (com.baidu.live.af.a.OJ().bru != null && (str = com.baidu.live.af.a.OJ().bru.aKI.get(Integer.valueOf(this.userLevel))) != null) {
                 this.mark_pic = str;
                 this.height = 48;
                 if (this.userLevel <= 9) {

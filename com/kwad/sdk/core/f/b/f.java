@@ -3,17 +3,17 @@ package com.kwad.sdk.core.f.b;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f9453a;
+        private IBinder f9153a;
 
         public a(IBinder iBinder) {
-            this.f9453a = iBinder;
+            this.f9153a = iBinder;
         }
 
         @Override // com.kwad.sdk.core.f.b.f
@@ -23,7 +23,7 @@ public interface f extends IInterface {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                this.f9453a.transact(1, obtain, obtain2, 0);
+                this.f9153a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 str = obtain2.readString();
             } catch (Exception e) {
@@ -37,7 +37,7 @@ public interface f extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f9453a;
+            return this.f9153a;
         }
     }
 

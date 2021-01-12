@@ -7,10 +7,10 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6903a;
+    private final Context f6603a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.core.d.l f6904b;
+    private final com.bytedance.sdk.openadsdk.core.d.l f6604b;
     private com.bytedance.sdk.openadsdk.downloadnew.core.a c;
     private com.bytedance.sdk.openadsdk.core.nativeexpress.e d;
     private com.bytedance.sdk.openadsdk.core.nativeexpress.d e;
@@ -19,12 +19,12 @@ public class j {
 
     public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, View view) {
         this.g = "rewarded_video";
-        this.f6904b = lVar;
-        this.f6903a = context;
+        this.f6604b = lVar;
+        this.f6603a = context;
         this.f = view;
         this.g = aj.b(aj.c(lVar.W()));
-        if (this.f6904b.H() == 4) {
-            this.c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6903a, this.f6904b, this.g);
+        if (this.f6604b.H() == 4) {
+            this.c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6603a, this.f6604b, this.g);
         }
         this.d = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, lVar, this.g, aj.a(this.g));
         this.d.a(this.f);
@@ -36,8 +36,8 @@ public class j {
 
     public void a(int i, com.bytedance.sdk.openadsdk.core.d.j jVar) {
         if (i != -1 && jVar != null) {
-            int i2 = jVar.f6803a;
-            int i3 = jVar.f6804b;
+            int i2 = jVar.f6503a;
+            int i3 = jVar.f6504b;
             int i4 = jVar.c;
             int i5 = jVar.d;
             switch (i) {

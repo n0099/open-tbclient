@@ -13,103 +13,103 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.yuyingift.a.c;
 import com.baidu.live.yuyingift.graffitigift.b;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private com.baidu.live.yuyingift.a bYK;
-    private b caA;
-    private AlaGiftGraffitiShowView caB;
+    private com.baidu.live.yuyingift.a bTY;
+    private b bVO;
+    private AlaGiftGraffitiShowView bVP;
     private Context mContext;
-    private boolean bhC = false;
-    private boolean aYI = false;
-    private b.a caC = new b.a() { // from class: com.baidu.live.yuyingift.graffitigift.a.1
+    private boolean bcL = false;
+    private boolean aTV = false;
+    private b.a bVQ = new b.a() { // from class: com.baidu.live.yuyingift.graffitigift.a.1
         @Override // com.baidu.live.yuyingift.graffitigift.b.a
         public void onEnd() {
-            a.this.Io();
+            a.this.Et();
         }
     };
-    private ArrayList<c> bhD = new ArrayList<>();
+    private ArrayList<c> bcM = new ArrayList<>();
 
     public a(Context context, com.baidu.live.yuyingift.a aVar) {
         this.mContext = context;
-        this.bYK = aVar;
+        this.bTY = aVar;
         initView();
     }
 
     private void initView() {
-        this.caB = new AlaGiftGraffitiShowView(this.mContext);
-        this.caA = new b(this.caB, this.mContext);
-        this.caA.a(this.caC);
+        this.bVP = new AlaGiftGraffitiShowView(this.mContext);
+        this.bVO = new b(this.bVP, this.mContext);
+        this.bVO.a(this.bVQ);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         int i = 0;
-        if (this.bYK.aWW && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
+        if (this.bTY.aSj && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
             i = BdUtilHelper.getStatusBarHeight((Activity) this.mContext) + ((int) this.mContext.getResources().getDimension(a.d.sdk_ds4));
         }
         layoutParams.topMargin = i + ((int) this.mContext.getResources().getDimension(a.d.sdk_ds112));
         layoutParams.addRule(10);
-        this.caB.setLayoutParams(layoutParams);
-        this.bYK.M(this.caB);
+        this.bVP.setLayoutParams(layoutParams);
+        this.bTY.M(this.bVP);
     }
 
-    public void Hk() {
-        this.bhC = false;
-        this.bYK.M(this.caB);
-        Io();
+    public void Dp() {
+        this.bcL = false;
+        this.bTY.M(this.bVP);
+        Et();
     }
 
     public void e(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.bhD.add(0, cVar);
-            } else if (this.bhD.size() < com.baidu.live.af.a.SE().bwi.aOX) {
-                this.bhD.add(cVar);
+                this.bcM.add(0, cVar);
+            } else if (this.bcM.size() < com.baidu.live.af.a.OJ().bru.aKk) {
+                this.bcM.add(cVar);
             }
-            if (cVar.beF) {
+            if (cVar.aZP) {
                 LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
             }
-            Io();
+            Et();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Io() {
-        if (!this.bhD.isEmpty() && !this.bhC && this.caA.isReady()) {
-            c remove = this.bhD.remove(0);
+    public void Et() {
+        if (!this.bcM.isEmpty() && !this.bcL && this.bVO.isReady()) {
+            c remove = this.bcM.remove(0);
             if (remove != null) {
                 remove.aP(System.currentTimeMillis());
                 m(remove);
-                Io();
+                Et();
                 return;
             }
-            Io();
+            Et();
         }
     }
 
     private void m(c cVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aYI) && this.caA.isReady()) {
-            this.caA.n(cVar);
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aTV) && this.bVO.isReady()) {
+            this.bVO.n(cVar);
         }
     }
 
     public void onDestroy() {
-        if (this.caA != null) {
-            this.caA.destory();
+        if (this.bVO != null) {
+            this.bVO.destory();
         }
-        this.bhC = false;
+        this.bcL = false;
     }
 
-    public void Kc() {
-        if (this.caA != null) {
-            this.caA.Kc();
+    public void Gh() {
+        if (this.bVO != null) {
+            this.bVO.Gh();
         }
     }
 
-    public void bA(boolean z) {
-        this.aYI = z;
+    public void bw(boolean z) {
+        this.aTV = z;
     }
 
-    public void Hq() {
-        if (this.caA != null) {
-            this.caA.Hq();
+    public void Dv() {
+        if (this.bVO != null) {
+            this.bVO.Dv();
         }
     }
 }

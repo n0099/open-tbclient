@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static int Hx(int i) {
+    public static int FR(int i) {
         switch (i) {
             case -4:
                 return 4;
@@ -62,12 +62,12 @@ public class a {
             case -3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_comment30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -2:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_dislike30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_disliked30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -1:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_like30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_liked30, ao.getColor(R.color.CAM_X0301), (WebPManager.ResourceStateType) null);
@@ -82,23 +82,23 @@ public class a {
             case 3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_copy30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 4:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mark, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mark, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_collect30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_collected30, ao.getColor(R.color.CAM_X0305), (WebPManager.ResourceStateType) null);
             case 5:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute_option, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute_option, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakingset30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 6:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -107,20 +107,20 @@ public class a {
             case 8:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_hide30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 10:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete_post, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete_post, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 11:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_block30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 12:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeaking30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.un_mute, new Object[0]).equals(gVar.buj())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.un_mute, new Object[0]).equals(gVar.bqp())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakinged30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -135,38 +135,38 @@ public class a {
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
                 g gVar = new g(-1, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agreeed, new Object[0]), kVar);
-                gVar.eXH.setTag(sparseArray);
+                gVar.eSW.setTag(sparseArray);
                 arrayList.add(gVar);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar2 = new g(-2, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]), kVar);
-                    gVar2.eXH.setTag(sparseArray);
+                    gVar2.eSW.setTag(sparseArray);
                     arrayList.add(gVar2);
                 }
             } else {
                 g gVar3 = new g(-1, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]), kVar);
-                gVar3.eXH.setTag(sparseArray);
+                gVar3.eSW.setTag(sparseArray);
                 arrayList.add(gVar3);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar4 = new g(-2, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagreeed, new Object[0]), kVar);
-                    gVar4.eXH.setTag(sparseArray);
+                    gVar4.eSW.setTag(sparseArray);
                     arrayList.add(gVar4);
                 }
             }
         } else {
             g gVar5 = new g(-1, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]), kVar);
-            gVar5.eXH.setTag(sparseArray);
+            gVar5.eSW.setTag(sparseArray);
             arrayList.add(gVar5);
             if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                 g gVar6 = new g(-2, com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]), kVar);
-                gVar6.eXH.setTag(sparseArray);
+                gVar6.eSW.setTag(sparseArray);
                 arrayList.add(gVar6);
             }
         }
         g gVar7 = new g(-3, com.baidu.tieba.pb.pb.main.ao.getString(R.string.reply, new Object[0]), kVar);
-        gVar7.eXH.setTag(sparseArray);
+        gVar7.eSW.setTag(sparseArray);
         arrayList.add(gVar7);
         g gVar8 = new g(-4, com.baidu.tieba.pb.pb.main.ao.getString(R.string.share, new Object[0]), kVar);
-        gVar8.eXH.setTag(sparseArray);
+        gVar8.eSW.setTag(sparseArray);
         arrayList.add(gVar8);
         list.addAll(0, arrayList);
         return list;
@@ -190,10 +190,10 @@ public class a {
             return null;
         }
         String str = "";
-        if (postData.dPg() != null) {
-            str = postData.dPg().toString();
+        if (postData.dLo() != null) {
+            str = postData.dLo().toString();
         }
-        SpannableString bI = bI(postData.brr().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
+        SpannableString bI = bI(postData.bnx().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
         SpannableString bI2 = bI(str, ao.getColor(R.color.CAM_X0107));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) bI);

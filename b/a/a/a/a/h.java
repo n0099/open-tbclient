@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class h extends PhoneStateListener {
     private /* synthetic */ g Ar;
 
@@ -28,8 +28,8 @@ public final class h extends PhoneStateListener {
                     Iterator it = list.iterator();
                     while (it.hasNext()) {
                         CellInfo cellInfo = (CellInfo) it.next();
-                        if (cellInfo.isRegistered() && (a2 = z.a(this.Ar.Bm.e, cellInfo)) != null) {
-                            if (a2.f1086b >= 0 && a2.c >= 0 && a2.f1086b != 535 && a2.c != 535) {
+                        if (cellInfo.isRegistered() && (a2 = z.a(this.Ar.Bk.e, cellInfo)) != null) {
+                            if (a2.f1085b >= 0 && a2.c >= 0 && a2.f1085b != 535 && a2.c != 535) {
                                 arrayList.add(a2);
                             }
                         }
@@ -43,10 +43,10 @@ public final class h extends PhoneStateListener {
                 return;
             }
         }
-        CellLocation F = c.F(this.Ar.Bm.f1082a);
+        CellLocation F = c.F(this.Ar.Bk.f1081a);
         if (F != null) {
             ArrayList arrayList2 = new ArrayList();
-            z a3 = z.a(this.Ar.Bm.e, F, null);
+            z a3 = z.a(this.Ar.Bk.e, F, null);
             if (a3 != null) {
                 arrayList2.add(a3);
             }

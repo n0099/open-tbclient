@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PickEmotionView extends FrameLayout {
-    private EmotionView lyO;
-    private ImageView lyP;
+    private EmotionView lui;
+    private ImageView luj;
 
     public PickEmotionView(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class PickEmotionView extends FrameLayout {
     }
 
     private void init() {
-        this.lyO = new EmotionView(getContext());
-        addView(this.lyO, new FrameLayout.LayoutParams(-1, -1));
-        this.lyP = new ImageView(getContext());
+        this.lui = new EmotionView(getContext());
+        addView(this.lui, new FrameLayout.LayoutParams(-1, -1));
+        this.luj = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 53;
         layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds8);
         layoutParams.rightMargin = l.getDimens(getContext(), R.dimen.ds8);
-        addView(this.lyP, layoutParams);
+        addView(this.luj, layoutParams);
     }
 
     public void setData(EmotionImageData emotionImageData, int i) {
-        this.lyO.setLoadProcType(i);
-        this.lyO.cAO();
-        this.lyO.a(emotionImageData);
+        this.lui.setLoadProcType(i);
+        this.lui.cwW();
+        this.lui.a(emotionImageData);
     }
 
     public int getLoadType() {
-        if (this.lyO != null) {
-            return this.lyO.getLoadProcType();
+        if (this.lui != null) {
+            return this.lui.getLoadProcType();
         }
         return 10;
     }
 
     public void setChoosed(boolean z) {
         if (z) {
-            ao.setBackgroundResource(this.lyP, R.drawable.ic_post_image_selected_s);
+            ao.setBackgroundResource(this.luj, R.drawable.ic_post_image_selected_s);
         } else {
-            ao.setBackgroundResource(this.lyP, R.drawable.ic_post_image_selected_n);
+            ao.setBackgroundResource(this.luj, R.drawable.ic_post_image_selected_n);
         }
     }
 
     public EmotionView getEmotionView() {
-        return this.lyO;
+        return this.lui;
     }
 }

@@ -5,80 +5,80 @@ import android.widget.RelativeLayout;
 import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private x aGe;
-    public AlaChallengeLiveView omE;
+    private x aBr;
+    public AlaChallengeLiveView ohZ;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void Y(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void aF(ViewGroup viewGroup) {
         super.aF(viewGroup);
         aN(viewGroup);
-        if (this.aGe != null && this.omE != null) {
-            this.omE.Z(this.aGe);
+        if (this.aBr != null && this.ohZ != null) {
+            this.ohZ.Z(this.aBr);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void DC() {
-        super.DC();
-        if (this.omE != null && this.omE.getParent() != null) {
-            ((ViewGroup) this.omE.getParent()).removeView(this.omE);
+    public void zH() {
+        super.zH();
+        if (this.ohZ != null && this.ohZ.getParent() != null) {
+            ((ViewGroup) this.ohZ.getParent()).removeView(this.ohZ);
         }
-        if (this.omE != null) {
-            this.omE.destory();
-            this.omE = null;
+        if (this.ohZ != null) {
+            this.ohZ.destory();
+            this.ohZ = null;
         }
     }
 
     public void showView() {
-        if (this.omE != null) {
-            this.omE.setVisibility(0);
+        if (this.ohZ != null) {
+            this.ohZ.setVisibility(0);
         }
     }
 
-    public void dtA() {
-        if (this.omE != null) {
-            this.omE.setVisibility(4);
+    public void dpI() {
+        if (this.ohZ != null) {
+            this.ohZ.setVisibility(4);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.omE != null && this.omE.getParent() != null) {
-            ((ViewGroup) this.omE.getParent()).removeView(this.omE);
+        if (this.ohZ != null && this.ohZ.getParent() != null) {
+            ((ViewGroup) this.ohZ.getParent()).removeView(this.ohZ);
         }
-        if (this.omE != null) {
-            this.omE.destory();
-            this.omE = null;
+        if (this.ohZ != null) {
+            this.ohZ.destory();
+            this.ohZ = null;
         }
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.aGe != null) {
-            if (this.omE != null && this.omE.getParent() != null) {
-                ((ViewGroup) this.omE.getParent()).removeView(this.omE);
+        if (this.aBr != null) {
+            if (this.ohZ != null && this.ohZ.getParent() != null) {
+                ((ViewGroup) this.ohZ.getParent()).removeView(this.ohZ);
             }
-            this.omE = new AlaChallengeLiveView(getPageContext().getPageActivity());
-            this.omE.setId(a.f.ala_liveroom_live_pk_bar);
+            this.ohZ = new AlaChallengeLiveView(getPageContext().getPageActivity());
+            this.ohZ.setId(a.f.ala_liveroom_live_pk_bar);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(3, a.f.ala_liveroom_charm_rank);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds114);
-            viewGroup.addView(this.omE, layoutParams);
+            viewGroup.addView(this.ohZ, layoutParams);
         }
     }
 
     public void a(d dVar) {
-        if (this.omE != null) {
-            this.omE.a(dVar);
+        if (this.ohZ != null) {
+            this.ohZ.a(dVar);
         }
     }
 }

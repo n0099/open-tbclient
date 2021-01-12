@@ -2,7 +2,7 @@ package com.baidu.live.tieba.pb.interactionpopupwindow;
 
 import android.view.ViewGroup;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d<D extends IBaseDialogData> {
     void a(D d);
 

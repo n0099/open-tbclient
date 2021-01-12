@@ -12,14 +12,14 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11515a = "TlsSessionTicket";
+    private String f11215a = "TlsSessionTicket";
 
     /* renamed from: b  reason: collision with root package name */
-    private SSLSocketFactory f11516b;
+    private SSLSocketFactory f11216b;
 
     public a(Context context) {
         SSLSessionCache sSLSessionCache;
@@ -28,56 +28,56 @@ public class a extends SSLSocketFactory {
             try {
                 sSLSessionCache = new SSLSessionCache(new File(Environment.getExternalStorageDirectory(), "sslCache"));
             } catch (IOException e) {
-                com.meizu.cloud.a.a.e(this.f11515a, e.getMessage());
+                com.meizu.cloud.a.a.e(this.f11215a, e.getMessage());
                 sSLSessionCache = new SSLSessionCache(context);
             }
-            com.meizu.cloud.a.a.i(this.f11515a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a(Config.INPUT_INSTALLED_PKG, SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).f11526a);
-            this.f11516b = sSLContext.getSocketFactory();
+            com.meizu.cloud.a.a.i(this.f11215a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a(Config.INPUT_INSTALLED_PKG, SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).f11226a);
+            this.f11216b = sSLContext.getSocketFactory();
         } catch (Exception e2) {
-            com.meizu.cloud.a.a.e(this.f11515a, e2.getMessage());
-            this.f11516b = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            com.meizu.cloud.a.a.e(this.f11215a, e2.getMessage());
+            this.f11216b = (SSLSocketFactory) SSLSocketFactory.getDefault();
         }
     }
 
     private Socket a(Socket socket) {
         if (socket instanceof SSLSocket) {
-            com.meizu.cloud.a.a.i(this.f11515a, "set ssl session ticket support " + com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, true).f11526a);
+            com.meizu.cloud.a.a.i(this.f11215a, "set ssl session ticket support " + com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, true).f11226a);
         }
         return socket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i) throws IOException {
-        return a(this.f11516b.createSocket(str, i));
+        return a(this.f11216b.createSocket(str, i));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        return a(this.f11516b.createSocket(str, i, inetAddress, i2));
+        return a(this.f11216b.createSocket(str, i, inetAddress, i2));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        return a(this.f11516b.createSocket(inetAddress, i));
+        return a(this.f11216b.createSocket(inetAddress, i));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        return a(this.f11516b.createSocket(inetAddress, i, inetAddress2, i2));
+        return a(this.f11216b.createSocket(inetAddress, i, inetAddress2, i2));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        return a(this.f11516b.createSocket(socket, str, i, z));
+        return a(this.f11216b.createSocket(socket, str, i, z));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        return this.f11516b.getDefaultCipherSuites();
+        return this.f11216b.getDefaultCipherSuites();
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        return this.f11516b.getSupportedCipherSuites();
+        return this.f11216b.getSupportedCipherSuites();
     }
 }

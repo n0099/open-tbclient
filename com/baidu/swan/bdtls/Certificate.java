@@ -1,11 +1,11 @@
 package com.baidu.swan.bdtls;
 
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Certificate {
     public static native byte[] signature(Object obj);
 
-    public static byte[] eu(Context context) {
+    public static byte[] et(Context context) {
         return signature(context);
     }
 

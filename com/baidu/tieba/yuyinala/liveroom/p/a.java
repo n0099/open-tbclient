@@ -2,9 +2,9 @@ package com.baidu.tieba.yuyinala.liveroom.p;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    int bsA;
+    int bnO;
     String date;
     String uid;
 
@@ -15,7 +15,7 @@ public class a {
         }
         this.uid = jSONObject.optString("uid");
         this.date = jSONObject.optString("date");
-        this.bsA = jSONObject.optInt("times");
+        this.bnO = jSONObject.optInt("times");
         return this;
     }
 
@@ -25,7 +25,7 @@ public class a {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.bsA);
+            jSONObject.put("times", this.bnO);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

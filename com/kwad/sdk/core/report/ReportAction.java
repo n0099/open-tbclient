@@ -19,7 +19,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ReportAction extends d {
     public int A;
     public int B;
@@ -76,7 +76,7 @@ public class ReportAction extends d {
     private LiveLogInfo az;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9680b;
+    public long f9380b;
     public long c;
     public long d;
     public long e;
@@ -103,7 +103,7 @@ public class ReportAction extends d {
     public long z;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class LiveLogInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 4898843925487388950L;
         public String expTag;
@@ -129,19 +129,19 @@ public class ReportAction extends d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9681a;
+        public int f9381a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9682b;
+        public int f9382b;
 
         public static a a() {
             a aVar = new a();
-            aVar.f9681a = b.f9683a;
-            aVar.f9682b = b.f9684b;
+            aVar.f9381a = b.f9383a;
+            aVar.f9382b = b.f9384b;
             return aVar;
         }
 
@@ -150,8 +150,8 @@ public class ReportAction extends d {
                 return;
             }
             try {
-                this.f9681a = jSONObject.optInt("posIdWidth");
-                this.f9682b = jSONObject.optInt("posIdHeight");
+                this.f9381a = jSONObject.optInt("posIdWidth");
+                this.f9382b = jSONObject.optInt("posIdHeight");
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -160,27 +160,27 @@ public class ReportAction extends d {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f9681a);
-            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f9682b);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdWidth", this.f9381a);
+            com.kwad.sdk.utils.o.a(jSONObject, "posIdHeight", this.f9382b);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f9683a;
+        public static int f9383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f9684b;
+        public static int f9384b;
 
         public static void a(int i) {
-            f9683a = i;
+            f9383a = i;
         }
 
         public static void b(int i) {
-            f9684b = i;
+            f9384b = i;
         }
     }
 
@@ -200,10 +200,10 @@ public class ReportAction extends d {
         this.F = 0L;
         this.ap = 3;
         this.K = aVar.c;
-        this.f9714a = UUID.randomUUID().toString();
+        this.f9414a = UUID.randomUUID().toString();
         this.G = System.currentTimeMillis();
         this.H = m.b();
-        this.f9680b = m.c();
+        this.f9380b = m.c();
         this.J = m.f();
         this.S = aVar.a();
         this.U = aVar.d;
@@ -242,18 +242,18 @@ public class ReportAction extends d {
         this.D = aVar.V;
         this.E = aVar.W;
         this.w = aVar.S;
-        SceneImpl sceneImpl = aVar.f9686b;
+        SceneImpl sceneImpl = aVar.f9386b;
         if (sceneImpl != null) {
             this.O = sceneImpl.getPosId();
             this.k = sceneImpl.getUrlPackage();
             this.I = sceneImpl.getAdStyle();
-        } else if (aVar.f9685a != null && aVar.f9685a.mAdScene != null) {
-            SceneImpl sceneImpl2 = aVar.f9685a.mAdScene;
+        } else if (aVar.f9385a != null && aVar.f9385a.mAdScene != null) {
+            SceneImpl sceneImpl2 = aVar.f9385a.mAdScene;
             this.O = sceneImpl2.getPosId();
             this.k = sceneImpl2.getUrlPackage();
             this.I = sceneImpl2.getAdStyle();
         }
-        AdTemplate adTemplate = aVar.f9685a;
+        AdTemplate adTemplate = aVar.f9385a;
         if (adTemplate != null) {
             this.L = com.kwad.sdk.core.response.b.c.g(adTemplate);
             String h = com.kwad.sdk.core.response.b.c.h(adTemplate);
@@ -327,7 +327,7 @@ public class ReportAction extends d {
         if (!TextUtils.isEmpty(aVar.w)) {
             this.ai = aVar.w;
         }
-        SceneImpl sceneImpl3 = aVar.f9686b;
+        SceneImpl sceneImpl3 = aVar.f9386b;
         if (sceneImpl3 == null && adTemplate != null) {
             sceneImpl3 = adTemplate.mAdScene;
         }
@@ -382,7 +382,7 @@ public class ReportAction extends d {
             if (jSONObject.has("sessionId")) {
                 this.H = jSONObject.optString("sessionId");
             }
-            this.f9680b = jSONObject.optLong("seq");
+            this.f9380b = jSONObject.optLong("seq");
             this.J = jSONObject.optLong("listId");
             this.S = jSONObject.optLong("position");
             this.ai = jSONObject.optString("entryId");
@@ -486,7 +486,7 @@ public class ReportAction extends d {
         com.kwad.sdk.utils.o.a(json, "uiType", this.ap);
         com.kwad.sdk.utils.o.a(json, "timestamp", this.G);
         com.kwad.sdk.utils.o.a(json, "sessionId", this.H);
-        com.kwad.sdk.utils.o.a(json, "seq", this.f9680b);
+        com.kwad.sdk.utils.o.a(json, "seq", this.f9380b);
         com.kwad.sdk.utils.o.a(json, "listId", this.J);
         com.kwad.sdk.utils.o.a(json, "position", this.S);
         com.kwad.sdk.utils.o.a(json, "entryId", this.ai);
@@ -605,7 +605,7 @@ public class ReportAction extends d {
     @NonNull
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("[actionType:").append(this.K).append(",moduleName:").append(this.t).append(",componentPosition:").append(this.x).append(",tubeId:").append(this.ar).append(",entryId:").append(this.ai).append(",blockDuration:").append(this.d).append(",blockTimes:").append(this.h).append(",intervalDuration:").append(this.e).append(",allIntervalDuration:").append(this.f).append(",flowSdk:").append(this.g).append(",trendId:").append(this.au).append(",trendName:").append(this.at).append(",tubeName:").append(this.aq).append(",episodeName:").append(this.as).append(",seq:").append(this.f9680b).append(",extra:").append(this.M).append(",impAdExtra:").append(this.N).append(",actionId:").append(this.f9714a).append(",position:").append(this.S).append(",contentType:").append(this.P).append(",playerType:").append(this.m).append(",preloadType:").append(this.ax).append(",realShowType:").append(this.Q).append(",photoDuration:").append(this.T).append(",startDuration:").append(this.W).append(",playDuration:").append(this.V).append(",stayDuration:").append(this.X).append(",enterType:").append(this.Y).append(",entryPageSource:").append(this.aa).append(",stayLength:").append(this.c);
+        stringBuffer.append("[actionType:").append(this.K).append(",moduleName:").append(this.t).append(",componentPosition:").append(this.x).append(",tubeId:").append(this.ar).append(",entryId:").append(this.ai).append(",blockDuration:").append(this.d).append(",blockTimes:").append(this.h).append(",intervalDuration:").append(this.e).append(",allIntervalDuration:").append(this.f).append(",flowSdk:").append(this.g).append(",trendId:").append(this.au).append(",trendName:").append(this.at).append(",tubeName:").append(this.aq).append(",episodeName:").append(this.as).append(",seq:").append(this.f9380b).append(",extra:").append(this.M).append(",impAdExtra:").append(this.N).append(",actionId:").append(this.f9414a).append(",position:").append(this.S).append(",contentType:").append(this.P).append(",playerType:").append(this.m).append(",preloadType:").append(this.ax).append(",realShowType:").append(this.Q).append(",photoDuration:").append(this.T).append(",startDuration:").append(this.W).append(",playDuration:").append(this.V).append(",stayDuration:").append(this.X).append(",enterType:").append(this.Y).append(",entryPageSource:").append(this.aa).append(",stayLength:").append(this.c);
         if (this.n != -1) {
             stringBuffer.append(",hotCompType:").append(this.n);
         }

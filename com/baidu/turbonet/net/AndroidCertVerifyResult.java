@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidCertVerifyResult {
     private final List<X509Certificate> mCertificateChain;
     private final boolean mIsIssuedByKnownRoot;

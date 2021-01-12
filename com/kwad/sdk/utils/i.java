@@ -4,7 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static void a(Context context, CharSequence charSequence, CharSequence charSequence2) {
         if (context == null || TextUtils.isEmpty(charSequence) || TextUtils.isEmpty(charSequence2)) {

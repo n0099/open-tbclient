@@ -29,9 +29,9 @@ public class b {
         }
     }
 
-    public void b(a.InterfaceC0077a interfaceC0077a) {
+    public void b(a.InterfaceC0078a interfaceC0078a) {
         if (this.we != null) {
-            this.we.a(interfaceC0077a);
+            this.we.a(interfaceC0078a);
             if (this.wf) {
                 return;
             }

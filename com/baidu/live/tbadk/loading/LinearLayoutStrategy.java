@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.loading;
 
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LinearLayoutStrategy implements ILayoutStrategy {
     @Override // com.baidu.live.tbadk.loading.ILayoutStrategy
     public void attachView(View view, View view2, boolean z) {

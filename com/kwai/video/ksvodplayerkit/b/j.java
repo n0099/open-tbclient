@@ -1,12 +1,12 @@
 package com.kwai.video.ksvodplayerkit.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11352a;
+    public int f11052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11353b;
+    public String f11053b;
     public String c;
     public int d;
     public int e;

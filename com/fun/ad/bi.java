@@ -2,30 +2,30 @@ package com.fun.ad;
 
 import android.content.ContentValues;
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bi implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8069a;
-    public bf pKc;
+    public Context f7769a;
+    public bf pFB;
 
     public bi(Context context, bf bfVar) {
-        this.f8069a = context.getApplicationContext();
-        this.pKc = bfVar;
+        this.f7769a = context.getApplicationContext();
+        this.pFB = bfVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bk in = bk.in(this.f8069a);
-        bf bfVar = this.pKc;
-        if (in == null) {
+        bk il = bk.il(this.f7769a);
+        bf bfVar = this.pFB;
+        if (il == null) {
             throw null;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("ad_event", bfVar.f8067b);
+        contentValues.put("ad_event", bfVar.f7767b);
         contentValues.put("ad_sid", bfVar.c);
         contentValues.put("ad_type", bfVar.d);
         contentValues.put("ad_aid", bfVar.e);
-        in.getWritableDatabase().insert("ad_todo_list", null, contentValues);
+        il.getWritableDatabase().insert("ad_todo_list", null, contentValues);
     }
 }

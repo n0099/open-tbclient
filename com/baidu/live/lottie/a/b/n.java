@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class n extends f<com.baidu.live.lottie.model.b> {
     public n(List<com.baidu.live.lottie.e.a<com.baidu.live.lottie.model.b>> list) {
         super(list);
@@ -12,6 +12,6 @@ public class n extends f<com.baidu.live.lottie.model.b> {
     @Override // com.baidu.live.lottie.a.b.a
     /* renamed from: h */
     public com.baidu.live.lottie.model.b a(com.baidu.live.lottie.e.a<com.baidu.live.lottie.model.b> aVar, float f) {
-        return aVar.HN;
+        return aVar.HL;
     }
 }

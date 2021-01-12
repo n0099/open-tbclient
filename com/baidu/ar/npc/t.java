@@ -2,14 +2,14 @@ package com.baidu.ar.npc;
 
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1551a;
+    final /* synthetic */ String f1559a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f1552b;
+    final /* synthetic */ int f1560b;
     final /* synthetic */ HashMap c;
     final /* synthetic */ int d;
     final /* synthetic */ int e;
@@ -18,8 +18,8 @@ public class t implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ArBridge arBridge, String str, int i, HashMap hashMap, int i2, int i3) {
         this.f = arBridge;
-        this.f1551a = str;
-        this.f1552b = i;
+        this.f1559a = str;
+        this.f1560b = i;
         this.c = hashMap;
         this.d = i2;
         this.e = i3;
@@ -27,6 +27,6 @@ public class t implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f.nativeCreateCase(this.f1551a, this.f1552b, this.c, this.d, this.e);
+        this.f.nativeCreateCase(this.f1559a, this.f1560b, this.c, this.d, this.e);
     }
 }

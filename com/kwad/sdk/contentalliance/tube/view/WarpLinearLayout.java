@@ -7,40 +7,40 @@ import android.view.ViewGroup;
 import com.kwad.sdk.utils.ao;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WarpLinearLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9306a;
+    private int f9006a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f9307b;
+    private float f9007b;
     private float c;
     private boolean d;
     private List<a> e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private final class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private List<View> f9309b;
+        private List<View> f9009b;
         private int c;
         private int d;
 
         private a() {
-            this.f9309b = new ArrayList();
+            this.f9009b = new ArrayList();
             this.c = WarpLinearLayout.this.getPaddingLeft() + WarpLinearLayout.this.getPaddingRight();
             this.d = 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(View view) {
-            if (this.f9309b.size() != 0) {
-                this.c = (int) (this.c + WarpLinearLayout.this.f9307b);
+            if (this.f9009b.size() != 0) {
+                this.c = (int) (this.c + WarpLinearLayout.this.f9007b);
             }
             this.d = this.d > view.getMeasuredHeight() ? this.d : view.getMeasuredHeight();
             this.c += view.getMeasuredWidth();
-            this.f9309b.add(view);
+            this.f9009b.add(view);
         }
     }
 
@@ -54,8 +54,8 @@ public class WarpLinearLayout extends ViewGroup {
 
     public WarpLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9306a = 1;
-        this.f9307b = ao.a(getContext(), 8.0f);
+        this.f9006a = 1;
+        this.f9007b = ao.a(getContext(), 8.0f);
         this.c = ao.a(getContext(), 8.0f);
     }
 
@@ -64,11 +64,11 @@ public class WarpLinearLayout extends ViewGroup {
     }
 
     public int getGrivate() {
-        return this.f9306a;
+        return this.f9006a;
     }
 
     public float getHorizontalSpace() {
-        return this.f9307b;
+        return this.f9007b;
     }
 
     public float getVerticalSpace() {
@@ -94,13 +94,13 @@ public class WarpLinearLayout extends ViewGroup {
             int i8 = 0;
             while (true) {
                 int i9 = i8;
-                if (i9 < aVar.f9309b.size()) {
-                    View view = (View) aVar.f9309b.get(i9);
+                if (i9 < aVar.f9009b.size()) {
+                    View view = (View) aVar.f9009b.get(i9);
                     if (a()) {
-                        view.layout(paddingLeft, i7, view.getMeasuredWidth() + paddingLeft + (measuredWidth2 / aVar.f9309b.size()), view.getMeasuredHeight() + i7);
+                        view.layout(paddingLeft, i7, view.getMeasuredWidth() + paddingLeft + (measuredWidth2 / aVar.f9009b.size()), view.getMeasuredHeight() + i7);
                         f = paddingLeft;
-                        measuredWidth = view.getMeasuredWidth() + this.f9307b;
-                        f2 = measuredWidth2 / aVar.f9309b.size();
+                        measuredWidth = view.getMeasuredWidth() + this.f9007b;
+                        f2 = measuredWidth2 / aVar.f9009b.size();
                     } else {
                         switch (getGrivate()) {
                             case 0:
@@ -116,7 +116,7 @@ public class WarpLinearLayout extends ViewGroup {
                         }
                         f = paddingLeft;
                         measuredWidth = view.getMeasuredWidth();
-                        f2 = this.f9307b;
+                        f2 = this.f9007b;
                     }
                     paddingLeft = (int) (measuredWidth + f2 + f);
                     i8 = i9 + 1;
@@ -140,7 +140,7 @@ public class WarpLinearLayout extends ViewGroup {
                 int i3 = 0;
                 for (int i4 = 0; i4 < childCount; i4++) {
                     if (i4 != 0) {
-                        i3 = (int) (i3 + this.f9307b);
+                        i3 = (int) (i3 + this.f9007b);
                     }
                     i3 += getChildAt(i4).getMeasuredWidth();
                 }
@@ -154,7 +154,7 @@ public class WarpLinearLayout extends ViewGroup {
                 int i5 = 0;
                 for (int i6 = 0; i6 < childCount; i6++) {
                     if (i6 != 0) {
-                        i5 = (int) (i5 + this.f9307b);
+                        i5 = (int) (i5 + this.f9007b);
                     }
                     i5 += getChildAt(i6).getMeasuredWidth();
                 }
@@ -164,9 +164,9 @@ public class WarpLinearLayout extends ViewGroup {
         a aVar = new a();
         this.e = new ArrayList();
         for (int i7 = 0; i7 < childCount; i7++) {
-            if (aVar.c + getChildAt(i7).getMeasuredWidth() + this.f9307b <= size) {
+            if (aVar.c + getChildAt(i7).getMeasuredWidth() + this.f9007b <= size) {
                 aVar.a(getChildAt(i7));
-            } else if (aVar.f9309b.size() == 0) {
+            } else if (aVar.f9009b.size() == 0) {
                 aVar.a(getChildAt(i7));
                 this.e.add(aVar);
                 aVar = new a();
@@ -176,7 +176,7 @@ public class WarpLinearLayout extends ViewGroup {
                 aVar.a(getChildAt(i7));
             }
         }
-        if (aVar.f9309b.size() > 0 && !this.e.contains(aVar)) {
+        if (aVar.f9009b.size() > 0 && !this.e.contains(aVar)) {
             this.e.add(aVar);
         }
         int paddingTop = getPaddingTop() + getPaddingBottom();
@@ -201,11 +201,11 @@ public class WarpLinearLayout extends ViewGroup {
     }
 
     public void setGrivate(int i) {
-        this.f9306a = i;
+        this.f9006a = i;
     }
 
     public void setHorizontalSpace(float f) {
-        this.f9307b = f;
+        this.f9007b = f;
     }
 
     public void setIsFull(boolean z) {

@@ -21,7 +21,7 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private CountDownTimer A;
     private f B;

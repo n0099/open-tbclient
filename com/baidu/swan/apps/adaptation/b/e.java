@@ -4,25 +4,25 @@ import android.app.Activity;
 import androidx.annotation.UiThread;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.adaptation.b.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface e<T extends d> extends TypedCallbackHandler {
     void a(com.baidu.swan.apps.core.f.c cVar);
 
     void a(com.baidu.swan.apps.core.g gVar);
 
-    T ams();
+    String aiA();
 
-    String amt();
-
-    String amu();
-
-    void amv();
+    void aiB();
 
     @UiThread
-    void amw();
+    void aiC();
 
     @UiThread
-    void amx();
+    void aiD();
+
+    T aiy();
+
+    String aiz();
 
     void attachActivity(Activity activity);
 

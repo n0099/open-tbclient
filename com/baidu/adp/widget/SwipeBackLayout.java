@@ -22,11 +22,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
-    private b YA;
+    private boolean Yu;
+    private boolean Yv;
     private boolean Yw;
     private boolean Yx;
-    private boolean Yy;
-    private boolean Yz;
+    private b Yy;
     private int mActivePointerId;
     private Activity mActivity;
     private int mAlphaBgColor;
@@ -78,10 +78,10 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
+        this.Yu = false;
+        this.Yv = false;
         this.Yw = false;
         this.Yx = false;
-        this.Yy = false;
-        this.Yz = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -96,10 +96,10 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
+        this.Yu = false;
+        this.Yv = false;
         this.Yw = false;
         this.Yx = false;
-        this.Yy = false;
-        this.Yz = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -114,10 +114,10 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
+        this.Yu = false;
+        this.Yv = false;
         this.Yw = false;
         this.Yx = false;
-        this.Yy = false;
-        this.Yz = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -152,7 +152,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mIsSwipeBackEnabled) {
-            if (this.Yx) {
+            if (this.Yv) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight) {
                 if (i == 1) {
@@ -169,7 +169,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void forceChangeSkinType(int i) {
-        if (this.Yx) {
+        if (this.Yv) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight) {
             if (i == 1) {
@@ -186,7 +186,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            if (this.Yx) {
+            if (this.Yv) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else {
                 this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
@@ -225,12 +225,12 @@ public class SwipeBackLayout extends FrameLayout {
     private boolean y(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
         if (action == 1 || action == 3) {
-            if (this.Yw) {
-                this.Yw = false;
+            if (this.Yu) {
+                this.Yu = false;
                 this.mIsSwipeBackEnabled = true;
                 return true;
-            } else if (this.Yy) {
-                this.Yy = false;
+            } else if (this.Yw) {
+                this.Yw = false;
                 this.mIsSwipeBackEnabled = false;
                 return true;
             }
@@ -307,8 +307,8 @@ public class SwipeBackLayout extends FrameLayout {
                         scrollOrigin();
                         this.mIsFinish = false;
                     }
-                    if (this.YA != null) {
-                        this.YA.onSlidingEnd(this.mIsFinish);
+                    if (this.Yy != null) {
+                        this.Yy.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
@@ -320,13 +320,13 @@ public class SwipeBackLayout extends FrameLayout {
                     scrollOrigin();
                     this.mIsFinish = false;
                 }
-                if (this.YA != null) {
-                    this.YA.onSlidingEnd(this.mIsFinish);
+                if (this.Yy != null) {
+                    this.Yy.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
             case 2:
-                if (this.Yz) {
+                if (this.Yx) {
                     completeScroll();
                     int actionIndex2 = motionEvent.getActionIndex();
                     this.mActivePointerId = motionEvent.getPointerId(actionIndex2);
@@ -334,7 +334,7 @@ public class SwipeBackLayout extends FrameLayout {
                     this.mLastMotionY = motionEvent.getY(actionIndex2);
                     this.mDownX = motionEvent.getX(actionIndex2);
                     this.mIsSilding = false;
-                    this.Yz = false;
+                    this.Yx = false;
                 }
                 if (!this.mIsSilding) {
                     determineDrag(motionEvent);
@@ -374,8 +374,8 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                if (this.YA != null) {
-                    this.YA.onSlidingStart();
+                if (this.Yy != null) {
+                    this.Yy.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -477,7 +477,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void disableSwipeJustOnce() {
-        this.Yw = true;
+        this.Yu = true;
         this.mIsSwipeBackEnabled = false;
     }
 
@@ -492,9 +492,9 @@ public class SwipeBackLayout extends FrameLayout {
     public void swipeBackControl(double d) {
         if (d == 1.0d) {
             if (!this.mIsSwipeBackEnabled) {
-                this.Yy = true;
+                this.Yw = true;
             }
-            this.Yz = true;
+            this.Yx = true;
             this.mIsSwipeBackEnabled = true;
             this.mIsSilding = true;
         } else if (d == 2.0d) {
@@ -504,7 +504,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setBgTransparent() {
-        this.Yx = true;
+        this.Yv = true;
         if (this.mRealContentView != null) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         }
@@ -530,6 +530,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.YA = bVar;
+        this.Yy = bVar;
     }
 }

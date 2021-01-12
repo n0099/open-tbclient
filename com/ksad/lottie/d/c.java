@@ -6,13 +6,13 @@ import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
     private com.ksad.lottie.d i;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f8286b = 1.0f;
+    private float f7986b = 1.0f;
     private boolean c = false;
     private long d = 0;
     private float e = 0.0f;
@@ -22,13 +22,13 @@ public class c extends a implements Choreographer.FrameCallback {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f8285a = false;
+    protected boolean f7985a = false;
 
     private float o() {
         if (this.i == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / this.i.f()) / Math.abs(this.f8286b);
+        return (1.0E9f / this.i.f()) / Math.abs(this.f7986b);
     }
 
     private boolean p() {
@@ -45,7 +45,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public void a(float f) {
-        this.f8286b = f;
+        this.f7986b = f;
     }
 
     public void a(int i) {
@@ -89,7 +89,7 @@ public class c extends a implements Choreographer.FrameCallback {
     protected void c(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {
-            this.f8285a = false;
+            this.f7985a = false;
         }
     }
 
@@ -182,12 +182,12 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float h() {
-        return this.f8286b;
+        return this.f7986b;
     }
 
     @MainThread
     public void i() {
-        this.f8285a = true;
+        this.f7985a = true;
         a(p());
         a((int) (p() ? l() : k()));
         this.d = System.nanoTime();
@@ -197,7 +197,7 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public boolean isRunning() {
-        return this.f8285a;
+        return this.f7985a;
     }
 
     @MainThread

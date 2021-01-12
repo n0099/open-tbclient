@@ -3,13 +3,13 @@ package com.baidu.tbadk.pageExtra;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
 public class b {
-    private BaseFragment fKY;
+    private BaseFragment fGr;
 
     public b(BaseFragment baseFragment) {
-        this.fKY = baseFragment;
+        this.fGr = baseFragment;
     }
 
-    public BaseFragment bHk() {
-        return this.fKY;
+    public BaseFragment bDr() {
+        return this.fGr;
     }
 }

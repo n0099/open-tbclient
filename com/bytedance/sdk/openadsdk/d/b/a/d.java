@@ -7,10 +7,10 @@ import com.bytedance.sdk.openadsdk.d.w;
 public final class d implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f7176a;
+    private final com.bytedance.sdk.openadsdk.d.b.c f6876a;
 
     public d(com.bytedance.sdk.openadsdk.d.b.c cVar) {
-        this.f7176a = cVar;
+        this.f6876a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.w
@@ -19,7 +19,7 @@ public final class d implements w {
         if (bVar == null) {
             return null;
         }
-        return (v<T>) a(this.f7176a, fVar, aVar, bVar);
+        return (v<T>) a(this.f6876a, fVar, aVar, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

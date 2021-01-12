@@ -17,44 +17,44 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.hottopic.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.tieba.card.c<n> {
     private List<com.baidu.adp.widget.ListView.n> dataList;
-    private RelateForumHorizonalListView ksL;
+    private RelateForumHorizonalListView kog;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.ksL = new RelateForumHorizonalListView(getContext());
+        this.kog = new RelateForumHorizonalListView(getContext());
         this.dataList = new ArrayList();
-        this.ksL.setTag(getTag());
-        this.ksL.setLoadMoreClickListener(this);
-        this.itF.addView(this.ksL);
-        this.itx.setOnClickListener(this);
-        yt(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
-        pn(false);
+        this.kog.setTag(getTag());
+        this.kog.setLoadMoreClickListener(this);
+        this.ioY.addView(this.kog);
+        this.ioQ.setOnClickListener(this);
+        wM(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
+        pj(false);
     }
 
     @Override // com.baidu.tieba.card.b
     public void setTag(BdUniqueId bdUniqueId) {
         super.setTag(bdUniqueId);
-        if (this.ksL != null) {
-            this.ksL.setTag(getTag());
+        if (this.kog != null) {
+            this.kog.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void setFrom(String str) {
         super.setFrom(str);
-        this.ksL.setFrom(str);
+        this.kog.setFrom(str);
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.ksL != null) {
-            this.ksL.onSkinTypeChanged(i);
+        if (this.kog != null) {
+            this.kog.onSkinTypeChanged(i);
         }
     }
 
@@ -67,8 +67,8 @@ public class a extends com.baidu.tieba.card.c<n> {
             return;
         }
         this.dataList.clear();
-        if (nVar.krD != null) {
-            this.dataList.addAll(nVar.krD);
+        if (nVar.kmY != null) {
+            this.dataList.addAll(nVar.kmY);
         }
         List<com.baidu.tbadk.widget.horizonalScrollListView.a> en = en(this.dataList);
         int count = x.getCount(en);
@@ -78,9 +78,9 @@ public class a extends com.baidu.tieba.card.c<n> {
         }
         getView().setVisibility(0);
         if (count > 10) {
-            this.ksL.setData(en.subList(0, 10), getTbPageContext(), true);
+            this.kog.setData(en.subList(0, 10), getTbPageContext(), true);
         } else {
-            this.ksL.setData(en, getTbPageContext(), false);
+            this.kog.setData(en, getTbPageContext(), false);
         }
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
@@ -112,9 +112,9 @@ public class a extends com.baidu.tieba.card.c<n> {
     @Override // com.baidu.tieba.card.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.ksL != null && this.ksL.getLastItemView() == view && this.dataList != null) {
+        if (this.kog != null && this.kog.getLastItemView() == view && this.dataList != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelateTopicForumActivityConfig(this.mPageContext.getPageActivity(), this.dataList, ((HotTopicActivity) this.mPageContext.getOrignalPage()).cUL())));
+            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelateTopicForumActivityConfig(this.mPageContext.getPageActivity(), this.dataList, ((HotTopicActivity) this.mPageContext.getOrignalPage()).cQT())));
         }
     }
 }

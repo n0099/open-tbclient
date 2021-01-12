@@ -1,5 +1,5 @@
 package com.baidu.live.talentshow.components.preview;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void TZ();
+    void Qe();
 }

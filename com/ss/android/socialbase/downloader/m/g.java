@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13540a;
+    public static String f13240a;
     public static String c;
     private static String e;
     private static String f;
@@ -16,7 +16,7 @@ public class g {
     private static String d = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f13541b = "";
+    public static String f13241b = "";
 
     public static boolean a() {
         return a(RomUtils.ROM_EMUI);
@@ -32,7 +32,7 @@ public class g {
 
     public static boolean d() {
         l();
-        return a(f13540a);
+        return a(f13240a);
     }
 
     public static boolean e() {
@@ -61,10 +61,10 @@ public class g {
     }
 
     private static void l() {
-        if (TextUtils.isEmpty(f13540a)) {
-            f13540a = com.ss.android.socialbase.downloader.b.e.f13373b;
+        if (TextUtils.isEmpty(f13240a)) {
+            f13240a = com.ss.android.socialbase.downloader.b.e.f13073b;
             d = "ro.build.version." + com.ss.android.socialbase.downloader.b.e.c + Config.ROM;
-            f13541b = "com." + com.ss.android.socialbase.downloader.b.e.c + ".market";
+            f13241b = "com." + com.ss.android.socialbase.downloader.b.e.c + ".market";
         }
     }
 
@@ -88,8 +88,8 @@ public class g {
                 String b4 = b(d);
                 f = b4;
                 if (!TextUtils.isEmpty(b4)) {
-                    e = f13540a;
-                    c = f13541b;
+                    e = f13240a;
+                    c = f13241b;
                 } else {
                     String b5 = b("ro.vivo.os.version");
                     f = b5;

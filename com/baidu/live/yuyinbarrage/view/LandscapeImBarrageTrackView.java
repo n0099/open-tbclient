@@ -7,15 +7,15 @@ import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LandscapeImBarrageTrackView extends FrameLayout {
-    private int aGX;
-    private int aGY;
-    private boolean aGZ;
-    private List<View> aHk;
-    private a bYw;
+    private int aCk;
+    private int aCl;
+    private boolean aCm;
+    private List<View> aCx;
+    private a bTK;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
     }
 
@@ -25,17 +25,17 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bYw = aVar;
+        this.bTK = aVar;
     }
 
     public void setCanAddNext() {
-        this.aGZ = true;
+        this.aCm = true;
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aHk = new ArrayList();
-        this.aGX = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
-        this.aGY = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
+        this.aCx = new ArrayList();
+        this.aCk = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
+        this.aCl = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
     }
 }

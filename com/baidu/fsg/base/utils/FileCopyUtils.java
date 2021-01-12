@@ -13,11 +13,11 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FileCopyUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2026a = 4096;
+    private static final int f1976a = 4096;
 
     public static int copy(File file, File file2) throws IOException {
         Assert.notNull(file, "No input File specified");

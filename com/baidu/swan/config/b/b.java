@@ -1,4 +1,4 @@
 package com.baidu.swan.config.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends com.baidu.swan.config.core.b.a {
 }

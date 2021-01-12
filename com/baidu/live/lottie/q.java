@@ -1,10 +1,10 @@
 package com.baidu.live.lottie;
 
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class q {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static final int ActionBarLayout_android_layout_gravity = 0;
         public static final int ActionBar_background = 0;

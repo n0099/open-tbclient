@@ -28,16 +28,16 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f6595a;
+    private static volatile a f6295a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6596b;
+    private final Context f6296b;
     private final h c;
     private Map<l, Long> d = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.reward.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    interface InterfaceC1014a<T> {
+    interface InterfaceC0997a<T> {
         void a(boolean z, T t);
     }
 
@@ -52,9 +52,9 @@ public class a {
         File[] listFiles2;
         try {
             if (Build.VERSION.SDK_INT >= 24) {
-                file = new File(this.f6596b.getDataDir(), "shared_prefs");
+                file = new File(this.f6296b.getDataDir(), "shared_prefs");
             } else {
-                file = new File(this.f6596b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
+                file = new File(this.f6296b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
             }
             if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.1
                 @Override // java.io.FileFilter
@@ -69,9 +69,9 @@ public class a {
                     try {
                         String replace = file2.getName().replace(".xml", "");
                         if (Build.VERSION.SDK_INT >= 24) {
-                            this.f6596b.deleteSharedPreferences(replace);
+                            this.f6296b.deleteSharedPreferences(replace);
                         } else {
-                            this.f6596b.getSharedPreferences(replace, 0).edit().clear().apply();
+                            this.f6296b.getSharedPreferences(replace, 0).edit().clear().apply();
                             com.bytedance.sdk.openadsdk.utils.l.c(file2);
                         }
                     } catch (Throwable th) {
@@ -81,10 +81,10 @@ public class a {
         } catch (Throwable th2) {
         }
         try {
-            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f6596b.getExternalCacheDir() != null) {
-                externalCacheDir = this.f6596b.getExternalCacheDir();
+            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f6296b.getExternalCacheDir() != null) {
+                externalCacheDir = this.f6296b.getExternalCacheDir();
             } else {
-                externalCacheDir = this.f6596b.getCacheDir();
+                externalCacheDir = this.f6296b.getCacheDir();
             }
             if (externalCacheDir != null && externalCacheDir.exists() && externalCacheDir.isDirectory() && (listFiles = externalCacheDir.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.2
                 @Override // java.io.FileFilter
@@ -135,19 +135,19 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (f6595a == null) {
+        if (f6295a == null) {
             synchronized (a.class) {
-                if (f6595a == null) {
-                    f6595a = new a(context);
+                if (f6295a == null) {
+                    f6295a = new a(context);
                 }
             }
         }
-        return f6595a;
+        return f6295a;
     }
 
     private a(Context context) {
-        this.f6596b = context == null ? p.a() : context.getApplicationContext();
-        this.c = new h(this.f6596b, "sp_full_screen_video");
+        this.f6296b = context == null ? p.a() : context.getApplicationContext();
+        this.c = new h(this.f6296b, "sp_full_screen_video");
     }
 
     public String a(l lVar) {
@@ -164,7 +164,7 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
         }
-        File a2 = a(this.f6596b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
+        File a2 = a(this.f6296b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
         if (a2 != null && a2.exists() && a2.isFile()) {
             return a2.getAbsolutePath();
         }
@@ -209,17 +209,17 @@ public class a {
         long elapsedRealtime = remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue();
         String str = z ? "load_video_success" : "load_video_error";
         String str2 = null;
-        if (!z && pVar != null && pVar.ppF != null) {
-            str2 = pVar.ppF.getMessage();
+        if (!z && pVar != null && pVar.pkZ != null) {
+            str2 = pVar.pkZ.getMessage();
         }
-        com.bytedance.sdk.openadsdk.c.d.f(this.f6596b, lVar, "fullscreen_interstitial_ad", str, aj.a(z, lVar, elapsedRealtime, j, str2));
+        com.bytedance.sdk.openadsdk.c.d.f(this.f6296b, lVar, "fullscreen_interstitial_ad", str, aj.a(z, lVar, elapsedRealtime, j, str2));
     }
 
-    public void a(final l lVar, final InterfaceC1014a<Object> interfaceC1014a) {
+    public void a(final l lVar, final InterfaceC0997a<Object> interfaceC0997a) {
         this.d.put(lVar, Long.valueOf(SystemClock.elapsedRealtime()));
         if (lVar == null || lVar.F() == null || TextUtils.isEmpty(lVar.F().h())) {
-            if (interfaceC1014a != null) {
-                interfaceC1014a.a(false, null);
+            if (interfaceC0997a != null) {
+                interfaceC0997a.a(false, null);
             }
             a(false, lVar, -1L, null);
             return;
@@ -232,9 +232,9 @@ public class a {
         int d = aj.d(lVar.W());
         String a2 = a(String.valueOf(d), com.bytedance.sdk.openadsdk.multipro.b.b());
         u.f("FullScreenVideoCache", "ritId:" + d + ",cacheDirPath=" + a2);
-        final File a3 = a(this.f6596b, a2, k);
+        final File a3 = a(this.f6296b, a2, k);
         u.b("splashLoadAd", "FullScreenVideoCache downloadVideo target getPath" + a3.getPath());
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6596b).a(h, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.3
+        com.bytedance.sdk.openadsdk.i.e.a(this.f6296b).a(h, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.a.3
             @Override // com.bytedance.sdk.adnet.b.b.a
             public File a(String str) {
                 try {
@@ -266,23 +266,23 @@ public class a {
 
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                if (pVar != null && pVar.f6345a != null) {
-                    if (interfaceC1014a != null) {
-                        interfaceC1014a.a(true, null);
+                if (pVar != null && pVar.f6045a != null) {
+                    if (interfaceC0997a != null) {
+                        interfaceC0997a.a(true, null);
                     }
                     a.this.a(true, lVar, 0L, pVar);
                     return;
                 }
-                if (interfaceC1014a != null) {
-                    interfaceC1014a.a(false, null);
+                if (interfaceC0997a != null) {
+                    interfaceC0997a.a(false, null);
                 }
                 a.this.a(false, lVar, pVar == null ? -3L : pVar.h, pVar);
             }
 
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                if (interfaceC1014a != null) {
-                    interfaceC1014a.a(false, null);
+                if (interfaceC0997a != null) {
+                    interfaceC0997a.a(false, null);
                 }
                 a.this.a(false, lVar, pVar == null ? -2L : pVar.h, pVar);
             }

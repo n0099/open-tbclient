@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void m(String str, Map<String, String> map) {
         if (!at.isEmpty(str)) {
             aq aqVar = new aq(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    aqVar.dX(str2, map.get(str2));
+                    aqVar.dW(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(aqVar);

@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DownloadStatusManager {
     private static com.ksad.download.f f = new com.kwad.sdk.core.download.c.a();
     private static final BroadcastReceiver g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
@@ -32,16 +32,16 @@ public class DownloadStatusManager {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakHashMap<d, AdTemplate> f9387a;
+    private final WeakHashMap<d, AdTemplate> f9087a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<d, AdTemplate> f9388b;
+    private final Map<d, AdTemplate> f9088b;
     private volatile boolean c;
     private final HashMap<String, AdTemplate> d;
     private final Map<String, AdTemplate> e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Holder {
         INSTANCE;
         
@@ -62,8 +62,8 @@ public class DownloadStatusManager {
     }
 
     private DownloadStatusManager() {
-        this.f9387a = new WeakHashMap<>();
-        this.f9388b = Collections.synchronizedMap(this.f9387a);
+        this.f9087a = new WeakHashMap<>();
+        this.f9088b = Collections.synchronizedMap(this.f9087a);
         this.c = false;
         this.d = new HashMap<>();
         this.e = Collections.synchronizedMap(this.d);
@@ -81,7 +81,7 @@ public class DownloadStatusManager {
                     if (Holder.INSTANCE.mInstance.c) {
                         context.unregisterReceiver(g);
                         context.unregisterReceiver(h);
-                        Holder.INSTANCE.mInstance.f9388b.clear();
+                        Holder.INSTANCE.mInstance.f9088b.clear();
                         Holder.INSTANCE.mInstance.e.clear();
                         Holder.INSTANCE.mInstance.c = false;
                     }
@@ -106,7 +106,7 @@ public class DownloadStatusManager {
         }
         String string = extras.getString("RESULT_DOWNLOAD_ID");
         String action = intent.getAction();
-        if (TextUtils.equals(a.f9390b, action)) {
+        if (TextUtils.equals(a.f9090b, action)) {
             c = 1;
             str = null;
         } else if (TextUtils.equals(a.c, action)) {
@@ -155,8 +155,8 @@ public class DownloadStatusManager {
             str = null;
         }
         f fVar = new f();
-        Set<d> keySet = this.f9388b.keySet();
-        synchronized (this.f9388b) {
+        Set<d> keySet = this.f9088b.keySet();
+        synchronized (this.f9088b) {
             for (d dVar : keySet) {
                 if (dVar != null && TextUtils.equals(dVar.a(), string)) {
                     if (c == 1) {
@@ -215,7 +215,7 @@ public class DownloadStatusManager {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(a.f9390b);
+        intentFilter.addAction(a.f9090b);
         intentFilter.addAction(a.c);
         intentFilter.addAction(a.d);
         intentFilter.addAction(a.e);
@@ -243,8 +243,8 @@ public class DownloadStatusManager {
             return;
         }
         f fVar = new f();
-        Set<d> keySet = this.f9388b.keySet();
-        synchronized (this.f9388b) {
+        Set<d> keySet = this.f9088b.keySet();
+        synchronized (this.f9088b) {
             for (d dVar : keySet) {
                 if (dVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, dVar.b())) {
                     dVar.a((String) null, 0, fVar);
@@ -268,11 +268,11 @@ public class DownloadStatusManager {
     }
 
     public void a(d dVar) {
-        this.f9388b.remove(dVar);
+        this.f9088b.remove(dVar);
     }
 
     public void a(d dVar, AdTemplate adTemplate) {
-        this.f9388b.put(dVar, adTemplate);
+        this.f9088b.put(dVar, adTemplate);
     }
 
     public void a(AdTemplate adTemplate) {

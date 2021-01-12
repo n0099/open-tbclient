@@ -9,64 +9,64 @@ import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 /* loaded from: classes.dex */
 public class ae extends a<bm> {
-    private RecommendForumLayout aiN;
+    private RecommendForumLayout ahV;
     private int mSkinType;
 
     public ae(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.aiN = new RecommendForumLayout(tbPageContext);
-        this.aiN.setPageUniqueId(bdUniqueId);
-        this.aiN.setShowMore(true);
+        this.ahV = new RecommendForumLayout(tbPageContext);
+        this.ahV.setPageUniqueId(bdUniqueId);
+        this.ahV.setShowMore(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aiN;
+        return this.ahV;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.aiN.onChangeSkinType(tbPageContext, i);
+            this.ahV.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.card.a
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aiN.setPageUniqueId(bdUniqueId);
+        this.ahV.setPageUniqueId(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void D(bm bmVar) {
-        this.aiN.setData(bmVar);
+    public void C(bm bmVar) {
+        this.ahV.setData(bmVar);
     }
 
     public void setOnClickRightArrowListener(View.OnClickListener onClickListener) {
-        this.aiN.setOnClickRightArrowListener(onClickListener);
+        this.ahV.setOnClickRightArrowListener(onClickListener);
     }
 
     public void setOnRullOkCallbackr(PullLeftRefreshLayout.a aVar) {
-        this.aiN.setOnRullOkCallbackr(aVar);
+        this.ahV.setOnRullOkCallbackr(aVar);
     }
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f<bl> fVar) {
-        this.aiN.setOnItemCoverListener(fVar);
+        this.ahV.setOnItemCoverListener(fVar);
     }
 
     public void setEnableShowInto(boolean z) {
-        this.aiN.setEnableShowInto(z);
+        this.ahV.setEnableShowInto(z);
     }
 
     public void setShowMore(boolean z) {
-        this.aiN.setShowMore(z);
+        this.ahV.setShowMore(z);
     }
 
     public void setShowSquareEntrance(boolean z) {
-        this.aiN.setShowSquareEntrance(z);
+        this.ahV.setShowSquareEntrance(z);
     }
 }

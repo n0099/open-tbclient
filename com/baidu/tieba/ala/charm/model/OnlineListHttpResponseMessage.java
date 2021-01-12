@@ -4,11 +4,11 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.r;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aKu;
-    private r gQH;
-    private long gQI;
+    private AlaLiveUserInfoData aFH;
+    private r gMb;
+    private long gMc;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gQH = new r();
-                this.gQH.parserJson(optJSONObject);
+                this.gMb = new r();
+                this.gMb.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aKu = new AlaLiveUserInfoData();
-                this.aKu.parserJson(optJSONObject2);
+                this.aFH = new AlaLiveUserInfoData();
+                this.aFH.parserJson(optJSONObject2);
             }
-            this.gQI = optJSONObject.optLong("live_total_price");
+            this.gMc = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bWY() {
+    public long bTg() {
         return this.mAudienceCount;
     }
 
-    public r bWZ() {
-        return this.gQH;
+    public r bTh() {
+        return this.gMb;
     }
 
-    public AlaLiveUserInfoData bXa() {
-        return this.aKu;
+    public AlaLiveUserInfoData bTi() {
+        return this.aFH;
     }
 
-    public long bXb() {
-        return this.gQI;
+    public long bTj() {
+        return this.gMc;
     }
 }

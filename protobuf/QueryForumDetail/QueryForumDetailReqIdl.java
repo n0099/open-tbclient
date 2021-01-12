@@ -2,7 +2,7 @@ package protobuf.QueryForumDetail;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class QueryForumDetailReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class QueryForumDetailReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<QueryForumDetailReqIdl> {
         public DataReq data;
 

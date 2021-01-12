@@ -7,12 +7,12 @@ import com.kuaishou.aegon.Aegon;
 import java.util.ArrayList;
 import java.util.List;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HttpDnsResolver {
     public static a sLogger;
     public static Handler sLoggerHandler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onResolveFinish(ResolveFinishedInfo resolveFinishedInfo);
     }
@@ -21,7 +21,7 @@ public class HttpDnsResolver {
         if (!Aegon.isInitialized() || list == null) {
             return;
         }
-        Aegon.eDQ();
+        Aegon.ezY();
         com.kuaishou.aegon.a.a.b(com.kuaishou.aegon.httpdns.a.gR(list));
     }
 
@@ -42,8 +42,8 @@ public class HttpDnsResolver {
 
     public static List<ResolvedIP> resolve(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eDQ();
-            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.ZX(str));
+            Aegon.ezY();
+            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.YP(str));
             return list == null ? new ArrayList() : list;
         }
         return new ArrayList();
@@ -58,8 +58,8 @@ public class HttpDnsResolver {
 
     public static void updateConfig(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eDQ();
-            com.kuaishou.aegon.a.a.b(c.ZY(str));
+            Aegon.ezY();
+            com.kuaishou.aegon.a.a.b(c.YQ(str));
         }
     }
 }

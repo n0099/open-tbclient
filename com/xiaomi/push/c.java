@@ -7,16 +7,16 @@ import java.io.UnsupportedEncodingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f14198a;
+    private final int f13898a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final OutputStream f225a;
+    private final OutputStream f224a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f226a;
+    private final byte[] f225a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14199b;
+    private int f13899b;
 
     /* loaded from: classes6.dex */
     public static class a extends IOException {
@@ -26,17 +26,17 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.f225a = outputStream;
-        this.f226a = bArr;
-        this.f14199b = 0;
-        this.f14198a = bArr.length;
+        this.f224a = outputStream;
+        this.f225a = bArr;
+        this.f13899b = 0;
+        this.f13898a = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.f225a = null;
-        this.f226a = bArr;
-        this.f14199b = i;
-        this.f14198a = i + i2;
+        this.f224a = null;
+        this.f225a = bArr;
+        this.f13899b = i;
+        this.f13898a = i + i2;
     }
 
     public static int a(int i) {
@@ -157,11 +157,11 @@ public final class c {
     }
 
     private void c() {
-        if (this.f225a == null) {
+        if (this.f224a == null) {
             throw new a();
         }
-        this.f225a.write(this.f226a, 0, this.f14199b);
-        this.f14199b = 0;
+        this.f224a.write(this.f225a, 0, this.f13899b);
+        this.f13899b = 0;
     }
 
     public static int d(int i) {
@@ -178,127 +178,127 @@ public final class c {
     }
 
     public int a() {
-        if (this.f225a == null) {
-            return this.f14198a - this.f14199b;
+        if (this.f224a == null) {
+            return this.f13898a - this.f13899b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m206a() {
-        if (this.f225a != null) {
+    public void m202a() {
+        if (this.f224a != null) {
             c();
         }
     }
 
     public void a(byte b2) {
-        if (this.f14199b == this.f14198a) {
+        if (this.f13899b == this.f13898a) {
             c();
         }
-        byte[] bArr = this.f226a;
-        int i = this.f14199b;
-        this.f14199b = i + 1;
+        byte[] bArr = this.f225a;
+        int i = this.f13899b;
+        this.f13899b = i + 1;
         bArr[i] = b2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m207a(int i) {
+    public void m203a(int i) {
         if (i >= 0) {
-            m226d(i);
+            m222d(i);
         } else {
-            m225c(i);
+            m221c(i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m208a(int i, int i2) {
+    public void m204a(int i, int i2) {
         c(i, 0);
-        m207a(i2);
+        m203a(i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m209a(int i, long j) {
+    public void m205a(int i, long j) {
         c(i, 0);
-        m214a(j);
+        m210a(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m210a(int i, com.xiaomi.push.a aVar) {
+    public void m206a(int i, com.xiaomi.push.a aVar) {
         c(i, 2);
-        m215a(aVar);
+        m211a(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m211a(int i, e eVar) {
+    public void m207a(int i, e eVar) {
         c(i, 2);
-        m216a(eVar);
+        m212a(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m212a(int i, String str) {
+    public void m208a(int i, String str) {
         c(i, 2);
-        m217a(str);
+        m213a(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m213a(int i, boolean z) {
+    public void m209a(int i, boolean z) {
         c(i, 0);
-        m218a(z);
+        m214a(z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m214a(long j) {
-        m225c(j);
+    public void m210a(long j) {
+        m221c(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m215a(com.xiaomi.push.a aVar) {
-        byte[] m153a = aVar.m153a();
-        m226d(m153a.length);
-        a(m153a);
+    public void m211a(com.xiaomi.push.a aVar) {
+        byte[] m149a = aVar.m149a();
+        m222d(m149a.length);
+        a(m149a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m216a(e eVar) {
-        m226d(eVar.a());
+    public void m212a(e eVar) {
+        m222d(eVar.a());
         eVar.a(this);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m217a(String str) {
+    public void m213a(String str) {
         byte[] bytes = str.getBytes("UTF-8");
-        m226d(bytes.length);
+        m222d(bytes.length);
         a(bytes);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m218a(boolean z) {
-        m224c(z ? 1 : 0);
+    public void m214a(boolean z) {
+        m220c(z ? 1 : 0);
     }
 
     public void a(byte[] bArr) {
-        m219a(bArr, 0, bArr.length);
+        m215a(bArr, 0, bArr.length);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m219a(byte[] bArr, int i, int i2) {
-        if (this.f14198a - this.f14199b >= i2) {
-            System.arraycopy(bArr, i, this.f226a, this.f14199b, i2);
-            this.f14199b += i2;
+    public void m215a(byte[] bArr, int i, int i2) {
+        if (this.f13898a - this.f13899b >= i2) {
+            System.arraycopy(bArr, i, this.f225a, this.f13899b, i2);
+            this.f13899b += i2;
             return;
         }
-        int i3 = this.f14198a - this.f14199b;
-        System.arraycopy(bArr, i, this.f226a, this.f14199b, i3);
+        int i3 = this.f13898a - this.f13899b;
+        System.arraycopy(bArr, i, this.f225a, this.f13899b, i3);
         int i4 = i + i3;
         int i5 = i2 - i3;
-        this.f14199b = this.f14198a;
+        this.f13899b = this.f13898a;
         c();
-        if (i5 > this.f14198a) {
-            this.f225a.write(bArr, i4, i5);
+        if (i5 > this.f13898a) {
+            this.f224a.write(bArr, i4, i5);
             return;
         }
-        System.arraycopy(bArr, i4, this.f226a, 0, i5);
-        this.f14199b = i5;
+        System.arraycopy(bArr, i4, this.f225a, 0, i5);
+        this.f13899b = i5;
     }
 
     public void b() {
@@ -308,51 +308,51 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m220b(int i) {
-        m226d(i);
+    public void m216b(int i) {
+        m222d(i);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m221b(int i, int i2) {
+    public void m217b(int i, int i2) {
         c(i, 0);
-        m220b(i2);
+        m216b(i2);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m222b(int i, long j) {
+    public void m218b(int i, long j) {
         c(i, 0);
-        m223b(j);
+        m219b(j);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m223b(long j) {
-        m225c(j);
+    public void m219b(long j) {
+        m221c(j);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m224c(int i) {
+    public void m220c(int i) {
         a((byte) i);
     }
 
     public void c(int i, int i2) {
-        m226d(f.a(i, i2));
+        m222d(f.a(i, i2));
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m225c(long j) {
+    public void m221c(long j) {
         while (((-128) & j) != 0) {
-            m224c((((int) j) & 127) | 128);
+            m220c((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        m224c((int) j);
+        m220c((int) j);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m226d(int i) {
+    public void m222d(int i) {
         while ((i & (-128)) != 0) {
-            m224c((i & 127) | 128);
+            m220c((i & 127) | 128);
             i >>>= 7;
         }
-        m224c(i);
+        m220c(i);
     }
 }

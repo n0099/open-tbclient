@@ -13,20 +13,20 @@ import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static IBTTSPlayer f2754b;
-    private static com.baidu.platform.comapi.wnplatform.n.c d = new d();
+    private static IBTTSPlayer f2663b;
+    private static com.baidu.platform.comapi.wnplatform.m.c d = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f2755a;
+    FrameLayout f2664a;
     private MapView c = null;
 
     public void a(Activity activity, IBEngineInitListener iBEngineInitListener) {
         if (iBEngineInitListener == null) {
-            throw new UnsupportedBikeNaviException("BDMapSDKException: engine init listener cannot be null");
+            throw new UnsupportedBikeNaviException("engine init listener cannot be null");
         }
         if (this.c == null) {
             this.c = new MapView(activity);
@@ -38,7 +38,7 @@ public class a {
     }
 
     public boolean a() {
-        return BNavigatorWrapper.getWNavigator().l();
+        return BNavigatorWrapper.getWNavigator().j();
     }
 
     public void a(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {
@@ -50,7 +50,7 @@ public class a {
     }
 
     public void a(IBTTSPlayer iBTTSPlayer) {
-        f2754b = iBTTSPlayer;
+        f2663b = iBTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -59,12 +59,12 @@ public class a {
 
     public View a(Activity activity) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.f2755a = new FrameLayout(activity);
-        this.f2755a.setLayoutParams(layoutParams);
+        this.f2664a = new FrameLayout(activity);
+        this.f2664a.setLayoutParams(layoutParams);
         View b2 = BNavigatorWrapper.getWNavigator().b(activity);
-        this.f2755a.addView(this.c);
-        this.f2755a.addView(b2);
-        return this.f2755a;
+        this.f2664a.addView(this.c);
+        this.f2664a.addView(b2);
+        return this.f2664a;
     }
 
     public void b() {
@@ -80,68 +80,61 @@ public class a {
     }
 
     public void d() {
-        if (f2754b != null) {
-            f2754b = null;
+        if (f2663b != null) {
+            f2663b = null;
         }
         if (this.c != null) {
             this.c.getMap().clear();
             this.c.onDestroy();
         }
         this.c = null;
-        if (this.f2755a != null && this.f2755a.getParent() != null) {
-            ((ViewGroup) this.f2755a.getParent()).removeAllViews();
+        if (this.f2664a != null && this.f2664a.getParent() != null) {
+            ((ViewGroup) this.f2664a.getParent()).removeAllViews();
         }
-        this.f2755a = null;
+        this.f2664a = null;
     }
 
     private void b(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {
-        if (aVar != null) {
-            int a2 = aVar.a("vehicle", 0);
-            if (a2 == 0) {
-                BNavigatorWrapper.getWNavigator().a(1, 1);
-            } else if (a2 == 1) {
-                BNavigatorWrapper.getWNavigator().a(2, 1);
+        BNavigatorWrapper.getWNavigator().a(1, 1);
+        if (aVar.b("end_x") != null) {
+            int length = aVar.b("end_x").length;
+            int[] iArr = new int[length + 1];
+            int[] iArr2 = new int[length + 1];
+            int[] iArr3 = new int[length + 1];
+            int[] iArr4 = new int[length + 1];
+            iArr[0] = aVar.a("start_x", 0);
+            iArr2[0] = aVar.a("start_y", 0);
+            iArr3[0] = aVar.a("start_cityid", 0);
+            iArr4[0] = -1;
+            for (int i = 0; i < length; i++) {
+                iArr[i + 1] = aVar.b("end_x")[i];
             }
-            if (aVar.b("end_x") != null) {
-                int length = aVar.b("end_x").length;
-                int[] iArr = new int[length + 1];
-                int[] iArr2 = new int[length + 1];
-                int[] iArr3 = new int[length + 1];
-                int[] iArr4 = new int[length + 1];
-                iArr[0] = aVar.a("start_x", 0);
-                iArr2[0] = aVar.a("start_y", 0);
-                iArr3[0] = aVar.a("start_cityid", 0);
-                iArr4[0] = -1;
-                for (int i = 0; i < length; i++) {
-                    iArr[i + 1] = aVar.b("end_x")[i];
-                }
-                for (int i2 = 0; i2 < length; i2++) {
-                    iArr2[i2 + 1] = aVar.b("end_y")[i2];
-                }
-                for (int i3 = 0; i3 < length; i3++) {
-                    iArr3[i3 + 1] = aVar.b("end_cityid")[i3];
-                }
-                for (int i4 = 0; i4 < length; i4++) {
-                    iArr4[i4 + 1] = i4 + 1;
-                }
-                if (BNavigatorWrapper.getWNavigator().F().a(iArr, iArr2, iArr3, iArr4)) {
-                    BNavigatorWrapper.getWNavigator().a(d);
-                    BNavigatorWrapper.getWNavigator().F().a(new c(this, iBRoutePlanListener));
-                    e();
-                    BNavigatorWrapper.getWNavigator().F().a(14, aVar.a("route_data_mode", 0), 0, aVar.a("vehicle", 0), aVar.a("route_buff"));
-                }
+            for (int i2 = 0; i2 < length; i2++) {
+                iArr2[i2 + 1] = aVar.b("end_y")[i2];
+            }
+            for (int i3 = 0; i3 < length; i3++) {
+                iArr3[i3 + 1] = aVar.b("end_cityid")[i3];
+            }
+            for (int i4 = 0; i4 < length; i4++) {
+                iArr4[i4 + 1] = i4 + 1;
+            }
+            if (BNavigatorWrapper.getWNavigator().C().a(iArr, iArr2, iArr3, iArr4)) {
+                BNavigatorWrapper.getWNavigator().a(d);
+                BNavigatorWrapper.getWNavigator().a(new c(this, iBRoutePlanListener));
+                e();
+                BNavigatorWrapper.getWNavigator().C().a(14, aVar.a("route_data_mode", 0), aVar.a("vehicle", 0), aVar.a("route_buff"));
             }
         }
     }
 
     public static void e() {
-        if (BNavigatorWrapper.getWNavigator().A()) {
-            BNavigatorWrapper.getWNavigator().y();
+        if (BNavigatorWrapper.getWNavigator().x()) {
+            BNavigatorWrapper.getWNavigator().v();
         }
     }
 
     public void a(String str) {
-        BNavigatorWrapper.getWNavigator().T().a(str);
+        BNavigatorWrapper.getWNavigator().Q().a(str);
     }
 
     public MapView f() {

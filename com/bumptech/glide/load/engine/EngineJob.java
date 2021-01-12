@@ -16,7 +16,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     private static final EngineResourceFactory DEFAULT_FACTORY = new EngineResourceFactory();
     private static final Handler MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper(), new MainThreadCallback());
@@ -256,7 +256,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class EngineResourceFactory {
         EngineResourceFactory() {
         }
@@ -266,7 +266,7 @@ class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class MainThreadCallback implements Handler.Callback {
         MainThreadCallback() {
         }

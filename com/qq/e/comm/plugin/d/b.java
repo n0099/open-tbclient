@@ -3,29 +3,29 @@ package com.qq.e.comm.plugin.d;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Class f12282a;
+    private static Class f11982a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Class f12283b;
+    private static Class f11983b;
     private final Context c;
     private Method d;
 
     static {
-        f12282a = null;
-        f12283b = null;
+        f11982a = null;
+        f11983b = null;
         try {
-            f12282a = Class.forName("androidx.appcompat.app.AppCompatActivity");
+            f11982a = Class.forName("androidx.appcompat.app.AppCompatActivity");
         } catch (ClassNotFoundException e) {
-            f12282a = null;
+            f11982a = null;
         }
         try {
-            f12283b = Class.forName("androidx.appcompat.app.AppCompatActivity");
+            f11983b = Class.forName("androidx.appcompat.app.AppCompatActivity");
         } catch (ClassNotFoundException e2) {
-            f12283b = null;
+            f11983b = null;
         }
     }
 
@@ -42,8 +42,8 @@ public class b {
         if (context == null) {
             return null;
         }
-        if (f12282a == null || !f12282a.isInstance(context)) {
-            if (f12283b == null || !f12283b.isInstance(context)) {
+        if (f11982a == null || !f11982a.isInstance(context)) {
+            if (f11983b == null || !f11983b.isInstance(context)) {
                 if (context instanceof ContextThemeWrapper) {
                     return a(((ContextThemeWrapper) context).getBaseContext());
                 }

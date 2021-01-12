@@ -7,10 +7,10 @@ import java.util.List;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    List<i.b> f7558a;
+    List<i.b> f7258a;
 
     /* renamed from: b  reason: collision with root package name */
-    f f7559b;
+    f f7259b;
 
     public abstract int a();
 
@@ -27,7 +27,7 @@ public abstract class a {
     public abstract String f();
 
     public f g() {
-        return this.f7559b;
+        return this.f7259b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,9 +35,9 @@ public abstract class a {
         if (str == null) {
             return null;
         }
-        if (this.f7558a != null && this.f7558a.size() > 0) {
-            for (i.b bVar : this.f7558a) {
-                if (str.equals(bVar.f7601a)) {
+        if (this.f7258a != null && this.f7258a.size() > 0) {
+            for (i.b bVar : this.f7258a) {
+                if (str.equals(bVar.f7301a)) {
                     return bVar;
                 }
             }

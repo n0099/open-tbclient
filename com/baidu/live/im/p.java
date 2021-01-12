@@ -10,13 +10,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p {
-    public static List<a> a(com.baidu.j.a.b.a.c cVar) {
+    public static List<a> a(com.baidu.h.a.b.a.c cVar) {
         return a(cVar, false);
     }
 
-    public static List<a> a(com.baidu.j.a.b.a.c cVar, boolean z) {
+    public static List<a> a(com.baidu.h.a.b.a.c cVar, boolean z) {
         int i = JavaTypesHelper.toInt(cVar.type, 0);
         if (TbConfig.IM_LOG) {
             Log.i("imlog", "@.@ IM消息 接收: 消息类型：  " + i);
@@ -46,9 +46,9 @@ public class p {
         }
     }
 
-    private static final List<a> b(com.baidu.j.a.b.a.c cVar) {
-        int i = cVar.cfq.cfD;
-        String str = cVar.cfq.cfE;
+    private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
+        int i = cVar.caA.caN;
+        String str = cVar.caA.caO;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -65,8 +65,8 @@ public class p {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.Nw().userId) || "0".equals(aVar.Nw().userId)) {
-                            aVar.Nw().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.JB().userId) || "0".equals(aVar.JB().userId)) {
+                            aVar.JB().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -80,8 +80,8 @@ public class p {
         return null;
     }
 
-    private static final List<a> c(com.baidu.j.a.b.a.c cVar) {
-        String str = cVar.cfr;
+    private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
+        String str = cVar.caB;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -98,8 +98,8 @@ public class p {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.Nw().userId) || "0".equals(aVar.Nw().userId)) {
-                            aVar.Nw().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.JB().userId) || "0".equals(aVar.JB().userId)) {
+                            aVar.JB().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -127,8 +127,8 @@ public class p {
         }
     }
 
-    private static final List<a> d(com.baidu.j.a.b.a.c cVar) {
-        int i = cVar.cfq.feedback;
+    private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
+        int i = cVar.caA.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -147,10 +147,10 @@ public class p {
         return arrayList;
     }
 
-    private static final List<a> e(com.baidu.j.a.b.a.c cVar) {
+    private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.cfq != null) {
-            String str = cVar.cfq.cfF;
+        if (cVar != null && cVar.caA != null) {
+            String str = cVar.caA.caP;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

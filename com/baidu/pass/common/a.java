@@ -12,20 +12,20 @@ class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    static class C0282a {
+    static class C0270a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f4095a = "UTF-8";
+        private static final String f4057a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f4096b = "AES/CBC/NoPadding";
+        private static final String f4058b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
-        public C0282a() {
-            this("AES", f4096b, "UTF-8");
+        public C0270a() {
+            this("AES", f4058b, "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
@@ -47,9 +47,9 @@ class a {
             throw new Exception("Empty string");
         }
 
-        public C0282a(String str, String str2, String str3) {
+        public C0270a(String str, String str2, String str3) {
             this.d = "UTF-8";
-            this.e = f4096b;
+            this.e = f4058b;
             this.f = "AES";
             this.f = str;
             this.e = str2;

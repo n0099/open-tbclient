@@ -14,7 +14,7 @@ import com.baidu.live.utils.s;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static String p(String[] strArr) {
         if (strArr == null || strArr.length == 0) {
@@ -30,9 +30,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -44,9 +44,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -58,9 +58,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -68,13 +68,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "gift_clk").setContentExt(p(strArr), "giftpanel", jSONObject));
     }
 
-    public static void aaV() {
+    public static void Xc() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -82,13 +82,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftsend_clk").setContentExt("", "giftpanel", jSONObject));
     }
 
-    public static void aaW() {
+    public static void Xd() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -96,13 +96,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "combosend_show").setContentExt("", "giftpanel", jSONObject));
     }
 
-    public static void aaX() {
+    public static void Xe() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -110,13 +110,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "combosend_clk").setContentExt("", "giftpanel", jSONObject));
     }
 
-    public static void aaY() {
+    public static void Xf() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -124,13 +124,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "multiple_show").setContentExt("", "giftpanel", jSONObject));
     }
 
-    public static void aaZ() {
+    public static void Xg() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -142,9 +142,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -156,9 +156,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -170,9 +170,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -184,9 +184,9 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.live.aq.a.aan().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.live.aq.a.Wu().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
             jSONObject.put("tabid", str);
             jSONObject.put("tabname", str2);
@@ -202,12 +202,12 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                x aat = com.baidu.live.aq.a.aan().aat();
-                if (aat != null && aat.aLl != null) {
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+                x WA = com.baidu.live.aq.a.Wu().WA();
+                if (WA != null && WA.aGy != null) {
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
                 }
-                if (com.baidu.live.aq.a.aan().aat() != null && com.baidu.live.aq.a.aan().aat().aLq != null) {
-                    int roomMode = com.baidu.live.aq.a.aan().aat().aLq.getRoomMode();
+                if (com.baidu.live.aq.a.Wu().WA() != null && com.baidu.live.aq.a.Wu().WA().aGD != null) {
+                    int roomMode = com.baidu.live.aq.a.Wu().WA().aGD.getRoomMode();
                     if (roomMode == 0) {
                         jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "normal");
                     } else if (roomMode == 1) {
@@ -216,18 +216,18 @@ public class a {
                         jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "battle");
                     }
                 }
-                jSONObject.put(LogConfig.LOG_GIFT_VALUE, anVar.aYw);
+                jSONObject.put(LogConfig.LOG_GIFT_VALUE, anVar.aTJ);
                 jSONObject.put(LogConfig.LOG_GIFT_ID, anVar.giftId);
                 jSONObject.put("gift_name", anVar.giftName);
                 JSONObject jSONObject2 = new JSONObject();
-                List<s.a> iV = s.iV(anVar.aZR);
+                List<s.a> hK = s.hK(anVar.aVe);
                 int i2 = 0;
                 int i3 = 0;
                 int i4 = 0;
-                for (s.a aVar : iV) {
-                    AlaWheatInfoData jp = com.baidu.live.aq.a.aan().jp(aVar.uk);
-                    if (jp != null) {
-                        switch (jp.userIdentity) {
+                for (s.a aVar : hK) {
+                    AlaWheatInfoData ie = com.baidu.live.aq.a.Wu().ie(aVar.uk);
+                    if (ie != null) {
+                        switch (ie.userIdentity) {
                             case 1:
                                 i = i2;
                                 continue;
@@ -251,7 +251,7 @@ public class a {
                     i = i2;
                     i2 = i;
                 }
-                jSONObject2.put("owner", iV.size());
+                jSONObject2.put("owner", hK.size());
                 jSONObject2.put("accomany", i2);
                 jSONObject2.put("host", i4);
                 jSONObject2.put("guest", i3);

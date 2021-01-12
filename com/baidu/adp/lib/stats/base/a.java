@@ -8,42 +8,42 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String Pb;
-    protected String Pp;
-    protected String Ps;
-    protected j Pu;
+    private String OZ;
+    protected String Pn;
+    protected String Pq;
+    protected j Ps;
+    private StringBuffer Pa = new StringBuffer();
+    private StringBuffer Pb = new StringBuffer();
     private StringBuffer Pc = new StringBuffer();
-    private StringBuffer Pd = new StringBuffer();
-    private StringBuffer Pe = new StringBuffer();
+    private int Pd = 0;
+    private int Pe = 0;
     private int Pf = 0;
-    private int Pg = 0;
-    private int Ph = 0;
-    private long OO = 0;
-    private long Pi = 0;
+    private long OL = 0;
+    private long Pg = 0;
+    private long Ph = 0;
+    protected long Pi = 0;
     private long Pj = 0;
-    protected long Pk = 0;
+    private long Pk = 0;
     private long Pl = 0;
-    private long Pm = 0;
-    private long Pn = 0;
-    protected int Po = 50;
-    protected final String Pq = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    protected int Pm = 50;
+    protected final String Po = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Pr = false;
+    protected boolean Pp = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Pt = false;
+    private boolean Pr = false;
 
     public a(j jVar) {
-        this.Pu = jVar;
+        this.Ps = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.Pc.append(aVar.toString());
-                    this.Pc.append("\r\n");
-                    this.Pf++;
+                    this.Pa.append(aVar.toString());
+                    this.Pa.append("\r\n");
+                    this.Pd++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -51,19 +51,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pu != null) {
-            this.Pu.o(this);
+        if (this.Ps != null) {
+            this.Ps.o(this);
         }
-        this.OO = System.currentTimeMillis();
+        this.OL = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.Pd.append(aVar.toString());
-                    this.Pd.append("\r\n");
-                    this.Pg++;
+                    this.Pb.append(aVar.toString());
+                    this.Pb.append("\r\n");
+                    this.Pe++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -71,19 +71,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pu != null) {
-            this.Pu.o(this);
+        if (this.Ps != null) {
+            this.Ps.o(this);
         }
-        this.Pi = System.currentTimeMillis();
+        this.Pg = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 if (aVar.mE() != null) {
-                    this.Pe.append(aVar.mE().mQ().toString());
-                    this.Pe.append("\r\n");
-                    this.Ph++;
+                    this.Pc.append(aVar.mE().mQ().toString());
+                    this.Pc.append("\r\n");
+                    this.Pf++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Pu != null) {
-            this.Pu.o(this);
+        if (this.Ps != null) {
+            this.Ps.o(this);
         }
-        this.Pj = System.currentTimeMillis();
+        this.Ph = System.currentTimeMillis();
     }
 
     public int mR() {
-        return this.Pf;
+        return this.Pd;
     }
 
     public int mS() {
-        return this.Pg;
+        return this.Pe;
     }
 
     public int mT() {
-        return this.Ph;
+        return this.Pf;
     }
 
     public long mU() {
-        return this.Pk;
-    }
-
-    public void H(long j) {
-        this.Pk = j;
-    }
-
-    public long mV() {
-        return this.OO;
-    }
-
-    public long mW() {
         return this.Pi;
     }
 
+    public void H(long j) {
+        this.Pi = j;
+    }
+
+    public long mV() {
+        return this.OL;
+    }
+
+    public long mW() {
+        return this.Pg;
+    }
+
     public long mX() {
-        return this.Pj;
+        return this.Ph;
     }
 
     public String mY() {
-        if (TextUtils.isEmpty(this.Ps)) {
+        if (TextUtils.isEmpty(this.Pq)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Pp);
+            sb.append(this.Pn);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Ps = sb.toString();
+            this.Pq = sb.toString();
         }
-        return this.Ps;
+        return this.Pq;
     }
 
     public String mZ() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Pp);
+        sb.append(this.Pn);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -152,55 +152,55 @@ public class a {
     }
 
     public long na() {
-        return this.Pl;
+        return this.Pj;
     }
 
     public long nb() {
-        return this.Pm;
+        return this.Pk;
     }
 
     public long nc() {
-        return this.Pn;
+        return this.Pl;
     }
 
     public void I(long j) {
-        this.Pl = j;
+        this.Pj = j;
     }
 
     public void J(long j) {
-        this.Pm = j;
+        this.Pk = j;
     }
 
     public void K(long j) {
-        this.Pn = j;
+        this.Pl = j;
     }
 
     public synchronized void nd() {
+        this.Pa = new StringBuffer();
+        this.Pd = 0;
+        this.Pj = 0L;
+    }
+
+    public synchronized void ne() {
+        this.Pb = new StringBuffer();
+        this.Pe = 0;
+        this.Pk = 0L;
+    }
+
+    public synchronized void nf() {
         this.Pc = new StringBuffer();
         this.Pf = 0;
         this.Pl = 0L;
     }
 
-    public synchronized void ne() {
-        this.Pd = new StringBuffer();
-        this.Pg = 0;
-        this.Pm = 0L;
-    }
-
-    public synchronized void nf() {
-        this.Pe = new StringBuffer();
-        this.Ph = 0;
-        this.Pn = 0L;
-    }
-
     public void bX(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.Pb = str;
+            this.OZ = str;
         }
     }
 
     public String ng() {
-        return this.Pb;
+        return this.OZ;
     }
 
     public boolean nh() {
@@ -212,11 +212,11 @@ public class a {
     }
 
     public boolean ni() {
-        return this.Pt;
+        return this.Pr;
     }
 
     public void aq(boolean z) {
-        this.Pt = z;
+        this.Pr = z;
     }
 
     public String nj() {
@@ -228,15 +228,15 @@ public class a {
     }
 
     public StringBuffer nl() {
-        return this.Pc;
+        return this.Pa;
     }
 
     public StringBuffer nm() {
-        return this.Pd;
+        return this.Pb;
     }
 
     public StringBuffer nn() {
-        return this.Pe;
+        return this.Pc;
     }
 
     public boolean no() {
@@ -244,7 +244,7 @@ public class a {
     }
 
     public boolean np() {
-        return this.Pr;
+        return this.Pp;
     }
 
     public boolean nq() {
@@ -252,7 +252,7 @@ public class a {
     }
 
     public String nr() {
-        return this.Pp;
+        return this.Pn;
     }
 
     public static String bY(String str) {

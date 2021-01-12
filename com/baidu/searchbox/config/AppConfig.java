@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AppConfig {
     private static final String CONFIG_FILE = "searchbox_config.ini";
     private static final String DAILY_CONFIG_FILE = "daily_searchbox_config.ini";
@@ -43,7 +43,7 @@ public class AppConfig {
     public static boolean useQADefaultDings = false;
     public static boolean userProfileForbidFlag = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
@@ -61,7 +61,7 @@ public class AppConfig {
         return false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AppInfo {
         private static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         private static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -156,7 +156,7 @@ public class AppConfig {
         return i;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class HTTPSConfig {
         private static final long TMP_USE_HTTP_DELTA = 518400000;
 
@@ -307,7 +307,7 @@ public class AppConfig {
         return getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp");
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Speed {
         public static boolean getSpeedEnable() {
             return AppConfig.getBooleanConfig("SPEED_MONITOR", false);
@@ -493,7 +493,7 @@ public class AppConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ConfigWhiteList {
         static final String[] WHITE_LIST = {"GRAB_SERVER_COMMAND", "XSEARCH_FORCE_HTML5", "DREAM_QR_PAGEID", "USER_PROTOCOL_SWITCH", "SILENT_WEBKIT", "SILENT_VIDEO", "FORBID_CONFIG_FILE_WARNING", "ANTIHIJACK_WEBSEARCH_URL", "ANTIHIJACK_UPLOAD_URL", "USE_AUTO_FOCUS", "VOICE_PID", "IMG_SEARCH_URL", "LOAD_IN_MAIN_BROWSER", "DOWNLOAD_DEST_MODE", "DOWNLOAD_DEST_DIR", "USER_PROFILE_FORBIDDEN_CONFIG", "NETTRAFFIC_UPLOAD_NUM_LIMIT", "SPEED_MONITOR", "SPEED_MONITOR_UPLOAD"};
 
@@ -519,7 +519,7 @@ public class AppConfig {
         return sIsBeta;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Downloads {
         public static String getDestinationMode() {
             return AppConfig.getStringConfig("DOWNLOAD_DEST_MODE", null);
@@ -538,7 +538,7 @@ public class AppConfig {
         return getStringConfig(UBC_DEBUG_HOST, UBC_DEBUG_URL);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Debug {
         public static String getJacocoUploadUrl() {
             return AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php");

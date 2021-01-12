@@ -25,7 +25,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends TextureView implements MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener, e, bg.a {
     private String A;
     private AtomicBoolean B;
@@ -33,10 +33,10 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
     private int D;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f11972a;
+    private volatile int f11672a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile int f11973b;
+    private volatile int f11673b;
     private SurfaceTexture c;
     private volatile MediaPlayer d;
     private AudioManager e;
@@ -62,7 +62,7 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
     private Handler y;
     private HandlerThread z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -80,34 +80,34 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile b f11989a = null;
+        private static volatile b f11689a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        private ArrayBlockingQueue<WeakReference<f>> f11990b;
+        private ArrayBlockingQueue<WeakReference<f>> f11690b;
         private int c = -1;
 
         private b() {
-            this.f11990b = null;
-            this.f11990b = new ArrayBlockingQueue<>(16);
+            this.f11690b = null;
+            this.f11690b = new ArrayBlockingQueue<>(16);
         }
 
         public static b a() {
-            if (f11989a == null) {
+            if (f11689a == null) {
                 synchronized (b.class) {
                     try {
-                        if (f11989a == null) {
-                            f11989a = new b();
+                        if (f11689a == null) {
+                            f11689a = new b();
                         }
                     } catch (Throwable th) {
                         throw th;
                     }
                 }
             }
-            return f11989a;
+            return f11689a;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:12:0x003c  */
@@ -157,8 +157,8 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                 GDTLogger.d("maxCount == 0, return");
                 return false;
             }
-            if (this.f11990b.size() == b()) {
-                WeakReference<f> poll = this.f11990b.poll();
+            if (this.f11690b.size() == b()) {
+                WeakReference<f> poll = this.f11690b.poll();
                 if (poll != null) {
                     f fVar2 = poll.get();
                     if (fVar2 != null) {
@@ -171,8 +171,8 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                     GDTLogger.e("queue is empty, why?!");
                 }
             }
-            boolean offer = this.f11990b.offer(new WeakReference<>(fVar));
-            GDTLogger.d(fVar.hashCode() + " add to cache, result = " + offer + ", size = " + this.f11990b.size());
+            boolean offer = this.f11690b.offer(new WeakReference<>(fVar));
+            GDTLogger.d(fVar.hashCode() + " add to cache, result = " + offer + ", size = " + this.f11690b.size());
             return offer;
         }
 
@@ -181,7 +181,7 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
             if (fVar == null) {
                 return false;
             }
-            Iterator<WeakReference<f>> it = this.f11990b.iterator();
+            Iterator<WeakReference<f>> it = this.f11690b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     weakReference = null;
@@ -196,20 +196,20 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                 GDTLogger.d(fVar.hashCode() + " not in cache");
                 return false;
             }
-            boolean remove = this.f11990b.remove(weakReference);
-            GDTLogger.d(fVar.hashCode() + " removed from cache, result = " + remove + ", size = " + this.f11990b.size());
+            boolean remove = this.f11690b.remove(weakReference);
+            GDTLogger.d(fVar.hashCode() + " removed from cache, result = " + remove + ", size = " + this.f11690b.size());
             return remove;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         DEFAULT,
         CROP,
         CENTER_CROP
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum d {
         ERROR,
         UNINITIALIZED,
@@ -857,18 +857,18 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3;
-        int defaultSize = getDefaultSize(this.f11972a, i);
-        int defaultSize2 = getDefaultSize(this.f11973b, i2);
-        if (this.f11972a > 0 && this.f11973b > 0) {
+        int defaultSize = getDefaultSize(this.f11672a, i);
+        int defaultSize2 = getDefaultSize(this.f11673b, i2);
+        if (this.f11672a > 0 && this.f11673b > 0) {
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
             int mode2 = View.MeasureSpec.getMode(i2);
             int size2 = View.MeasureSpec.getSize(i2);
             if (this.t == c.CROP && (size != 0 || size2 != 0)) {
-                if (this.f11973b * size < this.f11972a * size2 || size == 0) {
-                    size = (this.f11972a * size2) / this.f11973b;
-                } else if (this.f11973b * size > this.f11972a * size2 || size2 == 0) {
-                    size2 = (this.f11973b * size) / this.f11972a;
+                if (this.f11673b * size < this.f11672a * size2 || size == 0) {
+                    size = (this.f11672a * size2) / this.f11673b;
+                } else if (this.f11673b * size > this.f11672a * size2 || size2 == 0) {
+                    size2 = (this.f11673b * size) / this.f11672a;
                 }
                 int b2 = ak.b(getContext());
                 int c2 = ak.c(getContext());
@@ -879,8 +879,8 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                     size2 = c2;
                 }
             } else if (this.t == c.CENTER_CROP) {
-                float f = (defaultSize * 1.0f) / this.f11972a;
-                float f2 = (defaultSize2 * 1.0f) / this.f11973b;
+                float f = (defaultSize * 1.0f) / this.f11672a;
+                float f2 = (defaultSize2 * 1.0f) / this.f11673b;
                 float max = Math.max(f, f2);
                 Matrix matrix = new Matrix(getMatrix());
                 matrix.setScale(max / f, max / f2, defaultSize / 2, defaultSize2 / 2);
@@ -888,18 +888,18 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                 size = defaultSize;
                 size2 = defaultSize2;
             } else if (mode == 1073741824 && mode2 == 1073741824) {
-                if (this.f11972a * size2 < this.f11973b * size) {
-                    size = (this.f11972a * size2) / this.f11973b;
-                } else if (this.f11972a * size2 > this.f11973b * size) {
-                    size2 = (this.f11973b * size) / this.f11972a;
+                if (this.f11672a * size2 < this.f11673b * size) {
+                    size = (this.f11672a * size2) / this.f11673b;
+                } else if (this.f11672a * size2 > this.f11673b * size) {
+                    size2 = (this.f11673b * size) / this.f11672a;
                 }
             } else if (mode == 1073741824) {
-                int i4 = (this.f11973b * size) / this.f11972a;
+                int i4 = (this.f11673b * size) / this.f11672a;
                 if (mode2 != Integer.MIN_VALUE || i4 <= size2) {
                     size2 = i4;
                 }
             } else if (mode2 == 1073741824) {
-                i3 = (this.f11972a * size2) / this.f11973b;
+                i3 = (this.f11672a * size2) / this.f11673b;
                 if (mode == Integer.MIN_VALUE) {
                     if (i3 <= size) {
                         size = i3;
@@ -907,15 +907,15 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
                 }
                 size = i3;
             } else {
-                i3 = this.f11972a;
-                int i5 = this.f11973b;
+                i3 = this.f11672a;
+                int i5 = this.f11673b;
                 if (mode2 != Integer.MIN_VALUE || i5 <= size2) {
                     size2 = i5;
                 } else {
-                    i3 = (this.f11972a * size2) / this.f11973b;
+                    i3 = (this.f11672a * size2) / this.f11673b;
                 }
                 if (mode == Integer.MIN_VALUE && i3 > size) {
-                    size2 = (this.f11973b * size) / this.f11972a;
+                    size2 = (this.f11673b * size) / this.f11672a;
                 }
                 size = i3;
             }
@@ -943,8 +943,8 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
         this.s = d.PREPARED;
         this.k.set(true);
         GDTLogger.d("Video is prepared.");
-        this.f11972a = mediaPlayer.getVideoWidth();
-        this.f11973b = mediaPlayer.getVideoHeight();
+        this.f11672a = mediaPlayer.getVideoWidth();
+        this.f11673b = mediaPlayer.getVideoHeight();
         this.y.post(new Runnable() { // from class: com.qq.e.comm.plugin.aa.b.f.9
             @Override // java.lang.Runnable
             public void run() {
@@ -1005,9 +1005,9 @@ public class f extends TextureView implements MediaPlayer.OnCompletionListener, 
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        this.f11972a = mediaPlayer.getVideoWidth();
-        this.f11973b = mediaPlayer.getVideoHeight();
-        if (this.f11972a == 0 || this.f11973b == 0) {
+        this.f11672a = mediaPlayer.getVideoWidth();
+        this.f11673b = mediaPlayer.getVideoHeight();
+        if (this.f11672a == 0 || this.f11673b == 0) {
             return;
         }
         this.y.post(new Runnable() { // from class: com.qq.e.comm.plugin.aa.b.f.11

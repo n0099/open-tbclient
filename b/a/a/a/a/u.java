@@ -11,22 +11,22 @@ import java.util.Iterator;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class u implements Runnable {
-    final w AU;
+    final w AT;
     volatile Handler d;
     long e;
     long f;
 
     /* renamed from: b  reason: collision with root package name */
-    final LinkedBlockingQueue f1079b = new LinkedBlockingQueue(3);
+    final LinkedBlockingQueue f1078b = new LinkedBlockingQueue(3);
 
     /* renamed from: a  reason: collision with root package name */
-    volatile boolean f1078a = false;
+    volatile boolean f1077a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(w wVar) {
-        this.AU = wVar;
+        this.AT = wVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,7 +49,7 @@ public final class u implements Runnable {
             return;
         }
         v.e(vVar);
-        Iterator it = this.f1079b.iterator();
+        Iterator it = this.f1078b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -69,7 +69,7 @@ public final class u implements Runnable {
         StringBuilder sb = new StringBuilder("retryIfNeed: times=");
         i2 = vVar.h;
         sb.append(i2);
-        this.f1079b.offer(vVar);
+        this.f1078b.offer(vVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -139,10 +139,10 @@ public final class u implements Runnable {
     }
 
     public final void a() {
-        if (this.f1078a) {
-            this.f1078a = false;
-            this.f1079b.clear();
-            this.f1079b.offer(v.AV);
+        if (this.f1077a) {
+            this.f1077a = false;
+            this.f1078b.clear();
+            this.f1078b.offer(v.AU);
             this.d = null;
             b();
         }
@@ -156,8 +156,8 @@ public final class u implements Runnable {
         byte[] bArr;
         int i;
         int i2;
-        LinkedBlockingQueue linkedBlockingQueue = this.f1079b;
-        while (this.f1078a) {
+        LinkedBlockingQueue linkedBlockingQueue = this.f1078b;
+        while (this.f1077a) {
             try {
                 try {
                     vVar = (v) linkedBlockingQueue.take();
@@ -172,10 +172,10 @@ public final class u implements Runnable {
             } catch (InterruptedException e3) {
             } catch (Throwable th) {
             }
-            if (v.AV == vVar) {
+            if (v.AU == vVar) {
                 return;
             }
-            new StringBuilder("request:").append(vVar.f1081b);
+            new StringBuilder("request:").append(vVar.f1080b);
             j = System.currentTimeMillis();
             try {
                 str = vVar.g;

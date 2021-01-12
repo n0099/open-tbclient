@@ -11,26 +11,26 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
 
     /* renamed from: b  reason: collision with root package name */
-    protected long f1659b;
+    protected long f1608b;
     protected long c;
     private Context h;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1658a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper agX = null;
+    public static final String f1607a = BdZeusDownloadHelper.class.getSimpleName();
+    private static BdZeusDownloadHelper agg = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -53,14 +53,14 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadPause(String str, long j, long j2, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1661b;
+            BdZeusDownloadHelper.this.j = a.f1610b;
             Log.i(EngineManager.LOG_TAG, "onDownloadPause");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1660a;
+            BdZeusDownloadHelper.this.j = a.f1609a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -106,28 +106,28 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloading(String str, long j, long j2) {
-            BdZeusDownloadHelper.this.f1659b += j;
+            BdZeusDownloadHelper.this.f1608b += j;
             BdZeusDownloadHelper.this.c = j2;
-            BdZeusDownloadHelper.this.j = a.f1660a;
+            BdZeusDownloadHelper.this.j = a.f1609a;
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1660a = 1;
+        public static final int f1609a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f1661b = 2;
+        public static final int f1610b = 2;
         public static final int c = 3;
         public static final int d = 4;
         public static final int e = 5;
         public static final int f = 6;
         public static final int g = 7;
-        private static final /* synthetic */ int[] h = {f1660a, f1661b, c, d, e, f, g};
+        private static final /* synthetic */ int[] h = {f1609a, f1610b, c, d, e, f, g};
     }
 
     private BdZeusDownloadHelper(Context context) {
@@ -138,15 +138,15 @@ public final class BdZeusDownloadHelper {
         }
     }
 
-    public static BdZeusDownloadHelper U(Context context) {
-        if (agX == null) {
+    public static BdZeusDownloadHelper T(Context context) {
+        if (agg == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (agX == null) {
-                    agX = new BdZeusDownloadHelper(context);
+                if (agg == null) {
+                    agg = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return agX;
+        return agg;
     }
 
     public static void a() {

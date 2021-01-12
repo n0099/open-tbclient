@@ -3,6 +3,7 @@ package com.qq.e.comm.plugin.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.http.Headers;
 import android.telephony.TelephonyManager;
 import com.qq.e.comm.managers.GDTADManager;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ab {
     public static String a() {
         Context appContext = GDTADManager.getInstance().getAppContext();
@@ -45,7 +46,7 @@ public class ab {
                 if (!a(httpURLConnection2.getResponseCode())) {
                     break;
                 }
-                String headerField = httpURLConnection2.getHeaderField("location");
+                String headerField = httpURLConnection2.getHeaderField(Headers.LOCATION);
                 httpURLConnection2.disconnect();
                 httpURLConnection2 = (HttpURLConnection) new URL(headerField).openConnection();
                 httpURLConnection2.setConnectTimeout(connectTimeout);

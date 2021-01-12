@@ -5,16 +5,16 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> lci = new HashMap<>();
+    private static final HashMap<String, e> kXC = new HashMap<>();
     public String itemId = "";
-    public long lcg;
-    public int lch;
+    public long kXA;
+    public int kXB;
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        lci.put(this.lcg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        kXC.put(this.kXA + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
     public static e u(long j, String str) {
@@ -22,6 +22,6 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return lci.get(append.append(str).toString());
+        return kXC.get(append.append(str).toString());
     }
 }

@@ -23,7 +23,7 @@ import com.kwad.sdk.widget.KsLogoView;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
     private TextView f;
     private RatioFrameLayout g;
@@ -51,7 +51,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                a.this.l.setText(com.kwad.sdk.core.response.b.a.w(a.this.f10161b));
+                a.this.l.setText(com.kwad.sdk.core.response.b.a.w(a.this.f9861b));
                 a.this.l.setVisibility(0);
                 a.this.k.setVisibility(8);
             }
@@ -60,12 +60,12 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             public void onDownloadFinished() {
                 a.this.l.setVisibility(8);
                 a.this.k.setVisibility(0);
-                a.this.k.a(com.kwad.sdk.core.response.b.a.a(a.this.f10160a), a.this.k.getMax());
+                a.this.k.a(com.kwad.sdk.core.response.b.a.a(a.this.f9860a), a.this.k.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                a.this.l.setText(com.kwad.sdk.core.response.b.a.w(a.this.f10161b));
+                a.this.l.setText(com.kwad.sdk.core.response.b.a.w(a.this.f9861b));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -93,7 +93,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         Iterator<Integer> it = this.n.iterator();
         while (it.hasNext()) {
             if (ceil >= it.next().intValue()) {
-                com.kwad.sdk.core.report.b.b(this.f10160a, ceil, null);
+                com.kwad.sdk.core.report.b.b(this.f9860a, ceil, null);
                 it.remove();
                 return;
             }
@@ -103,11 +103,11 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.kwad.sdk.core.video.videoview.b bVar) {
         if (bVar != null) {
-            String a2 = com.kwad.sdk.core.response.b.a.a(this.f10161b);
+            String a2 = com.kwad.sdk.core.response.b.a.a(this.f9861b);
             this.p.setAutoRelease(false);
             AdVideoPlayerViewCache.a().a(a2, this.o);
-            com.kwad.sdk.core.download.b.a.b(ao.a(this), this.f10160a, new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.a.5
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+            com.kwad.sdk.core.download.b.a.b(ao.a(this), this.f9860a, new a.InterfaceC1088a() { // from class: com.kwad.sdk.feed.widget.a.5
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
                 public void a() {
                     a.this.k();
                 }
@@ -118,19 +118,19 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     private void f() {
         findViewById(R.id.ksad_ad_h5_container).setVisibility(0);
         TextView textView = (TextView) findViewById(R.id.ksad_h5_open_btn);
-        ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
-        textView.setText(com.kwad.sdk.core.response.b.a.w(this.f10161b));
+        ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
+        textView.setText(com.kwad.sdk.core.response.b.a.w(this.f9861b));
         findViewById(R.id.ksad_h5_open_cover).setOnClickListener(this);
         textView.setOnClickListener(this);
     }
 
     private void g() {
         findViewById(R.id.ksad_ad_download_container).setVisibility(0);
-        ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.q(this.f10161b));
-        KSImageLoader.loadAppIcon((ImageView) findViewById(R.id.ksad_app_icon), com.kwad.sdk.core.response.b.a.o(this.f10161b), this.f10160a, 8);
-        ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
+        ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.q(this.f9861b));
+        KSImageLoader.loadAppIcon((ImageView) findViewById(R.id.ksad_app_icon), com.kwad.sdk.core.response.b.a.o(this.f9861b), this.f9860a, 8);
+        ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
         this.l = (TextView) findViewById(R.id.ksad_app_download_before);
-        this.l.setText(com.kwad.sdk.core.response.b.a.w(this.f10161b));
+        this.l.setText(com.kwad.sdk.core.response.b.a.w(this.f9861b));
         this.l.setVisibility(0);
         this.l.setOnClickListener(this);
         this.k = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
@@ -139,43 +139,43 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         this.k.setVisibility(8);
         this.k.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.j = new com.kwad.sdk.core.download.b.b(this.f10160a, null, this.s);
+        this.j = new com.kwad.sdk.core.download.b.b(this.f9860a, null, this.s);
     }
 
     public void a(@NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         this.r = ksAdVideoPlayConfig.isVideoSoundEnable();
-        String a2 = com.kwad.sdk.core.response.b.a.U(this.f10161b).a();
+        String a2 = com.kwad.sdk.core.response.b.a.U(this.f9861b).a();
         if (TextUtils.isEmpty(a2)) {
             this.m.setVisibility(8);
         } else {
             this.m.setImageDrawable(null);
-            KSImageLoader.loadImage(this.m, a2, this.f10160a);
+            KSImageLoader.loadImage(this.m, a2, this.f9860a);
             this.m.setVisibility(0);
         }
-        this.n = com.kwad.sdk.core.response.b.a.M(this.f10161b);
+        this.n = com.kwad.sdk.core.response.b.a.M(this.f9861b);
         this.o = new com.kwad.sdk.core.video.videoview.b(this.d);
         this.o.setTag(this.n);
-        String a3 = com.kwad.sdk.core.response.b.a.a(this.f10161b);
+        String a3 = com.kwad.sdk.core.response.b.a.a(this.f9861b);
         if (TextUtils.isEmpty(a3)) {
             return;
         }
-        this.o.a(new d.a().a(a3).a(this.f10160a.mVideoPlayerStatus).a(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(this.f10161b), System.currentTimeMillis())).a(), (Map<String, String>) null);
+        this.o.a(new d.a().a(a3).a(this.f9860a.mVideoPlayerStatus).a(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(this.f9861b), System.currentTimeMillis())).a(), (Map<String, String>) null);
         this.o.setVideoSoundEnable(this.r);
-        this.p = new j(this.d, this.f10160a, this.o);
-        this.p.setVideoPlayCallback(new a.InterfaceC1118a() { // from class: com.kwad.sdk.feed.widget.a.2
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+        this.p = new j(this.d, this.f9860a, this.o);
+        this.p.setVideoPlayCallback(new a.InterfaceC1101a() { // from class: com.kwad.sdk.feed.widget.a.2
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
             public void a() {
-                com.kwad.sdk.core.report.b.h(a.this.f10160a);
+                com.kwad.sdk.core.report.b.h(a.this.f9860a);
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
             public void a(long j) {
                 a.this.a(j);
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
             public void b() {
-                com.kwad.sdk.core.report.b.i(a.this.f10160a);
+                com.kwad.sdk.core.report.b.i(a.this.f9860a);
             }
         });
         this.p.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
@@ -194,7 +194,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                     a.this.a(a.this.o);
                     return;
                 }
-                a.this.o.setKsPlayLogParam(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(a.this.f10161b), System.currentTimeMillis()));
+                a.this.o.setKsPlayLogParam(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(a.this.f9861b), System.currentTimeMillis()));
                 a.this.o.a();
             }
         });
@@ -203,9 +203,9 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
         this.i.a(adTemplate);
-        if (com.kwad.sdk.core.response.b.a.y(this.f10161b)) {
+        if (com.kwad.sdk.core.response.b.a.y(this.f9861b)) {
             g();
         } else {
             f();
@@ -225,9 +225,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         this.i = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    public void d() {
+    protected void d() {
         super.d();
         if (this.r) {
             com.kwad.sdk.utils.b.a().a(false);
@@ -238,9 +237,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    public void e() {
+    protected void e() {
         super.e();
     }
 
@@ -269,22 +267,22 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             }
             this.g.addView(this.o);
             this.g.setTag(this.o);
-            String a2 = com.kwad.sdk.core.response.b.a.a(this.f10161b);
+            String a2 = com.kwad.sdk.core.response.b.a.a(this.f9861b);
             this.o.setVideoSoundEnable(this.r);
-            this.p.setVideoPlayCallback(new a.InterfaceC1118a() { // from class: com.kwad.sdk.feed.widget.a.1
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+            this.p.setVideoPlayCallback(new a.InterfaceC1101a() { // from class: com.kwad.sdk.feed.widget.a.1
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
                 public void a() {
-                    com.kwad.sdk.core.report.b.h(a.this.f10160a);
+                    com.kwad.sdk.core.report.b.h(a.this.f9860a);
                 }
 
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
                 public void a(long j) {
                     a.this.a(j);
                 }
 
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1118a
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1101a
                 public void b() {
-                    com.kwad.sdk.core.report.b.i(a.this.f10160a);
+                    com.kwad.sdk.core.report.b.i(a.this.f9860a);
                 }
             });
             this.p.m();

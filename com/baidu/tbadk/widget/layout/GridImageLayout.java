@@ -28,24 +28,24 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class GridImageLayout extends RelativeLayout {
-    private View.OnClickListener akV;
-    private TbImageView.c alY;
-    private Bitmap anf;
-    private int fWC;
-    private com.baidu.adp.lib.d.b<ImageView> fWD;
-    private com.baidu.adp.lib.d.b<GifView> fWE;
-    private com.baidu.tbadk.widget.richText.a fWF;
-    private ArrayList<TbRichTextImageInfo> fWG;
-    private int fWH;
-    private String fWI;
-    private RectF fWJ;
-    private boolean fWK;
-    private int fWL;
-    private boolean fWM;
-    private int[] fWN;
-    private TbRichTextView.i fWO;
-    private Paint fWc;
-    private int fWd;
+    private View.OnClickListener ake;
+    private TbImageView.c alg;
+    private Bitmap amo;
+    private int fRV;
+    private com.baidu.adp.lib.d.b<ImageView> fRW;
+    private com.baidu.adp.lib.d.b<GifView> fRX;
+    private com.baidu.tbadk.widget.richText.a fRY;
+    private ArrayList<TbRichTextImageInfo> fRZ;
+    private Paint fRv;
+    private int fRw;
+    private int fSa;
+    private String fSb;
+    private RectF fSc;
+    private boolean fSd;
+    private int fSe;
+    private boolean fSf;
+    private int[] fSg;
+    private TbRichTextView.i fSh;
     private Paint mBitmapPaint;
     private int mImageHeight;
     private int mImageWidth;
@@ -58,17 +58,17 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context) {
         super(context);
-        this.fWC = 0;
-        this.fWD = null;
-        this.fWE = null;
+        this.fRV = 0;
+        this.fRW = null;
+        this.fRX = null;
         this.textHeight = 0;
-        this.fWK = true;
-        this.fWM = false;
-        this.fWN = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
+        this.fSd = true;
+        this.fSf = false;
+        this.fSg = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GridImageLayout.this.fWO != null && GridImageLayout.this.fWG != null) {
+                if (GridImageLayout.this.fSh != null && GridImageLayout.this.fRZ != null) {
                     int indexOfChild = GridImageLayout.this.indexOfChild(view);
                     String str = "";
                     if (view instanceof TbImageView) {
@@ -76,24 +76,24 @@ public class GridImageLayout extends RelativeLayout {
                     } else if (view instanceof GifView) {
                         str = ((GifView) view).getUrl();
                     }
-                    GridImageLayout.this.fWO.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
+                    GridImageLayout.this.fSh.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
                 }
-                if (GridImageLayout.this.akV != null) {
-                    GridImageLayout.this.akV.onClick(view);
+                if (GridImageLayout.this.ake != null) {
+                    GridImageLayout.this.ake.onClick(view);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
                 int i2;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fWL));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fSe));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i = CT.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -125,17 +125,17 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fWC = 0;
-        this.fWD = null;
-        this.fWE = null;
+        this.fRV = 0;
+        this.fRW = null;
+        this.fRX = null;
         this.textHeight = 0;
-        this.fWK = true;
-        this.fWM = false;
-        this.fWN = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
+        this.fSd = true;
+        this.fSf = false;
+        this.fSg = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GridImageLayout.this.fWO != null && GridImageLayout.this.fWG != null) {
+                if (GridImageLayout.this.fSh != null && GridImageLayout.this.fRZ != null) {
                     int indexOfChild = GridImageLayout.this.indexOfChild(view);
                     String str = "";
                     if (view instanceof TbImageView) {
@@ -143,24 +143,24 @@ public class GridImageLayout extends RelativeLayout {
                     } else if (view instanceof GifView) {
                         str = ((GifView) view).getUrl();
                     }
-                    GridImageLayout.this.fWO.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
+                    GridImageLayout.this.fSh.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
                 }
-                if (GridImageLayout.this.akV != null) {
-                    GridImageLayout.this.akV.onClick(view);
+                if (GridImageLayout.this.ake != null) {
+                    GridImageLayout.this.ake.onClick(view);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
                 int i2;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fWL));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fSe));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i = CT.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -192,17 +192,17 @@ public class GridImageLayout extends RelativeLayout {
 
     public GridImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fWC = 0;
-        this.fWD = null;
-        this.fWE = null;
+        this.fRV = 0;
+        this.fRW = null;
+        this.fRX = null;
         this.textHeight = 0;
-        this.fWK = true;
-        this.fWM = false;
-        this.fWN = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
+        this.fSd = true;
+        this.fSf = false;
+        this.fSg = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GridImageLayout.this.fWO != null && GridImageLayout.this.fWG != null) {
+                if (GridImageLayout.this.fSh != null && GridImageLayout.this.fRZ != null) {
                     int indexOfChild = GridImageLayout.this.indexOfChild(view);
                     String str = "";
                     if (view instanceof TbImageView) {
@@ -210,24 +210,24 @@ public class GridImageLayout extends RelativeLayout {
                     } else if (view instanceof GifView) {
                         str = ((GifView) view).getUrl();
                     }
-                    GridImageLayout.this.fWO.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
+                    GridImageLayout.this.fSh.a(view, str, indexOfChild, GridImageLayout.this.mIsHost, true);
                 }
-                if (GridImageLayout.this.akV != null) {
-                    GridImageLayout.this.akV.onClick(view);
+                if (GridImageLayout.this.ake != null) {
+                    GridImageLayout.this.ake.onClick(view);
                 }
             }
         };
-        this.alY = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
+        this.alg = new TbImageView.c() { // from class: com.baidu.tbadk.widget.layout.GridImageLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
                 int i22;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fWL));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i2 = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fSe));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i2 = CT.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;
@@ -261,15 +261,15 @@ public class GridImageLayout extends RelativeLayout {
         this.mBitmapPaint = new Paint();
         this.mBitmapPaint.setAntiAlias(true);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.fWc = new Paint();
-        this.fWc.setAntiAlias(true);
+        this.fRv = new Paint();
+        this.fRv.setAntiAlias(true);
         this.textPaint = new Paint();
         this.textPaint.setColor(ao.getColor(R.color.CAM_X0101));
         this.textPaint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.T_X09));
         this.textPaint.setAntiAlias(true);
         Paint.FontMetrics fontMetrics = this.textPaint.getFontMetrics();
         this.textHeight = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-        this.fWd = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
+        this.fRw = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
     }
 
     public void setIsHost(boolean z) {
@@ -277,39 +277,39 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.fWO = iVar;
+        this.fSh = iVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.akV = onClickListener;
+        this.ake = onClickListener;
     }
 
     public void setLayoutStrategy(com.baidu.tbadk.widget.richText.a aVar) {
-        this.fWF = aVar;
-        if (this.fWF != null) {
-            this.fWH = this.fWF.fYS;
+        this.fRY = aVar;
+        if (this.fRY != null) {
+            this.fSa = this.fRY.fUl;
         }
     }
 
     public void setObjectPool(com.baidu.adp.lib.d.b<ImageView> bVar, com.baidu.adp.lib.d.b<GifView> bVar2) {
-        this.fWD = bVar;
-        this.fWE = bVar2;
+        this.fRW = bVar;
+        this.fRX = bVar2;
     }
 
     public void setCornerStyle(int i) {
-        this.fWC = i;
+        this.fRV = i;
     }
 
     public void clearData() {
-        this.fWG = null;
+        this.fRZ = null;
     }
 
     public void setData(ArrayList<TbRichTextImageInfo> arrayList) {
-        if (!x.isEmpty(arrayList) && !P(arrayList) && this.fWF != null) {
-            this.fWG = arrayList;
+        if (!x.isEmpty(arrayList) && !K(arrayList) && this.fRY != null) {
+            this.fRZ = arrayList;
             this.mSize = arrayList.size();
-            this.fWI = this.mSize > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.mSize - 9)}) : "";
-            bKI();
+            this.fSb = this.mSize > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.mSize - 9)}) : "";
+            bGQ();
         }
     }
 
@@ -317,66 +317,66 @@ public class GridImageLayout extends RelativeLayout {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        if (!at.isEmpty(this.fWI) && (childCount = getChildCount()) == 9) {
+        if (!at.isEmpty(this.fSb) && (childCount = getChildCount()) == 9) {
             View childAt = getChildAt(childCount - 1);
             if ((childAt instanceof TbImageView) || (childAt instanceof GifView)) {
-                if (this.fWJ == null) {
-                    this.fWJ = new RectF();
+                if (this.fSc == null) {
+                    this.fSc = new RectF();
                 }
-                this.fWJ.set(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
-                a(canvas, this.fWJ, childAt instanceof TbImageView ? ((TbImageView) childAt).getRadius() : ((GifView) childAt).getRadius());
+                this.fSc.set(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+                a(canvas, this.fSc, childAt instanceof TbImageView ? ((TbImageView) childAt).getRadius() : ((GifView) childAt).getRadius());
             }
         }
     }
 
     private void a(Canvas canvas, RectF rectF, float[] fArr) {
         if (rectF != null) {
-            if (this.anf == null || this.anf.isRecycled()) {
+            if (this.amo == null || this.amo.isRecycled()) {
                 int i = (int) (rectF.right - rectF.left);
                 int i2 = (int) (rectF.bottom - rectF.top);
-                this.anf = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
-                Canvas canvas2 = new Canvas(this.anf);
+                this.amo = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
+                Canvas canvas2 = new Canvas(this.amo);
                 canvas2.drawARGB(0, 0, 0, 0);
                 RectF rectF2 = new RectF(-fArr[0], 0.0f, i, i2);
                 this.mBitmapPaint.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, i2, 0, Integer.MIN_VALUE, Shader.TileMode.CLAMP));
                 canvas2.drawPath(com.baidu.tbadk.core.elementsMaven.a.a.a(rectF2, fArr), this.mBitmapPaint);
             }
-            canvas.drawBitmap(this.anf, rectF.left, rectF.top, this.fWc);
+            canvas.drawBitmap(this.amo, rectF.left, rectF.top, this.fRv);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
             int dimenPixelSize2 = ((int) rectF.right) - UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
             int i3 = ((int) rectF.bottom) - dimenPixelSize;
-            int measureText = dimenPixelSize2 - ((int) this.textPaint.measureText(this.fWI));
-            float[] ps = com.baidu.tbadk.core.elementsMaven.a.ps(R.array.S_O_X001);
-            this.textPaint.setShadowLayer(ps[1], ps[2], ps[3], (int) ps[0]);
-            canvas.drawText(this.fWI, measureText, i3, this.textPaint);
+            int measureText = dimenPixelSize2 - ((int) this.textPaint.measureText(this.fSb));
+            float[] nL = com.baidu.tbadk.core.elementsMaven.a.nL(R.array.S_O_X001);
+            this.textPaint.setShadowLayer(nL[1], nL[2], nL[3], (int) nL[0]);
+            canvas.drawText(this.fSb, measureText, i3, this.textPaint);
         }
     }
 
-    private boolean P(ArrayList<TbRichTextImageInfo> arrayList) {
-        return x.equalList(this.fWG, arrayList);
+    private boolean K(ArrayList<TbRichTextImageInfo> arrayList) {
+        return x.equalList(this.fRZ, arrayList);
     }
 
-    private void bKI() {
-        if (!x.isEmpty(this.fWG)) {
+    private void bGQ() {
+        if (!x.isEmpty(this.fRZ)) {
             removeAllViews();
-            bKL();
+            bGT();
             if (this.mImageWidth > 0 && this.mImageHeight > 0) {
                 if (this.mSize == 1) {
-                    bKJ();
+                    bGR();
                 } else {
-                    bKK();
+                    bGS();
                 }
             }
         }
     }
 
-    private void bKJ() {
+    private void bGR() {
         TbRichTextImageInfo tbRichTextImageInfo;
-        if (!x.isEmpty(this.fWG) && (tbRichTextImageInfo = this.fWG.get(0)) != null) {
+        if (!x.isEmpty(this.fRZ) && (tbRichTextImageInfo = this.fRZ.get(0)) != null) {
             int width = tbRichTextImageInfo.getWidth();
             int height = tbRichTextImageInfo.getHeight();
             if (width > 0 && height > 0) {
-                if (this.fWK && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.bLv()) {
+                if (this.fSd && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.bHD()) {
                     a(0, tbRichTextImageInfo);
                 } else {
                     b(0, tbRichTextImageInfo);
@@ -385,18 +385,18 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    private void bKK() {
-        if (!x.isEmpty(this.fWG)) {
+    private void bGS() {
+        if (!x.isEmpty(this.fRZ)) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < this.mSize && i2 < 9) {
-                    TbRichTextImageInfo tbRichTextImageInfo = this.fWG.get(i2);
+                    TbRichTextImageInfo tbRichTextImageInfo = this.fRZ.get(i2);
                     if (tbRichTextImageInfo != null) {
                         int width = tbRichTextImageInfo.getWidth();
                         int height = tbRichTextImageInfo.getHeight();
                         if (width > 0 && height > 0) {
-                            if (this.fWK && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.bLv()) {
+                            if (this.fSd && TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.bHD()) {
                                 a(i2, tbRichTextImageInfo);
                             } else {
                                 b(i2, tbRichTextImageInfo);
@@ -412,8 +412,8 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     private void a(int i, TbRichTextImageInfo tbRichTextImageInfo) {
-        if (tbRichTextImageInfo != null && this.fWF != null) {
-            GifView borrowObject = this.fWE != null ? this.fWE.borrowObject() : null;
+        if (tbRichTextImageInfo != null && this.fRY != null) {
+            GifView borrowObject = this.fRX != null ? this.fRX.borrowObject() : null;
             if (borrowObject == null || borrowObject.getParent() != null) {
                 borrowObject = new GifView(getContext());
             }
@@ -431,43 +431,43 @@ public class GridImageLayout extends RelativeLayout {
             if (this.mSize == 1) {
                 borrowObject.setPlaceHolder(3);
                 borrowObject.setScaleType(ImageView.ScaleType.MATRIX);
-                borrowObject.setOnDrawListener(this.alY);
+                borrowObject.setOnDrawListener(this.alg);
             } else {
                 borrowObject.setPlaceHolder(2);
                 borrowObject.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
-            borrowObject.setIsLongPic(tbRichTextImageInfo.bLv());
-            if (i == 8 && !at.isEmpty(this.fWI)) {
+            borrowObject.setIsLongPic(tbRichTextImageInfo.bHD());
+            if (i == 8 && !at.isEmpty(this.fSb)) {
                 borrowObject.setLongIconSupport(false);
                 borrowObject.setGifIconSupport(false);
             } else {
                 borrowObject.setLongIconSupport(true);
                 borrowObject.setGifIconSupport(true);
             }
-            if (this.fWF.fYF) {
+            if (this.fRY.fTY) {
                 borrowObject.setSupportNoImage(true);
             }
-            borrowObject.setDefaultNoImageDay(ao.qc(R.drawable.icon_click));
-            String bLr = tbRichTextImageInfo.bLr();
-            if (StringUtils.isNull(bLr)) {
-                if (this.fWF.bKW()) {
-                    bLr = this.fWF.mIsFromCDN ? tbRichTextImageInfo.bLn() : tbRichTextImageInfo.bLp();
+            borrowObject.setDefaultNoImageDay(ao.ov(R.drawable.icon_click));
+            String bHz = tbRichTextImageInfo.bHz();
+            if (StringUtils.isNull(bHz)) {
+                if (this.fRY.bHe()) {
+                    bHz = this.fRY.mIsFromCDN ? tbRichTextImageInfo.bHv() : tbRichTextImageInfo.bHx();
                 }
-                if (StringUtils.isNull(bLr)) {
-                    bLr = this.fWF.mIsFromCDN ? tbRichTextImageInfo.bLq() : tbRichTextImageInfo.getSrc();
+                if (StringUtils.isNull(bHz)) {
+                    bHz = this.fRY.mIsFromCDN ? tbRichTextImageInfo.bHy() : tbRichTextImageInfo.getSrc();
                 }
             }
             borrowObject.setShowStaticDrawable(false);
-            this.fWL = 38;
-            borrowObject.ax(bLr, this.fWL);
+            this.fSe = 38;
+            borrowObject.ax(bHz, this.fSe);
             a(borrowObject, i);
         }
     }
 
     private void b(int i, TbRichTextImageInfo tbRichTextImageInfo) {
         String str = null;
-        if (tbRichTextImageInfo != null && this.fWF != null) {
-            ImageView borrowObject = this.fWD != null ? this.fWD.borrowObject() : null;
+        if (tbRichTextImageInfo != null && this.fRY != null) {
+            ImageView borrowObject = this.fRW != null ? this.fRW.borrowObject() : null;
             if (borrowObject == null || borrowObject.getParent() != null) {
                 borrowObject = new TbImageView(getContext());
             }
@@ -487,42 +487,42 @@ public class GridImageLayout extends RelativeLayout {
                 if (this.mSize == 1) {
                     tbImageView.setPlaceHolder(3);
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
-                    tbImageView.setOnDrawListener(this.alY);
+                    tbImageView.setOnDrawListener(this.alg);
                 } else {
                     tbImageView.setPlaceHolder(2);
                     tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                tbImageView.setIsLongPic(tbRichTextImageInfo.bLv());
-                if (i == 8 && !at.isEmpty(this.fWI)) {
+                tbImageView.setIsLongPic(tbRichTextImageInfo.bHD());
+                if (i == 8 && !at.isEmpty(this.fSb)) {
                     tbImageView.setLongIconSupport(false);
                     tbImageView.setGifIconSupport(false);
                 } else {
                     tbImageView.setLongIconSupport(true);
                     tbImageView.setGifIconSupport(true);
                 }
-                if (this.fWF.fYF) {
+                if (this.fRY.fTY) {
                     tbImageView.setSupportNoImage(true);
                 }
-                if (!this.fWK) {
+                if (!this.fSd) {
                     str = tbRichTextImageInfo.getSrc();
-                    String bLt = tbRichTextImageInfo.bLt();
-                    if (!TextUtils.isEmpty(bLt) && bLt.toLowerCase().contains(".gif")) {
+                    String bHB = tbRichTextImageInfo.bHB();
+                    if (!TextUtils.isEmpty(bHB) && bHB.toLowerCase().contains(".gif")) {
                         tbImageView.setIsGifPic(true);
                     } else {
                         tbImageView.setIsGifPic(false);
                     }
-                    this.fWL = 13;
+                    this.fSe = 13;
                 } else {
-                    if (this.fWF.bKW()) {
-                        str = this.fWF.mIsFromCDN ? tbRichTextImageInfo.bLn() : tbRichTextImageInfo.bLp();
+                    if (this.fRY.bHe()) {
+                        str = this.fRY.mIsFromCDN ? tbRichTextImageInfo.bHv() : tbRichTextImageInfo.bHx();
                     }
                     if (StringUtils.isNull(str)) {
-                        str = this.fWF.mIsFromCDN ? tbRichTextImageInfo.bLq() : tbRichTextImageInfo.getSrc();
+                        str = this.fRY.mIsFromCDN ? tbRichTextImageInfo.bHy() : tbRichTextImageInfo.getSrc();
                     }
-                    this.fWL = this.fWF.mIsFromCDN ? 13 : 14;
+                    this.fSe = this.fRY.mIsFromCDN ? 13 : 14;
                 }
-                tbImageView.startLoad(str, this.fWL, false);
-                if (!tbRichTextImageInfo.bLs()) {
+                tbImageView.startLoad(str, this.fSe, false);
+                if (!tbRichTextImageInfo.bHA()) {
                     tbImageView.setAdjustViewBounds(false);
                 }
                 a(tbImageView, i);
@@ -531,7 +531,7 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     private void a(TbImageView tbImageView, int i) {
-        if (tbImageView != null && this.fWF != null) {
+        if (tbImageView != null && this.fRY != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
             a(tbImageView, i, layoutParams);
             addView(tbImageView, layoutParams);
@@ -540,7 +540,7 @@ public class GridImageLayout extends RelativeLayout {
 
     private void a(ImageView imageView, int i, RelativeLayout.LayoutParams layoutParams) {
         if (imageView != null && layoutParams != null) {
-            imageView.setId(this.fWN[i]);
+            imageView.setId(this.fSg[i]);
             int i2 = this.mSize == 4 ? i / 2 : i / 3;
             int i3 = this.mSize == 4 ? i % 2 : i % 3;
             int i4 = i2 - 1;
@@ -548,11 +548,11 @@ public class GridImageLayout extends RelativeLayout {
             int bp2 = bp(i4, i3);
             if (bp2 >= 0) {
                 layoutParams.addRule(3, bp2);
-                layoutParams.topMargin = this.fWH;
+                layoutParams.topMargin = this.fSa;
             }
             if (bp >= 0) {
                 layoutParams.addRule(1, bp);
-                layoutParams.leftMargin = this.fWH;
+                layoutParams.leftMargin = this.fSa;
             }
             setTransformStyle(imageView, i);
         }
@@ -626,7 +626,7 @@ public class GridImageLayout extends RelativeLayout {
 
     private int bp(int i, int i2) {
         if (bq(i, i2)) {
-            return this.fWN[this.mSize == 4 ? (i * 2) + i2 : (i * 3) + i2];
+            return this.fSg[this.mSize == 4 ? (i * 2) + i2 : (i * 3) + i2];
         }
         return -1;
     }
@@ -647,28 +647,28 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    private void bKL() {
+    private void bGT() {
         TbRichTextImageInfo tbRichTextImageInfo;
-        if (this.fWF != null && !x.isEmpty(this.fWG) && (tbRichTextImageInfo = this.fWG.get(0)) != null) {
+        if (this.fRY != null && !x.isEmpty(this.fRZ) && (tbRichTextImageInfo = this.fRZ.get(0)) != null) {
             int width = tbRichTextImageInfo.getWidth();
             int height = tbRichTextImageInfo.getHeight();
             if (height > 0) {
                 float f = (width * 1.0f) / height;
-                int i = (this.fWF.fYR - (this.fWH * 2)) / 3;
+                int i = (this.fRY.fUk - (this.fSa * 2)) / 3;
                 this.mImageWidth = 0;
                 this.mImageHeight = 0;
                 if (this.mSize == 1) {
                     if (f >= 2.0f) {
-                        this.mImageWidth = (i * 2) + this.fWH;
-                        this.mImageHeight = (int) ((i * 1.5d) + this.fWH);
+                        this.mImageWidth = (i * 2) + this.fSa;
+                        this.mImageHeight = (int) ((i * 1.5d) + this.fSa);
                         return;
                     } else if (f <= 0.5d) {
-                        this.mImageWidth = (int) ((i * 1.5d) + this.fWH);
-                        this.mImageHeight = (i * 2) + this.fWH;
+                        this.mImageWidth = (int) ((i * 1.5d) + this.fSa);
+                        this.mImageHeight = (i * 2) + this.fSa;
                         return;
                     } else {
-                        this.mImageWidth = (i * 2) + this.fWH;
-                        this.mImageHeight = (i * 2) + this.fWH;
+                        this.mImageWidth = (i * 2) + this.fSa;
+                        this.mImageHeight = (i * 2) + this.fSa;
                         if (f > 0.0f && f < 1.0f) {
                             this.mImageWidth = (int) (f * this.mImageHeight);
                             return;
@@ -687,7 +687,7 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void setSupportGifPlay(boolean z) {
-        this.fWK = z;
+        this.fSd = z;
     }
 
     public void onChangeSkinType() {
@@ -711,6 +711,6 @@ public class GridImageLayout extends RelativeLayout {
     }
 
     public void setIsTransform(boolean z) {
-        this.fWM = z;
+        this.fSf = z;
     }
 }

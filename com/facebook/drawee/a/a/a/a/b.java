@@ -4,18 +4,18 @@ import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
 /* loaded from: classes6.dex */
 public class b implements com.facebook.drawee.a.a.a.b {
-    private final g puN;
-    private final h pvq;
+    private final h pqO;
+    private final g pql;
 
     public b(h hVar, g gVar) {
-        this.pvq = hVar;
-        this.puN = gVar;
+        this.pqO = hVar;
+        this.pql = gVar;
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public void g(String str, int i, boolean z) {
-        this.pvq.Qm(i);
-        this.pvq.AT(z);
-        this.puN.a(this.pvq, 1);
+        this.pqO.OF(i);
+        this.pqO.AP(z);
+        this.pql.a(this.pqO, 1);
     }
 }

@@ -10,35 +10,35 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oQY;
+    private static a oMw;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData oQZ = new AlaMoreFunctionDialogData();
-    private b oRa;
+    private AlaMoreFunctionDialogData oMx = new AlaMoreFunctionDialogData();
+    private b oMy;
 
     private a() {
     }
 
-    public static a ekQ() {
-        if (oQY == null) {
+    public static a egW() {
+        if (oMw == null) {
             synchronized (a.class) {
-                if (oQY == null) {
-                    oQY = new a();
+                if (oMw == null) {
+                    oMw = new a();
                 }
             }
         }
-        return oQY;
+        return oMw;
     }
 
     public void aP(x xVar) {
         if (xVar != null) {
-            if (this.oRa == null || !this.oRa.isShowing()) {
-                this.oQZ.parseData(xVar.aLj);
-                this.oQZ.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
-                this.oQZ.setRoomId(xVar.aLl == null ? null : xVar.aLl.aVu);
-                this.oQZ.setCustomRoomId(xVar.aLl == null ? null : xVar.aLl.croom_id);
-                this.oQZ.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
+            if (this.oMy == null || !this.oMy.isShowing()) {
+                this.oMx.parseData(xVar.aGw);
+                this.oMx.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
+                this.oMx.setRoomId(xVar.aGy == null ? null : xVar.aGy.aQH);
+                this.oMx.setCustomRoomId(xVar.aGy == null ? null : xVar.aGy.croom_id);
+                this.oMx.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
             }
         }
     }
@@ -46,27 +46,27 @@ public class a {
     public void a(TbPageContext tbPageContext, com.baidu.live.e.c cVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oRa = null;
+            this.oMy = null;
         }
-        if (this.oQZ != null && !ListUtils.isEmpty(this.oQZ.getGroupList())) {
-            if (this.oRa == null) {
-                this.oRa = new b(tbPageContext, this.oQZ);
-                this.oRa.a(cVar);
+        if (this.oMx != null && !ListUtils.isEmpty(this.oMx.getGroupList())) {
+            if (this.oMy == null) {
+                this.oMy = new b(tbPageContext, this.oMx);
+                this.oMy.a(cVar);
             } else {
-                this.oRa.a((b) this.oQZ);
+                this.oMy.a((b) this.oMx);
             }
-            this.oRa.show();
-            ekR();
+            this.oMy.show();
+            egX();
         }
     }
 
-    private void ekR() {
+    private void egX() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oQZ != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oQZ.getCustomRoomId());
+            if (this.oMx != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMx.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -75,12 +75,12 @@ public class a {
     }
 
     public void aG(boolean z, boolean z2) {
-        this.oQZ.setShowFirstCharge(z, z2);
+        this.oMx.setShowFirstCharge(z, z2);
     }
 
-    public void If() {
-        if (this.oRa != null && this.oRa.isShowing()) {
-            this.oRa.dismiss();
+    public void Ek() {
+        if (this.oMy != null && this.oMy.isShowing()) {
+            this.oMy.dismiss();
         }
     }
 }

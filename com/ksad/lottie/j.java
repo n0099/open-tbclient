@@ -2,35 +2,35 @@ package com.ksad.lottie;
 
 import androidx.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class j<V> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private final V f8327a;
+    private final V f8027a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private final Throwable f8328b;
+    private final Throwable f8028b;
 
     public j(V v) {
-        this.f8327a = v;
-        this.f8328b = null;
+        this.f8027a = v;
+        this.f8028b = null;
     }
 
     public j(Throwable th) {
-        this.f8328b = th;
-        this.f8327a = null;
+        this.f8028b = th;
+        this.f8027a = null;
     }
 
     @Nullable
     public V a() {
-        return this.f8327a;
+        return this.f8027a;
     }
 
     @Nullable
     public Throwable b() {
-        return this.f8328b;
+        return this.f8028b;
     }
 
     public boolean equals(Object obj) {

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class BdActivityUtils {
     @PublicMethod
     @SuppressLint({"SourceLockedOrientationActivity"})

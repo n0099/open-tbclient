@@ -8,38 +8,38 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.at;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceBuyModel extends BdBaseModel {
-    private b iTE;
-    private a iTF;
-    private int iTG;
+    private b iOX;
+    private a iOY;
+    private int iOZ;
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.iTG = 3;
-        this.iTE = null;
-        this.iTF = null;
+        this.iOZ = 3;
+        this.iOX = null;
+        this.iOY = null;
     }
 
-    public void Kh(String str) {
-        if (this.iTE == null) {
-            this.iTE = new b();
-            this.iTE.setPriority(3);
-            this.iTE.execute(str);
+    public void IW(String str) {
+        if (this.iOX == null) {
+            this.iOX = new b();
+            this.iOX.setPriority(3);
+            this.iOX.execute(str);
         }
     }
 
-    public void Ki(String str) {
-        if (this.iTF == null) {
-            this.iTF = new a();
-            this.iTF.setPriority(3);
-            this.iTF.execute(str);
+    public void IX(String str) {
+        if (this.iOY == null) {
+            this.iOY = new a();
+            this.iOY.setPriority(3);
+            this.iOY.execute(str);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class b extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-        private com.baidu.tbadk.core.util.z cmJ;
+        private com.baidu.tbadk.core.util.z chV;
 
         private b() {
         }
@@ -51,9 +51,9 @@ public class FaceBuyModel extends BdBaseModel {
         public FaceBuyData doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             try {
-                this.cmJ = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.cmJ.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.cmJ.postNetData(), FaceBuyData.class);
+                this.chV = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
+                this.chV.addPostData("pid", obj);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.chV.postNetData(), FaceBuyData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -63,10 +63,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cmJ != null) {
-                this.cmJ.cancelNetConnect();
+            if (this.chV != null) {
+                this.chV.cancelNetConnect();
             }
-            FaceBuyModel.this.iTE = null;
+            FaceBuyModel.this.iOX = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
 
@@ -76,14 +76,14 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.iTE = null;
+            FaceBuyModel.this.iOX = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyData);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-        private com.baidu.tbadk.core.util.z cmJ;
+        private com.baidu.tbadk.core.util.z chV;
         private volatile boolean mCanceled;
 
         private a() {
@@ -99,10 +99,10 @@ public class FaceBuyModel extends BdBaseModel {
             FaceBuyQueryData faceBuyQueryData = null;
             String obj = objArr[0].toString();
             if (!at.isEmpty(obj)) {
-                this.cmJ = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.cmJ.addPostData("order_id", obj);
-                while (!this.mCanceled && i < FaceBuyModel.this.iTG) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cmJ.postNetData(), FaceBuyQueryData.class);
+                this.chV = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
+                this.chV.addPostData("order_id", obj);
+                while (!this.mCanceled && i < FaceBuyModel.this.iOZ) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.chV.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
                             break;
@@ -132,7 +132,7 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.iTF = null;
+            FaceBuyModel.this.iOY = null;
             this.mCanceled = true;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyQueryData);
         }
@@ -140,10 +140,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cmJ != null) {
-                this.cmJ.cancelNetConnect();
+            if (this.chV != null) {
+                this.chV.cancelNetConnect();
             }
-            FaceBuyModel.this.iTF = null;
+            FaceBuyModel.this.iOY = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
     }
@@ -155,8 +155,8 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iTE != null) {
-            this.iTE.cancel();
+        if (this.iOX != null) {
+            this.iOX.cancel();
             return true;
         }
         return true;

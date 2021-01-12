@@ -11,14 +11,14 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static final Map<EncodeHintType, Object> mLf = new EnumMap(EncodeHintType.class);
+    public static final Map<EncodeHintType, Object> mGw = new EnumMap(EncodeHintType.class);
 
     static {
-        mLf.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        mLf.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        mLf.put(EncodeHintType.MARGIN, 0);
+        mGw.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        mGw.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        mGw.put(EncodeHintType.MARGIN, 0);
     }
 
     public static Bitmap bM(String str, int i) {
@@ -27,7 +27,7 @@ public class b {
 
     public static Bitmap a(String str, int i, int i2, int i3, Bitmap bitmap) {
         try {
-            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mLf);
+            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mGw);
             int[] iArr = new int[i * i];
             for (int i4 = 0; i4 < i; i4++) {
                 for (int i5 = 0; i5 < i; i5++) {

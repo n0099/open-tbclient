@@ -2,7 +2,7 @@ package com.ksad.lottie.c;
 
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static com.ksad.lottie.model.a.k a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         jsonReader.beginObject();

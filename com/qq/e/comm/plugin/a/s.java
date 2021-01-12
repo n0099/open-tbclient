@@ -6,21 +6,21 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface s extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements s {
 
         /* renamed from: com.qq.e.comm.plugin.a.s$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C1201a implements s {
+        /* loaded from: classes3.dex */
+        private static class C1184a implements s {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f11947a;
+            private IBinder f11647a;
 
-            C1201a(IBinder iBinder) {
-                this.f11947a = iBinder;
+            C1184a(IBinder iBinder) {
+                this.f11647a = iBinder;
             }
 
             @Override // com.qq.e.comm.plugin.a.s
@@ -35,7 +35,7 @@ public interface s extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f11947a.transact(4, obtain, obtain2, 0);
+                    this.f11647a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -51,7 +51,7 @@ public interface s extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.qq.e.comm.plugin.apkmanager.IDownloadService");
                     obtain.writeString(str);
-                    this.f11947a.transact(1, obtain, obtain2, 0);
+                    this.f11647a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -66,9 +66,9 @@ public interface s extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.qq.e.comm.plugin.apkmanager.IDownloadService");
-                    this.f11947a.transact(2, obtain, obtain2, 0);
+                    this.f11647a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
-                    return obtain2.createTypedArrayList(c.f11903a);
+                    return obtain2.createTypedArrayList(c.f11603a);
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -82,7 +82,7 @@ public interface s extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.qq.e.comm.plugin.apkmanager.IDownloadService");
                     obtain.writeInt(i);
-                    this.f11947a.transact(6, obtain, obtain2, 0);
+                    this.f11647a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -99,7 +99,7 @@ public interface s extends IInterface {
                     obtain.writeInterfaceToken("com.qq.e.comm.plugin.apkmanager.IDownloadService");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    this.f11947a.transact(5, obtain, obtain2, 0);
+                    this.f11647a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -117,7 +117,7 @@ public interface s extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeLong(j);
-                    this.f11947a.transact(8, obtain, obtain2, 0);
+                    this.f11647a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -135,7 +135,7 @@ public interface s extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeString(str);
                     obtain.writeInt(i2);
-                    this.f11947a.transact(7, obtain, obtain2, 0);
+                    this.f11647a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -146,7 +146,7 @@ public interface s extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f11947a;
+                return this.f11647a;
             }
 
             @Override // com.qq.e.comm.plugin.a.s
@@ -155,9 +155,9 @@ public interface s extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.qq.e.comm.plugin.apkmanager.IDownloadService");
-                    this.f11947a.transact(3, obtain, obtain2, 0);
+                    this.f11647a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
-                    return obtain2.createTypedArrayList(c.f11903a);
+                    return obtain2.createTypedArrayList(c.f11603a);
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -174,7 +174,7 @@ public interface s extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.qq.e.comm.plugin.apkmanager.IDownloadService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new C1201a(iBinder) : (s) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new C1184a(iBinder) : (s) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -205,7 +205,7 @@ public interface s extends IInterface {
                     return true;
                 case 4:
                     parcel.enforceInterface("com.qq.e.comm.plugin.apkmanager.IDownloadService");
-                    int a4 = a(parcel.readInt() != 0 ? c.f11903a.createFromParcel(parcel) : null);
+                    int a4 = a(parcel.readInt() != 0 ? c.f11603a.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
                     parcel2.writeInt(a4);
                     return true;

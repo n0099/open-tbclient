@@ -5,10 +5,10 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.data.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PkRankStartInfoView extends LinearLayout {
-    private PkRankStartAvatarView imh;
-    private PkRankStartNameView imi;
+    private PkRankStartNameView ihA;
+    private PkRankStartAvatarView ihz;
 
     public PkRankStartInfoView(Context context, boolean z) {
         super(context);
@@ -17,49 +17,49 @@ public class PkRankStartInfoView extends LinearLayout {
 
     public void setData(q qVar) {
         if (qVar != null) {
-            if (this.imh != null) {
-                this.imh.setData(qVar.aWS, qVar.gUY);
+            if (this.ihz != null) {
+                this.ihz.setData(qVar.aSf, qVar.gQs);
             }
-            if (this.imi != null) {
-                this.imi.setData(qVar.nickname, qVar.gUZ);
+            if (this.ihA != null) {
+                this.ihA.setData(qVar.nickname, qVar.gQt);
             }
         }
     }
 
     public Animator getStreakAnim() {
-        if (this.imh != null) {
-            return this.imh.getStreakAnim();
+        if (this.ihz != null) {
+            return this.ihz.getStreakAnim();
         }
         return null;
     }
 
     public void release() {
-        if (this.imh != null) {
-            this.imh.release();
+        if (this.ihz != null) {
+            this.ihz.release();
         }
-        if (this.imi != null) {
-            this.imi.release();
+        if (this.ihA != null) {
+            this.ihA.release();
         }
     }
 
     private void init(boolean z) {
         setBackgroundColor(0);
         setOrientation(0);
-        this.imh = new PkRankStartAvatarView(getContext());
-        this.imi = new PkRankStartNameView(getContext());
+        this.ihz = new PkRankStartAvatarView(getContext());
+        this.ihA = new PkRankStartNameView(getContext());
         if (!z) {
-            this.imi.setGravity(5);
+            this.ihA.setGravity(5);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
         if (z) {
-            addView(this.imh);
+            addView(this.ihz);
             layoutParams.leftMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds16);
-            addView(this.imi, layoutParams);
+            addView(this.ihA, layoutParams);
             return;
         }
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds16);
-        addView(this.imi, layoutParams);
-        addView(this.imh);
+        addView(this.ihA, layoutParams);
+        addView(this.ihz);
     }
 }

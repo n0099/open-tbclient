@@ -2,7 +2,7 @@ package com.baidu.live.alablmsdk.c;
 
 import com.baidu.live.alablmsdk.module.rtc.BLMStreamState;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void a(com.baidu.live.alablmsdk.module.rtc.a aVar, int i);
 
@@ -26,7 +26,7 @@ public interface b {
 
     void e(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void fH(String str);
+    void ev(String str);
 
     void onLogReport(String str, JSONObject jSONObject, JSONObject jSONObject2);
 }

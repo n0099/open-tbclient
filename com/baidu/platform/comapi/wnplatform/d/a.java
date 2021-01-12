@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(String str, String str2) {
     }

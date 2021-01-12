@@ -4,7 +4,7 @@ import android.content.Context;
 /* loaded from: classes4.dex */
 public class a implements c {
     @Override // com.ss.android.socialbase.appdownloader.c.c
-    public k iy(Context context) {
+    public k iw(Context context) {
         return null;
     }
 

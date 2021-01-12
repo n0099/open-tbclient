@@ -18,32 +18,32 @@ import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieba.a.f {
-    private String aji;
-    private com.baidu.tbadk.h.f aks;
-    private View.OnClickListener amZ;
-    private PullLeftRefreshLayout.a ana;
-    private s anl;
-    public BdUniqueId fJu;
+    private String air;
+    private com.baidu.tbadk.h.f ajB;
+    private View.OnClickListener ami;
+    private PullLeftRefreshLayout.a amj;
+    private s amu;
+    public BdUniqueId fEN;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.amZ = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
+        this.ami = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
+        this.amj = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bKu() {
+            public void bGC() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.aks = new com.baidu.tbadk.h.f<bl>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
+        this.ajB = new com.baidu.tbadk.h.f<bl>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bl blVar, int i, long j) {
@@ -67,7 +67,7 @@ public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieb
     }
 
     public void a(s sVar) {
-        this.anl = sVar;
+        this.amu = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,20 +76,20 @@ public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieb
     /* renamed from: bd */
     public ThreadCardViewHolder e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        ae aeVar = new ae(this.mPageContext, this.fJu);
+        ae aeVar = new ae(this.mPageContext, this.fEN);
         aeVar.setShowSquareEntrance(false);
         aeVar.setEnableShowInto(false);
         aeVar.setShowMore(false);
-        aeVar.setOnRullOkCallbackr(this.ana);
-        aeVar.setOnClickRightArrowListener(this.amZ);
-        aeVar.setOnItemCoverListener(this.aks);
+        aeVar.setOnRullOkCallbackr(this.amj);
+        aeVar.setOnClickRightArrowListener(this.ami);
+        aeVar.setOnItemCoverListener(this.ajB);
         aVar.c(aeVar);
-        aVar.tx().bB(0);
-        aVar.tx().bD(0);
-        aVar.tx().bC(0);
-        aVar.tx().bz(0);
-        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.anl));
-        threadCardViewHolder.setPageId(this.fJu);
+        aVar.tl().bz(0);
+        aVar.tl().bB(0);
+        aVar.tl().bA(0);
+        aVar.tl().bx(0);
+        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amu));
+        threadCardViewHolder.setPageId(this.fEN);
         return threadCardViewHolder;
     }
 
@@ -100,17 +100,17 @@ public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieb
         if (bmVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
             return null;
         }
-        threadCardViewHolder.ty().setPosition(i);
-        if (threadCardViewHolder.ty() instanceof com.baidu.tieba.a.e) {
-            threadCardViewHolder.ty().setPage(this.aji);
+        threadCardViewHolder.tm().setPosition(i);
+        if (threadCardViewHolder.tm() instanceof com.baidu.tieba.a.e) {
+            threadCardViewHolder.tm().setPage(this.air);
         }
         threadCardViewHolder.b((ThreadCardViewHolder<bm>) bmVar);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fl(String str) {
-        this.aji = str;
+    public void Ea(String str) {
+        this.air = str;
     }
 }

@@ -12,14 +12,14 @@ import com.kwad.sdk.core.response.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TailFrameBarH5Landscape extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f11005a;
+    private TextView f10705a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f11006b;
+    private TextView f10706b;
     private ValueAnimator c;
 
     public TailFrameBarH5Landscape(Context context) {
@@ -37,8 +37,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_landscape, this);
-        this.f11005a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f11006b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f10705a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.f10706b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +54,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5Landscape.this.f11006b.setScaleY(floatValue);
-                TailFrameBarH5Landscape.this.f11006b.setScaleX(floatValue);
+                TailFrameBarH5Landscape.this.f10706b.setScaleY(floatValue);
+                TailFrameBarH5Landscape.this.f10706b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +71,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f11005a.setText(a.n(j));
-        this.f11006b.setText(a.w(j));
+        this.f10705a.setText(a.n(j));
+        this.f10706b.setText(a.w(j));
         b();
     }
 }

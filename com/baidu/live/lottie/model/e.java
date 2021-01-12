@@ -6,40 +6,40 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private final List<String> Fn;
+    private final List<String> Fl;
     @Nullable
-    private f buz;
+    private f bpL;
 
     public e(String... strArr) {
-        this.Fn = Arrays.asList(strArr);
+        this.Fl = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.Fn = new ArrayList(eVar.Fn);
-        this.buz = eVar.buz;
+        this.Fl = new ArrayList(eVar.Fl);
+        this.bpL = eVar.bpL;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e hZ(String str) {
+    public e gO(String str) {
         e eVar = new e(this);
-        eVar.Fn.add(str);
+        eVar.Fl.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.buz = fVar;
+        eVar.bpL = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f PN() {
-        return this.buz;
+    public f LS() {
+        return this.bpL;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -47,10 +47,10 @@ public class e {
         if (bl(str)) {
             return true;
         }
-        if (i >= this.Fn.size()) {
+        if (i >= this.Fl.size()) {
             return false;
         }
-        return this.Fn.get(i).equals(str) || this.Fn.get(i).equals("**") || this.Fn.get(i).equals("*");
+        return this.Fl.get(i).equals(str) || this.Fl.get(i).equals("**") || this.Fl.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -58,29 +58,29 @@ public class e {
         if (bl(str)) {
             return 0;
         }
-        if (this.Fn.get(i).equals("**")) {
-            return (i != this.Fn.size() + (-1) && this.Fn.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.Fl.get(i).equals("**")) {
+            return (i != this.Fl.size() + (-1) && this.Fl.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean j(String str, int i) {
-        if (i >= this.Fn.size()) {
+        if (i >= this.Fl.size()) {
             return false;
         }
-        boolean z = i == this.Fn.size() + (-1);
-        String str2 = this.Fn.get(i);
+        boolean z = i == this.Fl.size() + (-1);
+        String str2 = this.Fl.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Fn.size() + (-2) && ja())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Fl.size() + (-2) && ja())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.Fn.get(i + 1).equals(str)) {
-            return i == this.Fn.size() + (-2) || (i == this.Fn.size() + (-3) && ja());
+        if (!z && this.Fl.get(i + 1).equals(str)) {
+            return i == this.Fl.size() + (-2) || (i == this.Fl.size() + (-3) && ja());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.Fn.size() - 1) {
-                return this.Fn.get(i + 1).equals(str);
+            if (i + 1 >= this.Fl.size() - 1) {
+                return this.Fl.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,7 +91,7 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.Fn.size() + (-1) || this.Fn.get(i).equals("**");
+        return i < this.Fl.size() + (-1) || this.Fl.get(i).equals("**");
     }
 
     private boolean bl(String str) {
@@ -99,10 +99,10 @@ public class e {
     }
 
     private boolean ja() {
-        return this.Fn.get(this.Fn.size() - 1).equals("**");
+        return this.Fl.get(this.Fl.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Fn + ",resolved=" + (this.buz != null) + '}';
+        return "KeyPath{keys=" + this.Fl + ",resolved=" + (this.bpL != null) + '}';
     }
 }

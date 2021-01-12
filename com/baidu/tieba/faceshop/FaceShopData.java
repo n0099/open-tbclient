@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceShopData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 0;
     public int ctime;

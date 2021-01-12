@@ -1,20 +1,20 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class az extends bf implements Cloneable {
     public int c = 0;
     public z d = null;
     public long e = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ boolean f13803b = !az.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f13503b = !az.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    public static z f13802a = new z();
+    public static z f13502a = new z();
 
     @Override // com.tencent.turingfd.sdk.ams.au.bf
     public void a(ao aoVar) {
         this.c = aoVar.a(this.c, 0, true);
-        this.d = (z) aoVar.a((bf) f13802a, 1, false);
+        this.d = (z) aoVar.a((bf) f13502a, 1, false);
         this.e = aoVar.a(this.e, 2, true);
     }
 
@@ -32,7 +32,7 @@ public final class az extends bf implements Cloneable {
         try {
             return super.clone();
         } catch (CloneNotSupportedException e) {
-            if (f13803b) {
+            if (f13503b) {
                 return null;
             }
             throw new AssertionError();

@@ -6,20 +6,20 @@ import com.baidu.android.util.devices.RomUtils;
 public class a implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14069a = RomUtils.MANUFACTURER_XIAOMI;
+    private String f13769a = RomUtils.MANUFACTURER_XIAOMI;
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
-        Log.v(this.f14069a, str);
+        Log.v(this.f13769a, str);
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str, Throwable th) {
-        Log.v(this.f14069a, str, th);
+        Log.v(this.f13769a, str, th);
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void setTag(String str) {
-        this.f14069a = str;
+        this.f13769a = str;
     }
 }

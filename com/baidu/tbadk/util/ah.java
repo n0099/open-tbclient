@@ -7,7 +7,7 @@ import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ah {
-    private static boolean fPW = false;
+    private static boolean fLp = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
@@ -22,15 +22,15 @@ public class ah {
 
     public static void b(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            fPW = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+            fLp = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 
-    public static boolean bJo() {
-        return fPW;
+    public static boolean bFw() {
+        return fLp;
     }
 
-    public static boolean th(int i) {
+    public static boolean rB(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -56,11 +56,11 @@ public class ah {
         }
     }
 
-    public static boolean aK(int i, String str) {
-        return th(i);
+    public static boolean aL(int i, String str) {
+        return rB(i);
     }
 
-    public static boolean bJp() {
+    public static boolean bFx() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

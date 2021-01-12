@@ -2,15 +2,15 @@ package com.baidu.mobads.utils;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 class k implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f3543a;
+    final /* synthetic */ j f3505a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f3543a = jVar;
+        this.f3505a = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

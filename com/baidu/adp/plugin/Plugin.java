@@ -687,7 +687,7 @@ public class Plugin {
                         classLoader2 = classLoader2.getParent();
                     }
                     a.C0024a a2 = com.baidu.adp.plugin.util.a.a(classLoader2, this.mDexClassLoader, this.mPackageName + ".Static", false, this.mPluginApkFile.getAbsolutePath());
-                    if (a2 == null || !a2.VI) {
+                    if (a2 == null || !a2.VG) {
                         com.baidu.adp.plugin.b.a.pg().h("plugin_load", "createClassLoader_failed", this.mPackageName, "patch apk inject failed!" + a2.mErrMsg);
                         bVar.isSucc = false;
                         bVar.reason = "patchClassLoaderInject_failed";
@@ -712,7 +712,7 @@ public class Plugin {
                 }
                 this.mCurrentPluginMode = 1;
                 a.C0024a a3 = com.baidu.adp.plugin.util.a.a(classLoader3, this.mDexClassLoader, this.mPackageName + ".Static", true, this.mPluginApkFile.getAbsolutePath());
-                if (a3 != null && !a3.VI) {
+                if (a3 != null && !a3.VG) {
                     if (PluginPackageManager.px().isMainProcess()) {
                         com.baidu.adp.plugin.b.a.pg().log("plugin_inject_failed");
                     }
@@ -745,7 +745,7 @@ public class Plugin {
                         str = sb2.substring(0, sb2.length() - 1);
                     }
                     a.C0024a b2 = com.baidu.adp.plugin.util.a.b(this.mContext, new DexClassLoader(str2, this.mPluginDataRoot.getAbsolutePath(), str, classLoader3), this.mPackageName + ".Static");
-                    if (b2 != null && !b2.VI) {
+                    if (b2 != null && !b2.VG) {
                         if (PluginPackageManager.px().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.pg().h("plugin_load", "replaceparent_failed", this.mPackageName, b2.mErrMsg);
                         }
@@ -753,7 +753,7 @@ public class Plugin {
                         bVar.reason = "replaceparent_failed";
                         bVar.comment = b2.mErrMsg;
                         return bVar;
-                    } else if (b2 != null && b2.VI) {
+                    } else if (b2 != null && b2.VG) {
                         com.baidu.adp.plugin.b.a.pg().log("plugin_second_inject_succ");
                     }
                 }
@@ -884,14 +884,14 @@ public class Plugin {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Object, b> {
-        private com.baidu.adp.plugin.util.c SJ;
+        private com.baidu.adp.plugin.util.c SG;
         private String packageName;
 
         public a(String str, com.baidu.adp.plugin.util.c cVar) {
             this.packageName = null;
-            this.SJ = null;
+            this.SG = null;
             this.packageName = str;
-            this.SJ = cVar;
+            this.SG = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -908,8 +908,8 @@ public class Plugin {
         /* renamed from: a */
         public void onPostExecute(b bVar) {
             super.onPostExecute(bVar);
-            if (this.SJ != null) {
-                this.SJ.a(bVar, this.packageName);
+            if (this.SG != null) {
+                this.SG.a(bVar, this.packageName);
             } else {
                 BdLog.e("listener is null");
                 if (PluginPackageManager.px().isMainProcess()) {

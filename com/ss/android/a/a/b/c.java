@@ -24,15 +24,15 @@ public interface c {
 
     String e();
 
-    com.ss.android.a.a.d.b eFv();
+    com.ss.android.a.a.d.b eBE();
 
-    List<String> eFw();
+    List<String> eBF();
 
-    JSONObject eFx();
+    JSONObject eBG();
 
-    com.ss.android.a.a.d.f eFy();
+    com.ss.android.a.a.d.f eBH();
 
-    ah eFz();
+    ah eBI();
 
     long f();
 

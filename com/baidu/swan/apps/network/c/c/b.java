@@ -11,27 +11,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final b dsp = new b();
-    private final List<d> dsl = new ArrayList();
-    private final Map<String, d> dsm = new HashMap();
-    private boolean dsn = false;
-    private a dso;
+    private static final b dnz = new b();
+    private final List<d> dnv = new ArrayList();
+    private final Map<String, d> dnw = new HashMap();
+    private boolean dnx = false;
+    private a dny;
 
     private b() {
     }
 
-    public static b aGS() {
-        return dsp;
+    public static b aCY() {
+        return dnz;
     }
 
     public void reset() {
-        this.dsn = false;
-        synchronized (this.dsl) {
-            this.dsl.clear();
-            this.dsm.clear();
+        this.dnx = false;
+        synchronized (this.dnv) {
+            this.dnv.clear();
+            this.dnw.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", "reset");
@@ -39,10 +39,10 @@ public class b {
     }
 
     public void done() {
-        this.dsn = true;
-        synchronized (this.dsl) {
-            this.dsl.clear();
-            this.dsm.clear();
+        this.dnx = true;
+        synchronized (this.dnv) {
+            this.dnv.clear();
+            this.dnw.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
@@ -50,12 +50,12 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.dso = aVar;
+        this.dny = aVar;
     }
 
-    public String qW(String str) {
+    public String pL(String str) {
         String str2 = null;
-        if (!this.dsn) {
+        if (!this.dnx) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "begin update scope id - " + str);
             }
@@ -64,8 +64,8 @@ public class b {
                 str2 = Thread.currentThread().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + UUID.randomUUID().toString();
                 d dVar = new d(str);
                 dVar.cw(currentTimeMillis);
-                synchronized (this.dsl) {
-                    this.dsm.put(str2, dVar);
+                synchronized (this.dnv) {
+                    this.dnw.put(str2, dVar);
                 }
                 if (DEBUG) {
                     Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
@@ -77,18 +77,18 @@ public class b {
     }
 
     public void end(String str) {
-        if (!this.dsn) {
+        if (!this.dnx) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "end update uni tag - " + str);
             }
             if (!TextUtils.isEmpty(str)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                synchronized (this.dsl) {
-                    d dVar = this.dsm.get(str);
+                synchronized (this.dnv) {
+                    d dVar = this.dnw.get(str);
                     if (dVar != null) {
                         dVar.cx(currentTimeMillis);
-                        this.dsl.add(dVar);
-                        this.dsm.remove(str);
+                        this.dnv.add(dVar);
+                        this.dnw.remove(str);
                     }
                 }
                 if (DEBUG) {
@@ -101,20 +101,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
-            JSONArray aGT = aGT();
-            if (aGT != null && aGT.length() > 0) {
-                hybridUbcFlow.cn("ma_update_recorder", aGT.toString());
+            JSONArray aCZ = aCZ();
+            if (aCZ != null && aCZ.length() > 0) {
+                hybridUbcFlow.cm("ma_update_recorder", aCZ.toString());
             }
             done();
         }
     }
 
-    private JSONArray aGT() {
+    private JSONArray aCZ() {
         JSONArray jSONArray = new JSONArray();
-        synchronized (this.dsl) {
+        synchronized (this.dnv) {
             try {
-                for (d dVar : this.dsl) {
-                    if (dVar != null && (this.dso == null || this.dso.a(dVar))) {
+                for (d dVar : this.dnv) {
+                    if (dVar != null && (this.dny == null || this.dny.a(dVar))) {
                         jSONArray.put(dVar.toJson());
                     }
                 }

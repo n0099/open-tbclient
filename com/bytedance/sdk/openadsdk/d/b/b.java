@@ -18,10 +18,10 @@ import java.util.Properties;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Type[] f7223a = new Type[0];
+    static final Type[] f6923a = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
-        return new C1028b(type, type2, typeArr);
+        return new C1011b(type, type2, typeArr);
     }
 
     public static GenericArrayType a(Type type) {
@@ -29,7 +29,7 @@ public final class b {
     }
 
     public static WildcardType b(Type type) {
-        return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f7223a);
+        return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f6923a);
     }
 
     public static WildcardType c(Type type) {
@@ -42,7 +42,7 @@ public final class b {
             return cls.isArray() ? new a(d(cls.getComponentType())) : cls;
         } else if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            return new C1028b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
+            return new C1011b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
         } else if (type instanceof GenericArrayType) {
             return new a(((GenericArrayType) type).getGenericComponentType());
         } else {
@@ -323,22 +323,22 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.d.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1028b implements Serializable, ParameterizedType {
+    public static final class C1011b implements Serializable, ParameterizedType {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Type f7226a;
+        private final Type f6926a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Type f7227b;
+        private final Type f6927b;
         private final Type[] c;
 
-        public C1028b(Type type, Type type2, Type... typeArr) {
+        public C1011b(Type type, Type type2, Type... typeArr) {
             if (type2 instanceof Class) {
                 Class cls = (Class) type2;
                 com.bytedance.sdk.openadsdk.d.b.a.a(type != null || (Modifier.isStatic(cls.getModifiers()) || cls.getEnclosingClass() == null));
             }
-            this.f7226a = type == null ? null : b.d(type);
-            this.f7227b = b.d(type2);
+            this.f6926a = type == null ? null : b.d(type);
+            this.f6927b = b.d(type2);
             this.c = (Type[]) typeArr.clone();
             int length = this.c.length;
             for (int i = 0; i < length; i++) {
@@ -355,12 +355,12 @@ public final class b {
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getRawType() {
-            return this.f7227b;
+            return this.f6927b;
         }
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getOwnerType() {
-            return this.f7226a;
+            return this.f6926a;
         }
 
         public boolean equals(Object obj) {
@@ -368,16 +368,16 @@ public final class b {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.c) ^ this.f7227b.hashCode()) ^ b.a((Object) this.f7226a);
+            return (Arrays.hashCode(this.c) ^ this.f6927b.hashCode()) ^ b.a((Object) this.f6926a);
         }
 
         public String toString() {
             int length = this.c.length;
             if (length == 0) {
-                return b.f(this.f7227b);
+                return b.f(this.f6927b);
             }
             StringBuilder sb = new StringBuilder((length + 1) * 30);
-            sb.append(b.f(this.f7227b)).append("<").append(b.f(this.c[0]));
+            sb.append(b.f(this.f6927b)).append("<").append(b.f(this.c[0]));
             for (int i = 1; i < length; i++) {
                 sb.append(", ").append(b.f(this.c[i]));
             }
@@ -390,15 +390,15 @@ public final class b {
     public static final class a implements Serializable, GenericArrayType {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Type f7224a;
+        private final Type f6924a;
 
         public a(Type type) {
-            this.f7224a = b.d(type);
+            this.f6924a = b.d(type);
         }
 
         @Override // java.lang.reflect.GenericArrayType
         public Type getGenericComponentType() {
-            return this.f7224a;
+            return this.f6924a;
         }
 
         public boolean equals(Object obj) {
@@ -406,11 +406,11 @@ public final class b {
         }
 
         public int hashCode() {
-            return this.f7224a.hashCode();
+            return this.f6924a.hashCode();
         }
 
         public String toString() {
-            return b.f(this.f7224a) + "[]";
+            return b.f(this.f6924a) + "[]";
         }
     }
 
@@ -419,10 +419,10 @@ public final class b {
     public static final class c implements Serializable, WildcardType {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Type f7230a;
+        private final Type f6930a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Type f7231b;
+        private final Type f6931b;
 
         public c(Type[] typeArr, Type[] typeArr2) {
             com.bytedance.sdk.openadsdk.d.b.a.a(typeArr2.length <= 1);
@@ -431,24 +431,24 @@ public final class b {
                 com.bytedance.sdk.openadsdk.d.b.a.a(typeArr2[0]);
                 b.h(typeArr2[0]);
                 com.bytedance.sdk.openadsdk.d.b.a.a(typeArr[0] == Object.class);
-                this.f7231b = b.d(typeArr2[0]);
-                this.f7230a = Object.class;
+                this.f6931b = b.d(typeArr2[0]);
+                this.f6930a = Object.class;
                 return;
             }
             com.bytedance.sdk.openadsdk.d.b.a.a(typeArr[0]);
             b.h(typeArr[0]);
-            this.f7231b = null;
-            this.f7230a = b.d(typeArr[0]);
+            this.f6931b = null;
+            this.f6930a = b.d(typeArr[0]);
         }
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getUpperBounds() {
-            return new Type[]{this.f7230a};
+            return new Type[]{this.f6930a};
         }
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.f7231b != null ? new Type[]{this.f7231b} : b.f7223a;
+            return this.f6931b != null ? new Type[]{this.f6931b} : b.f6923a;
         }
 
         public boolean equals(Object obj) {
@@ -456,17 +456,17 @@ public final class b {
         }
 
         public int hashCode() {
-            return (this.f7231b != null ? this.f7231b.hashCode() + 31 : 1) ^ (this.f7230a.hashCode() + 31);
+            return (this.f6931b != null ? this.f6931b.hashCode() + 31 : 1) ^ (this.f6930a.hashCode() + 31);
         }
 
         public String toString() {
-            if (this.f7231b != null) {
-                return "? super " + b.f(this.f7231b);
+            if (this.f6931b != null) {
+                return "? super " + b.f(this.f6931b);
             }
-            if (this.f7230a == Object.class) {
+            if (this.f6930a == Object.class) {
                 return "?";
             }
-            return "? extends " + b.f(this.f7230a);
+            return "? extends " + b.f(this.f6930a);
         }
     }
 }

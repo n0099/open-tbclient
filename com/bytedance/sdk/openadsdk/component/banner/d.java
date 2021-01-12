@@ -19,10 +19,10 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class d extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6572a;
+    private final Context f6272a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f6573b;
+    private c f6273b;
     private c c;
     private ImageView d;
     private ImageView e;
@@ -36,13 +36,13 @@ public class d extends FrameLayout {
         super(context);
         this.i = false;
         this.j = false;
-        this.f6572a = context;
+        this.f6272a = context;
         g();
     }
 
     private void g() {
-        this.f6573b = new c(this.f6572a);
-        addView(this.f6573b, new FrameLayout.LayoutParams(-1, -1));
+        this.f6273b = new c(this.f6272a);
+        addView(this.f6273b, new FrameLayout.LayoutParams(-1, -1));
         i();
         h();
     }
@@ -57,7 +57,7 @@ public class d extends FrameLayout {
     private void h() {
         if (!this.j) {
             this.j = true;
-            this.d = new ImageView(this.f6572a);
+            this.d = new ImageView(this.f6272a);
             this.d.setImageResource(ac.d(p.a(), "tt_dislike_icon"));
             this.d.setScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.banner.d.1
@@ -68,8 +68,8 @@ public class d extends FrameLayout {
                     }
                 }
             });
-            int a2 = (int) ak.a(this.f6572a, 15.0f);
-            int a3 = (int) ak.a(this.f6572a, 10.0f);
+            int a2 = (int) ak.a(this.f6272a, 15.0f);
+            int a3 = (int) ak.a(this.f6272a, 10.0f);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a2, a2);
             layoutParams.gravity = 8388661;
             layoutParams.topMargin = a3;
@@ -82,7 +82,7 @@ public class d extends FrameLayout {
     private void i() {
         if (!this.i) {
             this.i = true;
-            this.e = new ImageView(this.f6572a);
+            this.e = new ImageView(this.f6272a);
             this.e.setImageResource(ac.d(p.a(), "tt_ad_logo_small"));
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(20, 20);
@@ -92,7 +92,7 @@ public class d extends FrameLayout {
     }
 
     public void a() {
-        this.c = new c(this.f6572a);
+        this.c = new c(this.f6272a);
         this.c.setVisibility(8);
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));
     }
@@ -142,7 +142,7 @@ public class d extends FrameLayout {
     }
 
     public c b() {
-        return this.f6573b;
+        return this.f6273b;
     }
 
     public c c() {
@@ -193,7 +193,7 @@ public class d extends FrameLayout {
     public void e() {
         if (!this.h) {
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(a(this.f6573b)).with(b(this.c));
+            animatorSet.play(a(this.f6273b)).with(b(this.c));
             animatorSet.setDuration(this.g).start();
             this.c.setVisibility(0);
             this.h = true;
@@ -213,8 +213,8 @@ public class d extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        c cVar = this.f6573b;
-        this.f6573b = this.c;
+        c cVar = this.f6273b;
+        this.f6273b = this.c;
         this.c = cVar;
         this.c.b();
     }

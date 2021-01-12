@@ -12,7 +12,7 @@ public final class FlowableTakeLast<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qit.a((j) new TakeLastSubscriber(cVar, this.count));
+        this.qdR.a((j) new TakeLastSubscriber(cVar, this.count));
     }
 
     /* loaded from: classes5.dex */

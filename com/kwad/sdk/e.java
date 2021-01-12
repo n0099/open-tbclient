@@ -10,7 +10,7 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
 import com.kwad.sdk.utils.ad;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
     @Nullable
     public static AdDownloadProxy a(Context context, AdInstallProxy adInstallProxy, boolean z) {

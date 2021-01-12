@@ -39,10 +39,10 @@ public class GDiffPatcher {
     public static final int QUARTER_MB = 262144;
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1475a = ByteBuffer.allocate(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
+    private ByteBuffer f1481a = ByteBuffer.allocate(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
 
     /* renamed from: b  reason: collision with root package name */
-    private byte[] f1476b = this.f1475a.array();
+    private byte[] f1482b = this.f1481a.array();
     private boolean c = false;
     private long d = 0;
     private int e = 246;
@@ -104,11 +104,11 @@ public class GDiffPatcher {
 
     void a(int i, InputStream inputStream, OutputStream outputStream) {
         while (i > 0) {
-            int read = inputStream.read(this.f1476b, 0, Math.min(this.f1476b.length, i));
+            int read = inputStream.read(this.f1482b, 0, Math.min(this.f1482b.length, i));
             if (read == -1) {
                 throw new EOFException("cannot read " + i);
             }
-            a(this.f1476b, 0, read, outputStream);
+            a(this.f1482b, 0, read, outputStream);
             i -= read;
         }
     }
@@ -116,12 +116,12 @@ public class GDiffPatcher {
     void a(long j, int i, d dVar, OutputStream outputStream) {
         dVar.a(j);
         while (i > 0) {
-            this.f1475a.clear().limit(Math.min(this.f1475a.capacity(), i));
-            int a2 = dVar.a(this.f1475a);
+            this.f1481a.clear().limit(Math.min(this.f1481a.capacity(), i));
+            int a2 = dVar.a(this.f1481a);
             if (a2 == -1) {
                 throw new EOFException("in copy " + j + " " + i);
             }
-            a(this.f1475a.array(), 0, a2, outputStream);
+            a(this.f1481a.array(), 0, a2, outputStream);
             i -= a2;
         }
     }

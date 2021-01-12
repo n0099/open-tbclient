@@ -10,25 +10,25 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetHotWordsModel extends FaceBaseModel {
-    private a lyu;
-    private final HttpMessageListener lyv = new HttpMessageListener(1003352) { // from class: com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel.1
+    private a ltO;
+    private final HttpMessageListener ltP = new HttpMessageListener(1003352) { // from class: com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && GetHotWordsModel.this.lyu != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && GetHotWordsModel.this.ltO != null) {
                 GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
                 if (getHotWordsMessage.getData() != null) {
-                    GetHotWordsModel.this.lyu.ai(getHotWordsMessage.getData());
+                    GetHotWordsModel.this.ltO.ai(getHotWordsMessage.getData());
                 } else {
-                    GetHotWordsModel.this.lyu.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
+                    GetHotWordsModel.this.ltO.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
                 }
             }
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void ai(List<String> list);
 
@@ -38,9 +38,9 @@ public class GetHotWordsModel extends FaceBaseModel {
     public GetHotWordsModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.lyv.setTag(getUniqueId());
-        this.lyv.setSelfListener(true);
-        registerListener(this.lyv);
+        this.ltP.setTag(getUniqueId());
+        this.ltP.setSelfListener(true);
+        registerListener(this.ltP);
     }
 
     private void registerTask() {
@@ -50,7 +50,7 @@ public class GetHotWordsModel extends FaceBaseModel {
     }
 
     public void a(a aVar) {
-        this.lyu = aVar;
+        this.ltO = aVar;
         sendMessage(new HttpMessage(1003352));
     }
 
@@ -61,7 +61,7 @@ public class GetHotWordsModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.lyv);
+        MessageManager.getInstance().unRegisterListener(this.ltP);
         MessageManager.getInstance().unRegisterTask(1003352);
         return true;
     }

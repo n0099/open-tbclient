@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -13,7 +13,7 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class j extends aa {
     public j(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getImageInfo");
@@ -26,17 +26,17 @@ public class j extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = com.baidu.swan.apps.ao.v.parseString(unitedSchemeEntity.getParam("params")).optString("src");
+        String optString = com.baidu.swan.apps.ao.v.parseString(unitedSchemeEntity.getParam("params")).optString(UserAccountActionItem.KEY_SRC);
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.tW(optString) == PathType.BD_FILE) {
-            jSONObject = cx(com.baidu.swan.apps.storage.b.cE(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.tW(optString) == PathType.RELATIVE) {
-            jSONObject = cx(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.BD_FILE) {
+            jSONObject = cw(com.baidu.swan.apps.storage.b.cD(optString, eVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.RELATIVE) {
+            jSONObject = cw(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
@@ -47,7 +47,7 @@ public class j extends aa {
         return false;
     }
 
-    private JSONObject cx(String str, String str2) {
+    private JSONObject cw(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -65,18 +65,18 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface lA = lA(str);
-            if (lA == null) {
+            ExifInterface kp = kp(str);
+            if (kp == null) {
                 return null;
             }
-            i = lA.getAttributeInt("Orientation", 1);
+            i = kp.getAttributeInt("Orientation", 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", kR(i));
+            jSONObject.put("orientation", jl(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,11 +88,11 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String kR(int i) {
+    private String jl(int i) {
         switch (i) {
             case 0:
             case 1:
-                return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
+                return "up";
             case 2:
                 return "up-mirrored";
             case 3:
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface lA(String str) {
+    private ExifInterface kp(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -10,16 +10,16 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.vo.d;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected IXAdProd f3492a;
+    protected IXAdProd f3454a;
 
     public a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, IXAdProd iXAdProd) {
         super(context, activity, slotType);
-        this.f3563b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
-        this.f3492a = iXAdProd;
+        this.f3525b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f3454a = iXAdProd;
     }
 
     @Override // com.baidu.mobads.vo.d
@@ -30,7 +30,7 @@ public class a extends d {
         hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,NMON");
         hashMap.put("at", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
         hashMap.put("n", "1");
-        if (this.f3492a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
+        if (this.f3454a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, "640");
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, "480");
         }

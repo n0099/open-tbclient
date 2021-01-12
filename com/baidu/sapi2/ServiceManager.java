@@ -5,27 +5,27 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 public class ServiceManager implements NoProguard {
 
     /* renamed from: b  reason: collision with root package name */
-    private static ServiceManager f5017b;
+    private static ServiceManager f4734b;
 
     /* renamed from: a  reason: collision with root package name */
-    private ISAccountManager f5018a;
+    private ISAccountManager f4735a;
 
     public static synchronized ServiceManager getInstance() {
         ServiceManager serviceManager;
         synchronized (ServiceManager.class) {
-            if (f5017b == null) {
-                f5017b = new ServiceManager();
+            if (f4734b == null) {
+                f4734b = new ServiceManager();
             }
-            serviceManager = f5017b;
+            serviceManager = f4734b;
         }
         return serviceManager;
     }
 
     public ISAccountManager getIsAccountManager() {
-        return this.f5018a;
+        return this.f4735a;
     }
 
     public void setIsAccountManager(ISAccountManager iSAccountManager) {
-        this.f5018a = iSAccountManager;
+        this.f4735a = iSAccountManager;
     }
 }

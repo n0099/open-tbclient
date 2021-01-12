@@ -9,7 +9,7 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.ad.l;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.mediation.interfaces.BaseInterstitialAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class ANInterstitialAdAdapter extends BaseInterstitialAd implements com.qq.e.comm.plugin.r.a {
     private UnifiedInterstitialADListener mListener;
     private e unifiedInterstitialADDelegate;

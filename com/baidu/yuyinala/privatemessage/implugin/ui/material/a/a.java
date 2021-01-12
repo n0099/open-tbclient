@@ -13,23 +13,23 @@ import android.view.animation.AnimationSet;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog implements DialogInterface {
-    private View eqa;
-    private TextView kMS;
+    private View ell;
+    private TextView kIn;
     private Context mContext;
     private TextView mTitle;
-    private AnimationSet oXK;
-    private TextView oXL;
-    private TextView oXM;
-    private String oXN;
-    private String oXO;
-    private String oXP;
-    private String oXQ;
-    private RelativeLayout oXR;
-    private View oXS;
-    private View oXT;
-    private View oXU;
+    private AnimationSet oTi;
+    private TextView oTj;
+    private TextView oTk;
+    private String oTl;
+    private String oTm;
+    private String oTn;
+    private String oTo;
+    private RelativeLayout oTp;
+    private View oTq;
+    private View oTr;
+    private View oTs;
 
     protected a(Context context) {
         super(context, a.i.NoTitleDialog);
@@ -42,10 +42,10 @@ public class a extends Dialog implements DialogInterface {
     public a(Context context, String str, String str2, String str3, String str4) {
         this(context);
         this.mContext = context;
-        this.oXN = str;
-        this.oXO = str2;
-        this.oXP = str3;
-        this.oXQ = str4;
+        this.oTl = str;
+        this.oTm = str2;
+        this.oTn = str3;
+        this.oTo = str4;
     }
 
     private void initAnimation() {
@@ -60,8 +60,8 @@ public class a extends Dialog implements DialogInterface {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.eqa.setVisibility(8);
-                a.this.eqa.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.1.1
+                a.this.ell.setVisibility(8);
+                a.this.ell.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         a.super.cancel();
@@ -69,60 +69,60 @@ public class a extends Dialog implements DialogInterface {
                 });
             }
         };
-        this.oXK = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.S(getContext(), a.C0203a.bd_im_modal_out);
-        this.oXK.setAnimationListener(animationListener);
+        this.oTi = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.S(getContext(), a.C0194a.bd_im_modal_out);
+        this.oTi.setAnimationListener(animationListener);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.bd_im_alert_select_dialog);
-        this.eqa = getWindow().getDecorView().findViewById(16908290);
-        ViewGroup.LayoutParams layoutParams = this.eqa.getLayoutParams();
+        this.ell = getWindow().getDecorView().findViewById(16908290);
+        ViewGroup.LayoutParams layoutParams = this.ell.getLayoutParams();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindow().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         layoutParams.width = displayMetrics.widthPixels;
-        this.eqa.setLayoutParams(layoutParams);
-        this.oXR = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
-        this.oXL = (TextView) findViewById(a.f.bd_im_dialog_cancel);
-        this.oXM = (TextView) findViewById(a.f.bd_im_dialog_ensure);
+        this.ell.setLayoutParams(layoutParams);
+        this.oTp = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
+        this.oTj = (TextView) findViewById(a.f.bd_im_dialog_cancel);
+        this.oTk = (TextView) findViewById(a.f.bd_im_dialog_ensure);
         this.mTitle = (TextView) findViewById(a.f.bd_im_dialog_title);
-        this.kMS = (TextView) findViewById(a.f.bd_im_dialog_content);
-        this.oXS = findViewById(a.f.bd_im_dialog_divider2);
-        this.oXT = findViewById(a.f.bd_im_dialog_divider3);
-        this.oXU = findViewById(a.f.bd_im_dialog_divider4);
-        if (!TextUtils.isEmpty(this.oXN)) {
-            this.mTitle.setText(this.oXN);
+        this.kIn = (TextView) findViewById(a.f.bd_im_dialog_content);
+        this.oTq = findViewById(a.f.bd_im_dialog_divider2);
+        this.oTr = findViewById(a.f.bd_im_dialog_divider3);
+        this.oTs = findViewById(a.f.bd_im_dialog_divider4);
+        if (!TextUtils.isEmpty(this.oTl)) {
+            this.mTitle.setText(this.oTl);
         }
-        if (!TextUtils.isEmpty(this.oXO)) {
-            this.kMS.setText(this.oXO);
+        if (!TextUtils.isEmpty(this.oTm)) {
+            this.kIn.setText(this.oTm);
         }
-        if (!TextUtils.isEmpty(this.oXP)) {
-            this.oXM.setText(this.oXP);
+        if (!TextUtils.isEmpty(this.oTn)) {
+            this.oTk.setText(this.oTn);
         }
-        if (!TextUtils.isEmpty(this.oXQ)) {
-            this.oXL.setText(this.oXQ);
+        if (!TextUtils.isEmpty(this.oTo)) {
+            this.oTj.setText(this.oTo);
         }
-        emK();
+        eiQ();
     }
 
-    public void emJ() {
+    public void eiP() {
         super.cancel();
-        AB(true);
+        Ax(true);
     }
 
-    private void AB(boolean z) {
-        this.eqa.startAnimation(this.oXK);
+    private void Ax(boolean z) {
+        this.ell.startAnimation(this.oTi);
     }
 
     public void a(final View.OnClickListener onClickListener, final View.OnClickListener onClickListener2) {
-        this.oXL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
+        this.oTj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener.onClick(view);
             }
         });
-        this.oXM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
+        this.oTk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener2.onClick(view);
@@ -130,6 +130,6 @@ public class a extends Dialog implements DialogInterface {
         });
     }
 
-    private void emK() {
+    private void eiQ() {
     }
 }

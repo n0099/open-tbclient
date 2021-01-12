@@ -6,16 +6,16 @@ import java.util.Random;
 public class gu {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f486a = "&quot;".toCharArray();
+    private static final char[] f485a = "&quot;".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final char[] f14367b = "&apos;".toCharArray();
+    private static final char[] f14067b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
     private static final char[] e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Random f14366a = new Random();
+    private static Random f14066a = new Random();
     private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i) {
@@ -24,7 +24,7 @@ public class gu {
         }
         char[] cArr = new char[i];
         for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[f14366a.nextInt(71)];
+            cArr[i2] = f[f14066a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -66,13 +66,13 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f486a);
+                    sb.append(f485a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f14367b);
+                    sb.append(f14067b);
                 }
             }
             i2++;

@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.home.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.kwad.sdk.contentalliance.home.e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
@@ -9,8 +9,8 @@ public class a extends com.kwad.sdk.contentalliance.home.e {
         if (a2 == null) {
             return;
         }
-        com.kwad.sdk.contentalliance.home.c.a(a2.a(this.f9034a.e));
+        com.kwad.sdk.contentalliance.home.c.a(a2.a(this.f8734a.e));
         com.kwad.sdk.entry.a.b();
-        this.f9034a.c.setInitStartPosition(this.f9034a.j);
+        this.f8734a.c.setInitStartPosition(this.f8734a.j);
     }
 }

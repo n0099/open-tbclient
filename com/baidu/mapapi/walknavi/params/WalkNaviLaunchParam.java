@@ -3,71 +3,60 @@ package com.baidu.mapapi.walknavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.walknavi.e.d;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WalkNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f3107a;
+    private LatLng f2989a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LatLng f3108b;
-    private a c;
-    private a d;
-    private List<a> e = new LinkedList();
-    private int f;
+    private LatLng f2990b;
+    private int c;
+    private int d;
+    private int e;
 
-    public LatLng getStartPt() {
-        return this.f3107a;
-    }
-
-    public LatLng getEndPt() {
-        return this.f3108b;
-    }
-
-    public a getStartNodeInfo() {
-        return this.c;
-    }
-
-    public a getEndNodeInfo() {
+    public int getEndCityCode() {
         return this.d;
     }
 
-    public List<a> getViaNodes() {
-        return this.e;
+    public LatLng getStartPt() {
+        return this.f2989a;
+    }
+
+    public LatLng getEndPt() {
+        return this.f2990b;
+    }
+
+    public int getStartCityCode() {
+        return this.c;
     }
 
     public int getExtraNaviMode() {
-        return this.f;
+        return this.e;
     }
 
     public WalkNaviLaunchParam stPt(LatLng latLng) {
-        this.f3107a = latLng;
+        this.f2989a = latLng;
         return this;
     }
 
     public WalkNaviLaunchParam endPt(LatLng latLng) {
-        this.f3108b = latLng;
+        this.f2990b = latLng;
         return this;
     }
 
-    public WalkNaviLaunchParam startNodeInfo(WalkRouteNodeInfo walkRouteNodeInfo) {
-        this.c = walkRouteNodeInfo;
+    public WalkNaviLaunchParam stCityCode(int i) {
+        this.c = i;
         return this;
     }
 
-    public WalkNaviLaunchParam endNodeInfo(WalkRouteNodeInfo walkRouteNodeInfo) {
-        this.d = walkRouteNodeInfo;
+    public WalkNaviLaunchParam endCityCode(int i) {
+        this.d = i;
         return this;
-    }
-
-    public void setViaNodes(List<a> list) {
-        this.e.addAll(list);
     }
 
     public WalkNaviLaunchParam extraNaviMode(int i) {
-        this.f = i;
+        this.e = i;
         return this;
     }
 

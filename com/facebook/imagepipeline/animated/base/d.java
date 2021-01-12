@@ -6,24 +6,24 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class d {
-    private final b pAA;
-    private final int pAB;
+    private final b pvZ;
+    private final int pwa;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> pAC;
+    private com.facebook.common.references.a<Bitmap> pwb;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> pAD;
+    private List<com.facebook.common.references.a<Bitmap>> pwc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.pAA = (b) g.checkNotNull(eVar.ewX());
-        this.pAB = eVar.ewZ();
-        this.pAC = eVar.ewY();
-        this.pAD = eVar.exa();
+        this.pvZ = (b) g.checkNotNull(eVar.etf());
+        this.pwa = eVar.eth();
+        this.pwb = eVar.etg();
+        this.pwc = eVar.eti();
     }
 
     private d(b bVar) {
-        this.pAA = (b) g.checkNotNull(bVar);
-        this.pAB = 0;
+        this.pvZ = (b) g.checkNotNull(bVar);
+        this.pwa = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b ewX() {
-        return this.pAA;
+    public b etf() {
+        return this.pvZ;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.pAC);
-        this.pAC = null;
-        com.facebook.common.references.a.b(this.pAD);
-        this.pAD = null;
+        com.facebook.common.references.a.c(this.pwb);
+        this.pwb = null;
+        com.facebook.common.references.a.b(this.pwc);
+        this.pwc = null;
     }
 }

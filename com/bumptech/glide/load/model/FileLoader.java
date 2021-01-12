@@ -14,12 +14,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     private static final String TAG = "FileLoader";
     private final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -45,7 +45,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         private Data data;
         private final File file;
@@ -97,7 +97,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         private final FileOpener<Data> opener;
 
@@ -116,7 +116,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public StreamFactory() {
             super(new FileOpener<InputStream>() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1
@@ -141,7 +141,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public FileDescriptorFactory() {
             super(new FileOpener<ParcelFileDescriptor>() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1

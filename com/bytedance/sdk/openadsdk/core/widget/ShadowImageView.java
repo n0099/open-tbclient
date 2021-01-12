@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 public class ShadowImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f7068a;
+    private Paint f6768a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f7069b;
+    private RectF f6769b;
 
     public ShadowImageView(Context context) {
         super(context);
@@ -35,25 +35,25 @@ public class ShadowImageView extends ImageView {
     }
 
     private void a() {
-        this.f7068a = new Paint();
-        this.f7068a.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f7068a.setColor(Color.parseColor("#99333333"));
-        this.f7068a.setAntiAlias(true);
-        this.f7068a.setStrokeWidth(0.0f);
-        this.f7069b = new RectF();
+        this.f6768a = new Paint();
+        this.f6768a.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.f6768a.setColor(Color.parseColor("#99333333"));
+        this.f6768a.setAntiAlias(true);
+        this.f6768a.setStrokeWidth(0.0f);
+        this.f6769b = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f7069b.right != getMeasuredWidth() || this.f7069b.bottom != getMeasuredHeight()) {
-            this.f7069b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        if (this.f6769b.right != getMeasuredWidth() || this.f6769b.bottom != getMeasuredHeight()) {
+            this.f6769b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawRoundRect(this.f7069b, this.f7069b.right / 2.0f, this.f7069b.bottom / 2.0f, this.f7068a);
+        canvas.drawRoundRect(this.f6769b, this.f6769b.right / 2.0f, this.f6769b.bottom / 2.0f, this.f6768a);
         super.onDraw(canvas);
     }
 }

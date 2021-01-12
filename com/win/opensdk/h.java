@@ -1,5 +1,5 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface h {
     void S(int i, int i2, int i3, int i4);
 
@@ -7,15 +7,15 @@ public interface h {
 
     void a(y yVar);
 
-    boolean abK(String str);
+    boolean aaC(String str);
 
-    void abL(String str);
+    void aaD(String str);
 
     void b();
 
-    void eKp();
+    void eGA();
 
-    void eKq();
+    void eGz();
 
     boolean java();
 }

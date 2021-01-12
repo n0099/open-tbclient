@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -152,7 +152,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -176,7 +176,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -201,7 +201,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 

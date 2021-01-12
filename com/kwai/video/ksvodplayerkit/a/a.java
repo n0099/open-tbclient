@@ -1,5 +1,5 @@
 package com.kwai.video.ksvodplayerkit.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void a(String str, String str2, Throwable th);
 

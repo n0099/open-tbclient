@@ -1,10 +1,10 @@
 package com.baidu.tieba.forumMember.bawu;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements i {
     private String title;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int cDj() {
+    public int czr() {
         return 0;
     }
 

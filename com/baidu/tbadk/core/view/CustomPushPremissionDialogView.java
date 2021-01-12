@@ -15,12 +15,12 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
-    private TextView fhW;
-    private TBLottieAnimationView fhX;
-    private View fhY;
-    private View fhZ;
-    private TBSpecificationBtn fia;
-    private TBSpecificationBtn fib;
+    private TextView fdo;
+    private TBLottieAnimationView fdp;
+    private View fdq;
+    private View fdr;
+    private TBSpecificationBtn fds;
+    private TBSpecificationBtn fdt;
 
     public CustomPushPremissionDialogView(Context context) {
         this(context, null);
@@ -32,10 +32,10 @@ public class CustomPushPremissionDialogView extends LinearLayout {
 
     public CustomPushPremissionDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        eO(context);
+        initView(context);
     }
 
-    private void eO(Context context) {
+    private void initView(Context context) {
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         setOrientation(1);
         setGravity(1);
@@ -45,44 +45,44 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         gradientDrawable.setColor(ao.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_push_premission_dialog_view, this);
-        this.fhX = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-        this.fhX.loop(true);
-        this.fhX.setFrame(0);
-        ao.a(this.fhX, R.raw.lottie_push_permission_dialog_animation);
-        this.fhX.playAnimation();
-        this.fhW = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-        this.fhW.setTextColor(ao.getColor(R.color.CAM_X0105));
-        this.fhY = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+        this.fdp = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
+        this.fdp.loop(true);
+        this.fdp.setFrame(0);
+        ao.a(this.fdp, R.raw.lottie_push_permission_dialog_animation);
+        this.fdp.playAnimation();
+        this.fdo = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
+        this.fdo.setTextColor(ao.getColor(R.color.CAM_X0105));
+        this.fdq = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-            this.fhZ = findViewById(R.id.animation_layout);
-            com.baidu.tbadk.core.util.f.a.bwU().qB(1).qD(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).qC(273).x(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bz(this.fhZ);
-            ViewGroup.LayoutParams layoutParams2 = this.fhY.getLayoutParams();
+            this.fdr = findViewById(R.id.animation_layout);
+            com.baidu.tbadk.core.util.f.a.bta().oU(1).oW(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).oV(273).x(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bz(this.fdr);
+            ViewGroup.LayoutParams layoutParams2 = this.fdq.getLayoutParams();
             layoutParams2.width = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds774);
-            this.fhY.setLayoutParams(layoutParams2);
-            com.baidu.tbadk.core.util.f.a.bwV().qq(0).b("TOP_BOTTOM", ao.qc(R.color.common_color_10262), ao.qc(R.color.CAM_X0205)).bz(this.fhY);
+            this.fdq.setLayoutParams(layoutParams2);
+            com.baidu.tbadk.core.util.f.a.btb().oJ(0).b("TOP_BOTTOM", ao.ov(R.color.common_color_10262), ao.ov(R.color.CAM_X0205)).bz(this.fdq);
         } else {
-            com.baidu.tbadk.core.util.f.a.bwV().qq(0).ae(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0211)).bz(this.fhY);
+            com.baidu.tbadk.core.util.f.a.btb().oJ(0).ae(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ao.ov(R.color.CAM_X0205), ao.ov(R.color.CAM_X0205), ao.ov(R.color.CAM_X0205), ao.ov(R.color.CAM_X0205), ao.ov(R.color.CAM_X0211)).bz(this.fdq);
         }
-        this.fia = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
-        this.fia.setTextSize(R.dimen.tbds34);
-        this.fia.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
+        this.fds = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
+        this.fds.setTextSize(R.dimen.tbds34);
+        this.fds.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.ru(R.color.CAM_X0105);
-        this.fia.setConfig(cVar);
-        this.fia.bxP();
-        this.fib = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
-        this.fib.setTextSize(R.dimen.tbds34);
-        this.fib.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
+        cVar.pO(R.color.CAM_X0105);
+        this.fds.setConfig(cVar);
+        this.fds.btV();
+        this.fdt = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
+        this.fdt.setTextSize(R.dimen.tbds34);
+        this.fdt.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.rs(R.color.CAM_X0302);
-        this.fib.setConfig(cVar2);
+        cVar2.pM(R.color.CAM_X0302);
+        this.fdt.setConfig(cVar2);
     }
 
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
-        return this.fia;
+        return this.fds;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {
-        return this.fib;
+        return this.fdt;
     }
 }

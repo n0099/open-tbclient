@@ -1,5 +1,5 @@
 package aegon.chrome.net;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class ProxyChangeListener$$Lambda$1 implements Runnable {
     private final ProxyChangeListener arg$1;
 

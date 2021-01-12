@@ -8,9 +8,9 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_gift_tab), 22, i);
-        this.fEu = R.drawable.icon_pure_post_vip24_pb;
-        this.fEx = false;
-        this.fEy = true;
-        this.fED = new int[]{36};
+        this.fzM = R.drawable.icon_pure_post_vip24_pb;
+        this.fzP = false;
+        this.fzQ = true;
+        this.fzV = new int[]{36};
     }
 }

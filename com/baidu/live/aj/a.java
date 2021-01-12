@@ -1,10 +1,10 @@
 package com.baidu.live.aj;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class a {
 
     /* renamed from: com.baidu.live.aj.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C0167a {
+    /* loaded from: classes9.dex */
+    public static final class C0158a {
         public static final int bd_im_emoji_bar_height = 2131165483;
         public static final int bd_im_emoji_pager_dot_height = 2131165484;
         public static final int bd_im_emoji_row_height = 2131165485;
@@ -554,7 +554,7 @@ public final class a {
         public static final int sdk_tbfontsize84 = 2131167033;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static final int ala_fudai_bg = 2131231328;
         public static final int ala_fudai_btn = 2131231329;

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwai.video.cache.AwesomeCacheInitConfig;
 import com.kwai.video.hodor.util.FileUtils;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HodorConfig {
     public static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
     public static final int HodorQueueMode_LowConsume = 0;
@@ -17,7 +17,7 @@ public class HodorConfig {
     private static String sMediaDirFullPath;
     private static String sResourceDirFullPath;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface HodorQueueMode {
     }
 

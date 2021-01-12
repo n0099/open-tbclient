@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (eLL()) {
+            if (eHV()) {
                 this.actual.onSubscribe(this);
-                eLM();
+                eHW();
             }
         }
     }
 
-    protected boolean eLL() {
+    protected boolean eHV() {
         return true;
     }
 
-    protected void eLM() {
+    protected void eHW() {
     }
 
     @Override // org.a.c
@@ -62,7 +62,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Tv(int i) {
+    public final int RO(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

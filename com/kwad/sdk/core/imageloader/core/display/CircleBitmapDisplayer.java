@@ -14,12 +14,12 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CircleBitmapDisplayer implements BitmapDisplayer {
     protected final Integer strokeColor;
     protected final float strokeWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class CircleDrawable extends Drawable {
         protected final BitmapShader bitmapShader;
         protected final RectF mBitmapRect;

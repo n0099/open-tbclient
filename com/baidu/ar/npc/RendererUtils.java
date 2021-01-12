@@ -7,23 +7,23 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RendererUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float[] f1510a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+    private static final float[] f1518a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final float[] f1511b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+    private static final float[] f1519b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f1512a;
+        private int f1520a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f1513b;
+        private int f1521b;
         private int c;
         private int d;
         private FloatBuffer e;
@@ -76,7 +76,7 @@ public class RendererUtils {
         GLES20.glViewport(0, 0, i2, i3);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.f1512a);
+        GLES20.glUseProgram(aVar.f1520a);
         GLES20.glDisable(2929);
         GLES20.glDisable(3042);
         GLES20.glVertexAttribPointer(aVar.c, 2, 5126, false, 0, (Buffer) aVar.e);
@@ -85,20 +85,20 @@ public class RendererUtils {
         GLES20.glEnableVertexAttribArray(aVar.d);
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(3553, i);
-        GLES20.glUniform1i(aVar.f1513b, 0);
+        GLES20.glUniform1i(aVar.f1521b, 0);
         GLES20.glDrawArrays(5, 0, 4);
     }
 
     public static a createProgram() {
-        int a2;
-        int a3 = a(35633, "attribute vec4 a_position;\nattribute vec2 a_texcoord;\nvarying vec2 v_texcoord;\nvoid main() {\n  gl_Position = a_position;\n  v_texcoord = a_texcoord;\n}\n");
-        if (a3 == 0 || (a2 = a(35632, "precision mediump float;\nuniform sampler2D tex_sampler;\nvarying vec2 v_texcoord;\nvoid main() {\n  gl_FragColor = texture2D(tex_sampler, v_texcoord);\n}\n")) == 0) {
+        int loadShader;
+        int loadShader2 = loadShader(35633, "attribute vec4 a_position;\nattribute vec2 a_texcoord;\nvarying vec2 v_texcoord;\nvoid main() {\n  gl_Position = a_position;\n  v_texcoord = a_texcoord;\n}\n");
+        if (loadShader2 == 0 || (loadShader = loadShader(35632, "precision mediump float;\nuniform sampler2D tex_sampler;\nvarying vec2 v_texcoord;\nvoid main() {\n  gl_FragColor = texture2D(tex_sampler, v_texcoord);\n}\n")) == 0) {
             return null;
         }
         int glCreateProgram = GLES20.glCreateProgram();
         if (glCreateProgram != 0) {
-            GLES20.glAttachShader(glCreateProgram, a3);
-            GLES20.glAttachShader(glCreateProgram, a2);
+            GLES20.glAttachShader(glCreateProgram, loadShader2);
+            GLES20.glAttachShader(glCreateProgram, loadShader);
             GLES20.glLinkProgram(glCreateProgram);
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
@@ -109,16 +109,16 @@ public class RendererUtils {
             }
         }
         a aVar = new a();
-        aVar.f1513b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
+        aVar.f1521b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
         aVar.c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
         aVar.d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.e = a(f1510a);
-        aVar.f = a(f1511b);
-        aVar.f1512a = glCreateProgram;
+        aVar.e = createVerticesBuffer(f1518a);
+        aVar.f = createVerticesBuffer(f1519b);
+        aVar.f1520a = glCreateProgram;
         return aVar;
     }
 
-    private static int a(int i, String str) {
+    private static int loadShader(int i, String str) {
         int glCreateShader = GLES20.glCreateShader(i);
         if (glCreateShader != 0) {
             GLES20.glShaderSource(glCreateShader, str);
@@ -134,7 +134,7 @@ public class RendererUtils {
         return glCreateShader;
     }
 
-    private static FloatBuffer a(float[] fArr) {
+    private static FloatBuffer createVerticesBuffer(float[] fArr) {
         if (fArr.length != 8) {
             throw new RuntimeException("Number of vertices should be four.");
         }

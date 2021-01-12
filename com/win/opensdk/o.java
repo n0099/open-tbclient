@@ -2,12 +2,12 @@ package com.win.opensdk;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.http.Headers;
 import android.os.Build;
 import android.provider.CalendarContract;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,29 +15,29 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class o {
+    public static boolean pYL = false;
+    private static SimpleDateFormat pZq = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ", Locale.US);
+    private static SimpleDateFormat pZr = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZZZZZ", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14052a;
+    private String f13752a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14053b;
+    private String f13753b;
     private String c;
 
     /* renamed from: case  reason: not valid java name */
-    private String f65case;
+    private String f64case;
     private String d;
     private String e;
     private String f;
     private String g;
     private String java;
-    private p qdQ;
-    public static boolean qdm = false;
-    private static SimpleDateFormat qdR = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ", Locale.US);
-    private static SimpleDateFormat qdS = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZZZZZ", Locale.US);
+    private p pZp;
 
-    public static o abM(String str) {
+    public static o aaE(String str) {
         o oVar = new o();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -45,13 +45,13 @@ public final class o {
                 oVar.java = jSONObject.getString("id");
             }
             if (!jSONObject.isNull("description")) {
-                oVar.f65case = jSONObject.getString("description");
+                oVar.f64case = jSONObject.getString("description");
             }
-            if (!jSONObject.isNull("location")) {
-                oVar.f14052a = jSONObject.getString("location");
+            if (!jSONObject.isNull(Headers.LOCATION)) {
+                oVar.f13752a = jSONObject.getString(Headers.LOCATION);
             }
             if (!jSONObject.isNull("summary")) {
-                oVar.f14053b = jSONObject.getString("summary");
+                oVar.f13753b = jSONObject.getString("summary");
             }
             if (!jSONObject.isNull("start")) {
                 oVar.c = jSONObject.getString("start");
@@ -72,64 +72,64 @@ public final class o {
                 oVar.g = jSONObject.getString(NotificationCompat.CATEGORY_REMINDER);
             }
             if (!jSONObject.isNull("recurrence")) {
-                oVar.qdQ = new p();
+                oVar.pZp = new p();
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("recurrence");
                     if (!jSONObject2.isNull("frequency")) {
-                        oVar.qdQ.f67java = jSONObject2.getString("frequency");
+                        oVar.pZp.f66java = jSONObject2.getString("frequency");
                     }
                     if (!jSONObject2.isNull("interval")) {
-                        oVar.qdQ.java = jSONObject2.getInt("interval");
+                        oVar.pZp.java = jSONObject2.getInt("interval");
                     }
                     if (!jSONObject2.isNull("expires")) {
-                        oVar.qdQ.f66case = jSONObject2.getString("expires");
+                        oVar.pZp.f65case = jSONObject2.getString("expires");
                     }
                     if (!jSONObject2.isNull("exceptionDates")) {
                         JSONArray jSONArray = jSONObject2.getJSONArray("exceptionDates");
                         int length = jSONArray.length();
-                        oVar.qdQ.qdT = new String[length];
+                        oVar.pZp.pZs = new String[length];
                         for (int i = 0; i < length; i++) {
-                            oVar.qdQ.qdT[i] = jSONArray.getString(i);
+                            oVar.pZp.pZs[i] = jSONArray.getString(i);
                         }
                     }
                     if (!jSONObject2.isNull("daysInWeek")) {
                         JSONArray jSONArray2 = jSONObject2.getJSONArray("daysInWeek");
                         int length2 = jSONArray2.length();
-                        oVar.qdQ.f68java = new int[length2];
+                        oVar.pZp.f67java = new int[length2];
                         for (int i2 = 0; i2 < length2; i2++) {
-                            oVar.qdQ.f68java[i2] = jSONArray2.getInt(i2);
+                            oVar.pZp.f67java[i2] = jSONArray2.getInt(i2);
                         }
                     }
                     if (!jSONObject2.isNull("daysInMonth")) {
                         JSONArray jSONArray3 = jSONObject2.getJSONArray("daysInMonth");
                         int length3 = jSONArray3.length();
-                        oVar.qdQ.qdU = new int[length3];
+                        oVar.pZp.pZt = new int[length3];
                         for (int i3 = 0; i3 < length3; i3++) {
-                            oVar.qdQ.qdU[i3] = jSONArray3.getInt(i3);
+                            oVar.pZp.pZt[i3] = jSONArray3.getInt(i3);
                         }
                     }
                     if (!jSONObject2.isNull("daysInYear")) {
                         JSONArray jSONArray4 = jSONObject2.getJSONArray("daysInYear");
                         int length4 = jSONArray4.length();
-                        oVar.qdQ.f14054a = new int[length4];
+                        oVar.pZp.f13754a = new int[length4];
                         for (int i4 = 0; i4 < length4; i4++) {
-                            oVar.qdQ.f14054a[i4] = jSONArray4.getInt(i4);
+                            oVar.pZp.f13754a[i4] = jSONArray4.getInt(i4);
                         }
                     }
                     if (!jSONObject2.isNull("weeksInMonth")) {
                         JSONArray jSONArray5 = jSONObject2.getJSONArray("weeksInMonth");
                         int length5 = jSONArray5.length();
-                        oVar.qdQ.f14055b = new int[length5];
+                        oVar.pZp.f13755b = new int[length5];
                         for (int i5 = 0; i5 < length5; i5++) {
-                            oVar.qdQ.f14055b[i5] = jSONArray5.getInt(i5);
+                            oVar.pZp.f13755b[i5] = jSONArray5.getInt(i5);
                         }
                     }
                     if (!jSONObject2.isNull("monthsInYear")) {
                         JSONArray jSONArray6 = jSONObject2.getJSONArray("monthsInYear");
                         int length6 = jSONArray6.length();
-                        oVar.qdQ.c = new int[length6];
+                        oVar.pZp.c = new int[length6];
                         for (int i6 = 0; i6 < length6; i6++) {
-                            oVar.qdQ.c[i6] = jSONArray6.getInt(i6);
+                            oVar.pZp.c[i6] = jSONArray6.getInt(i6);
                         }
                     }
                 } catch (JSONException e) {
@@ -144,52 +144,52 @@ public final class o {
     }
 
     @SuppressLint({"NewApi", "InlinedApi"})
-    public final Intent eKr() {
+    public final Intent eGB() {
         Intent type;
-        boolean z = !qdm && Build.VERSION.SDK_INT >= 14;
+        boolean z = !pYL && Build.VERSION.SDK_INT >= 14;
         if (z) {
             type = new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI);
         } else {
             type = new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event");
         }
-        if (!TextUtils.isEmpty(this.f65case)) {
+        if (!TextUtils.isEmpty(this.f64case)) {
             if (z) {
-                type.putExtra("title", this.f65case);
+                type.putExtra("title", this.f64case);
             } else {
-                type.putExtra("title", this.f65case);
+                type.putExtra("title", this.f64case);
             }
         }
-        if (!TextUtils.isEmpty(this.f14052a)) {
+        if (!TextUtils.isEmpty(this.f13752a)) {
             if (z) {
-                type.putExtra("eventLocation", this.f14052a);
+                type.putExtra("eventLocation", this.f13752a);
             } else {
-                type.putExtra("eventLocation", this.f14052a);
+                type.putExtra("eventLocation", this.f13752a);
             }
         }
-        if (!TextUtils.isEmpty(this.f14053b)) {
+        if (!TextUtils.isEmpty(this.f13753b)) {
             if (z) {
-                type.putExtra("description", this.f14053b);
+                type.putExtra("description", this.f13753b);
             } else {
-                type.putExtra("description", this.f14053b);
+                type.putExtra("description", this.f13753b);
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
-            long abN = abN(this.c);
-            if (abN > 0) {
+            long aaF = aaF(this.c);
+            if (aaF > 0) {
                 if (z) {
-                    type.putExtra("beginTime", abN);
+                    type.putExtra("beginTime", aaF);
                 } else {
-                    type.putExtra("beginTime", abN);
+                    type.putExtra("beginTime", aaF);
                 }
             }
         }
         if (!TextUtils.isEmpty(this.d)) {
-            long abN2 = abN(this.d);
-            if (abN2 > 0) {
+            long aaF2 = aaF(this.d);
+            if (aaF2 > 0) {
                 if (z) {
-                    type.putExtra("endTime", abN2);
+                    type.putExtra("endTime", aaF2);
                 } else {
-                    type.putExtra("endTime", abN2);
+                    type.putExtra("endTime", aaF2);
                 }
             }
         }
@@ -197,24 +197,24 @@ public final class o {
             type.putExtra("eventStatus", this.e);
         }
         if (!TextUtils.isEmpty(this.f) && z) {
-            type.putExtra(MapBundleKey.MapObjKey.OBJ_SL_VISI, !this.f.equals("opaque"));
+            type.putExtra("visible", !this.f.equals("opaque"));
         }
         if (!TextUtils.isEmpty(this.g)) {
-            long abN3 = abN(this.g);
-            if (abN3 < 0) {
+            long aaF3 = aaF(this.g);
+            if (aaF3 < 0) {
                 if (z) {
-                    type.putExtra("minutes", Math.abs(abN3 / AppStatusRules.DEFAULT_GRANULARITY));
+                    type.putExtra("minutes", Math.abs(aaF3 / AppStatusRules.DEFAULT_GRANULARITY));
                 }
             } else if (!TextUtils.isEmpty(this.c) && z) {
-                long abN4 = abN(this.c);
-                if (abN4 > 0) {
-                    type.putExtra("minutes", Math.abs((abN4 - abN3) / AppStatusRules.DEFAULT_GRANULARITY));
+                long aaF4 = aaF(this.c);
+                if (aaF4 > 0) {
+                    type.putExtra("minutes", Math.abs((aaF4 - aaF3) / AppStatusRules.DEFAULT_GRANULARITY));
                 }
             }
         }
         StringBuilder sb = new StringBuilder("");
-        if (this.qdQ != null) {
-            String str = this.qdQ.f67java;
+        if (this.pZp != null) {
+            String str = this.pZp.f66java;
             if (!TextUtils.isEmpty(str)) {
                 if ("daily".equals(str)) {
                     sb.append("FREQ=DAILY;");
@@ -230,14 +230,14 @@ public final class o {
             } else {
                 str = "";
             }
-            if (this.qdQ.java > 0) {
+            if (this.pZp.java > 0) {
                 sb.append("INTERVAL=");
-                sb.append(this.qdQ.java);
+                sb.append(this.pZp.java);
                 sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             }
-            if ("weekly".equals(str) && this.qdQ.f68java != null && this.qdQ.f68java.length > 0) {
+            if ("weekly".equals(str) && this.pZp.f67java != null && this.pZp.f67java.length > 0) {
                 sb.append("BYDAY=");
-                for (int i : this.qdQ.f68java) {
+                for (int i : this.pZp.f67java) {
                     switch (i) {
                         case 0:
                             sb.append("SU,");
@@ -264,46 +264,46 @@ public final class o {
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("monthly".equals(str) && this.qdQ.qdU != null && this.qdQ.qdU.length > 0) {
+            if ("monthly".equals(str) && this.pZp.pZt != null && this.pZp.pZt.length > 0) {
                 sb.append("BYMONTHDAY=");
-                for (int i2 : this.qdQ.qdU) {
+                for (int i2 : this.pZp.pZt) {
                     sb.append(i2);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("yearly".equals(str) && this.qdQ.f14054a != null && this.qdQ.f14054a.length > 0) {
+            if ("yearly".equals(str) && this.pZp.f13754a != null && this.pZp.f13754a.length > 0) {
                 sb.append("BYYEARDAY=");
-                for (int i3 : this.qdQ.f14054a) {
+                for (int i3 : this.pZp.f13754a) {
                     sb.append(i3);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("yearly".equals(str) && this.qdQ.c != null && this.qdQ.c.length > 0) {
+            if ("yearly".equals(str) && this.pZp.c != null && this.pZp.c.length > 0) {
                 sb.append("BYMONTH=");
-                for (int i4 : this.qdQ.c) {
+                for (int i4 : this.pZp.c) {
                     sb.append(i4);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if ("monthly".equals(str) && this.qdQ.f14055b != null && this.qdQ.f14055b.length > 0) {
+            if ("monthly".equals(str) && this.pZp.f13755b != null && this.pZp.f13755b.length > 0) {
                 sb.append("BYWEEKNO=");
-                for (int i5 : this.qdQ.f14055b) {
+                for (int i5 : this.pZp.f13755b) {
                     sb.append(i5);
                     sb.append(",");
                 }
                 sb.setCharAt(sb.length() - 1, ';');
             }
-            if (!TextUtils.isEmpty(this.qdQ.f66case)) {
+            if (!TextUtils.isEmpty(this.pZp.f65case)) {
                 sb.append("UNTIL=");
-                sb.append(this.qdQ.f66case);
+                sb.append(this.pZp.f65case);
                 sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             }
-            if (this.qdQ.qdT != null && this.qdQ.qdT.length > 0) {
+            if (this.pZp.pZs != null && this.pZp.pZs.length > 0) {
                 sb.append("EXDATE=");
-                for (String str2 : this.qdQ.qdT) {
+                for (String str2 : this.pZp.pZs) {
                     sb.append(str2);
                     sb.append(",");
                 }
@@ -318,12 +318,12 @@ public final class o {
         return type;
     }
 
-    private static long abN(String str) {
+    private static long aaF(String str) {
         try {
-            return qdR.parse(str).getTime();
+            return pZq.parse(str).getTime();
         } catch (ParseException e) {
             try {
-                return qdS.parse(str).getTime();
+                return pZr.parse(str).getTime();
             } catch (ParseException e2) {
                 try {
                     return Long.parseLong(str);

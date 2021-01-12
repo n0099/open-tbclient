@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bw {
     protected String img_url = null;
     protected String link = null;
-    protected String deT = null;
+    protected String dac = null;
 
     public String getImgUrl() {
         return this.img_url;
     }
 
-    public void AX(String str) {
+    public void zM(String str) {
         this.img_url = str;
     }
 
@@ -21,11 +21,11 @@ public class bw {
         this.link = str;
     }
 
-    public String bqI() {
-        return this.deT;
+    public String bmO() {
+        return this.dac;
     }
 
-    public void AY(String str) {
-        this.deT = str;
+    public void zN(String str) {
+        this.dac = str;
     }
 }

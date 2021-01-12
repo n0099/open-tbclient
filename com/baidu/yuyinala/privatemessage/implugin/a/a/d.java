@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
-    public TextView oSk;
-    public ImageView oSn;
-    public ImageView oSp;
-    public TextView jnJ = null;
-    public TextView mtw = null;
-    public TextView oSo = null;
+    public TextView oNI;
+    public ImageView oNL;
+    public ImageView oNN;
+    public TextView jjc = null;
+    public TextView moR = null;
+    public TextView oNM = null;
 
     public abstract View getContentView();
 

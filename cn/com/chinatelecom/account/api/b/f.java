@@ -7,28 +7,28 @@ import java.util.concurrent.Future;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExecutorService f1117a = Executors.newFixedThreadPool(3);
+    private static ExecutorService f1116a = Executors.newFixedThreadPool(3);
 
     /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f1118a = false;
+        private boolean f1117a = false;
 
         public void a(boolean z) {
-            this.f1118a = z;
+            this.f1117a = z;
         }
 
         public boolean a() {
-            return this.f1118a;
+            return this.f1117a;
         }
     }
 
     public static void a(Runnable runnable) {
-        f1117a.execute(runnable);
+        f1116a.execute(runnable);
     }
 
     public static Future b(Runnable runnable) {
-        return f1117a.submit(runnable);
+        return f1116a.submit(runnable);
     }
 }

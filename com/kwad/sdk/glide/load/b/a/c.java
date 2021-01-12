@@ -7,38 +7,38 @@ import com.kwad.sdk.glide.load.b.n;
 import com.kwad.sdk.glide.load.b.o;
 import com.kwad.sdk.glide.load.b.r;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f10365a;
+    private final Context f10065a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f10367a;
+        private final Context f10067a;
 
         public a(Context context) {
-            this.f10367a = context;
+            this.f10067a = context;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, InputStream> a(r rVar) {
-            return new c(this.f10367a);
+            return new c(this.f10067a);
         }
     }
 
     public c(Context context) {
-        this.f10365a = context.getApplicationContext();
+        this.f10065a = context.getApplicationContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         if (com.kwad.sdk.glide.load.a.a.b.a(i, i2)) {
-            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.a(this.f10365a, uri));
+            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.a(this.f10065a, uri));
         }
         return null;
     }

@@ -4,14 +4,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
 public class ca extends BaseCardInfo {
-    public bz eMv;
-    public int eWG;
-    public int eWH;
-    public int eWI;
+    public bz eHK;
+    public int eRV;
+    public int eRW;
+    public int eRX;
     public String stType;
 
     public ca(bz bzVar) {
-        this.eMv = bzVar;
+        this.eHK = bzVar;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n

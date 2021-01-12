@@ -11,48 +11,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public b.a emA;
-    public String emB;
-    public b emC;
-    public c emD;
-    public String emE;
-    public com.baidu.swan.games.inspector.a emF;
-    public com.baidu.swan.games.network.b.c emG;
-    public int emx;
-    public boolean emy;
-    public String emz;
+    public int ehL;
+    public boolean ehM;
+    public String ehN;
+    public b.a ehO;
+    public String ehP;
+    public b ehQ;
+    public c ehR;
+    public String ehS;
+    public com.baidu.swan.games.inspector.a ehT;
+    public com.baidu.swan.games.network.b.c ehU;
 
-    public static a xV(String str) {
+    public static a wK(String str) {
         a aVar = null;
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         a aVar2 = new a();
-        aVar2.emz = str;
+        aVar2.ehN = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar2.emA = b.a.bC(jSONObject);
+            aVar2.ehO = b.a.bC(jSONObject);
             String optString = jSONObject.optString("deviceOrientation", "portrait");
-            aVar2.emx = 0;
+            aVar2.ehL = 0;
             if (TextUtils.equals(optString, "landscape")) {
-                aVar2.emx = 1;
+                aVar2.ehL = 1;
             }
-            aVar2.emy = jSONObject.optBoolean("showStatusBar", false);
-            aVar2.emB = jSONObject.optString("workers");
-            aVar2.emC = b.cG(jSONObject);
-            aVar2.emD = c.a(jSONObject, aVar2.emC);
-            aVar2.emE = jSONObject.optString("openDataContext");
-            aVar2.emF = new com.baidu.swan.games.inspector.a(jSONObject);
+            aVar2.ehM = jSONObject.optBoolean("showStatusBar", false);
+            aVar2.ehP = jSONObject.optString("workers");
+            aVar2.ehQ = b.cG(jSONObject);
+            aVar2.ehR = c.a(jSONObject, aVar2.ehQ);
+            aVar2.ehS = jSONObject.optString("openDataContext");
+            aVar2.ehT = new com.baidu.swan.games.inspector.a(jSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 z = false;
             }
-            i.rd("startup").cn("preload_resources", z ? "1" : "0");
-            aVar2.emG = new com.baidu.swan.games.network.b.c(optJSONArray);
+            i.pS("startup").cm("preload_resources", z ? "1" : "0");
+            aVar2.ehU = new com.baidu.swan.games.network.b.c(optJSONArray);
             aVar = aVar2;
             return aVar;
         } catch (JSONException e) {
@@ -64,110 +64,110 @@ public final class a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        public List<C0548a> emJ;
-        public HashMap<String, Boolean> emK;
+        public List<C0531a> ehX;
+        public HashMap<String, Boolean> ehY;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static b cG(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return bby();
+                return aXE();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return bby();
+                return aXE();
             }
             b bVar = new b();
-            bVar.emJ = new ArrayList();
-            bVar.emK = new HashMap<>();
+            bVar.ehX = new ArrayList();
+            bVar.ehY = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    bVar.emJ.add(C0548a.cE(optJSONObject));
+                    bVar.ehX.add(C0531a.cE(optJSONObject));
                 }
             }
             return bVar;
         }
 
-        private static b bby() {
+        private static b aXE() {
             b bVar = new b();
-            bVar.emJ = new ArrayList();
-            bVar.emK = new HashMap<>();
+            bVar.ehX = new ArrayList();
+            bVar.ehY = new HashMap<>();
             return bVar;
         }
     }
 
     /* renamed from: com.baidu.swan.games.t.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0548a {
-        public String emH;
-        public String emI;
+    /* loaded from: classes8.dex */
+    public static class C0531a {
+        public String ehV;
+        public String ehW;
         public String name;
         public String path;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0548a cE(JSONObject jSONObject) {
+        public static C0531a cE(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return bbx();
+                return aXD();
             }
-            C0548a c0548a = new C0548a();
-            c0548a.emH = jSONObject.optString("root");
-            c0548a.name = jSONObject.optString("name");
-            if (TextUtils.isEmpty(c0548a.emH) || TextUtils.isEmpty(c0548a.name)) {
-                return bbx();
+            C0531a c0531a = new C0531a();
+            c0531a.ehV = jSONObject.optString("root");
+            c0531a.name = jSONObject.optString("name");
+            if (TextUtils.isEmpty(c0531a.ehV) || TextUtils.isEmpty(c0531a.name)) {
+                return aXD();
             }
-            if (c0548a.emH.endsWith(".js")) {
-                String[] split = c0548a.emH.split(File.separator);
+            if (c0531a.ehV.endsWith(".js")) {
+                String[] split = c0531a.ehV.split(File.separator);
                 if (split.length < 1) {
-                    return bbx();
+                    return aXD();
                 }
-                c0548a.emI = split[split.length - 1];
-                c0548a.path = "";
+                c0531a.ehW = split[split.length - 1];
+                c0531a.path = "";
                 for (int i = 0; i < split.length - 1; i++) {
-                    c0548a.path += split[i] + File.separator;
+                    c0531a.path += split[i] + File.separator;
                 }
             } else {
-                c0548a.path = c0548a.emH;
-                if (!c0548a.path.endsWith(File.separator)) {
-                    c0548a.path += File.separator;
+                c0531a.path = c0531a.ehV;
+                if (!c0531a.path.endsWith(File.separator)) {
+                    c0531a.path += File.separator;
                 }
-                c0548a.emI = "index.js";
+                c0531a.ehW = "index.js";
             }
-            return c0548a;
+            return c0531a;
         }
 
-        private static C0548a bbx() {
-            return new C0548a();
+        private static C0531a aXD() {
+            return new C0531a();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c {
-        public HashMap<String, String> emL;
+        public HashMap<String, String> ehZ;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static c a(JSONObject jSONObject, b bVar) {
-            if (jSONObject == null || bVar == null || bVar.emJ == null || bVar.emJ.size() <= 0) {
-                return bbz();
+            if (jSONObject == null || bVar == null || bVar.ehX == null || bVar.ehX.size() <= 0) {
+                return aXF();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
             if (optJSONObject == null) {
-                return bbz();
+                return aXF();
             }
             c cVar = new c();
-            cVar.emL = new HashMap<>();
-            for (C0548a c0548a : bVar.emJ) {
-                if (c0548a != null && !TextUtils.isEmpty(c0548a.emH)) {
-                    cVar.emL.put(c0548a.emH, optJSONObject.optString(c0548a.emH));
+            cVar.ehZ = new HashMap<>();
+            for (C0531a c0531a : bVar.ehX) {
+                if (c0531a != null && !TextUtils.isEmpty(c0531a.ehV)) {
+                    cVar.ehZ.put(c0531a.ehV, optJSONObject.optString(c0531a.ehV));
                 }
             }
             return cVar;
         }
 
-        private static c bbz() {
+        private static c aXF() {
             c cVar = new c();
-            cVar.emL = new HashMap<>();
+            cVar.ehZ = new HashMap<>();
             return cVar;
         }
     }

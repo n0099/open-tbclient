@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 enum g extends ArCoreApk.Availability {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(String str, int i, int i2) {

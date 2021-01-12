@@ -1,12 +1,9 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
-public abstract class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    long f3170a;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f3171b;
-    int c;
-    int d;
+/* loaded from: classes6.dex */
+public class c extends d {
+    public c() {
+        this.c = 4;
+        this.f3051b = "poiindoormarklayer";
+        this.d = 100;
+    }
 }

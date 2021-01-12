@@ -18,132 +18,132 @@ import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private BdListView WV;
-    private int aht;
-    private NoNetworkView fOl;
-    private View jVC;
+    private BdListView WT;
+    private int agC;
+    private NoNetworkView fJE;
+    private View jQX;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private TextView nAT;
-    private MemberRecommendView nBx;
-    private PersonalCardItemView.a nCP;
-    private int nDc = 3;
-    private PersonalCardCategoryActivity nDd;
-    private b nDe;
+    private MemberRecommendView nwS;
+    private TextView nwo;
+    private PersonalCardItemView.a nyk;
+    private int nyx = 3;
+    private PersonalCardCategoryActivity nyy;
+    private b nyz;
 
     public c(PersonalCardCategoryActivity personalCardCategoryActivity) {
-        this.aht = 0;
-        this.nDd = personalCardCategoryActivity;
-        this.aht = l.getDimens(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        this.mRoot = LayoutInflater.from(this.nDd.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
-        this.nDd.setContentView(this.mRoot);
-        this.jVC = this.mRoot.findViewById(R.id.body_view);
+        this.agC = 0;
+        this.nyy = personalCardCategoryActivity;
+        this.agC = l.getDimens(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.ds120);
+        this.mRoot = LayoutInflater.from(this.nyy.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
+        this.nyy.setContentView(this.mRoot);
+        this.jQX = this.mRoot.findViewById(R.id.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.personal_card);
-        this.fOl = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.nBx = (MemberRecommendView) this.mRoot.findViewById(R.id.categary_card_recommend);
-        this.nBx.setFromType(9);
-        this.nAT = new TextView(this.nDd.getActivity());
-        this.nAT.setHeight(l.getDimens(this.nDd.getActivity(), R.dimen.ds104));
-        this.WV = (BdListView) this.mRoot.findViewById(R.id.categary_card_listview);
-        this.nDe = new b(this.nDd.getPageContext());
-        this.WV.setAdapter((ListAdapter) this.nDe);
+        this.fJE = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.nwS = (MemberRecommendView) this.mRoot.findViewById(R.id.categary_card_recommend);
+        this.nwS.setFromType(9);
+        this.nwo = new TextView(this.nyy.getActivity());
+        this.nwo.setHeight(l.getDimens(this.nyy.getActivity(), R.dimen.ds104));
+        this.WT = (BdListView) this.mRoot.findViewById(R.id.categary_card_listview);
+        this.nyz = new b(this.nyy.getPageContext());
+        this.WT.setAdapter((ListAdapter) this.nyz);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.WV.setOnSrollToBottomListener(eVar);
+        this.WT.setOnSrollToBottomListener(eVar);
     }
 
     public void a(int i, e eVar, List<a> list, boolean z) {
-        if ((eVar == null || StringUtils.isNull(eVar.dSV())) && (list == null || list.size() <= 0)) {
-            cDo();
+        if ((eVar == null || StringUtils.isNull(eVar.dPd())) && (list == null || list.size() <= 0)) {
+            czw();
         } else if (i == 0) {
-            cDp();
+            czx();
             if (b(eVar)) {
-                this.WV.removeHeaderView(this.nAT);
-                this.WV.addHeaderView(this.nAT);
+                this.WT.removeHeaderView(this.nwo);
+                this.WT.addHeaderView(this.nwo);
             } else {
-                this.WV.removeHeaderView(this.nAT);
+                this.WT.removeHeaderView(this.nwo);
             }
             fV(list);
         }
     }
 
     private boolean b(e eVar) {
-        if (eVar == null || StringUtils.isNull(eVar.dSV())) {
-            this.nBx.setVisibility(8);
+        if (eVar == null || StringUtils.isNull(eVar.dPd())) {
+            this.nwS.setVisibility(8);
             return false;
         }
-        this.nBx.setVisibility(0);
-        this.nBx.a(eVar);
+        this.nwS.setVisibility(0);
+        this.nwS.a(eVar);
         return true;
     }
 
     private void fV(List<a> list) {
         if (list == null || list.size() <= 0) {
-            this.WV.setVisibility(8);
+            this.WT.setVisibility(8);
             return;
         }
-        this.WV.setVisibility(0);
-        this.nDe.setData(fW(list));
-        this.nDe.notifyDataSetChanged();
+        this.WT.setVisibility(0);
+        this.nyz.setData(fW(list));
+        this.nyz.notifyDataSetChanged();
     }
 
     private List<Object> fW(List<a> list) {
         int size;
         ArrayList arrayList = new ArrayList();
         for (a aVar : list) {
-            ArrayList<com.baidu.tieba.themeCenter.a> dSP = aVar.dSP();
-            if (dSP != null && (size = dSP.size()) != 0) {
+            ArrayList<com.baidu.tieba.themeCenter.a> dOX = aVar.dOX();
+            if (dOX != null && (size = dOX.size()) != 0) {
                 arrayList.add(aVar.getCategoryName());
                 int i = size > 6 ? 6 : size;
                 int i2 = 0;
                 while (i2 < i) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < this.nDc; i3++) {
+                    for (int i3 = 0; i3 < this.nyx; i3++) {
                         if (i2 + i3 < i) {
-                            arrayList2.add(dSP.get(i2 + i3));
+                            arrayList2.add(dOX.get(i2 + i3));
                         }
                     }
                     arrayList.add(arrayList2);
-                    i2 = (this.nDc - 1) + i2 + 1;
+                    i2 = (this.nyx - 1) + i2 + 1;
                 }
             }
         }
         return arrayList;
     }
 
-    public void cDo() {
-        this.jVC.setVisibility(8);
-        String string = this.nDd.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nDd.setNetRefreshViewTopMargin(this.aht);
-        this.nDd.showNetRefreshView(this.mRoot, string, false);
+    public void czw() {
+        this.jQX.setVisibility(8);
+        String string = this.nyy.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nyy.setNetRefreshViewTopMargin(this.agC);
+        this.nyy.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void cDp() {
-        this.nDd.hideNetRefreshView(this.mRoot);
-        this.jVC.setVisibility(0);
+    public void czx() {
+        this.nyy.hideNetRefreshView(this.mRoot);
+        this.jQX.setVisibility(0);
     }
 
     public void onChangeSkinType() {
-        this.nDd.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.nDd.getLayoutMode().onModeChanged(this.mRoot);
+        this.nyy.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.nyy.getLayoutMode().onModeChanged(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nDd.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nyy.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.fOl != null) {
-            this.fOl.onChangeSkinType(this.nDd.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.fJE != null) {
+            this.fJE.onChangeSkinType(this.nyy.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.WV != null && this.WV.getVisibility() == 0 && this.nDe != null) {
-            this.nDe.notifyDataSetChanged();
+        if (this.WT != null && this.WT.getVisibility() == 0 && this.nyz != null) {
+            this.nyz.notifyDataSetChanged();
         }
-        if (this.nBx != null && this.nBx.getVisibility() == 0) {
-            this.nBx.bxP();
+        if (this.nwS != null && this.nwS.getVisibility() == 0) {
+            this.nwS.btV();
         }
-        ao.setBackgroundColor(this.nAT, R.color.CAM_X0204);
+        ao.setBackgroundColor(this.nwo, R.color.CAM_X0204);
     }
 
     public View getRootView() {
@@ -151,9 +151,9 @@ public class c {
     }
 
     public void setCardViewController(PersonalCardItemView.a aVar) {
-        this.nCP = aVar;
-        if (this.nDe != null) {
-            this.nDe.setCardViewController(aVar);
+        this.nyk = aVar;
+        if (this.nyz != null) {
+            this.nyz.setCardViewController(aVar);
         }
     }
 }

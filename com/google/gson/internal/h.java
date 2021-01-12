@@ -10,14 +10,14 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.eCP();
+            aVar.eyX();
             z = false;
-            return TypeAdapters.pOW.read(aVar);
+            return TypeAdapters.pKv.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.pOW.write(bVar, jsonElement);
+        TypeAdapters.pKv.write(bVar, jsonElement);
     }
 
     public static Writer b(Appendable appendable) {
@@ -41,10 +41,10 @@ public final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends Writer {
         private final Appendable appendable;
-        private final C1072a pNh = new C1072a();
+        private final C1055a pIG = new C1055a();
 
         a(Appendable appendable) {
             this.appendable = appendable;
@@ -52,8 +52,8 @@ public final class h {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.pNh.chars = cArr;
-            this.appendable.append(this.pNh, i, i + i2);
+            this.pIG.chars = cArr;
+            this.appendable.append(this.pIG, i, i + i2);
         }
 
         @Override // java.io.Writer
@@ -70,11 +70,11 @@ public final class h {
         }
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        static class C1072a implements CharSequence {
+        /* loaded from: classes4.dex */
+        static class C1055a implements CharSequence {
             char[] chars;
 
-            C1072a() {
+            C1055a() {
             }
 
             @Override // java.lang.CharSequence

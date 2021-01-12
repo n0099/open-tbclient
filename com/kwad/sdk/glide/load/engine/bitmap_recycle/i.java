@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.load.engine.bitmap_recycle;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class i implements a<int[]> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.a

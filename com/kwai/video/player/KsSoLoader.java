@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface KsSoLoader {
     void loadLibrary(String str);
 }

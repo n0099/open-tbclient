@@ -3,28 +3,28 @@ package com.qq.e.comm.plugin.l;
 import android.text.TextUtils;
 import com.qq.e.comm.plugin.s.e;
 import com.qq.e.comm.plugin.util.ai;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f12482a;
+    private static volatile a f12182a;
 
     private a() {
     }
 
     public static a a() {
-        if (f12482a == null) {
+        if (f12182a == null) {
             synchronized (a.class) {
                 try {
-                    if (f12482a == null) {
-                        f12482a = new a();
+                    if (f12182a == null) {
+                        f12182a = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12482a;
+        return f12182a;
     }
 
     private <T> T a(e eVar, String str, Class<T> cls, T t) {
@@ -32,9 +32,9 @@ public class a {
         ai.a("ABTestManager", "cfg : " + eVar);
         ai.a("ABTestManager", "key : " + str);
         ai.a("ABTestManager", "defValue : " + t);
-        if (eVar != null && eVar.f12749a != null && !TextUtils.isEmpty(str)) {
+        if (eVar != null && eVar.f12449a != null && !TextUtils.isEmpty(str)) {
             try {
-                Object opt = eVar.f12749a.opt(str);
+                Object opt = eVar.f12449a.opt(str);
                 if (opt != null) {
                     t = cls.cast(opt);
                 } else {

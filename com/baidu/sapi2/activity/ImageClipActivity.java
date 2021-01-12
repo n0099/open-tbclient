@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
@@ -47,10 +47,10 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5093a = 0;
+    private int f4810a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5094b = 0;
+    private int f4811b = 0;
     private int c = 0;
     private int d = 0;
     private int e;
@@ -122,8 +122,8 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f5093a = i;
-        this.f5094b = i2;
+        this.f4810a = i;
+        this.f4811b = i2;
         this.c = i3;
         this.d = i4;
     }
@@ -197,7 +197,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        setPendingTransition(a.C0156a.sapi_sdk_slide_right_in, a.C0156a.sapi_sdk_slide_left_out, a.C0156a.sapi_sdk_slide_left_in, a.C0156a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0145a.sapi_sdk_slide_right_in, a.C0145a.sapi_sdk_slide_left_out, a.C0145a.sapi_sdk_slide_left_in, a.C0145a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -221,12 +221,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f5093a == 0 && this.f5094b == 0) {
+        if (this.f4810a == 0 && this.f4811b == 0) {
             return;
         }
-        overridePendingTransition(this.f5093a, this.f5094b);
-        this.f5093a = 0;
-        this.f5094b = 0;
+        overridePendingTransition(this.f4810a, this.f4811b);
+        this.f4810a = 0;
+        this.f4811b = 0;
     }
 
     @TargetApi(19)

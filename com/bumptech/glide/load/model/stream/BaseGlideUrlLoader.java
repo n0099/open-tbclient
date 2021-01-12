@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseGlideUrlLoader<Model> implements ModelLoader<Model, InputStream> {
     private final ModelLoader<GlideUrl, InputStream> concreteLoader;
     @Nullable

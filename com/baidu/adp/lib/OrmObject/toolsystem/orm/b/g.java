@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Message KD;
+    private Message KA;
     private Set<String> keySet;
 
     public g(Message message) {
-        this.KD = message;
+        this.KA = message;
         List<Field> findFields = com.baidu.adp.lib.OrmObject.a.a.findFields(message.getClass());
         this.keySet = new HashSet();
         if (findFields != null && findFields.size() > 0) {
@@ -30,12 +30,12 @@ public class g implements c {
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.KD, str);
+        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.KA, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.KD, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.KA, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

@@ -44,105 +44,105 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceGroupMakeActivity extends BaseActivity implements BarInformationModel.a, d.a {
-    private GridView dlY;
-    private NoNetworkView fOl;
-    private EditText jVj;
-    private FaceGroupMakeTitleBar lxh;
-    private TextView lxi;
-    private LinearLayout lxj;
-    private FaceImageLayout lxk;
-    private LinearLayout lxl;
-    private TextView lxm;
-    private TextView lxn;
-    private ImageView lxo;
-    private d lxp;
-    private ArrayList<FaceData> lxq;
-    private FaceData lxr;
-    private boolean lxs = false;
-    private boolean lxt = false;
-    private BarInformationModel lxu;
-    private ArrayList<BazhuInfoData.BaInfo> lxv;
-    private BazhuInfoData.BaInfo lxw;
+    private GridView dhj;
+    private NoNetworkView fJE;
+    private EditText jQE;
+    private FaceGroupMakeTitleBar lsB;
+    private TextView lsC;
+    private LinearLayout lsD;
+    private FaceImageLayout lsE;
+    private LinearLayout lsF;
+    private TextView lsG;
+    private TextView lsH;
+    private ImageView lsI;
+    private d lsJ;
+    private ArrayList<FaceData> lsK;
+    private FaceData lsL;
+    private boolean lsM = false;
+    private boolean lsN = false;
+    private BarInformationModel lsO;
+    private ArrayList<BazhuInfoData.BaInfo> lsP;
+    private BazhuInfoData.BaInfo lsQ;
     private Activity mActivity;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        FaceGroupDraft dkv;
+        FaceGroupDraft dgD;
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        aEr();
+        aAx();
         this.mActivity = getPageContext().getPageActivity();
         setContentView(R.layout.face_group_make_activity);
-        this.lxq = new ArrayList<>();
-        this.lxr = new FaceData();
-        this.lxr.type = 4;
-        this.lxq.add(this.lxr);
-        if (this.lxs && ((dkv = e.dku().dkv()) == null || dkv.getForumId() != 0)) {
-            this.lxt = true;
+        this.lsK = new ArrayList<>();
+        this.lsL = new FaceData();
+        this.lsL.type = 4;
+        this.lsK.add(this.lsL);
+        if (this.lsM && ((dgD = e.dgC().dgD()) == null || dgD.getForumId() != 0)) {
+            this.lsN = true;
         }
         initView();
-        dkq();
-        if (this.lxt) {
-            dks();
+        dgy();
+        if (this.lsN) {
+            dgA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dkp() {
-        return this.lxt;
+    public boolean dgx() {
+        return this.lsN;
     }
 
     private void initView() {
-        this.lxj = (LinearLayout) findViewById(R.id.layout_root);
-        this.lxk = (FaceImageLayout) findViewById(R.id.layout_image);
+        this.lsD = (LinearLayout) findViewById(R.id.layout_root);
+        this.lsE = (FaceImageLayout) findViewById(R.id.layout_image);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.lxh = new FaceGroupMakeTitleBar(this.mActivity);
-        this.lxh.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
-        this.lxh.setCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.1
+        this.lsB = new FaceGroupMakeTitleBar(this.mActivity);
+        this.lsB.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
+        this.lsB.setCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FaceGroupMakeActivity.this.onBack();
             }
         });
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lxh, (View.OnClickListener) null);
-        ao.setBackgroundColor(this.lxh, R.color.CAM_X0201);
-        this.fOl = (NoNetworkView) findViewById(R.id.view_no_network);
-        if (dkp()) {
-            this.lxh.setTitle(this.mActivity.getText(R.string.face_group_make_for_bazhu).toString());
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lsB, (View.OnClickListener) null);
+        ao.setBackgroundColor(this.lsB, R.color.CAM_X0201);
+        this.fJE = (NoNetworkView) findViewById(R.id.view_no_network);
+        if (dgx()) {
+            this.lsB.setTitle(this.mActivity.getText(R.string.face_group_make_for_bazhu).toString());
         } else {
-            this.lxh.setTitle(this.mActivity.getText(R.string.face_group_make_new).toString());
+            this.lsB.setTitle(this.mActivity.getText(R.string.face_group_make_new).toString());
         }
-        this.lxh.setRightText(this.mActivity.getText(R.string.done).toString());
-        this.lxh.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.2
+        this.lsB.setRightText(this.mActivity.getText(R.string.done).toString());
+        this.lsB.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int i;
-                if (FaceGroupMakeActivity.this.lxq != null) {
-                    String trim = FaceGroupMakeActivity.this.jVj.getText().toString().trim();
+                if (FaceGroupMakeActivity.this.lsK != null) {
+                    String trim = FaceGroupMakeActivity.this.jQE.getText().toString().trim();
                     if (!TextUtils.isEmpty(trim)) {
-                        if (FaceGroupMakeActivity.this.lxq.size() - 1 >= 8) {
-                            if (FaceGroupMakeActivity.this.lxq.size() - 1 > 24) {
+                        if (FaceGroupMakeActivity.this.lsK.size() - 1 >= 8) {
+                            if (FaceGroupMakeActivity.this.lsK.size() - 1 > 24) {
                                 FaceGroupMakeActivity.this.showToast(R.string.face_group_add_pic_max);
                                 return;
                             } else if (j.isNetWorkAvailable()) {
-                                if (FaceGroupMakeActivity.this.dkp() && FaceGroupMakeActivity.this.lxw == null) {
+                                if (FaceGroupMakeActivity.this.dgx() && FaceGroupMakeActivity.this.lsQ == null) {
                                     FaceGroupMakeActivity.this.showToast(R.string.input_one_bar);
                                     return;
                                 }
                                 ArrayList arrayList = new ArrayList();
-                                arrayList.addAll(FaceGroupMakeActivity.this.lxq);
-                                arrayList.remove(FaceGroupMakeActivity.this.lxr);
-                                e dku = e.dku();
-                                if (FaceGroupMakeActivity.this.lxw != null) {
-                                    i = FaceGroupMakeActivity.this.lxw.forum_id;
+                                arrayList.addAll(FaceGroupMakeActivity.this.lsK);
+                                arrayList.remove(FaceGroupMakeActivity.this.lsL);
+                                e dgC = e.dgC();
+                                if (FaceGroupMakeActivity.this.lsQ != null) {
+                                    i = FaceGroupMakeActivity.this.lsQ.forum_id;
                                 } else {
                                     i = 0;
                                 }
-                                dku.a(trim, arrayList, (e.c) null, i);
+                                dgC.a(trim, arrayList, (e.c) null, i);
                                 Intent intent = new Intent();
                                 intent.putExtra("uploading", true);
                                 FaceGroupMakeActivity.this.setResult(-1, intent);
@@ -160,44 +160,44 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
                 }
             }
         });
-        this.jVj = (EditText) findViewById(R.id.edit_name);
-        this.jVj.setFilters(new InputFilter[]{new a(20)});
-        this.lxi = (TextView) findViewById(R.id.tv_add_pic_tip);
-        dkr();
-        this.dlY = (GridView) findViewById(R.id.grid_view);
-        this.lxp = new d(this.lxq);
-        this.lxp.a(this);
-        this.dlY.setAdapter((ListAdapter) this.lxp);
-        this.lxk.setListener(new FaceImageLayout.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.3
+        this.jQE = (EditText) findViewById(R.id.edit_name);
+        this.jQE.setFilters(new InputFilter[]{new a(20)});
+        this.lsC = (TextView) findViewById(R.id.tv_add_pic_tip);
+        dgz();
+        this.dhj = (GridView) findViewById(R.id.grid_view);
+        this.lsJ = new d(this.lsK);
+        this.lsJ.a(this);
+        this.dhj.setAdapter((ListAdapter) this.lsJ);
+        this.lsE.setListener(new FaceImageLayout.a() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.3
             @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
-            public void dkt() {
-                l.hideSoftKeyPad(FaceGroupMakeActivity.this.mActivity, FaceGroupMakeActivity.this.jVj);
+            public void dgB() {
+                l.hideSoftKeyPad(FaceGroupMakeActivity.this.mActivity, FaceGroupMakeActivity.this.jQE);
             }
         });
-        this.lxl = (LinearLayout) findViewById(R.id.bar_name_layout);
-        this.lxm = (TextView) findViewById(R.id.tv_publish_to);
-        this.lxn = (TextView) findViewById(R.id.tv_publish_bar_name);
-        this.lxn.setOnClickListener(this);
-        this.lxl.setVisibility(8);
-        this.lxo = (ImageView) findViewById(R.id.iv_right_arrow);
-        this.lxl.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.4
+        this.lsF = (LinearLayout) findViewById(R.id.bar_name_layout);
+        this.lsG = (TextView) findViewById(R.id.tv_publish_to);
+        this.lsH = (TextView) findViewById(R.id.tv_publish_bar_name);
+        this.lsH.setOnClickListener(this);
+        this.lsF.setVisibility(8);
+        this.lsI = (ImageView) findViewById(R.id.iv_right_arrow);
+        this.lsF.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.4
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                FaceGroupMakeActivity.this.lxn.setMaxWidth(((FaceGroupMakeActivity.this.lxl.getWidth() - FaceGroupMakeActivity.this.lxm.getWidth()) - FaceGroupMakeActivity.this.lxo.getWidth()) - l.getDimens(FaceGroupMakeActivity.this.getPageContext().getPageActivity(), R.dimen.ds3));
+                FaceGroupMakeActivity.this.lsH.setMaxWidth(((FaceGroupMakeActivity.this.lsF.getWidth() - FaceGroupMakeActivity.this.lsG.getWidth()) - FaceGroupMakeActivity.this.lsI.getWidth()) - l.getDimens(FaceGroupMakeActivity.this.getPageContext().getPageActivity(), R.dimen.ds3));
             }
         });
     }
 
-    private void dkq() {
-        FaceGroupDraft dkv = e.dku().dkv();
-        if (dkv != null) {
-            if (!TextUtils.isEmpty(dkv.getName())) {
-                this.jVj.setText(dkv.getName());
+    private void dgy() {
+        FaceGroupDraft dgD = e.dgC().dgD();
+        if (dgD != null) {
+            if (!TextUtils.isEmpty(dgD.getName())) {
+                this.jQE.setText(dgD.getName());
             }
-            if (dkv.getList() != null && !dkv.getList().isEmpty()) {
-                this.lxq.addAll(dkv.getList());
-                this.lxp.notifyDataSetChanged();
-                dkr();
+            if (dgD.getList() != null && !dgD.getList().isEmpty()) {
+                this.lsK.addAll(dgD.getList());
+                this.lsJ.notifyDataSetChanged();
+                dgz();
             }
         }
     }
@@ -211,11 +211,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
         if (i2 == -1) {
             if (i == 25022) {
                 if (intent != null && (serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializableExtra instanceof List)) {
-                    this.lxq.clear();
-                    this.lxq.add(this.lxr);
-                    this.lxq.addAll((List) intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST));
-                    this.lxp.notifyDataSetChanged();
-                    dkr();
+                    this.lsK.clear();
+                    this.lsK.add(this.lsL);
+                    this.lsK.addAll((List) intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST));
+                    this.lsJ.notifyDataSetChanged();
+                    dgz();
                 }
             } else if (i == 25025 && intent != null && (parcelableExtra = intent.getParcelableExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM)) != null && (parcelableExtra instanceof BazhuInfoData.BaInfo)) {
                 a((BazhuInfoData.BaInfo) parcelableExtra);
@@ -225,29 +225,29 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
 
     @Override // com.baidu.tieba.newfaceshop.facemake.d.a
     public void onAdd() {
-        if (this.lxq != null && this.lxq.size() - 1 >= 24) {
+        if (this.lsK != null && this.lsK.size() - 1 >= 24) {
             showToast(R.string.face_group_add_pic_max);
             return;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.lxq != null) {
-            arrayList.addAll(this.lxq);
+        if (this.lsK != null) {
+            arrayList.addAll(this.lsK);
         }
-        arrayList.remove(this.lxr);
+        arrayList.remove(this.lsL);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PickFaceTabActivityConfig(this.mActivity, RequestResponseCode.REQUEST_FACE_GROUP_PICK_PHOTO, arrayList)));
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.d.a
     public void a(FaceData faceData) {
         if (faceData != null) {
-            this.lxq.remove(faceData);
-            this.lxp.notifyDataSetChanged();
-            dkr();
+            this.lsK.remove(faceData);
+            this.lsJ.notifyDataSetChanged();
+            dgz();
         }
     }
 
-    private void dkr() {
-        this.lxi.setText(String.format(getText(R.string.face_group_add_pic_tip).toString(), Integer.valueOf(this.lxq.size() - 1)));
+    private void dgz() {
+        this.lsC.setText(String.format(getText(R.string.face_group_add_pic_tip).toString(), Integer.valueOf(this.lsK.size() - 1)));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -267,14 +267,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onBack() {
-        if ((this.lxq != null && this.lxq.size() > 1) || !TextUtils.isEmpty(this.jVj.getText())) {
+        if ((this.lsK != null && this.lsK.size() > 1) || !TextUtils.isEmpty(this.jQE.getText())) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-            aVar.Bo(getResources().getString(R.string.face_group_make_back_tip));
+            aVar.Ad(getResources().getString(R.string.face_group_make_back_tip));
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceGroupMakeActivity.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    e.dku().dko();
+                    e.dgC().dgw();
                     FaceGroupMakeActivity.this.finish();
                 }
             });
@@ -284,7 +284,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
                     aVar2.dismiss();
                 }
             });
-            aVar.b(getPageContext()).btY();
+            aVar.b(getPageContext()).bqe();
             return;
         }
         finish();
@@ -296,31 +296,31 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.lxj);
-        ao.setBackgroundResource(this.lxj, R.color.CAM_X0201);
-        this.fOl.onChangeSkinType(getPageContext(), i);
-        ao.setViewTextColor(this.lxm, R.color.CAM_X0106);
-        ao.setViewTextColor(this.jVj, R.color.CAM_X0105);
-        ao.setViewTextColor(this.lxi, R.color.CAM_X0109);
+        getLayoutMode().onModeChanged(this.lsD);
+        ao.setBackgroundResource(this.lsD, R.color.CAM_X0201);
+        this.fJE.onChangeSkinType(getPageContext(), i);
+        ao.setViewTextColor(this.lsG, R.color.CAM_X0106);
+        ao.setViewTextColor(this.jQE, R.color.CAM_X0105);
+        ao.setViewTextColor(this.lsC, R.color.CAM_X0109);
         if (i == 0) {
-            this.jVj.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
+            this.jQE.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
         } else {
-            this.jVj.setHintTextColor(getResources().getColor(R.color.CAM_X0110_1));
+            this.jQE.setHintTextColor(getResources().getColor(R.color.CAM_X0110_1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements InputFilter {
-        private int lxy;
+        private int lsS;
 
         public a(int i) {
-            this.lxy = i;
+            this.lsS = i;
         }
 
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            if (spanned != null && charSequence != null && (ad.getTextLength(spanned.toString()) - (i4 - i3)) + ad.getTextLength(charSequence.toString()) > this.lxy) {
+            if (spanned != null && charSequence != null && (ad.getTextLength(spanned.toString()) - (i4 - i3)) + ad.getTextLength(charSequence.toString()) > this.lsS) {
                 FaceGroupMakeActivity.this.showToast(R.string.package_add_name_max);
                 return "";
             }
@@ -328,41 +328,41 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
         }
     }
 
-    public void aEr() {
-        this.lxs = getIntent().getBooleanExtra(FaceGroupMakeActivityConfig.TYPE_MAKE_FOR_BAIZHU, false);
+    public void aAx() {
+        this.lsM = getIntent().getBooleanExtra(FaceGroupMakeActivityConfig.TYPE_MAKE_FOR_BAIZHU, false);
     }
 
-    private void dks() {
-        if (this.lxu == null) {
-            this.lxu = new BarInformationModel(getPageContext());
+    private void dgA() {
+        if (this.lsO == null) {
+            this.lsO = new BarInformationModel(getPageContext());
         }
-        this.lxu.a(this);
+        this.lsO.a(this);
     }
 
     @Override // com.baidu.tieba.newfaceshop.BarInformationModel.a
     public void a(BazhuInfoData bazhuInfoData) {
         if (bazhuInfoData != null) {
-            this.lxv = bazhuInfoData.bazhu_info;
+            this.lsP = bazhuInfoData.bazhu_info;
         }
-        if (!x.isEmpty(this.lxv)) {
-            this.lxl.setVisibility(0);
-            if (this.lxv.size() == 1) {
-                this.lxn.setText(this.lxv.get(0).forum_name);
-                this.lxn.setClickable(false);
-                this.lxo.setVisibility(8);
-                ao.setViewTextColor(this.lxn, R.color.CAM_X0109);
-                this.lxw = this.lxv.get(0);
+        if (!x.isEmpty(this.lsP)) {
+            this.lsF.setVisibility(0);
+            if (this.lsP.size() == 1) {
+                this.lsH.setText(this.lsP.get(0).forum_name);
+                this.lsH.setClickable(false);
+                this.lsI.setVisibility(8);
+                ao.setViewTextColor(this.lsH, R.color.CAM_X0109);
+                this.lsQ = this.lsP.get(0);
                 return;
             }
-            this.lxn.setClickable(true);
-            this.lxn.setText(R.string.face_make_choose_forum);
-            ao.setViewTextColor(this.lxn, R.color.CAM_X0304);
-            FaceGroupDraft dkv = e.dku().dkv();
-            if (dkv != null && dkv.getForumId() != 0) {
-                Iterator<BazhuInfoData.BaInfo> it = this.lxv.iterator();
+            this.lsH.setClickable(true);
+            this.lsH.setText(R.string.face_make_choose_forum);
+            ao.setViewTextColor(this.lsH, R.color.CAM_X0304);
+            FaceGroupDraft dgD = e.dgC().dgD();
+            if (dgD != null && dgD.getForumId() != 0) {
+                Iterator<BazhuInfoData.BaInfo> it = this.lsP.iterator();
                 while (it.hasNext()) {
                     BazhuInfoData.BaInfo next = it.next();
-                    if (next != null && next.forum_id == dkv.getForumId()) {
+                    if (next != null && next.forum_id == dgD.getForumId()) {
                         a(next);
                         return;
                     }
@@ -373,14 +373,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
 
     private void a(BazhuInfoData.BaInfo baInfo) {
         if (baInfo != null && baInfo.forum_id > 0 && !TextUtils.isEmpty(baInfo.forum_name)) {
-            if (this.lxw == null) {
-                this.lxw = new BazhuInfoData.BaInfo();
+            if (this.lsQ == null) {
+                this.lsQ = new BazhuInfoData.BaInfo();
             }
-            this.lxw.forum_id = baInfo.forum_id;
-            this.lxw.forum_name = baInfo.forum_name;
-            this.lxn.setText(this.lxw.forum_name);
-            if (!x.isEmpty(this.lxv)) {
-                Iterator<BazhuInfoData.BaInfo> it = this.lxv.iterator();
+            this.lsQ.forum_id = baInfo.forum_id;
+            this.lsQ.forum_name = baInfo.forum_name;
+            this.lsH.setText(this.lsQ.forum_name);
+            if (!x.isEmpty(this.lsP)) {
+                Iterator<BazhuInfoData.BaInfo> it = this.lsP.iterator();
                 while (it.hasNext()) {
                     BazhuInfoData.BaInfo next = it.next();
                     if (baInfo.forum_id == next.forum_id) {
@@ -396,9 +396,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements BarInformatio
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.lxn && !x.isEmpty(this.lxv)) {
+        if (view == this.lsH && !x.isEmpty(this.lsP)) {
             SelectSingleForumActivityConfig selectSingleForumActivityConfig = new SelectSingleForumActivityConfig(getPageContext().getContext(), RequestResponseCode.REQUEST_CHOOSE_FORUM);
-            selectSingleForumActivityConfig.setForumList(this.lxv);
+            selectSingleForumActivityConfig.setForumList(this.lsP);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, selectSingleForumActivityConfig));
         }
     }

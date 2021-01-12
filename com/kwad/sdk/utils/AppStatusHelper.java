@@ -51,15 +51,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppStatusHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f11051a;
+    private static Handler f10751a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static c f11052b = new c();
-    private static Messenger c = new Messenger(f11052b);
+    private static c f10752b = new c();
+    private static Messenger c = new Messenger(f10752b);
     private static ServiceConnection d = new ServiceConnection() { // from class: com.kwad.sdk.utils.AppStatusHelper.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -88,21 +88,21 @@ public class AppStatusHelper {
     private static volatile AppStatusRules f;
     private static WeakReference<Context> g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ASService extends Service {
 
         /* renamed from: a  reason: collision with root package name */
-        private a f11061a = new a();
+        private a f10761a = new a();
 
         /* renamed from: b  reason: collision with root package name */
-        private Messenger f11062b = new Messenger(this.f11061a);
+        private Messenger f10762b = new Messenger(this.f10761a);
         private ASService c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         private static class a extends Handler {
 
             /* renamed from: a  reason: collision with root package name */
-            private WeakReference<ASService> f11063a;
+            private WeakReference<ASService> f10763a;
 
             private a() {
             }
@@ -130,16 +130,16 @@ public class AppStatusHelper {
 
             public void a(@Nullable ASService aSService) {
                 if (aSService != null) {
-                    this.f11063a = new WeakReference<>(aSService);
+                    this.f10763a = new WeakReference<>(aSService);
                 } else {
-                    this.f11063a = null;
+                    this.f10763a = null;
                 }
             }
 
             @Override // android.os.Handler
             public void handleMessage(@NonNull Message message) {
                 super.handleMessage(message);
-                final ASService aSService = this.f11063a != null ? this.f11063a.get() : null;
+                final ASService aSService = this.f10763a != null ? this.f10763a.get() : null;
                 if (aSService == null) {
                     return;
                 }
@@ -193,25 +193,25 @@ public class AppStatusHelper {
         @Nullable
         public IBinder onBind(Intent intent) {
             com.kwad.sdk.core.d.a.a("AppStatusHelper", "onBind");
-            return this.f11062b.getBinder();
+            return this.f10762b.getBinder();
         }
 
         @Override // android.app.Service
         public void onCreate() {
             super.onCreate();
             this.c = this;
-            this.f11061a.a(this.c);
+            this.f10761a.a(this.c);
         }
 
         @Override // android.app.Service
         public void onDestroy() {
             super.onDestroy();
             this.c = null;
-            this.f11061a.a((ASService) null);
+            this.f10761a.a((ASService) null);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class AppRunningInfo implements Serializable, Comparable<AppRunningInfo> {
         private static final long serialVersionUID = 7014997764778342190L;
         private long lastRunningTime = -1;
@@ -329,7 +329,7 @@ public class AppStatusHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class PackageNameFilter implements NodeFilter {
         private HashMap<String, InstalledAppInfoManager.AppPackageInfo> installedApp;
         private HashSet<String> packageSet;
@@ -375,7 +375,7 @@ public class AppStatusHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SDCardRootNodeFilter implements NodeFilter {
         @Override // com.kwad.sdk.collector.NodeFilter
         public void onChildNodeCreate(FNode fNode) {
@@ -388,19 +388,19 @@ public class AppStatusHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11066a;
+        private String f10766a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f11067b;
+        private String f10767b;
         private List<Long> c = new ArrayList();
 
         public a(String str, String str2) {
-            this.f11066a = str;
-            this.f11067b = str2;
+            this.f10766a = str;
+            this.f10767b = str2;
         }
 
         @Nullable
@@ -441,8 +441,8 @@ public class AppStatusHelper {
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "appName", this.f11066a);
-            o.a(jSONObject, "packageName", this.f11067b);
+            o.a(jSONObject, "appName", this.f10766a);
+            o.a(jSONObject, "packageName", this.f10767b);
             JSONArray jSONArray = new JSONArray();
             for (Long l : this.c) {
                 jSONArray.put(l.longValue());
@@ -456,12 +456,12 @@ public class AppStatusHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(List<AppRunningInfo> list);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class c extends Handler {
         private c() {
         }
@@ -504,14 +504,14 @@ public class AppStatusHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private b f11068a;
+        private b f10768a;
 
         public d(b bVar) {
-            this.f11068a = bVar;
+            this.f10768a = bVar;
         }
 
         @Override // com.kwad.sdk.utils.AppStatusHelper.b
@@ -520,8 +520,8 @@ public class AppStatusHelper {
             if (a2 != null) {
                 com.kwad.sdk.core.report.e.a(a2);
             }
-            if (this.f11068a != null) {
-                this.f11068a.a(list);
+            if (this.f10768a != null) {
+                this.f10768a.a(list);
             }
         }
     }
@@ -547,19 +547,19 @@ public class AppStatusHelper {
         if (j <= 0) {
             j = 30000;
         }
-        if (f11051a == null) {
-            f11051a = new Handler(Looper.getMainLooper());
+        if (f10751a == null) {
+            f10751a = new Handler(Looper.getMainLooper());
         }
-        f11051a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.3
+        f10751a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.3
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.collector.a.a(context, new a.InterfaceC1085a() { // from class: com.kwad.sdk.utils.AppStatusHelper.3.1
-                    @Override // com.kwad.sdk.collector.a.InterfaceC1085a
+                com.kwad.sdk.collector.a.a(context, new a.InterfaceC1068a() { // from class: com.kwad.sdk.utils.AppStatusHelper.3.1
+                    @Override // com.kwad.sdk.collector.a.InterfaceC1068a
                     public void a(int i, String str) {
                         com.kwad.sdk.core.d.a.d("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i);
                     }
 
-                    @Override // com.kwad.sdk.collector.a.InterfaceC1085a
+                    @Override // com.kwad.sdk.collector.a.InterfaceC1068a
                     public void a(AppStatusRules appStatusRules) {
                         AppStatusRules unused = AppStatusHelper.f = appStatusRules;
                         AppStatusHelper.b(context, AppStatusHelper.f);
@@ -607,14 +607,14 @@ public class AppStatusHelper {
     }
 
     public static void b(final Context context, final long j) {
-        if (f11051a == null) {
-            f11051a = new Handler(Looper.getMainLooper());
+        if (f10751a == null) {
+            f10751a = new Handler(Looper.getMainLooper());
         }
-        f11051a.post(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.4
+        f10751a.post(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.4
             @Override // java.lang.Runnable
             public void run() {
                 AppStatusHelper.h(context);
-                AppStatusHelper.f11051a.postDelayed(this, j);
+                AppStatusHelper.f10751a.postDelayed(this, j);
             }
         });
     }

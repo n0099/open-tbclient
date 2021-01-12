@@ -6,73 +6,72 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends i {
-    private TbImageView gxG;
-    public ImageView gxH;
-    private ObjectAnimator gxI;
-    public ImageView gxJ;
+    private TbImageView gsZ;
+    public ImageView gta;
+    private ObjectAnimator gtb;
+    public ImageView gtc;
 
     public f(View view) {
         this.mRootView = view;
-        this.gxG = (TbImageView) this.mRootView.findViewById(a.f.sticker_img);
-        this.gxG.setDefaultBgResource(a.e.icon_live_gift_default);
-        this.gxG.setDefaultErrorResource(a.e.icon_live_gift_default);
-        this.gxG.setAutoChangeStyle(false);
-        this.gxH = (ImageView) this.mRootView.findViewById(a.f.sticker_unload);
-        this.gxM = (MaskStrokeView) this.mRootView.findViewById(a.f.sticker_bg);
-        this.gxJ = (ImageView) this.mRootView.findViewById(a.f.sticker_cancel);
+        this.gsZ = (TbImageView) this.mRootView.findViewById(a.f.sticker_img);
+        this.gsZ.setDefaultBgResource(a.e.icon_live_gift_default);
+        this.gsZ.setDefaultErrorResource(a.e.icon_live_gift_default);
+        this.gsZ.setAutoChangeStyle(false);
+        this.gta = (ImageView) this.mRootView.findViewById(a.f.sticker_unload);
+        this.gtf = (MaskStrokeView) this.mRootView.findViewById(a.f.sticker_bg);
+        this.gtc = (ImageView) this.mRootView.findViewById(a.f.sticker_cancel);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
     public void d(FuFaceItem fuFaceItem) {
         if (fuFaceItem.isCancelItem) {
-            this.gxJ.setVisibility(0);
-            this.gxG.setVisibility(8);
-            this.gxH.setVisibility(8);
-            this.gxM.setVisibility(8);
+            this.gtc.setVisibility(0);
+            this.gsZ.setVisibility(8);
+            this.gta.setVisibility(8);
+            this.gtf.setVisibility(8);
             return;
         }
-        this.gxJ.setVisibility(8);
-        this.gxG.setVisibility(0);
+        this.gtc.setVisibility(8);
+        this.gsZ.setVisibility(0);
         if (fuFaceItem.isResLoaded()) {
-            this.gxH.setVisibility(4);
-            bTI();
-        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bSX().isRunning(fuFaceItem.file)) {
-            this.gxH.setVisibility(0);
-            bTH();
+            this.gta.setVisibility(4);
+            bPQ();
+        } else if (!TextUtils.isEmpty(fuFaceItem.file) && com.baidu.tieba.ala.alaar.sticker.download.b.bPf().isRunning(fuFaceItem.file)) {
+            this.gta.setVisibility(0);
+            bPP();
         } else {
-            this.gxH.setVisibility(0);
-            this.gxH.setRotation(0.0f);
-            this.gxH.setImageResource(a.e.sticker_unload);
-            bTI();
+            this.gta.setVisibility(0);
+            this.gta.setRotation(0.0f);
+            this.gta.setImageResource(a.e.sticker_unload);
+            bPQ();
         }
         e(fuFaceItem);
     }
 
     public void e(FuFaceItem fuFaceItem) {
         if (fuFaceItem != null) {
-            this.gxG.startLoad(fuFaceItem.bgurl, 10, false);
+            this.gsZ.startLoad(fuFaceItem.bgurl, 10, false);
         }
     }
 
-    public void bTH() {
-        if (this.gxI == null) {
-            this.gxI = ObjectAnimator.ofFloat(this.gxH, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-            this.gxI.setRepeatCount(-1);
-            this.gxI.setDuration(1000L);
+    public void bPP() {
+        if (this.gtb == null) {
+            this.gtb = ObjectAnimator.ofFloat(this.gta, "rotation", 0.0f, 359.0f);
+            this.gtb.setRepeatCount(-1);
+            this.gtb.setDuration(1000L);
         }
-        if (!this.gxI.isRunning()) {
-            this.gxH.setImageResource(a.e.sticker_loading);
-            this.gxI.start();
+        if (!this.gtb.isRunning()) {
+            this.gta.setImageResource(a.e.sticker_loading);
+            this.gtb.start();
         }
     }
 
-    public void bTI() {
-        if (this.gxI != null && this.gxI.isRunning()) {
-            this.gxI.cancel();
+    public void bPQ() {
+        if (this.gtb != null && this.gtb.isRunning()) {
+            this.gtb.cancel();
         }
     }
 }

@@ -4,15 +4,15 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.live.view.AlphaGradientHListView;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.im.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0187a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0178a {
         void G(String str, int i);
 
-        void Ob();
+        void Kg();
     }
 
     AlphaGradientHListView getListView();
@@ -20,7 +20,7 @@ public interface a {
     @NonNull
     View getView();
 
-    void setCallback(InterfaceC0187a interfaceC0187a);
+    void setCallback(InterfaceC0178a interfaceC0178a);
 
     void setData(List<String> list);
 

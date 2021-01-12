@@ -9,7 +9,7 @@ import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     private String mSubSrc;
     private String mType;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum UserAccountAction {
         LOGIN(OneKeyLoginSdkCall.k),
         LOGOUT("logout"),
@@ -52,7 +52,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum UserAccountType {
         NATIVE("native"),
         PLUGIN("plugin"),
@@ -124,8 +124,8 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             if (jSONObject.has("type")) {
                 this.mType = jSONObject.getString("type");
             }
-            if (jSONObject.has("src")) {
-                this.mSrc = jSONObject.getString("src");
+            if (jSONObject.has(KEY_SRC)) {
+                this.mSrc = jSONObject.getString(KEY_SRC);
             }
             if (jSONObject.has(KEY_SUB_SRC)) {
                 this.mSubSrc = jSONObject.getString(KEY_SUB_SRC);
@@ -145,10 +145,10 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
             if (!TextUtils.isEmpty(this.mSrc)) {
                 if (!TextUtils.isEmpty(this.mSubSrc)) {
-                    jSONObject.put("src", this.mSrc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mSubSrc);
+                    jSONObject.put(KEY_SRC, this.mSrc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mSubSrc);
                     return jSONObject;
                 }
-                jSONObject.put("src", this.mSrc);
+                jSONObject.put(KEY_SRC, this.mSrc);
                 return jSONObject;
             }
             return jSONObject;

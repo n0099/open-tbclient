@@ -8,20 +8,20 @@ import java.util.HashMap;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f7650a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f7350a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile c f7651b;
+    private static volatile c f7351b;
 
     public static c a() {
-        if (f7651b == null) {
+        if (f7351b == null) {
             synchronized (c.class) {
-                if (f7651b == null) {
-                    f7651b = new c();
+                if (f7351b == null) {
+                    f7351b = new c();
                 }
             }
         }
-        return f7651b;
+        return f7351b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -29,13 +29,13 @@ public class c extends a {
         if (iCommonDialogListener != null) {
             RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
             remoteCallbackList.register(iCommonDialogListener);
-            f7650a.put(str, remoteCallbackList);
+            f7350a.put(str, remoteCallbackList);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastDialogListener(String str, int i) throws RemoteException {
-        RemoteCallbackList<ICommonDialogListener> remove = f7650a.remove(str);
+        RemoteCallbackList<ICommonDialogListener> remove = f7350a.remove(str);
         if (remove != null) {
             int beginBroadcast = remove.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {

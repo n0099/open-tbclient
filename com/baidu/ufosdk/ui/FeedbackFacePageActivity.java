@@ -27,14 +27,14 @@ import com.baidu.ufosdk.UfoSDK;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.util.Timer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FeedbackFacePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences.Editor f5691a;
+    private SharedPreferences.Editor f5408a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SharedPreferences f5692b;
+    private SharedPreferences f5409b;
     private RelativeLayout f;
     private LinearLayout g;
     private ImageView h;
@@ -102,20 +102,20 @@ public class FeedbackFacePageActivity extends Activity {
             this.f.setBackgroundColor(com.baidu.ufosdk.b.z);
             this.f.setFitsSystemWindows(true);
             setContentView(this.f);
-            this.f5692b = getSharedPreferences("UfoSharePreference", 0);
-            if (this.f5692b != null) {
-                this.f5691a = this.f5692b.edit();
+            this.f5409b = getSharedPreferences("UfoSharePreference", 0);
+            if (this.f5409b != null) {
+                this.f5408a = this.f5409b.edit();
             }
-            if (this.f5691a != null) {
-                this.f5691a.putBoolean("ADD_PIC_FLAG", true);
-                this.f5691a.commit();
+            if (this.f5408a != null) {
+                this.f5408a.putBoolean("ADD_PIC_FLAG", true);
+                this.f5408a.commit();
             }
             Intent intent = getIntent();
             if (intent != null) {
                 try {
                     String stringExtra = intent.getStringExtra("username");
                     if (!TextUtils.isEmpty(stringExtra)) {
-                        com.baidu.ufosdk.b.f5639b = stringExtra;
+                        com.baidu.ufosdk.b.f5356b = stringExtra;
                     }
                     String stringExtra2 = intent.getStringExtra("baiducuid");
                     if (!TextUtils.isEmpty(stringExtra2)) {
@@ -377,15 +377,15 @@ public class FeedbackFacePageActivity extends Activity {
             }
             if (com.baidu.ufosdk.b.d.b(getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(getApplicationContext()).contains("NONE")) {
                 this.o.getSettings().setCacheMode(1);
-                if (this.f5692b.getBoolean("CHECK_WEBVIEW", true)) {
+                if (this.f5409b.getBoolean("CHECK_WEBVIEW", true)) {
                     com.baidu.ufosdk.f.i.a(getApplicationContext(), this.q);
                     this.g.setVisibility(0);
                     this.o.setVisibility(8);
                 }
                 this.n.setVisibility(8);
             } else {
-                this.f5691a.putBoolean("CHECK_WEBVIEW", false);
-                this.f5691a.commit();
+                this.f5408a.putBoolean("CHECK_WEBVIEW", false);
+                this.f5408a.commit();
                 this.g.setVisibility(8);
                 this.o.setVisibility(0);
                 this.o.getSettings().setCacheMode(-1);
@@ -426,7 +426,7 @@ public class FeedbackFacePageActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f5658a = null;
+        com.baidu.ufosdk.f.a.f5375a = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

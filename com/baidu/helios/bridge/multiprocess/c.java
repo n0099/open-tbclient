@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.baidu.helios.bridge.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c extends com.baidu.helios.bridge.a {
-    private volatile h awB;
-    private volatile com.baidu.helios.bridge.a.a awC;
-    private volatile Future<Boolean> awD;
+    private volatile h arP;
+    private volatile com.baidu.helios.bridge.a.a arQ;
+    private volatile Future<Boolean> arR;
     private volatile boolean g;
     private volatile Future<Boolean> h;
     private volatile boolean j;
@@ -30,24 +30,24 @@ public class c extends com.baidu.helios.bridge.a {
             c();
         }
         try {
-            this.awD.get();
+            this.arR.get();
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f || this.awD != null) {
+        if (this.f || this.arR != null) {
             return;
         }
-        this.awD = this.awc.awg.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
+        this.arR = this.arq.aru.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.awC = new com.baidu.helios.bridge.a.a();
-                c.this.awC.a(c.this.awc);
-                c.this.awC.a(c.this.awd);
+                c.this.arQ = new com.baidu.helios.bridge.a.a();
+                c.this.arQ.a(c.this.arq);
+                c.this.arQ.a(c.this.arr);
                 c.this.f = true;
                 return true;
             }
@@ -72,16 +72,16 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.g || this.h != null) {
             return;
         }
-        this.h = this.awc.awg.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
+        this.h = this.arq.aru.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.awB = new h(c.this, c.this.k);
-                c.this.awB.a(c.this.awc);
-                c.this.awB.a(c.this.awd);
+                c.this.arP = new h(c.this, c.this.k);
+                c.this.arP.a(c.this.arq);
+                c.this.arP.a(c.this.arr);
                 c.this.g = true;
-                if (c.this.awB.a()) {
+                if (c.this.arP.a()) {
                     c.this.j = true;
                     return true;
                 }
@@ -104,12 +104,12 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                this.awB.a(str, bundle, cVar);
+                this.arP.a(str, bundle, cVar);
                 return;
             }
         }
         b();
-        this.awC.a(str, bundle, cVar);
+        this.arQ.a(str, bundle, cVar);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -126,30 +126,30 @@ public class c extends com.baidu.helios.bridge.a {
     }
 
     @Override // com.baidu.helios.bridge.a
-    public a.d c(String str, Bundle bundle) {
+    public a.d d(String str, Bundle bundle) {
         if (this.e) {
             d();
             if (this.j) {
-                a.d c = this.awB.c(str, bundle);
-                if (c.isSuccess()) {
-                    return c;
+                a.d d = this.arP.d(str, bundle);
+                if (d.isSuccess()) {
+                    return d;
                 }
                 this.e = false;
             }
         }
         b();
-        return this.awC.c(str, bundle);
+        return this.arQ.d(str, bundle);
     }
 
     @Override // com.baidu.helios.bridge.a
-    public boolean fg(String str) {
+    public boolean dU(String str) {
         if (this.e) {
             d();
             if (this.j) {
-                return this.awB.fg(str);
+                return this.arP.dU(str);
             }
         }
         b();
-        return this.awC.fg(str);
+        return this.arQ.dU(str);
     }
 }

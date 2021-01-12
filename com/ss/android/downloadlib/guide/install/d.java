@@ -8,7 +8,7 @@ import com.ss.android.socialbase.appdownloader.c.n;
 public class d implements n {
     @Override // com.ss.android.socialbase.appdownloader.c.n
     public boolean a(@NonNull com.ss.android.socialbase.downloader.g.c cVar) {
-        if (j.eGr() == null) {
+        if (j.eCA() == null) {
             return false;
         }
         return c.a(cVar.g());
@@ -16,7 +16,7 @@ public class d implements n {
 
     @Override // com.ss.android.socialbase.appdownloader.c.n
     public void a(@NonNull com.ss.android.socialbase.downloader.g.c cVar, @NonNull m mVar) {
-        com.ss.android.downloadlib.e.a.eGB().a("install_guide_show", com.ss.android.downloadlib.a.b.d.eFT().j(cVar));
+        com.ss.android.downloadlib.e.a.eCL().a("install_guide_show", com.ss.android.downloadlib.a.b.d.eCc().j(cVar));
         InstallGuideActivity.a(cVar.g(), mVar);
     }
 }

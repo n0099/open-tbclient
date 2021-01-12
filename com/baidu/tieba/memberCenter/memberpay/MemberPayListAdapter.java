@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.memberpay;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberPayListAdapter extends FragmentPagerAdapter {
     private List<MemberPayFragment> list;
 
@@ -17,7 +17,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    /* renamed from: FM */
+    /* renamed from: Eg */
     public MemberPayFragment getItem(int i) {
         if (this.list.size() > i) {
             return this.list.get(i);

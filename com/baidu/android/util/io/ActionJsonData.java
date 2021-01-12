@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ActionJsonData {
     public static final int STATUS_DEFAULT = -1;
     public static final int STATUS_OK = 0;
@@ -27,19 +27,19 @@ public class ActionJsonData {
     private int mStatus = -1;
     private int mVersion = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Link {
         public Notification mNotification;
         public SignIn mSignIn;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Notification {
         public String mCommand;
         public String mText;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class SignIn {
         public String mCommand;
     }
@@ -114,8 +114,8 @@ public class ActionJsonData {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("dataset");
-        JSONArray optJSONArray = jSONObject.optJSONArray("dataset");
+        JSONObject optJSONObject = jSONObject.optJSONObject(TAG_DATASET);
+        JSONArray optJSONArray = jSONObject.optJSONArray(TAG_DATASET);
         if (optJSONArray != null) {
             arrayList = new ArrayList();
             int length = optJSONArray.length();

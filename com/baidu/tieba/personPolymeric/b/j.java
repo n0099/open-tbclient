@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.o;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static String g(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
@@ -24,9 +24,9 @@ public class j {
     }
 
     public static void a(o oVar, BdUniqueId bdUniqueId) {
-        if (oVar != null && !StringUtils.isNull(oVar.bEj()) && x.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (oVar != null && !StringUtils.isNull(oVar.bAp()) && x.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", oVar.bEj());
+            httpMessage.addParam("pic_url", oVar.bAp());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class j {
 
     public static void a(o oVar, List<n> list) {
         o oVar2;
-        if (oVar != null && !x.isEmpty(list) && !StringUtils.isNull(oVar.bEj())) {
+        if (oVar != null && !x.isEmpty(list) && !StringUtils.isNull(oVar.bAp())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 n nVar = list.get(i);
-                if ((nVar instanceof o) && (oVar2 = (o) nVar) != oVar && !oVar2.bEk()) {
-                    jSONArray.put(oVar2.bEj());
+                if ((nVar instanceof o) && (oVar2 = (o) nVar) != oVar && !oVar2.bAq()) {
+                    jSONArray.put(oVar2.bAp());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class j {
                 n nVar = list.get(i);
                 if (nVar instanceof o) {
                     o oVar = (o) nVar;
-                    if (!oVar.bEk()) {
-                        jSONArray.put(oVar.bEj());
+                    if (!oVar.bAq()) {
+                        jSONArray.put(oVar.bAp());
                     }
                 }
             }

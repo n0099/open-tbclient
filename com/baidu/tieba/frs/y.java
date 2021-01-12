@@ -17,51 +17,51 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 /* loaded from: classes2.dex */
 public class y {
     private TbPageContext context;
-    private TextView eLn;
-    private TextView eLo;
-    private TextView eLp;
-    private TextView eLq;
-    private TextView eLr;
-    private TextView eLs;
-    private com.baidu.tieba.pb.pb.main.at eLv;
-    private Bitmap eLw;
+    private TextView eGC;
+    private TextView eGD;
+    private TextView eGE;
+    private TextView eGF;
+    private TextView eGG;
+    private TextView eGH;
+    private com.baidu.tieba.pb.pb.main.at eGK;
+    private Bitmap eGL;
     private String forumName;
     private int from;
-    private b jjq;
-    private View jjr;
-    private String jjs;
-    private a jjt;
+    private b jeI;
+    private View jeJ;
+    private String jeK;
+    private a jeL;
     private PermissionJudgePolicy mPermissionJudgement;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.y.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            Bitmap boo = y.this.boo();
-            if (view.getId() == y.this.eLn.getId()) {
-                y.this.u(boo);
-            } else if (view.getId() == y.this.eLo.getId()) {
-                y.this.d(boo, 3);
-            } else if (view.getId() == y.this.eLp.getId()) {
-                y.this.d(boo, 2);
-            } else if (view.getId() == y.this.eLq.getId()) {
-                y.this.d(boo, 4);
-            } else if (view.getId() == y.this.eLr.getId()) {
-                y.this.d(boo, 8);
-            } else if (view.getId() == y.this.eLs.getId()) {
-                y.this.d(boo, 6);
+            Bitmap bku = y.this.bku();
+            if (view.getId() == y.this.eGC.getId()) {
+                y.this.u(bku);
+            } else if (view.getId() == y.this.eGD.getId()) {
+                y.this.d(bku, 3);
+            } else if (view.getId() == y.this.eGE.getId()) {
+                y.this.d(bku, 2);
+            } else if (view.getId() == y.this.eGF.getId()) {
+                y.this.d(bku, 4);
+            } else if (view.getId() == y.this.eGG.getId()) {
+                y.this.d(bku, 8);
+            } else if (view.getId() == y.this.eGH.getId()) {
+                y.this.d(bku, 6);
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cGU();
+        void cDc();
 
-        void cGV();
+        void cDd();
     }
 
     /* loaded from: classes2.dex */
     public interface b {
-        void An(int i);
+        void yH(int i);
     }
 
     public y(TbPageContext tbPageContext) {
@@ -70,31 +70,31 @@ public class y {
 
     public void a(View view, View view2, a aVar) {
         if (view != null) {
-            this.eLn = (TextView) view.findViewById(R.id.frs_private_share_download);
-            a(this.eLn, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_frs_private_share_download40_svg));
-            this.eLn.setOnClickListener(this.onClickListener);
-            this.eLo = (TextView) view.findViewById(R.id.frs_private_share_wechat);
-            a(this.eLo, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg));
-            this.eLo.setOnClickListener(this.onClickListener);
-            this.eLp = (TextView) view.findViewById(R.id.frs_private_share_moment);
-            a(this.eLp, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg));
-            this.eLp.setOnClickListener(this.onClickListener);
-            this.eLq = (TextView) view.findViewById(R.id.frs_private_share_qzone);
-            a(this.eLq, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qqzone40_svg));
-            this.eLq.setOnClickListener(this.onClickListener);
-            this.eLr = (TextView) view.findViewById(R.id.frs_private_share_qq);
-            a(this.eLr, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg));
-            this.eLr.setOnClickListener(this.onClickListener);
-            this.eLs = (TextView) view.findViewById(R.id.frs_private_share_weibo);
-            a(this.eLs, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_weibo40_svg));
-            this.eLs.setOnClickListener(this.onClickListener);
-            this.jjr = view2;
-            this.jjt = aVar;
+            this.eGC = (TextView) view.findViewById(R.id.frs_private_share_download);
+            a(this.eGC, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_frs_private_share_download40_svg));
+            this.eGC.setOnClickListener(this.onClickListener);
+            this.eGD = (TextView) view.findViewById(R.id.frs_private_share_wechat);
+            a(this.eGD, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg));
+            this.eGD.setOnClickListener(this.onClickListener);
+            this.eGE = (TextView) view.findViewById(R.id.frs_private_share_moment);
+            a(this.eGE, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg));
+            this.eGE.setOnClickListener(this.onClickListener);
+            this.eGF = (TextView) view.findViewById(R.id.frs_private_share_qzone);
+            a(this.eGF, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qqzone40_svg));
+            this.eGF.setOnClickListener(this.onClickListener);
+            this.eGG = (TextView) view.findViewById(R.id.frs_private_share_qq);
+            a(this.eGG, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg));
+            this.eGG.setOnClickListener(this.onClickListener);
+            this.eGH = (TextView) view.findViewById(R.id.frs_private_share_weibo);
+            a(this.eGH, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_weibo40_svg));
+            this.eGH.setOnClickListener(this.onClickListener);
+            this.jeJ = view2;
+            this.jeL = aVar;
         }
     }
 
     public void setData(String str, String str2) {
-        this.jjs = str;
+        this.jeK = str;
         this.forumName = str2;
     }
 
@@ -125,22 +125,22 @@ public class y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u(Bitmap bitmap) {
-        if (!bop()) {
-            if (this.jjq != null) {
-                this.jjq.An(1);
+        if (!bkv()) {
+            if (this.jeI != null) {
+                this.jeI.yH(1);
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13724");
             aqVar.an("obj_type", 1);
             aqVar.an("obj_source", this.from);
             TiebaStatic.log(aqVar);
-            if (this.eLv == null) {
-                this.eLv = new com.baidu.tieba.pb.pb.main.at(this.context);
+            if (this.eGK == null) {
+                this.eGK = new com.baidu.tieba.pb.pb.main.at(this.context);
             }
-            this.eLv.p(this.jjs, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            this.eGK.p(this.jeK, BitmapHelper.Bitmap2Bytes(bitmap, 100));
         }
     }
 
-    private boolean bop() {
+    private boolean bkv() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -151,7 +151,7 @@ public class y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final Bitmap bitmap, final int i) {
-        if (bitmap != null && !bop()) {
+        if (bitmap != null && !bkv()) {
             int i2 = 1;
             if (i == 3) {
                 i2 = 2;
@@ -164,8 +164,8 @@ public class y {
             } else if (i == 6) {
                 i2 = 6;
             }
-            if (this.jjq != null) {
-                this.jjq.An(i2);
+            if (this.jeI != null) {
+                this.jeI.yH(i2);
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13724");
             if (i == 3) {
@@ -184,7 +184,7 @@ public class y {
             com.baidu.tbadk.util.ac.a(new com.baidu.tbadk.util.ab<ShareItem>() { // from class: com.baidu.tieba.frs.y.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: boq */
+                /* renamed from: bkw */
                 public ShareItem doInBackground() {
                     return y.this.e(bitmap, i);
                 }
@@ -202,8 +202,8 @@ public class y {
     /* JADX INFO: Access modifiers changed from: private */
     public ShareItem e(Bitmap bitmap, int i) {
         ShareItem shareItem = new ShareItem();
-        shareItem.fxB = false;
-        shareItem.fxA = false;
+        shareItem.fsS = false;
+        shareItem.fsR = false;
         shareItem.shareType = 1;
         if (i == 6) {
             shareItem.title = this.context.getString(R.string.come_on_look_forum) + "[" + this.forumName + this.context.getString(R.string.core_bar) + "]@" + this.context.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + com.baidu.adp.lib.util.k.getUrlEncode(this.forumName) + "&fr=frsshare";
@@ -212,26 +212,26 @@ public class y {
         }
         shareItem.content = "";
         shareItem.x(bitmap);
-        shareItem.bCH();
+        shareItem.byN();
         return shareItem;
     }
 
-    public Bitmap boo() {
-        if (this.eLw == null) {
-            if (this.jjt != null) {
-                this.jjt.cGV();
+    public Bitmap bku() {
+        if (this.eGL == null) {
+            if (this.jeL != null) {
+                this.jeL.cDd();
             }
-            this.jjr.buildDrawingCache();
-            this.eLw = this.jjr.getDrawingCache();
-            if (this.jjt != null) {
-                this.jjt.cGU();
+            this.jeJ.buildDrawingCache();
+            this.eGL = this.jeJ.getDrawingCache();
+            if (this.jeL != null) {
+                this.jeL.cDc();
             }
         }
-        return this.eLw;
+        return this.eGL;
     }
 
     public void a(b bVar) {
-        this.jjq = bVar;
+        this.jeI = bVar;
     }
 
     public void setFrom(int i) {

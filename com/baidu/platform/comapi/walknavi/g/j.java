@@ -1,20 +1,20 @@
 package com.baidu.platform.comapi.walknavi.g;
-
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class j implements DialogInterface.OnCancelListener {
+/* loaded from: classes6.dex */
+public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4564a;
+    final /* synthetic */ a f4340a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.f4564a = aVar;
+        this.f4340a = aVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.f4564a.Q();
+    @Override // java.lang.Runnable
+    public void run() {
+        if (com.baidu.platform.comapi.walknavi.b.a().D().f()) {
+            com.baidu.platform.comapi.walknavi.b.a().F().run("[回车位]按钮点击");
+        }
     }
 }

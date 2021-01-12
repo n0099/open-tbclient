@@ -47,20 +47,20 @@ public class e {
     private static class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private InputStream f7945a;
+        private InputStream f7645a;
 
         /* renamed from: b  reason: collision with root package name */
-        private List<String> f7946b;
+        private List<String> f7646b;
 
         a(InputStream inputStream, List<String> list) {
-            this.f7945a = inputStream;
-            this.f7946b = list;
+            this.f7645a = inputStream;
+            this.f7646b = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             int i = 32768;
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7945a));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7645a));
             while (true) {
                 try {
                     String readLine = bufferedReader.readLine();
@@ -71,7 +71,7 @@ public class e {
                         if (i < 0) {
                             break;
                         }
-                        this.f7946b.add(readLine);
+                        this.f7646b.add(readLine);
                     }
                 } catch (IOException e) {
                     return;
@@ -86,25 +86,25 @@ public class e {
     private static class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private Process f7947a;
+        private Process f7647a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f7948b;
+        private long f7648b;
 
         public b(Process process, long j) {
-            this.f7947a = process;
-            this.f7948b = j;
+            this.f7647a = process;
+            this.f7648b = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                sleep(this.f7948b);
+                sleep(this.f7648b);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (this.f7947a != null) {
-                this.f7947a.destroy();
+            if (this.f7647a != null) {
+                this.f7647a.destroy();
             }
         }
     }

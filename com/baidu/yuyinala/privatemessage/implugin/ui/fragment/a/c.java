@@ -3,13 +3,13 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a;
 import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c extends ISendMessageListener {
-    void ema();
+    void eig();
 
-    void emb();
+    void eih();
 
-    void emf();
+    void eil();
 
     void gy(List<ChatMsg> list);
 

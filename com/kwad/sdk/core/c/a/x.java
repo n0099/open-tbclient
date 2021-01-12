@@ -4,7 +4,7 @@ import com.baidu.ala.helper.AlaConstants;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class x implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo.MaterialFeature> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6799a = 1;
+    private int f6499a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6800b = 1;
+    private int f6500b = 1;
     private int c = 1;
     private int d = 0;
     private int e = 0;
@@ -55,19 +55,19 @@ public class h {
     }
 
     public int f() {
-        return this.f6799a;
+        return this.f6499a;
     }
 
     public void f(int i) {
-        this.f6799a = i;
+        this.f6499a = i;
     }
 
     public int g() {
-        return this.f6800b;
+        return this.f6500b;
     }
 
     public void g(int i) {
-        this.f6800b = i;
+        this.f6500b = i;
     }
 
     public int h() {

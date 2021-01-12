@@ -8,7 +8,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import java.util.Objects;
 /* loaded from: classes.dex */
 public class bg {
-    private final long eRD;
+    private final long eMS;
     private String forumId = "0";
     private boolean isRunning;
     private int progress;
@@ -18,7 +18,7 @@ public class bg {
     }
 
     private bg(long j) {
-        this.eRD = j;
+        this.eMS = j;
     }
 
     public static bg a(@NonNull WriteData writeData, int i) {
@@ -30,14 +30,14 @@ public class bg {
         return bgVar;
     }
 
-    public void jw(boolean z) {
+    public void js(boolean z) {
         this.isRunning = z;
-        if (this.eRD > 0) {
+        if (this.eMS > 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
         }
     }
 
-    public boolean AT(String str) {
+    public boolean zI(String str) {
         return this.forumId.equals(str);
     }
 
@@ -49,7 +49,7 @@ public class bg {
         return this.isRunning;
     }
 
-    public void bqt() {
+    public void bmz() {
         this.isRunning = false;
     }
 
@@ -64,10 +64,10 @@ public class bg {
         if (this == obj) {
             return true;
         }
-        return (obj instanceof bg) && this.eRD == ((bg) obj).eRD;
+        return (obj instanceof bg) && this.eMS == ((bg) obj).eMS;
     }
 
     public int hashCode() {
-        return Objects.hash(Long.valueOf(this.eRD));
+        return Objects.hash(Long.valueOf(this.eMS));
     }
 }

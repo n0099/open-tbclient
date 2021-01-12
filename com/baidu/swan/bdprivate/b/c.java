@@ -1,15 +1,15 @@
 package com.baidu.swan.bdprivate.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static volatile b dWd;
+    private static volatile b dRr;
 
-    public static synchronized b aTb() {
+    public static synchronized b aPh() {
         b bVar;
         synchronized (c.class) {
-            if (dWd == null) {
-                dWd = new b();
+            if (dRr == null) {
+                dRr = new b();
             }
-            bVar = dWd;
+            bVar = dRr;
         }
         return bVar;
     }

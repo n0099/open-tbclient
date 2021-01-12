@@ -8,11 +8,11 @@ import com.qq.e.comm.plugin.y.u;
 import java.net.URL;
 import java.net.URLEncoder;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f12003b = 1;
+    public static int f11703b = 1;
     public static int c = 2;
     public static int d = 3;
     public static int e = 10;
@@ -20,12 +20,12 @@ public class b {
     public static int g = 12;
 
     /* renamed from: a  reason: collision with root package name */
-    String f12004a;
+    String f11704a;
     int h = 100;
     a i = a.BEFORE;
     long j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     enum a {
         BEFORE,
         LOADING,
@@ -35,17 +35,17 @@ public class b {
     }
 
     public b(String str, long j) {
-        this.f12004a = str;
+        this.f11704a = str;
         this.j = j;
         a();
-        ai.b("CGIWebReporter", ":report url = %s", this.f12004a);
+        ai.b("CGIWebReporter", ":report url = %s", this.f11704a);
     }
 
     private void a() {
-        if (TextUtils.isEmpty(this.f12004a)) {
+        if (TextUtils.isEmpty(this.f11704a)) {
             return;
         }
-        this.f12004a = this.f12004a.replaceAll("__VERSION__", GDTADManager.getInstance().getAppStatus().getAPPVersion()).replaceAll("__CLICK_LPP__", c()).replaceAll("__OS_TYPE__", "2");
+        this.f11704a = this.f11704a.replaceAll("__VERSION__", GDTADManager.getInstance().getAppStatus().getAPPVersion()).replaceAll("__CLICK_LPP__", c()).replaceAll("__OS_TYPE__", "2");
     }
 
     public static void a(int i, long j, com.qq.e.comm.plugin.y.c cVar, String str, String str2) {
@@ -83,7 +83,7 @@ public class b {
     }
 
     void a(int i, long j) {
-        String str = this.f12004a;
+        String str = this.f11704a;
         if (!TextUtils.isEmpty(str)) {
             str = str.replaceAll("__PAGE_ACTION_ID__", String.valueOf(i)).replaceAll("__PAGE_TIME__", String.valueOf(j));
         }
@@ -94,13 +94,13 @@ public class b {
     }
 
     public void a(String str, int i) {
-        if (TextUtils.isEmpty(this.f12004a)) {
+        if (TextUtils.isEmpty(this.f11704a)) {
             return;
         }
         ai.b("CGIWebReporter", ":cur load url = %s", str);
         switch (this.i) {
             case BEFORE:
-                if (i == f12003b) {
+                if (i == f11703b) {
                     if (a(str) && this.h == 100) {
                         this.h = 101;
                     }
@@ -146,7 +146,7 @@ public class b {
                 }
                 break;
             case LOAD_FAIL:
-                if (i != f12003b) {
+                if (i != f11703b) {
                     if (i == f) {
                         this.i = a.REPORT_FINISH;
                         a(7, b());
@@ -161,7 +161,7 @@ public class b {
                 break;
         }
         if (this.h == 101) {
-            if (i == f12003b && this.i == a.LOADING && !a(str)) {
+            if (i == f11703b && this.i == a.LOADING && !a(str)) {
                 a(1, b());
                 this.h = 102;
             } else if (a(str)) {

@@ -19,35 +19,35 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
     @SuppressLint({"StaticFieldLeak"})
-    public static m pgA;
-    private static volatile h pgC;
-    public static f pgE;
+    private static volatile cn pbW;
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile cn pgz;
+    public static m pbX;
+    private static volatile h pbZ;
+    public static f pcb;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f6093b = true;
+    private static boolean f5793b = true;
     private static boolean c = false;
-    private static ao pgB = new ao();
-    public static ConcurrentHashMap<String, String> pgD = new ConcurrentHashMap<>(4);
+    private static ao pbY = new ao();
+    public static ConcurrentHashMap<String, String> pca = new ConcurrentHashMap<>(4);
 
     public static void a(@NonNull Context context, @NonNull l lVar) {
-        if (!au.f6086b && Looper.myLooper() != Looper.getMainLooper()) {
+        if (!au.f5786b && Looper.myLooper() != Looper.getMainLooper()) {
             au.a(new RuntimeException("Wrong thread!"));
-        } else if (pgz != null) {
+        } else if (pbW != null) {
             au.a(new RuntimeException("Init Twice!"));
             return;
-        } else if (lVar.epr() == null) {
+        } else if (lVar.elv() == null) {
             au.a(new RuntimeException("need to involve setSensitiveInfoProvider!"));
             return;
         }
         Application application = (Application) context.getApplicationContext();
-        bx epy = bx.epy();
+        bx elC = bx.elC();
         cn cnVar = new cn(application, lVar);
         m mVar = new m(application, cnVar);
-        epy.a(application, cnVar, mVar, new bs(lVar.epf()));
-        pgz = cnVar;
-        pgA = mVar;
+        elC.a(application, cnVar, mVar, new bs(lVar.elj()));
+        pbW = cnVar;
+        pbX = mVar;
         au.d("Inited", null);
     }
 
@@ -55,46 +55,46 @@ public final class b {
         bx.a();
     }
 
-    public static h eoO() {
-        return pgC;
+    public static h ekS() {
+        return pbZ;
     }
 
-    public static f eoP() {
-        return pgE;
+    public static f ekT() {
+        return pcb;
     }
 
     public static void H(HashMap<String, Object> hashMap) {
-        if (pgA != null) {
-            pgA.a(hashMap);
+        if (pbX != null) {
+            pbX.a(hashMap);
         }
     }
 
-    public static String eoQ() {
-        if (pgA != null) {
-            return pgA.q();
-        }
-        return null;
-    }
-
-    @Nullable
-    public static JSONObject eoR() {
-        if (pgz != null) {
-            return pgz.epK();
+    public static String ekU() {
+        if (pbX != null) {
+            return pbX.q();
         }
         return null;
     }
 
     @Nullable
-    public static String eoS() {
-        if (pgz != null) {
-            return pgz.t();
+    public static JSONObject ekV() {
+        if (pbW != null) {
+            return pbW.elO();
+        }
+        return null;
+    }
+
+    @Nullable
+    public static String ekW() {
+        if (pbW != null) {
+            return pbW.t();
         }
         return null;
     }
 
     public static <T> T C(String str, T t) {
-        if (pgA != null) {
-            return (T) pgA.D(str, t);
+        if (pbX != null) {
+            return (T) pbX.D(str, t);
         }
         return null;
     }
@@ -105,11 +105,11 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] YA(String str) {
+    public static byte[] Xs(String str) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         try {
-            if (eoT()) {
+            if (ekX()) {
                 gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
                 try {
                     gZIPOutputStream.write(str.getBytes("UTF-8"));
@@ -125,7 +125,7 @@ public final class b {
                             }
                         }
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        if (!eoT()) {
+                        if (!ekX()) {
                         }
                     } catch (Throwable th2) {
                         GZIPOutputStream gZIPOutputStream2 = gZIPOutputStream;
@@ -155,12 +155,12 @@ public final class b {
             gZIPOutputStream = null;
         }
         byte[] byteArray2 = byteArrayOutputStream.toByteArray();
-        return !eoT() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
+        return !ekX() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
     }
 
     public static void c(@NonNull String str, @NonNull String str2, String str3, long j, long j2, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str3)) {
-            if (au.f6086b) {
+            if (au.f5786b) {
                 au.a("category or label is empty", null);
             }
             bx.a(new ak("" + str2 + str3, "2", 1));
@@ -181,7 +181,7 @@ public final class b {
         bx.a(new ag(str, false, jSONObject != null ? jSONObject.toString() : null));
     }
 
-    public static void j(@NonNull String str, @Nullable Bundle bundle) {
+    public static void k(@NonNull String str, @Nullable Bundle bundle) {
         Throwable th;
         JSONObject jSONObject = null;
         if (bundle != null) {
@@ -207,38 +207,38 @@ public final class b {
         v(str, jSONObject);
     }
 
-    public static boolean eoT() {
+    public static boolean ekX() {
         return true;
     }
 
-    public static boolean eoU() {
-        return f6093b;
+    public static boolean ekY() {
+        return f5793b;
     }
 
     public static String getDid() {
-        return pgA != null ? pgA.g() : "";
+        return pbX != null ? pbX.g() : "";
     }
 
     public static String getSsid() {
-        return pgA != null ? pgA.k() : "";
+        return pbX != null ? pbX.k() : "";
     }
 
-    public static String eoV() {
-        return pgA != null ? pgA.l() : "";
+    public static String ekZ() {
+        return pbX != null ? pbX.l() : "";
     }
 
     public static void a(g gVar) {
-        pgB.b(gVar);
+        pbY.b(gVar);
     }
 
     @NonNull
-    public static g eoW() {
-        return pgB;
+    public static g ela() {
+        return pbY;
     }
 
-    public static int eoX() {
-        if (pgz != null) {
-            return pgz.i();
+    public static int elb() {
+        if (pbW != null) {
+            return pbW.i();
         }
         return 0;
     }
@@ -248,9 +248,9 @@ public final class b {
         ba.b(iVar);
     }
 
-    public static l eoY() {
-        if (pgz != null) {
-            return pgz.epO();
+    public static l elc() {
+        if (pbW != null) {
+            return pbW.elS();
         }
         return null;
     }

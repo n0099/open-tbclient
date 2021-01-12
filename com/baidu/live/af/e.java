@@ -8,46 +8,46 @@ import com.baidu.live.gift.o;
 import com.baidu.live.message.GetQuickGiftHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static volatile e bCl;
-    public o bCm;
-    private HttpMessageListener bCn = new HttpMessageListener(1021124) { // from class: com.baidu.live.af.e.1
+    private static volatile e bxz;
+    public o bxA;
+    private HttpMessageListener bxB = new HttpMessageListener(1021124) { // from class: com.baidu.live.af.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021124 && (httpResponsedMessage instanceof GetQuickGiftHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetQuickGiftHttpResponseMessage getQuickGiftHttpResponseMessage = (GetQuickGiftHttpResponseMessage) httpResponsedMessage;
-                    if (getQuickGiftHttpResponseMessage.QT() != null) {
-                        e.this.bCm = getQuickGiftHttpResponseMessage.QT();
+                    if (getQuickGiftHttpResponseMessage.MY() != null) {
+                        e.this.bxA = getQuickGiftHttpResponseMessage.MY();
                     }
                 }
             }
         }
     };
 
-    public static e ST() {
-        if (bCl == null) {
+    public static e OY() {
+        if (bxz == null) {
             synchronized (e.class) {
-                if (bCl == null) {
-                    bCl = new e();
+                if (bxz == null) {
+                    bxz = new e();
                 }
             }
         }
-        return bCl;
+        return bxz;
     }
 
     private e() {
-        MessageManager.getInstance().registerListener(this.bCn);
-        this.bCm = new o();
+        MessageManager.getInstance().registerListener(this.bxB);
+        this.bxA = new o();
     }
 
-    public void SU() {
+    public void OZ() {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isQuickGiftUnabled()) {
             HttpMessage httpMessage = new HttpMessage(1021124);
             int i = 0;
-            String XG = q.XG();
+            String TN = q.TN();
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 i = 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
@@ -60,7 +60,7 @@ public class e {
                 i = 6;
             }
             httpMessage.addParam("from", i);
-            httpMessage.addParam("scene_from", XG);
+            httpMessage.addParam("scene_from", TN);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

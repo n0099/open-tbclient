@@ -27,25 +27,25 @@ import org.apache.commons.base.CharEncoding;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f6170a = new byte[0];
+    public static final byte[] f5870a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f6171b = new String[0];
-    public static final com.bytedance.sdk.a.b.c pjf = com.bytedance.sdk.a.b.c.a(null, f6170a);
-    public static final ac pjg = ac.b(null, f6170a);
-    private static final f pjh = f.b("efbbbf");
-    private static final f pji = f.b("feff");
-    private static final f pjj = f.b("fffe");
-    private static final f pjk = f.b("0000ffff");
-    private static final f pjl = f.b("ffff0000");
-    public static final Charset pjm = Charset.forName("UTF-8");
-    public static final Charset pjn = Charset.forName("ISO-8859-1");
+    public static final String[] f5871b = new String[0];
+    public static final com.bytedance.sdk.a.b.c peA = com.bytedance.sdk.a.b.c.a(null, f5870a);
+    public static final ac peB = ac.b(null, f5870a);
+    private static final f peC = f.b("efbbbf");
+    private static final f peD = f.b("feff");
+    private static final f peE = f.b("fffe");
+    private static final f peF = f.b("0000ffff");
+    private static final f peG = f.b("ffff0000");
+    public static final Charset peH = Charset.forName("UTF-8");
+    public static final Charset peI = Charset.forName("ISO-8859-1");
     private static final Charset n = Charset.forName(CharEncoding.UTF_16BE);
-    private static final Charset pjo = Charset.forName(CharEncoding.UTF_16LE);
-    private static final Charset pjp = Charset.forName("UTF-32BE");
-    private static final Charset pjq = Charset.forName("UTF-32LE");
-    public static final TimeZone pjr = TimeZone.getTimeZone("GMT");
-    public static final Comparator<String> pjs = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.a.c.1
+    private static final Charset peJ = Charset.forName(CharEncoding.UTF_16LE);
+    private static final Charset peK = Charset.forName("UTF-32BE");
+    private static final Charset peL = Charset.forName("UTF-32LE");
+    public static final TimeZone peM = TimeZone.getTimeZone("GMT");
+    public static final Comparator<String> peN = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -53,7 +53,7 @@ public final class c {
             return str.compareTo(str2);
         }
     };
-    private static final Pattern pjt = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    private static final Pattern peO = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
@@ -102,31 +102,31 @@ public final class c {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CMP_L]}, finally: {[CMP_L, INVOKE, INVOKE, INVOKE, ARITH, INVOKE, IF] complete} */
     public static boolean b(s sVar, int i, TimeUnit timeUnit) throws IOException {
         long nanoTime = System.nanoTime();
-        long eqf = sVar.epS().c() ? sVar.epS().eqf() - nanoTime : Long.MAX_VALUE;
-        sVar.epS().im(Math.min(eqf, timeUnit.toNanos(i)) + nanoTime);
+        long emj = sVar.elW().c() ? sVar.elW().emj() - nanoTime : Long.MAX_VALUE;
+        sVar.elW().im(Math.min(emj, timeUnit.toNanos(i)) + nanoTime);
         try {
             com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
             while (sVar.b(cVar, 8192L) != -1) {
                 cVar.r();
             }
-            if (eqf == Long.MAX_VALUE) {
-                sVar.epS().eqh();
+            if (emj == Long.MAX_VALUE) {
+                sVar.elW().eml();
             } else {
-                sVar.epS().im(eqf + nanoTime);
+                sVar.elW().im(emj + nanoTime);
             }
             return true;
         } catch (InterruptedIOException e) {
-            if (eqf == Long.MAX_VALUE) {
-                sVar.epS().eqh();
+            if (emj == Long.MAX_VALUE) {
+                sVar.elW().eml();
             } else {
-                sVar.epS().im(eqf + nanoTime);
+                sVar.elW().im(emj + nanoTime);
             }
             return false;
         } catch (Throwable th) {
-            if (eqf == Long.MAX_VALUE) {
-                sVar.epS().eqh();
+            if (emj == Long.MAX_VALUE) {
+                sVar.elW().eml();
             } else {
-                sVar.epS().im(eqf + nanoTime);
+                sVar.elW().im(emj + nanoTime);
             }
             throw th;
         }
@@ -327,7 +327,7 @@ public final class c {
     }
 
     public static boolean c(String str) {
-        return pjt.matcher(str).matches();
+        return peO.matcher(str).matches();
     }
 
     public static String a(String str, Object... objArr) {
@@ -335,21 +335,21 @@ public final class c {
     }
 
     public static Charset a(e eVar, Charset charset) throws IOException {
-        if (eVar.a(0L, pjh)) {
-            eVar.h(pjh.g());
-            return pjm;
-        } else if (eVar.a(0L, pji)) {
-            eVar.h(pji.g());
+        if (eVar.a(0L, peC)) {
+            eVar.h(peC.g());
+            return peH;
+        } else if (eVar.a(0L, peD)) {
+            eVar.h(peD.g());
             return n;
-        } else if (eVar.a(0L, pjj)) {
-            eVar.h(pjj.g());
-            return pjo;
-        } else if (eVar.a(0L, pjk)) {
-            eVar.h(pjk.g());
-            return pjp;
-        } else if (eVar.a(0L, pjl)) {
-            eVar.h(pjl.g());
-            return pjq;
+        } else if (eVar.a(0L, peE)) {
+            eVar.h(peE.g());
+            return peJ;
+        } else if (eVar.a(0L, peF)) {
+            eVar.h(peF.g());
+            return peK;
+        } else if (eVar.a(0L, peG)) {
+            eVar.h(peG.g());
+            return peL;
         } else {
             return charset;
         }
@@ -535,14 +535,14 @@ public final class c {
         com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
         while (i < bArr.length) {
             if (i == i2) {
-                cVar.PM(58);
+                cVar.Of(58);
                 i += i4;
                 if (i == 16) {
-                    cVar.PM(58);
+                    cVar.Of(58);
                 }
             } else {
                 if (i > 0) {
-                    cVar.PM(58);
+                    cVar.Of(58);
                 }
                 cVar.ik(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
                 i += 2;

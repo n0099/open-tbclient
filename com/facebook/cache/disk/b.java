@@ -11,99 +11,99 @@ import javax.annotation.Nullable;
 public class b {
     private final Context mContext;
     private final int mVersion;
-    private final CacheErrorLogger prW;
-    private final String psd;
-    private final j<File> pse;
-    private final long psf;
-    private final long psg;
-    private final long psh;
-    private final g psi;
-    private final CacheEventListener psj;
-    private final com.facebook.common.a.b psk;
-    private final boolean psl;
+    private final long pnA;
+    private final long pnB;
+    private final long pnC;
+    private final g pnD;
+    private final CacheEventListener pnE;
+    private final com.facebook.common.a.b pnF;
+    private final boolean pnG;
+    private final CacheErrorLogger pnr;
+    private final String pny;
+    private final j<File> pnz;
 
     private b(a aVar) {
         CacheErrorLogger cacheErrorLogger;
         CacheEventListener cacheEventListener;
         com.facebook.common.a.b bVar;
         this.mVersion = aVar.mVersion;
-        this.psd = (String) com.facebook.common.internal.g.checkNotNull(aVar.psd);
-        this.pse = (j) com.facebook.common.internal.g.checkNotNull(aVar.pse);
-        this.psf = aVar.psm;
-        this.psg = aVar.psn;
-        this.psh = aVar.pso;
-        this.psi = (g) com.facebook.common.internal.g.checkNotNull(aVar.psi);
-        if (aVar.prW == null) {
-            cacheErrorLogger = com.facebook.cache.common.e.eto();
+        this.pny = (String) com.facebook.common.internal.g.checkNotNull(aVar.pny);
+        this.pnz = (j) com.facebook.common.internal.g.checkNotNull(aVar.pnz);
+        this.pnA = aVar.pnH;
+        this.pnB = aVar.pnI;
+        this.pnC = aVar.pnJ;
+        this.pnD = (g) com.facebook.common.internal.g.checkNotNull(aVar.pnD);
+        if (aVar.pnr == null) {
+            cacheErrorLogger = com.facebook.cache.common.e.epu();
         } else {
-            cacheErrorLogger = aVar.prW;
+            cacheErrorLogger = aVar.pnr;
         }
-        this.prW = cacheErrorLogger;
-        if (aVar.psj == null) {
-            cacheEventListener = com.facebook.cache.common.f.etp();
+        this.pnr = cacheErrorLogger;
+        if (aVar.pnE == null) {
+            cacheEventListener = com.facebook.cache.common.f.epv();
         } else {
-            cacheEventListener = aVar.psj;
+            cacheEventListener = aVar.pnE;
         }
-        this.psj = cacheEventListener;
-        if (aVar.psk == null) {
-            bVar = com.facebook.common.a.c.etR();
+        this.pnE = cacheEventListener;
+        if (aVar.pnF == null) {
+            bVar = com.facebook.common.a.c.epX();
         } else {
-            bVar = aVar.psk;
+            bVar = aVar.pnF;
         }
-        this.psk = bVar;
+        this.pnF = bVar;
         this.mContext = aVar.mContext;
-        this.psl = aVar.psl;
+        this.pnG = aVar.pnG;
     }
 
     public int getVersion() {
         return this.mVersion;
     }
 
-    public String etx() {
-        return this.psd;
+    public String epD() {
+        return this.pny;
     }
 
-    public j<File> ety() {
-        return this.pse;
+    public j<File> epE() {
+        return this.pnz;
     }
 
-    public long etz() {
-        return this.psf;
+    public long epF() {
+        return this.pnA;
     }
 
-    public long etA() {
-        return this.psg;
+    public long epG() {
+        return this.pnB;
     }
 
-    public long etB() {
-        return this.psh;
+    public long epH() {
+        return this.pnC;
     }
 
-    public g etC() {
-        return this.psi;
+    public g epI() {
+        return this.pnD;
     }
 
-    public CacheErrorLogger etD() {
-        return this.prW;
+    public CacheErrorLogger epJ() {
+        return this.pnr;
     }
 
-    public CacheEventListener etE() {
-        return this.psj;
+    public CacheEventListener epK() {
+        return this.pnE;
     }
 
-    public com.facebook.common.a.b etF() {
-        return this.psk;
+    public com.facebook.common.a.b epL() {
+        return this.pnF;
     }
 
     public Context getContext() {
         return this.mContext;
     }
 
-    public boolean etG() {
-        return this.psl;
+    public boolean epM() {
+        return this.pnG;
     }
 
-    public static a ig(@Nullable Context context) {
+    public static a ie(@Nullable Context context) {
         return new a(context);
     }
 
@@ -112,31 +112,31 @@ public class b {
         @Nullable
         private final Context mContext;
         private int mVersion;
-        private CacheErrorLogger prW;
-        private String psd;
-        private j<File> pse;
-        private g psi;
-        private CacheEventListener psj;
-        private com.facebook.common.a.b psk;
-        private boolean psl;
-        private long psm;
-        private long psn;
-        private long pso;
+        private g pnD;
+        private CacheEventListener pnE;
+        private com.facebook.common.a.b pnF;
+        private boolean pnG;
+        private long pnH;
+        private long pnI;
+        private long pnJ;
+        private CacheErrorLogger pnr;
+        private String pny;
+        private j<File> pnz;
 
         private a(@Nullable Context context) {
             this.mVersion = 1;
-            this.psd = "image_cache";
-            this.psm = 41943040L;
-            this.psn = 10485760L;
-            this.pso = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
-            this.psi = new com.facebook.cache.disk.a();
+            this.pny = "image_cache";
+            this.pnH = 41943040L;
+            this.pnI = 10485760L;
+            this.pnJ = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+            this.pnD = new com.facebook.cache.disk.a();
             this.mContext = context;
         }
 
-        public b etH() {
-            com.facebook.common.internal.g.checkState((this.pse == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
-            if (this.pse == null && this.mContext != null) {
-                this.pse = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
+        public b epN() {
+            com.facebook.common.internal.g.checkState((this.pnz == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
+            if (this.pnz == null && this.mContext != null) {
+                this.pnz = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.facebook.common.internal.j

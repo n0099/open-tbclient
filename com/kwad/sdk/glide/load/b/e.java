@@ -9,13 +9,13 @@ import com.kwad.sdk.glide.load.b.n;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class e<Model, Data> implements n<Model, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a<Data> f10377a;
+    private final a<Data> f10077a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a<Data> {
         Class<Data> a();
 
@@ -24,32 +24,32 @@ public final class e<Model, Data> implements n<Model, Data> {
         void a(Data data);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class b<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f10378a;
+        private final String f10078a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final a<Data> f10379b;
+        private final a<Data> f10079b;
         private Data c;
 
         b(String str, a<Data> aVar) {
-            this.f10378a = str;
-            this.f10379b = aVar;
+            this.f10078a = str;
+            this.f10079b = aVar;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.f10379b.a();
+            return this.f10079b.a();
         }
 
         /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: Data, ? super Data */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
             try {
-                this.c = this.f10379b.a(this.f10378a);
+                this.c = this.f10079b.a(this.f10078a);
                 aVar.a((d.a<? super Data>) ((Data) this.c));
             } catch (IllegalArgumentException e) {
                 aVar.a((Exception) e);
@@ -59,7 +59,7 @@ public final class e<Model, Data> implements n<Model, Data> {
         @Override // com.kwad.sdk.glide.load.a.d
         public void b() {
             try {
-                this.f10379b.a((a<Data>) this.c);
+                this.f10079b.a((a<Data>) this.c);
             } catch (IOException e) {
             }
         }
@@ -75,11 +75,11 @@ public final class e<Model, Data> implements n<Model, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class c<Model> implements o<Model, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a<InputStream> f10380a = new a<InputStream>() { // from class: com.kwad.sdk.glide.load.b.e.c.1
+        private final a<InputStream> f10080a = new a<InputStream>() { // from class: com.kwad.sdk.glide.load.b.e.c.1
             @Override // com.kwad.sdk.glide.load.b.e.a
             public Class<InputStream> a() {
                 return InputStream.class;
@@ -112,17 +112,17 @@ public final class e<Model, Data> implements n<Model, Data> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Model, InputStream> a(@NonNull r rVar) {
-            return new e(this.f10380a);
+            return new e(this.f10080a);
         }
     }
 
     public e(a<Data> aVar) {
-        this.f10377a = aVar;
+        this.f10077a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Model model, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(model), new b(model.toString(), this.f10377a));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(model), new b(model.toString(), this.f10077a));
     }
 
     @Override // com.kwad.sdk.glide.load.b.n

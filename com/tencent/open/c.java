@@ -31,11 +31,11 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC1282a {
+public class c extends com.tencent.open.b implements a.InterfaceC1265a {
     static Toast c = null;
     private String d;
     private IUiListener e;
-    private C1283c f;
+    private C1266c f;
     private Handler g;
     private com.tencent.open.c.a h;
     private com.tencent.open.c.b i;
@@ -46,7 +46,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C1283c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C1266c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(185.0f * context.getResources().getDisplayMetrics().density);
@@ -96,7 +96,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
         this.i.setVerticalScrollBarEnabled(false);
         this.i.setHorizontalScrollBarEnabled(false);
         this.i.setWebViewClient(new a());
-        this.i.setWebChromeClient(this.f13686b);
+        this.i.setWebChromeClient(this.f13386b);
         this.i.clearFormData();
         WebSettings settings = this.i.getSettings();
         if (settings != null) {
@@ -113,7 +113,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
                 settings.setDatabasePath(this.j.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
-            this.f13685a.a(new b(), "sdk_js_if");
+            this.f13385a.a(new b(), "sdk_js_if");
             this.i.clearView();
             this.i.loadUrl(this.d);
             this.i.getSettings().setSavePassword(false);
@@ -224,11 +224,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
     private class d extends Handler {
 
         /* renamed from: b  reason: collision with root package name */
-        private C1283c f13715b;
+        private C1266c f13415b;
 
-        public d(C1283c c1283c, Looper looper) {
+        public d(C1266c c1266c, Looper looper) {
             super(looper);
-            this.f13715b = c1283c;
+            this.f13415b = c1266c;
         }
 
         @Override // android.os.Handler
@@ -236,10 +236,10 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
             f.b("openSDK_LOG.PKDialog", "msg = " + message.what);
             switch (message.what) {
                 case 1:
-                    this.f13715b.a((String) message.obj);
+                    this.f13415b.a((String) message.obj);
                     return;
                 case 2:
-                    this.f13715b.onCancel();
+                    this.f13415b.onCancel();
                     return;
                 case 3:
                     if (c.this.j != null && c.this.j.get() != null) {
@@ -262,22 +262,22 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1283c implements IUiListener {
+    private static class C1266c implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        String f13712a;
+        String f13412a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f13713b;
+        String f13413b;
         private WeakReference<Context> c;
         private String d;
         private IUiListener e;
 
-        public C1283c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C1266c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
-            this.f13712a = str2;
-            this.f13713b = str3;
+            this.f13412a = str2;
+            this.f13413b = str3;
             this.e = iUiListener;
         }
 
@@ -294,7 +294,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            com.tencent.open.b.g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f13712a, false);
+            com.tencent.open.b.g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f13412a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;
@@ -303,7 +303,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            com.tencent.open.b.g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f13712a : this.f13712a, false);
+            com.tencent.open.b.g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f13412a : this.f13412a, false);
             if (this.e != null) {
                 this.e.onError(uiError);
                 this.e = null;
@@ -319,7 +319,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
         }
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC1282a
+    @Override // com.tencent.open.c.a.InterfaceC1265a
     public void a(int i) {
         if (this.j != null && this.j.get() != null) {
             if (i < this.k && 2 == this.j.get().getResources().getConfiguration().orientation) {
@@ -331,7 +331,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
         f.e("openSDK_LOG.PKDialog", "onKeyboardShown keyboard show");
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC1282a
+    @Override // com.tencent.open.c.a.InterfaceC1265a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         f.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");
@@ -341,7 +341,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC1282a {
     protected void a(String str) {
         f.b("openSDK_LOG.PKDialog", "--onConsoleMessage--");
         try {
-            this.f13685a.a(this.i, str);
+            this.f13385a.a(this.i, str);
         } catch (Exception e) {
         }
     }

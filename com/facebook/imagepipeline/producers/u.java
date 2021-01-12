@@ -15,7 +15,7 @@ import okhttp3.internal.http.StatusLine;
 /* loaded from: classes3.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int pDi;
+    private int pyH;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.pDi = i;
+        this.pyH = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.eAV().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.exd().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void eAO() {
+            public void ewW() {
                 if (submit.cancel(false)) {
-                    aVar.etW();
+                    aVar.eqc();
                 }
             }
         });
@@ -125,13 +125,13 @@ public class u extends c<t> {
     }
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
-        HttpURLConnection ae = ae(uri);
-        ae.setConnectTimeout(this.pDi);
-        int responseCode = ae.getResponseCode();
-        if (!Rx(responseCode)) {
+        HttpURLConnection ab = ab(uri);
+        ab.setConnectTimeout(this.pyH);
+        int responseCode = ab.getResponseCode();
+        if (!PQ(responseCode)) {
             if (isHttpRedirect(responseCode)) {
-                String headerField = ae.getHeaderField(Headers.LOCATION);
-                ae.disconnect();
+                String headerField = ab.getHeaderField(Headers.LOCATION);
+                ab.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
@@ -139,17 +139,17 @@ public class u extends c<t> {
                 }
                 throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            ae.disconnect();
+            ab.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return ae;
+        return ab;
     }
 
-    static HttpURLConnection ae(Uri uri) throws IOException {
-        return (HttpURLConnection) com.facebook.common.util.d.M(uri).openConnection();
+    static HttpURLConnection ab(Uri uri) throws IOException {
+        return (HttpURLConnection) com.facebook.common.util.d.J(uri).openConnection();
     }
 
-    private static boolean Rx(int i) {
+    private static boolean PQ(int i) {
         return i >= 200 && i < 300;
     }
 

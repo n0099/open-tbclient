@@ -11,14 +11,14 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     public void al(x xVar) {
         if (xVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aLl.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aGy.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put("live_id", aat.aLl.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
+            x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put("live_id", WA.aGy.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

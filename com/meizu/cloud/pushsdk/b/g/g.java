@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Logger f11498a = Logger.getLogger(g.class.getName());
+    private static final Logger f11198a = Logger.getLogger(g.class.getName());
 
     private g() {
     }
@@ -44,17 +44,17 @@ public final class g {
         return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
             @Override // com.meizu.cloud.pushsdk.b.g.l
             public void a(b bVar, long j) throws IOException {
-                o.a(bVar.f11493b, 0L, j);
+                o.a(bVar.f11193b, 0L, j);
                 while (j > 0) {
                     n.this.a();
-                    j jVar = bVar.f11492a;
-                    int min = (int) Math.min(j, jVar.c - jVar.f11509b);
-                    outputStream.write(jVar.f11508a, jVar.f11509b, min);
-                    jVar.f11509b += min;
+                    j jVar = bVar.f11192a;
+                    int min = (int) Math.min(j, jVar.c - jVar.f11209b);
+                    outputStream.write(jVar.f11208a, jVar.f11209b, min);
+                    jVar.f11209b += min;
                     j -= min;
-                    bVar.f11493b -= min;
-                    if (jVar.f11509b == jVar.c) {
-                        bVar.f11492a = jVar.a();
+                    bVar.f11193b -= min;
+                    if (jVar.f11209b == jVar.c) {
+                        bVar.f11192a = jVar.a();
                         k.a(jVar);
                     }
                 }
@@ -105,12 +105,12 @@ public final class g {
                 }
                 n.this.a();
                 j c = bVar.c(1);
-                int read = inputStream.read(c.f11508a, c.c, (int) Math.min(j, 2048 - c.c));
+                int read = inputStream.read(c.f11208a, c.c, (int) Math.min(j, 2048 - c.c));
                 if (read == -1) {
                     return -1L;
                 }
                 c.c += read;
-                bVar.f11493b += read;
+                bVar.f11193b += read;
                 return read;
             }
 

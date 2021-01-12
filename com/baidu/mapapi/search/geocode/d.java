@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.geocode;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 final class d implements Parcelable.Creator<ReverseGeoCodeResult.PoiRegionsInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

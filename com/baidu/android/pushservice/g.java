@@ -17,11 +17,11 @@ import com.kwad.sdk.collector.AppStatusRules;
 import com.kwai.video.player.NativeErrorCode;
 import java.io.IOException;
 @SuppressLint({"WorldReadableFiles", "InlinedApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1300a;
+    private static volatile g f1306a;
     private static LocalServerSocket e;
     private static boolean m;
     private e c;
@@ -51,7 +51,7 @@ public class g {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1301b = 180000;
+    private int f1307b = 180000;
 
     private g(Context context) {
         this.i = new Handler(context.getMainLooper());
@@ -59,19 +59,19 @@ public class g {
     }
 
     public static g a(Context context) {
-        if (f1300a == null) {
+        if (f1306a == null) {
             synchronized (g.class) {
-                if (f1300a == null) {
-                    f1300a = new g(context);
+                if (f1306a == null) {
+                    f1306a = new g(context);
                 }
             }
         }
-        return f1300a;
+        return f1306a;
     }
 
     public static void b() {
-        if (f1300a != null) {
-            f1300a.k();
+        if (f1306a != null) {
+            f1306a.k();
         }
         com.baidu.android.pushservice.g.d.a().b();
     }
@@ -117,7 +117,7 @@ public class g {
             if (this.j) {
                 j();
             }
-            f1300a = null;
+            f1306a = null;
         }
     }
 
@@ -129,21 +129,21 @@ public class g {
 
     private void m() {
         long j;
-        long currentTimeMillis = System.currentTimeMillis() + this.f1301b;
+        long currentTimeMillis = System.currentTimeMillis() + this.f1307b;
         int i = ((int) (currentTimeMillis / 1000)) % 60;
         if (((int) ((currentTimeMillis / AppStatusRules.DEFAULT_GRANULARITY) % 5)) == 0 && i < 15) {
-            currentTimeMillis += ((long) (Math.random() * (this.f1301b + NativeErrorCode.EKS_UNKNOWN_ERROR_BASE))) + 15000;
+            currentTimeMillis += ((long) (Math.random() * (this.f1307b + NativeErrorCode.EKS_UNKNOWN_ERROR_BASE))) + 15000;
         }
         if (Build.VERSION.SDK_INT >= 26) {
             j = System.currentTimeMillis() + AppStatusRules.DEFAULT_GRANULARITY;
-            this.f1301b = 60000;
+            this.f1307b = 60000;
         } else {
             j = currentTimeMillis;
         }
         AlarmManager alarmManager = (AlarmManager) this.h.getSystemService(NotificationCompat.CATEGORY_ALARM);
         if (alarmManager != null) {
             try {
-                alarmManager.setRepeating(0, j, this.f1301b, r());
+                alarmManager.setRepeating(0, j, this.f1307b, r());
                 m = false;
             } catch (Exception e2) {
             }
@@ -154,7 +154,7 @@ public class g {
         com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("tryConnect", (short) 98) { // from class: com.baidu.android.pushservice.g.1
             @Override // com.baidu.android.pushservice.g.c
             public void a() {
-                if (g.f1300a == null) {
+                if (g.f1306a == null) {
                     return;
                 }
                 boolean a2 = com.baidu.android.pushservice.i.g.a(g.this.h);
@@ -237,7 +237,7 @@ public class g {
         }
         com.baidu.android.pushservice.f.a.a("PushSDK", "heartbeat set : " + i + " millisecs", this.h);
         if (i > 0) {
-            this.f1301b = i;
+            this.f1307b = i;
         }
         m();
     }
@@ -250,7 +250,7 @@ public class g {
             return false;
         }
         synchronized (g) {
-            if (PushSocket.f1434a) {
+            if (PushSocket.f1440a) {
                 if (o()) {
                     this.j = m.p(this.h);
                     if (this.j) {

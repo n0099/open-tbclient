@@ -4,7 +4,7 @@ import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.view.Display;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiDisplayHdrCapabilitiesDetector {
     private static KwaiDisplayHdrCapabilitiesDetector sHdrCapabilitiesUtil = null;
     private Context mContext;

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class DiskCacheUtils {
     private DiskCacheUtils() {
     }

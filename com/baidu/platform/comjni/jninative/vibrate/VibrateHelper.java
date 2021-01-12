@@ -3,10 +3,10 @@ package com.baidu.platform.comjni.jninative.vibrate;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Vibrator;
-import com.baidu.platform.comapi.wnplatform.p.b.a;
+import com.baidu.platform.comapi.wnplatform.o.b.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VibrateHelper {
     public static final int VIBRATE_DURATION_TIME = 500;
     private static boolean bStopVibration = false;
@@ -57,7 +57,7 @@ public class VibrateHelper {
     }
 
     public static void removeVibrateListener(IVibrateListener iVibrateListener) {
-        if (mVibrateListeners != null && iVibrateListener != null) {
+        if (mVibrateListeners == null && iVibrateListener != null) {
             mVibrateListeners.remove(iVibrateListener);
         }
     }

@@ -30,7 +30,7 @@ public class i extends h {
 
     public static final int c(byte[] bArr, byte b2) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
-        for (Number number : n.e(f.av(bArr))) {
+        for (Number number : n.e(f.au(bArr))) {
             int intValue = number.intValue();
             if (b2 == bArr[intValue]) {
                 return intValue;
@@ -55,19 +55,19 @@ public class i extends h {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         kotlin.jvm.internal.p.o(hVar, "indices");
         if (hVar.isEmpty()) {
-            return n.eMw();
+            return n.eIG();
         }
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eMV().intValue(), hVar.eMW().intValue() + 1);
+        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eJf().intValue(), hVar.eJg().intValue() + 1);
         kotlin.jvm.internal.p.n(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
-        return f.ax(copyOfRange);
+        return f.aw(copyOfRange);
     }
 
-    public static final kotlin.b.h av(byte[] bArr) {
+    public static final kotlin.b.h au(byte[] bArr) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
-        return new kotlin.b.h(0, f.aw(bArr));
+        return new kotlin.b.h(0, f.av(bArr));
     }
 
-    public static final int aw(byte[] bArr) {
+    public static final int av(byte[] bArr) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         return bArr.length - 1;
     }
@@ -83,18 +83,18 @@ public class i extends h {
 
     public static final <T> HashSet<T> S(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.TE(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(aa.RX(tArr.length)));
     }
 
     public static final <T> Set<T> T(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
         switch (tArr.length) {
             case 0:
-                return ag.eME();
+                return ag.eIO();
             case 1:
                 return ag.bT(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(aa.TE(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(aa.RX(tArr.length)));
         }
     }
 
@@ -154,7 +154,7 @@ public class i extends h {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: TD */
+        /* renamed from: RW */
         public Byte get(int i) {
             return Byte.valueOf(this.receiver$0[i]);
         }
@@ -168,7 +168,7 @@ public class i extends h {
         }
     }
 
-    public static final List<Byte> ax(byte[] bArr) {
+    public static final List<Byte> aw(byte[] bArr) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         return new a(bArr);
     }

@@ -9,30 +9,30 @@ import java.io.OutputStream;
 public class a {
     protected int height;
     protected Bitmap image;
-    protected byte[] mlr;
-    protected byte[] mls;
-    protected int mlt;
-    protected byte[] mlu;
+    protected byte[] mgL;
+    protected byte[] mgM;
+    protected int mgN;
+    protected byte[] mgO;
     protected OutputStream out;
     protected int transIndex;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int mlq = -1;
+    protected int mgK = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] mlv = new boolean[256];
-    protected int mlw = 7;
+    protected boolean[] mgP = new boolean[256];
+    protected int mgQ = 7;
     protected int dispose = -1;
-    protected boolean mlx = false;
-    protected boolean mly = true;
-    protected boolean mlz = false;
-    protected int mlA = 10;
+    protected boolean mgR = false;
+    protected boolean mgS = true;
+    protected boolean mgT = false;
+    protected int mgU = 10;
 
-    public void HR(int i) {
+    public void Gl(int i) {
         if (i >= 0) {
-            this.mlq = i;
+            this.mgK = i;
         }
     }
 
@@ -41,40 +41,40 @@ public class a {
             return false;
         }
         try {
-            if (!this.mlz) {
+            if (!this.mgT) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
-            dxt();
-            dxs();
-            if (this.mly) {
-                dxw();
-                dxy();
-                if (this.mlq >= 0) {
-                    dxx();
+            dtB();
+            dtA();
+            if (this.mgS) {
+                dtE();
+                dtG();
+                if (this.mgK >= 0) {
+                    dtF();
                 }
             }
-            dxu();
-            dxv();
-            if (!this.mly) {
-                dxy();
+            dtC();
+            dtD();
+            if (!this.mgS) {
+                dtG();
             }
-            dxz();
-            this.mly = false;
+            dtH();
+            this.mgS = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean dxr() {
+    public boolean dtz() {
         boolean z;
         if (this.started) {
             this.started = false;
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.mlx) {
+                if (this.mgR) {
                     this.out.close();
                 }
                 z = true;
@@ -84,11 +84,11 @@ public class a {
             this.transIndex = 0;
             this.out = null;
             this.image = null;
-            this.mlr = null;
-            this.mls = null;
-            this.mlu = null;
-            this.mlx = false;
-            this.mly = true;
+            this.mgL = null;
+            this.mgM = null;
+            this.mgO = null;
+            this.mgR = false;
+            this.mgS = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.mlz = true;
+        this.mgT = true;
     }
 
     public boolean b(OutputStream outputStream) {
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.mlx = false;
+        this.mgR = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
@@ -122,55 +122,55 @@ public class a {
         return z;
     }
 
-    protected void dxs() {
-        int length = this.mlr.length;
+    protected void dtA() {
+        int length = this.mgL.length;
         int i = length / 3;
-        this.mls = new byte[i];
-        c cVar = new c(this.mlr, length, this.mlA);
-        this.mlu = cVar.dxF();
-        for (int i2 = 0; i2 < this.mlu.length; i2 += 3) {
-            byte b2 = this.mlu[i2];
-            this.mlu[i2] = this.mlu[i2 + 2];
-            this.mlu[i2 + 2] = b2;
-            this.mlv[i2 / 3] = false;
+        this.mgM = new byte[i];
+        c cVar = new c(this.mgL, length, this.mgU);
+        this.mgO = cVar.dtN();
+        for (int i2 = 0; i2 < this.mgO.length; i2 += 3) {
+            byte b2 = this.mgO[i2];
+            this.mgO[i2] = this.mgO[i2 + 2];
+            this.mgO[i2 + 2] = b2;
+            this.mgP[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int Z = cVar.Z(this.mlr[i3] & 255, this.mlr[i5] & 255, this.mlr[i6] & 255);
-            this.mlv[Z] = true;
-            this.mls[i4] = (byte) Z;
+            int Z = cVar.Z(this.mgL[i3] & 255, this.mgL[i5] & 255, this.mgL[i6] & 255);
+            this.mgP[Z] = true;
+            this.mgM[i4] = (byte) Z;
         }
-        this.mlr = null;
-        this.mlt = 8;
-        this.mlw = 7;
+        this.mgL = null;
+        this.mgN = 8;
+        this.mgQ = 7;
         if (this.transparent != -1) {
-            this.transIndex = HS(this.transparent);
+            this.transIndex = Gm(this.transparent);
         }
     }
 
-    protected int HS(int i) {
-        if (this.mlu == null) {
+    protected int Gm(int i) {
+        if (this.mgO == null) {
             return -1;
         }
         int i2 = (i >> 16) & 255;
         int i3 = (i >> 8) & 255;
         int i4 = (i >> 0) & 255;
         int i5 = 16777216;
-        int length = this.mlu.length;
+        int length = this.mgO.length;
         int i6 = 0;
         int i7 = 0;
         while (i6 < length) {
             int i8 = i6 + 1;
-            int i9 = i2 - (this.mlu[i6] & 255);
+            int i9 = i2 - (this.mgO[i6] & 255);
             int i10 = i8 + 1;
-            int i11 = i3 - (this.mlu[i8] & 255);
-            int i12 = i4 - (this.mlu[i10] & 255);
+            int i11 = i3 - (this.mgO[i8] & 255);
+            int i12 = i4 - (this.mgO[i10] & 255);
             int i13 = (i9 * i9) + (i11 * i11) + (i12 * i12);
             int i14 = i10 / 3;
-            if (!this.mlv[i14] || i13 >= i5) {
+            if (!this.mgP[i14] || i13 >= i5) {
                 i13 = i5;
                 i14 = i7;
             }
@@ -181,7 +181,7 @@ public class a {
         return i7;
     }
 
-    protected void dxt() {
+    protected void dtB() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -190,14 +190,14 @@ public class a {
             this.image = createBitmap;
         }
         int[] I = I(this.image);
-        this.mlr = new byte[I.length * 3];
+        this.mgL = new byte[I.length * 3];
         for (int i = 0; i < I.length; i++) {
             int i2 = I[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.mlr[i3] = (byte) ((i2 >> 0) & 255);
-            this.mlr[i4] = (byte) ((i2 >> 8) & 255);
-            this.mlr[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.mgL[i3] = (byte) ((i2 >> 0) & 255);
+            this.mgL[i4] = (byte) ((i2 >> 8) & 255);
+            this.mgL[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -209,7 +209,7 @@ public class a {
         return iArr;
     }
 
-    protected void dxu() throws IOException {
+    protected void dtC() throws IOException {
         int i;
         int i2;
         this.out.write(33);
@@ -231,48 +231,48 @@ public class a {
         this.out.write(0);
     }
 
-    protected void dxv() throws IOException {
+    protected void dtD() throws IOException {
         this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.mly) {
+        if (this.mgS) {
             this.out.write(0);
         } else {
-            this.out.write(this.mlw | 128);
+            this.out.write(this.mgQ | 128);
         }
     }
 
-    protected void dxw() throws IOException {
+    protected void dtE() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.mlw | 240);
+        this.out.write(this.mgQ | 240);
         this.out.write(0);
         this.out.write(0);
     }
 
-    protected void dxx() throws IOException {
+    protected void dtF() throws IOException {
         this.out.write(33);
         this.out.write(255);
         this.out.write(11);
         writeString("NETSCAPE2.0");
         this.out.write(3);
         this.out.write(1);
-        writeShort(this.mlq);
+        writeShort(this.mgK);
         this.out.write(0);
     }
 
-    protected void dxy() throws IOException {
-        this.out.write(this.mlu, 0, this.mlu.length);
-        int length = 768 - this.mlu.length;
+    protected void dtG() throws IOException {
+        this.out.write(this.mgO, 0, this.mgO.length);
+        int length = 768 - this.mgO.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
-    protected void dxz() throws IOException {
-        new b(this.width, this.height, this.mls, this.mlt).encode(this.out);
+    protected void dtH() throws IOException {
+        new b(this.width, this.height, this.mgM, this.mgN).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

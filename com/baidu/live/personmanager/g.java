@@ -1,7 +1,7 @@
 package com.baidu.live.personmanager;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends HttpMessage {
     private int mType;
 

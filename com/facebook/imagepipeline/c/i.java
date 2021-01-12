@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.b.p;
 import com.facebook.imagepipeline.c.h;
 /* loaded from: classes3.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> pCL;
-    private final boolean pDl;
-    private final b.a pDm;
-    private final boolean pDn;
-    private final com.facebook.common.g.b pDo;
-    private final boolean pDp;
-    private final boolean pDq;
-    private final int pDr;
-    private final int pDs;
-    private boolean pDt;
-    private final boolean pDu;
-    private final c pDv;
+    private final boolean pyK;
+    private final b.a pyL;
+    private final boolean pyM;
+    private final com.facebook.common.g.b pyN;
+    private final boolean pyO;
+    private final boolean pyP;
+    private final int pyQ;
+    private final int pyR;
+    private boolean pyS;
+    private final boolean pyT;
+    private final c pyU;
+    private final com.facebook.common.internal.j<Boolean> pyk;
 
     /* loaded from: classes3.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.pDl = aVar.pDl;
-        this.pDm = aVar.pDm;
-        this.pDn = aVar.pDn;
-        this.pDo = aVar.pDo;
-        this.pDp = aVar.pDp;
-        this.pDq = aVar.pDq;
-        this.pDr = aVar.pDr;
-        this.pDs = aVar.pDs;
-        this.pDt = aVar.pDt;
-        this.pDu = aVar.pDu;
-        if (aVar.pDv == null) {
-            this.pDv = new b();
+        this.pyK = aVar.pyK;
+        this.pyL = aVar.pyL;
+        this.pyM = aVar.pyM;
+        this.pyN = aVar.pyN;
+        this.pyO = aVar.pyO;
+        this.pyP = aVar.pyP;
+        this.pyQ = aVar.pyQ;
+        this.pyR = aVar.pyR;
+        this.pyS = aVar.pyS;
+        this.pyT = aVar.pyT;
+        if (aVar.pyU == null) {
+            this.pyU = new b();
         } else {
-            this.pDv = aVar.pDv;
+            this.pyU = aVar.pyU;
         }
-        this.pCL = aVar.pCL;
+        this.pyk = aVar.pyk;
     }
 
-    public boolean eyx() {
-        return this.pDp;
+    public boolean euF() {
+        return this.pyO;
     }
 
-    public boolean eyy() {
-        return this.pDl;
+    public boolean euG() {
+        return this.pyK;
     }
 
-    public boolean eyz() {
-        return this.pDn;
+    public boolean euH() {
+        return this.pyM;
     }
 
-    public b.a eyA() {
-        return this.pDm;
+    public b.a euI() {
+        return this.pyL;
     }
 
-    public com.facebook.common.g.b eyB() {
-        return this.pDo;
+    public com.facebook.common.g.b euJ() {
+        return this.pyN;
     }
 
-    public boolean eyC() {
-        return this.pDq;
+    public boolean euK() {
+        return this.pyP;
     }
 
-    public int eyD() {
-        return this.pDr;
+    public int euL() {
+        return this.pyQ;
     }
 
-    public int eyE() {
-        return this.pDs;
+    public int euM() {
+        return this.pyR;
     }
 
-    public boolean eyF() {
-        return this.pDu;
+    public boolean euN() {
+        return this.pyT;
     }
 
-    public c eyG() {
-        return this.pDv;
+    public c euO() {
+        return this.pyU;
     }
 
-    public boolean eyH() {
-        return this.pDt;
+    public boolean euP() {
+        return this.pyS;
     }
 
-    public com.facebook.common.internal.j<Boolean> eyI() {
-        return this.pCL;
+    public com.facebook.common.internal.j<Boolean> euQ() {
+        return this.pyk;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> pCL;
-        private b.a pDm;
-        private com.facebook.common.g.b pDo;
-        private c pDv;
-        private final h.a pDw;
-        private boolean pDl = false;
-        private boolean pDn = false;
-        private boolean pDp = false;
-        private boolean pDq = false;
-        private int pDr = 0;
-        private int pDs = 0;
-        public boolean pDt = false;
-        private boolean pDu = false;
+        private b.a pyL;
+        private com.facebook.common.g.b pyN;
+        private c pyU;
+        private final h.a pyV;
+        public com.facebook.common.internal.j<Boolean> pyk;
+        private boolean pyK = false;
+        private boolean pyM = false;
+        private boolean pyO = false;
+        private boolean pyP = false;
+        private int pyQ = 0;
+        private int pyR = 0;
+        public boolean pyS = false;
+        private boolean pyT = false;
 
         public a(h.a aVar) {
-            this.pDw = aVar;
+            this.pyV = aVar;
         }
 
-        public i eyJ() {
+        public i euR() {
             return new i(this);
         }
     }

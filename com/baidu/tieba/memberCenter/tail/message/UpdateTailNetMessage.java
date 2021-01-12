@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.UpdateTail.ReqData;
 import tbclient.UpdateTail.UpdateTailReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UpdateTailNetMessage extends NetMessage {
     ReqData.Builder data;
     UpdateTailReqIdl.Builder idl;

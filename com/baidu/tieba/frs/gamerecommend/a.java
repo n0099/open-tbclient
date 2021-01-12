@@ -10,11 +10,11 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private FrsGameRecommendFragment jxW;
+    private FrsGameRecommendFragment jtq;
 
     public a(String str, String str2) {
-        this.jxW = FrsGameRecommendFragment.fa(str, str2);
-        getFragmentTabStructure().frag = this.jxW;
+        this.jtq = FrsGameRecommendFragment.eZ(str, str2);
+        getFragmentTabStructure().frag = this.jtq;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

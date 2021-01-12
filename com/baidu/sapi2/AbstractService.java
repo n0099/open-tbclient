@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public abstract class AbstractService implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4785a = "3";
+    private static final String f4502a = "3";
     protected SapiConfiguration configuration;
     protected String versionName;
 

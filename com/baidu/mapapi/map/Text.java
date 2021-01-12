@@ -8,17 +8,17 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import vi.com.gdi.bgl.android.java.EnvDrawText;
-/* loaded from: classes3.dex */
+import com.baidu.mapapi.model.inner.GeoPoint;
+import mapsdkvi.com.gdi.bgl.android.java.EnvDrawText;
+/* loaded from: classes6.dex */
 public final class Text extends Overlay {
     private static final String k = Text.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    String f2879a;
+    String f2766a;
 
     /* renamed from: b  reason: collision with root package name */
-    LatLng f2880b;
+    LatLng f2767b;
     int c;
     int d;
     int e;
@@ -30,7 +30,7 @@ public final class Text extends Overlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Text() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.i.text;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.text;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,11 +48,11 @@ public final class Text extends Overlay {
         float f;
         float f2 = 0.5f;
         super.a(bundle);
-        if (this.f2880b == null) {
-            throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");
+        if (this.f2767b == null) {
+            throw new IllegalStateException("when you add a text overlay, you must provide text and the position info.");
         }
-        bundle.putString("text", this.f2879a);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2880b);
+        bundle.putString("text", this.f2766a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2767b);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("font_color", Color.argb(this.d >>> 24, this.d & 255, (this.d >> 8) & 255, (this.d >> 16) & 255));
@@ -113,7 +113,7 @@ public final class Text extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f2880b;
+        return this.f2767b;
     }
 
     public float getRotate() {
@@ -121,7 +121,7 @@ public final class Text extends Overlay {
     }
 
     public String getText() {
-        return this.f2879a;
+        return this.f2766a;
     }
 
     public Typeface getTypeface() {
@@ -155,9 +155,9 @@ public final class Text extends Overlay {
 
     public void setPosition(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
+            throw new IllegalArgumentException("position can not be null");
         }
-        this.f2880b = latLng;
+        this.f2767b = latLng;
         this.j = 1;
         this.listener.b(this);
     }
@@ -170,9 +170,9 @@ public final class Text extends Overlay {
 
     public void setText(String str) {
         if (str == null || str.equals("")) {
-            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
+            throw new IllegalArgumentException("text can not be null or empty");
         }
-        this.f2879a = str;
+        this.f2766a = str;
         this.j = 1;
         this.listener.b(this);
     }

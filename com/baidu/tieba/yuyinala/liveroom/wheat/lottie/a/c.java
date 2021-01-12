@@ -9,18 +9,18 @@ import com.baidu.live.tbadk.download.FileSerialDownLoader;
 import com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b;
 import java.io.File;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static String oDP = "audio_anim_md5_";
+    public static String ozk = "audio_anim_md5_";
 
     public static void b(final String str, final String str2, final b.a aVar) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !WF(str)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !Vx(str)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    return Boolean.valueOf(c.WG(str2));
+                    return Boolean.valueOf(c.Vy(str2));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c {
                     super.onPostExecute((AnonymousClass1) bool);
                     if (bool.booleanValue()) {
                         if (aVar != null) {
-                            aVar.zZ(true);
+                            aVar.zV(true);
                             return;
                         }
                         return;
@@ -41,37 +41,37 @@ public class c {
         }
     }
 
-    private static boolean WF(String str) {
+    private static boolean Vx(String str) {
         return FileSerialDownLoader.getInstance().isDownloading(str, 23);
     }
 
-    public static boolean WG(String str) {
+    public static boolean Vy(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = oDP + str;
-        String WH = WH(com.baidu.live.ah.b.iv(str));
-        return com.baidu.live.i.a.existFile(WH) && com.baidu.live.i.a.isDirectory(WH) && !com.baidu.live.i.b.b(WH, com.baidu.live.i.b.gt(str2));
+        String str2 = ozk + str;
+        String Vz = Vz(com.baidu.live.ah.b.hk(str));
+        return com.baidu.live.i.a.existFile(Vz) && com.baidu.live.i.a.isDirectory(Vz) && !com.baidu.live.i.b.b(Vz, com.baidu.live.i.b.fh(str2));
     }
 
-    public static void gR(String str, String str2) {
+    public static void gQ(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!TextUtils.isEmpty(str)) {
-            String WH = WH(str2);
-            if (com.baidu.live.i.a.existFile(WH) && com.baidu.live.i.a.isDirectory(WH) && (listFiles = new File(WH).listFiles()) != null) {
+            String Vz = Vz(str2);
+            if (com.baidu.live.i.a.existFile(Vz) && com.baidu.live.i.a.isDirectory(Vz) && (listFiles = new File(Vz).listFiles()) != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (File file : listFiles) {
                     if (file != null && !file.isDirectory() && (fileMd5 = com.baidu.live.i.a.getFileMd5(file)) != null) {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.Ba().putString(oDP + str, jSONArray.toString());
+                d.xf().putString(ozk + str, jSONArray.toString());
             }
         }
     }
 
-    public static String WH(String str) {
+    public static String Vz(String str) {
         if (com.baidu.live.i.a.existFile(str)) {
             if (!com.baidu.live.i.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
@@ -82,7 +82,7 @@ public class c {
                 return null;
             }
             if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
-                return WH(listFiles[0].getAbsolutePath());
+                return Vz(listFiles[0].getAbsolutePath());
             }
             return str;
         }

@@ -10,7 +10,7 @@ import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.b.a {
     @Override // com.baidu.tbadk.b.a
     public String key() {
@@ -22,7 +22,7 @@ public class a extends com.baidu.tbadk.b.a {
         Map.Entry<String, String> next;
         Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
         h hVar = new h();
-        hVar.eJd = str;
+        hVar.eEs = str;
         if (obj instanceof com.baidu.tieba.lego.card.model.a) {
             com.baidu.tieba.lego.card.model.a aVar = (com.baidu.tieba.lego.card.model.a) obj;
             Intent intent = new Intent(baseContext, AlarmReceiver.class);
@@ -38,8 +38,8 @@ public class a extends com.baidu.tbadk.b.a {
             }
             intent.setData(Uri.parse(currentAccount));
             hVar.result = PendingIntent.getBroadcast(baseContext, i, intent, 536870912) != null;
-            aVar.ty(true);
-            aVar.tx(hVar.result);
+            aVar.tu(true);
+            aVar.tt(hVar.result);
         }
         return hVar;
     }

@@ -1,7 +1,7 @@
 package com.kwai.video.hodor.util;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OnceReadyBarrier {
     private boolean mIsReady = false;
     private final Object mReadyLock = new Object();

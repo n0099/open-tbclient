@@ -31,53 +31,53 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private x aGe;
-    private k bFA;
-    private ILiveMultiBeautyView bFB;
-    private AlaLiveRecorder bFC;
-    private BdUniqueId bFD;
-    private boolean bFE = false;
-    private boolean bFF = false;
-    private CustomMessageListener bFG = new CustomMessageListener(2913150) { // from class: com.baidu.live.talentshow.a.a.1
+    private x aBr;
+    private k bAO;
+    private ILiveMultiBeautyView bAP;
+    private AlaLiveRecorder bAQ;
+    private BdUniqueId bAR;
+    private boolean bAS = false;
+    private boolean bAT = false;
+    private CustomMessageListener bAU = new CustomMessageListener(2913150) { // from class: com.baidu.live.talentshow.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof AlaFilterBeautyDataMessage) {
                 AlaFilterAndBeautyData data = ((AlaFilterBeautyDataMessage) customResponsedMessage).getData();
                 if (data == null) {
-                    if (a.this.bFE) {
+                    if (a.this.bAS) {
                         a.this.mPageContext.showToast(a.h.sdk_filter_beauty_no_data);
                     }
-                } else if (!data.aFs || a.this.bFD == null) {
-                    if (a.this.bFD != null && a.this.bFD == data.aFr) {
-                        a.this.UL();
-                        a.this.cU(false);
+                } else if (!data.aAF || a.this.bAR == null) {
+                    if (a.this.bAR != null && a.this.bAR == data.aAE) {
+                        a.this.QQ();
+                        a.this.cQ(false);
                     }
                 } else {
                     Log.d("ArUpdate", "点击请求——>返回本地数据 不弹面板");
                     a.this.mPageContext.showToast(a.h.sdk_filter_beauty_no_data);
                 }
-                a.this.bFE = false;
+                a.this.bAS = false;
             }
         }
     };
-    private CustomMessageListener bFH = new CustomMessageListener(2913196) { // from class: com.baidu.live.talentshow.a.a.2
+    private CustomMessageListener bAV = new CustomMessageListener(2913196) { // from class: com.baidu.live.talentshow.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2913196 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (a.this.bFC != null && !TextUtils.isEmpty(str)) {
-                    a.this.bFC.setBeautyJsonPath(str);
+                if (a.this.bAQ != null && !TextUtils.isEmpty(str)) {
+                    a.this.bAQ.setBeautyJsonPath(str);
                     Log.d("ArUpdate", "mUpdateFaceFileListener filePath:" + str);
-                    d.Ba().putString("beauty_face_feature", str);
+                    d.xf().putString("beauty_face_feature", str);
                 }
             }
         }
     };
-    private m bFI = new m() { // from class: com.baidu.live.talentshow.a.a.3
+    private m bAW = new m() { // from class: com.baidu.live.talentshow.a.a.3
         @Override // com.baidu.live.ar.m
         public void onClosed() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913147));
@@ -85,43 +85,43 @@ public class a {
 
         @Override // com.baidu.live.ar.m
         public void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey) {
-            if (!TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && a.this.bFC != null && AlaFilterAndBeautyData.aFq != null && AlaFilterAndBeautyData.aFq.get(beautyAdjustKey) != null) {
-                a.this.bFC.onBeautyParamsChanged(f, AlaFilterAndBeautyData.aFq.get(beautyAdjustKey).CH());
+            if (!TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && a.this.bAQ != null && AlaFilterAndBeautyData.aAD != null && AlaFilterAndBeautyData.aAD.get(beautyAdjustKey) != null) {
+                a.this.bAQ.onBeautyParamsChanged(f, AlaFilterAndBeautyData.aAD.get(beautyAdjustKey).yM());
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void a(m.a aVar) {
-            if (a.this.bFC != null && aVar != null && !TextUtils.isEmpty(aVar.getType())) {
-                a.this.bFC.onBeautyParamsChanged(aVar.getType(), aVar.CU());
+            if (a.this.bAQ != null && aVar != null && !TextUtils.isEmpty(aVar.getType())) {
+                a.this.bAQ.onBeautyParamsChanged(aVar.getType(), aVar.yZ());
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void a(float f, HashMap<String, Object> hashMap) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onBeautyParamsChanged(f, hashMap);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onBeautyParamsChanged(f, hashMap);
             }
         }
 
         @Override // com.baidu.live.ar.m
-        public void CS() {
+        public void yX() {
             AlaFilterAndBeautyData.BeautyAdjustKey[] values;
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                if (AlaFilterAndBeautyData.aFq != null && AlaFilterAndBeautyData.aFq.get(beautyAdjustKey) != null) {
+                if (AlaFilterAndBeautyData.aAD != null && AlaFilterAndBeautyData.aAD.get(beautyAdjustKey) != null) {
                     String jsonKey = beautyAdjustKey.getJsonKey();
                     if (!TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
                         if (beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.chin) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.upCount)) {
-                            a(((AlaFilterAndBeautyData.aFq.get(beautyAdjustKey).CG() + 50) * 1.0f) / 100.0f, beautyAdjustKey);
+                            a(((AlaFilterAndBeautyData.aAD.get(beautyAdjustKey).yL() + 50) * 1.0f) / 100.0f, beautyAdjustKey);
                         } else if (TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey()) || TextUtils.equals(jsonKey, AlaFilterAndBeautyData.BeautyAdjustKey.smooth.getJsonKey())) {
                             try {
-                                a((new JSONObject(e.aFM.toJsonString()).getInt(jsonKey) * 1.0f) / 100.0f, beautyAdjustKey);
+                                a((new JSONObject(e.aAZ.toJsonString()).getInt(jsonKey) * 1.0f) / 100.0f, beautyAdjustKey);
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                a((AlaFilterAndBeautyData.aFq.get(beautyAdjustKey).CG() * 1.0f) / 100.0f, beautyAdjustKey);
+                                a((AlaFilterAndBeautyData.aAD.get(beautyAdjustKey).yL() * 1.0f) / 100.0f, beautyAdjustKey);
                             }
                         } else {
-                            a((AlaFilterAndBeautyData.aFq.get(beautyAdjustKey).CG() * 1.0f) / 100.0f, beautyAdjustKey);
+                            a((AlaFilterAndBeautyData.aAD.get(beautyAdjustKey).yL() * 1.0f) / 100.0f, beautyAdjustKey);
                         }
                     }
                 }
@@ -129,10 +129,10 @@ public class a {
         }
 
         @Override // com.baidu.live.ar.m
-        public void CT() {
+        public void yY() {
             AlaFilterAndBeautyData.BeautyAdjustKey[] values;
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                if (AlaFilterAndBeautyData.aFq != null && AlaFilterAndBeautyData.aFq.get(beautyAdjustKey) != null && !TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                if (AlaFilterAndBeautyData.aAD != null && AlaFilterAndBeautyData.aAD.get(beautyAdjustKey) != null && !TextUtils.equals(beautyAdjustKey.getJsonKey(), AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
                     if (beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.chin) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance) || beautyAdjustKey.equals(AlaFilterAndBeautyData.BeautyAdjustKey.upCount)) {
                         a(0.5f, beautyAdjustKey);
                     } else {
@@ -144,43 +144,43 @@ public class a {
 
         @Override // com.baidu.live.ar.m
         public void onBlurLevelSelected(int i) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onBlurLevelSelected(i);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onBlurLevelSelected(i);
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void onFilterSelected(String str, String str2, float f) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onFilterSelected(str, str2, f);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onFilterSelected(str, str2, f);
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void t(int i, int i2) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onColorLevelSelected((1.0f * i) / i2);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onColorLevelSelected((1.0f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void u(int i, int i2) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onCheekThinSelected((1.0f * i) / i2);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onCheekThinSelected((1.0f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void v(int i, int i2) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onEnlargeEyeSelected((0.8f * i) / i2);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onEnlargeEyeSelected((0.8f * i) / i2);
             }
         }
 
         @Override // com.baidu.live.ar.m
         public void w(int i, int i2) {
-            if (a.this.bFC != null) {
-                a.this.bFC.onRedLevelSelected((1.0f * i) / i2);
+            if (a.this.bAQ != null) {
+                a.this.bAQ.onRedLevelSelected((1.0f * i) / i2);
             }
         }
     };
@@ -192,136 +192,136 @@ public class a {
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
         this.mParent = viewGroup;
-        this.bFC = alaLiveRecorder;
-        this.bFG.setTag(tbPageContext.getUniqueId());
-        this.bFH.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.bFG);
-        MessageManager.getInstance().registerListener(this.bFH);
-        UH();
+        this.bAQ = alaLiveRecorder;
+        this.bAU.setTag(tbPageContext.getUniqueId());
+        this.bAV.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.bAU);
+        MessageManager.getInstance().registerListener(this.bAV);
+        QM();
     }
 
     public void setLiveShowData(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
-    public void UH() {
+    public void QM() {
         CustomResponsedMessage runTask;
-        if (this.bFA == null && (runTask = MessageManager.getInstance().runTask(2913177, k.class, this.mPageContext.getPageActivity())) != null) {
-            this.bFA = (k) runTask.getData();
+        if (this.bAO == null && (runTask = MessageManager.getInstance().runTask(2913177, k.class, this.mPageContext.getPageActivity())) != null) {
+            this.bAO = (k) runTask.getData();
         }
-        if (this.bFA != null) {
-            this.bFA.b(null);
-            this.bFA.c(null);
+        if (this.bAO != null) {
+            this.bAO.b(null);
+            this.bAO.c(null);
         }
     }
 
-    public void UI() {
-        if (this.bFA == null) {
-            UH();
+    public void QN() {
+        if (this.bAO == null) {
+            QM();
         }
-        if (this.bFA != null && UJ()) {
-            if (UK()) {
-                if (this.bFC.hasAdvancedBeauty()) {
-                    UL();
-                    cU(this.bFF);
-                    this.bFF = true;
+        if (this.bAO != null && QO()) {
+            if (QP()) {
+                if (this.bAQ.hasAdvancedBeauty()) {
+                    QQ();
+                    cQ(this.bAT);
+                    this.bAT = true;
                 }
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 this.mPageContext.showToast(a.h.sdk_filter_beauty_no_net);
-            } else if (this.bFE) {
+            } else if (this.bAS) {
                 this.mPageContext.showToast(a.h.live_chat_init_ar_resource);
             } else {
-                this.bFD = BdUniqueId.gen();
-                this.bFA.a(this.bFD);
-                this.bFE = true;
+                this.bAR = BdUniqueId.gen();
+                this.bAO.a(this.bAR);
+                this.bAS = true;
             }
         }
     }
 
-    public boolean UJ() {
-        if (this.bFB == null && bo.b(com.baidu.live.af.a.SE().bCb)) {
+    public boolean QO() {
+        if (this.bAP == null && bo.b(com.baidu.live.af.a.OJ().bxp)) {
             com.baidu.live.ar.a aVar = new com.baidu.live.ar.a();
-            aVar.aEG = this.mPageContext;
+            aVar.azT = this.mPageContext;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913176, ILiveMultiBeautyView.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.bFB = (ILiveMultiBeautyView) runTask.getData();
-                this.bFB.setArModel(this.bFA);
+                this.bAP = (ILiveMultiBeautyView) runTask.getData();
+                this.bAP.setArModel(this.bAO);
             }
         }
-        if (this.bFB == null) {
+        if (this.bAP == null) {
             return false;
         }
-        this.bFB.setBdPageContext(this.mPageContext);
-        this.bFB.setOnEffectSelectedListener(this.bFI);
-        this.bFB.setAlaLiveShowData(this.aGe);
+        this.bAP.setBdPageContext(this.mPageContext);
+        this.bAP.setOnEffectSelectedListener(this.bAW);
+        this.bAP.setAlaLiveShowData(this.aBr);
         return true;
     }
 
-    private boolean UK() {
-        return (this.bFA.CP() == null || ListUtils.isEmpty(this.bFA.CP().aFl)) ? false : true;
+    private boolean QP() {
+        return (this.bAO.yU() == null || ListUtils.isEmpty(this.bAO.yU().aAy)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UL() {
-        if (this.bFB != null) {
-            this.bFB.setAlaLiveShowData(this.aGe);
-            if (this.bFB.getParent() != null) {
-                ((ViewGroup) this.bFB.getParent()).removeView(this.bFB);
+    public void QQ() {
+        if (this.bAP != null) {
+            this.bAP.setAlaLiveShowData(this.aBr);
+            if (this.bAP.getParent() != null) {
+                ((ViewGroup) this.bAP.getParent()).removeView(this.bAP);
             }
             if (TbadkCoreApplication.getInst().isNotMobileBaidu() && (this.mContext instanceof Activity)) {
                 if (((Activity) this.mContext).getApplication().getResources().getConfiguration().orientation == 1) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                     layoutParams.gravity = 80;
-                    this.mParent.addView(this.bFB, layoutParams);
+                    this.mParent.addView(this.bAP, layoutParams);
                 } else {
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -1);
                     layoutParams2.gravity = 5;
-                    this.mParent.addView(this.bFB, layoutParams2);
+                    this.mParent.addView(this.bAP, layoutParams2);
                 }
             } else if (this.mContext.getResources().getConfiguration().orientation == 1) {
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams3.gravity = 80;
-                this.mParent.addView(this.bFB, layoutParams3);
+                this.mParent.addView(this.bAP, layoutParams3);
             } else {
                 FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-2, -1);
                 layoutParams4.gravity = 5;
-                this.mParent.addView(this.bFB, layoutParams4);
+                this.mParent.addView(this.bAP, layoutParams4);
             }
-            this.bFB.setVisibility(0);
-            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_BEAUTY_SHOW).setContentExt(null, "popup", null));
+            this.bAP.setVisibility(0);
+            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_BC_CHAT_DUO_BEAUTY_SHOW).setContentExt(null, UbcStatConstant.SubPage.POPUP, null));
         }
     }
 
-    public void cU(boolean z) {
-        if (this.bFB != null) {
-            this.bFB.setAlaLiveShowData(this.aGe);
+    public void cQ(boolean z) {
+        if (this.bAP != null) {
+            this.bAP.setAlaLiveShowData(this.aBr);
             if (z) {
-                this.bFB.CQ();
-            } else if (bo.b(com.baidu.live.af.a.SE().bCb)) {
-                this.bFB.setViewData();
+                this.bAP.yV();
+            } else if (bo.b(com.baidu.live.af.a.OJ().bxp)) {
+                this.bAP.setViewData();
             }
         }
     }
 
-    public void cV(boolean z) {
-        if (this.bFB != null) {
+    public void cR(boolean z) {
+        if (this.bAP != null) {
             if (z) {
-                this.bFB.CR();
+                this.bAP.yW();
             }
-            if (this.bFB.getParent() != null) {
-                ((ViewGroup) this.bFB.getParent()).removeView(this.bFB);
+            if (this.bAP.getParent() != null) {
+                ((ViewGroup) this.bAP.getParent()).removeView(this.bAP);
             }
-            e.aFN.aFB = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
+            e.aBa.aAO = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bFG);
-        MessageManager.getInstance().unRegisterListener(this.bFH);
-        cV(true);
-        if (this.bFA != null) {
-            this.bFA.destory();
-            this.bFA = null;
+        MessageManager.getInstance().unRegisterListener(this.bAU);
+        MessageManager.getInstance().unRegisterListener(this.bAV);
+        cR(true);
+        if (this.bAO != null) {
+            this.bAO.destory();
+            this.bAO = null;
         }
     }
 }

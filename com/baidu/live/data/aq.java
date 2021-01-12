@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class aq {
-    public int aPG;
-    public ArrayList<ap> aPH;
-    public int aPN;
-    public int aPP;
-    public boolean aPI = false;
-    public String aPJ = "";
-    public boolean aPK = false;
-    public String aPL = "";
-    public int aPM = 0;
-    public int aPO = 0;
+    public int aKT;
+    public ArrayList<ap> aKU;
+    public int aLa;
+    public int aLc;
+    public boolean aKV = false;
+    public String aKW = "";
+    public boolean aKX = false;
+    public String aKY = "";
+    public int aKZ = 0;
+    public int aLb = 0;
 
     public void parserJson(JSONObject jSONObject) {
-        this.aPG = jSONObject.optInt("received");
-        this.aPH = new ArrayList<>();
-        this.aPI = jSONObject.optInt("petal_task_switch", 0) == 1;
-        this.aPK = jSONObject.optInt("redpacket_task_switch", 0) == 1;
-        this.aPJ = jSONObject.optString("task_url");
-        this.aPL = jSONObject.optString("task_pendant_url");
+        this.aKT = jSONObject.optInt("received");
+        this.aKU = new ArrayList<>();
+        this.aKV = jSONObject.optInt("petal_task_switch", 0) == 1;
+        this.aKX = jSONObject.optInt("redpacket_task_switch", 0) == 1;
+        this.aKW = jSONObject.optString("task_url");
+        this.aKY = jSONObject.optString("task_pendant_url");
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -33,32 +33,32 @@ public class aq {
                     ap apVar = new ap();
                     apVar.parseJson(optJSONObject);
                     a(apVar);
-                    this.aPH.add(apVar);
+                    this.aKU.add(apVar);
                 }
             }
         }
     }
 
     private void a(ap apVar) {
-        if (apVar.aPz == 8) {
-            if (apVar.aPD != null) {
-                this.aPM = apVar.aPD.aPQ;
+        if (apVar.aKM == 8) {
+            if (apVar.aKQ != null) {
+                this.aKZ = apVar.aKQ.aLd;
             }
-            this.aPN = apVar.status;
+            this.aLa = apVar.status;
         }
-        if (apVar.aPz == 1 && apVar.aPD != null) {
-            if (apVar.aPD != null) {
-                this.aPO = apVar.aPD.aPQ;
+        if (apVar.aKM == 1 && apVar.aKQ != null) {
+            if (apVar.aKQ != null) {
+                this.aLb = apVar.aKQ.aLd;
             }
-            this.aPP = apVar.status;
+            this.aLc = apVar.status;
         }
     }
 
-    public boolean EZ() {
-        if (!ListUtils.isEmpty(this.aPH)) {
-            Iterator<ap> it = this.aPH.iterator();
+    public boolean Be() {
+        if (!ListUtils.isEmpty(this.aKU)) {
+            Iterator<ap> it = this.aKU.iterator();
             while (it.hasNext()) {
-                if (it.next().EY()) {
+                if (it.next().Bd()) {
                     return true;
                 }
             }
@@ -66,12 +66,12 @@ public class aq {
         return false;
     }
 
-    public ap Fa() {
-        if (!ListUtils.isEmpty(this.aPH)) {
-            Iterator<ap> it = this.aPH.iterator();
+    public ap Bf() {
+        if (!ListUtils.isEmpty(this.aKU)) {
+            Iterator<ap> it = this.aKU.iterator();
             while (it.hasNext()) {
                 ap next = it.next();
-                if (next.EW()) {
+                if (next.Bb()) {
                     return next;
                 }
             }

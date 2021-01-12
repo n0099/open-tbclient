@@ -1,7 +1,7 @@
 package com.baidu.searchbox.unitedscheme.utils;
 
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class UnitedSchemeConstants {
     public static final String CALL_BACK = "anotherCallBack";
     public static final boolean DEBUG = false;

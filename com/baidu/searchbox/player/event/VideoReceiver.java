@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import androidx.annotation.NonNull;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
@@ -166,7 +165,7 @@ public class VideoReceiver extends BroadcastReceiver {
                         return;
                     }
                 case 7:
-                    BdBatteryUtils.batter_level = (intent.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100) / intent.getIntExtra("scale", 1);
+                    BdBatteryUtils.batter_level = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
                     this.mListener.onBatteryChanged(BdBatteryUtils.batter_level);
                     return;
                 case '\b':

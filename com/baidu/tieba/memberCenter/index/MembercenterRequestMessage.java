@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetVipInfo.DataReq;
 import tbclient.GetVipInfo.GetVipInfoReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MembercenterRequestMessage extends NetMessage {
     public MembercenterRequestMessage() {
         super(1003048, CmdConfigSocket.CMD_MEMBERCENTER_INDEX);

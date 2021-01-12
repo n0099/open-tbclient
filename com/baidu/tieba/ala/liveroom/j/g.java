@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.j;
 
 import java.util.HashSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static HashSet<Integer> hDS = new HashSet<>();
+    private static HashSet<Integer> hzm = new HashSet<>();
 
-    public static void wU(int i) {
-        if (hDS != null) {
-            hDS.add(Integer.valueOf(i));
+    public static void vo(int i) {
+        if (hzm != null) {
+            hzm.add(Integer.valueOf(i));
         }
     }
 
-    public static void wV(int i) {
-        if (hDS != null) {
-            hDS.remove(Integer.valueOf(i));
+    public static void vp(int i) {
+        if (hzm != null) {
+            hzm.remove(Integer.valueOf(i));
         }
     }
 
@@ -22,11 +22,11 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean wW(int i) {
+    public static boolean vq(int i) {
         int i2 = 2913168;
-        if (hDS != null) {
-            if (!hDS.contains(2913168)) {
-                if (hDS.contains(2913128)) {
+        if (hzm != null) {
+            if (!hzm.contains(2913168)) {
+                if (hzm.contains(2913128)) {
                     i2 = 2913128;
                 }
             }
@@ -37,9 +37,9 @@ public class g {
         }
     }
 
-    public static void cii() {
-        if (hDS != null) {
-            hDS.clear();
+    public static void ceq() {
+        if (hzm != null) {
+            hzm.clear();
         }
     }
 }

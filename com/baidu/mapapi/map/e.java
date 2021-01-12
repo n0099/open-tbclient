@@ -1,45 +1,37 @@
 package com.baidu.mapapi.map;
 
-import android.os.Bundle;
-import android.util.Log;
-import java.util.concurrent.locks.Lock;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class e implements com.baidu.mapsdkplatform.comapi.map.l {
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapsdkplatform.comapi.map.aa;
+/* loaded from: classes6.dex */
+/* synthetic */ class e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2915a;
+    static final /* synthetic */ int[] f2792a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(BaiduMap baiduMap) {
-        this.f2915a = baiduMap;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    static final /* synthetic */ int[] f2793b = new int[aa.values().length];
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public Bundle a(int i, int i2, int i3) {
-        Lock lock;
-        Lock lock2;
-        HeatMap heatMap;
-        Lock lock3;
-        HeatMap heatMap2;
-        lock = this.f2915a.I;
-        lock.lock();
+    static {
         try {
-            heatMap = this.f2915a.H;
-            if (heatMap != null) {
-                heatMap2 = this.f2915a.H;
-                Tile a2 = heatMap2.a(i, i2, i3);
-                Log.e("SPTest", "mapLayerDataReq t == null = " + (a2 == null));
-                if (a2 != null) {
-                    return a2.toBundle();
-                }
-            }
-            lock3 = this.f2915a.I;
-            lock3.unlock();
-            return null;
-        } finally {
-            lock2 = this.f2915a.I;
-            lock2.unlock();
+            f2793b[aa.TextureView.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            f2793b[aa.GLSurfaceView.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        f2792a = new int[MyLocationConfiguration.LocationMode.values().length];
+        try {
+            f2792a[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            f2792a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            f2792a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
+        } catch (NoSuchFieldError e5) {
         }
     }
 }

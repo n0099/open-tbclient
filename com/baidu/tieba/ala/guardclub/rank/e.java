@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.guardclub.rank;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface e {
     void onDestoryView();
 

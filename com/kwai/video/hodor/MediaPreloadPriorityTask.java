@@ -12,7 +12,7 @@ import com.kwai.video.hodor.util.Timber;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MediaPreloadPriorityTask extends AbstractHodorPreloadTask {
     @AccessedByNative
     private AwesomeCacheCallback mAwesomeCacheCallback;

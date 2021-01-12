@@ -17,18 +17,18 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private static volatile c qgw = null;
+    private static volatile c qbV = null;
     private ConcurrentHashMap c = new ConcurrentHashMap(10);
     private Context d;
-    private e qgv;
+    private e qbU;
 
     private c(Context context) {
-        this.qgv = null;
+        this.qbU = null;
         try {
             this.d = context;
-            this.qgv = new e(this.d);
+            this.qbU = new e(this.d);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
@@ -113,15 +113,15 @@ public class c {
         }
     }
 
-    public static c je(Context context) {
-        if (qgw == null) {
+    public static c jc(Context context) {
+        if (qbV == null) {
             synchronized (c.class) {
-                if (qgw == null) {
-                    qgw = new c(context);
+                if (qbV == null) {
+                    qbV = new c(context);
                 }
             }
         }
-        return qgw;
+        return qbV;
     }
 
     public final synchronized Pair a() {
@@ -135,7 +135,7 @@ public class c {
                 }
             }
             this.c.clear();
-            String b2 = this.qgv.b();
+            String b2 = this.qbU.b();
             if (!TextUtils.isEmpty(b2)) {
                 try {
                     bArr = Base64.decode(b2, 0);
@@ -190,7 +190,7 @@ public class c {
                     }
                 }
                 if (bArr != null) {
-                    this.qgv.a(new String(bArr));
+                    this.qbU.a(new String(bArr));
                 }
             } catch (Throwable th3) {
             }
@@ -202,18 +202,18 @@ public class c {
                         a3 = b("Lm91a2R0ZnQ=");
                     }
                 }
-                if (!TextUtils.isEmpty(a3) && (linkedHashMap = abV(a3)) != null) {
-                    String b2 = b.qgu.b();
+                if (!TextUtils.isEmpty(a3) && (linkedHashMap = aaN(a3)) != null) {
+                    String b2 = b.qbT.b();
                     if (!TextUtils.isEmpty(b2)) {
                         if (linkedHashMap.containsKey(b2)) {
                             linkedHashMap.remove(b2);
                         }
-                        linkedHashMap.put(b.qgu.b(), str);
+                        linkedHashMap.put(b.qbT.b(), str);
                     }
                 }
                 if (linkedHashMap == null || linkedHashMap.size() == 0) {
                     linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put(b.qgu.b(), str);
+                    linkedHashMap.put(b.qbT.b(), str);
                 }
                 String a4 = a(linkedHashMap);
                 if (!TextUtils.isEmpty(a4)) {
@@ -229,7 +229,7 @@ public class c {
         }
     }
 
-    public final LinkedHashMap abV(String str) {
+    public final LinkedHashMap aaN(String str) {
         ObjectInputStream objectInputStream;
         if (TextUtils.isEmpty(str)) {
             return null;

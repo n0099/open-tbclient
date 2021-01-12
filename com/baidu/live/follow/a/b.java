@@ -8,10 +8,10 @@ import com.baidu.live.follow.a.c;
 import com.baidu.live.follow.http.FollowStatusHttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements c {
-    private c.a aWH;
-    private HttpMessageListener aWI;
+    private c.a aRU;
+    private HttpMessageListener aRV;
 
     static {
         registerTask();
@@ -19,12 +19,12 @@ public class b implements c {
 
     @Override // com.baidu.live.follow.a.c
     public void a(c.a aVar) {
-        this.aWH = aVar;
+        this.aRU = aVar;
     }
 
     @Override // com.baidu.live.follow.a.c
-    public void at(String str, String str2) {
-        FV();
+    public void as(String str, String str2) {
+        Ca();
         com.baidu.live.follow.http.b bVar = new com.baidu.live.follow.http.b();
         bVar.setUserId(str);
         bVar.setLiveId(str2);
@@ -33,15 +33,15 @@ public class b implements c {
 
     @Override // com.baidu.live.follow.a.c
     public void release() {
-        this.aWH = null;
+        this.aRU = null;
         unRegisterListener();
     }
 
     private static void registerTask() {
-        FU();
+        BZ();
     }
 
-    private static void FU() {
+    private static void BZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021196, TbConfig.SERVER_ADDRESS + "ala/sdk/user/isFollow");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -52,26 +52,26 @@ public class b implements c {
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aWI);
+        MessageManager.getInstance().unRegisterListener(this.aRV);
     }
 
-    private void FV() {
-        if (this.aWI == null) {
-            this.aWI = new HttpMessageListener(1021196) { // from class: com.baidu.live.follow.a.b.1
+    private void Ca() {
+        if (this.aRV == null) {
+            this.aRV = new HttpMessageListener(1021196) { // from class: com.baidu.live.follow.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (b.this.aWH != null && (httpResponsedMessage instanceof FollowStatusHttpResponsedMessage)) {
+                    if (b.this.aRU != null && (httpResponsedMessage instanceof FollowStatusHttpResponsedMessage)) {
                         FollowStatusHttpResponsedMessage followStatusHttpResponsedMessage = (FollowStatusHttpResponsedMessage) httpResponsedMessage;
                         if (followStatusHttpResponsedMessage.getError() == 0) {
-                            b.this.aWH.a(true, "", followStatusHttpResponsedMessage.FT());
+                            b.this.aRU.a(true, "", followStatusHttpResponsedMessage.BY());
                         } else {
-                            b.this.aWH.a(false, followStatusHttpResponsedMessage.getErrorString(), false);
+                            b.this.aRU.a(false, followStatusHttpResponsedMessage.getErrorString(), false);
                         }
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.aWI);
+        MessageManager.getInstance().registerListener(this.aRV);
     }
 }

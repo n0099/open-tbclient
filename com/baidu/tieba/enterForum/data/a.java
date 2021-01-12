@@ -6,11 +6,11 @@ public class a extends v {
     private boolean isTop;
 
     public a(boolean z) {
-        ox(10);
+        mR(10);
         this.isTop = z;
     }
 
-    public boolean bsb() {
+    public boolean boh() {
         return this.isTop;
     }
 }

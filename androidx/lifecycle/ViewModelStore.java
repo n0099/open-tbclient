@@ -1,7 +1,7 @@
 package androidx.lifecycle;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ViewModelStore {
     private final HashMap<String, ViewModel> mMap = new HashMap<>();
 

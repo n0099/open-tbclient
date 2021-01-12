@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class LocaleListHelper {
     private static final int NUM_PSEUDO_LOCALES = 2;
     private static final String STRING_AR_XB = "ar-XB";
@@ -25,7 +25,7 @@ final class LocaleListHelper {
     private final String mStringRepresentation;
     private static final Locale[] sEmptyList = new Locale[0];
     private static final LocaleListHelper sEmptyLocaleList = new LocaleListHelper(new Locale[0]);
-    private static final Locale LOCALE_EN_XA = new Locale(h.f1997a, "XA");
+    private static final Locale LOCALE_EN_XA = new Locale(h.f1947a, "XA");
     private static final Locale LOCALE_AR_XB = new Locale("ar", "XB");
     private static final Locale EN_LATN = LocaleHelper.forLanguageTag("en-Latn");
     private static final Object sLock = new Object();

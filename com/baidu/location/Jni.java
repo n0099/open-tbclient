@@ -1,12 +1,12 @@
 package com.baidu.location;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Jni {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2570a = 0;
+    private static int f2520a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f2571b = 1;
+    private static int f2521b = 1;
     private static int c = 2;
     private static int d = 11;
     private static int e = 12;
@@ -19,7 +19,7 @@ public class Jni {
     static {
         j = false;
         try {
-            System.loadLibrary("locSDK8a");
+            System.loadLibrary("locSDK7b");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
@@ -39,9 +39,9 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-            i2 = f2570a;
+            i2 = f2520a;
         } else if (str.equals("bd09ll")) {
-            i2 = f2571b;
+            i2 = f2521b;
         } else if (str.equals("gcj02")) {
             i2 = c;
         } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
@@ -169,12 +169,6 @@ public class Jni {
         return str3 + "|tp=4";
     }
 
-    private static native byte[] encrypt(byte[] bArr);
-
-    private static native void f(byte[] bArr, byte[] bArr2);
-
-    private static native String g(byte[] bArr);
-
     public static double getGpsSwiftRadius(float f2, double d2, double d3) {
         if (j) {
             return 0.0d;
@@ -186,21 +180,7 @@ public class Jni {
         }
     }
 
-    public static String getldkaiv() {
-        if (j) {
-            return null;
-        }
-        try {
-            return ldkaiv();
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
-
     private static native double gsr(float f2, double d2, double d3);
-
-    private static native String ldkaiv();
 
     private static native long murmur(String str);
 }

@@ -8,26 +8,26 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tbadk.suspended.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
-    private RelevanceItemSearchView ohs;
+    private RelevanceItemSearchView ocM;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.ohs = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-        return this.ohs;
+        this.ocM = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+        return this.ocM;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bIn() {
+    protected void bEv() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ohs != null) {
-            this.ohs.onDestroy();
+        if (this.ocM != null) {
+            this.ocM.onDestroy();
         }
     }
 
@@ -58,7 +58,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view.getHeight() + i2));
     }
 
-    public RelevanceItemSearchView ebi() {
-        return this.ohs;
+    public RelevanceItemSearchView dXq() {
+        return this.ocM;
     }
 }

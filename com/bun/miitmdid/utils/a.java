@@ -3,10 +3,10 @@ package com.bun.miitmdid.utils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public class a {
-    private static a pgt;
+    private static a pbQ;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6064b = -1;
+    private int f5764b = -1;
 
     private a() {
     }
@@ -24,7 +24,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        eoM().f6064b = z ? 1 : 0;
+        ekQ().f5764b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -40,17 +40,17 @@ public class a {
     }
 
     public static boolean b() {
-        return eoM().f6064b == 1;
+        return ekQ().f5764b == 1;
     }
 
-    public static a eoM() {
-        if (pgt == null) {
+    public static a ekQ() {
+        if (pbQ == null) {
             synchronized (a.class) {
-                if (pgt == null) {
-                    pgt = new a();
+                if (pbQ == null) {
+                    pbQ = new a();
                 }
             }
         }
-        return pgt;
+        return pbQ;
     }
 }

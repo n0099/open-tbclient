@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ag;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements ag, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> mdT;
-    public String mdU;
+    private ArrayList<PreLoadImageInfo> lZm;
+    public String lZn;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.mdT = new ArrayList<>(1);
+            this.lZm = new ArrayList<>(1);
             this.src = excContent.src;
-            this.mdU = excContent.bsize;
-            if (this.mdU != null) {
+            this.lZn = excContent.bsize;
+            if (this.lZn != null) {
                 try {
-                    String[] split = this.mdU.split(",");
+                    String[] split = this.lZn.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -44,7 +44,7 @@ public class e implements ag, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.mdT.add(preLoadImageInfo);
+            this.lZm.add(preLoadImageInfo);
         }
     }
 
@@ -52,7 +52,7 @@ public class e implements ag, d {
         return this.src;
     }
 
-    public int HE(int i) {
+    public int FY(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -66,6 +66,6 @@ public class e implements ag, d {
 
     @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.mdT;
+        return this.lZm;
     }
 }

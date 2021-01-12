@@ -4,28 +4,28 @@ import android.os.Build;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class w {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f5568b = Runtime.getRuntime().availableProcessors();
+    private static final int f5285b = Runtime.getRuntime().availableProcessors();
     private static volatile w c;
 
     /* renamed from: a  reason: collision with root package name */
-    private ThreadPoolExecutor f5569a;
+    private ThreadPoolExecutor f5286a;
 
     private w() {
-        this.f5569a = null;
-        int max = Math.max(7, (f5568b * 2) + 3);
-        this.f5569a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f5286a = null;
+        int max = Math.max(7, (f5285b * 2) + 3);
+        this.f5286a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f5569a.allowCoreThreadTimeOut(true);
+            this.f5286a.allowCoreThreadTimeOut(true);
         }
     }
 
     public final void a(Runnable runnable) {
         try {
-            this.f5569a.execute(runnable);
+            this.f5286a.execute(runnable);
         } catch (Throwable th) {
             e.a();
         }

@@ -17,35 +17,35 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements Runnable {
-    private static final String[] dnV = {"image/jpeg", "image/png", DownloadConstants.MIMETYPE_GIF};
-    private String dhe;
+    private static final String[] dji = {"image/jpeg", "image/png", DownloadConstants.MIMETYPE_GIF};
+    private String dcp;
     private Handler mHandler;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> dnU = new ArrayList<>();
-    private ArrayList<MediaModel> dmI = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> djh = new ArrayList<>();
+    private ArrayList<MediaModel> dhT = new ArrayList<>();
 
     public a(String str, Handler handler) {
-        this.dhe = str;
+        this.dcp = str;
         this.mHandler = handler;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        aEW();
-        aEX();
-        u(this.dnU);
+        aBc();
+        aBd();
+        p(this.djh);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.qy(d.ak(AppRuntime.getAppContext(), this.dhe));
-        aVar.dnT = this.dmI;
-        this.dnU.add(0, aVar);
-        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.dnU.iterator();
+        aVar.pn(d.ak(AppRuntime.getAppContext(), this.dcp));
+        aVar.djg = this.dhT;
+        this.djh.add(0, aVar);
+        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.djh.iterator();
         while (it.hasNext()) {
-            Collections.sort(it.next().aEM());
+            Collections.sort(it.next().aAS());
         }
         if (this.mHandler != null) {
             Message obtainMessage = this.mHandler.obtainMessage(0);
-            obtainMessage.obj = this.dnU;
+            obtainMessage.obj = this.djh;
             this.mHandler.sendMessage(obtainMessage);
         }
     }
@@ -55,20 +55,20 @@ public class a implements Runnable {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    private void aEW() {
+    private void aBc() {
         Cursor cursor;
-        if (!TextUtils.equals(this.dhe, "video")) {
+        if (!TextUtils.equals(this.dcp, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
             StringBuilder sb = new StringBuilder();
             sb.append("mime_type").append("=?");
             sb.append(" or ");
             sb.append("mime_type").append("=?");
-            String[] strArr = {dnV[0], dnV[1]};
-            if (c.dnD) {
+            String[] strArr = {dji[0], dji[1]};
+            if (c.diQ) {
                 sb.append(" or ");
                 sb.append("mime_type").append("=?");
-                strArr = dnV;
+                strArr = dji;
             }
             try {
                 try {
@@ -80,7 +80,7 @@ public class a implements Runnable {
                                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                                 File file = new File(string);
-                                if (file.exists() && (c.dnD || !d.isGif(string))) {
+                                if (file.exists() && (c.diQ || !d.isGif(string))) {
                                     ImageModel imageModel = new ImageModel(string);
                                     imageModel.cq(j);
                                     imageModel.setSize(j2);
@@ -122,11 +122,11 @@ public class a implements Runnable {
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
-    private void aEX() {
+    private void aBd() {
         Cursor cursor;
         ?? r1 = "Image";
         try {
-            if (!TextUtils.equals(this.dhe, "Image")) {
+            if (!TextUtils.equals(this.dcp, "Image")) {
                 try {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                     if (cursor != null) {
@@ -187,23 +187,23 @@ public class a implements Runnable {
             path = file.getPath();
         }
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.qy(name);
-        aVar.qz(path);
-        int indexOf = this.dnU.indexOf(aVar);
+        aVar.pn(name);
+        aVar.po(path);
+        int indexOf = this.djh.indexOf(aVar);
         if (indexOf >= 0) {
-            this.dnU.get(indexOf).h(mediaModel);
+            this.djh.get(indexOf).h(mediaModel);
         } else {
             aVar.h(mediaModel);
-            this.dnU.add(aVar);
+            this.djh.add(aVar);
         }
-        this.dmI.add(mediaModel);
+        this.dhT.add(mediaModel);
     }
 
-    private void u(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
+    private void p(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
         Iterator<com.baidu.swan.apps.media.chooser.model.a> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.media.chooser.model.a next = it.next();
-            next.cp(new File(next.aES()).lastModified());
+            next.cp(new File(next.aAY()).lastModified());
         }
         Collections.sort(arrayList);
     }

@@ -22,32 +22,32 @@ import org.json.JSONObject;
 public final class bh {
     private static String j;
     @Nullable
-    private static i phc;
+    private static i pcA;
     private boolean f;
     private final Context h;
     private Map<String, String> k;
     private Long l;
-    private bi phd;
-    private bl phe;
+    private bi pcB;
+    private bl pcC;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f6100b = bh.class.getSimpleName() + "#";
+    private static final String f5800b = bh.class.getSimpleName() + "#";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6099a = f6100b;
-    private final ReentrantLock phb = new ReentrantLock();
+    public static final String f5799a = f5800b;
+    private final ReentrantLock pcz = new ReentrantLock();
     private AtomicBoolean i = new AtomicBoolean(false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(Context context) {
         this.h = context;
-        this.phd = bj.hV(context);
-        if (this.phd != null) {
-            this.f = this.phd.a(context);
+        this.pcB = bj.hT(context);
+        if (this.pcB != null) {
+            this.f = this.pcB.a(context);
         } else {
             this.f = false;
         }
-        this.phe = new bl(context);
+        this.pcC = new bl(context);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE] complete} */
@@ -58,38 +58,38 @@ public final class bh {
             return null;
         }
         a();
-        bb.a(f6099a, "Oaid#getOaid timeoutMills=" + j2);
+        bb.a(f5799a, "Oaid#getOaid timeoutMills=" + j2);
         if (this.k == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = false;
             try {
                 try {
-                    z = this.phb.tryLock(j2, TimeUnit.MILLISECONDS);
-                    bb.b(f6099a, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+                    z = this.pcz.tryLock(j2, TimeUnit.MILLISECONDS);
+                    bb.b(f5799a, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
                     if (z) {
-                        this.phb.unlock();
+                        this.pcz.unlock();
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     if (z) {
-                        this.phb.unlock();
+                        this.pcz.unlock();
                     }
                 }
             } catch (Throwable th) {
                 if (z) {
-                    this.phb.unlock();
+                    this.pcz.unlock();
                 }
                 throw th;
             }
         }
-        bb.a(f6099a, "Oaid#getOaid return apiMap=" + this.k);
+        bb.a(f5799a, "Oaid#getOaid return apiMap=" + this.k);
         return this.k;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @AnyThread
     public static void b(@Nullable i iVar) {
-        phc = iVar;
+        pcA = iVar;
         if (j != null) {
             a(new i.a(j));
         }
@@ -97,7 +97,7 @@ public final class bh {
 
     private static void a(@Nullable i.a aVar) {
         i iVar;
-        if (aVar != null && (iVar = phc) != null) {
+        if (aVar != null && (iVar = pcA) != null) {
             iVar.onOaidLoaded(aVar);
         }
     }
@@ -135,58 +135,58 @@ public final class bh {
     public void b() {
         String str;
         bk bkVar = null;
-        bb.b(f6099a, "Oaid#initOaid");
+        bb.b(f5799a, "Oaid#initOaid");
         try {
-            this.phb.lock();
-            bb.b(f6099a, "Oaid#initOaid exec");
-            bk epw = this.phe.epw();
-            bb.b(f6099a, "Oaid#initOaid fetch=" + epw);
-            if (epw != null) {
-                j = epw.f6102a;
-                this.k = epw.a();
+            this.pcz.lock();
+            bb.b(f5799a, "Oaid#initOaid exec");
+            bk elA = this.pcC.elA();
+            bb.b(f5799a, "Oaid#initOaid fetch=" + elA);
+            if (elA != null) {
+                j = elA.f5802a;
+                this.k = elA.a();
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Pair<String, Boolean> hU = hU(this.h);
+            Pair<String, Boolean> hS = hS(this.h);
             long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
-            if (hU.first != null) {
+            if (hS.first != null) {
                 int i = -1;
-                if (epw != null) {
-                    str = epw.f6103b;
-                    i = epw.phg.intValue() + 1;
+                if (elA != null) {
+                    str = elA.f5803b;
+                    i = elA.pcE.intValue() + 1;
                 } else {
                     str = null;
                 }
                 if (TextUtils.isEmpty(str)) {
                     str = UUID.randomUUID().toString();
                 }
-                bkVar = new bk((String) hU.first, str, (Boolean) hU.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i <= 0 ? 1 : i), this.l);
-                this.phe.a(bkVar);
+                bkVar = new bk((String) hS.first, str, (Boolean) hS.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i <= 0 ? 1 : i), this.l);
+                this.pcC.a(bkVar);
             }
             if (bkVar != null) {
-                j = bkVar.f6102a;
+                j = bkVar.f5802a;
                 this.k = bkVar.a();
             }
-            bb.b(f6099a, "Oaid#initOaid oaidModel=" + bkVar);
+            bb.b(f5799a, "Oaid#initOaid oaidModel=" + bkVar);
         } finally {
-            this.phb.unlock();
+            this.pcz.unlock();
             a(new i.a(j));
         }
     }
 
     @NonNull
     @WorkerThread
-    private Pair<String, Boolean> hU(Context context) {
+    private Pair<String, Boolean> hS(Context context) {
         Boolean bool;
         String str;
-        bi.a hR;
-        if (this.phd == null || (hR = this.phd.hR(context)) == null) {
+        bi.a hP;
+        if (this.pcB == null || (hP = this.pcB.hP(context)) == null) {
             bool = null;
             str = null;
         } else {
-            str = hR.f6101b;
-            Boolean valueOf = Boolean.valueOf(hR.c);
-            if (hR instanceof bd.a) {
-                this.l = Long.valueOf(((bd.a) hR).f6098a);
+            str = hP.f5801b;
+            Boolean valueOf = Boolean.valueOf(hP.c);
+            if (hP instanceof bd.a) {
+                this.l = Long.valueOf(((bd.a) hP).f5798a);
             }
             bool = valueOf;
         }
@@ -194,6 +194,6 @@ public final class bh {
     }
 
     private static void a(Runnable runnable) {
-        bc.a(f6099a + "-query", runnable);
+        bc.a(f5799a + "-query", runnable);
     }
 }

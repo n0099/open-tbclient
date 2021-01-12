@@ -1,11 +1,11 @@
 package com.a.a.a;
 
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f1128a = new Random();
+    public static Random f1127a = new Random();
 
     public static float a(float f, float f2) {
         if (f2 == 0.0f) {

@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class v extends aa {
     private int h;
     private int[] i;
@@ -18,7 +18,7 @@ public class v extends aa {
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
         int i = 0;
-        b(dVar.f10801a / 3);
+        b(dVar.f10501a / 3);
         int i2 = 0;
         while (true) {
             int i3 = i;

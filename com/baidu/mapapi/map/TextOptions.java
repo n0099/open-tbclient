@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -14,7 +14,7 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2881a;
+    int f2768a;
     Bundle c;
     private String d;
     private LatLng e;
@@ -27,17 +27,17 @@ public final class TextOptions extends OverlayOptions {
     private int k = 32;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2882b = true;
+    boolean f2769b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.B = this.f2882b;
-        text.A = this.f2881a;
-        text.C = this.c;
-        text.f2879a = this.d;
-        text.f2880b = this.e;
+        text.x = this.f2769b;
+        text.w = this.f2768a;
+        text.y = this.c;
+        text.f2766a = this.d;
+        text.f2767b = this.e;
         text.c = this.f;
         text.d = this.g;
         text.e = this.h;
@@ -115,16 +115,16 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2881a;
+        return this.f2768a;
     }
 
     public boolean isVisible() {
-        return this.f2882b;
+        return this.f2769b;
     }
 
     public TextOptions position(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
+            throw new IllegalArgumentException("position can not be null");
         }
         this.e = latLng;
         return this;
@@ -137,7 +137,7 @@ public final class TextOptions extends OverlayOptions {
 
     public TextOptions text(String str) {
         if (str == null || str.equals("")) {
-            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
+            throw new IllegalArgumentException("text can not be null or empty");
         }
         this.d = str;
         return this;
@@ -149,12 +149,12 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions visible(boolean z) {
-        this.f2882b = z;
+        this.f2769b = z;
         return this;
     }
 
     public TextOptions zIndex(int i) {
-        this.f2881a = i;
+        this.f2768a = i;
         return this;
     }
 }

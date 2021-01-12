@@ -11,7 +11,7 @@ public class h extends PostStringRequest.PostStringRequestBuilder {
 
     @Override // com.baidu.searchbox.http.request.PostStringRequest.PostStringRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public HttpRequest build() {
-        com.baidu.swan.a.b.bfB().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.bbH().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

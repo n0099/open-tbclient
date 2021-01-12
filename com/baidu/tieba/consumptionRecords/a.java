@@ -3,16 +3,16 @@ package com.baidu.tieba.consumptionRecords;
 import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
 import tbclient.OrderList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private String activityUrl;
     private long createTime;
-    private long iBE;
-    private long iBF;
-    private long iBG;
-    private String iBH;
-    private String iBI;
-    private String iBJ;
+    private long iwX;
+    private long iwY;
+    private long iwZ;
+    private String ixa;
+    private String ixb;
+    private String ixc;
     private String orderId;
     private long sceneId;
     private int status;
@@ -24,16 +24,16 @@ public class a {
         if (orderList != null) {
             this.orderId = orderList.order_id;
             this.sceneId = orderList.scene_id.intValue();
-            this.iBE = orderList.scores.longValue();
+            this.iwX = orderList.scores.longValue();
             this.status = orderList.status.intValue();
             this.createTime = orderList.create_time.longValue();
-            this.iBF = orderList.finish_time.longValue();
+            this.iwY = orderList.finish_time.longValue();
             this.title = orderList.title;
-            this.iBG = orderList.money.longValue();
-            this.iBH = orderList.preg_field;
-            this.iBI = orderList.activity_desc;
+            this.iwZ = orderList.money.longValue();
+            this.ixa = orderList.preg_field;
+            this.ixb = orderList.activity_desc;
             this.activityUrl = orderList.activity_url;
-            this.iBJ = orderList.button_name;
+            this.ixc = orderList.button_name;
         }
     }
 
@@ -41,18 +41,18 @@ public class a {
         if (jSONObject != null) {
             this.orderId = jSONObject.optString("order_id");
             this.sceneId = jSONObject.optLong("scene_id");
-            this.iBE = jSONObject.optLong("scores");
+            this.iwX = jSONObject.optLong("scores");
             this.status = jSONObject.optInt("status");
             this.createTime = jSONObject.optLong("create_time");
-            this.iBF = jSONObject.optLong("finish_time");
+            this.iwY = jSONObject.optLong("finish_time");
             this.title = jSONObject.optString("title");
-            this.iBG = jSONObject.optLong("money");
-            this.iBH = jSONObject.optString("preg_field");
+            this.iwZ = jSONObject.optLong("money");
+            this.ixa = jSONObject.optString("preg_field");
             this.userName = jSONObject.optString("user_name");
             this.userNickName = jSONObject.optString("user_nickname");
-            this.iBI = jSONObject.optString("activity_desc");
+            this.ixb = jSONObject.optString("activity_desc");
             this.activityUrl = jSONObject.optString("activity_url");
-            this.iBJ = jSONObject.optString("button_name");
+            this.ixc = jSONObject.optString("button_name");
         }
     }
 
@@ -60,8 +60,8 @@ public class a {
         return this.orderId;
     }
 
-    public long cvV() {
-        return this.iBE;
+    public long csd() {
+        return this.iwX;
     }
 
     public int getStatus() {
@@ -72,31 +72,31 @@ public class a {
         return this.createTime;
     }
 
-    public long cvW() {
-        return this.iBF;
+    public long cse() {
+        return this.iwY;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public long cvX() {
-        return this.iBG;
+    public long csf() {
+        return this.iwZ;
     }
 
-    public String cvY() {
-        return this.iBI;
+    public String csg() {
+        return this.ixb;
     }
 
     public String getActivityUrl() {
         return this.activityUrl;
     }
 
-    public String cvZ() {
-        return this.iBJ;
+    public String csh() {
+        return this.ixc;
     }
 
-    public String cwa() {
+    public String csi() {
         return StringUtils.isNull(this.userNickName) ? this.userName : this.userNickName;
     }
 }

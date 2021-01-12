@@ -18,30 +18,30 @@ import com.baidu.tieba.hottopic.view.HotTopicView;
 import com.baidu.tieba.hottopic.view.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotTopicThreadPagerAdapter extends PagerAdapter {
-    private static String[] hbL = {"最热", "最新"};
-    private int abC = -1;
-    private List<HotTopicView> kpa;
-    private c.a kpb;
-    private com.baidu.tieba.hottopic.view.c kpc;
+    private static String[] gXf = {"最热", "最新"};
+    private int abA = -1;
+    private List<HotTopicView> kkv;
+    private c.a kkw;
+    private com.baidu.tieba.hottopic.view.c kkx;
     private List<com.baidu.tieba.hottopic.data.e> mHotTopicDataList;
     private TbPageContext<HotTopicActivity> pageContext;
 
     public HotTopicThreadPagerAdapter(Context context, c.a aVar) {
-        this.kpb = aVar;
+        this.kkw = aVar;
         com.baidu.adp.base.f<?> K = com.baidu.adp.base.j.K(context);
         if (K instanceof TbPageContext) {
             this.pageContext = (TbPageContext) K;
         }
         this.mHotTopicDataList = new ArrayList();
-        this.kpa = new ArrayList();
+        this.kkv = new ArrayList();
         HotTopicView hotTopicView = new HotTopicView(context);
         HotTopicView hotTopicView2 = new HotTopicView(context);
-        hotTopicView.setScrollCallback(this.kpb);
-        hotTopicView2.setScrollCallback(this.kpb);
-        this.kpa.add(hotTopicView);
-        this.kpa.add(hotTopicView2);
+        hotTopicView.setScrollCallback(this.kkw);
+        hotTopicView2.setScrollCallback(this.kkw);
+        this.kkv.add(hotTopicView);
+        this.kkv.add(hotTopicView2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -60,82 +60,82 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
             this.mHotTopicDataList.addAll(list);
         }
         notifyDataSetChanged();
-        cUu();
+        cQC();
     }
 
-    private void cUu() {
-        if (this.abC >= 0) {
-            HotTopicView hotTopicView = this.kpa.get(this.abC % 2);
-            com.baidu.tieba.hottopic.data.e eVar = (com.baidu.tieba.hottopic.data.e) x.getItem(this.mHotTopicDataList, this.abC);
+    private void cQC() {
+        if (this.abA >= 0) {
+            HotTopicView hotTopicView = this.kkv.get(this.abA % 2);
+            com.baidu.tieba.hottopic.data.e eVar = (com.baidu.tieba.hottopic.data.e) x.getItem(this.mHotTopicDataList, this.abA);
             if (hotTopicView != null) {
                 hotTopicView.hideLoadingView();
-                hotTopicView.Zj();
+                hotTopicView.Vq();
                 hotTopicView.c(eVar);
-                if (eVar == null || x.isEmpty(eVar.cVh())) {
+                if (eVar == null || x.isEmpty(eVar.cRp())) {
                     hotTopicView.aR(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                 }
             }
         }
     }
 
-    public void Zj() {
-        if (cUv() != null) {
-            cUv().Zj();
+    public void Vq() {
+        if (cQD() != null) {
+            cQD().Vq();
         }
     }
 
     public void showLoadingView() {
-        if (cUv() != null) {
-            cUv().it(true);
+        if (cQD() != null) {
+            cQD().ip(true);
         }
     }
 
-    public void so(boolean z) {
-        if (this.kpa != null) {
-            for (HotTopicView hotTopicView : this.kpa) {
+    public void sk(boolean z) {
+        if (this.kkv != null) {
+            for (HotTopicView hotTopicView : this.kkv) {
                 if (hotTopicView != null) {
-                    hotTopicView.so(z);
+                    hotTopicView.sk(z);
                 }
             }
         }
     }
 
-    public HotTopicView cUv() {
-        if (this.abC == -1) {
+    public HotTopicView cQD() {
+        if (this.abA == -1) {
             return null;
         }
-        return (HotTopicView) x.getItem(this.kpa, this.abC % 2);
+        return (HotTopicView) x.getItem(this.kkv, this.abA % 2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.abC != i) {
-            int i2 = this.abC;
-            this.abC = i;
+        if (this.abA != i) {
+            int i2 = this.abA;
+            this.abA = i;
             if (!x.isEmpty(this.mHotTopicDataList)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                com.baidu.tieba.hottopic.data.e eVar = (com.baidu.tieba.hottopic.data.e) x.getItem(this.mHotTopicDataList, this.abC);
-                if (eVar != null && eVar.cVa() != null) {
-                    if (this.abC == 0) {
-                        TiebaStatic.log(new aq("c11970").dX("obj_id", eVar.cVa().fgR));
+                com.baidu.tieba.hottopic.data.e eVar = (com.baidu.tieba.hottopic.data.e) x.getItem(this.mHotTopicDataList, this.abA);
+                if (eVar != null && eVar.cRi() != null) {
+                    if (this.abA == 0) {
+                        TiebaStatic.log(new aq("c11970").dW("obj_id", eVar.cRi().fci));
                     } else {
-                        TiebaStatic.log(new aq("c11971").dX("obj_id", eVar.cVa().fgR));
+                        TiebaStatic.log(new aq("c11971").dW("obj_id", eVar.cRi().fci));
                     }
                 }
-                HotTopicView hotTopicView = (HotTopicView) x.getItem(this.kpa, i2 % 2);
+                HotTopicView hotTopicView = (HotTopicView) x.getItem(this.kkv, i2 % 2);
                 if (hotTopicView != null) {
                     hotTopicView.pause();
                 }
-                HotTopicView hotTopicView2 = (HotTopicView) x.getItem(this.kpa, i % 2);
+                HotTopicView hotTopicView2 = (HotTopicView) x.getItem(this.kkv, i % 2);
                 if (hotTopicView2 != null) {
-                    if (eVar == null || x.isEmpty(eVar.cVh())) {
+                    if (eVar == null || x.isEmpty(eVar.cRp())) {
                         if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
                             hotTopicView2.aR(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                             return;
                         }
-                        hotTopicView2.it(true);
-                        this.pageContext.getOrignalPage().cUH();
+                        hotTopicView2.ip(true);
+                        this.pageContext.getOrignalPage().cQP();
                         return;
                     }
                     hotTopicView2.resume();
@@ -148,37 +148,37 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     /* renamed from: K */
     public HotTopicView instantiateItem(ViewGroup viewGroup, int i) {
-        HotTopicView hotTopicView = this.kpa.get(i % 2);
+        HotTopicView hotTopicView = this.kkv.get(i % 2);
         if (hotTopicView.getParent() != null) {
             viewGroup.removeView(hotTopicView);
         }
-        hotTopicView.setMainView(this.kpc);
+        hotTopicView.setMainView(this.kkx);
         viewGroup.addView(hotTopicView);
         hotTopicView.hideLoadingView();
-        hotTopicView.Zj();
+        hotTopicView.Vq();
         hotTopicView.c(this.mHotTopicDataList.get(i));
         return hotTopicView;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return hbL[i];
+        return gXf[i];
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void Dz(int i) {
-        if (!x.isEmpty(this.kpa)) {
-            for (HotTopicView hotTopicView : this.kpa) {
-                hotTopicView.DL(i);
+    public void BT(int i) {
+        if (!x.isEmpty(this.kkv)) {
+            for (HotTopicView hotTopicView : this.kkv) {
+                hotTopicView.Cf(i);
             }
         }
     }
 
     public void destroy() {
-        for (HotTopicView hotTopicView : this.kpa) {
+        for (HotTopicView hotTopicView : this.kkv) {
             if (hotTopicView != null) {
                 hotTopicView.destroy();
             }
@@ -186,58 +186,58 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     }
 
     public void resume() {
-        HotTopicView cUv = cUv();
-        if (cUv != null) {
-            cUv.resume();
+        HotTopicView cQD = cQD();
+        if (cQD != null) {
+            cQD.resume();
         }
     }
 
     public void pause() {
-        HotTopicView cUv = cUv();
-        if (cUv != null) {
-            cUv.pause();
+        HotTopicView cQD = cQD();
+        if (cQD != null) {
+            cQD.pause();
         }
     }
 
-    public void DA(int i) {
+    public void BU(int i) {
         HotTopicView hotTopicView;
-        if (this.kpa != null && i < this.kpa.size() && (hotTopicView = this.kpa.get(i)) != null) {
-            hotTopicView.Zh();
+        if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
+            hotTopicView.Vo();
         }
     }
 
-    public void DB(int i) {
+    public void BV(int i) {
         HotTopicView hotTopicView;
-        if (this.kpa != null && i < this.kpa.size() && (hotTopicView = this.kpa.get(i)) != null) {
-            hotTopicView.Zi();
+        if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
+            hotTopicView.Vp();
         }
     }
 
-    public void DC(int i) {
+    public void BW(int i) {
         HotTopicView hotTopicView;
-        if (this.kpa != null && i < this.kpa.size() && (hotTopicView = this.kpa.get(i)) != null) {
-            hotTopicView.bVG();
+        if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
+            hotTopicView.bRO();
         }
     }
 
-    public void DD(int i) {
-        for (HotTopicView hotTopicView : this.kpa) {
-            if (hotTopicView != null && hotTopicView != cUv()) {
-                hotTopicView.DM(i);
+    public void BX(int i) {
+        for (HotTopicView hotTopicView : this.kkv) {
+            if (hotTopicView != null && hotTopicView != cQD()) {
+                hotTopicView.Cg(i);
             }
         }
     }
 
     public void aM(float f) {
-        for (HotTopicView hotTopicView : this.kpa) {
-            if (hotTopicView != null && hotTopicView != cUv()) {
+        for (HotTopicView hotTopicView : this.kkv) {
+            if (hotTopicView != null && hotTopicView != cQD()) {
                 hotTopicView.aN(f);
             }
         }
     }
 
     public void setMainView(com.baidu.tieba.hottopic.view.c cVar) {
-        this.kpc = cVar;
+        this.kkx = cVar;
     }
 
     public void onChangeSkinType(int i) {
@@ -245,7 +245,7 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         while (true) {
             int i3 = i2;
             if (i3 < this.mHotTopicDataList.size()) {
-                HotTopicView hotTopicView = this.kpa.get(i3);
+                HotTopicView hotTopicView = this.kkv.get(i3);
                 if (hotTopicView != null) {
                     hotTopicView.onChangeSkinType(i);
                 }

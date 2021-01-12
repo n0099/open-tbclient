@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaQuitRoomRecommendResponseMessage extends JsonHttpResponsedMessage {
-    public List<a> igK;
+    public List<a> ibZ;
 
     public AlaQuitRoomRecommendResponseMessage() {
         super(1021226);
@@ -18,20 +18,20 @@ public class AlaQuitRoomRecommendResponseMessage extends JsonHttpResponsedMessag
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live")) != null) {
-            this.igK = new ArrayList();
+            this.ibZ = new ArrayList();
             a aVar = null;
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (i2 % 2 == 0) {
                     aVar = new a();
-                    this.igK.add(aVar);
+                    this.ibZ.add(aVar);
                     AlaQuitRoomRecommendData alaQuitRoomRecommendData = new AlaQuitRoomRecommendData();
                     alaQuitRoomRecommendData.parserJson(optJSONObject);
-                    aVar.igH = alaQuitRoomRecommendData;
+                    aVar.ibW = alaQuitRoomRecommendData;
                 } else {
                     AlaQuitRoomRecommendData alaQuitRoomRecommendData2 = new AlaQuitRoomRecommendData();
                     alaQuitRoomRecommendData2.parserJson(optJSONObject);
-                    aVar.igI = alaQuitRoomRecommendData2;
+                    aVar.ibX = alaQuitRoomRecommendData2;
                 }
             }
         }

@@ -15,12 +15,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DlnaApi {
-    private static DlnaProvider.DlnaSearchListener ciN = null;
+    private static DlnaProvider.DlnaSearchListener cea = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Handler f3227b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.DlnaApi.1
+    private static Handler f3189b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.DlnaApi.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
@@ -28,8 +28,8 @@ public class DlnaApi {
                     Map<String, Object> map = (Map) message.obj;
                     try {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.ciN != null && map != null) {
-                                DlnaApi.ciN.onDeviceChangeNotification(map);
+                            if (DlnaApi.cea != null && map != null) {
+                                DlnaApi.cea.onDeviceChangeNotification(map);
                             }
                         }
                         break;
@@ -40,8 +40,8 @@ public class DlnaApi {
                 case 2:
                     try {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.ciN != null) {
-                                DlnaApi.ciN.onRefreshFinishNotification(message.arg1, message.arg2);
+                            if (DlnaApi.cea != null) {
+                                DlnaApi.cea.onRefreshFinishNotification(message.arg1, message.arg2);
                             }
                         }
                         break;
@@ -115,7 +115,7 @@ public class DlnaApi {
         HashMap hashMap = new HashMap();
         hashMap.put("friendlyName", str);
         hashMap.put("uuid", str2);
-        Message.obtain(f3227b, 1, hashMap).sendToTarget();
+        Message.obtain(f3189b, 1, hashMap).sendToTarget();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0085, code lost:
@@ -174,20 +174,20 @@ public class DlnaApi {
 
     @Keep
     private static void onRefreshFinished(int i, int i2) {
-        Message obtain = Message.obtain(f3227b, 2);
+        Message obtain = Message.obtain(f3189b, 2);
         obtain.arg1 = i;
         obtain.arg2 = i2;
         obtain.sendToTarget();
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        ciN = dlnaSearchListener;
+        cea = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
         synchronized (DlnaApi.class) {
-            ciN = null;
+            cea = null;
         }
         nativeStop();
     }

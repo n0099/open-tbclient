@@ -30,27 +30,27 @@ import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.tieba.ala.live.personcenter.guardian.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivity> {
-    private CommonEmptyView bNm;
-    private String gPk;
-    private int hkN;
-    private int hkO;
-    private NoNetworkView hkk;
-    private e hmc;
-    private d hmd;
+    private CommonEmptyView bIA;
+    private String gKE;
+    private NoNetworkView hfD;
+    private int hgg;
+    private int hgh;
+    private e hhv;
+    private d hhw;
     private ImageView mBackImageView;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
     private TextView mTitleView;
     private String mUserId;
-    private BdListView hma = null;
-    private b hmb = null;
-    private boolean hkM = true;
-    public e.a hme = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
+    private BdListView hht = null;
+    private b hhu = null;
+    private boolean hgf = true;
+    public e.a hhx = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
         @Override // com.baidu.tieba.ala.live.personcenter.guardian.e.a
-        public void HQ(String str) {
-            AlaGuardianListActivity.this.cbq();
+        public void GF(String str) {
+            AlaGuardianListActivity.this.bXy();
             if (!TextUtils.isEmpty(str)) {
                 AlaGuardianListActivity.this.showToast(str);
             }
@@ -66,48 +66,48 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
             return null;
         }
     };
-    View.OnClickListener gQz = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.3
+    View.OnClickListener gLT = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (AlaGuardianListActivity.this.hmb != null && (aVar = (a) AlaGuardianListActivity.this.hmb.getItem(intValue)) != null && aVar.hlV != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(AlaGuardianListActivity.this.getPageContext().getPageActivity(), aVar.hlV, aVar.userName, aVar.portrait, aVar.sex, aVar.levelId, null, null, 0L, aVar.fansCount, aVar.followCount, aVar.userStatus, null, null, false, null, null, aVar.nickName)));
+                if (AlaGuardianListActivity.this.hhu != null && (aVar = (a) AlaGuardianListActivity.this.hhu.getItem(intValue)) != null && aVar.hho != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(AlaGuardianListActivity.this.getPageContext().getPageActivity(), aVar.hho, aVar.userName, aVar.portrait, aVar.sex, aVar.levelId, null, null, 0L, aVar.fansCount, aVar.followCount, aVar.userStatus, null, null, false, null, null, aVar.nickName)));
                 }
             }
         }
     };
-    View.OnClickListener gQA = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.4
+    View.OnClickListener gLU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (AlaGuardianListActivity.this.hmb != null && ViewHelper.checkUpIsLogin(AlaGuardianListActivity.this.getPageContext().getPageActivity()) && (aVar = (a) AlaGuardianListActivity.this.hmb.getItem(intValue)) != null && aVar.hlV != null) {
+                if (AlaGuardianListActivity.this.hhu != null && ViewHelper.checkUpIsLogin(AlaGuardianListActivity.this.getPageContext().getPageActivity()) && (aVar = (a) AlaGuardianListActivity.this.hhu.getItem(intValue)) != null && aVar.hho != null) {
                     boolean z = aVar.followStatus != 0;
                     aVar.followStatus = z ? 0 : 1;
-                    AlaGuardianListActivity.this.hmb.notifyDataSetChanged();
+                    AlaGuardianListActivity.this.hhu.notifyDataSetChanged();
                     f fVar = new f();
-                    fVar.setUserId(aVar.hlV);
+                    fVar.setUserId(aVar.hho);
                     fVar.setPortrait(aVar.portrait);
                     fVar.setPageId(AlaGuardianListActivity.this.getUniqueId());
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_guardian_list");
-                    com.baidu.live.view.a.Zy().a(aVar.hlV, fVar);
+                    com.baidu.live.view.a.VF().a(aVar.hho, fVar);
                 }
             }
         }
     };
-    private CustomMessageListener gPg = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.5
+    private CustomMessageListener gKA = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (AlaGuardianListActivity.this.hmb != null) {
-                        AlaGuardianListActivity.this.hmb.aB(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (AlaGuardianListActivity.this.hhu != null) {
+                        AlaGuardianListActivity.this.hhu.aB(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(AlaGuardianListActivity.this.getUniqueId())) {
@@ -133,19 +133,19 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
             setContentView(this.mRootView);
             setUseStyleImmersiveSticky(true);
             initData();
-            cbp();
+            bXx();
             initUI();
-            registerListener(this.gPg);
+            registerListener(this.gKA);
         }
     }
 
     private void initData() {
-        this.gPk = getIntent().getStringExtra("charm_value");
+        this.gKE = getIntent().getStringExtra("charm_value");
         this.mUserId = getIntent().getStringExtra("user_id");
-        this.hmc = new e(this, this.hme);
-        this.hmc.HS(this.mUserId);
-        this.hkN = (int) getResources().getDimension(a.d.sdk_ds246);
-        this.hkO = (int) getResources().getDimension(a.d.sdk_ds98);
+        this.hhv = new e(this, this.hhx);
+        this.hhv.GH(this.mUserId);
+        this.hgg = (int) getResources().getDimension(a.d.sdk_ds246);
+        this.hgh = (int) getResources().getDimension(a.d.sdk_ds98);
     }
 
     private void initUI() {
@@ -153,74 +153,74 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.mBackImageView = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.f.widget_navi_back_button);
         this.mTitleView = this.mNavigationBar.setTitleText(a.h.sdk_prc_guardian_list_title);
         this.mNavigationBar.showBottomLine(false);
-        this.hkk = (NoNetworkView) this.mRootView.findViewById(a.f.ala_guardian_list_no_network_view);
-        this.hma = (BdListView) this.mRootView.findViewById(a.f.list);
-        this.hmd = new d(getPageContext().getPageActivity());
-        this.hmd.HR(this.gPk);
-        this.hma.addHeaderView(this.hmd.cbg());
-        this.hmb = new b(this);
-        this.hmb.o(this.gQA);
-        this.hma.setAdapter((ListAdapter) this.hmb);
-        this.hma.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.1
+        this.hfD = (NoNetworkView) this.mRootView.findViewById(a.f.ala_guardian_list_no_network_view);
+        this.hht = (BdListView) this.mRootView.findViewById(a.f.list);
+        this.hhw = new d(getPageContext().getPageActivity());
+        this.hhw.GG(this.gKE);
+        this.hht.addHeaderView(this.hhw.bXo());
+        this.hhu = new b(this);
+        this.hhu.o(this.gLU);
+        this.hht.setAdapter((ListAdapter) this.hhu);
+        this.hht.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                AlaGuardianListActivity.this.cbe();
-                AlaGuardianListActivity.this.cbf();
+                AlaGuardianListActivity.this.bXm();
+                AlaGuardianListActivity.this.bXn();
             }
         });
     }
 
-    private void cbp() {
-        this.hmc.loadData();
+    private void bXx() {
+        this.hhv.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.hmc != null) {
-            this.hmc.onDestroy();
+        if (this.hhv != null) {
+            this.hhv.onDestroy();
         }
-        if (this.hmb != null) {
-            this.hmb = null;
+        if (this.hhu != null) {
+            this.hhu = null;
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (this.hmb != null) {
-            if (cVar != null && cVar.cbr().size() <= 0) {
+        if (this.hhu != null) {
+            if (cVar != null && cVar.bXz().size() <= 0) {
                 showNoDataView();
             } else {
                 hideNoDataView();
             }
-            this.hmb.c(cVar);
-            this.hmb.notifyDataSetChanged();
+            this.hhu.c(cVar);
+            this.hhu.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbe() {
-        if (Build.VERSION.SDK_INT >= 11 && this.hmd != null) {
-            int i = this.hkN - (-this.hmd.cbg().getTop());
-            if (i < this.hkO) {
+    public void bXm() {
+        if (Build.VERSION.SDK_INT >= 11 && this.hhw != null) {
+            int i = this.hgg - (-this.hhw.bXo().getTop());
+            if (i < this.hgh) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                     this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
                 }
-            } else if (i >= this.hkO && i <= this.hkO * 2) {
-                float f = 1.0f - (((i - this.hkO) * 1.0f) / this.hkO);
+            } else if (i >= this.hgh && i <= this.hgh * 2) {
+                float f = 1.0f - (((i - this.hgh) * 1.0f) / this.hgh);
                 this.mNavigationBar.getBarBgView().setAlpha(f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
-            } else if (i > this.hkO * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
+            } else if (i > this.hgh * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.hma.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.hht.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -228,17 +228,17 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbf() {
+    public void bXn() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;
-            if (!this.hkM) {
-                this.hkM = true;
+            if (!this.hgf) {
+                this.hgf = true;
             }
-        } else if (this.hkM) {
-            this.hkM = false;
+        } else if (this.hgf) {
+            this.hgf = false;
         }
-        b(alpha, this.hkM ? false : true);
+        b(alpha, this.hgf ? false : true);
     }
 
     protected void b(float f, boolean z) {
@@ -261,55 +261,55 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(getResources(), SkinManager.getBitmapLowQuality(a.e.sdk_s_navbar_bg)));
-        if (this.hmd != null) {
-            this.hmd.a(this, i);
+        if (this.hhw != null) {
+            this.hhw.a(this, i);
         }
-        if (this.hkk != null) {
-            this.hkk.onChangeSkinType(getPageContext(), i);
+        if (this.hfD != null) {
+            this.hfD.onChangeSkinType(getPageContext(), i);
         }
-        if (this.hmb != null) {
-            this.hmb.notifyDataSetChanged();
+        if (this.hhu != null) {
+            this.hhu.notifyDataSetChanged();
         }
     }
 
     private void showNoDataView() {
-        if (this.bNm == null) {
-            this.bNm = new CommonEmptyView(getPageContext().getPageActivity());
-            this.bNm.addToParent(this.mRootView);
+        if (this.bIA == null) {
+            this.bIA = new CommonEmptyView(getPageContext().getPageActivity());
+            this.bIA.addToParent(this.mRootView);
         }
-        this.bNm.reset();
-        this.bNm.setTitle(a.h.sdk_prc_not_contribute);
-        this.bNm.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
-        this.bNm.setVisibility(0);
+        this.bIA.reset();
+        this.bIA.setTitle(a.h.sdk_prc_not_contribute);
+        this.bIA.setup(CommonEmptyView.ImgType.NO_FAN, CommonEmptyView.StyleType.LIGHT);
+        this.bIA.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbq() {
-        if (this.bNm == null) {
-            this.bNm = new CommonEmptyView(getPageContext().getPageActivity());
-            this.bNm.addToParent(this.mRootView);
+    public void bXy() {
+        if (this.bIA == null) {
+            this.bIA = new CommonEmptyView(getPageContext().getPageActivity());
+            this.bIA.addToParent(this.mRootView);
         }
-        this.bNm.reset();
-        this.bNm.setRefreshButton(a.h.sdk_net_refresh_btn_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.6
+        this.bIA.reset();
+        this.bIA.setRefreshButton(a.h.sdk_net_refresh_btn_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGuardianListActivity.this.hmc.loadData();
+                AlaGuardianListActivity.this.hhv.loadData();
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.bNm.setTitle(a.h.sdk_net_fail_tip);
-            this.bNm.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+            this.bIA.setTitle(a.h.sdk_net_fail_tip);
+            this.bIA.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
         } else {
-            this.bNm.setTitle(a.h.sdk_network_not_available);
-            this.bNm.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+            this.bIA.setTitle(a.h.sdk_network_not_available);
+            this.bIA.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
         }
-        this.bNm.setVisibility(0);
+        this.bIA.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
-        if (this.bNm != null) {
-            this.bNm.setVisibility(8);
+        if (this.bIA != null) {
+            this.bIA.setVisibility(8);
         }
     }
 }

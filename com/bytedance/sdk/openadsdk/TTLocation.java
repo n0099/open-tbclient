@@ -3,31 +3,31 @@ package com.bytedance.sdk.openadsdk;
 public class TTLocation {
 
     /* renamed from: a  reason: collision with root package name */
-    private double f6392a;
+    private double f6092a;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f6393b;
+    private double f6093b;
 
     public TTLocation(double d, double d2) {
-        this.f6392a = 0.0d;
-        this.f6393b = 0.0d;
-        this.f6392a = d;
-        this.f6393b = d2;
+        this.f6092a = 0.0d;
+        this.f6093b = 0.0d;
+        this.f6092a = d;
+        this.f6093b = d2;
     }
 
     public double getLatitude() {
-        return this.f6392a;
+        return this.f6092a;
     }
 
     public void setLatitude(double d) {
-        this.f6392a = d;
+        this.f6092a = d;
     }
 
     public double getLongitude() {
-        return this.f6393b;
+        return this.f6093b;
     }
 
     public void setLongitude(double d) {
-        this.f6393b = d;
+        this.f6093b = d;
     }
 }

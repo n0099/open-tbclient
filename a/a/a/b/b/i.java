@@ -15,11 +15,11 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class i implements a.a.a.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1044a;
+    public String f1043a;
     public volatile int e;
     public volatile int f = 0;
     public final c zv;
@@ -30,9 +30,9 @@ public abstract class i implements a.a.a.b.a.b {
         this.zv = cVar;
         this.zw = eVar;
         this.zx = aVar;
-        this.f1044a = c();
-        if (TextUtils.isEmpty(this.f1044a)) {
-            this.f1044a = getClass().getSimpleName();
+        this.f1043a = c();
+        if (TextUtils.isEmpty(this.f1043a)) {
+            this.f1043a = getClass().getSimpleName();
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class i implements a.a.a.b.a.b {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.zw.f1040a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.zw.f1039a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
@@ -160,14 +160,14 @@ public abstract class i implements a.a.a.b.a.b {
             try {
                 inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.zw.f1041b;
+                    long j = this.zw.f1040b;
                     long j2 = this.zw.d;
                     try {
-                        File file = this.zv.f1039b;
+                        File file = this.zv.f1038b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        RandomAccessFile c = c(file, this.zv.f1038a, j + j2);
+                        RandomAccessFile c = c(file, this.zv.f1037a, j + j2);
                         try {
                             a(inputStream, c);
                             try {
@@ -238,7 +238,7 @@ public abstract class i implements a.a.a.b.a.b {
             synchronized (this.zx) {
                 this.e = 105;
                 b.a aVar = this.zx;
-                ((g) aVar).a(this.zv.f1039b.getAbsolutePath() + File.separator + this.zv.f1038a);
+                ((g) aVar).a(this.zv.f1038b.getAbsolutePath() + File.separator + this.zv.f1037a);
             }
         } catch (DownloadException e) {
             a(e);

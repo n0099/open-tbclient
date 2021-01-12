@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.l;
 /* loaded from: classes2.dex */
 public class a extends l<b, GodReplyMoreViewHolder> {
-    public View.OnClickListener gmj;
+    public View.OnClickListener ghB;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -30,14 +30,14 @@ public class a extends l<b, GodReplyMoreViewHolder> {
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) godReplyMoreViewHolder);
-        if (godReplyMoreViewHolder != null && godReplyMoreViewHolder.iwi != null) {
-            if (this.gmj != null) {
-                godReplyMoreViewHolder.iwi.setOnClickListener(this.gmj);
+        if (godReplyMoreViewHolder != null && godReplyMoreViewHolder.irB != null) {
+            if (this.ghB != null) {
+                godReplyMoreViewHolder.irB.setOnClickListener(this.ghB);
             }
-            if (godReplyMoreViewHolder.akW != TbadkCoreApplication.getInst().getSkinType()) {
-                godReplyMoreViewHolder.akW = TbadkCoreApplication.getInst().getSkinType();
-                ao.setViewTextColor(godReplyMoreViewHolder.iwi, R.color.CAM_X0106);
-                ao.setBackgroundResource(godReplyMoreViewHolder.iwi, R.drawable.more_all);
+            if (godReplyMoreViewHolder.akf != TbadkCoreApplication.getInst().getSkinType()) {
+                godReplyMoreViewHolder.akf = TbadkCoreApplication.getInst().getSkinType();
+                ao.setViewTextColor(godReplyMoreViewHolder.irB, R.color.CAM_X0106);
+                ao.setBackgroundResource(godReplyMoreViewHolder.irB, R.drawable.more_all);
                 ao.setBackgroundResource(godReplyMoreViewHolder.dividerLine, R.color.CAM_X0204);
             }
         }
@@ -45,6 +45,6 @@ public class a extends l<b, GodReplyMoreViewHolder> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.gmj = onClickListener;
+        this.ghB = onClickListener;
     }
 }

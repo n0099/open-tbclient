@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private int mDisturb;

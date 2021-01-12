@@ -12,14 +12,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
     private JSONArray mJsonArray;
     private long mTriggerId;
     private List<Tripule> tripules;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Tripule {
         private String accountType;
         private String businessSource;

@@ -12,14 +12,14 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy> f10689a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpFrameLoader.CacheStrategy", WebpFrameCacheStrategy.f10665b);
+    public static final com.kwad.sdk.glide.load.d<WebpFrameCacheStrategy> f10389a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpFrameLoader.CacheStrategy", WebpFrameCacheStrategy.f10365b);
 
     /* renamed from: b  reason: collision with root package name */
-    final com.kwad.sdk.glide.g f10690b;
+    final com.kwad.sdk.glide.g f10390b;
     private final i c;
     private final Handler d;
     private final List<b> e;
@@ -41,20 +41,20 @@ public class o {
     private int t;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.kwad.sdk.glide.request.a.c<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f10691a;
+        final int f10391a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Handler f10692b;
+        private final Handler f10392b;
         private final long c;
         private Bitmap d;
 
         a(Handler handler, int i, long j) {
-            this.f10692b = handler;
-            this.f10691a = i;
+            this.f10392b = handler;
+            this.f10391a = i;
             this.c = j;
         }
 
@@ -64,9 +64,9 @@ public class o {
 
         public void a(Bitmap bitmap, com.kwad.sdk.glide.request.b.b<? super Bitmap> bVar) {
             this.d = bitmap;
-            Message obtainMessage = this.f10692b.obtainMessage(1, this);
-            this.f10692b.removeMessages(1);
-            this.f10692b.sendMessageAtTime(obtainMessage, this.c);
+            Message obtainMessage = this.f10392b.obtainMessage(1, this);
+            this.f10392b.removeMessages(1);
+            this.f10392b.sendMessageAtTime(obtainMessage, this.c);
         }
 
         @Override // com.kwad.sdk.glide.request.a.j
@@ -80,12 +80,12 @@ public class o {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void f();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class c implements Handler.Callback {
         c() {
         }
@@ -97,49 +97,49 @@ public class o {
                 return true;
             }
             if (message.what == 2) {
-                o.this.f10690b.a((a) message.obj);
+                o.this.f10390b.a((a) message.obj);
             }
             return false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e implements com.kwad.sdk.glide.load.c {
 
         /* renamed from: b  reason: collision with root package name */
-        private final com.kwad.sdk.glide.load.c f10694b;
+        private final com.kwad.sdk.glide.load.c f10394b;
         private final int c;
 
         e(com.kwad.sdk.glide.load.c cVar, int i) {
-            this.f10694b = cVar;
+            this.f10394b = cVar;
             this.c = i;
         }
 
         @Override // com.kwad.sdk.glide.load.c
         public void a(@NonNull MessageDigest messageDigest) {
             messageDigest.update(ByteBuffer.allocate(12).putInt(this.c).array());
-            this.f10694b.a(messageDigest);
+            this.f10394b.a(messageDigest);
         }
 
         @Override // com.kwad.sdk.glide.load.c
         public boolean equals(Object obj) {
             if (obj instanceof e) {
                 e eVar = (e) obj;
-                return this.f10694b.equals(eVar.f10694b) && this.c == eVar.c;
+                return this.f10394b.equals(eVar.f10394b) && this.c == eVar.c;
             }
             return false;
         }
 
         @Override // com.kwad.sdk.glide.load.c
         public int hashCode() {
-            return (this.f10694b.hashCode() * 31) + this.c;
+            return (this.f10394b.hashCode() * 31) + this.c;
         }
     }
 
@@ -152,7 +152,7 @@ public class o {
         this.g = false;
         this.h = false;
         this.i = false;
-        this.f10690b = gVar;
+        this.f10390b = gVar;
         handler = handler == null ? new Handler(Looper.getMainLooper(), new c()) : handler;
         this.f = eVar;
         this.d = handler;
@@ -162,7 +162,7 @@ public class o {
     }
 
     private static com.kwad.sdk.glide.f<Bitmap> a(com.kwad.sdk.glide.g gVar, int i, int i2) {
-        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f10517b).a(true).b(true).b(i, i2));
+        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f10217b).a(true).b(true).b(i, i2));
     }
 
     private com.kwad.sdk.glide.load.c a(int i) {
@@ -295,7 +295,7 @@ public class o {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int e() {
         if (this.k != null) {
-            return this.k.f10691a;
+            return this.k.f10391a;
         }
         return -1;
     }
@@ -316,15 +316,15 @@ public class o {
         m();
         k();
         if (this.k != null) {
-            this.f10690b.a(this.k);
+            this.f10390b.a(this.k);
             this.k = null;
         }
         if (this.m != null) {
-            this.f10690b.a(this.m);
+            this.f10390b.a(this.m);
             this.m = null;
         }
         if (this.p != null) {
-            this.f10690b.a(this.p);
+            this.f10390b.a(this.p);
             this.p = null;
         }
         this.c.i();

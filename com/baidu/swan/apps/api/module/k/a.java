@@ -5,18 +5,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.ak.a.a;
 import com.baidu.swan.apps.api.a.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.api.a.d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ma(String str) {
+    public com.baidu.swan.apps.api.c.b kP(String str) {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
@@ -25,11 +25,11 @@ public class a extends com.baidu.swan.apps.api.a.d {
             public com.baidu.swan.apps.api.c.b a(com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
                 final k kVar = new k("accelerometerChange", jSONObject, str2);
-                com.baidu.swan.apps.ak.a.a aPZ = com.baidu.swan.apps.ak.a.a.aPZ();
-                aPZ.w(a.this.getContext(), C0403a.mb(jSONObject.optString("interval")));
-                aPZ.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
-                    @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0377a
-                    public void b(double[] dArr) {
+                com.baidu.swan.apps.ak.a.a aMf = com.baidu.swan.apps.ak.a.a.aMf();
+                aMf.w(a.this.getContext(), C0386a.kQ(jSONObject.optString("interval")));
+                aMf.a(new a.InterfaceC0360a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                    @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0360a
+                    public void a(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
                             com.baidu.swan.apps.console.c.e("Api-Accelerometer", "illegal accelerometers");
                             a.this.a(str2, new com.baidu.swan.apps.api.c.b(1001));
@@ -37,9 +37,9 @@ public class a extends com.baidu.swan.apps.api.a.d {
                         }
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("x", dArr[0]);
+                            jSONObject2.put(Config.EVENT_HEAT_X, dArr[0]);
                             jSONObject2.put("y", dArr[1]);
-                            jSONObject2.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, dArr[2]);
+                            jSONObject2.put("z", dArr[2]);
                             kVar.a(a.this, jSONObject2);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Api-Accelerometer", "handle compass,json error，" + e.toString());
@@ -47,35 +47,35 @@ public class a extends com.baidu.swan.apps.api.a.d {
                         }
                     }
                 });
-                aPZ.aQa();
+                aMf.aMg();
                 kVar.a(a.this);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b anH() {
+    public com.baidu.swan.apps.api.c.b ajN() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.ak.a.a.aPZ().aQb();
+        com.baidu.swan.apps.ak.a.a.aMf().aMh();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0403a {
-        private static ArrayMap<String, Integer> cKr = new ArrayMap<>(3);
+    /* loaded from: classes8.dex */
+    public static class C0386a {
+        private static ArrayMap<String, Integer> cFF = new ArrayMap<>(3);
 
         static {
-            cKr.put("ui", 60);
-            cKr.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            cKr.put("normal", 200);
+            cFF.put("ui", 60);
+            cFF.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            cFF.put("normal", 200);
         }
 
-        public static int mb(String str) {
-            Integer num = cKr.get(str);
+        public static int kQ(String str) {
+            Integer num = cFF.get(str);
             if (num != null) {
                 return num.intValue();
             }

@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes5.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d pEt;
+    private com.facebook.imagepipeline.animated.base.d pzS;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.pEt = dVar;
+        this.pzS = dVar;
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.pEt.ewX().getWidth();
+        return isClosed() ? 0 : this.pzS.etf().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.pEt.ewX().getHeight();
+        return isClosed() ? 0 : this.pzS.etf().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.f.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.pEt != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.pEt;
-                this.pEt = null;
+            if (this.pzS != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.pzS;
+                this.pzS = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized boolean isClosed() {
-        return this.pEt == null;
+        return this.pzS == null;
     }
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.pEt.ewX().getSizeInBytes();
+        return isClosed() ? 0 : this.pzS.etf().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.f.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d ezE() {
-        return this.pEt;
+    public synchronized com.facebook.imagepipeline.animated.base.d evM() {
+        return this.pzS;
     }
 }

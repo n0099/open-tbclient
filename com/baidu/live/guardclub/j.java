@@ -2,10 +2,8 @@ package com.baidu.live.guardclub;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface j {
-    void Bf();
-
     void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
     View getView();
@@ -13,4 +11,6 @@ public interface j {
     void onDestroy();
 
     void setOtherParams(String str);
+
+    void xk();
 }

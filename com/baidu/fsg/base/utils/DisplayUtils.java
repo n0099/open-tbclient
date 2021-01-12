@@ -2,14 +2,14 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DisplayUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f2024a = 0.5f;
+    private static final float f1974a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    private static DisplayMetrics f2025b;
+    private static DisplayMetrics f1975b;
 
     private DisplayUtils() {
     }
@@ -31,18 +31,18 @@ public final class DisplayUtils {
     }
 
     private static void a(Context context) {
-        if (f2025b == null) {
-            f2025b = context.getResources().getDisplayMetrics();
+        if (f1975b == null) {
+            f1975b = context.getResources().getDisplayMetrics();
         }
     }
 
     public static int getDisplayWidth(Context context) {
         a(context);
-        return f2025b.widthPixels;
+        return f1975b.widthPixels;
     }
 
     public static int getDisplayHeight(Context context) {
         a(context);
-        return f2025b.heightPixels;
+        return f1975b.heightPixels;
     }
 }

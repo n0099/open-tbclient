@@ -18,65 +18,65 @@ import com.baidu.tieba.ala.data.q;
 import com.baidu.tieba.ala.view.PkRankStartAnimView;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.u.c {
-    private MediaMetadataRetriever bfW;
-    private long gqJ;
-    private CustomMessageListener ifL;
-    private PkRankStartAnimView igL;
-    private Set<Long> igM;
+    private MediaMetadataRetriever bbg;
+    private long gmc;
+    private CustomMessageListener iba;
+    private PkRankStartAnimView ica;
+    private Set<Long> icb;
     private ViewGroup mParentView;
 
     @Override // com.baidu.live.u.c
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        cro();
+        cnw();
     }
 
     @Override // com.baidu.live.u.c
     public void bd(long j) {
         reset();
-        this.gqJ = j;
-        crm();
+        this.gmc = j;
+        cnu();
     }
 
     @Override // com.baidu.live.u.c
-    public void Id() {
-        crn();
+    public void Ei() {
+        cnv();
         reset();
     }
 
     @Override // com.baidu.live.u.c
     public void release() {
-        Id();
-        if (this.bfW != null) {
-            this.bfW.release();
-            this.bfW = null;
+        Ei();
+        if (this.bbg != null) {
+            this.bbg.release();
+            this.bbg = null;
         }
-        if (this.igL != null) {
-            this.igL.setCallback(null);
-            this.igL.release();
+        if (this.ica != null) {
+            this.ica.setCallback(null);
+            this.ica.release();
         }
-        if (this.igL != null && (this.igL.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.igL.getParent()).removeView(this.igL);
+        if (this.ica != null && (this.ica.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ica.getParent()).removeView(this.ica);
         }
         this.mParentView = null;
     }
 
     private Context getContext() {
-        if (bnR() != null) {
-            return bnR().getContext();
+        if (bjX() != null) {
+            return bjX().getContext();
         }
         return null;
     }
 
-    private ViewGroup bnR() {
+    private ViewGroup bjX() {
         return this.mParentView;
     }
 
-    private void crm() {
-        if (this.ifL == null) {
-            this.ifL = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.a.1
+    private void cnu() {
+        if (this.iba == null) {
+            this.iba = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -86,12 +86,12 @@ public class a implements com.baidu.live.u.c {
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ifL);
+        MessageManager.getInstance().registerListener(this.iba);
     }
 
-    private void crn() {
-        if (this.ifL != null) {
-            MessageManager.getInstance().unRegisterListener(this.ifL);
+    private void cnv() {
+        if (this.iba != null) {
+            MessageManager.getInstance().unRegisterListener(this.iba);
         }
     }
 
@@ -106,41 +106,41 @@ public class a implements com.baidu.live.u.c {
         int i2;
         int i3;
         if (c(pkInfoData)) {
-            if (this.igM == null) {
-                this.igM = new HashSet();
+            if (this.icb == null) {
+                this.icb = new HashSet();
             }
-            this.igM.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+            this.icb.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
             q a2 = a(pkInfoData.myPkData);
             q a3 = a(pkInfoData.otherPkData);
-            cro();
-            this.igL.setVisibility(0);
-            String crr = c.crG().crr();
-            if (TextUtils.isEmpty(crr)) {
+            cnw();
+            this.ica.setVisibility(0);
+            String cnz = c.cnO().cnz();
+            if (TextUtils.isEmpty(cnz)) {
                 i = 0;
                 i2 = 0;
             } else {
-                if (this.bfW == null) {
-                    this.bfW = new MediaMetadataRetriever();
+                if (this.bbg == null) {
+                    this.bbg = new MediaMetadataRetriever();
                 }
                 try {
-                    this.bfW.setDataSource(crr);
-                    i3 = Integer.valueOf(this.bfW.extractMetadata(18)).intValue();
+                    this.bbg.setDataSource(cnz);
+                    i3 = Integer.valueOf(this.bbg.extractMetadata(18)).intValue();
                     try {
-                        i = Integer.valueOf(this.bfW.extractMetadata(19)).intValue();
+                        i = Integer.valueOf(this.bbg.extractMetadata(19)).intValue();
                         i2 = i3;
                     } catch (Throwable th) {
                         th = th;
                         th.printStackTrace();
                         i = 0;
                         i2 = i3;
-                        crr = null;
+                        cnz = null;
                         if (i2 > 0) {
                         }
-                        crr = null;
+                        cnz = null;
                         int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                        this.igL.bZ(realScreenWidth, TextUtils.isEmpty(crr) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
-                        this.igL.setData(a2, a3);
-                        this.igL.Jb(crr);
+                        this.ica.bZ(realScreenWidth, TextUtils.isEmpty(cnz) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
+                        this.ica.setData(a2, a3);
+                        this.ica.HQ(cnz);
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -148,49 +148,49 @@ public class a implements com.baidu.live.u.c {
                 }
             }
             if (i2 > 0 || i <= 0) {
-                crr = null;
+                cnz = null;
             }
             int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-            this.igL.bZ(realScreenWidth2, TextUtils.isEmpty(crr) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
-            this.igL.setData(a2, a3);
-            this.igL.Jb(crr);
+            this.ica.bZ(realScreenWidth2, TextUtils.isEmpty(cnz) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
+            this.ica.setData(a2, a3);
+            this.ica.HQ(cnz);
         }
     }
 
-    private void cro() {
-        if (this.igL == null) {
-            this.igL = new PkRankStartAnimView(getContext());
+    private void cnw() {
+        if (this.ica == null) {
+            this.ica = new PkRankStartAnimView(getContext());
         }
-        if (bnR().indexOfChild(this.igL) < 0) {
-            bnR().addView(this.igL, new ViewGroup.LayoutParams(-1, -1));
+        if (bjX().indexOfChild(this.ica) < 0) {
+            bjX().addView(this.ica, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.igL.setVisibility(8);
-        this.igL.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.a.2
+        this.ica.setVisibility(8);
+        this.ica.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.a.2
             @Override // com.baidu.tieba.ala.view.PkRankStartAnimView.a
-            public void crp() {
-                if (a.this.igL != null) {
-                    a.this.igL.setVisibility(8);
+            public void cnx() {
+                if (a.this.ica != null) {
+                    a.this.ica.setVisibility(8);
                 }
             }
         });
     }
 
     private void reset() {
-        this.gqJ = 0L;
-        if (this.igM != null) {
-            this.igM.clear();
+        this.gmc = 0L;
+        if (this.icb != null) {
+            this.icb.clear();
         }
-        if (this.igL != null) {
-            this.igL.stopAnim();
-            this.igL.setVisibility(8);
+        if (this.ica != null) {
+            this.ica.stopAnim();
+            this.ica.setVisibility(8);
         }
     }
 
     private boolean c(PkInfoData pkInfoData) {
-        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.gqJ <= 0 || this.gqJ != pkInfoData.myPkData.userID) {
+        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.gmc <= 0 || this.gmc != pkInfoData.myPkData.userID) {
             return false;
         }
-        return this.igM == null || !this.igM.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+        return this.icb == null || !this.icb.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
     }
 
     private q a(PkUserInfoData pkUserInfoData) {
@@ -198,15 +198,15 @@ public class a implements com.baidu.live.u.c {
             return null;
         }
         q qVar = new q();
-        qVar.aWS = pkUserInfoData.bdPortrait;
+        qVar.aSf = pkUserInfoData.bdPortrait;
         qVar.nickname = pkUserInfoData.userNickName;
-        qVar.gUZ = pkUserInfoData.divisionIcon;
+        qVar.gQt = pkUserInfoData.divisionIcon;
         String str = pkUserInfoData.winningStreak > 1 ? pkUserInfoData.winningStreak + "连胜" : null;
         if (!TextUtils.isEmpty(str)) {
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize26)), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
             spannableString.setSpan(new StyleSpan(3), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
-            qVar.gUY = spannableString;
+            qVar.gQs = spannableString;
         }
         return qVar;
     }

@@ -6,7 +6,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -104,7 +104,7 @@ public class TbConfig {
     public static boolean isForceNoticeIm = false;
     public static int forceImType = 0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";

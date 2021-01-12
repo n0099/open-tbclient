@@ -4,15 +4,15 @@ import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a implements IOAdTimer {
     private static String c = "OAdTimer";
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f3459a;
+    protected int f3421a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IOAdTimer.EventHandler f3460b;
+    private IOAdTimer.EventHandler f3422b;
     private int d;
     private int e;
     private int f;
@@ -31,9 +31,9 @@ public class a implements IOAdTimer {
     }
 
     public a(int i, int i2) {
-        this.f3459a = 300;
-        this.f3459a = i2;
-        int i3 = i / this.f3459a;
+        this.f3421a = 300;
+        this.f3421a = i2;
+        int i3 = i / this.f3421a;
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "RendererTimer(duration=" + i3 + ")");
         this.d = i3;
         this.e = i3;
@@ -43,14 +43,14 @@ public class a implements IOAdTimer {
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void setEventHandler(IOAdTimer.EventHandler eventHandler) {
-        this.f3460b = eventHandler;
+        this.f3422b = eventHandler;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void start() {
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "start");
         this.h.set(0);
-        this.g.scheduleAtFixedRate(new b(this), 0L, this.f3459a);
+        this.g.scheduleAtFixedRate(new b(this), 0L, this.f3421a);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer

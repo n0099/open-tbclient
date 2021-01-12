@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.base.IScrollable;
 import com.baidu.live.adp.widget.listview.BdListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IListView<V extends ViewGroup> {
     void addFooterView(View view);
 

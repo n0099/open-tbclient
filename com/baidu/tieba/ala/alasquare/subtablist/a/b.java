@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
 import com.baidu.tieba.ala.alasquare.subtablist.view.d;
 import com.baidu.tieba.ala.alasquare.subtablist.view.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, AlaSubListLiveDoubleViewHolder> {
     private int from;
-    private g gIx;
-    private boolean gKx;
-    private d gKz;
+    private g gDR;
+    private boolean gFR;
+    private d gFT;
     private int isSmallFollow;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gKB);
-        this.gKx = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gFV);
+        this.gFR = false;
         this.mPageContext = tbPageContext;
     }
 
@@ -30,8 +30,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: an */
     public AlaSubListLiveDoubleViewHolder e(ViewGroup viewGroup) {
-        this.gKz = new d(this.mPageContext, this.gKx);
-        return new AlaSubListLiveDoubleViewHolder(this.gKz);
+        this.gFT = new d(this.mPageContext, this.gFR);
+        return new AlaSubListLiveDoubleViewHolder(this.gFT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,32 +39,32 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
         b(bVar);
-        alaSubListLiveDoubleViewHolder.gKz.a(bVar);
-        alaSubListLiveDoubleViewHolder.gKz.d(this.gIx);
+        alaSubListLiveDoubleViewHolder.gFT.a(bVar);
+        alaSubListLiveDoubleViewHolder.gFT.d(this.gDR);
         return alaSubListLiveDoubleViewHolder.getView();
     }
 
     public void b(g gVar) {
-        this.gIx = gVar;
+        this.gDR = gVar;
     }
 
     private void b(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
         if (bVar != null) {
             if (this.from == 1) {
-                if (bVar.gCV != null) {
-                    com.baidu.tieba.ala.alasquare.b.a.bVm().e(com.baidu.tieba.ala.alasquare.b.a.bVm().a(this.isSmallFollow, "c12117", bVar.gCV.tabId, bVar.gCV.entryName, bVar.gCV.boP()));
+                if (bVar.gyo != null) {
+                    com.baidu.tieba.ala.alasquare.b.a.bRu().e(com.baidu.tieba.ala.alasquare.b.a.bRu().a(this.isSmallFollow, "c12117", bVar.gyo.tabId, bVar.gyo.entryName, bVar.gyo.bkV()));
                 }
-                if (bVar.gCW != null) {
-                    com.baidu.tieba.ala.alasquare.b.a.bVm().e(com.baidu.tieba.ala.alasquare.b.a.bVm().a(this.isSmallFollow, "c12117", bVar.gCW.tabId, bVar.gCW.entryName, bVar.gCW.boP()));
+                if (bVar.gyp != null) {
+                    com.baidu.tieba.ala.alasquare.b.a.bRu().e(com.baidu.tieba.ala.alasquare.b.a.bRu().a(this.isSmallFollow, "c12117", bVar.gyp.tabId, bVar.gyp.entryName, bVar.gyp.bkV()));
                 }
             } else if (this.from == 2) {
-                if (bVar.gCV != null && bVar.gCV.boP() != null && bVar.gCV.boP().brK() != null) {
-                    bz boP = bVar.gCV.boP();
-                    TiebaStatic.log(new aq("c12115").w("obj_id", boP.brK().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boP.brK().appId).dX("locate_type", bVar.gCV.entryName));
+                if (bVar.gyo != null && bVar.gyo.bkV() != null && bVar.gyo.bkV().bnQ() != null) {
+                    bz bkV = bVar.gyo.bkV();
+                    TiebaStatic.log(new aq("c12115").w("obj_id", bkV.bnQ().live_id).dW(TiebaInitialize.Params.OBJ_PARAM3, bkV.bnQ().appId).dW("locate_type", bVar.gyo.entryName));
                 }
-                if (bVar.gCW != null && bVar.gCW.boP() != null && bVar.gCW.boP().brK() != null) {
-                    bz boP2 = bVar.gCW.boP();
-                    TiebaStatic.log(new aq("c12115").w("obj_id", boP2.brK().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boP2.brK().appId).dX("locate_type", bVar.gCW.entryName));
+                if (bVar.gyp != null && bVar.gyp.bkV() != null && bVar.gyp.bkV().bnQ() != null) {
+                    bz bkV2 = bVar.gyp.bkV();
+                    TiebaStatic.log(new aq("c12115").w("obj_id", bkV2.bnQ().live_id).dW(TiebaInitialize.Params.OBJ_PARAM3, bkV2.bnQ().appId).dW("locate_type", bVar.gyp.entryName));
                 }
             }
         }
@@ -74,11 +74,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         this.from = i;
     }
 
-    public void vg(int i) {
+    public void tA(int i) {
         this.isSmallFollow = i;
     }
 
-    public void mL(boolean z) {
-        this.gKx = z;
+    public void mH(boolean z) {
+        this.gFR = z;
     }
 }

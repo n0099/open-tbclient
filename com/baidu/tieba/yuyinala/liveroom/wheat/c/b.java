@@ -24,27 +24,27 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.a;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static b oAO;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a oAP;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i oAQ;
-    private String oAR = "";
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f oAS;
-    private TbPageContext oAe;
+    private static b owj;
+    private TbPageContext ovz;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a owk;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i owl;
+    private String owm = "";
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f own;
 
-    public static b eeK() {
-        if (oAO == null) {
-            oAO = new b();
+    public static b eaS() {
+        if (owj == null) {
+            owj = new b();
         }
-        return oAO;
+        return owj;
     }
 
     private b() {
     }
 
     public b g(TbPageContext tbPageContext) {
-        this.oAe = tbPageContext;
+        this.ovz = tbPageContext;
         return this;
     }
 
@@ -52,9 +52,9 @@ public class b {
         boolean z;
         JSONObject jSONObject = new JSONObject();
         try {
-            x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+            x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
             }
             jSONObject.put("error_code", 0);
         } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         try {
             JSONObject jSONObject2 = new JSONObject(bIMInviteSyncRtcInfo.getRtcExt());
             str = jSONObject2.optString("invite_name");
-            this.oAR = jSONObject2.optString("invite_uk");
+            this.owm = jSONObject2.optString("invite_uk");
             String optString = jSONObject2.optString("type");
             str2 = jSONObject2.optString("pushUrl");
             str3 = jSONObject2.optString("pushSingleUrl");
-            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.Wj(optString);
+            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.Vb(optString);
         } catch (JSONException e2) {
             e2.printStackTrace();
             z = false;
@@ -79,20 +79,20 @@ public class b {
         if (z) {
             UbcAudioFlowStatisticManager.getInstance().beginFlow(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""));
             UbcAudioFlowStatisticManager.getInstance().doSlotStart(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi", null);
-            o.efg().zS(true);
+            o.ebo().zO(true);
             new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
                 public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
                     if (alaLinkCallBackHttpResponseMessage.isError()) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eer = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer();
-                        if (eer != null) {
-                            eer.Wg("上麦CallBack回调失败onSucc");
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
+                        if (eaz != null) {
+                            eaz.UY("上麦CallBack回调失败onSucc");
                             return;
                         }
                         return;
                     }
                     UbcAudioFlowStatisticManager.getInstance().doSlotEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi");
-                    l.efc().i(b.this.oAe).NG(4);
+                    l.ebk().i(b.this.ovz).LZ(4);
                     b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str2, str3, true, false);
                 }
 
@@ -100,9 +100,9 @@ public class b {
                 public void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
                     JSONObject jSONObject3 = new JSONObject();
                     try {
-                        x aat2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                        if (aat2 != null && aat2.aLl != null) {
-                            jSONObject3.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat2.aLl.live_id);
+                        x WA2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                        if (WA2 != null && WA2.aGy != null) {
+                            jSONObject3.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA2.aGy.live_id);
                         }
                         jSONObject3.put(AlaRecorderLog.KEY_CURRENT_STAGE, 1);
                         jSONObject3.put("error_code", alaLinkCallBackHttpResponseMessage.getErrno());
@@ -111,9 +111,9 @@ public class b {
                         BdLog.e(e3);
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject3));
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b eer = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer();
-                    if (eer != null) {
-                        eer.Wg("上麦CallBack回调失败onFail");
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
+                    if (eaz != null) {
+                        eaz.UY("上麦CallBack回调失败onFail");
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                 }
@@ -127,39 +127,39 @@ public class b {
         int i = 6;
         JSONObject jSONObject = new JSONObject();
         try {
-            x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-            if (aat != null && aat.aLl != null) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+            x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+            if (WA != null && WA.aGy != null) {
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
             }
-            jSONObject.put("uid", o.efg().aas());
+            jSONObject.put("uid", o.ebo().Wz());
             jSONObject.put("error_code", 0);
         } catch (Exception e) {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_receive_invite").setContentExt(jSONObject));
-        if (this.oAS != null && this.oAS.isShowing()) {
-            this.oAS.dismiss();
+        if (this.own != null && this.own.isShowing()) {
+            this.own.dismiss();
         }
-        this.oAS = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
-        this.oAS.show();
-        x aat2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-        if (aat2 != null && aat2.aLw >= 0) {
-            i = aat2.aLw;
+        this.own = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
+        this.own.show();
+        x WA2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+        if (WA2 != null && WA2.aGJ >= 0) {
+            i = WA2.aGJ;
         }
-        this.oAS.NJ(i * 1000);
-        this.oAS.WB(str);
-        this.oAS.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
+        this.own.Mc(i * 1000);
+        this.own.Vt(str);
+        this.own.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void eeL() {
-                d.eeO().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
+            public void eaT() {
+                d.eaW().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
-                    public void zM(boolean z) {
+                    public void zI(boolean z) {
                         if (!z) {
                             JSONObject jSONObject2 = new JSONObject();
                             try {
-                                x aat3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                                if (aat3 != null && aat3.aLl != null) {
-                                    jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat3.aLl.live_id);
+                                x WA3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                                if (WA3 != null && WA3.aGy != null) {
+                                    jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA3.aGy.live_id);
                                 }
                                 jSONObject2.put(AlaRecorderLog.KEY_CURRENT_STAGE, 4);
                                 jSONObject2.put("error_code", 10001);
@@ -174,7 +174,7 @@ public class b {
                         UbcAudioFlowStatisticManager.getInstance().doSlotStart(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi", null);
                         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                         if (currentAccountInfo != null) {
-                            o.efg().zS(true);
+                            o.ebo().zO(true);
                             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("click_accept_invite_anchor_9", false);
                             b.this.a(bIMInviteSyncRtcInfo, ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
                         }
@@ -183,13 +183,13 @@ public class b {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void eeM() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oAR);
+            public void eaU() {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.owm);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    x aat3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                    if (aat3 != null && aat3.aLl != null) {
-                        jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat3.aLl.live_id);
+                    x WA3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                    if (WA3 != null && WA3.aGy != null) {
+                        jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA3.aGy.live_id);
                     }
                     jSONObject2.put("error_code", 10002);
                     jSONObject2.put("error_msg", "拒绝邀请上麦");
@@ -200,13 +200,13 @@ public class b {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void aod() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oAR);
+            public void akj() {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.owm);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    x aat3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                    if (aat3 != null && aat3.aLl != null) {
-                        jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat3.aLl.live_id);
+                    x WA3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                    if (WA3 != null && WA3.aGy != null) {
+                        jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA3.aGy.live_id);
                     }
                     jSONObject2.put("error_code", 10003);
                     jSONObject2.put("error_msg", "邀请超时放弃上麦");
@@ -220,25 +220,25 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, String str) {
-        if (this.oAP == null) {
-            this.oAP = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0958a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0958a
+        if (this.owk == null) {
+            this.owk = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0941a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
                 public void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     if (!alaAcceptConnectionWheatHttpResponseMessage.isError()) {
                         UbcAudioFlowStatisticManager.getInstance().doSlotEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi");
-                        l.efc().i(b.this.oAe).NG(3);
-                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.efV(), false, true);
+                        l.ebk().i(b.this.ovz).LZ(3);
+                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.ecd(), false, true);
                     }
                 }
 
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0958a
+                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
                 public void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                        if (aat != null && aat.aLl != null) {
-                            jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+                        x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                        if (WA != null && WA.aGy != null) {
+                            jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
                         }
                         jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 1);
                         jSONObject.put("error_code", alaAcceptConnectionWheatHttpResponseMessage.getErrno());
@@ -250,22 +250,22 @@ public class b {
                 }
             });
         }
-        this.oAP.aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq(), str, "2");
+        this.owk.aT(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), str, "2");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, int i, String str, String str2, String str3, boolean z, boolean z2) {
         if (z2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oAR);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.owm);
         } else {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oAR);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.owm);
         }
     }
 
     public void onDestroy() {
-        if (this.oAQ != null) {
-            this.oAQ.onDestroy();
-            this.oAQ = null;
+        if (this.owl != null) {
+            this.owl.onDestroy();
+            this.owl = null;
         }
     }
 }

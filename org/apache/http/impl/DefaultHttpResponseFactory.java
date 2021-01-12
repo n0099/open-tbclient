@@ -8,7 +8,7 @@ import org.apache.http.ReasonPhraseCatalog;
 import org.apache.http.StatusLine;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultHttpResponseFactory implements HttpResponseFactory {
     protected final ReasonPhraseCatalog reasonCatalog;
 

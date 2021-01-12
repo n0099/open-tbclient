@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.l.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.sdk.a;
@@ -13,22 +14,21 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.n.a;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PermissionJudgePolicy {
     private PermissionDialogClickListener mDialogClickListener;
     private OnPermissionsGrantedListener mOnPermissionsGrantedListener;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.afm()) {
+        if (!a.abt()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -80,7 +80,7 @@ public class PermissionJudgePolicy {
         if (activity == null) {
             return false;
         }
-        return com.baidu.n.a.a.checkPermissionGranted(activity, str);
+        return com.baidu.l.a.a.checkPermissionGranted(activity, str);
     }
 
     public boolean checkPermissionListGranted(Activity activity) {
@@ -110,7 +110,7 @@ public class PermissionJudgePolicy {
         String currentAppType = currentAppType(activity);
         boolean z2 = SharedPrefHelper.getInstance().getBoolean(str, false);
         SharedPrefHelper.getInstance().putBoolean(str, true);
-        if (!z2 || com.baidu.n.a.a.shouldShowRequestPermissionRationale(activity, str)) {
+        if (!z2 || com.baidu.l.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         if (!z) {
@@ -157,7 +157,7 @@ public class PermissionJudgePolicy {
     private void startRequestPermissionInternal(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.n.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
+                com.baidu.l.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

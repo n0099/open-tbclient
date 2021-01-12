@@ -11,19 +11,19 @@ import android.os.Looper;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8183a = b.class.getSimpleName();
+    private static final String f7883a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f8184b;
+    private boolean f7884b;
     private SensorManager c;
-    private Looper d;
     private final ArrayList<SensorEventListener> f = new ArrayList<>();
     private int g;
-    private SensorEventListener pQM;
+    private Looper pMl;
+    private SensorEventListener pMm;
 
     public b(SensorManager sensorManager, int i) {
         this.c = sensorManager;
@@ -31,7 +31,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Sensor eDA() {
+    public Sensor ezI() {
         if (Build.MANUFACTURER.equals("HTC")) {
             return null;
         }
@@ -40,10 +40,10 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void a() {
-        if (this.f8184b) {
+        if (this.f7884b) {
             return;
         }
-        this.pQM = new SensorEventListener() { // from class: com.google.b.a.a.b.1
+        this.pMm = new SensorEventListener() { // from class: com.google.b.a.a.b.1
             @Override // android.hardware.SensorEventListener
             public void onAccuracyChanged(Sensor sensor, int i) {
                 synchronized (b.this.f) {
@@ -68,18 +68,18 @@ public class b implements d {
             @Override // android.os.HandlerThread
             protected void onLooperPrepared() {
                 Handler handler = new Handler(Looper.myLooper());
-                b.this.c.registerListener(b.this.pQM, b.this.c.getDefaultSensor(1), b.this.g, handler);
-                Sensor eDA = b.this.eDA();
-                if (eDA == null) {
-                    Log.i(b.f8183a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
-                    eDA = b.this.c.getDefaultSensor(4);
+                b.this.c.registerListener(b.this.pMm, b.this.c.getDefaultSensor(1), b.this.g, handler);
+                Sensor ezI = b.this.ezI();
+                if (ezI == null) {
+                    Log.i(b.f7883a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
+                    ezI = b.this.c.getDefaultSensor(4);
                 }
-                b.this.c.registerListener(b.this.pQM, eDA, b.this.g, handler);
+                b.this.c.registerListener(b.this.pMm, ezI, b.this.g, handler);
             }
         };
         handlerThread.start();
-        this.d = handlerThread.getLooper();
-        this.f8184b = true;
+        this.pMl = handlerThread.getLooper();
+        this.f7884b = true;
     }
 
     @Override // com.google.b.a.a.d
@@ -92,12 +92,12 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void b() {
-        if (this.f8184b) {
-            this.c.unregisterListener(this.pQM);
-            this.pQM = null;
-            this.d.quit();
-            this.d = null;
-            this.f8184b = false;
+        if (this.f7884b) {
+            this.c.unregisterListener(this.pMm);
+            this.pMm = null;
+            this.pMl.quit();
+            this.pMl = null;
+            this.f7884b = false;
         }
     }
 

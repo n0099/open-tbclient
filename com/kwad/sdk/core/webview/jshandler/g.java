@@ -7,25 +7,25 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.t;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9872a;
+    private final com.kwad.sdk.core.webview.a f9572a;
     private com.kwad.sdk.core.download.b.b c;
     private a d = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f9873b = new AdTemplate();
+    private AdTemplate f9573b = new AdTemplate();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9875a;
+        public int f9575a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9876b;
+        public String f9576b;
         public String c;
         public String d;
         public int e;
@@ -44,9 +44,9 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     }
 
     public g(com.kwad.sdk.core.webview.a aVar) {
-        this.f9872a = aVar;
+        this.f9572a = aVar;
         try {
-            this.f9873b.parseJson(new JSONObject(this.f9872a.f9837b.mOriginJString));
+            this.f9573b.parseJson(new JSONObject(this.f9572a.f9537b.mOriginJString));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -56,9 +56,9 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
         adConversionInfo.deeplinkUrl = aVar.i;
         adConversionInfo.marketUrl = aVar.m;
-        adInfo.adBaseInfo.adOperationType = aVar.f9875a;
+        adInfo.adBaseInfo.adOperationType = aVar.f9575a;
         adInfo.adBaseInfo.appPackageName = aVar.c;
-        adInfo.adBaseInfo.appName = aVar.f9876b;
+        adInfo.adBaseInfo.appName = aVar.f9576b;
         adInfo.adBaseInfo.appVersion = aVar.d;
         adInfo.adBaseInfo.packageSize = aVar.f;
         adInfo.adBaseInfo.appIconUrl = aVar.j;
@@ -81,13 +81,13 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
             this.d.parseJson(new JSONObject(str));
-            a(com.kwad.sdk.core.response.b.c.j(this.f9873b), this.d);
+            a(com.kwad.sdk.core.response.b.c.j(this.f9573b), this.d);
             if (this.c == null) {
-                this.c = new com.kwad.sdk.core.download.b.b(this.f9873b);
+                this.c = new com.kwad.sdk.core.download.b.b(this.f9573b);
                 this.c.a(1);
             }
-            com.kwad.sdk.core.download.b.a.a(this.f9872a.e.getContext(), this.f9873b, new a.InterfaceC1105a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+            com.kwad.sdk.core.download.b.a.a(this.f9572a.e.getContext(), this.f9573b, new a.InterfaceC1088a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
                 public void a() {
                 }
             }, this.c);

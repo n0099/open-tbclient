@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements h {
+    private final int aaq;
+    private final int aar;
     private final int aas;
-    private final int aat;
-    private final int aau;
-    private HashMap aav;
+    private HashMap aat;
     private int floor;
     private final String tabId;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.aas = i;
-        this.aat = i2;
-        this.aau = i3;
+        this.aaq = i;
+        this.aar = i2;
+        this.aas = i3;
         this.tabId = str;
         this.tabName = str2;
         this.floor = i4;
@@ -28,12 +28,12 @@ public class c implements h {
 
     @Override // com.baidu.afd.h
     public int qP() {
-        return this.aas;
+        return this.aaq;
     }
 
     @Override // com.baidu.afd.h
     public int qQ() {
-        return this.aat;
+        return this.aar;
     }
 
     @Override // com.baidu.afd.h
@@ -43,14 +43,14 @@ public class c implements h {
 
     @Override // com.baidu.afd.h
     public Map<String, String> qS() {
-        return this.aav;
+        return this.aat;
     }
 
     @Override // com.baidu.afd.h
     public void u(HashMap hashMap) {
-        this.aav = hashMap;
-        if (!this.aav.containsKey(AdExtParam.KEY_IADEX)) {
-            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bIA());
+        this.aat = hashMap;
+        if (!this.aat.containsKey(AdExtParam.KEY_IADEX)) {
+            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bEI());
         }
     }
 }

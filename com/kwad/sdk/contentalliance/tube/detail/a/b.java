@@ -6,14 +6,14 @@ import com.kwad.sdk.contentalliance.tube.detail.TubeDetailParam;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9223a;
+    public c f8923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TubeDetailParam f9224b;
+    public TubeDetailParam f8924b;
     public com.kwad.sdk.core.i.a c;
     public Set<b.a> d = new LinkedHashSet();
     public Set<com.kwad.sdk.contentalliance.tube.detail.a> e = new LinkedHashSet();

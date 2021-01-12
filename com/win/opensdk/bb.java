@@ -2,16 +2,16 @@ package com.win.opensdk;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class bb {
-    private static Handler qer;
+    private static Handler pZQ;
 
     static {
-        qer = null;
-        qer = new Handler(Looper.getMainLooper());
+        pZQ = null;
+        pZQ = new Handler(Looper.getMainLooper());
     }
 
     public static void D(Runnable runnable) {
-        qer.post(runnable);
+        pZQ.post(runnable);
     }
 }

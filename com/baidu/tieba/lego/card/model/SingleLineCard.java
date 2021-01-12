@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SingleLineCard extends BaseCardInfo {
     private final int bgColor;
     private final int bgColorNight;
@@ -120,14 +120,14 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int sF = com.baidu.tieba.lego.card.c.b.sF(optJSONObject.optString("tColor", ""));
-            int sF2 = com.baidu.tieba.lego.card.c.b.sF(optJSONObject.optString("tColorN", ""));
-            if (com.baidu.tieba.lego.card.c.b.Fh(sF) || com.baidu.tieba.lego.card.c.b.Fh(sF2)) {
+            int rt = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("tColor", ""));
+            int rt2 = com.baidu.tieba.lego.card.c.b.rt(optJSONObject.optString("tColorN", ""));
+            if (com.baidu.tieba.lego.card.c.b.DB(rt) || com.baidu.tieba.lego.card.c.b.DB(rt2)) {
                 this.iconTitleColor = ao.getColor(R.color.CAM_X0302);
                 this.iconTitleColorNight = ao.getColor(R.color.CAM_X0302_1);
             } else {
-                this.iconTitleColor = sF;
-                this.iconTitleColorNight = sF2;
+                this.iconTitleColor = rt;
+                this.iconTitleColorNight = rt2;
             }
         } else {
             this.iconUrl = "";
@@ -143,12 +143,12 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i = 0; i < length; i++) {
             this.params.add(optJSONArray.optString(i));
         }
-        this.paramColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("pColor", ""));
-        this.paramColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("pColorNight", ""));
-        this.titleColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tColorNight", ""));
-        this.bgColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("bgColorNight", ""));
+        this.paramColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("pColor", ""));
+        this.paramColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("pColorNight", ""));
+        this.titleColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tColor", ""));
+        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tColorNight", ""));
+        this.bgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bgColorNight", ""));
         this.buttonInfo = c.ey(jSONObject.optJSONObject("moreButton"));
         this.showLeftLine = jSONObject.optInt("showLeftLine") == 1;
         this.showLeftIcon = jSONObject.optInt("showLeftIcon") == 1;

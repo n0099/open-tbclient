@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class AssetUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "AssetUtils";

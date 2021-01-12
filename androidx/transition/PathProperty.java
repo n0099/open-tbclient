@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.util.Property;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class PathProperty<T> extends Property<T, Float> {
     private float mCurrentFraction;
     private final float mPathLength;

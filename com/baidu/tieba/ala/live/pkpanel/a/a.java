@@ -19,12 +19,12 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.m;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private TextView hmF;
-    private RecyclerView hmG;
-    private JSONObject hmH;
-    private com.baidu.tieba.ala.live.pkpanel.b.a hmI;
+    private TextView hhY;
+    private RecyclerView hhZ;
+    private JSONObject hia;
+    private com.baidu.tieba.ala.live.pkpanel.b.a hib;
     private Context mContext;
     private Dialog mDialog;
     private int mOrientation;
@@ -33,51 +33,51 @@ public class a {
 
     public a(Context context, int i, JSONObject jSONObject) {
         this.mContext = context;
-        this.hmH = jSONObject;
+        this.hia = jSONObject;
         this.mOrientation = i;
-        parseData(this.hmH);
+        parseData(this.hia);
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_panel_rule, (ViewGroup) null);
         this.title = (TextView) this.mRootView.findViewById(a.f.ala_title);
-        this.hmF = (TextView) this.mRootView.findViewById(a.f.ala_close);
-        this.hmF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.pkpanel.a.a.1
+        this.hhY = (TextView) this.mRootView.findViewById(a.f.ala_close);
+        this.hhY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.pkpanel.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.hide();
             }
         });
-        this.hmG = (RecyclerView) this.mRootView.findViewById(a.f.giftRecycle);
-        this.hmG.setLayoutManager(new LinearLayoutManager(this.mContext));
+        this.hhZ = (RecyclerView) this.mRootView.findViewById(a.f.giftRecycle);
+        this.hhZ.setLayoutManager(new LinearLayoutManager(this.mContext));
         b bVar = new b(this.mContext);
-        if (this.hmI != null) {
-            this.title.setText(this.hmI.mTitle);
-            bVar.setData(this.hmI.gSb);
+        if (this.hib != null) {
+            this.title.setText(this.hib.mTitle);
+            bVar.setData(this.hib.gNv);
         }
-        this.hmG.setAdapter(bVar);
+        this.hhZ.setAdapter(bVar);
     }
 
-    public void SY() {
+    public void Pd() {
         if (this.mDialog == null) {
             this.mDialog = new Dialog(this.mContext, a.i.RuleDialog);
             this.mDialog.setContentView(this.mRootView);
         }
-        wq(this.mOrientation);
+        uK(this.mOrientation);
         if (!isShowing()) {
             this.mDialog.show();
         }
     }
 
     public void parseData(JSONObject jSONObject) {
-        if (this.hmI == null) {
-            this.hmI = new com.baidu.tieba.ala.live.pkpanel.b.a();
+        if (this.hib == null) {
+            this.hib = new com.baidu.tieba.ala.live.pkpanel.b.a();
         }
-        this.hmI.parseData(jSONObject);
+        this.hib.parseData(jSONObject);
     }
 
-    private void wq(int i) {
+    private void uK(int i) {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();
@@ -89,13 +89,13 @@ public class a {
                 attributes.width = -2;
             } else {
                 attributes.width = -2;
-                attributes.height = c(274.0f, this.mDialog.getContext());
+                attributes.height = d(274.0f, this.mDialog.getContext());
             }
             window.setAttributes(attributes);
         }
     }
 
-    private int c(float f, Context context) {
+    private int d(float f, Context context) {
         return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());
     }
 
@@ -109,18 +109,18 @@ public class a {
         }
     }
 
-    public void wr(int i) {
+    public void uL(int i) {
         this.mOrientation = i;
         if (isShowing()) {
             hide();
-            SY();
+            Pd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private List<com.baidu.tieba.ala.live.pkpanel.b.b> gSb;
+        private List<com.baidu.tieba.ala.live.pkpanel.b.b> gNv;
         private Context mContext;
 
         public b(Context context) {
@@ -128,7 +128,7 @@ public class a {
         }
 
         public void setData(List<com.baidu.tieba.ala.live.pkpanel.b.b> list) {
-            this.gSb = list;
+            this.gNv = list;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -137,7 +137,7 @@ public class a {
                 case 1:
                     return new c(LayoutInflater.from(this.mContext).inflate(a.g.ala_rule_content_item, viewGroup, false));
                 case 2:
-                    return new C0669a(LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_foot_rule, viewGroup, false));
+                    return new C0652a(LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_foot_rule, viewGroup, false));
                 default:
                     return null;
             }
@@ -145,90 +145,90 @@ public class a {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-            if (this.gSb != null) {
-                if ((viewHolder instanceof c) && this.gSb.size() > 0) {
-                    com.baidu.tieba.ala.live.pkpanel.b.b bVar = this.gSb.get(i);
+            if (this.gNv != null) {
+                if ((viewHolder instanceof c) && this.gNv.size() > 0) {
+                    com.baidu.tieba.ala.live.pkpanel.b.b bVar = this.gNv.get(i);
                     if (bVar != null) {
                         ((c) viewHolder).a(bVar, i);
                     }
-                } else if (viewHolder instanceof C0669a) {
-                    ((C0669a) viewHolder).a(a.this.hmI);
+                } else if (viewHolder instanceof C0652a) {
+                    ((C0652a) viewHolder).a(a.this.hib);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (a.this.hmI == null || a.this.hmI.gSb == null) {
+            if (a.this.hib == null || a.this.hib.gNv == null) {
                 return 0;
             }
-            return a.this.hmI.gSb.size() + 1;
+            return a.this.hib.gNv.size() + 1;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemViewType(int i) {
-            return ws(i) ? 2 : 1;
+            return uM(i) ? 2 : 1;
         }
 
-        private boolean ws(int i) {
-            return (a.this.hmI == null || a.this.hmI.gSb == null || a.this.hmI.gSb.size() != i) ? false : true;
+        private boolean uM(int i) {
+            return (a.this.hib == null || a.this.hib.gNv == null || a.this.hib.gNv.size() != i) ? false : true;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class c extends RecyclerView.ViewHolder {
-        private TextView epX;
-        private TextView hmK;
-        private HeadImageView hmL;
-        private TextView hmM;
-        private com.baidu.tieba.ala.live.pkpanel.b.b hmN;
+        private TextView eli;
+        private TextView hie;
+        private HeadImageView hif;
+        private TextView hig;
+        private com.baidu.tieba.ala.live.pkpanel.b.b hih;
 
         public c(@NonNull View view) {
             super(view);
-            this.hmL = (HeadImageView) view.findViewById(a.f.gift_icon);
-            this.epX = (TextView) view.findViewById(a.f.gift_name);
-            this.hmM = (TextView) view.findViewById(a.f.gift_type);
-            this.hmK = (TextView) view.findViewById(a.f.gift_describe);
-            if (this.hmL != null) {
-                this.hmL.setIsRound(true);
-                this.hmL.setAutoChangeStyle(false);
-                this.hmL.setDefaultResource(a.e.sdk_default_avatar);
+            this.hif = (HeadImageView) view.findViewById(a.f.gift_icon);
+            this.eli = (TextView) view.findViewById(a.f.gift_name);
+            this.hig = (TextView) view.findViewById(a.f.gift_type);
+            this.hie = (TextView) view.findViewById(a.f.gift_describe);
+            if (this.hif != null) {
+                this.hif.setIsRound(true);
+                this.hif.setAutoChangeStyle(false);
+                this.hif.setDefaultResource(a.e.sdk_default_avatar);
             }
         }
 
         public void a(com.baidu.tieba.ala.live.pkpanel.b.b bVar, int i) {
-            this.hmN = bVar;
-            if (this.hmN != null && i < a.this.hmI.gSb.size()) {
-                if (TextUtils.isEmpty(this.hmN.icon)) {
-                    this.hmL.setDefaultResource(a.e.sdk_default_avatar);
+            this.hih = bVar;
+            if (this.hih != null && i < a.this.hib.gNv.size()) {
+                if (TextUtils.isEmpty(this.hih.icon)) {
+                    this.hif.setDefaultResource(a.e.sdk_default_avatar);
                 } else {
-                    this.hmL.setUrl(this.hmN.icon);
-                    m.a(this.hmL, this.hmN.icon, false, false);
+                    this.hif.setUrl(this.hih.icon);
+                    m.a(this.hif, this.hih.icon, false, false);
                 }
-                this.epX.setText(this.hmN.name);
-                this.hmM.setText(this.hmN.type);
-                this.hmM.setTextColor(Color.parseColor(this.hmN.hmP));
-                this.hmK.setText(this.hmN.content);
+                this.eli.setText(this.hih.name);
+                this.hig.setText(this.hih.type);
+                this.hig.setTextColor(Color.parseColor(this.hih.hij));
+                this.hie.setText(this.hih.content);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.live.pkpanel.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    class C0669a extends RecyclerView.ViewHolder {
-        TextView hmK;
+    /* loaded from: classes10.dex */
+    class C0652a extends RecyclerView.ViewHolder {
+        TextView hie;
         TextView title;
 
-        public C0669a(@NonNull View view) {
+        public C0652a(@NonNull View view) {
             super(view);
             this.title = (TextView) view.findViewById(a.f.ala_title);
-            this.hmK = (TextView) view.findViewById(a.f.ala_content);
+            this.hie = (TextView) view.findViewById(a.f.ala_content);
         }
 
         public void a(com.baidu.tieba.ala.live.pkpanel.b.a aVar) {
             if (aVar != null) {
                 this.title.setText(aVar.activityName);
-                this.hmK.setText(aVar.hmO);
+                this.hie.setText(aVar.hii);
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UnSubscribeMsg extends NormalMsg {
     public static final Parcelable.Creator<UnSubscribeMsg> CREATOR = new Parcelable.Creator<UnSubscribeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSubscribeMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class UnSubscribeMsg extends NormalMsg {
     }
 
     public UnSubscribeMsg(String str, boolean z) {
-        setMsgType(z ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL : 2013);
+        setMsgType(z ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL : IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME);
         this.text = str;
         setText(this.text);
     }

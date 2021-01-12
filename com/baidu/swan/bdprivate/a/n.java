@@ -8,47 +8,47 @@ import com.baidu.swan.apps.setting.oauth.OAuthException;
 import com.baidu.swan.apps.setting.oauth.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     private String mStoken;
 
     public n(Activity activity, boolean z, String str, String str2) {
         super(activity, z, str, str2);
         if (z) {
-            aOC();
+            aKI();
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
+    protected boolean aKf() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    protected boolean aOa() {
+    protected boolean aKg() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aOA().id);
+            jSONObject.put("ma_id", aKG().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aOA().getAppKey());
+            jSONObject2.put("app_key", aKG().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String alL = com.baidu.swan.apps.t.a.aAE().alL();
-            if (!TextUtils.isEmpty(alL)) {
-                jSONObject2.put("host_api_key", alL);
+            String ahR = com.baidu.swan.apps.t.a.awK().ahR();
+            if (!TextUtils.isEmpty(ahR)) {
+                jSONObject2.put("host_api_key", ahR);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.dMt));
+            jSONObject3.put("permit", Boolean.toString(this.dHH));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        cA("data", jSONObject.toString());
+        cz("data", jSONObject.toString());
         return true;
     }
 
@@ -56,26 +56,26 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
     /* renamed from: cd */
-    public a.C0486a bY(JSONObject jSONObject) throws JSONException {
+    public a.C0469a bY(JSONObject jSONObject) throws JSONException {
         com.baidu.swan.bdprivate.a.a.b(this.mActivity, jSONObject);
         return super.bY(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.a.h
-    public void aOv() {
-        super.aOv();
-        com.baidu.swan.apps.network.c.b.a.aGP();
+    public void aKB() {
+        super.aKB();
+        com.baidu.swan.apps.network.c.b.a.aCV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.swan.apps.setting.oauth.d {
         private a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aOf() throws Exception {
+        protected boolean aKl() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(n.this.mActivity, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.n.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
@@ -88,7 +88,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         n.this.mStoken = string;
-                        a.this.aOh();
+                        a.this.aKn();
                         return;
                     }
                     a.this.x(new OAuthException("empty stoken", 10001));

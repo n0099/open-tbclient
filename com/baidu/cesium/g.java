@@ -22,19 +22,19 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1701b = false;
-    c aoq;
-    private a.C0094a aou;
-    private volatile FileLock aov;
-    private volatile RandomAccessFile aow;
-    private com.baidu.cesium.b.b aox;
+    private static boolean f1651b = false;
+    c anD;
+    private a.C0093a anH;
+    private volatile FileLock anI;
+    private volatile RandomAccessFile anJ;
+    private com.baidu.cesium.b.b anK;
     private Context f;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1702a = {"V", "O", "0"};
+        public static final String[] f1652a = {"V", "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -109,7 +109,7 @@ public class g {
             return Arrays.hashCode(new Object[]{this.i, this.j, this.k, this.m, Integer.valueOf(this.n)});
         }
 
-        public e ub() {
+        public e tU() {
             e eVar = new e();
             eVar.d = this.i;
             StringBuilder sb = new StringBuilder();
@@ -130,9 +130,9 @@ public class g {
             throw new NullPointerException("context should not be null!!!");
         }
         this.f = context.getApplicationContext();
-        this.aou = aVar.tX().dm("bohrium");
-        this.aou.a();
-        this.aoq = cVar;
+        this.anH = aVar.tQ().dh("bohrium");
+        this.anH.a();
+        this.anD = cVar;
         a(aVar);
     }
 
@@ -171,20 +171,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.aou.a("libbh.so", z);
+        return this.anH.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
-        a.C0091a c0091a = new a.C0091a();
-        c0091a.f1670a = this.f;
-        c0091a.anN = aVar;
+        a.C0090a c0090a = new a.C0090a();
+        c0090a.f1620a = this.f;
+        c0090a.amW = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
-            aVar2.a(c0091a);
+            aVar2.a(c0090a);
             aVar2.a(cVar);
         }
-        this.aox = bVar;
+        this.anK = bVar;
     }
 
     private static String c(String str) {
@@ -196,7 +196,7 @@ public class g {
         }
     }
 
-    public static a l(String str, String str2, String str3) {
+    public static a k(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -217,20 +217,20 @@ public class g {
         }
     }
 
-    public a S(String str, String str2) {
-        com.baidu.cesium.b.a dl = this.aox.dl(str2);
+    public a R(String str, String str2) {
+        com.baidu.cesium.b.a dg = this.anK.dg(str2);
         a.f fVar = new a.f();
-        fVar.f1672a = true;
-        a.g a2 = dl.a(str, fVar);
+        fVar.f1622a = true;
+        a.g a2 = dg.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.f1673a;
+        return a2.f1623a;
     }
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.aox.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.anK.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -242,7 +242,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.aou.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.anH.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -253,7 +253,7 @@ public class g {
                 return false;
             }
         }
-        return this.aou.a("libbh.so", aVar.f(), z);
+        return this.anH.a("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -268,7 +268,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.f1702a;
+            String[] strArr = a.f1652a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -296,7 +296,7 @@ public class g {
         String a2 = a(this.f);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (f1701b) {
+            if (f1651b) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + a2 + uuid;
@@ -318,7 +318,7 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b2 = this.aou.b(".lock");
+            File b2 = this.anH.b(".lock");
             if (!b2.exists()) {
                 try {
                     b2.createNewFile();
@@ -334,8 +334,8 @@ public class g {
                         break;
                     }
                     try {
-                        this.aov = randomAccessFile.getChannel().lock();
-                        this.aow = randomAccessFile;
+                        this.anI = randomAccessFile.getChannel().lock();
+                        this.anJ = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -345,7 +345,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.aov == null) {
+                            if (this.anI == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -361,31 +361,31 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.aov != null) {
+        if (this.anI != null) {
             try {
-                this.aov.release();
+                this.anI.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.aov = null;
+            this.anI = null;
         }
-        com.baidu.cesium.f.c.a(this.aow);
-        this.aow = null;
+        com.baidu.cesium.f.c.a(this.anJ);
+        this.anJ = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.f1672a = true;
-        List<com.baidu.cesium.b.a> a2 = this.aox.a();
+        fVar.f1622a = true;
+        List<com.baidu.cesium.b.a> a2 = this.anK.a();
         Collections.sort(a2, com.baidu.cesium.b.a.d);
-        List<b> b2 = this.aoq.b(this.f);
+        List<b> b2 = this.anD.b(this.f);
         if (b2 != null) {
             for (b bVar : b2) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
-                        a.g a3 = aVar.a(bVar.aeJ.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.f1673a != null) {
-                            return a3.f1673a;
+                        a.g a3 = aVar.a(bVar.f1618a.packageName, fVar);
+                        if (a3 != null && a3.a() && a3.f1623a != null) {
+                            return a3.f1623a;
                         }
                     }
                     continue;
@@ -395,8 +395,8 @@ public class g {
         return null;
     }
 
-    public a tV() {
-        if (new File(this.aou.b(), "libbh.so").exists()) {
+    public a tM() {
+        if (new File(this.anH.b(), "libbh.so").exists()) {
             return a(a(true));
         }
         return null;

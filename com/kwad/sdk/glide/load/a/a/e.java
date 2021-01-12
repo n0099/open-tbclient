@@ -13,21 +13,21 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f10339a = new a();
+    private static final a f10039a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f10340b;
+    private final a f10040b;
     private final d c;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
     private final ContentResolver e;
     private final List<ImageHeaderParser> f;
 
     e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this.f10340b = aVar;
+        this.f10040b = aVar;
         this.c = dVar;
         this.d = bVar;
         this.e = contentResolver;
@@ -36,11 +36,11 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(List<ImageHeaderParser> list, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this(list, f10339a, dVar, bVar, contentResolver);
+        this(list, f10039a, dVar, bVar, contentResolver);
     }
 
     private boolean a(File file) {
-        return this.f10340b.a(file) && 0 < this.f10340b.b(file);
+        return this.f10040b.a(file) && 0 < this.f10040b.b(file);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -104,7 +104,7 @@ class e {
         if (TextUtils.isEmpty(c)) {
             return null;
         }
-        File a2 = this.f10340b.a(c);
+        File a2 = this.f10040b.a(c);
         if (a(a2)) {
             Uri fromFile = Uri.fromFile(a2);
             try {

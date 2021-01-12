@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TransformationUtils {
     private static final Lock BITMAP_DRAWABLE_LOCK;
     private static final Paint CIRCLE_CROP_BITMAP_PAINT;
@@ -94,9 +95,9 @@ public final class TransformationUtils {
         Bitmap bitmap2 = bitmapPool.get((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), getNonNullConfig(bitmap));
         setAlpha(bitmap, bitmap2);
         if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "request: " + i + "x" + i2);
-            Log.v(TAG, "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
-            Log.v(TAG, "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight());
+            Log.v(TAG, "request: " + i + Config.EVENT_HEAT_X + i2);
+            Log.v(TAG, "toFit:   " + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight());
+            Log.v(TAG, "toReuse: " + bitmap2.getWidth() + Config.EVENT_HEAT_X + bitmap2.getHeight());
             Log.v(TAG, "minPct:   " + min);
         }
         Matrix matrix = new Matrix();
@@ -316,7 +317,7 @@ public final class TransformationUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class NoLock implements Lock {
         NoLock() {
         }

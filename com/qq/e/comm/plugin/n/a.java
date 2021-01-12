@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.n;
 import android.content.Context;
 import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.util.q;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static g a(Context context, com.qq.e.comm.plugin.s.a aVar, com.qq.e.comm.plugin.y.c cVar) {
         if (context == null || aVar == null) {

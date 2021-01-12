@@ -11,23 +11,23 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class d {
-    private static volatile d pVF;
+    private static volatile d pRe;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13245b = 0;
+    private long f12945b = 0;
     private ConcurrentHashMap<String, e> c = new ConcurrentHashMap<>();
     private HashMap<String, Integer> d = new HashMap<>();
     private List<String> e = new CopyOnWriteArrayList();
 
-    public static d eFY() {
-        if (pVF == null) {
+    public static d eCh() {
+        if (pRe == null) {
             synchronized (d.class) {
-                if (pVF == null) {
-                    pVF = new d();
+                if (pRe == null) {
+                    pRe = new d();
                 }
             }
         }
-        return pVF;
+        return pRe;
     }
 
     public void a(String str, e eVar) {
@@ -44,12 +44,12 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long b() {
-        return this.f13245b;
+        return this.f12945b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        this.f13245b = System.currentTimeMillis();
+        this.f12945b = System.currentTimeMillis();
     }
 
     public int b(String str) {
@@ -68,7 +68,7 @@ public class d {
     @WorkerThread
     public static void d(com.ss.android.b.a.b.a aVar) {
         com.ss.android.socialbase.downloader.g.c h;
-        if (aVar != null && aVar.j() > 0 && (h = f.iA(j.a()).h(aVar.t())) != null) {
+        if (aVar != null && aVar.j() > 0 && (h = f.iy(j.a()).h(aVar.t())) != null) {
             a(h);
         }
     }
@@ -76,7 +76,7 @@ public class d {
     @WorkerThread
     public static void a(com.ss.android.socialbase.downloader.g.c cVar) {
         File file;
-        if (cVar != null && com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("delete_file_after_install", 0) != 0) {
+        if (cVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("delete_file_after_install", 0) != 0) {
             try {
                 String str = cVar.k() + File.separator + cVar.h();
                 if (!TextUtils.isEmpty(str) && (file = new File(str)) != null && file.isFile() && file.exists()) {

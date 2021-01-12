@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ao {
-    void bVF();
+    void bRN();
 
-    void cEG();
+    void cAO();
 }

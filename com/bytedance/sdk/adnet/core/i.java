@@ -11,14 +11,14 @@ import java.util.concurrent.Executors;
 public class i implements com.bytedance.sdk.adnet.e.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f6333a;
+    private final Executor f6033a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Executor f6334b = Executors.newCachedThreadPool();
-    private com.bytedance.sdk.adnet.c.c pps = com.bytedance.sdk.adnet.c.f.esl();
+    private final Executor f6034b = Executors.newCachedThreadPool();
+    private com.bytedance.sdk.adnet.c.c pkM = com.bytedance.sdk.adnet.c.f.eor();
 
     public i(final Handler handler) {
-        this.f6333a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
+        this.f6033a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
             @Override // java.util.concurrent.Executor
             public void execute(Runnable runnable) {
                 handler.post(runnable);
@@ -27,14 +27,14 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     }
 
     private Executor e(Request<?> request) {
-        return (request == null || request.isResponseOnMain()) ? this.f6333a : this.f6334b;
+        return (request == null || request.isResponseOnMain()) ? this.f6033a : this.f6034b;
     }
 
     @Override // com.bytedance.sdk.adnet.e.d
     public void a(Request<?> request, p<?> pVar) {
         a(request, pVar, null);
-        if (this.pps != null) {
-            this.pps.a(request, pVar);
+        if (this.pkM != null) {
+            this.pkM.a(request, pVar);
         }
     }
 
@@ -43,8 +43,8 @@ public class i implements com.bytedance.sdk.adnet.e.d {
         request.markDelivered();
         request.addMarker("post-response");
         e(request).execute(new a(request, pVar, runnable));
-        if (this.pps != null) {
-            this.pps.a(request, pVar);
+        if (this.pkM != null) {
+            this.pkM.a(request, pVar);
         }
     }
 
@@ -52,8 +52,8 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     public void a(Request<?> request, VAdError vAdError) {
         request.addMarker("post-error");
         e(request).execute(new a(request, p.c(vAdError), null));
-        if (this.pps != null) {
-            this.pps.a(request, vAdError);
+        if (this.pkM != null) {
+            this.pkM.a(request, vAdError);
         }
     }
 
@@ -62,40 +62,40 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     public static class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final p f6336b;
+        private final p f6036b;
         private final Runnable c;
-        private final Request ppa;
+        private final Request pkv;
 
         public a(Request request, p pVar, Runnable runnable) {
-            this.ppa = request;
-            this.f6336b = pVar;
+            this.pkv = request;
+            this.f6036b = pVar;
             this.c = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.ppa.isCanceled()) {
-                this.ppa.a("canceled-at-delivery");
+            if (this.pkv.isCanceled()) {
+                this.pkv.a("canceled-at-delivery");
                 return;
             }
-            this.f6336b.g = this.ppa.getExtra();
-            this.f6336b.ir(SystemClock.elapsedRealtime() - this.ppa.getStartTime());
-            this.f6336b.is(this.ppa.getNetDuration());
-            if (this.f6336b.a()) {
+            this.f6036b.g = this.pkv.getExtra();
+            this.f6036b.ir(SystemClock.elapsedRealtime() - this.pkv.getStartTime());
+            this.f6036b.is(this.pkv.getNetDuration());
+            if (this.f6036b.a()) {
                 try {
-                    this.ppa.a(this.f6336b);
+                    this.pkv.a(this.f6036b);
                 } catch (Throwable th) {
                 }
             } else {
                 try {
-                    this.ppa.deliverError(this.f6336b);
+                    this.pkv.deliverError(this.f6036b);
                 } catch (Throwable th2) {
                 }
             }
-            if (this.f6336b.d) {
-                this.ppa.addMarker("intermediate-response");
+            if (this.f6036b.d) {
+                this.pkv.addMarker("intermediate-response");
             } else {
-                this.ppa.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                this.pkv.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
             if (this.c != null) {
                 try {

@@ -7,19 +7,20 @@ import com.baidu.down.manage.DownloadConstants;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern dRH = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> dRI = new HashMap<>();
-    private static HashMap<String, Integer> dRJ = new HashMap<>();
-    private static HashMap<String, String> dRK = new HashMap<>();
-    private static HashMap<String, String> dRL = new HashMap<>();
-    private static final Pattern dRM;
+    private static final Pattern dMV = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> dMW = new HashMap<>();
+    private static HashMap<String, Integer> dMX = new HashMap<>();
+    private static HashMap<String, String> dMY = new HashMap<>();
+    private static HashMap<String, String> dMZ = new HashMap<>();
+    private static final Pattern dNa;
 
     static {
         k("application/andrew-inset", "ez", 5);
@@ -102,7 +103,7 @@ public final class r {
         k("application/x-debian-package", "deb", 5);
         k("application/x-debian-package", "udeb", 5);
         k("application/x-director", "dcr", 5);
-        k("application/x-director", MapBundleKey.MapObjKey.OBJ_DIR, 5);
+        k("application/x-director", "dir", 5);
         k("application/x-director", "dxr", 5);
         k("application/x-dms", "dms", 5);
         k("application/x-doom", "wad", 5);
@@ -174,7 +175,7 @@ public final class r {
         k("application/x-troff", "roff", 5);
         k("application/x-troff-man", "man", 5);
         k("application/x-ustar", "ustar", 5);
-        k("application/x-wais-source", "src", 5);
+        k("application/x-wais-source", UserAccountActionItem.KEY_SRC, 5);
         k("application/x-wingz", "wz", 5);
         k("application/x-webarchive", "webarchive", 5);
         k("application/x-webarchive-xml", "webarchivexml", 5);
@@ -271,7 +272,7 @@ public final class r {
         k("text/plain", "po", 4);
         k("text/richtext", "rtx", 4);
         k("text/rtf", "rtf", 4);
-        k("text/texmacs", "ts", 5);
+        k("text/texmacs", TimeDisplaySetting.TIME_DISPLAY_SETTING, 5);
         k("text/text", "phps", 5);
         k("text/tab-separated-values", "tsv", 5);
         k("text/xml", "xml", 4);
@@ -340,19 +341,19 @@ public final class r {
         k("audio/aac", "aac", 1);
         k("application/vnd.rn-realmedia", "rm", 0);
         k("message/rfc822", "mht", 11);
-        dRM = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dNa = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void k(String str, String str2, int i) {
-        dRI.put(str2, Integer.valueOf(i));
-        dRJ.put(str, Integer.valueOf(i));
-        dRK.put(str2, str);
-        if (!dRL.containsKey(str)) {
-            dRL.put(str, str2);
+        dMW.put(str2, Integer.valueOf(i));
+        dMX.put(str, Integer.valueOf(i));
+        dMY.put(str2, str);
+        if (!dMZ.containsKey(str)) {
+            dMZ.put(str, str2);
         }
     }
 
-    public static String uJ(String str) {
+    public static String ty(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -361,23 +362,23 @@ public final class r {
     }
 
     @Nullable
-    public static String uK(String str) {
+    public static String tz(String str) {
         if (str == null) {
             return null;
         }
-        return dRL.get(str);
+        return dMZ.get(str);
     }
 
-    public static String uL(String str) {
+    public static String tA(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return dRK.get(str);
+        return dMY.get(str);
     }
 
-    public static String uM(String str) {
+    public static String tB(String str) {
         try {
-            Matcher matcher = dRH.matcher(str);
+            Matcher matcher = dMV.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

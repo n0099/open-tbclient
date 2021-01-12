@@ -15,15 +15,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public final class n {
-    private long fNb = -1;
-    private long fNc = -1;
-    private long fNd = -1;
-    private long fMS = -1;
-    private long fNe = -1;
+    private long fIu = -1;
+    private long fIv = -1;
+    private long fIw = -1;
+    private long fIl = -1;
+    private long fIx = -1;
 
-    public void bHO() {
-        this.fNd = SystemClock.elapsedRealtime();
-        this.fNc = Process.getElapsedCpuTime();
+    public void bDW() {
+        this.fIw = SystemClock.elapsedRealtime();
+        this.fIv = Process.getElapsedCpuTime();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [133=4] */
@@ -32,10 +32,10 @@ public final class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void bHP() {
+    public void bDX() {
         BufferedReader bufferedReader;
         long j;
-        long bHN = l.bHL().bHN();
+        long bDV = l.bDT().bDV();
         long j2 = -1;
         try {
             try {
@@ -97,15 +97,15 @@ public final class n {
             throw th;
         }
         if (j2 <= 0) {
-            this.fMS = this.fNd - j2;
-            this.fNe = this.fMS - bHN;
+            this.fIl = this.fIw - j2;
+            this.fIx = this.fIl - bDV;
         }
     }
 
-    public long bHQ() {
-        if (this.fMS == -1) {
-            bHP();
+    public long bDY() {
+        if (this.fIl == -1) {
+            bDX();
         }
-        return this.fMS;
+        return this.fIl;
     }
 }

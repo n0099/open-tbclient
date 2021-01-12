@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class b {
-    private LinearLayout giY;
-    private TbSettingTextTipView giZ;
-    private TbSettingTextTipView gja;
+    private LinearLayout geq;
+    private TbSettingTextTipView ger;
+    private TbSettingTextTipView ges;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        bDg();
+        bzm();
     }
 
-    private void bDg() {
+    private void bzm() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.giY = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.giZ = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.gja = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.giZ.bDi();
-        this.gja.bDi();
-        this.giZ.setOnClickListener(this.mOnClickListener);
-        this.gja.setOnClickListener(this.mOnClickListener);
+        this.geq = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.ger = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.ges = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.ger.bzo();
+        this.ges.bzo();
+        this.ger.setOnClickListener(this.mOnClickListener);
+        this.ges.setOnClickListener(this.mOnClickListener);
     }
 
-    public void sk(int i) {
+    public void qE(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.gja.setTip(simpleUser.block_msg);
+            this.ges.setTip(simpleUser.block_msg);
         }
     }
 

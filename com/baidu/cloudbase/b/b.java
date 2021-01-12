@@ -8,36 +8,36 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static String aoK;
-    public static String aoL;
+    public static String anX;
+    public static String anY;
 
-    public static String Z(Context context) {
+    public static String Y(Context context) {
         return z(context, AlaRecorderLog.Protocol.RTC);
     }
 
-    public static String aa(Context context) {
-        if (TextUtils.isEmpty(aoK)) {
-            uj();
+    public static String Z(Context context) {
+        if (TextUtils.isEmpty(anX)) {
+            uc();
         }
-        return y(context, aoK) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return y(context, anX) + File.separator + "jniLibs" + File.separator + getCPUType();
     }
 
-    public static void ds(String str) {
+    public static void dn(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        aoL = str;
+        anY = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(aoL) ? "armeabi-v7a" : aoL;
+        return TextUtils.isEmpty(anY) ? "armeabi-v7a" : anY;
     }
 
     public static String m(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            str2 = Z(context);
+            str2 = Y(context);
         }
         return str2 + File.separator + md5(str);
     }
@@ -70,17 +70,17 @@ public class b {
         return com.baidu.cloudbase.d.a.isExists(m + File.separator + "jniLibs" + File.separator + getCPUType() + File.separator + "libjingle_peerconnection_so.so");
     }
 
-    public static String uj() {
-        aoK = "https://b.bdstatic.com/searchbox/androidvideo/" + uk();
-        return aoK;
+    public static String uc() {
+        anX = "https://b.bdstatic.com/searchbox/androidvideo/" + ud();
+        return anX;
     }
 
-    public static String uk() {
+    public static String ud() {
         return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + AlaRecorderLog.Protocol.RTC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.14.zip";
     }
 
     public static String y(Context context, String str) {
-        return m(context, str, Z(context));
+        return m(context, str, Y(context));
     }
 
     public static String z(Context context, String str) {

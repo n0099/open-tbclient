@@ -18,75 +18,75 @@ import com.baidu.live.tbadk.core.view.BdGridView;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.tieba.ala.liveroom.exclusive.a;
-/* loaded from: classes11.dex */
-public class d extends com.baidu.live.view.e implements View.OnClickListener, com.baidu.live.view.web.f, a.InterfaceC0679a {
-    private v aLn;
-    private BdGridView bOF;
-    private int bXh;
-    private RoundRectRelativeLayout byQ;
-    private float byT;
-    private TextView hDd;
-    private a hDe;
-    private int hDf;
-    private f hDg;
-    private boolean hpp;
+/* loaded from: classes10.dex */
+public class d extends com.baidu.live.view.e implements View.OnClickListener, com.baidu.live.view.web.f, a.InterfaceC0662a {
+    private v aGA;
+    private BdGridView bJT;
+    private int bSv;
+    private RoundRectRelativeLayout bud;
+    private float buh;
+    private boolean hkI;
+    private f hyA;
+    private TextView hyx;
+    private a hyy;
+    private int hyz;
     private Activity mActivity;
     private View mRootView;
 
     public void a(f fVar) {
-        this.hDg = fVar;
+        this.hyA = fVar;
     }
 
     public d(Activity activity) {
         super(activity);
-        this.hDf = -1;
+        this.hyz = -1;
         this.mActivity = activity;
         init();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aam()) {
-            aah();
+        if (!Wt()) {
+            Wo();
         }
     }
 
     public void a(v vVar, int i) {
-        if (!this.mActivity.isFinishing() && vVar != null && vVar.EC()) {
-            this.hDf = i;
-            this.aLn = vVar;
-            if (this.hDe != null) {
-                this.hDe.setDatas(this.aLn.ED());
-                if (this.hDf >= 0) {
-                    of(false);
-                    this.hDe.wQ(this.hDf);
+        if (!this.mActivity.isFinishing() && vVar != null && vVar.AH()) {
+            this.hyz = i;
+            this.aGA = vVar;
+            if (this.hyy != null) {
+                this.hyy.setDatas(this.aGA.AI());
+                if (this.hyz >= 0) {
+                    ob(false);
+                    this.hyy.vk(this.hyz);
                 } else {
-                    of(true);
-                    this.hDe.wQ(-1);
+                    ob(true);
+                    this.hyy.vk(-1);
                 }
             }
             View findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290);
             if (findViewById != null) {
-                this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                this.bXh = 5;
-                int aak = aak();
-                int aal = aal();
-                setWidth(aak);
-                setHeight(aal);
+                this.bud.setCornerRadius(this.buh, 0.0f, 0.0f, this.buh);
+                this.bSv = 5;
+                int Wr = Wr();
+                int Ws = Ws();
+                setWidth(Wr);
+                setHeight(Ws);
                 showAtLocation(findViewById, 85, 0, 0);
-                ah(this.byQ);
-                Oj();
+                ah(this.bud);
+                Ko();
             }
         }
     }
 
-    private void of(boolean z) {
-        if (this.aLn != null) {
-            c.a(this.mActivity, this.hDd, z, this.aLn.EF(), this.aLn.EE(), false);
+    private void ob(boolean z) {
+        if (this.aGA != null) {
+            c.a(this.mActivity, this.hyx, z, this.aGA.AK(), this.aGA.AJ(), false);
         }
     }
 
-    public void aah() {
+    public void Wo() {
         super.dismiss();
     }
 
@@ -99,31 +99,31 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
     }
 
     private void initView() {
-        this.byT = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds36);
-        this.byQ = new RoundRectRelativeLayout(this.mActivity);
+        this.buh = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds36);
+        this.bud = new RoundRectRelativeLayout(this.mActivity);
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(a.g.ala_exclusive_scene_land_pop_layout, (ViewGroup) null);
-        this.hDd = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
-        this.hDd.setOnClickListener(this);
-        this.bOF = (BdGridView) this.mRootView.findViewById(a.f.ala_live_land_scene_gridview);
-        this.hDe = new a(this.mActivity, false);
-        this.hDe.a(this);
-        this.bOF.setAdapter((ListAdapter) this.hDe);
-        this.byQ.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
-        setContentView(this.byQ);
+        this.hyx = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
+        this.hyx.setOnClickListener(this);
+        this.bJT = (BdGridView) this.mRootView.findViewById(a.f.ala_live_land_scene_gridview);
+        this.hyy = new a(this.mActivity, false);
+        this.hyy.a(this);
+        this.bJT.setAdapter((ListAdapter) this.hyy);
+        this.bud.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
+        setContentView(this.bud);
     }
 
-    private int aak() {
+    private int Wr() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int aal() {
+    private int Ws() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private void Oj() {
+    private void Ko() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.bXh) {
+            switch (this.bSv) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -139,15 +139,15 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         }
     }
 
-    private boolean aam() {
+    private boolean Wt() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hpp) {
+        if (this.hkI) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.bXh) {
+        switch (this.bSv) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -165,8 +165,8 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.aah();
-                    d.this.hpp = false;
+                    d.this.Wo();
+                    d.this.hkI = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -174,31 +174,31 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hpp = true;
+            this.hkI = true;
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.live.view.web.f
-    public void fr(int i) {
+    public void dL(int i) {
         dismiss();
     }
 
-    @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0679a
+    @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0662a
     public void a(View view, int i, aj ajVar) {
         dismiss();
-        if (this.hDg != null) {
-            this.hDg.a(false, view, i, ajVar);
+        if (this.hyA != null) {
+            this.hyA.a(false, view, i, ajVar);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hDd) {
+        if (view == this.hyx) {
             dismiss();
-            if (this.hDg != null) {
-                this.hDg.a(true, this.hDd, -1, null);
+            if (this.hyA != null) {
+                this.hyA.a(true, this.hyx, -1, null);
             }
         }
     }

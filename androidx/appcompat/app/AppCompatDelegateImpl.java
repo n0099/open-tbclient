@@ -84,7 +84,7 @@ import java.lang.Thread;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutInflater.Factory2, MenuBuilder.Callback {
     private static final boolean DEBUG = false;
     static final String EXCEPTION_HANDLER_MESSAGE_SUFFIX = ". If the resource you are trying to use is a vector resource, you may be referencing it in an unsupported way. See AppCompatDelegate.setCompatVectorFromResourcesEnabled() for more info.";
@@ -1598,7 +1598,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ActionModeCallbackWrapperV9 implements ActionMode.Callback {
         private ActionMode.Callback mWrapped;
 
@@ -1653,7 +1653,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
         PanelMenuPresenterCallback() {
         }
@@ -1689,7 +1689,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
@@ -1711,7 +1711,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class PanelFeatureState {
         int background;
         View createdPanelView;
@@ -1829,7 +1829,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class SavedState implements Parcelable {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.PanelFeatureState.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1885,7 +1885,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ListMenuDecorView extends ContentFrameLayout {
         public ListMenuDecorView(Context context) {
             super(context);
@@ -1915,7 +1915,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     class AppCompatWindowCallback extends WindowCallbackWrapper {
         AppCompatWindowCallback(Window.Callback callback) {
             super(callback);
@@ -2019,7 +2019,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class AutoNightModeManager {
         private BroadcastReceiver mAutoTimeChangeReceiver;
         private IntentFilter mAutoTimeChangeReceiverFilter;
@@ -2076,7 +2076,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements LayoutIn
         return new ActionBarDrawableToggleImpl();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class ActionBarDrawableToggleImpl implements ActionBarDrawerToggle.Delegate {
         ActionBarDrawableToggleImpl() {
         }

@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a lhf;
+    a lcz;
     private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void ai(List<String> list);
 
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !x.isEmpty(searchMajorHttpResponsedMessage.getData().lhe)) {
-                        SearchMajorModel.this.lhf.ai(searchMajorHttpResponsedMessage.getData().lhe);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !x.isEmpty(searchMajorHttpResponsedMessage.getData().lcy)) {
+                        SearchMajorModel.this.lcz.ai(searchMajorHttpResponsedMessage.getData().lcy);
                     } else {
-                        SearchMajorModel.this.lhf.b(errorData);
+                        SearchMajorModel.this.lcz.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.lhf = aVar;
+        this.lcz = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

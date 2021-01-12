@@ -3,19 +3,19 @@ package com.win.opensdk;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ax {
-    public static boolean abK(String str) {
+    public static boolean aaC(String str) {
         return !TextUtils.isEmpty(str) && str.length() > 3;
     }
 
     public static boolean bK(Context context, String str) {
-        String m67b = az.m67b(context);
-        if (TextUtils.isEmpty(m67b)) {
+        String m63b = az.m63b(context);
+        if (TextUtils.isEmpty(m63b)) {
             return false;
         }
         try {
-            JSONArray jSONArray = new JSONArray(m67b);
+            JSONArray jSONArray = new JSONArray(m63b);
             if (jSONArray.length() > 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     String optString = jSONArray.optString(i);

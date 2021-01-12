@@ -1,36 +1,36 @@
 package com.baidu.tieba.memberCenter.index.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private String aJs;
-    private String liU;
-    private String liV;
-    private int liW;
+    private String aEF;
+    private String lep;
+    private String leq;
+    private int ler;
 
     public void setCategoryName(String str) {
-        this.aJs = str;
+        this.aEF = str;
     }
 
-    public String dgV() {
-        return this.liU;
+    public String ddd() {
+        return this.lep;
     }
 
-    public void Os(String str) {
-        this.liU = str;
+    public void Nk(String str) {
+        this.lep = str;
     }
 
-    public String dgW() {
-        return this.liV;
+    public String dde() {
+        return this.leq;
     }
 
-    public void Ot(String str) {
-        this.liV = str;
+    public void Nl(String str) {
+        this.leq = str;
     }
 
-    public void FG(int i) {
-        this.liW = i;
+    public void Ea(int i) {
+        this.ler = i;
     }
 
-    public int dgX() {
-        return this.liW;
+    public int ddf() {
+        return this.ler;
     }
 }

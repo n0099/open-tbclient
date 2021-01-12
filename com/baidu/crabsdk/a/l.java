@@ -5,18 +5,18 @@ import android.os.Debug;
 import android.os.SystemClock;
 import android.util.Printer;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 final class l implements Printer {
-    private final Context api;
-    private i apu;
-    private long apt = 0;
+    private i aoF;
+    private final Context aov;
+    private long aoE = 0;
     private long az = 0;
     private boolean aB = false;
 
     public l(i iVar, Context context) {
-        this.apu = null;
-        this.apu = iVar;
-        this.api = context;
+        this.aoF = null;
+        this.aoF = iVar;
+        this.aov = context;
     }
 
     @Override // android.util.Printer
@@ -25,23 +25,23 @@ final class l implements Printer {
             return;
         }
         if (!this.aB) {
-            this.apt = System.currentTimeMillis();
+            this.aoE = System.currentTimeMillis();
             this.az = SystemClock.currentThreadTimeMillis();
             this.aB = true;
-            if (c.ae(this.api).apg != null) {
-                c.ae(this.api).apg.start();
+            if (c.ad(this.aov).aot != null) {
+                c.ad(this.aov).aot.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         this.aB = false;
-        if (currentTimeMillis - this.apt >= ((long) a.W)) {
-            com.baidu.crabsdk.c.a.dx("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.apt + "=" + (currentTimeMillis - this.apt) + " >= " + a.W);
-            j.uw().post(new m(this, this.apt, currentTimeMillis, this.az, SystemClock.currentThreadTimeMillis()));
+        if (currentTimeMillis - this.aoE >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.ds("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.aoE + "=" + (currentTimeMillis - this.aoE) + " >= " + a.W);
+            j.up().post(new m(this, this.aoE, currentTimeMillis, this.az, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.ae(this.api).apg != null) {
-            c.ae(this.api).apg.stop();
+        if (c.ad(this.aov).aot != null) {
+            c.ad(this.aov).aot.stop();
         }
     }
 }

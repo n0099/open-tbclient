@@ -34,13 +34,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f13308b)));
+                intent.setData(Uri.parse(String.format(optString4, this.f13008b)));
             } catch (Throwable th) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f13308b);
+            intent.putExtra(optString3, this.f13008b);
         }
         a(intent, optJSONObject, optJSONObject2);
         return intent;

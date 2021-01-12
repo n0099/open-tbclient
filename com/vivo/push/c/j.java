@@ -3,14 +3,14 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f13913a;
+    final /* synthetic */ int f13613a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ List f13914b;
+    final /* synthetic */ List f13614b;
     final /* synthetic */ List c;
     final /* synthetic */ String d;
     final /* synthetic */ h e;
@@ -18,8 +18,8 @@ final class j implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, int i, List list, List list2, String str) {
         this.e = hVar;
-        this.f13913a = i;
-        this.f13914b = list;
+        this.f13613a = i;
+        this.f13614b = list;
         this.c = list2;
         this.d = str;
     }
@@ -27,8 +27,8 @@ final class j implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.e.f13902b;
-        context = this.e.f14009a;
-        pushMessageCallback.onDelAlias(context, this.f13913a, this.f13914b, this.c, this.d);
+        PushMessageCallback pushMessageCallback = this.e.f13602b;
+        context = this.e.f13709a;
+        pushMessageCallback.onDelAlias(context, this.f13613a, this.f13614b, this.c, this.d);
     }
 }

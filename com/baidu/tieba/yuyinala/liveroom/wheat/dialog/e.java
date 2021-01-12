@@ -12,20 +12,20 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bYQ;
-    public CustomMessageListener bih;
-    private TextView eLt;
-    private HeadImageView oCD;
-    private TextView oCE;
-    private TextView oCF;
-    private TextView oCG;
-    private TextView oCH;
+    private View bUe;
+    public CustomMessageListener bdo;
+    private TextView eGI;
+    private HeadImageView oxY;
+    private TextView oxZ;
+    private TextView oya;
+    private TextView oyb;
+    private TextView oyc;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e.1
+        this.bdo = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,15 +38,15 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     protected void initView() {
-        this.bYQ = findViewById(a.f.view);
-        this.oCD = (HeadImageView) findViewById(a.f.user_avatar);
-        this.eLt = (TextView) findViewById(a.f.user_name);
-        this.oCE = (TextView) findViewById(a.f.tv_connection_wheat_time);
-        this.oCF = (TextView) findViewById(a.f.tv_new_fans_num);
-        this.oCG = (TextView) findViewById(a.f.tv_charm_earnings);
-        this.oCH = (TextView) findViewById(a.f.tv_ok);
-        this.bYQ.setOnClickListener(this);
-        this.oCH.setOnClickListener(this);
+        this.bUe = findViewById(a.f.view);
+        this.oxY = (HeadImageView) findViewById(a.f.user_avatar);
+        this.eGI = (TextView) findViewById(a.f.user_name);
+        this.oxZ = (TextView) findViewById(a.f.tv_connection_wheat_time);
+        this.oya = (TextView) findViewById(a.f.tv_new_fans_num);
+        this.oyb = (TextView) findViewById(a.f.tv_charm_earnings);
+        this.oyc = (TextView) findViewById(a.f.tv_ok);
+        this.bUe.setOnClickListener(this);
+        this.oyc.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -64,12 +64,12 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UD() {
+    protected boolean QI() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UE() {
+    protected boolean QJ() {
         return true;
     }
 
@@ -85,7 +85,7 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bih);
+        MessageManager.getInstance().registerListener(this.bdo);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -95,53 +95,53 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bYQ) {
+        if (view == this.bUe) {
             dismiss();
-        } else if (view == this.oCH) {
+        } else if (view == this.oyc) {
             dismiss();
         }
     }
 
     public void d(String str, String str2, String str3, int i, int i2) {
-        this.oCD.setIsRound(true);
-        this.oCD.setAutoChangeStyle(false);
-        this.oCD.setDefaultResource(a.e.yuyin_sdk_default_avatar);
-        if (this.oCD != null && !TextUtils.isEmpty(str)) {
-            this.oCD.setUrl(str);
-            this.oCD.startLoad(str, 12, false);
+        this.oxY.setIsRound(true);
+        this.oxY.setAutoChangeStyle(false);
+        this.oxY.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+        if (this.oxY != null && !TextUtils.isEmpty(str)) {
+            this.oxY.setUrl(str);
+            this.oxY.startLoad(str, 12, false);
         }
-        if (this.eLt != null) {
+        if (this.eGI != null) {
             if (!TextUtils.isEmpty(str2)) {
-                this.eLt.setText(str2);
+                this.eGI.setText(str2);
             } else {
-                this.eLt.setText("");
+                this.eGI.setText("");
             }
         }
-        if (this.oCE != null) {
+        if (this.oxZ != null) {
             if (!TextUtils.isEmpty(str3)) {
-                this.oCE.setText(str3);
+                this.oxZ.setText(str3);
             } else {
-                this.oCE.setText("");
+                this.oxZ.setText("");
             }
         }
-        if (this.oCF != null) {
+        if (this.oya != null) {
             if (!TextUtils.isEmpty(Integer.toString(i))) {
-                this.oCF.setText(Integer.toString(i));
+                this.oya.setText(Integer.toString(i));
             } else {
-                this.oCF.setText("");
+                this.oya.setText("");
             }
         }
-        if (this.oCG != null) {
+        if (this.oyb != null) {
             if (!TextUtils.isEmpty(Integer.toString(i2))) {
-                this.oCG.setText(Integer.toString(i2));
+                this.oyb.setText(Integer.toString(i2));
             } else {
-                this.oCG.setText("");
+                this.oyb.setText("");
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bih);
+        MessageManager.getInstance().unRegisterListener(this.bdo);
     }
 }

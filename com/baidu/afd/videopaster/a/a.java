@@ -9,22 +9,22 @@ import com.baidu.afd.videopaster.data.VideoPasterResponseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0027a abv;
-    private VideoPasterResponseData abw;
+    private InterfaceC0027a abt;
+    private VideoPasterResponseData abu;
     private boolean isLoading;
-    private final HttpMessageListener aaG = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
+    private final HttpMessageListener aaE = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             a.this.isLoading = false;
-            a.this.abw = (VideoPasterResponseData) httpResponsedMessage;
+            a.this.abu = (VideoPasterResponseData) httpResponsedMessage;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003431) {
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (a.this.abv != null) {
-                        a.this.abv.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
+                    if (a.this.abt != null) {
+                        a.this.abt.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
                     }
-                } else if (a.this.abv != null) {
-                    a.this.abv.d(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.abt != null) {
+                    a.this.abt.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -36,13 +36,13 @@ public class a {
     public interface InterfaceC0027a {
         void b(com.baidu.afd.videopaster.data.a aVar);
 
-        void d(int i, String str);
+        void e(int i, String str);
     }
 
     public a() {
-        this.aaG.setSelfListener(true);
-        this.aaG.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.aaG);
+        this.aaE.setSelfListener(true);
+        this.aaE.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.aaE);
     }
 
     public void a(VideoPasterRequestData videoPasterRequestData) {
@@ -62,7 +62,7 @@ public class a {
     public void reset() {
         cancelRequest();
         this.isLoading = false;
-        this.abw = null;
+        this.abu = null;
     }
 
     public boolean isLoading() {
@@ -70,19 +70,19 @@ public class a {
     }
 
     public VideoPasterResponseData rB() {
-        return this.abw;
+        return this.abu;
     }
 
     public void a(InterfaceC0027a interfaceC0027a) {
-        this.abv = interfaceC0027a;
+        this.abt = interfaceC0027a;
     }
 
     public void onDestroy() {
-        if (this.aaG != null) {
-            MessageManager.getInstance().unRegisterListener(this.aaG);
+        if (this.aaE != null) {
+            MessageManager.getInstance().unRegisterListener(this.aaE);
         }
-        if (this.abv != null) {
-            this.abv = null;
+        if (this.abt != null) {
+            this.abt = null;
         }
     }
 }

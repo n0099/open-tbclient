@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    public static g<String, ArrayList<String>> Jw = new e();
-    public static g<String, String> Jx = new e();
+    public static g<String, ArrayList<String>> Ju = new e();
+    public static g<String, String> Jv = new e();
     private static Application mContext;
 
     public static void c(Application application) {
@@ -32,8 +32,8 @@ public class b {
         Log.e("CmdRouter", kX.toString());
         for (String str : kX) {
             if (str.startsWith("com.baidu.tieba.route.")) {
-                Jx.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
-                Jw.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+                Jv.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
+                Ju.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
             }
         }
     }

@@ -5,14 +5,14 @@ import com.baidu.mobads.interfaces.utils.IXAdPackageUtils;
 import java.util.Timer;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class r extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IXAdPackageUtils f3510a;
+    final /* synthetic */ IXAdPackageUtils f3472a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ Context f3511b;
+    final /* synthetic */ Context f3473b;
     final /* synthetic */ String c;
     final /* synthetic */ Timer d;
     final /* synthetic */ String e;
@@ -21,8 +21,8 @@ public class r extends TimerTask {
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar, IXAdPackageUtils iXAdPackageUtils, Context context, String str, Timer timer, String str2) {
         this.f = qVar;
-        this.f3510a = iXAdPackageUtils;
-        this.f3511b = context;
+        this.f3472a = iXAdPackageUtils;
+        this.f3473b = context;
         this.c = str;
         this.d = timer;
         this.e = str2;
@@ -41,16 +41,16 @@ public class r extends TimerTask {
             i3 = this.f.g;
             i4 = this.f.i;
             if (i3 < i4) {
-                if (!this.f3510a.isForeground(this.f3511b, this.c)) {
+                if (!this.f3472a.isForeground(this.f3473b, this.c)) {
                     this.d.cancel();
-                    IXAdPackageUtils iXAdPackageUtils = this.f3510a;
-                    Context context = this.f3511b;
+                    IXAdPackageUtils iXAdPackageUtils = this.f3472a;
+                    Context context = this.f3473b;
                     i5 = this.f.g;
                     iXAdPackageUtils.sendAPOIsSuccess(context, false, i5, this.e, this.c);
                 }
             } else {
                 this.d.cancel();
-                this.f3510a.sendAPOIsSuccess(this.f3511b, true, 0, this.e, this.c);
+                this.f3472a.sendAPOIsSuccess(this.f3473b, true, 0, this.e, this.c);
             }
         }
         q.d(this.f);

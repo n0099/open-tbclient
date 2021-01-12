@@ -7,7 +7,7 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.text.Normalizer;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetStringUtil {
     @CalledByNative
     public static String convertToUnicode(ByteBuffer byteBuffer, String str) {

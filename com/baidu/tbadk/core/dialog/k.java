@@ -16,18 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private Context eYd;
-    private RoundLinearLayout eYe;
-    private LinearLayout eYf;
-    private LinearLayout eYg;
-    private EMTextView eYh;
-    private View eYi;
-    private TextView eYj;
-    private View eYk;
-    private SpannableStringBuilder eYl;
-    private c eYm;
-    private a eYn;
-    private boolean eYo = false;
+    private SpannableStringBuilder eTA;
+    private c eTB;
+    private a eTC;
+    private boolean eTD = false;
+    private Context eTs;
+    private RoundLinearLayout eTt;
+    private LinearLayout eTu;
+    private LinearLayout eTv;
+    private EMTextView eTw;
+    private View eTx;
+    private TextView eTy;
+    private View eTz;
     private List<? extends j> mItems;
     private String titleText;
 
@@ -48,52 +48,52 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.eYd = context;
+            this.eTs = context;
             init();
         }
     }
 
     private void init() {
-        this.eYe = (RoundLinearLayout) LayoutInflater.from(this.eYd).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.eYe).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        this.eYf = (LinearLayout) this.eYe.findViewById(R.id.content_view);
-        this.eYh = (EMTextView) this.eYe.findViewById(R.id.title);
-        this.eYi = this.eYe.findViewById(R.id.title_divide_line);
-        this.eYi.setVisibility(8);
-        this.eYk = this.eYe.findViewById(R.id.dialog_header);
+        this.eTt = (RoundLinearLayout) LayoutInflater.from(this.eTs).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.eTt).od(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        this.eTu = (LinearLayout) this.eTt.findViewById(R.id.content_view);
+        this.eTw = (EMTextView) this.eTt.findViewById(R.id.title);
+        this.eTx = this.eTt.findViewById(R.id.title_divide_line);
+        this.eTx.setVisibility(8);
+        this.eTz = this.eTt.findViewById(R.id.dialog_header);
         this.mItems = new ArrayList();
-        this.eYj = (TextView) this.eYe.findViewById(R.id.dialog_bottom_cancel_button);
+        this.eTy = (TextView) this.eTt.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
-    private void buq() {
-        this.eYo = true;
-        this.eYe = (RoundLinearLayout) LayoutInflater.from(this.eYd).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.eYe).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        this.eYf = (LinearLayout) this.eYe.findViewById(R.id.content_view);
-        this.eYg = (LinearLayout) this.eYe.findViewById(R.id.content_view_second);
-        this.eYh = (EMTextView) this.eYe.findViewById(R.id.title);
-        this.eYi = this.eYe.findViewById(R.id.title_divide_line);
-        this.eYi.setVisibility(8);
-        this.eYk = this.eYe.findViewById(R.id.dialog_header);
+    private void bqw() {
+        this.eTD = true;
+        this.eTt = (RoundLinearLayout) LayoutInflater.from(this.eTs).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.eTt).od(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        this.eTu = (LinearLayout) this.eTt.findViewById(R.id.content_view);
+        this.eTv = (LinearLayout) this.eTt.findViewById(R.id.content_view_second);
+        this.eTw = (EMTextView) this.eTt.findViewById(R.id.title);
+        this.eTx = this.eTt.findViewById(R.id.title_divide_line);
+        this.eTx.setVisibility(8);
+        this.eTz = this.eTt.findViewById(R.id.dialog_header);
         this.mItems = new ArrayList();
-        this.eYj = (TextView) this.eYe.findViewById(R.id.dialog_bottom_cancel_button);
-        int equipmentWidth = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.eYd) - (g.eXN * 4)) / 2;
-        ((LinearLayout.LayoutParams) this.eYf.getLayoutParams()).leftMargin = equipmentWidth;
-        ((LinearLayout.LayoutParams) this.eYf.getLayoutParams()).rightMargin = equipmentWidth;
-        ((FrameLayout.LayoutParams) this.eYg.getLayoutParams()).leftMargin = equipmentWidth;
-        ((FrameLayout.LayoutParams) this.eYg.getLayoutParams()).rightMargin = equipmentWidth;
+        this.eTy = (TextView) this.eTt.findViewById(R.id.dialog_bottom_cancel_button);
+        int equipmentWidth = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.eTs) - (g.eTc * 4)) / 2;
+        ((LinearLayout.LayoutParams) this.eTu.getLayoutParams()).leftMargin = equipmentWidth;
+        ((LinearLayout.LayoutParams) this.eTu.getLayoutParams()).rightMargin = equipmentWidth;
+        ((FrameLayout.LayoutParams) this.eTv.getLayoutParams()).leftMargin = equipmentWidth;
+        ((FrameLayout.LayoutParams) this.eTv.getLayoutParams()).rightMargin = equipmentWidth;
     }
 
     public Context getContext() {
-        return this.eYd;
+        return this.eTs;
     }
 
     public ViewGroup getView() {
-        return this.eYf;
+        return this.eTu;
     }
 
     public View getRootView() {
-        return this.eYe;
+        return this.eTt;
     }
 
     public void setTitleText(String str) {
@@ -101,28 +101,28 @@ public class k {
     }
 
     public void a(SpannableStringBuilder spannableStringBuilder) {
-        this.eYl = spannableStringBuilder;
+        this.eTA = spannableStringBuilder;
     }
 
     public void a(c cVar) {
-        this.eYm = cVar;
+        this.eTB = cVar;
     }
 
-    public c bur() {
-        return this.eYm;
+    public c bqx() {
+        return this.eTB;
     }
 
     public void bB(List<? extends j> list) {
         if (list != null) {
             this.mItems = list;
-            this.eYf.removeAllViews();
+            this.eTu.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.eYf.addView(jVar.getView());
+                        this.eTu.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -133,7 +133,7 @@ public class k {
     }
 
     public void k(List<? extends j> list, boolean z) {
-        if (z && com.baidu.tbadk.a.d.bmU()) {
+        if (z && com.baidu.tbadk.a.d.bja()) {
             bC(list);
         } else {
             bB(list);
@@ -145,10 +145,10 @@ public class k {
         boolean z2;
         int i;
         if (list != null) {
-            buq();
+            bqw();
             this.mItems = list;
-            this.eYf.removeAllViews();
-            this.eYg.removeAllViews();
+            this.eTu.removeAllViews();
+            this.eTv.removeAllViews();
             if (list.size() < 2) {
                 z2 = false;
                 z = false;
@@ -156,7 +156,7 @@ public class k {
                 z = ((g) list.get(0)).getId() == -1;
                 z2 = ((g) list.get(1)).getId() == -2;
             }
-            this.eYi.setVisibility(z ? 0 : 8);
+            this.eTx.setVisibility(z ? 0 : 8);
             if (z) {
                 i = z2 ? 4 : 3;
             } else {
@@ -166,12 +166,12 @@ public class k {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 g gVar = (g) list.get(i2);
                 gVar.setCanScroll(z3);
-                gVar.bul();
+                gVar.bqr();
                 if (gVar != null) {
                     if (i2 < i) {
-                        this.eYf.addView(gVar.getView());
+                        this.eTu.addView(gVar.getView());
                     } else {
-                        this.eYg.addView(gVar.getView());
+                        this.eTv.addView(gVar.getView());
                     }
                 }
             }
@@ -179,22 +179,22 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.eYn = aVar;
+        this.eTC = aVar;
     }
 
     public void onChangeSkinType() {
-        if (this.eYo) {
-            ao.setBackgroundResource(this.eYh, R.color.CAM_X0209);
-            ao.setBackgroundResource(this.eYk, R.color.CAM_X0209);
-            ao.setBackgroundColor(this.eYi, R.color.CAM_X0203);
+        if (this.eTD) {
+            ao.setBackgroundResource(this.eTw, R.color.CAM_X0209);
+            ao.setBackgroundResource(this.eTz, R.color.CAM_X0209);
+            ao.setBackgroundColor(this.eTx, R.color.CAM_X0203);
         } else {
-            ao.setBackgroundResource(this.eYh, R.color.CAM_X0204);
-            ao.setViewTextColor(this.eYh, R.color.CAM_X0109);
-            ao.setBackgroundResource(this.eYk, R.color.CAM_X0204);
-            ao.setBackgroundColor(this.eYi, R.color.CAM_X0204);
+            ao.setBackgroundResource(this.eTw, R.color.CAM_X0204);
+            ao.setViewTextColor(this.eTw, R.color.CAM_X0109);
+            ao.setBackgroundResource(this.eTz, R.color.CAM_X0204);
+            ao.setBackgroundColor(this.eTx, R.color.CAM_X0204);
         }
-        ao.setBackgroundResource(this.eYj, R.color.CAM_X0204);
-        ao.n(this.eYj, R.color.CAM_X0107);
+        ao.setBackgroundResource(this.eTy, R.color.CAM_X0204);
+        ao.n(this.eTy, R.color.CAM_X0107);
         if (this.mItems != null) {
             for (j jVar : this.mItems) {
                 jVar.onChangeSkinType();
@@ -202,23 +202,23 @@ public class k {
         }
     }
 
-    public View bus() {
+    public View bqy() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.eYh.setText(this.titleText);
-        } else if (this.eYl != null) {
-            this.eYh.setText(this.eYl);
+            this.eTw.setText(this.titleText);
+        } else if (this.eTA != null) {
+            this.eTw.setText(this.eTA);
         } else {
-            this.eYh.setVisibility(8);
+            this.eTw.setVisibility(8);
         }
-        if (this.eYn != null) {
-            this.eYj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.eTC != null) {
+            this.eTy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.eYn.onClick();
+                    k.this.eTC.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.eYe;
+        return this.eTt;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.minivideo.arface.utils;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class i {
     public static void d(String str, String str2) {
         if (str2.length() > 2001) {

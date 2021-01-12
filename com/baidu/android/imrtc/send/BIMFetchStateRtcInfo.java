@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMFetchStateRtcInfo";
     private List<UserState> mUkStates = new ArrayList();
@@ -17,7 +17,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         return this.mUkStates;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     class UserState {
         public int status;
         public long uk;

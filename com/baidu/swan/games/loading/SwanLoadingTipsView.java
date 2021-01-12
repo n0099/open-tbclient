@@ -15,31 +15,31 @@ import kotlin.h;
 import kotlin.jvm.internal.p;
 @SuppressLint({"SwanCommentErr"})
 @e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
-    private kotlin.jvm.a.a<h> elp;
-    private TextView elq;
-    private ObjectAnimator elr;
-    private ObjectAnimator els;
-    private Runnable elt;
+    private kotlin.jvm.a.a<h> egD;
+    private TextView egE;
+    private ObjectAnimator egF;
+    private ObjectAnimator egG;
+    private Runnable egH;
 
     public final kotlin.jvm.a.a<h> getTipsAnimationFinishCallback() {
-        return this.elp;
+        return this.egD;
     }
 
     public final void setTipsAnimationFinishCallback(kotlin.jvm.a.a<h> aVar) {
-        this.elp = aVar;
+        this.egD = aVar;
     }
 
     @e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static final class c implements Runnable {
         c() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            SwanLoadingTipsView.this.bbf();
+            SwanLoadingTipsView.this.aXl();
         }
     }
 
@@ -47,7 +47,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public SwanLoadingTipsView(Context context) {
         super(context);
         p.o(context, "context");
-        this.elt = new c();
+        this.egH = new c();
         init(context);
     }
 
@@ -56,47 +56,47 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         super(context, attributeSet);
         p.o(context, "context");
         p.o(attributeSet, "attrs");
-        this.elt = new c();
+        this.egH = new c();
         init(context);
     }
 
     private final void init(Context context) {
         View.inflate(context, a.g.aiapps_games_loading_tips_view, this);
-        this.elq = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
+        this.egE = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
     }
 
-    public final void xP(String str) {
+    public final void wE(String str) {
         String str2 = str;
         if (!(str2 == null || str2.length() == 0)) {
-            TextView textView = this.elq;
+            TextView textView = this.egE;
             if (textView != null) {
                 textView.setText(str);
             }
             setVisibility(8);
-            if (this.elr != null) {
-                ObjectAnimator objectAnimator = this.elr;
+            if (this.egF != null) {
+                ObjectAnimator objectAnimator = this.egF;
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.elr;
+                ObjectAnimator objectAnimator2 = this.egF;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
-            this.elr = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
-            ObjectAnimator objectAnimator3 = this.elr;
+            this.egF = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
+            ObjectAnimator objectAnimator3 = this.egF;
             if (objectAnimator3 != null) {
                 objectAnimator3.setDuration(500L);
             }
-            ObjectAnimator objectAnimator4 = this.elr;
+            ObjectAnimator objectAnimator4 = this.egF;
             if (objectAnimator4 != null) {
                 objectAnimator4.setStartDelay(1000L);
             }
-            ObjectAnimator objectAnimator5 = this.elr;
+            ObjectAnimator objectAnimator5 = this.egF;
             if (objectAnimator5 != null) {
                 objectAnimator5.addListener(new a());
             }
-            ObjectAnimator objectAnimator6 = this.elr;
+            ObjectAnimator objectAnimator6 = this.egF;
             if (objectAnimator6 != null) {
                 objectAnimator6.start();
             }
@@ -104,7 +104,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     @e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements Animator.AnimatorListener {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -120,7 +120,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            ak.c(SwanLoadingTipsView.this.elt, 2000L);
+            ak.c(SwanLoadingTipsView.this.egH, 2000L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -130,34 +130,34 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void bbf() {
-        if (this.els != null) {
-            ObjectAnimator objectAnimator = this.els;
+    public final void aXl() {
+        if (this.egG != null) {
+            ObjectAnimator objectAnimator = this.egG;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.els;
+            ObjectAnimator objectAnimator2 = this.egG;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
         }
-        this.els = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
-        ObjectAnimator objectAnimator3 = this.els;
+        this.egG = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
+        ObjectAnimator objectAnimator3 = this.egG;
         if (objectAnimator3 != null) {
             objectAnimator3.setDuration(500L);
         }
-        ObjectAnimator objectAnimator4 = this.els;
+        ObjectAnimator objectAnimator4 = this.egG;
         if (objectAnimator4 != null) {
             objectAnimator4.addListener(new b());
         }
-        ObjectAnimator objectAnimator5 = this.els;
+        ObjectAnimator objectAnimator5 = this.egG;
         if (objectAnimator5 != null) {
             objectAnimator5.start();
         }
     }
 
     @e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements Animator.AnimatorListener {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         b() {
@@ -186,31 +186,31 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     public final void doDestroy() {
-        this.elp = null;
-        if (this.elt != null) {
-            ak.k(this.elt);
+        this.egD = null;
+        if (this.egH != null) {
+            ak.k(this.egH);
         }
-        if (this.elr != null) {
-            ObjectAnimator objectAnimator = this.elr;
+        if (this.egF != null) {
+            ObjectAnimator objectAnimator = this.egF;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.elr;
+            ObjectAnimator objectAnimator2 = this.egF;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
-            this.elr = null;
+            this.egF = null;
         }
-        if (this.els != null) {
-            ObjectAnimator objectAnimator3 = this.els;
+        if (this.egG != null) {
+            ObjectAnimator objectAnimator3 = this.egG;
             if (objectAnimator3 != null) {
                 objectAnimator3.removeAllListeners();
             }
-            ObjectAnimator objectAnimator4 = this.els;
+            ObjectAnimator objectAnimator4 = this.egG;
             if (objectAnimator4 != null) {
                 objectAnimator4.cancel();
             }
-            this.els = null;
+            this.egG = null;
         }
     }
 }

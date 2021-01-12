@@ -8,38 +8,38 @@ import java.util.concurrent.TimeUnit;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14155a;
+    private int f13855a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Handler f179a;
+    private Handler f178a;
 
     /* renamed from: a  reason: collision with other field name */
-    private a f180a;
+    private a f179a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile b f181a;
+    private volatile b f180a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f182a;
+    private volatile boolean f181a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f14156b;
+    private final boolean f13856b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a extends Thread {
 
         /* renamed from: a  reason: collision with other field name */
-        private final LinkedBlockingQueue<b> f183a;
+        private final LinkedBlockingQueue<b> f182a;
 
         public a() {
             super("PackageProcessor");
-            this.f183a = new LinkedBlockingQueue<>();
+            this.f182a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i, b bVar) {
             try {
-                al.this.f179a.sendMessage(al.this.f179a.obtainMessage(i, bVar));
+                al.this.f178a.sendMessage(al.this.f178a.obtainMessage(i, bVar));
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
@@ -47,7 +47,7 @@ public class al {
 
         public void a(b bVar) {
             try {
-                this.f183a.add(bVar);
+                this.f182a.add(bVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -55,16 +55,16 @@ public class al {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            long j = al.this.f14155a > 0 ? al.this.f14155a : Long.MAX_VALUE;
-            while (!al.this.f182a) {
+            long j = al.this.f13855a > 0 ? al.this.f13855a : Long.MAX_VALUE;
+            while (!al.this.f181a) {
                 try {
-                    b poll = this.f183a.poll(j, TimeUnit.SECONDS);
-                    al.this.f181a = poll;
+                    b poll = this.f182a.poll(j, TimeUnit.SECONDS);
+                    al.this.f180a = poll;
                     if (poll != null) {
                         a(0, poll);
                         poll.b();
                         a(1, poll);
-                    } else if (al.this.f14155a > 0) {
+                    } else if (al.this.f13855a > 0) {
                         al.this.a();
                     }
                 } catch (InterruptedException e) {
@@ -82,7 +82,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo259c() {
+        public void mo255c() {
         }
     }
 
@@ -95,31 +95,31 @@ public class al {
     }
 
     public al(boolean z, int i) {
-        this.f179a = null;
-        this.f182a = false;
-        this.f14155a = 0;
-        this.f179a = new am(this, Looper.getMainLooper());
-        this.f14156b = z;
-        this.f14155a = i;
+        this.f178a = null;
+        this.f181a = false;
+        this.f13855a = 0;
+        this.f178a = new am(this, Looper.getMainLooper());
+        this.f13856b = z;
+        this.f13855a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
-        this.f180a = null;
-        this.f182a = true;
+        this.f179a = null;
+        this.f181a = true;
     }
 
     public synchronized void a(b bVar) {
-        if (this.f180a == null) {
-            this.f180a = new a();
-            this.f180a.setDaemon(this.f14156b);
-            this.f182a = false;
-            this.f180a.start();
+        if (this.f179a == null) {
+            this.f179a = new a();
+            this.f179a.setDaemon(this.f13856b);
+            this.f181a = false;
+            this.f179a.start();
         }
-        this.f180a.a(bVar);
+        this.f179a.a(bVar);
     }
 
     public void a(b bVar, long j) {
-        this.f179a.postDelayed(new an(this, bVar), j);
+        this.f178a.postDelayed(new an(this, bVar), j);
     }
 }

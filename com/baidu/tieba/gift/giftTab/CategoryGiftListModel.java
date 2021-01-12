@@ -6,20 +6,20 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.ah;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     private ArrayList<ah> giftList;
-    private a jRS;
-    private com.baidu.adp.framework.listener.a jaH;
+    private com.baidu.adp.framework.listener.a iWa;
+    private a jNn;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, int i2, ArrayList<ah> arrayList);
     }
 
     public CategoryGiftListModel(com.baidu.adp.base.f<GiftTabActivity> fVar) {
         super(fVar);
-        this.jaH = new com.baidu.adp.framework.listener.a(1003046, CmdConfigSocket.CMD_GIFT_LIST_BY_CATEGORY) { // from class: com.baidu.tieba.gift.giftTab.CategoryGiftListModel.1
+        this.iWa = new com.baidu.adp.framework.listener.a(1003046, CmdConfigSocket.CMD_GIFT_LIST_BY_CATEGORY) { // from class: com.baidu.tieba.gift.giftTab.CategoryGiftListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -34,8 +34,8 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                             CategoryGiftListModel.this.giftList = categoryGiftListSocketResponseMessage.getGiftList();
                             i = categoryGiftListSocketResponseMessage.getCategoryId();
                         }
-                        if (CategoryGiftListModel.this.jRS != null) {
-                            CategoryGiftListModel.this.jRS.a(responsedMessage.getError(), responsedMessage.getErrorString(), i, CategoryGiftListModel.this.giftList);
+                        if (CategoryGiftListModel.this.jNn != null) {
+                            CategoryGiftListModel.this.jNn.a(responsedMessage.getError(), responsedMessage.getErrorString(), i, CategoryGiftListModel.this.giftList);
                         }
                     }
                 }
@@ -62,7 +62,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     private void registerListener() {
-        registerListener(this.jaH);
+        registerListener(this.iWa);
     }
 
     private void registerTask() {
@@ -71,6 +71,6 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void a(a aVar) {
-        this.jRS = aVar;
+        this.jNn = aVar;
     }
 }

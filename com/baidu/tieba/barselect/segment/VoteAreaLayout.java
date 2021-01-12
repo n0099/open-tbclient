@@ -19,13 +19,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private TextView foU;
-    private RoundAndShadowLinearLayout isc;
-    private View isd;
-    private TrapezoidButton ise;
-    private TextView isf;
+    private TextView fkl;
+    private RoundAndShadowLinearLayout inv;
+    private View inw;
+    private TrapezoidButton inx;
+    private TextView iny;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -46,35 +46,35 @@ public class VoteAreaLayout extends CardBasicLayout {
         setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_area_layout, (ViewGroup) this, true);
-        tN();
+        tC();
     }
 
-    private void tN() {
-        this.isc = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.isc.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
-        this.foU = (TextView) findViewById(R.id.vote_num);
-        this.ise = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.isf = (TextView) findViewById(R.id.vote_button_tv);
-        this.isd = findViewById(R.id.button_container);
+    private void tC() {
+        this.inv = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.inv.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
+        this.fkl = (TextView) findViewById(R.id.vote_num);
+        this.inx = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.iny = (TextView) findViewById(R.id.vote_button_tv);
+        this.inw = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.ioi == null || this.irV == null || this.status < 0) {
+        if (this.ijz == null || this.inn == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.foU.setText(at.numFormatOverWan(this.irV.ctK()) + "票");
-        this.isf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.fkl.setText(at.numFormatOverWan(this.inn.cpS()) + "票");
+        this.iny.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bg.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
-                    new aq("c13441").bwo();
-                    if (VoteAreaLayout.this.irV != null && fVar != null && fVar.ctX() != null) {
-                        if (fVar.ctX().ctT()) {
+                    new aq("c13441").bsu();
+                    if (VoteAreaLayout.this.inn != null && fVar != null && fVar.cqf() != null) {
+                        if (fVar.cqf().cqb()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.irV.getUid(), fVar.getFid(), VoteAreaLayout.this.irV.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.inn.getUid(), fVar.getFid(), VoteAreaLayout.this.inn.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.irV.ctM()) {
-            this.isf.setEnabled(false);
+        if (this.inn.cpU()) {
+            this.iny.setEnabled(false);
         } else {
-            this.isf.setEnabled(true);
+            this.iny.setEnabled(true);
         }
     }
 
-    public void vU(int i) {
-        ao.setViewTextColor(this.foU, R.color.CAM_X0303, 1, i);
-        ao.a(this.isd, R.color.CAM_X0303, 0.2f, i);
-        ao.setViewTextColor(this.isf, R.color.CAM_X0101, 1, i);
-        ao.setBackgroundResource(this.isf, R.drawable.bar_select_bg_gradient, i);
+    public void uo(int i) {
+        ao.setViewTextColor(this.fkl, R.color.CAM_X0303, 1, i);
+        ao.a(this.inw, R.color.CAM_X0303, 0.2f, i);
+        ao.setViewTextColor(this.iny, R.color.CAM_X0101, 1, i);
+        ao.setBackgroundResource(this.iny, R.drawable.bar_select_bg_gradient, i);
     }
 }

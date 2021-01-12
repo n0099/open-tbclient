@@ -31,7 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -43,12 +43,12 @@ public final class a {
         }
     }
 
-    public static boolean dW(Context context) {
-        return ProcessUtils.isMainProcess() ? isLogin(context) : ea(context);
+    public static boolean dV(Context context) {
+        return ProcessUtils.isMainProcess() ? isLogin(context) : dZ(context);
     }
 
-    public static String dX(Context context) {
-        return ProcessUtils.isMainProcess() ? getBduss(context) : eb(context);
+    public static String dW(Context context) {
+        return ProcessUtils.isMainProcess() ? getBduss(context) : ea(context);
     }
 
     public static void a(Context context, String str, ArrayList<String> arrayList, b.a aVar) {
@@ -59,17 +59,17 @@ public final class a {
         }
     }
 
-    public static String dY(Context context) {
-        return ProcessUtils.isMainProcess() ? getUid(context) : ec(context);
+    public static String dX(Context context) {
+        return ProcessUtils.isMainProcess() ? getUid(context) : eb(context);
     }
 
-    public static String dZ(Context context) {
-        return ProcessUtils.isMainProcess() ? getCuid(context) : ed(context);
+    public static String dY(Context context) {
+        return ProcessUtils.isMainProcess() ? getCuid(context) : ec(context);
     }
 
     public static void a(com.baidu.swan.apps.a.c cVar) {
         if (cVar != null) {
-            v.aSV().b(cVar);
+            v.aPb().b(cVar);
         }
     }
 
@@ -95,23 +95,23 @@ public final class a {
         if (!ProcessUtils.isMainProcess()) {
             aVar.onResult(-1);
         } else {
-            v.aSV().a(context, bundle, aVar);
+            v.aPb().a(context, bundle, aVar);
         }
     }
 
-    public static boolean ea(Context context) {
+    public static boolean dZ(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, j.class, null);
         return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
     }
 
     public static boolean isLogin(Context context) {
         if (ProcessUtils.isMainProcess()) {
-            return v.aSV().isLogin(context);
+            return v.aPb().isLogin(context);
         }
         return false;
     }
 
-    public static String eb(Context context) {
+    public static String ea(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, c.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
@@ -120,25 +120,25 @@ public final class a {
         if (!ProcessUtils.isMainProcess()) {
             return "";
         }
-        String bduss = v.aSV().getBduss(context);
+        String bduss = v.aPb().getBduss(context);
         return TextUtils.isEmpty(bduss) ? "" : bduss;
     }
 
     public static void b(Context context, String str, ArrayList<String> arrayList, final b.a aVar) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
-            aVar.vj(null);
+        com.baidu.swan.apps.runtime.e aIr = com.baidu.swan.apps.runtime.e.aIr();
+        if (aIr == null) {
+            aVar.tY(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a aMc = aMl.aMc();
-        if (aMc == null) {
-            aVar.vj(null);
+        com.baidu.swan.apps.process.messaging.client.a aIi = aIr.aIi();
+        if (aIi == null) {
+            aVar.tY(null);
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putString("key_result_client_id", str);
         bundle.putStringArrayList("key_param_tpl_list", arrayList);
-        aMc.b(bundle, e.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.2
+        aIi.b(bundle, e.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -154,7 +154,7 @@ public final class a {
                 } else if (a.DEBUG) {
                     Log.d("AccountUtils", "get openBduss : result null");
                 }
-                b.a.this.vj(str2);
+                b.a.this.tY(str2);
             }
 
             @Override // com.baidu.swan.apps.process.a.b.c.b, com.baidu.swan.apps.process.a.b.c.a
@@ -166,26 +166,26 @@ public final class a {
 
     public static void a(String str, ArrayList<String> arrayList, b.a aVar) {
         if (ProcessUtils.isMainProcess()) {
-            v.aSV().a(str, arrayList, aVar);
+            v.aPb().a(str, arrayList, aVar);
         }
     }
 
-    public static String ec(Context context) {
+    public static String eb(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, h.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
     public static String getUid(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : v.aSV().getUid(context);
+        return !ProcessUtils.isMainProcess() ? "" : v.aPb().getUid(context);
     }
 
-    public static String ed(Context context) {
+    public static String ec(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, d.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
     public static String getCuid(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : v.aSV().getCuid(context);
+        return !ProcessUtils.isMainProcess() ? "" : v.aPb().getCuid(context);
     }
 
     public static void a(Context context, com.baidu.swan.apps.ao.e.b<Bundle> bVar, @Nullable String... strArr) {
@@ -201,19 +201,19 @@ public final class a {
             bVar.L(null);
             return;
         }
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aIr = com.baidu.swan.apps.runtime.e.aIr();
+        if (aIr == null) {
             bVar.L(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a aMc = aMl.aMc();
-        if (aMc == null) {
+        com.baidu.swan.apps.process.messaging.client.a aIi = aIr.aIi();
+        if (aIi == null) {
             bVar.L(null);
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putStringArray("key_param_tpl_list", strArr);
-        aMc.b(bundle, g.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.3
+        aIi.b(bundle, g.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar2) {
@@ -280,40 +280,40 @@ public final class a {
     }
 
     private static void a(l.a aVar, String str, List<String> list) {
-        v.aSV().a(aVar, str, list);
+        v.aPb().a(aVar, str, list);
+    }
+
+    public static String ed(Context context) {
+        return ProcessUtils.isMainProcess() ? ef(context) : ee(context);
     }
 
     public static String ee(Context context) {
-        return ProcessUtils.isMainProcess() ? eg(context) : ef(context);
-    }
-
-    public static String ef(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, f.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
-    public static String eg(Context context) {
-        return !ProcessUtils.isMainProcess() ? "" : v.aSV().eg(context);
+    public static String ef(Context context) {
+        return !ProcessUtils.isMainProcess() ? "" : v.aPb().ef(context);
+    }
+
+    public static aa eg(Context context) {
+        return ProcessUtils.isMainProcess() ? ei(context) : eh(context);
     }
 
     public static aa eh(Context context) {
-        return ProcessUtils.isMainProcess() ? ej(context) : ei(context);
-    }
-
-    public static aa ei(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, i.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             aa aaVar = new aa();
             aaVar.displayName = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-            aaVar.aWS = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
+            aaVar.aSf = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
             return aaVar;
         }
         return null;
     }
 
-    public static aa ej(Context context) {
+    public static aa ei(Context context) {
         if (ProcessUtils.isMainProcess()) {
-            return v.aSV().ej(context);
+            return v.aPb().ei(context);
         }
         return null;
     }
@@ -327,7 +327,7 @@ public final class a {
                     if (com.baidu.swan.apps.b.DEBUG) {
                         Log.e("AccountUtils", delegateResult.mResult.getString(TiebaInitialize.LogFields.ERROR_MESSAGE));
                     }
-                    com.baidu.swan.apps.b.a.b.this.hE(0);
+                    com.baidu.swan.apps.b.a.b.this.fX(0);
                     return;
                 }
                 if (com.baidu.swan.apps.b.DEBUG) {
@@ -338,15 +338,15 @@ public final class a {
         });
     }
 
-    public static void a(Context context, a.InterfaceC0505a interfaceC0505a) {
+    public static void a(Context context, a.InterfaceC0488a interfaceC0488a) {
         if (ProcessUtils.isMainProcess()) {
-            v.aSV().a(context, interfaceC0505a);
+            v.aPb().a(context, interfaceC0488a);
         }
     }
 
-    public static void a(Context context, a.InterfaceC0507a interfaceC0507a) {
+    public static void a(Context context, a.InterfaceC0490a interfaceC0490a) {
         if (ProcessUtils.isMainProcess()) {
-            v.aSV().a(context, interfaceC0507a);
+            v.aPb().a(context, interfaceC0490a);
         }
     }
 
@@ -366,12 +366,12 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Activity activity, String str, com.baidu.swan.apps.ao.e.b<Bundle> bVar) {
-        v.aSV().a(activity, "baidu_mini_programs_" + str, dX(activity), E(bVar));
+        v.aPb().a(activity, "baidu_mini_programs_" + str, dW(activity), E(bVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(Activity activity, String str, com.baidu.swan.apps.ao.e.b<Bundle> bVar) {
-        v.aSV().b(activity, "baidu_mini_programs_" + str, dX(activity), E(bVar));
+        v.aPb().b(activity, "baidu_mini_programs_" + str, dW(activity), E(bVar));
     }
 
     private static ab E(final com.baidu.swan.apps.ao.e.b<Bundle> bVar) {
@@ -416,21 +416,21 @@ public final class a {
         });
     }
 
-    public static String cU(Context context) {
-        return !ProcessUtils.isMainProcess() ? ek(context) : getZid(context);
+    public static String cT(Context context) {
+        return !ProcessUtils.isMainProcess() ? ej(context) : getZid(context);
     }
 
-    public static String ek(Context context) {
+    public static String ej(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, com.baidu.swan.facade.c.a.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
     public static String getZid(Context context) {
-        return v.aSV().getZid(context);
+        return v.aPb().getZid(context);
     }
 
     public static void a(Context context, SwanAppPhoneLoginDialog.a aVar, String str) {
-        v.aSV().a(context, aVar, str);
+        v.aPb().a(context, aVar, str);
     }
 
     public static void b(final Activity activity, JSONObject jSONObject) {
@@ -455,11 +455,11 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final Activity activity, String str, String str2) {
-        new g.a(activity).f(str).sp(str2).a(new com.baidu.swan.apps.view.c.a()).gV(true).a(activity.getString(b.g.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.a.a.9
+        new g.a(activity).f(str).re(str2).a(new com.baidu.swan.apps.view.c.a()).gR(true).a(activity.getString(b.g.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.a.a.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.a(activity, true, (Bundle) null, (com.baidu.swan.apps.a.a) null);
             }
-        }).b(activity.getString(b.g.aiapps_login_refuse), null).aLy();
+        }).b(activity.getString(b.g.aiapps_login_refuse), null).aHE();
     }
 }

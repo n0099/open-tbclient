@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public int elc;
-    public String eld;
-    public String ekZ = "";
+    public int egq;
+    public String egr;
+    public String egn = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean ela = false;
-    public boolean elb = false;
+    public boolean ego = false;
+    public boolean egp = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.ekZ = cVar.optString("defaultValue");
+            this.egn = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.ela = cVar.optBoolean("multiple");
-            this.elb = cVar.optBoolean("confirmHold");
+            this.ego = cVar.optBoolean("multiple");
+            this.egp = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.elc = 6;
-                    this.eld = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.egq = 6;
+                    this.egr = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.elc = 5;
-                    this.eld = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.egq = 5;
+                    this.egr = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.elc = 3;
-                    this.eld = "search";
+                    this.egq = 3;
+                    this.egr = "search";
                     return true;
                 case 3:
-                    this.elc = 2;
-                    this.eld = "go";
+                    this.egq = 2;
+                    this.egr = "go";
                     return true;
                 case 4:
-                    this.elc = 4;
-                    this.eld = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.egq = 4;
+                    this.egr = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.elc = 6;
-                    this.eld = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.egq = 6;
+                    this.egr = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

@@ -6,13 +6,14 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.model.Model;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Util {
     private static final int HASH_ACCUMULATOR = 17;
     private static final int HASH_MULTIPLIER = 31;
@@ -49,7 +50,7 @@ public final class Util {
     @TargetApi(19)
     public static int getBitmapByteSize(@NonNull Bitmap bitmap) {
         if (bitmap.isRecycled()) {
-            throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig());
+            throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig());
         }
         if (Build.VERSION.SDK_INT >= 19) {
             try {
@@ -83,7 +84,7 @@ public final class Util {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 

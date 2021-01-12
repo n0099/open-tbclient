@@ -2,14 +2,14 @@ package com.yxcorp.kuaishou.addfp.a.b.i;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14675a;
+    private Context f14375a;
 
     public b(Context context) {
-        this.f14675a = context;
+        this.f14375a = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -23,7 +23,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
-        String a2 = a.a(this.f14675a);
+        String a2 = a.a(this.f14375a);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 

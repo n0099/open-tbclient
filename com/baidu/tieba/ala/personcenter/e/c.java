@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c.b> {
-    private TextView idM;
-    private TextView idN;
-    private String idO;
+    private TextView hZb;
+    private TextView hZc;
+    private String hZd;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -20,9 +20,9 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     }
 
     private void ap(View view) {
-        this.idM = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
-        this.idN = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
-        this.idN.setOnClickListener(this);
+        this.hZb = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
+        this.hZc = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
+        this.hZc.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -35,24 +35,24 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     public void a(com.baidu.tieba.ala.personcenter.c.b bVar) {
     }
 
-    public void IZ(String str) {
-        this.idO = str;
-        if (this.idM != null) {
-            this.idM.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
+    public void HO(String str) {
+        this.hZd = str;
+        if (this.hZb != null) {
+            this.hZb.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.idM, R.color.common_color_10106);
-        ao.setViewTextColor(this.idN, R.color.CAM_X0302);
+        ao.setViewTextColor(this.hZb, R.color.common_color_10106);
+        ao.setViewTextColor(this.hZc, R.color.CAM_X0302);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.idO)) {
-            UtilHelper.copyToClipBoard(this.idO);
+        if (!TextUtils.isEmpty(this.hZd)) {
+            UtilHelper.copyToClipBoard(this.hZd);
         }
-        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).pk(17).bue();
+        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).nE(17).bqk();
     }
 }

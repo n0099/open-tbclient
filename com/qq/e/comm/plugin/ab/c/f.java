@@ -1,32 +1,32 @@
 package com.qq.e.comm.plugin.ab.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private T f12033a;
+    private T f11733a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12034b;
+    private String f11734b;
     private int c;
 
     public f(int i, String str) {
-        this.f12034b = str;
+        this.f11734b = str;
         this.c = i;
-        this.f12033a = null;
+        this.f11733a = null;
     }
 
     public f(T t) {
-        this.f12033a = t;
+        this.f11733a = t;
         this.c = 0;
-        this.f12034b = "";
+        this.f11734b = "";
     }
 
     public T a() {
-        return this.f12033a;
+        return this.f11733a;
     }
 
     public String b() {
-        return this.f12034b;
+        return this.f11734b;
     }
 
     public int c() {

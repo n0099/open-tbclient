@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.controller;
 
 import com.baidu.live.adp.framework.Priority;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class Rule<T> extends Priority {
     private int mCmd;
 

@@ -2,26 +2,26 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
 import com.baidu.mapapi.map.MapStatus;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
-import com.baidu.platform.comapi.wnplatform.p.f;
-/* loaded from: classes3.dex */
+import com.baidu.platform.comapi.wnplatform.o.e;
+/* loaded from: classes6.dex */
 public class RGStateSegEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().T().c(2130837817);
+        b.a().Q().c(2130837751);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionNaviEngine() {
-        b.a().G().a(true);
+        b.a().D().a(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionMapStatus() {
-        b.a().T().o();
-        b.a().J().b(true);
-        MapStatus i = b.a().J().i();
+        b.a().Q().o();
+        b.a().G().b(true);
+        MapStatus i = b.a().G().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.overlook(0.0f);
@@ -29,12 +29,12 @@ public class RGStateSegEntry extends RGStateCar3D {
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
-            com.baidu.platform.comapi.basestruct.Point N = b.a().N();
-            if (N != null) {
-                builder.target(f.a(new GeoPoint(N.getDoubleY(), N.getDoubleX())));
+            com.baidu.mapapi.model.inner.Point K = b.a().K();
+            if (K != null) {
+                builder.target(e.a(new GeoPoint(K.getmPtx(), K.getmPty())));
             }
-            b.a().J().a(builder.build(), 500);
+            b.a().G().a(builder.build(), 500);
         }
-        b.a().G().a(true);
+        b.a().D().a(true);
     }
 }

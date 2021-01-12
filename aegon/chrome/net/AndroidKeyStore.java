@@ -8,7 +8,7 @@ import java.security.PrivateKey;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidKeyStore {
     @CalledByNative
     public static byte[] encryptWithPrivateKey(PrivateKey privateKey, String str, byte[] bArr) {

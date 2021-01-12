@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.challenge.rewarddialog;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaChallengeRewardResponseMessage extends JsonHttpResponsedMessage {
-    public AlaChallengeRewardData hyq;
+    public AlaChallengeRewardData htK;
 
     public AlaChallengeRewardResponseMessage() {
         super(1021104);
@@ -14,10 +14,10 @@ public class AlaChallengeRewardResponseMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.hyq = new AlaChallengeRewardData();
-            this.hyq.errno = getError();
-            this.hyq.errMsg = getErrorString();
-            this.hyq.parseJson(jSONObject);
+            this.htK = new AlaChallengeRewardData();
+            this.htK.errno = getError();
+            this.htK.errMsg = getErrorString();
+            this.htK.parseJson(jSONObject);
         }
     }
 }

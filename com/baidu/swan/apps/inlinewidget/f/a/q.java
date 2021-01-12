@@ -5,13 +5,13 @@ import android.media.AudioManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    private AudioManager byK;
+    private AudioManager btX;
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azs() {
+    public String avy() {
         return "setVolume";
     }
 
@@ -19,7 +19,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
         if (command.obj != null) {
-            if (!aVar.aAc()) {
+            if (!aVar.awi()) {
                 a(aVar, command.what, "Not Set!! Volume: " + command.obj, false);
             } else if (command.obj instanceof Double) {
                 try {
@@ -34,7 +34,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
                     a(doubleValue, aVar.getContext());
                 } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e(azs(), "setVolume param type error");
+                        Log.e(avy(), "setVolume param type error");
                     }
                 }
             }
@@ -42,12 +42,12 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     }
 
     private void a(double d, Context context) {
-        if (this.byK == null) {
-            this.byK = (AudioManager) context.getSystemService("audio");
+        if (this.btX == null) {
+            this.btX = (AudioManager) context.getSystemService("audio");
         }
-        if (this.byK != null) {
-            int round = (int) Math.round(this.byK.getStreamMaxVolume(3) * d);
-            if (round == this.byK.getStreamVolume(3)) {
+        if (this.btX != null) {
+            int round = (int) Math.round(this.btX.getStreamMaxVolume(3) * d);
+            if (round == this.btX.getStreamVolume(3)) {
                 if (DEBUG) {
                     Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + ")");
                     return;
@@ -60,7 +60,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             if (DEBUG) {
                 Log.d("【InlineCommand】", "setVolumeInt" + round);
             }
-            this.byK.setStreamVolume(3, round, 0);
+            this.btX.setStreamVolume(3, round, 0);
         }
     }
 }

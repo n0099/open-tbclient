@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.component.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private a cPe;
+    private a cKs;
 
     public b() {
-        this.cPe = new a(501);
+        this.cKs = new a(501);
     }
 
     public b(boolean z) {
-        this.cPe = new a(501, z);
+        this.cKs = new a(501, z);
     }
 
-    public void hY(int i) {
-        this.cPe.set(i);
+    public void gs(int i) {
+        this.cKs.set(i);
     }
 
-    public boolean hZ(int i) {
-        return this.cPe.get(i);
+    public boolean gt(int i) {
+        return this.cKs.get(i);
     }
 }

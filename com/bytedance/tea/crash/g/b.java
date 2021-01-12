@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Debug;
 /* loaded from: classes4.dex */
 public class b {
-    static final a pqn;
+    static final a plI;
 
     /* loaded from: classes4.dex */
     private static class a {
@@ -28,8 +28,8 @@ public class b {
     @TargetApi(19)
     /* renamed from: com.bytedance.tea.crash.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1046b extends a {
-        private C1046b() {
+    private static class C1029b extends a {
+        private C1029b() {
             super();
         }
 
@@ -51,21 +51,21 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            pqn = new C1046b();
+            plI = new C1029b();
         } else {
-            pqn = new a();
+            plI = new a();
         }
     }
 
     public static int a(Debug.MemoryInfo memoryInfo) {
-        return pqn.a(memoryInfo);
+        return plI.a(memoryInfo);
     }
 
     public static int b(Debug.MemoryInfo memoryInfo) {
-        return pqn.b(memoryInfo);
+        return plI.b(memoryInfo);
     }
 
     public static int c(Debug.MemoryInfo memoryInfo) {
-        return pqn.c(memoryInfo);
+        return plI.c(memoryInfo);
     }
 }

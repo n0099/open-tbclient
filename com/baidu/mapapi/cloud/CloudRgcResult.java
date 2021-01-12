@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -9,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CloudRgcResult {
     public AddressCompents addressCompents;
     public String customLocationDescription;
@@ -21,7 +22,7 @@ public class CloudRgcResult {
     public String recommendedLocationDescription;
     public int status;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class AddressCompents {
         public int adminAreaCode;
         public String city;
@@ -49,7 +50,7 @@ public class CloudRgcResult {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class PoiInfo {
         public String address;
         public String direction;
@@ -68,7 +69,7 @@ public class CloudRgcResult {
                 this.uid = jSONObject.optString("id");
                 this.address = jSONObject.optString("address");
                 this.tag = jSONObject.optString("tag");
-                JSONObject optJSONObject = jSONObject.optJSONObject("location");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
                 if (optJSONObject != null) {
                     this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                     if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
@@ -91,7 +92,7 @@ public class CloudRgcResult {
             if (this.status != 0) {
                 return;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("location");
+            JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
             if (optJSONObject != null) {
                 this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {

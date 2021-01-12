@@ -5,18 +5,18 @@ import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public String aLV;
-    public String bks;
-    public String bkt;
-    public long bkx;
-    public String bky;
+    public String aHi;
+    public String bfC;
+    public String bfD;
+    public long bfH;
+    public String bfI;
     public String createTime;
     public String description;
+    public String gXE;
+    public int gXF;
     public int guardLevel;
-    public String hck;
-    public int hcl;
     public String id;
     public String liveId;
     public int liveStatus;
@@ -29,19 +29,19 @@ public class d {
                 this.id = jSONObject.optString("id");
                 String optString = jSONObject.optString("anchor_id");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.aLV = EncryptionHelper.getDecryptUserId(optString);
+                    this.aHi = EncryptionHelper.getDecryptUserId(optString);
                 }
-                this.bks = jSONObject.optString("regiment_name");
-                this.bkt = jSONObject.optString("regiment_icon");
+                this.bfC = jSONObject.optString("regiment_name");
+                this.bfD = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.hck = jSONObject.optString("update_time");
-                this.hcl = jSONObject.optInt("member_counts");
-                this.bky = jSONObject.optString("guard_club_portrait");
+                this.gXE = jSONObject.optString("update_time");
+                this.gXF = jSONObject.optInt("member_counts");
+                this.bfI = jSONObject.optString("guard_club_portrait");
                 this.guardLevel = jSONObject.optInt("guard_level");
-                this.bkx = jSONObject.optLong("next_level_need_score");
+                this.bfH = jSONObject.optLong("next_level_need_score");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optString("live_id");
             } catch (Exception e) {

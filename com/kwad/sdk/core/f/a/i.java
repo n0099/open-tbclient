@@ -1,21 +1,21 @@
 package com.kwad.sdk.core.f.a;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9444a;
+    private Context f9144a;
 
     public i(Context context) {
-        this.f9444a = context;
+        this.f9144a = context;
     }
 
     public String a() {
         String str;
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f9444a);
+            str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f9144a);
         } catch (Exception e) {
             e = e;
             str = "";

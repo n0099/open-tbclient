@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener fko;
-    private BaseActivity giB;
+    private View.OnClickListener ffD;
+    private BaseActivity gdS;
     private List<AccountData> mData = null;
-    private boolean giC = false;
+    private boolean gdT = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.giB = baseActivity;
-        this.fko = onClickListener;
+        this.gdS = baseActivity;
+        this.ffD = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -64,26 +64,26 @@ public class a extends BaseAdapter {
         Throwable th;
         Exception e;
         View view2;
-        C0610a c0610a;
+        C0593a c0593a;
         View view3;
         try {
             if (view != null) {
-                c0610a = (C0610a) view.getTag();
+                c0593a = (C0593a) view.getTag();
                 view3 = view;
             } else if (getItemViewType(i) == 0) {
-                view = LayoutInflater.from(this.giB.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                c0610a = new C0610a();
-                c0610a.giD = (TextView) view.findViewById(R.id.account);
-                c0610a.giE = (ImageView) view.findViewById(R.id.active);
-                c0610a.giF = (TextView) view.findViewById(R.id.delete);
-                c0610a.giF.setOnClickListener(this.fko);
-                view.setTag(c0610a);
+                view = LayoutInflater.from(this.gdS.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                c0593a = new C0593a();
+                c0593a.gdU = (TextView) view.findViewById(R.id.account);
+                c0593a.gdV = (ImageView) view.findViewById(R.id.active);
+                c0593a.gdW = (TextView) view.findViewById(R.id.delete);
+                c0593a.gdW.setOnClickListener(this.ffD);
+                view.setTag(c0593a);
                 view3 = view;
             } else {
-                view = LayoutInflater.from(this.giB.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                c0610a = new C0610a();
-                c0610a.flK = (TextView) view.findViewById(R.id.add_text);
-                view.setTag(c0610a);
+                view = LayoutInflater.from(this.gdS.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                c0593a = new C0593a();
+                c0593a.fgZ = (TextView) view.findViewById(R.id.add_text);
+                view.setTag(c0593a);
                 view3 = view;
             }
         } catch (Exception e2) {
@@ -95,52 +95,52 @@ public class a extends BaseAdapter {
         try {
             if (getItemViewType(i) == 0) {
                 AccountData accountData = (AccountData) getItem(i);
-                c0610a.giE.setVisibility(8);
-                c0610a.giF.setVisibility(8);
-                c0610a.giF.setTag(accountData);
+                c0593a.gdV.setVisibility(8);
+                c0593a.gdW.setVisibility(8);
+                c0593a.gdW.setTag(accountData);
                 if (accountData != null) {
-                    c0610a.giD.setText(accountData.getAccountNameShow());
+                    c0593a.gdU.setText(accountData.getAccountNameShow());
                     if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                        c0610a.giE.setVisibility(0);
+                        c0593a.gdV.setVisibility(0);
                     }
-                    if (this.giC) {
-                        c0610a.giF.setVisibility(0);
+                    if (this.gdT) {
+                        c0593a.gdW.setVisibility(0);
                     }
                 }
             }
-            this.giB.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.giB.getLayoutMode().onModeChanged(view3);
+            this.gdS.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.gdS.getLayoutMode().onModeChanged(view3);
             return view3;
         } catch (Exception e3) {
             e = e3;
             view2 = view3;
             try {
                 BdLog.detailException(e);
-                this.giB.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.giB.getLayoutMode().onModeChanged(view2);
+                this.gdS.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.gdS.getLayoutMode().onModeChanged(view2);
                 return view2;
             } catch (Throwable th3) {
                 th = th3;
                 view = view2;
-                this.giB.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.giB.getLayoutMode().onModeChanged(view);
+                this.gdS.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.gdS.getLayoutMode().onModeChanged(view);
                 throw th;
             }
         } catch (Throwable th4) {
             th = th4;
             view = view3;
-            this.giB.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.giB.getLayoutMode().onModeChanged(view);
+            this.gdS.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.gdS.getLayoutMode().onModeChanged(view);
             throw th;
         }
     }
 
-    public void mc(boolean z) {
-        this.giC = z;
+    public void lY(boolean z) {
+        this.gdT = z;
     }
 
-    public boolean bOv() {
-        return this.giC;
+    public boolean bKD() {
+        return this.gdT;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -158,13 +158,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0610a {
-        TextView flK;
-        TextView giD;
-        ImageView giE;
-        TextView giF;
+    private class C0593a {
+        TextView fgZ;
+        TextView gdU;
+        ImageView gdV;
+        TextView gdW;
 
-        private C0610a() {
+        private C0593a() {
         }
     }
 }

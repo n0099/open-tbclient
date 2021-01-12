@@ -19,11 +19,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public abstract class AsyncTask<Params, Progress, Result> {
-    public static final Executor agx;
-    public static final Executor agy;
-    private static final b agz;
+    public static final Executor afF;
+    public static final Executor afG;
+    private static final b afH;
     private static volatile Executor sDefaultExecutor;
-    private volatile Status agA;
+    private volatile Status afI;
     private final AtomicBoolean mCancelled;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
@@ -48,15 +48,15 @@ public abstract class AsyncTask<Params, Progress, Result> {
 
     /* loaded from: classes4.dex */
     private static class a<Data> {
-        final AsyncTask agB;
+        final AsyncTask afJ;
         final Data[] mData;
     }
 
     static {
-        agx = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
-        agy = Executors.newFixedThreadPool(2, sThreadFactory);
-        agz = new b(Looper.getMainLooper());
-        sDefaultExecutor = agx;
+        afF = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
+        afG = Executors.newFixedThreadPool(2, sThreadFactory);
+        afH = new b(Looper.getMainLooper());
+        sDefaultExecutor = afF;
     }
 
     @TargetApi(11)
@@ -126,7 +126,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
         } catch (Throwable th) {
             Log.w("AsyncTask", th);
         }
-        this.agA = Status.FINISHED;
+        this.afI = Status.FINISHED;
     }
 
     /* loaded from: classes4.dex */
@@ -140,10 +140,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.agB.finish(aVar.mData[0]);
+                    aVar.afJ.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.agB.onProgressUpdate(aVar.mData);
+                    aVar.afJ.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;

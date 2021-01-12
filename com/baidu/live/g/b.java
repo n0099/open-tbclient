@@ -1,7 +1,7 @@
 package com.baidu.live.g;
 
 import com.baidu.live.adp.widget.IGuideTab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    IGuideTab Ee();
+    IGuideTab Aj();
 }

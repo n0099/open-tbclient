@@ -9,14 +9,14 @@ import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProfileHomeParam f9069a;
+    private ProfileHomeParam f8769a;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f9069a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f8769a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, ProfileHomeParam profileHomeParam) {
@@ -33,9 +33,9 @@ public class a extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_PROFILE_HOME_PARAM");
         if (serializableExtra instanceof ProfileHomeParam) {
-            this.f9069a = (ProfileHomeParam) serializableExtra;
+            this.f8769a = (ProfileHomeParam) serializableExtra;
         }
-        return this.f9069a != null;
+        return this.f8769a != null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

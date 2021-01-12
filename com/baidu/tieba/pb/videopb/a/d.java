@@ -24,15 +24,15 @@ import com.baidu.tieba.tbadkCore.data.m;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<bz>> {
-    public BdUniqueId fJu;
-    private BdTypeRecyclerView jpK;
+    public BdUniqueId fEN;
+    private BdTypeRecyclerView jld;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.fJu = bdUniqueId2;
+        this.fEN = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,22 +41,22 @@ public class d extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
     /* renamed from: bd */
     public ThreadCardViewHolder<bz> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.tx().bA(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36));
+        aVar.tl().by(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36));
         s sVar = new s(this.mPageContext.getPageActivity());
-        sVar.tm();
+        sVar.tb();
         aVar.a((h) sVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jpK);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jld);
         a2.setSourceForPb(2);
         ThreadCardViewHolder<bz> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
-        threadCardViewHolder.setPageId(this.fJu);
+        threadCardViewHolder.setPageId(this.fEN);
         a(new w() { // from class: com.baidu.tieba.pb.videopb.a.d.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if (nVar instanceof by) {
                     by byVar = (by) nVar;
-                    if (byVar.eMv != null && byVar.eSD && byVar.eMv.bty() != null) {
+                    if (byVar.eHK != null && byVar.eNS && byVar.eHK.bpE() != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("itemID", String.valueOf(byVar.eMv.bty().item_id));
+                        hashMap.put("itemID", String.valueOf(byVar.eHK.bpE().item_id));
                         hashMap.put("source", 3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
                     }
@@ -70,17 +70,17 @@ public class d extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, by byVar, ThreadCardViewHolder<bz> threadCardViewHolder) {
-        if (byVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || byVar.eMv == null) {
+        if (byVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || byVar.eHK == null) {
             return null;
         }
-        byVar.eMv.eQR = getPositionByType(i) + 1;
-        threadCardViewHolder.ty().setPosition(i);
-        threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        byVar.eHK.eMg = getPositionByType(i) + 1;
+        threadCardViewHolder.tm().setPosition(i);
+        threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eHK);
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jpK = bdTypeRecyclerView;
+        this.jld = bdTypeRecyclerView;
     }
 }

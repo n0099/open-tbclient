@@ -3,7 +3,7 @@ package com.baidu.mapapi;
 import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";
@@ -12,25 +12,25 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    private static CoordType f2741a = CoordType.BD09LL;
+    private static CoordType f2650a = CoordType.BD09LL;
 
     private SDKInitializer() {
     }
 
     public static CoordType getCoordType() {
-        return f2741a;
+        return f2650a;
     }
 
     public static void initialize(Context context) {
-        c.a(context, false, null, null, null);
+        initialize(null, context);
     }
 
     public static void initialize(Context context, boolean z, String str, String str2) {
-        c.a(context, z, str, str2, null);
+        c.a(context, z, str, str2);
     }
 
     public static void initialize(String str, Context context) {
-        c.a(context, false, null, str, null);
+        c.a(context, false, null, str);
     }
 
     public static boolean isHttpsEnable() {
@@ -38,7 +38,7 @@ public class SDKInitializer {
     }
 
     public static void setCoordType(CoordType coordType) {
-        f2741a = coordType;
+        f2650a = coordType;
     }
 
     public static void setHttpsEnable(boolean z) {

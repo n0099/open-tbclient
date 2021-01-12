@@ -7,34 +7,34 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private final HashMap<b, Rect> aVL = new HashMap<>();
-    private final HashSet<b> aVM = new HashSet<>();
-    private final LinkedList<C0191a> aVN = new LinkedList<>();
+    private final HashMap<b, Rect> aQY = new HashMap<>();
+    private final HashSet<b> aQZ = new HashSet<>();
+    private final LinkedList<C0182a> aRa = new LinkedList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.aVM.add(bVar);
+            this.aQZ.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.aVM.remove(bVar);
+            this.aQZ.remove(bVar);
         }
     }
 
-    public void FA() {
+    public void BF() {
         Log.e("LiveDrag", "start refreshViewRect");
-        if (!this.aVM.isEmpty()) {
-            Iterator<b> it = this.aVM.iterator();
+        if (!this.aQZ.isEmpty()) {
+            Iterator<b> it = this.aQZ.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.getOverlayView() != null) {
                     Rect rect = new Rect();
                     next.getOverlayView().getGlobalVisibleRect(rect);
-                    this.aVL.put(next, rect);
+                    this.aQY.put(next, rect);
                     Log.e("LiveDrag", "view" + next.getOverlayView().getId() + " left=" + rect.left + " top=" + rect.top + " right=" + rect.right + " bottom=" + rect.bottom);
                 }
             }
@@ -43,35 +43,35 @@ public class a {
     }
 
     public void L(View view) {
-        if (!this.aVN.isEmpty()) {
+        if (!this.aRa.isEmpty()) {
             LinkedList linkedList = new LinkedList();
-            Iterator<C0191a> it = this.aVN.iterator();
+            Iterator<C0182a> it = this.aRa.iterator();
             while (it.hasNext()) {
-                C0191a next = it.next();
-                if (next != null && next.aVO == view) {
+                C0182a next = it.next();
+                if (next != null && next.aRb == view) {
                     linkedList.add(next);
                 }
             }
             if (!linkedList.isEmpty()) {
                 Iterator it2 = linkedList.iterator();
                 while (it2.hasNext()) {
-                    C0191a c0191a = (C0191a) it2.next();
-                    if (c0191a.aVP != null) {
-                        c0191a.aVP.setViewTouchable(true);
+                    C0182a c0182a = (C0182a) it2.next();
+                    if (c0182a.aRc != null) {
+                        c0182a.aRc.setViewTouchable(true);
                     }
-                    this.aVN.remove(c0191a);
+                    this.aRa.remove(c0182a);
                 }
             }
         }
     }
 
     /* renamed from: com.baidu.live.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private static class C0191a {
-        public View aVO;
-        public b aVP;
+    /* loaded from: classes10.dex */
+    private static class C0182a {
+        public View aRb;
+        public b aRc;
 
-        private C0191a() {
+        private C0182a() {
         }
     }
 }

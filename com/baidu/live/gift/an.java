@@ -3,16 +3,16 @@ package com.baidu.live.gift;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class an extends HttpMessage {
-    public Map<Long, Long> aYB;
-    public long aYv;
-    public long aYw;
-    public String aYx;
-    public String aYy;
-    public long aYz;
-    public long aZQ;
-    public String aZR;
+    public long aTI;
+    public long aTJ;
+    public String aTK;
+    public String aTL;
+    public long aTM;
+    public Map<Long, Long> aTO;
+    public long aVd;
+    public String aVe;
     public String giftId;
     public String giftName;
     public String liveId;
@@ -22,6 +22,6 @@ public class an extends HttpMessage {
 
     public an() {
         super(1031055);
-        this.aYB = new HashMap();
+        this.aTO = new HashMap();
     }
 }

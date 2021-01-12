@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaFrsLiveListGatherRecommendTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View gYe;
-    private TextView gYf;
-    private View gYg;
+    private View gTA;
+    private View gTy;
+    private TextView gTz;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class AlaFrsLiveListGatherRecommendTitleView extends com.baidu.tieba.card
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gYe = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.gYf = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.gYg = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.gTy = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.gTz = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.gTA = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.gYe, R.color.CAM_X0204);
-            ao.setViewTextColor(this.gYf, R.color.CAM_X0109);
-            ao.setBackgroundResource(this.gYg, R.color.CAM_X0204);
+            ao.setBackgroundResource(this.gTy, R.color.CAM_X0204);
+            ao.setViewTextColor(this.gTz, R.color.CAM_X0109);
+            ao.setBackgroundResource(this.gTA, R.color.CAM_X0204);
             this.mSkinType = i;
         }
     }
@@ -50,13 +50,13 @@ public class AlaFrsLiveListGatherRecommendTitleView extends com.baidu.tieba.card
     public void onClick(View view) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
-        public AlaFrsLiveListGatherRecommendTitleView gYh;
+        public AlaFrsLiveListGatherRecommendTitleView gTB;
 
         public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
             super(alaFrsLiveListGatherRecommendTitleView.getView());
-            this.gYh = alaFrsLiveListGatherRecommendTitleView;
+            this.gTB = alaFrsLiveListGatherRecommendTitleView;
         }
     }
 }

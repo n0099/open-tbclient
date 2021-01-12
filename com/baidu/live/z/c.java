@@ -1,17 +1,17 @@
 package com.baidu.live.z;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    View RT();
+    View NY();
 
-    b RU();
+    b NZ();
 
-    b RV();
+    b Oa();
 
-    void RW();
+    void Ob();
 
-    void RX();
+    void Oc();
 
     void destory();
 

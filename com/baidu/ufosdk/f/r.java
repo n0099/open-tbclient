@@ -12,7 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class r {
     public static void a(Context context, Window window) {
         if (Build.VERSION.SDK_INT < 23 || context == null || window == null) {

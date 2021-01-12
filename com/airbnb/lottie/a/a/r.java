@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class r implements b, a.InterfaceC0007a {
-    private final ShapeTrimPath.Type Ep;
+    private final ShapeTrimPath.Type En;
+    private final com.airbnb.lottie.a.b.a<?, Float> Eo;
+    private final com.airbnb.lottie.a.b.a<?, Float> Ep;
     private final com.airbnb.lottie.a.b.a<?, Float> Eq;
-    private final com.airbnb.lottie.a.b.a<?, Float> Er;
-    private final com.airbnb.lottie.a.b.a<?, Float> Es;
     private final List<a.InterfaceC0007a> listeners = new ArrayList();
     private final String name;
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.Ep = shapeTrimPath.iC();
-        this.Eq = shapeTrimPath.jR().jc();
-        this.Er = shapeTrimPath.jQ().jc();
-        this.Es = shapeTrimPath.jK().jc();
+        this.En = shapeTrimPath.iC();
+        this.Eo = shapeTrimPath.jR().jc();
+        this.Ep = shapeTrimPath.jQ().jc();
+        this.Eq = shapeTrimPath.jK().jc();
+        aVar.a(this.Eo);
+        aVar.a(this.Ep);
         aVar.a(this.Eq);
-        aVar.a(this.Er);
-        aVar.a(this.Es);
+        this.Eo.b(this);
+        this.Ep.b(this);
         this.Eq.b(this);
-        this.Er.b(this);
-        this.Es.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
@@ -57,18 +57,18 @@ public class r implements b, a.InterfaceC0007a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ShapeTrimPath.Type iC() {
-        return this.Ep;
+        return this.En;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iD() {
-        return this.Eq;
+        return this.Eo;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iE() {
-        return this.Er;
+        return this.Ep;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> iF() {
-        return this.Es;
+        return this.Eq;
     }
 }

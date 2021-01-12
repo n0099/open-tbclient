@@ -40,6 +40,7 @@ import androidx.versionedparcelable.CustomVersionedParcelable;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -50,7 +51,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class IconCompat extends CustomVersionedParcelable {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;
     private static final int AMBIENT_SHADOW_ALPHA = 30;
@@ -87,7 +88,7 @@ public class IconCompat extends CustomVersionedParcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface IconType {
     }
 
@@ -410,21 +411,21 @@ public class IconCompat extends CustomVersionedParcelable {
         Bundle bundle = new Bundle();
         switch (this.mType) {
             case -1:
-                bundle.putParcelable("obj", (Parcelable) this.mObj1);
+                bundle.putParcelable(EXTRA_OBJ, (Parcelable) this.mObj1);
                 break;
             case 0:
             default:
                 throw new IllegalArgumentException("Invalid icon");
             case 1:
             case 5:
-                bundle.putParcelable("obj", (Bitmap) this.mObj1);
+                bundle.putParcelable(EXTRA_OBJ, (Bitmap) this.mObj1);
                 break;
             case 2:
             case 4:
-                bundle.putString("obj", (String) this.mObj1);
+                bundle.putString(EXTRA_OBJ, (String) this.mObj1);
                 break;
             case 3:
-                bundle.putByteArray("obj", (byte[]) this.mObj1);
+                bundle.putByteArray(EXTRA_OBJ, (byte[]) this.mObj1);
                 break;
         }
         bundle.putInt("type", this.mType);
@@ -447,7 +448,7 @@ public class IconCompat extends CustomVersionedParcelable {
         switch (this.mType) {
             case 1:
             case 5:
-                append.append(" size=").append(((Bitmap) this.mObj1).getWidth()).append("x").append(((Bitmap) this.mObj1).getHeight());
+                append.append(" size=").append(((Bitmap) this.mObj1).getWidth()).append(Config.EVENT_HEAT_X).append(((Bitmap) this.mObj1).getHeight());
                 break;
             case 2:
                 append.append(" pkg=").append(getResPackage()).append(" id=").append(String.format("0x%08x", Integer.valueOf(getResId())));
@@ -576,7 +577,7 @@ public class IconCompat extends CustomVersionedParcelable {
             case -1:
             case 1:
             case 5:
-                iconCompat.mObj1 = bundle.getParcelable("obj");
+                iconCompat.mObj1 = bundle.getParcelable(EXTRA_OBJ);
                 break;
             case 0:
             default:
@@ -584,10 +585,10 @@ public class IconCompat extends CustomVersionedParcelable {
                 return null;
             case 2:
             case 4:
-                iconCompat.mObj1 = bundle.getString("obj");
+                iconCompat.mObj1 = bundle.getString(EXTRA_OBJ);
                 break;
             case 3:
-                iconCompat.mObj1 = bundle.getByteArray("obj");
+                iconCompat.mObj1 = bundle.getByteArray(EXTRA_OBJ);
                 break;
         }
         return iconCompat;

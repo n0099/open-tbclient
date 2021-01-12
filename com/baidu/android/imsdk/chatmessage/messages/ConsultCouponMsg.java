@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConsultCouponMsg extends NormalMsg {
     public static final Parcelable.Creator<ConsultCouponMsg> CREATOR = new Parcelable.Creator<ConsultCouponMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConsultCouponMsg.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -6,9 +6,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.mobstat.Config;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     private double mLatitude;
     private double mLongitude;
@@ -74,7 +75,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         try {
             JSONObject jSONObject = new JSONObject(this.mjsonContent);
             setTitle(jSONObject.getString("title"));
-            this.mLatitude = jSONObject.optDouble("x");
+            this.mLatitude = jSONObject.optDouble(Config.EVENT_HEAT_X);
             this.mLongitude = jSONObject.optDouble("y");
             return true;
         } catch (JSONException e) {
@@ -107,7 +108,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("x", d2);
+                jSONObject.put(Config.EVENT_HEAT_X, d2);
                 jSONObject.put("y", d);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 jSONObject.put("title", str);

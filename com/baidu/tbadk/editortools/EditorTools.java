@@ -25,31 +25,31 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class EditorTools extends LinearLayout {
     private Context context;
-    public EditorBar fDQ;
-    public EditorDesk fDR;
-    private View fDS;
-    private List<m> fDT;
-    private SparseArray<b> fDU;
-    private SparseArray<HashSet<b>> fDV;
-    private SparseArray<HashSet<Integer>> fDW;
-    private int fDX;
-    private boolean fDY;
-    private int fDZ;
-    private boolean fEa;
-    private LinkedList<h> fEb;
-    private boolean fEc;
-    private boolean fEd;
-    private View.OnClickListener fEe;
-    private View.OnClickListener fEf;
-    private Runnable fEg;
-    private List<Integer> fEh;
-    private int fpV;
+    private int fll;
+    public EditorBar fzi;
+    public EditorDesk fzj;
+    private View fzk;
+    private List<m> fzl;
+    private SparseArray<b> fzm;
+    private SparseArray<HashSet<b>> fzn;
+    private SparseArray<HashSet<Integer>> fzo;
+    private int fzp;
+    private boolean fzq;
+    private int fzr;
+    private boolean fzs;
+    private LinkedList<h> fzt;
+    private boolean fzu;
+    private boolean fzv;
+    private View.OnClickListener fzw;
+    private View.OnClickListener fzx;
+    private Runnable fzy;
+    private List<Integer> fzz;
     private View mMaskView;
 
-    public void bEP() {
-        m sv = sv(3);
-        if (sv != null && (sv.fDH instanceof View)) {
-            View view = (View) sv.fDH;
+    public void bAV() {
+        m qP = qP(3);
+        if (qP != null && (qP.fyZ instanceof View)) {
+            View view = (View) qP.fyZ;
             view.requestFocus();
             com.baidu.adp.lib.util.l.showSoftKeyPad(getContext(), view);
         }
@@ -57,54 +57,54 @@ public class EditorTools extends LinearLayout {
 
     public EditorTools(Context context) {
         super(context);
-        this.fDX = 1;
-        this.fDY = false;
-        this.fpV = 0;
-        this.fDZ = 0;
-        this.fEa = true;
-        this.fEc = false;
-        this.fEd = false;
-        this.fEe = new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.EditorTools.1
+        this.fzp = 1;
+        this.fzq = false;
+        this.fll = 0;
+        this.fzr = 0;
+        this.fzs = true;
+        this.fzu = false;
+        this.fzv = false;
+        this.fzw = new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.EditorTools.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EditorTools.this.bP(view);
             }
         };
-        this.fEg = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
+        this.fzy = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
             @Override // java.lang.Runnable
             public void run() {
-                EditorTools.this.bEP();
+                EditorTools.this.bAV();
             }
         };
-        this.fEh = new ArrayList();
+        this.fzz = new ArrayList();
         init(context);
     }
 
     public void setIsIM(boolean z) {
-        this.fEc = z;
+        this.fzu = z;
     }
 
-    public boolean bEQ() {
-        return this.fEc;
+    public boolean bAW() {
+        return this.fzu;
     }
 
-    public boolean bER() {
-        return this.fEd;
+    public boolean bAX() {
+        return this.fzv;
     }
 
     public void setIsFromPb(boolean z) {
-        this.fEd = z;
+        this.fzv = z;
     }
 
     private void init(Context context) {
         this.context = context;
-        this.fDT = new LinkedList();
-        this.fDU = new SparseArray<>();
-        this.fDV = new SparseArray<>();
-        this.fDW = new SparseArray<>();
-        this.fDQ = new EditorBar(context, this);
-        this.fDR = new EditorDesk(context, this);
-        this.fEb = new LinkedList<>();
+        this.fzl = new LinkedList();
+        this.fzm = new SparseArray<>();
+        this.fzn = new SparseArray<>();
+        this.fzo = new SparseArray<>();
+        this.fzi = new EditorBar(context, this);
+        this.fzj = new EditorDesk(context, this);
+        this.fzt = new LinkedList<>();
         setOrientation(1);
     }
 
@@ -120,27 +120,27 @@ public class EditorTools extends LinearLayout {
         int i2 = 0;
         if (i == 0) {
             if (iArr != null && iArr.length != 0) {
-                HashSet<b> hashSet = this.fDV.get(iArr[0]);
+                HashSet<b> hashSet = this.fzn.get(iArr[0]);
                 if (hashSet == null) {
                     hashSet = new HashSet<>();
                     int length = iArr.length;
                     while (i2 < length) {
-                        this.fDV.put(iArr[i2], hashSet);
+                        this.fzn.put(iArr[i2], hashSet);
                         i2++;
                     }
                 }
                 hashSet.add(bVar);
             }
         } else if (i > 0) {
-            this.fDU.put(i, bVar);
+            this.fzm.put(i, bVar);
             if (iArr != null && iArr.length > 0) {
                 int length2 = iArr.length;
                 while (i2 < length2) {
                     int i3 = iArr[i2];
-                    HashSet<Integer> hashSet2 = this.fDW.get(i3);
+                    HashSet<Integer> hashSet2 = this.fzo.get(i3);
                     if (hashSet2 == null) {
                         hashSet2 = new HashSet<>();
-                        this.fDW.put(i3, hashSet2);
+                        this.fzo.put(i3, hashSet2);
                     }
                     hashSet2.add(Integer.valueOf(i));
                     i2++;
@@ -153,18 +153,18 @@ public class EditorTools extends LinearLayout {
         HashSet<Integer> hashSet;
         boolean z;
         h hVar;
-        m sv;
+        m qP;
         if (aVar != null) {
             if (aVar.code == 2) {
-                h ss = this.fDQ.ss(aVar.id);
-                if (ss != null) {
+                h qM = this.fzi.qM(aVar.id);
+                if (qM != null) {
                     z = false;
                 } else {
-                    ss = this.fDR.ss(aVar.id);
+                    qM = this.fzj.qM(aVar.id);
                     z = true;
                 }
-                if (ss == null) {
-                    Iterator<h> it = this.fEb.iterator();
+                if (qM == null) {
+                    Iterator<h> it = this.fzt.iterator();
                     while (it.hasNext()) {
                         hVar = it.next();
                         if (hVar.getToolId() == aVar.id) {
@@ -172,43 +172,43 @@ public class EditorTools extends LinearLayout {
                         }
                     }
                 }
-                hVar = ss;
+                hVar = qM;
                 if (hVar != null) {
                     hVar.a(aVar);
-                    if (z && (sv = sv(2)) != null && sv.fDH != null) {
-                        sv.fDH.a(aVar);
+                    if (z && (qP = qP(2)) != null && qP.fyZ != null) {
+                        qP.fyZ.a(aVar);
                     }
                 }
             } else if (aVar.code == 5) {
-                this.fDQ.a((m) null);
-                this.fDR.bEL();
+                this.fzi.a((m) null);
+                this.fzj.bAR();
             } else {
                 if (aVar.id > 0) {
-                    b bVar = this.fDU.get(aVar.id);
+                    b bVar = this.fzm.get(aVar.id);
                     if (bVar != null) {
                         if (aVar.code != 19 && aVar.code != 20 && aVar.id != 27) {
-                            this.fDQ.sq(aVar.id);
+                            this.fzi.qK(aVar.id);
                         }
-                        m sv2 = sv(aVar.id);
-                        if (sv2 != null && sv2.fEB == 5) {
-                            bDf();
-                            bES();
+                        m qP2 = qP(aVar.id);
+                        if (qP2 != null && qP2.fzT == 5) {
+                            bzl();
+                            bAY();
                         } else {
-                            this.fDR.sq(aVar.id);
+                            this.fzj.qK(aVar.id);
                         }
                         bVar.a(aVar);
                     }
                 } else if (aVar.id <= 0) {
-                    if (aVar.id < 0 && (hashSet = this.fDW.get(aVar.code)) != null && !hashSet.isEmpty()) {
+                    if (aVar.id < 0 && (hashSet = this.fzo.get(aVar.code)) != null && !hashSet.isEmpty()) {
                         Iterator<Integer> it2 = hashSet.iterator();
                         while (it2.hasNext()) {
-                            b bVar2 = this.fDU.get(it2.next().intValue());
+                            b bVar2 = this.fzm.get(it2.next().intValue());
                             if (bVar2 != null) {
                                 bVar2.a(aVar);
                             }
                         }
                     }
-                    HashSet<b> hashSet2 = this.fDV.get(aVar.code);
+                    HashSet<b> hashSet2 = this.fzn.get(aVar.code);
                     if (hashSet2 != null && !hashSet2.isEmpty()) {
                         Iterator<b> it3 = hashSet2.iterator();
                         while (it3.hasNext()) {
@@ -217,7 +217,7 @@ public class EditorTools extends LinearLayout {
                     }
                 }
                 if (this.context.getClass().getSimpleName().equals("WriteActivity") && aVar.id == 2) {
-                    DLauncher dLauncher = (DLauncher) this.fDR.ss(32);
+                    DLauncher dLauncher = (DLauncher) this.fzj.qM(32);
                     if (dLauncher != null) {
                         bO(dLauncher);
                     }
@@ -227,9 +227,9 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bES() {
+    public void bAY() {
         boolean z;
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fEg);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fzy);
         if (getContext() instanceof Activity) {
             View currentFocus = ((Activity) getContext()).getCurrentFocus();
             if (currentFocus != null) {
@@ -242,84 +242,84 @@ public class EditorTools extends LinearLayout {
             z = false;
         }
         if (!z) {
-            m sv = sv(3);
-            if (sv != null && (sv.fDH instanceof View)) {
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) sv.fDH);
+            m qP = qP(3);
+            if (qP != null && (qP.fyZ instanceof View)) {
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) qP.fyZ);
             }
-            m sv2 = sv(28);
-            if (sv2 != null && (sv2.fDH instanceof View)) {
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) sv2.fDH);
+            m qP2 = qP(28);
+            if (qP2 != null && (qP2.fyZ instanceof View)) {
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), (View) qP2.fyZ);
             }
         }
     }
 
     public void b(m mVar) {
         if (mVar != null) {
-            this.fDT.add(mVar);
+            this.fzl.add(mVar);
         }
     }
 
     private void clear() {
-        this.fDQ.clear();
-        this.fDR.clear();
+        this.fzi.clear();
+        this.fzj.clear();
     }
 
     public void setBarMaxLauCount(int i) {
         if (i < 0) {
             i = 0;
         }
-        this.fDX = i;
+        this.fzp = i;
     }
 
     public void setBarBackgroundColorId(int i) {
-        this.fDQ.setBackgroundColorId(i);
+        this.fzi.setBackgroundColorId(i);
     }
 
     public void setDeskBackgroundColorId(int i) {
-        this.fDR.setBackgroundColorId(i);
+        this.fzj.setBackgroundColorId(i);
     }
 
     public void onChangeSkinType(int i) {
-        ao.setBackgroundColor(this, this.fpV, i);
-        this.fDQ.onChangeSkinType(i);
-        this.fDR.onChangeSkinType(i);
-        if (this.fDS != null) {
-            com.baidu.tbadk.core.elementsMaven.c.bv(this.fDS).pK(R.string.J_X02).setBackGroundColor(R.color.CAM_X0210);
+        ao.setBackgroundColor(this, this.fll, i);
+        this.fzi.onChangeSkinType(i);
+        this.fzj.onChangeSkinType(i);
+        if (this.fzk != null) {
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.fzk).od(R.string.J_X02).setBackGroundColor(R.color.CAM_X0210);
         }
     }
 
     public List<Integer> getCollectTools() {
-        return this.fEh;
+        return this.fzz;
     }
 
     public void bL(List<Integer> list) {
-        this.fEh.clear();
-        this.fEh.addAll(list);
+        this.fzz.clear();
+        this.fzz.addAll(list);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_COLLECT_TOOL, this));
     }
 
     public void build() {
         j jVar;
-        if (this.fDT != null && this.fDT.size() != 0) {
+        if (this.fzl != null && this.fzl.size() != 0) {
             clear();
             LinkedList linkedList = new LinkedList();
             boolean z = false;
-            for (m mVar : this.fDT) {
-                if (mVar.fEu > 0) {
+            for (m mVar : this.fzl) {
+                if (mVar.fzM > 0) {
                     linkedList.add(mVar);
                 }
-                if (mVar.fDH != null) {
-                    mVar.fDH.setToolId(mVar.id);
-                    mVar.fDH.setEditorTools(this);
-                    if (mVar.fEB == 6) {
-                        this.fDR.a(mVar.fDH);
-                    } else if (mVar.fEB == 1 || mVar.fEB == 2 || mVar.fEB == 3 || mVar.fEB == 4 || mVar.fEB == 5) {
-                        this.fDQ.a(mVar.fDH, mVar.fEB, !mVar.fEC);
-                        if (mVar.fEB == 5 && sv(1) == null) {
+                if (mVar.fyZ != null) {
+                    mVar.fyZ.setToolId(mVar.id);
+                    mVar.fyZ.setEditorTools(this);
+                    if (mVar.fzT == 6) {
+                        this.fzj.a(mVar.fyZ);
+                    } else if (mVar.fzT == 1 || mVar.fzT == 2 || mVar.fzT == 3 || mVar.fzT == 4 || mVar.fzT == 5) {
+                        this.fzi.a(mVar.fyZ, mVar.fzT, !mVar.fzU);
+                        if (mVar.fzT == 5 && qP(1) == null) {
                             z = true;
                         }
                     }
-                    a(mVar.fED, mVar.id, mVar.fDH);
+                    a(mVar.fzV, mVar.id, mVar.fyZ);
                 }
                 z = z;
             }
@@ -328,43 +328,43 @@ public class EditorTools extends LinearLayout {
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(m mVar2, m mVar3) {
-                    return mVar2.fEA - mVar3.fEA;
+                    return mVar2.fzS - mVar3.fzS;
                 }
             });
-            if (linkedList.size() > this.fDX) {
-                if (this.fEd) {
+            if (linkedList.size() > this.fzp) {
+                if (this.fzv) {
                     jVar = new j(getContext(), true);
                 } else {
                     jVar = new j(getContext());
                 }
-                if (this.fDZ > 0 && jVar.fDH != null && (jVar.fDH instanceof CommonTabHost)) {
-                    ((CommonTabHost) jVar.fDH).setBackgroundColorId(this.fDZ);
+                if (this.fzr > 0 && jVar.fyZ != null && (jVar.fyZ instanceof CommonTabHost)) {
+                    ((CommonTabHost) jVar.fyZ).setBackgroundColorId(this.fzr);
                 }
-                if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_write_more_tool_point", false)) {
-                    jVar.fEE = true;
+                if (!com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_write_more_tool_point", false)) {
+                    jVar.fzW = true;
                 } else {
-                    jVar.fEE = false;
+                    jVar.fzW = false;
                 }
                 b(jVar);
-                jVar.fDH.setToolId(jVar.id);
-                jVar.fDH.setEditorTools(this);
-                a(jVar.fED, jVar.id, jVar.fDH);
-                this.fDR.a(jVar.fDH);
-                if (this.fDY) {
-                    linkedList.add(this.fDX, jVar);
+                jVar.fyZ.setToolId(jVar.id);
+                jVar.fyZ.setEditorTools(this);
+                a(jVar.fzV, jVar.id, jVar.fyZ);
+                this.fzj.a(jVar.fyZ);
+                if (this.fzq) {
+                    linkedList.add(this.fzp, jVar);
                 } else {
                     linkedList.add(0, jVar);
                 }
             }
-            int i = this.fDX + 1;
+            int i = this.fzp + 1;
             Iterator it = linkedList.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 m mVar2 = (m) it.next();
                 if (i2 < i) {
-                    this.fDQ.a(a(mVar2, 1));
+                    this.fzi.a(a(mVar2, 1));
                 } else {
-                    this.fDR.a(a(mVar2, 2));
+                    this.fzj.a(a(mVar2, 2));
                 }
                 i2++;
             }
@@ -373,25 +373,25 @@ public class EditorTools extends LinearLayout {
                 b(fVar);
                 h a2 = a(fVar, 1);
                 a2.hide();
-                this.fDQ.a(0, a2);
+                this.fzi.a(0, a2);
             }
-            this.fDQ.build();
-            this.fDR.build();
+            this.fzi.build();
+            this.fzj.build();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            this.fDQ.setLayoutParams(layoutParams);
-            this.fDR.setLayoutParams(layoutParams2);
-            this.fDR.hide();
-            if (this.fEd) {
-                this.fDQ.setPadding(0, 0, 0, 0);
+            this.fzi.setLayoutParams(layoutParams);
+            this.fzj.setLayoutParams(layoutParams2);
+            this.fzj.hide();
+            if (this.fzv) {
+                this.fzi.setPadding(0, 0, 0, 0);
             }
-            bDf();
+            bzl();
             removeAllViews();
-            if (this.fDQ.getBarLauncherType() != 4) {
-                bET();
+            if (this.fzi.getBarLauncherType() != 4) {
+                bAZ();
             }
-            addView(this.fDQ);
-            addView(this.fDR);
+            addView(this.fzi);
+            addView(this.fzj);
             invalidate();
         }
     }
@@ -399,28 +399,28 @@ public class EditorTools extends LinearLayout {
     public void bO(View view) {
         BaseActivity baseActivity = (BaseActivity) this.context;
         com.baidu.tieba.c.e eVar = new com.baidu.tieba.c.e(baseActivity.getPageContext(), view);
-        eVar.fP(R.drawable.bg_tip_blue_down);
-        eVar.fO(48);
-        eVar.pD(true);
-        eVar.setAnchor(2);
+        eVar.ej(R.drawable.bg_tip_blue_down);
+        eVar.ei(48);
+        eVar.pz(true);
+        eVar.wX(2);
         eVar.setUseDirectOffset(true);
-        eVar.yH(com.baidu.adp.lib.util.l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.yE(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.yF(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.fQ((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.xb(com.baidu.adp.lib.util.l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.wY(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.wZ(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.ek((int) IMConnection.RETRY_DELAY_TIMES);
         eVar.C(baseActivity.getString(R.string.write_vote_hint), "write_vote_hint_tip_key", true);
     }
 
-    private void bET() {
-        if (this.fDS == null || this.fDS.getParent() != null) {
-            this.fDS = new View(getContext());
-            com.baidu.tbadk.core.elementsMaven.c.bv(this.fDS).pK(R.string.J_X02).setBackGroundColor(R.color.CAM_X0210);
-            this.fDS.setLayoutParams(new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.L_X01)));
+    private void bAZ() {
+        if (this.fzk == null || this.fzk.getParent() != null) {
+            this.fzk = new View(getContext());
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.fzk).od(R.string.J_X02).setBackGroundColor(R.color.CAM_X0210);
+            this.fzk.setLayoutParams(new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.L_X01)));
         }
-        addView(this.fDS);
+        addView(this.fzk);
     }
 
-    private void bEU() {
+    private void bBa() {
         if (this.mMaskView == null || this.mMaskView.getParent() != null) {
             this.mMaskView = new View(getContext());
             ao.setBackgroundResource(this.mMaskView, R.color.transparent);
@@ -430,8 +430,8 @@ public class EditorTools extends LinearLayout {
             this.mMaskView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.EditorTools.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (EditorTools.this.fEf != null) {
-                        EditorTools.this.fEf.onClick(view);
+                    if (EditorTools.this.fzx != null) {
+                        EditorTools.this.fzx.onClick(view);
                     }
                 }
             });
@@ -444,17 +444,17 @@ public class EditorTools extends LinearLayout {
             b(mVar);
             h a2 = a(mVar, 1);
             a2.hide();
-            if (this.fDQ != null) {
-                this.fDQ.a(0, a2);
-                this.fDQ.removeAllViews();
-                this.fDQ.build();
+            if (this.fzi != null) {
+                this.fzi.a(0, a2);
+                this.fzi.removeAllViews();
+                this.fzi.build();
             }
             invalidate();
         }
     }
 
-    public m sv(int i) {
-        for (m mVar : this.fDT) {
+    public m qP(int i) {
+        for (m mVar : this.fzl) {
             if (mVar.id == i) {
                 return mVar;
             }
@@ -463,19 +463,19 @@ public class EditorTools extends LinearLayout {
     }
 
     public List<m> getAllTools() {
-        return this.fDT;
+        return this.fzl;
     }
 
-    public h ss(int i) {
-        h ss = this.fDQ.ss(i);
-        if (ss == null) {
-            return this.fDR.ss(i);
+    public h qM(int i) {
+        h qM = this.fzi.qM(i);
+        if (qM == null) {
+            return this.fzj.qM(i);
         }
-        return ss;
+        return qM;
     }
 
-    public void bEV() {
-        this.fDQ.j(this.fEe);
+    public void bBb() {
+        this.fzi.j(this.fzw);
     }
 
     private h a(m mVar, int i) {
@@ -484,90 +484,90 @@ public class EditorTools extends LinearLayout {
             ((View) a2).setContentDescription(mVar.name);
         }
         if (a2 instanceof BLauncher) {
-            ((View) a2).setOnClickListener(this.fEe);
+            ((View) a2).setOnClickListener(this.fzw);
         }
         return a2;
     }
 
-    public void kQ(boolean z) {
-        for (m mVar : this.fDT) {
-            if (mVar != null && (mVar.fDH instanceof View) && ((View) mVar.fDH).getVisibility() == 0 && !mVar.fEC) {
-                mVar.fDH.rV();
+    public void kM(boolean z) {
+        for (m mVar : this.fzl) {
+            if (mVar != null && (mVar.fyZ instanceof View) && ((View) mVar.fyZ).getVisibility() == 0 && !mVar.fzU) {
+                mVar.fyZ.rV();
             }
         }
-        if (this.fEa) {
-            this.fEa = false;
-            bDf();
+        if (this.fzs) {
+            this.fzs = false;
+            bzl();
         }
-        if (!bEN() && z) {
-            com.baidu.adp.lib.f.e.mB().postDelayed(this.fEg, 200L);
+        if (!bAT() && z) {
+            com.baidu.adp.lib.f.e.mB().postDelayed(this.fzy, 200L);
         }
         setVisibility(0);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_VISIBILITY_CHANGED, true));
     }
 
     public void rV() {
-        kQ(true);
+        kM(true);
     }
 
     public void hide() {
-        bDf();
+        bzl();
         setVisibility(8);
-        bES();
+        bAY();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_VISIBILITY_CHANGED, false));
     }
 
-    public void bDf() {
-        this.fDR.hide();
-        this.fDQ.a((m) null);
+    public void bzl() {
+        this.fzj.hide();
+        this.fzi.a((m) null);
     }
 
     public void setDeskLauncherEnabled(boolean z) {
-        this.fDR.setDeskLauncherEnabled(z);
+        this.fzj.setDeskLauncherEnabled(z);
     }
 
     public void setBarLauncherEnabled(boolean z) {
-        this.fDQ.setBarLauncherEnabled(z);
+        this.fzi.setBarLauncherEnabled(z);
     }
 
     public void setToolEnabled(boolean z, int i) {
-        if (!this.fDQ.t(z, i)) {
-            this.fDR.u(z, i);
+        if (!this.fzi.t(z, i)) {
+            this.fzj.u(z, i);
         }
     }
 
-    public boolean bEN() {
-        return this.fDR.bEN();
+    public boolean bAT() {
+        return this.fzj.bAT();
     }
 
     public void setFrom(int i) {
     }
 
     public void setBarLauncherType(int i) {
-        this.fDQ.setBarLauncherType(i);
+        this.fzi.setBarLauncherType(i);
     }
 
-    public void kO(boolean z) {
-        this.fDQ.kO(z);
+    public void kK(boolean z) {
+        this.fzi.kK(z);
     }
 
-    public void kP(boolean z) {
-        this.fDQ.kP(z);
+    public void kL(boolean z) {
+        this.fzi.kL(z);
     }
 
     public void setMoreButtonAtEnd(boolean z) {
-        this.fDY = z;
+        this.fzq = z;
     }
 
     public void setBackgroundColorId(int i) {
-        this.fpV = i;
+        this.fll = i;
         if (i != 0) {
             setBackgroundColor(getContext().getResources().getColor(i));
         }
     }
 
     public void setMoreDeskBgColorId(int i) {
-        this.fDZ = i;
+        this.fzr = i;
     }
 
     @Override // android.view.View
@@ -579,21 +579,21 @@ public class EditorTools extends LinearLayout {
         if (view instanceof h) {
             h hVar = (h) view;
             int toolId = hVar.getToolId();
-            m sv = sv(toolId);
-            if (sv.sj()) {
+            m qP = qP(toolId);
+            if (qP.sj()) {
                 b(new a(31, 0, Integer.valueOf(hVar.getToolId())));
-                this.fDQ.a(sv);
-                if (hVar.getToolId() == 2 && !com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_write_more_tool_point", false)) {
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_write_more_tool_point", true);
-                    hVar.bEI();
+                this.fzi.a(qP);
+                if (hVar.getToolId() == 2 && !com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_write_more_tool_point", false)) {
+                    com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_write_more_tool_point", true);
+                    hVar.bAO();
                 }
                 if (hVar.getToolId() == 1) {
                     hVar.hide();
                     rV();
                     b(new a(1, 3, null));
-                } else if (sv.fDH == null) {
-                    if (sv.fED != null && sv.fED.length > 0) {
-                        b(new a(sv.fED[0], -1, null));
+                } else if (qP.fyZ == null) {
+                    if (qP.fzV != null && qP.fzV.length > 0) {
+                        b(new a(qP.fzV[0], -1, null));
                     }
                 } else {
                     b(new a(1, toolId, null));
@@ -602,8 +602,8 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bEW() {
-        this.fDQ.a((m) null);
+    public void bBc() {
+        this.fzi.a((m) null);
     }
 
     public boolean isVisible() {
@@ -611,7 +611,7 @@ public class EditorTools extends LinearLayout {
     }
 
     public void setOnCancelClickListener(View.OnClickListener onClickListener) {
-        this.fEf = onClickListener;
-        bEU();
+        this.fzx = onClickListener;
+        bBa();
     }
 }

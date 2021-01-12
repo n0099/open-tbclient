@@ -16,10 +16,10 @@ import android.widget.ImageView;
 public class TTRoundRectImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f7079a;
+    private Paint f6779a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7080b;
+    private int f6780b;
     private int c;
     private Matrix d;
 
@@ -33,16 +33,16 @@ public class TTRoundRectImageView extends ImageView {
 
     public TTRoundRectImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7080b = 25;
+        this.f6780b = 25;
         this.c = 25;
-        this.f7079a = new Paint();
-        this.f7079a.setAntiAlias(true);
-        this.f7079a.setFilterBitmap(true);
+        this.f6779a = new Paint();
+        this.f6779a.setAntiAlias(true);
+        this.f6779a.setFilterBitmap(true);
         this.d = new Matrix();
     }
 
     public void setXRound(int i) {
-        this.f7080b = i;
+        this.f6780b = i;
         postInvalidate();
     }
 
@@ -64,8 +64,8 @@ public class TTRoundRectImageView extends ImageView {
                 }
                 this.d.setScale(f, f);
                 bitmapShader.setLocalMatrix(this.d);
-                this.f7079a.setShader(bitmapShader);
-                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f7080b, this.c, this.f7079a);
+                this.f6779a.setShader(bitmapShader);
+                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f6780b, this.c, this.f6779a);
                 return;
             }
             super.onDraw(canvas);

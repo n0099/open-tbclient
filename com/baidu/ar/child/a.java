@@ -8,7 +8,7 @@ import android.os.Message;
 public class a {
     private CropAlgo lL;
     private Handler lN;
-    private InterfaceC0076a lO;
+    private InterfaceC0077a lO;
     private boolean lQ;
     private d lR;
     private int mInputHeight;
@@ -18,7 +18,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0076a {
+    public interface InterfaceC0077a {
         void a(long j, byte[] bArr, int i);
     }
 
@@ -145,8 +145,8 @@ public class a {
         return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0076a interfaceC0076a) {
-        this.lO = interfaceC0076a;
+    public void a(InterfaceC0077a interfaceC0077a) {
+        this.lO = interfaceC0077a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {

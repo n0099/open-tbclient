@@ -6,16 +6,15 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.media.duplayer.Keep;
-import com.baidu.platform.comapi.UIMsg;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DuplayerQualityMonitorManager {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int[] f3246b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
-    private static DuplayerQualityMonitorManager cjc;
+    private static final int[] f3208b = {480, 540, 720, 1080};
+    private static DuplayerQualityMonitorManager cep;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -32,14 +31,14 @@ public class DuplayerQualityMonitorManager {
     private int a(int i, int i2) {
         int min = Math.min(i, i2);
         if (min <= 0) {
-            return UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
+            return 540;
         }
-        for (int length = f3246b.length - 1; length >= 0; length--) {
-            if (min >= f3246b[length]) {
-                return f3246b[length];
+        for (int length = f3208b.length - 1; length >= 0; length--) {
+            if (min >= f3208b[length]) {
+                return f3208b[length];
             }
         }
-        return f3246b[0];
+        return f3208b[0];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -67,10 +66,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (cjc == null) {
-                cjc = new DuplayerQualityMonitorManager();
+            if (cep == null) {
+                cep = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = cjc;
+            duplayerQualityMonitorManager = cep;
         }
         return duplayerQualityMonitorManager;
     }

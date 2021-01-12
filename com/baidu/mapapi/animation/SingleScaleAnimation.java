@@ -3,10 +3,10 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SingleScaleAnimation extends Animation {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum ScaleType {
         SCALE_X,
         SCALE_Y
@@ -14,7 +14,7 @@ public class SingleScaleAnimation extends Animation {
 
     public SingleScaleAnimation(ScaleType scaleType, float... fArr) {
         if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("BDMapSDKException: the scales is null");
+            throw new NullPointerException("the scales is null");
         }
         if (scaleType == ScaleType.SCALE_X) {
             this.bdAnimation = new j(1, fArr);

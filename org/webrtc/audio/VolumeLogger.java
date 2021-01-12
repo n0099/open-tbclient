@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class VolumeLogger {
     private static final String TAG = "VolumeLogger";
     private static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
@@ -14,7 +14,7 @@ class VolumeLogger {
     @Nullable
     private Timer timer;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     private class LogVolumeTask extends TimerTask {
         private final int maxRingVolume;
         private final int maxVoiceCallVolume;

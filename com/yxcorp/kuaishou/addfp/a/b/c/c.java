@@ -2,15 +2,15 @@ package com.yxcorp.kuaishou.addfp.a.b.c;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f14647a;
+    private IBinder f14347a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(IBinder iBinder) {
-        this.f14647a = iBinder;
+        this.f14347a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -20,7 +20,7 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f14647a.transact(1, obtain, obtain2, 0);
+            this.f14347a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -43,7 +43,7 @@ final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f14647a.transact(4, obtain, obtain2, 0);
+            this.f14347a.transact(4, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
         } catch (Throwable th) {
@@ -60,7 +60,7 @@ final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f14647a;
+        return this.f14347a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -70,7 +70,7 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f14647a.transact(2, obtain, obtain2, 0);
+            this.f14347a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -93,7 +93,7 @@ final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f14647a.transact(5, obtain, obtain2, 0);
+            this.f14347a.transact(5, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
         } catch (Throwable th) {
@@ -114,7 +114,7 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f14647a.transact(3, obtain, obtain2, 0);
+            this.f14347a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
             r0 = obtain2.readInt() != 0;
             obtain2.recycle();

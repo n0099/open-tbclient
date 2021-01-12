@@ -10,18 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CharmValueView extends FrameLayout {
-    private View oFp;
-    private View oFq;
-    private CharmProgressBar oFr;
-    private TextView oFs;
-    private ValueAnimator oFt;
-    private ValueAnimator oFu;
-    private ValueAnimator oFv;
-    private ValueAnimator oFw;
-    private int oFx;
-    private int oFy;
+    private View oAK;
+    private View oAL;
+    private CharmProgressBar oAM;
+    private TextView oAN;
+    private ValueAnimator oAO;
+    private ValueAnimator oAP;
+    private ValueAnimator oAQ;
+    private ValueAnimator oAR;
+    private int oAS;
+    private int oAT;
 
     public CharmValueView(@NonNull Context context) {
         this(context, null, 0);
@@ -38,106 +38,106 @@ public class CharmValueView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_charm_value_view_layout, this);
-        this.oFr = (CharmProgressBar) findViewById(a.f.charm_pb);
-        this.oFs = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
-        this.oFq = findViewById(a.f.eighty_iv);
-        this.oFp = findViewById(a.f.hundred_fl);
+        this.oAM = (CharmProgressBar) findViewById(a.f.charm_pb);
+        this.oAN = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
+        this.oAL = findViewById(a.f.eighty_iv);
+        this.oAK = findViewById(a.f.hundred_fl);
     }
 
     public void setProgress(int i) {
-        dK(this.oFy, i);
-        this.oFy = i;
+        dK(this.oAT, i);
+        this.oAT = i;
         if (i < 80) {
-            egw();
-            egx();
+            ecE();
+            ecF();
         } else if (i < 100) {
-            egu();
-            egx();
+            ecC();
+            ecF();
         } else {
-            egv();
-            egw();
+            ecD();
+            ecE();
         }
     }
 
     public void setCharmValue(int i) {
-        dL(this.oFx, i);
-        this.oFx = i;
+        dL(this.oAS, i);
+        this.oAS = i;
     }
 
     private void dK(int i, int i2) {
-        c(this.oFw);
-        this.oFw = ValueAnimator.ofInt(i, i2);
-        this.oFw.setDuration(700L);
-        this.oFw.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
+        c(this.oAR);
+        this.oAR = ValueAnimator.ofInt(i, i2);
+        this.oAR.setDuration(700L);
+        this.oAR.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                CharmValueView.this.oFr.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                CharmValueView.this.oAM.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         });
-        b(this.oFw);
+        b(this.oAR);
     }
 
     private void dL(int i, int i2) {
-        c(this.oFv);
-        this.oFv = ValueAnimator.ofInt(i, i2);
-        this.oFv.setDuration(700L);
-        this.oFv.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.2
+        c(this.oAQ);
+        this.oAQ = ValueAnimator.ofInt(i, i2);
+        this.oAQ.setDuration(700L);
+        this.oAQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                CharmValueView.this.oFs.setText(CharmValueView.this.hO(((Integer) valueAnimator.getAnimatedValue()).intValue()));
+                CharmValueView.this.oAN.setText(CharmValueView.this.hO(((Integer) valueAnimator.getAnimatedValue()).intValue()));
             }
         });
-        b(this.oFv);
+        b(this.oAQ);
     }
 
-    private void egu() {
-        if (this.oFt == null) {
-            this.oFt = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.oFt.setDuration(700L);
-            this.oFt.setRepeatMode(2);
-            this.oFt.setRepeatCount(-1);
-            this.oFt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.3
+    private void ecC() {
+        if (this.oAO == null) {
+            this.oAO = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.oAO.setDuration(700L);
+            this.oAO.setRepeatMode(2);
+            this.oAO.setRepeatCount(-1);
+            this.oAO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CharmValueView.this.oFq.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oAL.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
         }
-        b(this.oFt);
-        this.oFq.setVisibility(0);
+        b(this.oAO);
+        this.oAL.setVisibility(0);
     }
 
-    private void egv() {
-        if (this.oFu == null) {
-            this.oFu = ValueAnimator.ofFloat(1.0f, 1.2f);
-            this.oFu.setDuration(700L);
-            this.oFu.setRepeatMode(2);
-            this.oFu.setRepeatCount(-1);
-            this.oFu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.4
+    private void ecD() {
+        if (this.oAP == null) {
+            this.oAP = ValueAnimator.ofFloat(1.0f, 1.2f);
+            this.oAP.setDuration(700L);
+            this.oAP.setRepeatMode(2);
+            this.oAP.setRepeatCount(-1);
+            this.oAP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CharmValueView.this.oFp.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    CharmValueView.this.oFp.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oAK.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oAK.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
         }
-        b(this.oFu);
+        b(this.oAP);
     }
 
-    private void egw() {
-        c(this.oFt);
-        this.oFq.setVisibility(8);
+    private void ecE() {
+        c(this.oAO);
+        this.oAL.setVisibility(8);
     }
 
-    private void egx() {
-        c(this.oFu);
-        this.oFp.setScaleX(1.0f);
-        this.oFp.setScaleY(1.0f);
+    private void ecF() {
+        c(this.oAP);
+        this.oAK.setScaleX(1.0f);
+        this.oAK.setScaleY(1.0f);
     }
 
-    private void egy() {
-        c(this.oFv);
-        this.oFs.setText(hO(this.oFx));
+    private void ecG() {
+        c(this.oAQ);
+        this.oAN.setText(hO(this.oAS));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -145,9 +145,9 @@ public class CharmValueView extends FrameLayout {
         return j < 10000 ? String.valueOf(j) : String.format("%.1f", Double.valueOf((j * 1.0d) / 10000.0d)) + "万";
     }
 
-    private void egz() {
-        c(this.oFw);
-        this.oFr.setProgress(this.oFy);
+    private void ecH() {
+        c(this.oAR);
+        this.oAM.setProgress(this.oAT);
     }
 
     private void b(ValueAnimator valueAnimator) {
@@ -165,9 +165,9 @@ public class CharmValueView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        egw();
-        egx();
-        egy();
-        egz();
+        ecE();
+        ecF();
+        ecG();
+        ecH();
     }
 }

@@ -25,7 +25,7 @@ public interface i {
     public interface d {
     }
 
-    boolean Fp(String str);
+    boolean Ee(String str);
 
     void a(Context context, String[] strArr, boolean z, Bundle bundle);
 

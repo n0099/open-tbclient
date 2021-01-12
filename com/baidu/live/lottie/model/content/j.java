@@ -2,7 +2,7 @@ package com.baidu.live.lottie.model.content;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class j implements b {
     private final List<b> items;
     private final String name;

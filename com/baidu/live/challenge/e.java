@@ -1,7 +1,7 @@
 package com.baidu.live.challenge;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface e {
     i a(TbPageContext tbPageContext);
 

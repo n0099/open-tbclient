@@ -3,7 +3,7 @@ package com.baidu.mapapi.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class OpenClientUtil {
     public static int getBaiduMapVersion(Context context) {
         if (context == null) {

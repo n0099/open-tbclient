@@ -2,7 +2,7 @@ package com.kwad.sdk.contentalliance.detail.photo.f;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class b {
     public static void a(View view, View.OnClickListener onClickListener) {
         if (view == null) {

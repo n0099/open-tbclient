@@ -6,64 +6,64 @@ import com.baidu.tieba.frs.entelechy.adapter.FrsCardVideoViewHolder;
 import com.baidu.tieba.play.e;
 /* loaded from: classes2.dex */
 public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements e {
-    private FrsCardVideoViewHolder jss;
+    private FrsCardVideoViewHolder jnM;
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.jss == null) {
+        if (this.jnM == null) {
             return false;
         }
-        return this.jss.isPlayStarted();
+        return this.jnM.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.jss == null) {
+        if (this.jnM == null) {
             return false;
         }
-        return this.jss.isPlaying();
+        return this.jnM.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isFullScreen() {
-        if (this.jss == null) {
+        if (this.jnM == null) {
             return false;
         }
-        return this.jss.isFullScreen();
+        return this.jnM.isFullScreen();
     }
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.jss != null) {
-            this.jss.startPlay();
+        if (this.jnM != null) {
+            this.jnM.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.jss != null) {
-            this.jss.stopPlay();
+        if (this.jnM != null) {
+            this.jnM.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.jss == null) {
+        if (this.jnM == null) {
             return null;
         }
-        return this.jss.getVideoContainer();
+        return this.jnM.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        return this.jss == null ? "" : this.jss.getPlayUrl();
+        return this.jnM == null ? "" : this.jnM.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.jss == null) {
+        if (this.jnM == null) {
             return 0;
         }
-        return this.jss.getCurrentPosition();
+        return this.jnM.getCurrentPosition();
     }
 }

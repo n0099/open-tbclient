@@ -22,7 +22,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ConversationManagerImpl {
     private static final String TAG = "ConversationManagerImpl";
     public static Context mContext;

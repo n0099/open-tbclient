@@ -17,7 +17,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<n> list) {
         com.baidu.tieba.card.data.b bVar;
-        bz boP;
+        bz bkV;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -29,15 +29,15 @@ public class a {
             int count = x.getCount(list);
             for (int i = 0; i < count; i++) {
                 n nVar = (n) x.getItem(list, i);
-                if ((nVar instanceof com.baidu.tieba.card.data.b) && (boP = (bVar = (com.baidu.tieba.card.data.b) nVar).boP()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(boP.getTid(), 0L))) != null) {
+                if ((nVar instanceof com.baidu.tieba.card.data.b) && (bkV = (bVar = (com.baidu.tieba.card.data.b) nVar).bkV()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bkV.getTid(), 0L))) != null) {
                     bVar.setSource(threadPersonalized.source);
                     bVar.setWeight(threadPersonalized.weight);
-                    bVar.Jp(threadPersonalized.abtest_tag);
-                    boP.mRecomAbTag = threadPersonalized.abtest_tag;
-                    boP.mRecomSource = threadPersonalized.source;
-                    boP.mRecomWeight = threadPersonalized.weight;
-                    if (boP.brI() != null) {
-                        bVar.p(boP.brI().is_vertical);
+                    bVar.Ie(threadPersonalized.abtest_tag);
+                    bkV.mRecomAbTag = threadPersonalized.abtest_tag;
+                    bkV.mRecomSource = threadPersonalized.source;
+                    bkV.mRecomWeight = threadPersonalized.weight;
+                    if (bkV.bnO() != null) {
+                        bVar.p(bkV.bnO().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

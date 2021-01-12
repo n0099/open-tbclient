@@ -7,10 +7,11 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import com.baidu.mobstat.Config;
 import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, RendererCommon.RendererEvents, VideoSink {
     private static final String TAG = "SurfaceViewRenderer";
     private final SurfaceEglRenderer eglRenderer;
@@ -89,7 +90,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         }
         int min = Math.min(getWidth(), i);
         int min2 = Math.min(getHeight(), i2);
-        logD("updateSurfaceSize. Layout size: " + getWidth() + "x" + getHeight() + ", frame size: " + this.rotatedFrameWidth + "x" + this.rotatedFrameHeight + ", requested surface size: " + min + "x" + min2 + ", old surface size: " + this.surfaceWidth + "x" + this.surfaceHeight);
+        logD("updateSurfaceSize. Layout size: " + getWidth() + Config.EVENT_HEAT_X + getHeight() + ", frame size: " + this.rotatedFrameWidth + Config.EVENT_HEAT_X + this.rotatedFrameHeight + ", requested surface size: " + min + Config.EVENT_HEAT_X + min2 + ", old surface size: " + this.surfaceWidth + Config.EVENT_HEAT_X + this.surfaceHeight);
         if (min == this.surfaceWidth && min2 == this.surfaceHeight) {
             return;
         }
@@ -166,7 +167,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         ThreadUtils.checkIsOnMainThread();
         Point measure = this.videoLayoutMeasure.measure(i, i2, this.rotatedFrameWidth, this.rotatedFrameHeight);
         setMeasuredDimension(measure.x, measure.y);
-        logD("onMeasure(). New size: " + measure.x + "x" + measure.y);
+        logD("onMeasure(). New size: " + measure.x + Config.EVENT_HEAT_X + measure.y);
     }
 
     public void pauseVideo() {

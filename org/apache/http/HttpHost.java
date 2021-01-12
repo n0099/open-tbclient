@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class HttpHost {
     public static final String DEFAULT_SCHEME_NAME = "http";
     protected final String hostname;

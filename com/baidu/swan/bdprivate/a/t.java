@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean mIsLogin;
@@ -16,38 +16,38 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     public t(Activity activity, String str, String str2, boolean z, boolean z2) {
         super(activity, str, str2, z);
         this.mIsLogin = z2;
-        aOC();
+        aKI();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
+    protected boolean aKf() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public JSONObject aOy() {
-        JSONObject aOy = super.aOy();
+    public JSONObject aKE() {
+        JSONObject aKE = super.aKE();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                aOy.put("stoken", this.mStoken);
+                aKE.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return aOy;
+        return aKE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.swan.apps.setting.oauth.d {
         private a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aOf() throws Exception {
+        protected boolean aKl() throws Exception {
             if (!t.this.mIsLogin) {
                 t.this.mStoken = null;
                 if (t.DEBUG) {
@@ -68,7 +68,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         t.this.mStoken = string;
-                        a.this.aOh();
+                        a.this.aKn();
                         return;
                     }
                     a.this.x(new OAuthException("empty stoken", 10001));

@@ -7,33 +7,33 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d dhn;
-    private List<com.baidu.swan.pms.model.e> exr = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> exs = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> exu = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> exq = new ArrayList();
+    private com.baidu.swan.pms.a.d dcz;
+    private List<com.baidu.swan.pms.model.e> esE = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> esF = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> esG = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> esD = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.dhn = dVar;
-        d.bgD().c(this);
+        this.dcz = dVar;
+        d.bcJ().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.exq.add(bVar);
+            this.esD.add(bVar);
         }
     }
 
-    public void bgO() {
-        if (!bgP()) {
+    public void bcU() {
+        if (!bcV()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfW().getProcessName() + " startDownload: total=" + this.exq.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcc().getProcessName() + " startDownload: total=" + this.esD.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.exq) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.esD) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfW().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcc().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.iD(false);
+                bVar.iz(false);
             }
         }
     }
@@ -44,8 +44,8 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.bgN()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.exq.iterator();
+        if (!fVar.bcT()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.esD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -53,16 +53,16 @@ public class i implements b {
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
                     int taskState = fVar.getTaskState();
-                    this.exq.remove(next);
+                    this.esD.remove(next);
                     switch (taskState) {
                         case 2:
-                            this.exu.add(next.bgx().exj.exi);
+                            this.esG.add(next.bcD().esw.esv);
                             break;
                         case 3:
-                            this.exs.add(next.bgx().exj.exi);
+                            this.esF.add(next.bcD().esw.esv);
                             break;
                         case 10:
-                            this.exr.add(next.bgx().exj.exi);
+                            this.esE.add(next.bcD().esw.esv);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
@@ -73,14 +73,14 @@ public class i implements b {
                     }
                 }
             }
-            bgP();
+            bcV();
         }
     }
 
-    private boolean bgP() {
-        if (this.exq.isEmpty()) {
-            this.dhn.atZ();
-            d.bgD().d(this);
+    private boolean bcV() {
+        if (this.esD.isEmpty()) {
+            this.dcz.aqe();
+            d.bcJ().d(this);
             return true;
         }
         return false;

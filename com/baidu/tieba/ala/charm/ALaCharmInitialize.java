@@ -8,7 +8,7 @@ import com.baidu.live.d.x;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaCharmCardActivityConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ALaCharmInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaCharmCardActivityConfig.class, ALaCharmCardActivity.class);
@@ -19,14 +19,14 @@ public class ALaCharmInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a)) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.bsL != null && aVar.bsL.context != null) {
-                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.bsL.context);
-                        if (aVar.bsL.bsN != null && aVar.bsL.bsN.mLiveInfo != null) {
-                            com.baidu.tieba.ala.charm.a.a Hh = new com.baidu.tieba.ala.charm.a.a(tbPageContext).Hg(String.valueOf(aVar.bsL.bsN.mLiveInfo.group_id)).Hh(String.valueOf(aVar.bsL.bsN.mLiveInfo.live_id));
-                            if (aVar.bsL.bsN.aKu != null) {
-                                Hh.Hj(String.valueOf(aVar.bsL.bsN.aKu.charmCount)).Hi(String.valueOf(String.valueOf(aVar.bsL.bsN.aKu.userId)));
+                    if (aVar.bnZ != null && aVar.bnZ.context != null) {
+                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.bnZ.context);
+                        if (aVar.bnZ.bob != null && aVar.bnZ.bob.mLiveInfo != null) {
+                            com.baidu.tieba.ala.charm.a.a FW = new com.baidu.tieba.ala.charm.a.a(tbPageContext).FV(String.valueOf(aVar.bnZ.bob.mLiveInfo.group_id)).FW(String.valueOf(aVar.bnZ.bob.mLiveInfo.live_id));
+                            if (aVar.bnZ.bob.aFH != null) {
+                                FW.FY(String.valueOf(aVar.bnZ.bob.aFH.charmCount)).FX(String.valueOf(String.valueOf(aVar.bnZ.bob.aFH.userId)));
                             }
-                            aVar.a(Hh);
+                            aVar.a(FW);
                         }
                     }
                 }

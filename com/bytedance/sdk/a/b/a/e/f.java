@@ -18,79 +18,79 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class f implements com.bytedance.sdk.a.b.a.c.c {
-    private final z pjV;
-    private final x.a pjW;
-    final com.bytedance.sdk.a.b.a.b.g pjX;
-    private final g pjY;
-    private i pjZ;
+    private final z pfq;
+    private final x.a pfr;
+    final com.bytedance.sdk.a.b.a.b.g pfs;
+    private final g pft;
+    private i pfu;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final com.bytedance.sdk.a.a.f f6196b = com.bytedance.sdk.a.a.f.a(Headers.CONN_DIRECTIVE);
-    private static final com.bytedance.sdk.a.a.f pjL = com.bytedance.sdk.a.a.f.a("host");
-    private static final com.bytedance.sdk.a.a.f pjM = com.bytedance.sdk.a.a.f.a("keep-alive");
-    private static final com.bytedance.sdk.a.a.f pjN = com.bytedance.sdk.a.a.f.a(Headers.PROXY_CONNECTION);
-    private static final com.bytedance.sdk.a.a.f pjO = com.bytedance.sdk.a.a.f.a(Headers.TRANSFER_ENCODING);
-    private static final com.bytedance.sdk.a.a.f pjP = com.bytedance.sdk.a.a.f.a("te");
-    private static final com.bytedance.sdk.a.a.f pjQ = com.bytedance.sdk.a.a.f.a("encoding");
-    private static final com.bytedance.sdk.a.a.f pjh = com.bytedance.sdk.a.a.f.a(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-    private static final List<com.bytedance.sdk.a.a.f> j = com.bytedance.sdk.a.b.a.c.P(f6196b, pjL, pjM, pjN, pjP, pjO, pjQ, pjh, c.pjL, c.pjM, c.pjN, c.pjO);
-    private static final List<com.bytedance.sdk.a.a.f> k = com.bytedance.sdk.a.b.a.c.P(f6196b, pjL, pjM, pjN, pjP, pjO, pjQ, pjh);
+    private static final com.bytedance.sdk.a.a.f f5896b = com.bytedance.sdk.a.a.f.a(Headers.CONN_DIRECTIVE);
+    private static final com.bytedance.sdk.a.a.f pfg = com.bytedance.sdk.a.a.f.a("host");
+    private static final com.bytedance.sdk.a.a.f pfh = com.bytedance.sdk.a.a.f.a("keep-alive");
+    private static final com.bytedance.sdk.a.a.f pfi = com.bytedance.sdk.a.a.f.a(Headers.PROXY_CONNECTION);
+    private static final com.bytedance.sdk.a.a.f pfj = com.bytedance.sdk.a.a.f.a(Headers.TRANSFER_ENCODING);
+    private static final com.bytedance.sdk.a.a.f pfk = com.bytedance.sdk.a.a.f.a("te");
+    private static final com.bytedance.sdk.a.a.f pfl = com.bytedance.sdk.a.a.f.a("encoding");
+    private static final com.bytedance.sdk.a.a.f peC = com.bytedance.sdk.a.a.f.a(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+    private static final List<com.bytedance.sdk.a.a.f> j = com.bytedance.sdk.a.b.a.c.P(f5896b, pfg, pfh, pfi, pfk, pfj, pfl, peC, c.pfg, c.pfh, c.pfi, c.pfj);
+    private static final List<com.bytedance.sdk.a.a.f> k = com.bytedance.sdk.a.b.a.c.P(f5896b, pfg, pfh, pfi, pfk, pfj, pfl, peC);
 
     public f(z zVar, x.a aVar, com.bytedance.sdk.a.b.a.b.g gVar, g gVar2) {
-        this.pjV = zVar;
-        this.pjW = aVar;
-        this.pjX = gVar;
-        this.pjY = gVar2;
+        this.pfq = zVar;
+        this.pfr = aVar;
+        this.pfs = gVar;
+        this.pft = gVar2;
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public r a(ab abVar, long j2) {
-        return this.pjZ.eqW();
+        return this.pfu.ena();
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void d(ab abVar) throws IOException {
-        if (this.pjZ == null) {
-            this.pjZ = this.pjY.A(e(abVar), abVar.erX() != null);
-            this.pjZ.eqg().c(this.pjW.c(), TimeUnit.MILLISECONDS);
-            this.pjZ.eqh().c(this.pjW.d(), TimeUnit.MILLISECONDS);
+        if (this.pfu == null) {
+            this.pfu = this.pft.A(e(abVar), abVar.eoc() != null);
+            this.pfu.emk().c(this.pfr.c(), TimeUnit.MILLISECONDS);
+            this.pfu.eml().c(this.pfr.d(), TimeUnit.MILLISECONDS);
         }
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void a() throws IOException {
-        this.pjY.b();
+        this.pft.b();
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void b() throws IOException {
-        this.pjZ.eqW().close();
+        this.pfu.ena().close();
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
-    public b.a AL(boolean z) throws IOException {
-        b.a gG = gG(this.pjZ.d());
-        if (z && com.bytedance.sdk.a.b.a.a.pir.a(gG) == 100) {
+    public b.a AH(boolean z) throws IOException {
+        b.a gG = gG(this.pfu.d());
+        if (z && com.bytedance.sdk.a.b.a.a.pdM.a(gG) == 100) {
             return null;
         }
         return gG;
     }
 
     public static List<c> e(ab abVar) {
-        v eqR = abVar.eqR();
-        ArrayList arrayList = new ArrayList(eqR.a() + 4);
-        arrayList.add(new c(c.pjL, abVar.b()));
-        arrayList.add(new c(c.pjM, com.bytedance.sdk.a.b.a.c.i.b(abVar.eql())));
+        v emV = abVar.emV();
+        ArrayList arrayList = new ArrayList(emV.a() + 4);
+        arrayList.add(new c(c.pfg, abVar.b()));
+        arrayList.add(new c(c.pfh, com.bytedance.sdk.a.b.a.c.i.b(abVar.emp())));
         String a2 = abVar.a("Host");
         if (a2 != null) {
-            arrayList.add(new c(c.pjO, a2));
+            arrayList.add(new c(c.pfj, a2));
         }
-        arrayList.add(new c(c.pjN, abVar.eql().b()));
-        int a3 = eqR.a();
+        arrayList.add(new c(c.pfi, abVar.emp().b()));
+        int a3 = emV.a();
         for (int i = 0; i < a3; i++) {
-            com.bytedance.sdk.a.a.f a4 = com.bytedance.sdk.a.a.f.a(eqR.a(i).toLowerCase(Locale.US));
+            com.bytedance.sdk.a.a.f a4 = com.bytedance.sdk.a.a.f.a(emV.a(i).toLowerCase(Locale.US));
             if (!j.contains(a4)) {
-                arrayList.add(new c(a4, eqR.b(i)));
+                arrayList.add(new c(a4, emV.b(i)));
             }
         }
         return arrayList;
@@ -105,20 +105,20 @@ public final class f implements com.bytedance.sdk.a.b.a.c.c {
         while (i < size) {
             c cVar = list.get(i);
             if (cVar == null) {
-                if (kVar != null && kVar.f6185b == 100) {
+                if (kVar != null && kVar.f5885b == 100) {
                     aVar = new v.a();
                     kVar = null;
                 }
                 aVar = aVar2;
             } else {
-                com.bytedance.sdk.a.a.f fVar = cVar.pjP;
-                String a2 = cVar.pjQ.a();
-                if (fVar.equals(c.f6190b)) {
-                    kVar = com.bytedance.sdk.a.b.a.c.k.YH("HTTP/1.1 " + a2);
+                com.bytedance.sdk.a.a.f fVar = cVar.pfk;
+                String a2 = cVar.pfl.a();
+                if (fVar.equals(c.f5890b)) {
+                    kVar = com.bytedance.sdk.a.b.a.c.k.Xz("HTTP/1.1 " + a2);
                     aVar = aVar2;
                 } else {
                     if (!k.contains(fVar)) {
-                        com.bytedance.sdk.a.b.a.a.pir.a(aVar2, fVar.a(), a2);
+                        com.bytedance.sdk.a.b.a.a.pdM.a(aVar2, fVar.a(), a2);
                     }
                     aVar = aVar2;
                 }
@@ -129,36 +129,36 @@ public final class f implements com.bytedance.sdk.a.b.a.c.c {
         if (kVar == null) {
             throw new ProtocolException("Expected ':status' header not present");
         }
-        return new b.a().a(w.HTTP_2).PR(kVar.f6185b).YI(kVar.c).c(aVar2.ery());
+        return new b.a().a(w.HTTP_2).Ok(kVar.f5885b).XA(kVar.c).c(aVar2.enC());
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public com.bytedance.sdk.a.b.c c(com.bytedance.sdk.a.b.b bVar) throws IOException {
-        this.pjX.pjb.f(this.pjX.pja);
-        return new com.bytedance.sdk.a.b.a.c.h(bVar.a("Content-Type"), com.bytedance.sdk.a.b.a.c.e.d(bVar), com.bytedance.sdk.a.a.l.c(new a(this.pjZ.eqV())));
+        this.pfs.pew.f(this.pfs.pev);
+        return new com.bytedance.sdk.a.b.a.c.h(bVar.a("Content-Type"), com.bytedance.sdk.a.b.a.c.e.d(bVar), com.bytedance.sdk.a.a.l.c(new a(this.pfu.emZ())));
     }
 
     /* loaded from: classes4.dex */
     class a extends com.bytedance.sdk.a.a.h {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6197a;
+        boolean f5897a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f6198b;
+        long f5898b;
 
         a(s sVar) {
             super(sVar);
-            this.f6197a = false;
-            this.f6198b = 0L;
+            this.f5897a = false;
+            this.f5898b = 0L;
         }
 
         @Override // com.bytedance.sdk.a.a.h, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             try {
-                long b2 = eqd().b(cVar, j);
+                long b2 = emh().b(cVar, j);
                 if (b2 > 0) {
-                    this.f6198b += b2;
+                    this.f5898b += b2;
                 }
                 return b2;
             } catch (IOException e) {
@@ -174,9 +174,9 @@ public final class f implements com.bytedance.sdk.a.b.a.c.c {
         }
 
         private void a(IOException iOException) {
-            if (!this.f6197a) {
-                this.f6197a = true;
-                f.this.pjX.a(false, f.this, this.f6198b, iOException);
+            if (!this.f5897a) {
+                this.f5897a = true;
+                f.this.pfs.a(false, f.this, this.f5898b, iOException);
             }
         }
     }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f1629a;
+    private final String f1578a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LruCache<String, a> f1630b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final LruCache<String, a> f1579b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,10 +17,10 @@ class h {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private ArrayList<String> f1631a;
+        private ArrayList<String> f1580a;
 
         /* renamed from: b  reason: collision with root package name */
-        private ArrayList<String> f1632b;
+        private ArrayList<String> f1581b;
         private long c;
         private long d;
 
@@ -29,7 +29,7 @@ class h {
         }
 
         public void a(ArrayList<String> arrayList) {
-            this.f1631a = arrayList;
+            this.f1580a = arrayList;
         }
 
         public boolean a() {
@@ -37,7 +37,7 @@ class h {
         }
 
         public ArrayList<String> b() {
-            return this.f1631a;
+            return this.f1580a;
         }
 
         public void b(long j) {
@@ -45,11 +45,11 @@ class h {
         }
 
         public void b(ArrayList<String> arrayList) {
-            this.f1632b = arrayList;
+            this.f1581b = arrayList;
         }
 
         public ArrayList<String> c() {
-            return this.f1632b;
+            return this.f1581b;
         }
 
         public long d() {
@@ -64,14 +64,14 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str, boolean z) {
         this.c = false;
-        this.f1629a = str;
+        this.f1578a = str;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f1630b.evictAll();
-        l.a("Clear %s cache", this.f1629a);
+        this.f1579b.evictAll();
+        l.a("Clear %s cache", this.f1578a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -81,9 +81,9 @@ class h {
         if ((b2 == null || b2.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.f1630b.put(str, aVar);
+        this.f1579b.put(str, aVar);
         Object[] objArr = new Object[5];
-        objArr[0] = this.f1629a;
+        objArr[0] = this.f1578a;
         objArr[1] = str;
         objArr[2] = b2 != null ? b2.toString() : null;
         objArr[3] = c != null ? c.toString() : null;
@@ -99,7 +99,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.f1630b.snapshot().keySet()) {
+        for (String str : this.f1579b.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -107,20 +107,20 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
-        a df = df(str);
-        if (df == null || !df.a()) {
+        a da = da(str);
+        if (da == null || !da.a()) {
             return;
         }
-        this.f1630b.remove(str);
-        l.a("Remove expired entry from %s cache, host(%s)", this.f1629a, str);
+        this.f1579b.remove(str);
+        l.a("Remove expired entry from %s cache, host(%s)", this.f1578a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a df(String str) {
-        a aVar = this.f1630b.get(str);
+    public a da(String str) {
+        a aVar = this.f1579b.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.f1630b.remove(str);
-            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1629a, str);
+            this.f1579b.remove(str);
+            l.a("Remove expired entry from %s cache while reading, host(%s)", this.f1578a, str);
             return null;
         }
         return aVar;

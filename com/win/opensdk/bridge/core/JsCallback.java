@@ -7,13 +7,13 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JsCallback {
     private String java;
-    private WeakReference<WebView> qed;
+    private WeakReference<WebView> pZC;
 
     private JsCallback(WebView webView, String str) {
-        this.qed = new WeakReference<>(webView);
+        this.pZC = new WeakReference<>(webView);
         this.java = str;
     }
 
@@ -22,7 +22,7 @@ public class JsCallback {
     }
 
     public void b(boolean z, JSONObject jSONObject, String str) {
-        final WebView webView = this.qed.get();
+        final WebView webView = this.pZC.get();
         if (webView == null) {
             throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
         }
@@ -66,7 +66,7 @@ public class JsCallback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class JsCallbackException extends Exception {
         public JsCallbackException(String str) {
             super(str);

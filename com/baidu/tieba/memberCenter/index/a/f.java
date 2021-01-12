@@ -1,35 +1,35 @@
 package com.baidu.tieba.memberCenter.index.a;
 
 import tbclient.GetVipInfo.VipSpecialItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
     private String desc;
     private String imgUrl;
+    private String leA;
+    private int leB;
+    private boolean ley;
+    private boolean lez;
     private String linkUrl;
-    private boolean ljd;
-    private boolean lje;
-    private String ljf;
-    private int ljg;
     private String title;
     private int updateType;
 
     public f(VipSpecialItem vipSpecialItem) {
-        this.ljd = false;
-        this.lje = false;
+        this.ley = false;
+        this.lez = false;
         this.title = vipSpecialItem.title;
         this.desc = vipSpecialItem.desc;
         this.imgUrl = vipSpecialItem.img_url;
         this.linkUrl = vipSpecialItem.link;
-        this.ljf = vipSpecialItem.update_time;
-        this.ljg = vipSpecialItem.id.intValue();
+        this.leA = vipSpecialItem.update_time;
+        this.leB = vipSpecialItem.id.intValue();
         this.updateType = vipSpecialItem.type.intValue();
-        this.ljd = false;
+        this.ley = false;
     }
 
     public f(boolean z, boolean z2) {
-        this.ljd = false;
-        this.lje = false;
-        this.ljd = z;
-        this.lje = z2;
+        this.ley = false;
+        this.lez = false;
+        this.ley = z;
+        this.lez = z2;
     }
 }

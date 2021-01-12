@@ -3,14 +3,14 @@ package com.baidu.mapapi.http;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends AsyncHttpClient.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HttpClient.ProtoResultCallback f2787a;
+    final /* synthetic */ HttpClient.ProtoResultCallback f2687a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f2788b;
+    final /* synthetic */ String f2688b;
     final /* synthetic */ AsyncHttpClient c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,19 +18,19 @@ public class a extends AsyncHttpClient.a {
     public a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, String str) {
         super(null);
         this.c = asyncHttpClient;
-        this.f2787a = protoResultCallback;
-        this.f2788b = str;
+        this.f2687a = protoResultCallback;
+        this.f2688b = str;
     }
 
     @Override // com.baidu.mapapi.http.AsyncHttpClient.a
     public void a() {
         int i;
         int i2;
-        HttpClient httpClient = new HttpClient("GET", this.f2787a);
-        i = this.c.f2783a;
+        HttpClient httpClient = new HttpClient("GET", this.f2687a);
+        i = this.c.f2683a;
         httpClient.setMaxTimeOut(i);
-        i2 = this.c.f2784b;
+        i2 = this.c.f2684b;
         httpClient.setReadTimeOut(i2);
-        httpClient.request(this.f2788b);
+        httpClient.request(this.f2688b);
     }
 }

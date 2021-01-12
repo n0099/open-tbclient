@@ -6,7 +6,7 @@ import com.kwai.player.KwaiPlayerConfig;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IKwaiMediaPlayer;
 import com.kwai.video.player.PlayerProps;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlayerLiveBuilder> {
     private float mBufferTimeMaxSec;
     private String mConfigJson;

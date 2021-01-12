@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MD5DigestCalculatingInputStream extends FilterInputStream {
     private MessageDigest digest;
 

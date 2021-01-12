@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BlueCircleProgressDialog {
     private Activity mActivity;
     private TbPageContext<?> mContext;

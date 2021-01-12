@@ -58,7 +58,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
             ac.a aVar = new ac.a();
             aVar.mMode = getMode(j.netType());
             aVar.mSize = dVar.downloadSize;
-            aVar.mTime = dVar.Mf;
+            aVar.mTime = dVar.Md;
             aVar.mTimesNum = dVar.retry;
             aVar.mMethod = eVar.lV().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             ac.a(aVar);

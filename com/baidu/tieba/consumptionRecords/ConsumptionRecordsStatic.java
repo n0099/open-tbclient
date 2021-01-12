@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
 import com.baidu.tbadk.core.util.be;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ConsumptionRecordsStatic {
     public static String Tag = "tag";
 
     static {
         TbadkApplication.getInst().RegisterIntent(ConsumptionRecordsActivityConfig.class, ConsumptionRecordsActivity.class);
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.consumptionRecords.ConsumptionRecordsStatic.1
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.consumptionRecords.ConsumptionRecordsStatic.1
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

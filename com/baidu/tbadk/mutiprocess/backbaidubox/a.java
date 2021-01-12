@@ -10,7 +10,7 @@ public class a implements b<BackBaiduBoxViewEvent> {
         if (backBaiduBoxViewEvent == null) {
             return false;
         }
-        d.bIF().lw(backBaiduBoxViewEvent.isShow);
+        d.bEN().ls(backBaiduBoxViewEvent.isShow);
         return true;
     }
 }

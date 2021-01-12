@@ -20,11 +20,11 @@ import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes6.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey vI;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (vI = vI(str)) == null) {
+        PublicKey ux;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (ux = ux(str)) == null) {
             return null;
         }
-        return a(bArr, vI, i);
+        return a(bArr, ux, i);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -141,7 +141,7 @@ public class b {
         return bArr2;
     }
 
-    private static PublicKey vI(String str) {
+    private static PublicKey ux(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

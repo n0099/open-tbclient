@@ -28,45 +28,45 @@ import com.baidu.tieba.memberCenter.bubble.BubbleView;
 import com.baidu.tieba.memberCenter.bubble.SetBubbleResultData;
 import com.baidu.tieba.memberCenter.bubble.c;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.editortools.view.a {
-    private BubbleListModel lhR;
-    private BubbleListData lhS;
-    private String lhT;
+    private BubbleListModel ldl;
+    private BubbleListData ldm;
+    private String ldn;
     private Context mContext;
-    private int dDc = 0;
-    private BubbleListModel.a lhl = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.a.a.2
+    private int dyq = 0;
+    private BubbleListModel.a lcF = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.a.a.2
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void a(BubbleListData bubbleListData) {
             if (bubbleListData == null) {
-                a.this.bGa().onLoadFail();
+                a.this.bCh().onLoadFail();
                 return;
             }
-            a.this.lhS = bubbleListData.m41clone();
-            if (a.this.lhR.dgP() > 0) {
+            a.this.ldm = bubbleListData.m36clone();
+            if (a.this.ldl.dcX() > 0) {
                 List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
                 if (b_info != null && b_info.size() != 0) {
                     for (BubbleListData.BubbleData bubbleData : b_info) {
-                        if (bubbleData != null && bubbleData.getBcode() == a.this.lhR.dgP()) {
+                        if (bubbleData != null && bubbleData.getBcode() == a.this.ldl.dcX()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            a.this.lhR.FE(a.this.lhR.dgP());
-                            a.this.lhR.Y(a.this.lhR.dgP(), l.getEquipmentWidth(a.this.mContext), l.getEquipmentHeight(a.this.mContext));
+                            a.this.ldl.DY(a.this.ldl.dcX());
+                            a.this.ldl.Y(a.this.ldl.dcX(), l.getEquipmentWidth(a.this.mContext), l.getEquipmentHeight(a.this.mContext));
                         }
                     }
-                    a.this.lhR.FF(-1);
+                    a.this.ldl.DZ(-1);
                 } else {
                     return;
                 }
             }
-            a.this.dgS();
-            a.this.bGa().c(a.this);
+            a.this.dda();
+            a.this.bCh().c(a.this);
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void b(BubbleListData bubbleListData) {
-            a.this.lhS = null;
+            a.this.ldm = null;
             if (bubbleListData == null) {
                 UtilHelper.showToast(a.this.mContext, R.string.neterror);
             } else if (bubbleListData.getError_code().equals("0")) {
@@ -76,24 +76,24 @@ public class a extends com.baidu.tbadk.editortools.view.a {
             } else {
                 UtilHelper.showToast(a.this.mContext, R.string.neterror);
             }
-            if (a.this.bGa() != null) {
-                a.this.bGa().onLoadFail();
+            if (a.this.bCh() != null) {
+                a.this.bCh().onLoadFail();
             }
         }
     };
-    private BubbleListModel.b lhm = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.a.a.3
+    private BubbleListModel.b lcG = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.a.a.3
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.b
         public void a(SetBubbleResultData setBubbleResultData) {
             if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
-                a.this.bGa().onLoadFail();
+                a.this.bCh().onLoadFail();
                 return;
             }
-            a.this.lhT = setBubbleResultData.getB_info().getB_url();
-            TbadkCoreApplication.getInst().setDefaultBubble(a.this.lhT);
-            int dgO = a.this.lhR.dgO();
-            if (dgO == 0) {
+            a.this.ldn = setBubbleResultData.getB_info().getB_url();
+            TbadkCoreApplication.getInst().setDefaultBubble(a.this.ldn);
+            int dcW = a.this.ldl.dcW();
+            if (dcW == 0) {
                 TbadkCoreApplication.getInst().setDefaultBubble("");
-                for (BubbleListData.BubbleData bubbleData : a.this.lhS.getB_info()) {
+                for (BubbleListData.BubbleData bubbleData : a.this.ldm.getB_info()) {
                     if (bubbleData.getBcode() != 0) {
                         if (bubbleData.isDef()) {
                             bubbleData.setIs_def(0);
@@ -103,43 +103,43 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                     }
                 }
             } else if (setBubbleResultData.getB_info().canUser()) {
-                for (BubbleListData.BubbleData bubbleData2 : a.this.lhS.getB_info()) {
-                    if (bubbleData2.getBcode() == dgO) {
+                for (BubbleListData.BubbleData bubbleData2 : a.this.ldm.getB_info()) {
+                    if (bubbleData2.getBcode() == dcW) {
                         bubbleData2.setIs_def(1);
                     } else if (bubbleData2.isDef()) {
                         bubbleData2.setIs_def(0);
                     }
-                    if (bubbleData2.getBcode() == dgO) {
+                    if (bubbleData2.getBcode() == dcW) {
                         bubbleData2.setCan_use(1);
                     }
                 }
             } else {
                 UtilHelper.showToast(a.this.mContext, R.string.setdefualt_error);
-                if (a.this.lhS != null && a.this.lhS.getB_info() != null && a.this.lhS.getB_info().size() > 0) {
-                    if (a.this.lhS.getB_info().get(0).getBcode() == 0) {
-                        a.this.dDc = 0;
+                if (a.this.ldm != null && a.this.ldm.getB_info() != null && a.this.ldm.getB_info().size() > 0) {
+                    if (a.this.ldm.getB_info().get(0).getBcode() == 0) {
+                        a.this.dyq = 0;
                         int i = 0;
                         while (true) {
-                            if (i >= a.this.lhS.getB_info().size()) {
+                            if (i >= a.this.ldm.getB_info().size()) {
                                 break;
-                            } else if (a.this.lhS.getB_info().get(i).isDef()) {
-                                a.this.dDc = i;
+                            } else if (a.this.ldm.getB_info().get(i).isDef()) {
+                                a.this.dyq = i;
                                 break;
                             } else {
                                 i++;
                             }
                         }
-                        a.this.lhS.getB_info().get(a.this.dDc).setIs_def(0);
-                        a.this.lhS.getB_info().get(0).setIs_def(1);
+                        a.this.ldm.getB_info().get(a.this.dyq).setIs_def(0);
+                        a.this.ldm.getB_info().get(0).setIs_def(1);
                     } else {
                         BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
                         bubbleData3.setBcode(0);
-                        a.this.lhS.getB_info().add(0, bubbleData3);
+                        a.this.ldm.getB_info().add(0, bubbleData3);
                     }
                 }
             }
-            a.this.dgS();
-            a.this.bGa().c(a.this);
+            a.this.dda();
+            a.this.bCh().c(a.this);
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.b
@@ -153,52 +153,52 @@ public class a extends com.baidu.tbadk.editortools.view.a {
             } else {
                 UtilHelper.showToast(a.this.mContext, R.string.neterror);
             }
-            if (a.this.bGa() != null) {
-                a.this.bGa().onLoadFail();
+            if (a.this.bCh() != null) {
+                a.this.bCh().onLoadFail();
             }
         }
     };
-    public CustomMessageListener lhp = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.a.a.4
+    public CustomMessageListener lcJ = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.a.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.lhR.K(0, 50, 0, 0);
+            a.this.ldl.K(0, 50, 0, 0);
         }
     };
-    private View.OnClickListener lhU = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.a.a.5
+    private View.OnClickListener ldo = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.a.a.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.lhS != null && (view instanceof BubbleView)) {
-                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) x.getItem(a.this.lhS.getB_info(), ((Integer) view.getTag()).intValue());
+            if (a.this.ldm != null && (view instanceof BubbleView)) {
+                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) x.getItem(a.this.ldm.getB_info(), ((Integer) view.getTag()).intValue());
                 boolean loadBoolean = TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
                 if (bubbleData != null && !bubbleData.isDef()) {
                     if (bubbleData.getBcode() == 0 || bubbleData.canUse() || loadBoolean) {
-                        a.this.FB(bubbleData.getBcode());
+                        a.this.DV(bubbleData.getBcode());
                     } else if (bubbleData.isFree()) {
                         if (a.this.mContext instanceof TbPageContextSupport) {
-                            c.a(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lhn);
+                            c.a(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lcH);
                         }
                     } else if (a.this.mContext instanceof TbPageContextSupport) {
-                        c.b(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lho);
+                        c.b(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lcI);
                     }
                 }
             }
         }
     };
-    private c.a lhn = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.6
+    private c.a lcH = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.6
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void FC(int i) {
-            a.this.FB(i);
+        public void DW(int i) {
+            a.this.DV(i);
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void dgK() {
+        public void dcS() {
         }
     };
-    private c.a lho = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.7
+    private c.a lcI = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.7
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void FC(int i) {
-            a.this.lhR.FF(i);
+        public void DW(int i) {
+            a.this.ldl.DZ(i);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(a.this.mContext, true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "pop_unable");
             memberPayActivityConfig.setSceneId("4002001000");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -206,7 +206,7 @@ public class a extends com.baidu.tbadk.editortools.view.a {
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void dgK() {
+        public void dcS() {
         }
     };
 
@@ -214,15 +214,15 @@ public class a extends com.baidu.tbadk.editortools.view.a {
     public void init(final Context context) {
         this.mContext = context;
         a.b bVar = new a.b();
-        bVar.fHl = R.drawable.icon_bubble;
-        bVar.fHm = 0;
+        bVar.fCE = R.drawable.icon_bubble;
+        bVar.fCF = 0;
         setVerticalSpacing(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26));
         setHorizontalSpacing(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30));
         a(bVar);
         setColumn(2);
-        sI(2);
-        a(new a.InterfaceC0595a() { // from class: com.baidu.tieba.memberCenter.a.a.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0595a
+        rc(2);
+        a(new a.InterfaceC0578a() { // from class: com.baidu.tieba.memberCenter.a.a.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0578a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 BubbleView bubbleView;
                 if (view == null) {
@@ -232,12 +232,12 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                 } else {
                     bubbleView = (BubbleView) view;
                 }
-                BubbleListData.BubbleData FD = a.this.FD(i);
-                if (FD != null) {
-                    bubbleView.setData(FD, BubbleListModel.eT(a.this.lhS.getB_info()));
+                BubbleListData.BubbleData DX = a.this.DX(i);
+                if (DX != null) {
+                    bubbleView.setData(DX, BubbleListModel.eT(a.this.ldm.getB_info()));
                     bubbleView.setGravity(17);
                     bubbleView.setTag(Integer.valueOf(i));
-                    bubbleView.setOnClickListener(a.this.lhU);
+                    bubbleView.setOnClickListener(a.this.ldo);
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 TbPageContext tbPageContext = (TbPageContext) j.K(a.this.mContext);
@@ -246,105 +246,105 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                 return view;
             }
         });
-        this.lhT = TbadkCoreApplication.getInst().getDefaultBubble();
-        if (this.lhR == null) {
+        this.ldn = TbadkCoreApplication.getInst().getDefaultBubble();
+        if (this.ldl == null) {
             if (this.mContext instanceof TbPageContext) {
-                this.lhR = new BubbleListModel((TbPageContext) this.mContext);
+                this.ldl = new BubbleListModel((TbPageContext) this.mContext);
             } else {
-                this.lhR = new BubbleListModel(null);
+                this.ldl = new BubbleListModel(null);
             }
         }
-        this.lhR.a(this.lhl);
-        this.lhR.a(this.lhm);
-        this.lhR.a(this.lhp);
-        this.lhR.dgQ();
-        this.lhR.dgR();
-        if (bGa() != null) {
-            bGa().preLoad();
+        this.ldl.a(this.lcF);
+        this.ldl.a(this.lcG);
+        this.ldl.a(this.lcJ);
+        this.ldl.dcY();
+        this.ldl.dcZ();
+        if (bCh() != null) {
+            bCh().preLoad();
         }
-        this.lhR.K(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.ldl.K(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FB(int i) {
-        this.lhR.Y(i, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
-        this.lhR.FE(i);
-        if (bGa() != null) {
-            bGa().preLoad();
+    public void DV(int i) {
+        this.ldl.Y(i, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.ldl.DY(i);
+        if (bCh() != null) {
+            bCh().preLoad();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgS() {
+    public void dda() {
         boolean z = false;
-        if (this.lhS != null && this.lhS.getB_info() != null && this.lhS.getB_info().size() > 0) {
+        if (this.ldm != null && this.ldm.getB_info() != null && this.ldm.getB_info().size() > 0) {
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
-            if (this.lhS.getB_info().get(0).getBcode() != 0) {
-                this.lhS.getB_info().add(0, bubbleData);
+            if (this.ldm.getB_info().get(0).getBcode() != 0) {
+                this.ldm.getB_info().add(0, bubbleData);
             }
-            this.dDc = 0;
+            this.dyq = 0;
             int i = 0;
             while (true) {
-                if (i >= this.lhS.getB_info().size()) {
+                if (i >= this.ldm.getB_info().size()) {
                     break;
-                } else if (!this.lhS.getB_info().get(i).isDef()) {
+                } else if (!this.ldm.getB_info().get(i).isDef()) {
                     i++;
                 } else {
-                    this.dDc = i;
-                    this.lhT = this.lhS.getB_info().get(i).getBg_url();
-                    TbadkCoreApplication.getInst().setDefaultBubble(this.lhT);
+                    this.dyq = i;
+                    this.ldn = this.ldm.getB_info().get(i).getBg_url();
+                    TbadkCoreApplication.getInst().setDefaultBubble(this.ldn);
                     break;
                 }
             }
         }
-        if (this.dDc == 0 || TextUtils.isEmpty(this.lhT)) {
+        if (this.dyq == 0 || TextUtils.isEmpty(this.ldn)) {
             b(new com.baidu.tbadk.editortools.a(2, 12, null));
         } else {
             b(new com.baidu.tbadk.editortools.a(2, 12, " "));
             z = true;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUBBLE_TOOL_RED_DOT, Boolean.valueOf(z)));
-        b(new com.baidu.tbadk.editortools.a(25, -1, this.lhT));
+        b(new com.baidu.tbadk.editortools.a(25, -1, this.ldn));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public BubbleListData.BubbleData FD(int i) {
-        if (i < 0 || i >= getCount() || this.lhS == null) {
+    public BubbleListData.BubbleData DX(int i) {
+        if (i < 0 || i >= getCount() || this.ldm == null) {
             return null;
         }
-        return this.lhS.getB_info().get(i);
+        return this.ldm.getB_info().get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.lhS == null || this.lhS.getB_info() == null) {
+        if (this.ldm == null || this.ldm.getB_info() == null) {
             return 0;
         }
-        return this.lhS.getB_info().size();
+        return this.ldm.getB_info().size();
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.lhR != null) {
-            this.lhR.unRegisterListener();
-            this.lhR.b(this.lhp);
-            this.lhR = null;
+        if (this.ldl != null) {
+            this.ldl.unRegisterListener();
+            this.ldl.b(this.lcJ);
+            this.ldl = null;
         }
     }
 
     @Override // com.baidu.tbadk.editortools.b
     public void a(com.baidu.tbadk.editortools.a aVar) {
-        if (this.lhR == null) {
+        if (this.ldl == null) {
             if (this.mContext instanceof TbPageContext) {
-                this.lhR = new BubbleListModel((TbPageContext) this.mContext);
+                this.ldl = new BubbleListModel((TbPageContext) this.mContext);
             } else {
-                this.lhR = new BubbleListModel(null);
+                this.ldl = new BubbleListModel(null);
             }
         }
-        if (bGa() != null) {
-            bGa().preLoad();
+        if (bCh() != null) {
+            bCh().preLoad();
         }
-        this.lhR.K(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.ldl.K(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
     }
 }

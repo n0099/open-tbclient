@@ -16,7 +16,7 @@ public class r extends c<String> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_t" + hashCode;
-        this.KX.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.KV.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -78,7 +78,7 @@ public class r extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
-        this.KX.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
+        this.KV.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
         return true;
     }
 }

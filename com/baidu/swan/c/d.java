@@ -250,7 +250,7 @@ public final class d {
         }
     }
 
-    public static byte[] N(File file) {
+    public static byte[] M(File file) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         if (file == null) {
@@ -304,7 +304,7 @@ public final class d {
         }
     }
 
-    public static boolean zG(String str) {
+    public static boolean yv(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -348,11 +348,11 @@ public final class d {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return dD(str, str2) == null;
+        return dC(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [975=4] */
-    public static Exception dD(String str, String str2) {
+    public static Exception dC(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -374,7 +374,7 @@ public final class d {
                     try {
                         try {
                             ZipEntry nextElement = entries.nextElement();
-                            if (!TextUtils.isEmpty(nextElement.getName()) && !zJ(nextElement.getName())) {
+                            if (!TextUtils.isEmpty(nextElement.getName()) && !yy(nextElement.getName())) {
                                 File file = new File(str2 + "/" + nextElement.getName());
                                 if (!nextElement.isDirectory()) {
                                     if (!file.exists()) {
@@ -462,7 +462,7 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1045=4] */
-    public static boolean dE(String str, String str2) {
+    public static boolean dD(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         ZipInputStream zipInputStream2;
@@ -503,7 +503,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !zJ(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yy(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -568,7 +568,7 @@ public final class d {
 
     @Nullable
     @CheckResult
-    public static String zH(@Nullable String str) {
+    public static String yw(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -588,7 +588,7 @@ public final class d {
         return str;
     }
 
-    public static String zI(String str) {
+    public static String yx(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -697,15 +697,15 @@ public final class d {
         }
     }
 
-    public static boolean zJ(String str) {
+    public static boolean yy(String str) {
         return str.contains(Constants.PATH_PARENT);
     }
 
-    public static boolean O(File file) {
+    public static boolean N(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
-    public static List<String> P(File file) {
+    public static List<String> O(File file) {
         try {
             return b(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -798,7 +798,7 @@ public final class d {
         }
     }
 
-    public static long zK(String str) {
+    public static long yz(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

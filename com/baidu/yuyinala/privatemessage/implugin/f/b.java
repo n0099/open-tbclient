@@ -14,15 +14,15 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends i {
     private String mKey;
     private String mType;
-    private long oUx;
+    private long oPV;
 
     public b(Context context, String str, long j, String str2) {
         this.mKey = "";
-        this.oUx = j;
+        this.oPV = j;
         this.mKey = str2;
         this.mContext = context;
         this.mType = str;
@@ -30,7 +30,7 @@ public class b extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Ym(null) + "api/subscribe/v1/relation/receive";
+        return Xe(null) + "api/subscribe/v1/relation/receive";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -47,22 +47,22 @@ public class b extends i {
         } else {
             z = false;
         }
-        k.hB(this.mContext).a(i, new String(bArr), this.oUx, this.mKey, z);
+        k.hz(this.mContext).a(i, new String(bArr), this.oPV, this.mKey, z);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        k.hB(this.mContext).a(i, new String(bArr), this.oUx, this.mKey, false);
+        k.hz(this.mContext).a(i, new String(bArr), this.oPV, this.mKey, false);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.i, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -78,9 +78,9 @@ public class b extends i {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         StringBuilder sb = new StringBuilder();
-        sb.append("op_type=").append(elo());
+        sb.append("op_type=").append(ehu());
         sb.append("&type=").append(this.mType);
-        sb.append("&third_id=").append(this.oUx);
+        sb.append("&third_id=").append(this.oPV);
         sb.append("&sfrom=").append("imsdk");
         sb.append("&source=").append("im_b2cchat");
         sb.append("&store=").append("uid_cuid");
@@ -93,7 +93,7 @@ public class b extends i {
         return "application/x-www-form-urlencoded";
     }
 
-    public String elo() {
+    public String ehu() {
         return IMTrack.DbBuilder.ACTION_ADD;
     }
 

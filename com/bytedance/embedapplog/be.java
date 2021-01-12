@@ -14,7 +14,7 @@ public final class be extends ax<d> {
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<d, String> epv() {
+    protected bp.b<d, String> elz() {
         return new bp.b<d, String>() { // from class: com.bytedance.embedapplog.be.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b

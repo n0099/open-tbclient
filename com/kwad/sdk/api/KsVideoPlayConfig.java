@@ -6,12 +6,12 @@ import com.kwad.sdk.api.loader.Loader;
 import java.io.Serializable;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface KsVideoPlayConfig extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private boolean showLandscape;
         private String showScene;

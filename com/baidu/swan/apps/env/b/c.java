@@ -17,12 +17,12 @@ import java.util.Map;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c {
-    public static final c dcH = new c();
+    public static final c cXS = new c();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String dcF = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME + File.separator + "libs" + File.separator + "so";
-    private static final Map<String, e> dcG = new LinkedHashMap();
+    private static final String cXQ = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME + File.separator + "libs" + File.separator + "so";
+    private static final Map<String, e> cXR = new LinkedHashMap();
 
     private c() {
     }
@@ -30,23 +30,23 @@ public final class c {
     public final e a(f fVar, String str) {
         p.o(fVar, "updater");
         p.o(str, "libName");
-        e ot = ot(str);
-        if (ot == null) {
+        e ng = ng(str);
+        if (ng == null) {
             e eVar = new e(fVar, str);
-            dcG.put(str, eVar);
+            cXR.put(str, eVar);
             return eVar;
         }
-        return ot;
+        return ng;
     }
 
-    public final e ot(String str) {
+    public final e ng(String str) {
         p.o(str, "libName");
-        return dcG.get(str);
+        return cXR.get(str);
     }
 
-    public final void ou(String str) {
+    public final void nh(String str) {
         p.o(str, "libName");
-        dcG.remove(str);
+        cXR.remove(str);
     }
 
     public final void a(d dVar) {
@@ -54,7 +54,7 @@ public final class c {
         if (DEBUG) {
             Log.i("SoLibManager", "main updatePmsPkg start args: " + dVar);
         }
-        dVar.h(b.dcL);
+        dVar.h(b.cXW);
         f fVar = new f(new h(5), dVar);
         if (DEBUG) {
             Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + fVar);
@@ -64,9 +64,9 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @kotlin.e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class b<MsgType> implements com.baidu.swan.apps.ao.e.b<Exception> {
-        public static final b dcL = new b();
+        public static final b cXW = new b();
 
         b() {
         }
@@ -75,7 +75,7 @@ public final class c {
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: q */
         public final void L(Exception exc) {
-            c cVar = c.dcH;
+            c cVar = c.cXS;
             if (c.DEBUG) {
                 Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo end with e: " + exc + " trace=" + Log.getStackTraceString(exc != null ? exc : new Exception()));
             }
@@ -89,91 +89,91 @@ public final class c {
         if (DEBUG) {
             Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + str);
         }
-        com.baidu.swan.apps.env.b.a os = com.baidu.swan.apps.env.b.b.os(str);
-        if (os == null) {
+        com.baidu.swan.apps.env.b.a nf = com.baidu.swan.apps.env.b.b.nf(str);
+        if (nf == null) {
             if (DEBUG) {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + str);
             }
-            bVar.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).uz("not available: so=" + os));
-        } else if (os.axj()) {
+            bVar.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).to("not available: so=" + nf));
+        } else if (nf.atp()) {
             if (DEBUG) {
-                Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + os);
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + nf);
             }
             bVar.invoke(null);
         } else {
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
-            objectRef.element = com.baidu.swan.pms.database.a.bgc().yM(str);
-            if (((i) objectRef.element) == null || !((i) objectRef.element).auW() || !AbiType.currentAbi().compat(((i) objectRef.element).ewO)) {
+            objectRef.element = com.baidu.swan.pms.database.a.bci().xB(str);
+            if (((i) objectRef.element) == null || !((i) objectRef.element).arb() || !AbiType.currentAbi().compat(((i) objectRef.element).esb)) {
                 if (DEBUG) {
                     Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + str + " soPkg=" + ((i) objectRef.element));
                 }
-                bVar.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).uz("invalid: pkg=" + ((i) objectRef.element)));
+                bVar.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).to("invalid: pkg=" + ((i) objectRef.element)));
                 return;
             }
-            AbiType ox = ox(str);
-            if (l(str, ((i) objectRef.element).versionCode) && ox != null && ox.compat(((i) objectRef.element).ewO)) {
+            AbiType nk = nk(str);
+            if (l(str, ((i) objectRef.element).versionCode) && nk != null && nk.compat(((i) objectRef.element).esb)) {
                 if (DEBUG) {
                     Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + str + " soPkg=" + ((i) objectRef.element));
                 }
                 bVar.invoke(null);
                 return;
             }
-            os.a(((i) objectRef.element).filePath, new a(str, objectRef, bVar));
+            nf.a(((i) objectRef.element).filePath, new a(str, objectRef, bVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @kotlin.e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements b.a {
-        final /* synthetic */ String dcI;
-        final /* synthetic */ Ref.ObjectRef dcJ;
-        final /* synthetic */ kotlin.jvm.a.b dcK;
+        final /* synthetic */ String cXT;
+        final /* synthetic */ Ref.ObjectRef cXU;
+        final /* synthetic */ kotlin.jvm.a.b cXV;
 
         a(String str, Ref.ObjectRef objectRef, kotlin.jvm.a.b bVar) {
-            this.dcI = str;
-            this.dcJ = objectRef;
-            this.dcK = bVar;
+            this.cXT = str;
+            this.cXU = objectRef;
+            this.cXV = bVar;
         }
 
         @Override // com.baidu.swan.pms.e.b.a
-        public final void fE(boolean z) {
-            c cVar = c.dcH;
+        public final void fA(boolean z) {
+            c cVar = c.cXS;
             if (c.DEBUG) {
-                Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.dcI);
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.cXT);
             }
             if (z) {
-                c.dcH.n(this.dcI, ((i) this.dcJ.element).versionCode);
-                c cVar2 = c.dcH;
-                String str = this.dcI;
-                String str2 = ((i) this.dcJ.element).versionName;
+                c.cXS.n(this.cXT, ((i) this.cXU.element).versionCode);
+                c cVar2 = c.cXS;
+                String str = this.cXT;
+                String str2 = ((i) this.cXU.element).versionName;
                 p.n(str2, "soPkg.versionName");
-                cVar2.bK(str, str2);
-                c cVar3 = c.dcH;
-                String str3 = this.dcI;
-                AbiType abiType = ((i) this.dcJ.element).ewO;
+                cVar2.bJ(str, str2);
+                c cVar3 = c.cXS;
+                String str3 = this.cXT;
+                AbiType abiType = ((i) this.cXU.element).esb;
                 p.n(abiType, "soPkg.abi");
                 cVar3.a(str3, abiType);
-                this.dcK.invoke(null);
+                this.cXV.invoke(null);
                 return;
             }
-            this.dcK.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).uz("install error: pkg=" + ((i) this.dcJ.element)));
+            this.cXV.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).to("install error: pkg=" + ((i) this.cXU.element)));
         }
     }
 
-    private final File axo() {
+    private final File atu() {
         Context appContext = AppRuntime.getAppContext();
         p.n(appContext, "AppRuntime.getAppContext()");
-        return new File(appContext.getFilesDir(), dcF);
+        return new File(appContext.getFilesDir(), cXQ);
     }
 
     public final String a(i iVar) {
-        if ((iVar != null ? iVar.ewO : null) == null) {
+        if ((iVar != null ? iVar.esb : null) == null) {
             return "";
         }
         String str = iVar.libName;
         p.n(str, "so.libName");
-        AbiType abiType = iVar.ewO;
+        AbiType abiType = iVar.esb;
         p.n(abiType, "so.abi");
         return a(str, abiType, iVar.versionCode);
     }
@@ -184,72 +184,72 @@ public final class c {
         if (TextUtils.isEmpty(str) || j < 1) {
             return "";
         }
-        File file = new File(axo(), "" + str + "" + File.separator + "" + j + "" + File.separator + "" + abiType.id);
+        File file = new File(atu(), "" + str + "" + File.separator + "" + j + "" + File.separator + "" + abiType.id);
         if (!file.exists()) {
             file.mkdirs();
         }
         return file.getPath();
     }
 
-    public final boolean ov(String str) {
+    public final boolean ni(String str) {
         p.o(str, "libName");
-        return l(str, ow(str));
+        return l(str, nj(str));
     }
 
     public final boolean l(String str, long j) {
-        AbiType ox;
+        AbiType nk;
         p.o(str, "libName");
-        com.baidu.swan.apps.env.b.a os = com.baidu.swan.apps.env.b.b.os(str);
-        if (os != null) {
-            if (os.axj()) {
+        com.baidu.swan.apps.env.b.a nf = com.baidu.swan.apps.env.b.b.nf(str);
+        if (nf != null) {
+            if (nf.atp()) {
                 return true;
             }
-            long ow = ow(str);
-            if (ow <= 0 || j > ow || (ox = ox(str)) == null) {
+            long nj = nj(str);
+            if (nj <= 0 || j > nj || (nk = nk(str)) == null) {
                 return false;
             }
-            return AbiType.currentAbi().compat(ox);
+            return AbiType.currentAbi().compat(nk);
         }
         return false;
     }
 
     public final void m(String str, long j) {
         p.o(str, "libName");
-        g.bhz().edit().putLong("swan_so_latest_update_time_" + str, j).apply();
+        g.bdF().edit().putLong("swan_so_latest_update_time_" + str, j).apply();
     }
 
-    private final long ow(String str) {
-        return com.baidu.swan.apps.storage.c.h.aPI().getLong(oy(str), 0L);
+    private final long nj(String str) {
+        return com.baidu.swan.apps.storage.c.h.aLO().getLong(nl(str), 0L);
     }
 
-    private final AbiType ox(String str) {
-        return AbiType.findById(com.baidu.swan.apps.storage.c.h.aPI().getString(oA(str), ""));
+    private final AbiType nk(String str) {
+        return AbiType.findById(com.baidu.swan.apps.storage.c.h.aLO().getString(nn(str), ""));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void n(String str, long j) {
-        com.baidu.swan.apps.storage.c.h.aPI().putLong(oy(str), j);
+        com.baidu.swan.apps.storage.c.h.aLO().putLong(nl(str), j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void bK(String str, String str2) {
-        com.baidu.swan.apps.storage.c.h.aPI().putString(oz(str), str2);
+    public final void bJ(String str, String str2) {
+        com.baidu.swan.apps.storage.c.h.aLO().putString(nm(str), str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(String str, AbiType abiType) {
-        com.baidu.swan.apps.storage.c.h.aPI().putString(oA(str), abiType.id);
+        com.baidu.swan.apps.storage.c.h.aLO().putString(nn(str), abiType.id);
     }
 
-    private final String oy(String str) {
+    private final String nl(String str) {
         return "swan_so_installed_version_code_" + str;
     }
 
-    private final String oz(String str) {
+    private final String nm(String str) {
         return "swan_so_installed_version_name_" + str;
     }
 
-    private final String oA(String str) {
+    private final String nn(String str) {
         return "swan_so_installed_abi_" + str;
     }
 }

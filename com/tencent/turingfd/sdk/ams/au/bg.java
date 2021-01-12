@@ -9,14 +9,14 @@ import com.baidu.sapi2.result.AccountCenterResult;
 import com.tencent.turingfd.sdk.ams.au.an;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicBoolean f13810a = new AtomicBoolean(false);
+    public static AtomicBoolean f13510a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f13811b = new AtomicBoolean(false);
+    public static AtomicBoolean f13511b = new AtomicBoolean(false);
     public static final Object c;
     public static AtomicBoolean d;
 
@@ -28,8 +28,8 @@ public class bg {
     }
 
     public static int a() {
-        if (f13810a.get()) {
-            if (f13811b.get()) {
+        if (f13510a.get()) {
+            if (f13511b.get()) {
                 return 0;
             }
             return AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS;
@@ -42,22 +42,22 @@ public class bg {
             return;
         }
         synchronized (c) {
-            if (aqVar.f13788b > 0 && af.f13767a == 0) {
-                af.f13767a = aqVar.f13788b;
+            if (aqVar.f13488b > 0 && af.f13467a == 0) {
+                af.f13467a = aqVar.f13488b;
             }
-            if (f13811b.get()) {
+            if (f13511b.get()) {
                 b(aqVar);
             } else if (d.get()) {
             } else {
                 d.set(true);
                 if (!c(aqVar)) {
-                    f13811b.set(false);
-                } else if (af.f13767a == 0) {
+                    f13511b.set(false);
+                } else if (af.f13467a == 0) {
                     Log.i("TuringFdJava", "error channel");
-                    f13811b.set(false);
+                    f13511b.set(false);
                 } else {
                     b(aqVar);
-                    f13811b.set(true);
+                    f13511b.set(true);
                     d.set(false);
                 }
             }
@@ -69,24 +69,24 @@ public class bg {
     }
 
     public static void b(aq aqVar) {
-        Log.i("TuringFdJava", ab.a("channel : ").append(af.f13767a).toString());
-        an anVar = an.f13775a;
+        Log.i("TuringFdJava", ab.a("channel : ").append(af.f13467a).toString());
+        an anVar = an.f13475a;
         anVar.d = aqVar;
         if (anVar.f) {
             return;
         }
         anVar.f = true;
         aj.a(aqVar.g());
-        f fVar = f.f13822a;
+        f fVar = f.f13522a;
         aqVar.g();
         fVar.f = new be(anVar);
-        HandlerThread handlerThread = new HandlerThread(ab.a("TuringFdCore_47_").append(af.f13767a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString(), -8);
+        HandlerThread handlerThread = new HandlerThread(ab.a("TuringFdCore_47_").append(af.f13467a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString(), -8);
         handlerThread.start();
         anVar.e = new an.b(handlerThread.getLooper(), aqVar.g());
         anVar.g = new c(anVar.e);
         Context g = aqVar.g();
-        if (m.f13834a.containsKey(m.c)) {
-            new l(m.f13834a.get(m.c), g).start();
+        if (m.f13534a.containsKey(m.c)) {
+            new l(m.f13534a.get(m.c), g).start();
         }
         if (anVar.d.c()) {
             new al(anVar).start();
@@ -95,8 +95,8 @@ public class bg {
 
     public static boolean c(aq aqVar) {
         boolean z = true;
-        if (f13810a.get()) {
-            return f13810a.get();
+        if (f13510a.get()) {
+            return f13510a.get();
         }
         if (aqVar.b()) {
             TextUtils.isEmpty(aqVar.m());
@@ -111,13 +111,13 @@ public class bg {
                 Log.w("TuringFdJava", th);
                 z = false;
             }
-            f13810a.set(z);
+            f13510a.set(z);
             if (!z) {
                 Log.i("TuringFdJava", "load so failure");
             }
         } else {
-            f13810a.set(true);
+            f13510a.set(true);
         }
-        return f13810a.get();
+        return f13510a.get();
     }
 }

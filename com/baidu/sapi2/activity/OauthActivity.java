@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -87,7 +87,7 @@ public class OauthActivity extends BaseActivity {
             this.z = true;
         }
         this.v = intent.getStringExtra(H);
-        if (TextUtils.isEmpty(this.v) || SapiUtils.versionCompareTo(this.v, "8.9.9.1") <= 0) {
+        if (TextUtils.isEmpty(this.v) || SapiUtils.versionCompareTo(this.v, "8.9.9.3") <= 0) {
             return;
         }
         setResult(0, a(O));

@@ -3,41 +3,42 @@ package com.baidu.live.aq;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.x;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void G(String str, boolean z);
 
-    AlaWheatInfoData aao();
+    x WA();
 
-    List<AlaWheatInfoData> aap();
+    String WB();
 
-    List<AlaWheatInfoData> aaq();
+    void WC();
 
-    String aar();
+    void WD();
 
-    String aas();
+    AlaWheatInfoData Wv();
 
-    x aat();
+    List<AlaWheatInfoData> Ww();
 
-    String aau();
+    List<AlaWheatInfoData> Wx();
 
-    void aav();
+    String Wy();
 
-    void aaw();
+    String Wz();
 
     String getCustomRoomId();
 
+    boolean ib(String str);
+
+    boolean ic(String str);
+
+    boolean id(String str);
+
+    AlaWheatInfoData ie(String str);
+
+    /* renamed from: if */
+    boolean mo18if(String str);
+
     boolean isApplying();
-
-    boolean jm(String str);
-
-    boolean jn(String str);
-
-    boolean jo(String str);
-
-    AlaWheatInfoData jp(String str);
-
-    boolean jq(String str);
 
     void muteOrUnmuteAudio(boolean z);
 }

@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> implements View.OnClickListener {
-    private boolean jpu;
-    private boolean jpv;
+    private boolean jkN;
+    private boolean jkO;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.jpu = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
-        this.jpv = z;
+        this.jkN = TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
+        this.jkO = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,59 +41,59 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.x xVar, a aVar) {
         boolean z = true;
         super.a(i, view, viewGroup, (ViewGroup) xVar, (com.baidu.tieba.tbadkCore.x) aVar);
-        if (xVar.dOx()) {
-            String dOy = xVar.dOy();
-            if (dOy != null) {
-                aVar.jpx.setText(dOy);
-            } else if (this.jeH != null && this.jeH.getForum() != null && this.jeH.getForum().getName() != null) {
-                TextView textView = aVar.jpx;
+        if (xVar.dKF()) {
+            String dKG = xVar.dKG();
+            if (dKG != null) {
+                aVar.jkQ.setText(dKG);
+            } else if (this.jaa != null && this.jaa.getForum() != null && this.jaa.getForum().getName() != null) {
+                TextView textView = aVar.jkQ;
                 Context context = this.mContext;
                 int i2 = R.string.get_fortune_hint_format;
                 Object[] objArr = new Object[1];
-                objArr[0] = this.jeH == null ? "" : this.jeH.getForum().getName();
+                objArr[0] = this.jaa == null ? "" : this.jaa.getForum().getName();
                 textView.setText(context.getString(i2, objArr));
             }
-            aVar.jpw.setTag(Integer.valueOf(i));
-            aVar.jpw.setOnClickListener(this);
-            aVar.jpw.setVisibility(0);
+            aVar.jkP.setTag(Integer.valueOf(i));
+            aVar.jkP.setOnClickListener(this);
+            aVar.jkP.setVisibility(0);
         } else {
-            aVar.jpw.setVisibility(8);
-            aVar.jpD.setVisibility(8);
+            aVar.jkP.setVisibility(8);
+            aVar.jkW.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.r dOz = xVar.dOz();
-        if (dOz != null && dOz.dOq() && !TextUtils.isEmpty(dOz.dOr())) {
-            aVar.jpz.setText(dOz.dOr());
-            aVar.jpy.setTag(Integer.valueOf(i));
-            aVar.jpy.setOnClickListener(this);
-            aVar.jpy.setVisibility(0);
+        com.baidu.tieba.tbadkCore.r dKH = xVar.dKH();
+        if (dKH != null && dKH.dKy() && !TextUtils.isEmpty(dKH.dKz())) {
+            aVar.jkS.setText(dKH.dKz());
+            aVar.jkR.setTag(Integer.valueOf(i));
+            aVar.jkR.setOnClickListener(this);
+            aVar.jkR.setVisibility(0);
         } else {
-            aVar.jpy.setVisibility(8);
-            aVar.jpE.setVisibility(8);
+            aVar.jkR.setVisibility(8);
+            aVar.jkX.setVisibility(8);
         }
-        if (this.jpv) {
-            aVar.jpA.setVisibility(0);
+        if (this.jkO) {
+            aVar.jkT.setVisibility(0);
         } else {
-            aVar.jpA.setVisibility(8);
+            aVar.jkT.setVisibility(8);
         }
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (this.jeH == null || this.jeH.getUserData() == null || !this.jeH.getUserData().isBawu()) {
+        if (this.jaa == null || this.jaa.getUserData() == null || !this.jaa.getUserData().isBawu()) {
             z = false;
         }
         if (z) {
-            aVar.jpB.setVisibility(0);
-            ao.setBackgroundResource(aVar.jpB, R.drawable.frs_top_item_bg);
-            aVar.jpA.setVisibility(0);
-            aVar.jpB.setOnClickListener(this);
-            aVar.jpB.setTag(Integer.valueOf(i));
+            aVar.jkU.setVisibility(0);
+            ao.setBackgroundResource(aVar.jkU, R.drawable.frs_top_item_bg);
+            aVar.jkT.setVisibility(0);
+            aVar.jkU.setOnClickListener(this);
+            aVar.jkU.setTag(Integer.valueOf(i));
         } else {
-            aVar.jpB.setVisibility(8);
-            aVar.jpF.setVisibility(8);
+            aVar.jkU.setVisibility(8);
+            aVar.jkY.setVisibility(8);
         }
-        if (!this.jpu && !xVar.dOx()) {
+        if (!this.jkN && !xVar.dKF()) {
             if (z) {
-                aVar.jpw.setVisibility(8);
-                aVar.jpy.setVisibility(8);
+                aVar.jkP.setVisibility(8);
+                aVar.jkR.setVisibility(8);
                 a(aVar);
                 return view;
             }
@@ -103,7 +103,7 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
     }
 
     private void a(a aVar) {
-        List<View> list = aVar.jpG;
+        List<View> list = aVar.jkZ;
         for (View view : list) {
             view.setVisibility(8);
         }
@@ -112,12 +112,12 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jeI != null) {
+        if (this.jab != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
             if (getItem(intValue) instanceof bz) {
-                View B = B(this.iKI.getListView(), intValue);
-                this.jeI.a(id, intValue, view, B, (bz) getItem(intValue));
+                View B = B(this.iGb.getListView(), intValue);
+                this.jab.a(id, intValue, view, B, (bz) getItem(intValue));
             }
         }
     }
@@ -125,34 +125,34 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        View jpA;
-        View jpB;
-        TextView jpC;
-        View jpD;
-        View jpE;
-        View jpF;
-        List<View> jpG;
-        View jpw;
-        TextView jpx;
-        View jpy;
-        TextView jpz;
+        View jkP;
+        TextView jkQ;
+        View jkR;
+        TextView jkS;
+        View jkT;
+        View jkU;
+        TextView jkV;
+        View jkW;
+        View jkX;
+        View jkY;
+        List<View> jkZ;
 
         a(View view) {
             super(view);
-            this.jpG = new ArrayList();
-            this.jpx = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
-            this.jpw = view.findViewById(R.id.frs_fortune_bag_item);
-            this.jpy = view.findViewById(R.id.frs_my_service_item);
-            this.jpz = (TextView) view.findViewById(R.id.frs_my_service_content);
-            this.jpA = view.findViewById(R.id.frs_list_item_official_buttom_line);
-            this.jpB = view.findViewById(R.id.frs_bawu_center);
-            this.jpC = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
-            this.jpD = view.findViewById(R.id.official_account_text_divider_fortune_top);
-            this.jpE = view.findViewById(R.id.official_account_text_divider_service_top);
-            this.jpF = view.findViewById(R.id.official_account_text_divider_bawucenter_top);
-            this.jpG.add(this.jpD);
-            this.jpG.add(this.jpE);
-            this.jpG.add(this.jpF);
+            this.jkZ = new ArrayList();
+            this.jkQ = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
+            this.jkP = view.findViewById(R.id.frs_fortune_bag_item);
+            this.jkR = view.findViewById(R.id.frs_my_service_item);
+            this.jkS = (TextView) view.findViewById(R.id.frs_my_service_content);
+            this.jkT = view.findViewById(R.id.frs_list_item_official_buttom_line);
+            this.jkU = view.findViewById(R.id.frs_bawu_center);
+            this.jkV = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
+            this.jkW = view.findViewById(R.id.official_account_text_divider_fortune_top);
+            this.jkX = view.findViewById(R.id.official_account_text_divider_service_top);
+            this.jkY = view.findViewById(R.id.official_account_text_divider_bawucenter_top);
+            this.jkZ.add(this.jkW);
+            this.jkZ.add(this.jkX);
+            this.jkZ.add(this.jkY);
         }
     }
 }

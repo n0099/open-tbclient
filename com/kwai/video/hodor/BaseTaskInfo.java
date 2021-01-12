@@ -3,7 +3,7 @@ package com.kwai.video.hodor;
 import com.kwai.video.cache.AcCallBackInfo;
 import com.kwai.video.hodor.IHodorTask;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseTaskInfo {
     String cdnStatJson;
     long currentSpeedKbps;

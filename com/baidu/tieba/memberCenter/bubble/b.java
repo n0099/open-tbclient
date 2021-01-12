@@ -11,61 +11,61 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends d<BubbleChooseActivity> {
-    private GridView dlY;
-    private View lhs;
-    private a lht;
-    private BubbleChooseActivity lhu;
+    private GridView dhj;
+    private View lcM;
+    private a lcN;
+    private BubbleChooseActivity lcO;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private ViewGroup mRootView;
 
     public b(TbPageContext<BubbleChooseActivity> tbPageContext) {
         super(tbPageContext);
-        this.lhu = tbPageContext.getOrignalPage();
-        this.lhu.setContentView(R.layout.bubble_activity_view);
-        this.mNavigationBar = (NavigationBar) this.lhu.findViewById(R.id.lay_title_bar);
+        this.lcO = tbPageContext.getOrignalPage();
+        this.lcO.setContentView(R.layout.bubble_activity_view);
+        this.mNavigationBar = (NavigationBar) this.lcO.findViewById(R.id.lay_title_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.editor_privilege);
-        this.lhs = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.lhu);
-        this.mRootView = (ViewGroup) this.lhu.findViewById(R.id.container);
-        this.dlY = (GridView) this.lhu.findViewById(R.id.gv_bubble_list);
-        this.lht = new a(tbPageContext);
-        this.dlY.setAdapter((ListAdapter) this.lht);
-        this.mProgressBar = (ProgressBar) this.lhu.findViewById(R.id.bubble_progress);
+        this.lcM = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.lcO);
+        this.mRootView = (ViewGroup) this.lcO.findViewById(R.id.container);
+        this.dhj = (GridView) this.lcO.findViewById(R.id.gv_bubble_list);
+        this.lcN = new a(tbPageContext);
+        this.dhj.setAdapter((ListAdapter) this.lcN);
+        this.mProgressBar = (ProgressBar) this.lcO.findViewById(R.id.bubble_progress);
     }
 
     public void setData(List<BubbleListData.BubbleData> list, boolean z) {
-        if (this.lht != null) {
-            this.lht.tK(z);
-            this.lht.setData(list);
+        if (this.lcN != null) {
+            this.lcN.tG(z);
+            this.lcN.setData(list);
         }
     }
 
-    public a dgL() {
-        return this.lht;
+    public a dcT() {
+        return this.lcN;
     }
 
-    public View dgM() {
-        return this.lhs;
+    public View dcU() {
+        return this.lcM;
     }
 
-    public GridView dgN() {
-        return this.dlY;
+    public GridView dcV() {
+        return this.dhj;
     }
 
-    public BubbleListData.BubbleData FD(int i) {
-        if (this.lht == null) {
+    public BubbleListData.BubbleData DX(int i) {
+        if (this.lcN == null) {
             return null;
         }
-        return this.lht.getItem(i);
+        return this.lcN.getItem(i);
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType((TbPageContext) getPageContext(), i);
-        this.lhu.getLayoutMode().setNightMode(i == 1);
-        this.lhu.getLayoutMode().onModeChanged(this.mRootView);
+        this.lcO.getLayoutMode().setNightMode(i == 1);
+        this.lcO.getLayoutMode().onModeChanged(this.mRootView);
     }
 
     public void showProgressBar() {

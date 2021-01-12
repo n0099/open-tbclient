@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private boolean eWc;
-    private String fPy;
-    private String gDc;
+    private boolean eRr;
+    private String fKR;
+    private String gyv;
     private boolean hasMore = false;
-    private List<String> gFC = new ArrayList();
-    private List<SdkLiveInfoData> gFA = new ArrayList();
-    private List<n> gFB = new ArrayList();
+    private List<String> gAW = new ArrayList();
+    private List<SdkLiveInfoData> gAU = new ArrayList();
+    private List<n> gAV = new ArrayList();
 
     public b(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.eWc = false;
+        this.eRr = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.eWc = true;
+            this.eRr = true;
         }
-        this.fPy = str;
-        this.gDc = str2;
+        this.fKR = str;
+        this.gyv = str2;
         l(list, z);
     }
 
@@ -44,18 +44,18 @@ public class b {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.gFC.contains(str)) {
+                if (!this.gAW.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.gFC.add(str);
+                    this.gAW.add(str);
                 }
             }
         }
         if (x.isEmpty(arrayList)) {
             return false;
         }
-        this.gFA.addAll(arrayList);
-        this.gFB = cl(this.gFA);
-        return !x.isEmpty(this.gFB);
+        this.gAU.addAll(arrayList);
+        this.gAV = cl(this.gAU);
+        return !x.isEmpty(this.gAV);
     }
 
     private ArrayList<n> cl(List<SdkLiveInfoData> list) {
@@ -64,25 +64,25 @@ public class b {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gAu = list.get(i);
+            aVar.gvN = list.get(i);
             aVar.isLeft = true;
-            aVar.eWc = this.eWc;
-            aVar.fid = this.fPy;
-            aVar.fname = this.gDc;
+            aVar.eRr = this.eRr;
+            aVar.fid = this.fKR;
+            aVar.fname = this.gyv;
             aVar.position = i + 1;
-            eVar.gCJ = aVar;
+            eVar.gyc = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gAu = list.get(i + 1);
-                aVar2.eWc = this.eWc;
-                aVar2.fid = this.fPy;
-                aVar2.fname = this.gDc;
+                aVar2.gvN = list.get(i + 1);
+                aVar2.eRr = this.eRr;
+                aVar2.fid = this.fKR;
+                aVar2.fname = this.gyv;
                 aVar2.position = i + 2;
-                eVar.gCK = aVar2;
+                eVar.gyd = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gAv = true;
+                aVar.gvO = true;
             }
             arrayList.add(eVar);
         }
@@ -95,22 +95,22 @@ public class b {
 
     public List<n> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!x.isEmpty(this.gFB)) {
-            arrayList.addAll(this.gFB);
+        if (!x.isEmpty(this.gAV)) {
+            arrayList.addAll(this.gAV);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.gFC != null) {
-            this.gFC.clear();
+        if (this.gAW != null) {
+            this.gAW.clear();
         }
-        if (this.gFA != null) {
-            this.gFA.clear();
+        if (this.gAU != null) {
+            this.gAU.clear();
         }
-        if (this.gFB != null) {
-            this.gFB.clear();
+        if (this.gAV != null) {
+            this.gAV.clear();
         }
     }
 }

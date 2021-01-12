@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ObserverList<E> implements Iterable<E> {
     public static final /* synthetic */ boolean $assertionsDisabled = !ObserverList.class.desiredAssertionStatus();
     public int mCount;
@@ -12,7 +12,7 @@ public class ObserverList<E> implements Iterable<E> {
     public boolean mNeedsCompact;
     public final List<E> mObservers = new ArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class ObserverListIterator implements RewindableIterator<E> {
         public int mIndex;
         public boolean mIsExhausted;
@@ -67,7 +67,7 @@ public class ObserverList<E> implements Iterable<E> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface RewindableIterator<E> extends Iterator<E> {
     }
 

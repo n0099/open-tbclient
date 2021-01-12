@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class c extends b<Drawable> {
     private c(Drawable drawable) {
         super(drawable);
@@ -23,12 +23,12 @@ final class c extends b<Drawable> {
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<Drawable> a() {
-        return this.f10560a.getClass();
+        return this.f10260a.getClass();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return Math.max(1, this.f10560a.getIntrinsicWidth() * this.f10560a.getIntrinsicHeight() * 4);
+        return Math.max(1, this.f10260a.getIntrinsicWidth() * this.f10260a.getIntrinsicHeight() * 4);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

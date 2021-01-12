@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class TabDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
 }

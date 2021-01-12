@@ -3,55 +3,58 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a faK = null;
-    public static int faL = 0;
+    private static a eVZ = null;
+    public static int eWa = 0;
+    public static int eWb = 0;
+    public static int eWc = 0;
+    public static int eWd = 1;
 
     public static void B(Context context, int i) {
-        if (faK != null) {
-            faK.B(context, i);
+        if (eVZ != null) {
+            eVZ.B(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (faK != null) {
-            faK.c(context, i, z);
+        if (eVZ != null) {
+            eVZ.c(context, i, z);
         }
     }
 
-    public static void eW(Context context) {
-        if (faK != null) {
-            faK.eW(context);
+    public static void eU(Context context) {
+        if (eVZ != null) {
+            eVZ.eU(context);
         }
     }
 
     public static void d(Context context, int i, boolean z) {
-        if (faK != null) {
-            faK.d(context, i, z);
+        if (eVZ != null) {
+            eVZ.d(context, i, z);
         }
     }
 
-    public static Class<?> bvh() {
-        if (faK == null) {
+    public static Class<?> brn() {
+        if (eVZ == null) {
             return null;
         }
-        return faK.bvh();
+        return eVZ.brn();
     }
 
-    public static String bvi() {
-        if (faK == null) {
+    public static String bro() {
+        if (eVZ == null) {
             return null;
         }
-        return faK.bvi();
+        return eVZ.bro();
     }
 
     public static void a(a aVar) {
-        faK = aVar;
+        eVZ = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (faK == null) {
+        if (eVZ == null) {
             return -1;
         }
-        return faK.getCurrentTabType();
+        return eVZ.getCurrentTabType();
     }
 }

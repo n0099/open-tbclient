@@ -6,13 +6,13 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static String OI(String str) {
-        return OJ(trim(str));
+    public static String NA(String str) {
+        return NB(trim(str));
     }
 
-    private static String OJ(String str) {
+    private static String NB(String str) {
         Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.tail_remove_dupe_regex));
         boolean z = false;
         int i = 0;
@@ -33,25 +33,25 @@ public class d {
         return str.trim();
     }
 
-    public static String OK(String str) {
-        String OJ = OJ(str);
-        if (StringUtils.isNull(OJ)) {
+    public static String NC(String str) {
+        String NB = NB(str);
+        if (StringUtils.isNull(NB)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_empty_toast);
         }
-        if (!OM(OJ)) {
+        if (!NE(NB)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_invalid_emotion);
         }
         return "";
     }
 
-    public static String OL(String str) {
-        return OJ(str).trim();
+    public static String ND(String str) {
+        return NB(str).trim();
     }
 
-    public static boolean OM(String str) {
-        Matcher matcher = Pattern.compile(TbFaceManager.fIs).matcher(str);
+    public static boolean NE(String str) {
+        Matcher matcher = Pattern.compile(TbFaceManager.fDL).matcher(str);
         while (matcher.find()) {
-            if (TbFaceManager.bGp().DH(matcher.group()) <= 0) {
+            if (TbFaceManager.bCw().Cw(matcher.group()) <= 0) {
                 return false;
             }
         }

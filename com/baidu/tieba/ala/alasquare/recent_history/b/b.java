@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public bz eMv;
-    public long gHG;
+    public bz eHK;
+    public long gDa;
     public boolean isFollow;
     public List<a> tagList;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.isFollow = jSONObject.optInt("is_follow") == 1;
-            this.gHG = jSONObject.optLong("last_watch_time");
+            this.gDa = jSONObject.optLong("last_watch_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
             if (optJSONObject != null) {
-                this.eMv = new bz();
-                this.eMv.parserJson(optJSONObject);
+                this.eHK = new bz();
+                this.eHK.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null) {
@@ -38,15 +38,15 @@ public class b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public int aIY;
-        public String gHH;
+        public int aEl;
+        public String gDb;
 
         public void parse(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aIY = jSONObject.optInt("tag_type");
-                this.gHH = jSONObject.optString("tag_word");
+                this.aEl = jSONObject.optInt("tag_type");
+                this.gDb = jSONObject.optString("tag_word");
             }
         }
     }

@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSharedPrefHelper {
     private static AlaSharedPrefHelper mInstance;
     private SharedPreferences mSP;

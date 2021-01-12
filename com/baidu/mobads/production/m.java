@@ -4,28 +4,28 @@ import android.content.Context;
 import android.net.Uri;
 import dalvik.system.DexClassLoader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3498a;
+    final /* synthetic */ String f3460a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ Uri f3499b;
+    final /* synthetic */ Uri f3461b;
     final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(b bVar, String str, Uri uri) {
         this.c = bVar;
-        this.f3498a = str;
-        this.f3499b = uri;
+        this.f3460a = str;
+        this.f3461b = uri;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
             DexClassLoader a2 = a.a(this.c.f);
-            com.baidu.mobads.utils.e.a(Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a2), "boost", new Class[]{Context.class, String.class, Uri.class, Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBoostListener", false, a2)}, new Object[]{this.c.getApplicationContext(), this.f3498a, this.f3499b, null});
+            com.baidu.mobads.utils.e.a(Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a2), "boost", new Class[]{Context.class, String.class, Uri.class, Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBoostListener", false, a2)}, new Object[]{this.c.getApplicationContext(), this.f3460a, this.f3461b, null});
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
         }

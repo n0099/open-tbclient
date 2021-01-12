@@ -26,7 +26,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -60,7 +60,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;
@@ -100,6 +100,11 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
         public NewEngineFragmentBuilder isTabHost(@NonNull boolean z) {
             this.isUseTabHost = z;
+            return this;
+        }
+
+        public NewEngineFragmentBuilder params(@NonNull Map map) {
+            this.params = map;
             return this;
         }
 
@@ -243,7 +248,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.n.a.a.InterfaceC0277a
+    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }

@@ -1,9 +1,0 @@
-package com.baidu.p.a.c;
-
-import android.os.Build;
-/* loaded from: classes5.dex */
-public class d {
-    public static String getManufacturer() {
-        return Build.MANUFACTURER;
-    }
-}

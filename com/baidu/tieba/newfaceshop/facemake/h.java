@@ -17,45 +17,45 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class h extends BaseAdapter {
-    private int fWL;
-    private f lxb;
+    private int fSe;
+    private f lsv;
     private List<EmotionImageData> mList;
-    private final Runnable lyH = new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.h.2
+    private final Runnable lub = new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.h.2
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.lyG != null) {
+            if (h.this.lua != null) {
                 HashSet hashSet = new HashSet();
-                Iterator it = h.this.lyx.entrySet().iterator();
+                Iterator it = h.this.ltR.entrySet().iterator();
                 while (it.hasNext()) {
-                    hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + h.this.fWL);
+                    hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + h.this.fSe);
                 }
-                for (String str : h.this.lyG) {
+                for (String str : h.this.lua) {
                     if (!TextUtils.isEmpty(str) && !hashSet.contains(str)) {
-                        com.baidu.tbadk.imageManager.c.bGq().deletePic(str);
+                        com.baidu.tbadk.imageManager.c.bCx().deletePic(str);
                     }
                 }
             }
         }
     };
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> lyG = new HashSet();
-    private LinkedHashMap<String, EmotionImageData> lyx = new LinkedHashMap<>();
+    private Set<String> lua = new HashSet();
+    private LinkedHashMap<String, EmotionImageData> ltR = new LinkedHashMap<>();
     private int mItemWidth = l.getDimens(this.mContext, R.dimen.ds116);
-    private int kLs = (int) (((l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds60)) - (this.mItemWidth * 4)) * 0.333d);
+    private int kGN = (int) (((l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds60)) - (this.mItemWidth * 4)) * 0.333d);
 
     public h(List<EmotionImageData> list, int i) {
         this.mList = list;
-        this.fWL = i;
+        this.fSe = i;
     }
 
     public void b(f fVar) {
-        this.lxb = fVar;
+        this.lsv = fVar;
     }
 
     public void G(Map<String, EmotionImageData> map) {
-        this.lyx.putAll(map);
+        this.ltR.putAll(map);
     }
 
     @Override // android.widget.Adapter
@@ -88,14 +88,14 @@ public class h extends BaseAdapter {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_emotion, (ViewGroup) null);
-            aVar.lyK = (PickEmotionView) view.findViewById(R.id.emotion_view1);
-            aVar.lyL = (PickEmotionView) view.findViewById(R.id.emotion_view2);
-            aVar.lyM = (PickEmotionView) view.findViewById(R.id.emotion_view3);
-            aVar.lyN = (PickEmotionView) view.findViewById(R.id.emotion_view4);
+            aVar.lue = (PickEmotionView) view.findViewById(R.id.emotion_view1);
+            aVar.luf = (PickEmotionView) view.findViewById(R.id.emotion_view2);
+            aVar.lug = (PickEmotionView) view.findViewById(R.id.emotion_view3);
+            aVar.luh = (PickEmotionView) view.findViewById(R.id.emotion_view4);
             aVar.initView();
-            C(aVar.lyL, this.kLs);
-            C(aVar.lyM, this.kLs);
-            C(aVar.lyN, this.kLs);
+            C(aVar.luf, this.kGN);
+            C(aVar.lug, this.kGN);
+            C(aVar.luh, this.kGN);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -107,16 +107,16 @@ public class h extends BaseAdapter {
             EmotionImageData emotionImageData = i3 <= min ? this.mList.get(i3) : null;
             switch (i3 - i2) {
                 case 0:
-                    a(aVar.lyK, emotionImageData);
+                    a(aVar.lue, emotionImageData);
                     break;
                 case 1:
-                    a(aVar.lyL, emotionImageData);
+                    a(aVar.luf, emotionImageData);
                     break;
                 case 2:
-                    a(aVar.lyM, emotionImageData);
+                    a(aVar.lug, emotionImageData);
                     break;
                 case 3:
-                    a(aVar.lyN, emotionImageData);
+                    a(aVar.luh, emotionImageData);
                     break;
             }
             i3++;
@@ -131,16 +131,16 @@ public class h extends BaseAdapter {
                 return;
             }
             pickEmotionView.getEmotionView().setTag(pickEmotionView.getEmotionView().getId(), emotionImageData);
-            pickEmotionView.setData(emotionImageData, this.fWL);
+            pickEmotionView.setData(emotionImageData, this.fSe);
             b(pickEmotionView, emotionImageData);
-            if (this.lyG != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                this.lyG.add(emotionImageData.getThumbUrl() + pickEmotionView.getLoadType());
+            if (this.lua != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                this.lua.add(emotionImageData.getThumbUrl() + pickEmotionView.getLoadType());
             }
         }
     }
 
     private void b(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
-        if (this.lyx.containsKey(emotionImageData.getPicUrl())) {
+        if (this.ltR.containsKey(emotionImageData.getPicUrl())) {
             pickEmotionView.setChoosed(true);
         } else {
             pickEmotionView.setChoosed(false);
@@ -155,20 +155,20 @@ public class h extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (h.this.lyx.containsKey(((EmotionImageData) tag).getPicUrl())) {
-                            h.this.lyx.remove(((EmotionImageData) tag).getPicUrl());
+                        if (h.this.ltR.containsKey(((EmotionImageData) tag).getPicUrl())) {
+                            h.this.ltR.remove(((EmotionImageData) tag).getPicUrl());
                             pickEmotionView.setChoosed(false);
-                            if (h.this.lxb != null) {
-                                h.this.lxb.cCk();
+                            if (h.this.lsv != null) {
+                                h.this.lsv.cys();
                             }
-                        } else if (h.this.lxb != null) {
-                            if (h.this.lxb.cCl()) {
-                                h.this.lyx.put(((EmotionImageData) tag).getPicUrl(), (EmotionImageData) tag);
+                        } else if (h.this.lsv != null) {
+                            if (h.this.lsv.cyt()) {
+                                h.this.ltR.put(((EmotionImageData) tag).getPicUrl(), (EmotionImageData) tag);
                                 pickEmotionView.setChoosed(true);
-                                h.this.lxb.cCj();
+                                h.this.lsv.cyr();
                                 return;
                             }
-                            BdToast.b(h.this.mContext, h.this.mContext.getText(R.string.face_group_add_pic_max)).bue();
+                            BdToast.b(h.this.mContext, h.this.mContext.getText(R.string.face_group_add_pic_max)).bqk();
                         }
                     }
                 }
@@ -176,8 +176,8 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void dkE() {
-        new Thread(this.lyH).start();
+    public void dgM() {
+        new Thread(this.lub).start();
     }
 
     private void C(View view, int i) {
@@ -188,25 +188,25 @@ public class h extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     class a {
-        public PickEmotionView lyK;
-        public PickEmotionView lyL;
-        public PickEmotionView lyM;
-        public PickEmotionView lyN;
+        public PickEmotionView lue;
+        public PickEmotionView luf;
+        public PickEmotionView lug;
+        public PickEmotionView luh;
 
         a() {
         }
 
         public void initView() {
-            h.this.a(this.lyK);
-            h.this.a(this.lyL);
-            h.this.a(this.lyM);
-            h.this.a(this.lyN);
+            h.this.a(this.lue);
+            h.this.a(this.luf);
+            h.this.a(this.lug);
+            h.this.a(this.luh);
         }
     }
 
-    public LinkedHashMap<String, EmotionImageData> dkm() {
-        return this.lyx;
+    public LinkedHashMap<String, EmotionImageData> dgu() {
+        return this.ltR;
     }
 }

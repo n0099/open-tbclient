@@ -39,7 +39,7 @@ public class b implements Runnable {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f6871a;
+    private static volatile b f6571a;
     private AtomicBoolean d = new AtomicBoolean(false);
     private boolean e = false;
     private Comparator<JSONObject> f = new Comparator<JSONObject>() { // from class: com.bytedance.sdk.openadsdk.core.h.b.1
@@ -52,18 +52,18 @@ public class b implements Runnable {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6872b = p.a();
-    private final a c = new a(this.f6872b);
+    private final Context f6572b = p.a();
+    private final a c = new a(this.f6572b);
 
     public static b a() {
-        if (f6871a == null) {
+        if (f6571a == null) {
             synchronized (b.class) {
-                if (f6871a == null) {
-                    f6871a = new b();
+                if (f6571a == null) {
+                    f6571a = new b();
                 }
             }
         }
-        return f6871a;
+        return f6571a;
     }
 
     private b() {
@@ -94,7 +94,7 @@ public class b implements Runnable {
             return arrayList;
         }
         try {
-            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1021b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
+            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1004b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
             Object invoke = ah.a(jSONObject.optString(AdvanceSetting.CLEAR_NOTIFICATION), jSONObject.optString("m1"), new Class[0]).invoke(context, new Object[0]);
             String optString = jSONObject.optString(Config.PACKAGE_NAME);
             Object invoke2 = ah.a(optString, jSONObject.optString("m2"), Integer.TYPE).invoke(invoke, Integer.valueOf(jSONObject.optInt("f")));
@@ -147,7 +147,7 @@ public class b implements Runnable {
         String str;
         ArrayList arrayList = new ArrayList();
         try {
-            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1021b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
+            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1004b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
             Object invoke = ah.a(jSONObject.optString(AdvanceSetting.CLEAR_NOTIFICATION), jSONObject.optString("m1"), new Class[0]).invoke(context, new Object[0]);
             String optString = jSONObject.optString(Config.PACKAGE_NAME);
             Object invoke2 = ah.a(optString, jSONObject.optString("m2"), Integer.TYPE).invoke(invoke, Integer.valueOf(jSONObject.optInt("f")));
@@ -192,7 +192,7 @@ public class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!x.a(this.f6872b)) {
+        if (!x.a(this.f6572b)) {
             this.d.set(false);
             return;
         }
@@ -200,7 +200,7 @@ public class b implements Runnable {
             boolean c = this.c.c();
             if (c) {
                 long currentTimeMillis = System.currentTimeMillis();
-                List<JSONObject> b2 = b(this.f6872b);
+                List<JSONObject> b2 = b(this.f6572b);
                 u.b("ApplistHelper", "get duration: " + (System.currentTimeMillis() - currentTimeMillis));
                 a(b2, c);
             } else {
@@ -254,7 +254,7 @@ public class b implements Runnable {
     }
 
     private void a(final List<JSONObject> list, final boolean z) throws JSONException {
-        if (com.bytedance.sdk.openadsdk.core.k.d(this.f6872b) == null && com.bytedance.sdk.openadsdk.core.k.c(this.f6872b) == null && com.bytedance.sdk.openadsdk.core.k.a(this.f6872b) == null && y.a() == null) {
+        if (com.bytedance.sdk.openadsdk.core.k.d(this.f6572b) == null && com.bytedance.sdk.openadsdk.core.k.c(this.f6572b) == null && com.bytedance.sdk.openadsdk.core.k.a(this.f6572b) == null && y.a() == null) {
             this.d.set(false);
             u.b("ApplistHelper", "real upload error1");
             return;
@@ -274,7 +274,7 @@ public class b implements Runnable {
             public void a(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 u.b("ApplistHelper", "real upload response");
                 if (pVar != null && pVar.a()) {
-                    if (pVar.f6345a != null && "20000".equals(pVar.f6345a.optString("status"))) {
+                    if (pVar.f6045a != null && "20000".equals(pVar.f6045a.optString("status"))) {
                         if (z) {
                             b.this.c.a();
                         }
@@ -290,11 +290,11 @@ public class b implements Runnable {
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 if (pVar != null) {
-                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.ppF);
+                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.pkZ);
                 }
                 b.this.d.set(false);
             }
-        }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6872b).d());
+        }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6572b).d());
     }
 
     @NonNull
@@ -304,10 +304,10 @@ public class b implements Runnable {
         JSONObject jSONObject = new JSONObject();
         try {
             Object obj2 = "";
-            if (TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.k.d(this.f6872b))) {
+            if (TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.k.d(this.f6572b))) {
                 i = -1;
             } else {
-                obj2 = com.bytedance.sdk.openadsdk.core.k.d(this.f6872b);
+                obj2 = com.bytedance.sdk.openadsdk.core.k.d(this.f6572b);
             }
             if (i < 0 && !TextUtils.isEmpty(y.a())) {
                 i = 4;
@@ -315,7 +315,7 @@ public class b implements Runnable {
             }
             if (i < 0) {
                 i = 3;
-                obj = com.bytedance.sdk.openadsdk.core.k.c(this.f6872b);
+                obj = com.bytedance.sdk.openadsdk.core.k.c(this.f6572b);
             } else {
                 obj = obj2;
             }
@@ -327,7 +327,7 @@ public class b implements Runnable {
             jSONObject.put("app_info", new JSONArray((Collection) list));
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put("device_id", obj);
-            jSONObject.put("did", com.bytedance.sdk.openadsdk.core.k.a(this.f6872b));
+            jSONObject.put("did", com.bytedance.sdk.openadsdk.core.k.a(this.f6572b));
             jSONObject.put("os_version", Build.VERSION.RELEASE);
             jSONObject.put("device_platform", HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("device_model", Build.MODEL);
@@ -378,10 +378,10 @@ public class b implements Runnable {
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private final SharedPreferences f6877b;
+        private final SharedPreferences f6577b;
 
         a(Context context) {
-            this.f6877b = context.getSharedPreferences("tt_sp_app_list", 0);
+            this.f6577b = context.getSharedPreferences("tt_sp_app_list", 0);
         }
 
         void a(String str) {
@@ -389,7 +389,7 @@ public class b implements Runnable {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_list", "old_app_list", str);
                 } else {
-                    this.f6877b.edit().putString("old_app_list", str).apply();
+                    this.f6577b.edit().putString("old_app_list", str).apply();
                 }
             }
         }
@@ -398,12 +398,12 @@ public class b implements Runnable {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_list", "day_update_time", Long.valueOf(System.currentTimeMillis()));
             } else {
-                this.f6877b.edit().putLong("day_update_time", System.currentTimeMillis()).apply();
+                this.f6577b.edit().putLong("day_update_time", System.currentTimeMillis()).apply();
             }
         }
 
         String b() {
-            return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sp_app_list", "old_app_list", "") : this.f6877b.getString("old_app_list", "");
+            return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sp_app_list", "old_app_list", "") : this.f6577b.getString("old_app_list", "");
         }
 
         boolean c() {
@@ -411,7 +411,7 @@ public class b implements Runnable {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 j = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_list", "day_update_time", 0L);
             } else {
-                j = this.f6877b.getLong("day_update_time", 0L);
+                j = this.f6577b.getLong("day_update_time", 0L);
             }
             return !a(j, System.currentTimeMillis());
         }
@@ -429,7 +429,7 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.core.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1021b {
+    public static class C1004b {
         static String a(String str) {
             byte[] bytes = str.getBytes();
             for (int i = 0; i < bytes.length; i++) {

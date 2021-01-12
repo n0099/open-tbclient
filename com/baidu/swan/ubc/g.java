@@ -1,36 +1,36 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes6.dex */
 class g {
-    private String eAZ;
-    private String eBa;
-    private String eBb;
-    private String eBc;
-    private int eBd;
-    private String eBe;
-    private int eBf;
-    private int eBg;
-    private String eBh;
-    private String eBi;
+    private String ewk;
+    private String ewl;
+    private String ewm;
+    private String ewn;
+    private int ewo;
+    private String ewp;
+    private int ewq;
+    private int ewr;
+    private String ews;
+    private String ewt;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
 
     public g(String str, String str2, String str3, int i, String str4, String str5) {
-        this.eBa = str;
+        this.ewl = str;
         this.mId = str;
-        this.eBb = str2;
-        this.eBc = str3;
-        this.eBd = i;
+        this.ewm = str2;
+        this.ewn = str3;
+        this.ewo = i;
         this.mType = str4;
-        this.eBe = str5;
+        this.ewp = str5;
     }
 
-    public void zw(String str) {
-        this.eAZ = str;
+    public void yl(String str) {
+        this.ewk = str;
     }
 
-    public void nM(int i) {
+    public void mg(int i) {
         this.mRate = i;
     }
 
@@ -38,39 +38,39 @@ class g {
         this.mCategory = str;
     }
 
-    public void nN(int i) {
-        this.eBf = i;
+    public void mh(int i) {
+        this.ewq = i;
     }
 
-    public void nO(int i) {
-        this.eBg = i;
+    public void mi(int i) {
+        this.ewr = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String biq() {
-        return this.eBb;
+    public String bew() {
+        return this.ewm;
     }
 
-    public String bir() {
-        return this.eBc;
+    public String bex() {
+        return this.ewn;
     }
 
     public int getTimeout() {
-        return this.eBd;
+        return this.ewo;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bis() {
-        return this.eBe;
+    public String bey() {
+        return this.ewp;
     }
 
-    public int bit() {
+    public int bez() {
         return this.mRate;
     }
 
@@ -78,23 +78,23 @@ class g {
         return this.mCategory;
     }
 
-    public int biu() {
-        return this.eBf;
+    public int beA() {
+        return this.ewq;
     }
 
-    public int biv() {
-        return this.eBg;
+    public int beB() {
+        return this.ewr;
     }
 
-    public void zx(String str) {
-        this.eBh = str;
+    public void ym(String str) {
+        this.ews = str;
     }
 
-    public String biw() {
-        return this.eBh;
+    public String beC() {
+        return this.ews;
     }
 
-    public void zy(String str) {
-        this.eBi = str;
+    public void yn(String str) {
+        this.ewt = str;
     }
 }

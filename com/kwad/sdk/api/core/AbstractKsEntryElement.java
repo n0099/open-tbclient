@@ -8,7 +8,7 @@ import com.kwad.sdk.api.KsEntryElement;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractKsEntryElement implements KsEntryElement {
     @Override // com.kwad.sdk.api.KsEntryElement
     @Nullable

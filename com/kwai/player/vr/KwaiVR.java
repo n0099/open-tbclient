@@ -4,7 +4,7 @@ import android.content.Context;
 import android.hardware.SensorEvent;
 import android.util.Log;
 import android.view.MotionEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiVR {
     public static final int INTERACTIVE_MODE_MOTION = 0;
     public static final int INTERACTIVE_MODE_MOTION_WITH_TOUCH = 2;
@@ -22,7 +22,7 @@ public class KwaiVR {
     private KwaiSensorHelper mSensorHelper;
     private int mStereoType;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private Context mContext;
         private boolean mPinchEnabled = false;
@@ -55,7 +55,7 @@ public class KwaiVR {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface IAdvanceGestureListener {
         void onDrag(float f, float f2);
 
@@ -63,7 +63,7 @@ public class KwaiVR {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface IAdvanceSensorListener {
         void OnRotation(int i);
 

@@ -10,14 +10,14 @@ import io.reactivex.n;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MaybeCreate<T> extends k<T> {
-    final n<T> qjw;
+    final n<T> qeU;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         Emitter emitter = new Emitter(mVar);
         mVar.onSubscribe(emitter);
         try {
-            this.qjw.a(emitter);
+            this.qeU.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.O(th);
             emitter.onError(th);

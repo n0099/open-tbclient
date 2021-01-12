@@ -10,18 +10,18 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.blw);
+        super(context, com.baidu.live.im.a.bgH);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void MW() {
-        if (MX()) {
-            MY();
+    protected void Jb() {
+        if (Jc()) {
+            Jd();
         } else {
-            MZ();
+            Je();
         }
     }
 
@@ -38,7 +38,7 @@ public class e extends b {
         if (y != null) {
             String str = y.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (MX()) {
+            if (Jc()) {
                 if (y.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-7479041), 0, valueOf.length(), 33);
                 } else {
@@ -57,12 +57,12 @@ public class e extends b {
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
             if (y.shareType != 3) {
-                a(spannableStringBuilder, bVar.Nw(), cVar, false, false);
-                if (MX()) {
-                    MY();
+                a(spannableStringBuilder, bVar.JB(), cVar, false, false);
+                if (Jc()) {
+                    Jd();
                 }
             }
-            cVar.blJ.setText(spannableStringBuilder);
+            cVar.bgU.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
@@ -85,7 +85,7 @@ public class e extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String shareText;
         public int shareType;

@@ -1,10 +1,9 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RankDetailTrendCard extends BaseCardInfo {
     private final String btnDone;
     private final String btnText;
@@ -80,14 +79,14 @@ public class RankDetailTrendCard extends BaseCardInfo {
     public RankDetailTrendCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
         this.rank = jSONObject.optInt("rank");
-        this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
+        this.ratio = jSONObject.optDouble("ratio", 1.0d);
         this.picUrl = jSONObject.optString("picUrl");
         this.iconUrl = jSONObject.optString("iconUrl", "");
         this.picTrendType = jSONObject.optInt("picTrendType");
         this.picTrendUrl = jSONObject.optString("picTrendUrl");
         this.trendText = jSONObject.optString("trendText");
-        this.trendColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("trendColor", ""));
-        this.trendColorN = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("trendColorN", ""));
+        this.trendColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("trendColor", ""));
+        this.trendColorN = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("trendColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

@@ -7,7 +7,7 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_REQUEST_INTERVAL = 3600;
     public static final int DEFAULT_SPLASH_TIME_OUT = 5000;
@@ -20,7 +20,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public TemplateConfig rewardMiddleEndcardConfig = new TemplateConfig();
     public TemplateConfigMap templateConfigMap = new TemplateConfigMap();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class TemplateConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -6943205584670122269L;
         public String h5Checksum;
@@ -28,7 +28,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         public String h5Version;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig downloadPopWindowConfig;

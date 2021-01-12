@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static final int DF_SEG_SIZE = 524288;
     public static final int MODE_HTTPCLIENT_COMMON = 0;

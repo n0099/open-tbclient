@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.game.strategy.view;
 import android.view.View;
 /* loaded from: classes2.dex */
 public interface e {
-    boolean cKy();
+    boolean cGG();
 
     void cZ(View view);
 

@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebpBitmapFactory {
     private static final int IN_TEMP_BUFFER_SIZE = 8192;
     private static final int MAX_WEBP_HEADER_SIZE = 21;

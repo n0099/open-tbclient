@@ -23,9 +23,9 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
 @kotlin.e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class l extends aa {
-    public static final a drL = new a(null);
+    public static final a dmU = new a(null);
 
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/webSocket");
@@ -120,7 +120,7 @@ public final class l extends aa {
                 p.n(string, "taskId");
                 p.n(optString, TiebaInitialize.LogFields.REASON);
                 webSocketManager.close(string, optInt, optString);
-                eVar.aMB().qU(string);
+                eVar.aIH().pJ(string);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             } catch (Exception e) {
@@ -129,15 +129,15 @@ public final class l extends aa {
                 if (aa.DEBUG) {
                     Log.d("websocket", "close --- " + e.getMessage());
                 }
-                k aMB = eVar.aMB();
+                k aIH = eVar.aIH();
                 p.n(string, "taskId");
-                aMB.qU(string);
+                aIH.pJ(string);
                 return false;
             }
         } catch (Throwable th) {
-            k aMB2 = eVar.aMB();
+            k aIH2 = eVar.aIH();
             p.n(string, "taskId");
-            aMB2.qU(string);
+            aIH2.pJ(string);
             throw th;
         }
     }
@@ -199,12 +199,12 @@ public final class l extends aa {
             return false;
         }
         JSONObject jSONObject3 = new JSONObject();
-        if (!eVar.aMB().aGF()) {
+        if (!eVar.aIH().aCL()) {
             jSONObject3.put(BaseJsonData.TAG_ERRNO, "1");
         } else {
             String string = jSONObject.getString("url");
             String optString = jSONObject.optString("__plugin__");
-            switch (com.baidu.swan.apps.af.a.b.Y("socket", string, optString)) {
+            switch (com.baidu.swan.apps.af.a.b.X("socket", string, optString)) {
                 case 1:
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
                     return false;
@@ -214,13 +214,13 @@ public final class l extends aa {
                 default:
                     WebSocketRequest fromJSON = WebSocketRequest.Companion.fromJSON(jSONObject);
                     if (!TextUtils.isEmpty(optString)) {
-                        com.baidu.swan.pms.model.h rJ = com.baidu.swan.apps.ac.g.b.rJ(optString);
+                        com.baidu.swan.pms.model.h qy = com.baidu.swan.apps.ac.g.b.qy(optString);
                         LinkedHashMap headers = fromJSON.getHeaders();
                         if (headers == null) {
                             headers = new LinkedHashMap();
                             fromJSON.setHeaders(headers);
                         }
-                        String e = com.baidu.swan.apps.ac.g.a.e(rJ);
+                        String e = com.baidu.swan.apps.ac.g.a.e(qy);
                         p.n(e, "SwanPluginHostSign.hostSign(pmsPlugin)");
                         headers.put("X-SWAN-HOSTSIGN", e);
                     }
@@ -229,7 +229,7 @@ public final class l extends aa {
                         WebSocketTask connect = WebSocketManager.INSTANCE.connect(fromJSON, a(jSONObject2, callbackHandler));
                         jSONObject3.put(BaseJsonData.TAG_ERRNO, "0");
                         jSONObject3.put("task", connect.toJSON());
-                        eVar.aMB().a(connect);
+                        eVar.aIH().a(connect);
                         break;
                     } catch (Exception e2) {
                         com.baidu.swan.apps.console.c.e("websocket", e2.getMessage());
@@ -250,20 +250,20 @@ public final class l extends aa {
     }
 
     @kotlin.e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements IWebSocketListener {
-        final /* synthetic */ WeakReference drN;
-        final /* synthetic */ String drO;
-        final /* synthetic */ String drP;
-        final /* synthetic */ String drQ;
-        final /* synthetic */ String drR;
+        final /* synthetic */ WeakReference dmW;
+        final /* synthetic */ String dmX;
+        final /* synthetic */ String dmY;
+        final /* synthetic */ String dmZ;
+        final /* synthetic */ String dna;
 
         b(WeakReference weakReference, String str, String str2, String str3, String str4) {
-            this.drN = weakReference;
-            this.drO = str;
-            this.drP = str2;
-            this.drQ = str3;
-            this.drR = str4;
+            this.dmW = weakReference;
+            this.dmX = str;
+            this.dmY = str2;
+            this.dmZ = str3;
+            this.dna = str4;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -276,9 +276,9 @@ public final class l extends aa {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket open success");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.drN.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.dmW.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.drO, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.dmX, jSONObject3.toString());
             }
         }
 
@@ -292,9 +292,9 @@ public final class l extends aa {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.drN.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.dmW.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.drP, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.dmY, jSONObject2.toString());
             }
         }
 
@@ -311,16 +311,16 @@ public final class l extends aa {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.drN.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.dmW.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.drP, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.dmY, jSONObject2.toString());
             }
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onClose(JSONObject jSONObject) {
-            com.baidu.swan.apps.runtime.e arP;
-            k aMB;
+            com.baidu.swan.apps.runtime.e anU;
+            k aIH;
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("code", jSONObject != null ? jSONObject.optInt("code") : 0);
             jSONObject2.put(TiebaInitialize.LogFields.REASON, (jSONObject == null || (r0 = jSONObject.optString(TiebaInitialize.LogFields.REASON, "")) == null) ? "" : "");
@@ -328,21 +328,21 @@ public final class l extends aa {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket closed");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.drN.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.dmW.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.drQ, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.dmZ, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString(Message.TASK_ID) : null;
-            if (string == null || (arP = l.this.arP()) == null || (aMB = arP.aMB()) == null) {
+            if (string == null || (anU = l.this.anU()) == null || (aIH = anU.aIH()) == null) {
                 return;
             }
-            aMB.qU(string);
+            aIH.pJ(string);
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onError(Throwable th, JSONObject jSONObject) {
-            com.baidu.swan.apps.runtime.e arP;
-            k aMB;
+            com.baidu.swan.apps.runtime.e anU;
+            k aIH;
             p.o(th, "t");
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("errMsg", th.getMessage());
@@ -350,20 +350,20 @@ public final class l extends aa {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "error happen");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.drN.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.dmW.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.drR, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.dna, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString(Message.TASK_ID) : null;
-            if (string == null || (arP = l.this.arP()) == null || (aMB = arP.aMB()) == null) {
+            if (string == null || (anU = l.this.anU()) == null || (aIH = anU.aIH()) == null) {
                 return;
             }
-            aMB.qU(string);
+            aIH.pJ(string);
         }
     }
 
     @kotlin.e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         private a() {
         }

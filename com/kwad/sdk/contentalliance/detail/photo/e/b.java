@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad.sdk.contentalliance.a.e {
     private RelativeLayout d;
     private KsAdFrameLayout e;
@@ -28,13 +28,13 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
     private int j;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Random f8784b = new Random();
+    private final Random f8484b = new Random();
     private List<Integer> c = new ArrayList();
     private LinkedList<LottieAnimationView> k = new LinkedList<>();
     private final Runnable m = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.1
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.f9321b);
+            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.f9021b);
         }
     };
     private com.kwad.sdk.contentalliance.a.e n = new com.kwad.sdk.contentalliance.a.e() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.2
@@ -43,15 +43,15 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            b.this.f8693a.d.add(b.this.n);
+            b.this.f8393a.d.add(b.this.n);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
             b.this.d.removeCallbacks(b.this.m);
-            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.f9321b);
-            b.this.f8693a.d.remove(b.this.n);
+            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.f9021b);
+            b.this.f8393a.d.remove(b.this.n);
             if (b.this.d != null) {
                 int i = 0;
                 while (true) {
@@ -126,7 +126,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
         if (z) {
             lottieAnimationView.setTranslationX(f - (i / 2.0f));
             lottieAnimationView.setTranslationY((f2 - (i / 2.0f)) - (this.j / 3.0f));
-            lottieAnimationView.setRotation(this.c.get(this.f8784b.nextInt(this.c.size())).intValue());
+            lottieAnimationView.setRotation(this.c.get(this.f8484b.nextInt(this.c.size())).intValue());
             layoutParams.addRule(13, 0);
         } else {
             lottieAnimationView.setTranslationX(0.0f);
@@ -184,7 +184,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8693a.f8703b.add(this.o);
+        this.f8393a.f8403b.add(this.o);
         this.e.a(this.f);
         this.d.setVisibility(0);
     }
@@ -221,7 +221,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
         l().setOnTouchListener(null);
         this.d.setOnTouchListener(null);
         this.e.b(this.f);
-        this.f8693a.d.remove(this.n);
+        this.f8393a.d.remove(this.n);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

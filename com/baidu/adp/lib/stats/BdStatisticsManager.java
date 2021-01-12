@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.location.Address;
+import android.net.http.Headers;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -306,7 +307,7 @@ public class BdStatisticsManager {
         if (aVar != null) {
             Address address = com.baidu.adp.lib.c.a.lI().getAddress(false, false);
             if (address != null) {
-                aVar.append("location", address.getLocality());
+                aVar.append(Headers.LOCATION, address.getLocality());
             }
             addLog(BdStatsConstant.StatsType.PERFORMANCE, str, -1L, null, aVar, new Object[0]);
         }

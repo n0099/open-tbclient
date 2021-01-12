@@ -15,54 +15,54 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes2.dex */
 public class c {
-    private EMTextView eYh;
-    private BdTypeRecyclerView jlj;
-    private LinearLayout kSH;
-    private com.baidu.tieba.pb.pb.adapter.b lYh;
-    private View mkv;
-    private f mkw;
+    private EMTextView eTw;
+    private BdTypeRecyclerView jgC;
+    private LinearLayout kOc;
+    private com.baidu.tieba.pb.pb.adapter.b lTD;
+    private View mfP;
+    private f mfQ;
 
     public c(TbPageContext<?> tbPageContext) {
         init(tbPageContext.getPageActivity());
-        this.lYh = new com.baidu.tieba.pb.pb.adapter.b(tbPageContext, this.jlj);
-        this.mkw = new f(this.jlj, this.lYh);
+        this.lTD = new com.baidu.tieba.pb.pb.adapter.b(tbPageContext, this.jgC);
+        this.mfQ = new f(this.jgC, this.lTD);
         onChangeSkinType();
     }
 
     private void init(Context context) {
-        this.kSH = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
-        this.eYh = (EMTextView) this.kSH.findViewById(R.id.tv_title);
-        this.jlj = (BdTypeRecyclerView) this.kSH.findViewById(R.id.pb_recom_info_list);
-        this.jlj.setLayoutManager(new LinearLayoutManager(context));
-        this.jlj.setFadingEdgeLength(0);
-        this.jlj.setOverScrollMode(2);
+        this.kOc = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.recom_thread_info_layout, (ViewGroup) null);
+        this.eTw = (EMTextView) this.kOc.findViewById(R.id.tv_title);
+        this.jgC = (BdTypeRecyclerView) this.kOc.findViewById(R.id.pb_recom_info_list);
+        this.jgC.setLayoutManager(new LinearLayoutManager(context));
+        this.jgC.setFadingEdgeLength(0);
+        this.jgC.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        this.jlj.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        this.jlj.setNestedScrollingEnabled(false);
-        this.mkv = new View(context);
+        this.jgC.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        this.jgC.setNestedScrollingEnabled(false);
+        this.mfP = new View(context);
     }
 
     public void H(com.baidu.tieba.pb.data.f fVar) {
-        this.mkw.H(fVar);
+        this.mfQ.H(fVar);
     }
 
-    public void HP(int i) {
-        this.jlj.removeFooterView(this.mkv);
-        this.mkv.setLayoutParams(new ViewGroup.LayoutParams(1, i));
-        this.jlj.addFooterView(this.mkv);
+    public void Gj(int i) {
+        this.jgC.removeFooterView(this.mfP);
+        this.mfP.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+        this.jgC.addFooterView(this.mfP);
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this.kSH, R.color.CAM_X0204);
-        ao.setViewTextColor(this.eYh, R.color.CAM_X0105);
-        this.lYh.onChangeSkinType();
+        ao.setBackgroundColor(this.kOc, R.color.CAM_X0204);
+        ao.setViewTextColor(this.eTw, R.color.CAM_X0105);
+        this.lTD.onChangeSkinType();
     }
 
     public View getView() {
-        return this.kSH;
+        return this.kOc;
     }
 
     public void setScrollable(boolean z) {
-        this.jlj.setNestedScrollingEnabled(z);
+        this.jgC.setNestedScrollingEnabled(z);
     }
 }

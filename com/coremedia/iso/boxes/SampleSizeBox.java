@@ -9,16 +9,16 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static final String TYPE = "stsz";
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_6 = null;
     int sampleCount;
     private long sampleSize;
     private long[] sampleSizes;
@@ -54,7 +54,7 @@ public class SampleSizeBox extends AbstractFullBox {
     }
 
     public long getSampleSizeAtIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.TI(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Sb(i)));
         return this.sampleSize > 0 ? this.sampleSize : this.sampleSizes[i];
     }
 

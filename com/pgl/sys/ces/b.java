@@ -16,7 +16,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     private static Map<String, Object> n;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f11697b;
+    public Context f11397b;
     private String g;
     private com.pgl.sys.ces.d.a l;
     private static volatile b e = null;
@@ -26,18 +26,18 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     private static boolean m = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11696a = false;
+    public boolean f11396a = false;
     private String h = "";
     private String i = "";
     private String j = "";
     private boolean k = false;
 
     private b(Context context, String str, com.pgl.sys.ces.d.a aVar) {
-        this.f11697b = null;
+        this.f11397b = null;
         this.g = "";
         this.l = null;
         setName("CZL-00");
-        this.f11697b = context;
+        this.f11397b = context;
         this.g = str;
         this.l = aVar;
     }
@@ -51,7 +51,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
             synchronized (b.class) {
                 if (e == null) {
                     if (context == null) {
-                        context = com.pgl.sys.ces.a.a.eFc().getApplicationContext();
+                        context = com.pgl.sys.ces.a.a.eBl().getApplicationContext();
                     }
                     if (context == null) {
                         return null;
@@ -92,8 +92,8 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
         new Thread("CZL-" + str) { // from class: com.pgl.sys.ces.b.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                d.f11706a = 0;
-                d.a(b.this.f11697b);
+                d.f11406a = 0;
+                d.a(b.this.f11397b);
             }
         }.start();
     }
@@ -116,7 +116,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
 
     public static int f() {
         try {
-            return com.pgl.sys.ces.a.a.eFb() != null ? 1 : 0;
+            return com.pgl.sys.ces.a.a.eBk() != null ? 1 : 0;
         } catch (Throwable th) {
             return -1;
         }
@@ -127,7 +127,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     private void h() {
-        com.pgl.sys.a.a.a(this.f11697b, b(), new com.pgl.sys.a.a.a() { // from class: com.pgl.sys.ces.b.2
+        com.pgl.sys.a.a.a(this.f11397b, b(), new com.pgl.sys.a.a.a() { // from class: com.pgl.sys.ces.b.2
             @Override // com.pgl.sys.a.a.a
             public void a(String str) {
                 boolean unused = b.m = true;
@@ -137,7 +137,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
 
     private boolean i() {
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.f11697b.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.f11397b.getSystemService("connectivity");
             if (connectivityManager != null) {
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo == null) {
@@ -158,37 +158,37 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     public Object a(int i, Object obj) {
         String str;
         if (i == 123) {
-            return com.pgl.sys.ces.a.e.a(this.f11697b);
+            return com.pgl.sys.ces.a.e.a(this.f11397b);
         }
         if (i == 121) {
-            return com.pgl.sys.ces.a.c.c(this.f11697b);
+            return com.pgl.sys.ces.a.c.c(this.f11397b);
         }
         if (i == 122) {
             return com.pgl.sys.ces.a.c.a();
         }
         if (i == 126) {
-            return com.pgl.sys.ces.a.c.e(this.f11697b);
+            return com.pgl.sys.ces.a.c.e(this.f11397b);
         }
         if (i == 127) {
-            return com.pgl.sys.ces.a.c.a(this.f11697b);
+            return com.pgl.sys.ces.a.c.a(this.f11397b);
         }
         if (i == 128) {
-            return com.pgl.sys.ces.a.c.b(this.f11697b);
+            return com.pgl.sys.ces.a.c.b(this.f11397b);
         }
         if (i == 120) {
             return com.pgl.sys.ces.a.b.a();
         }
         if (i == 124) {
-            return f.b(this.f11697b);
+            return f.b(this.f11397b);
         }
         if (i == 130) {
-            return f.a(this.f11697b);
+            return f.a(this.f11397b);
         }
         if (i == 125) {
-            return f.c(this.f11697b);
+            return f.c(this.f11397b);
         }
         if (i == 129) {
-            return com.pgl.sys.ces.a.d.a(this.f11697b);
+            return com.pgl.sys.ces.a.d.a(this.f11397b);
         }
         if (i == 131) {
             return com.pgl.sys.a.a.a();
@@ -197,7 +197,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
             reportNow((String) obj);
             return null;
         } else if (i == 134) {
-            return com.pgl.sys.ces.b.a.iu(this.f11697b).a();
+            return com.pgl.sys.ces.b.a.is(this.f11397b).a();
         } else {
             if (i == 133) {
                 try {
@@ -219,13 +219,13 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
                 return a2 == null ? "0000000000000000000000000000000000000000" : a2.trim();
             } else if (i == 136) {
                 try {
-                    return this.f11697b.getPackageManager().getPackageInfo(this.f11697b.getPackageName(), 64).signatures[0].toByteArray();
+                    return this.f11397b.getPackageManager().getPackageInfo(this.f11397b.getPackageName(), 64).signatures[0].toByteArray();
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                     return null;
                 }
             } else if (i == 201) {
-                return com.pgl.sys.ces.a.c.d(this.f11697b);
+                return com.pgl.sys.ces.a.c.d(this.f11397b);
             } else {
                 if (i == 202) {
                     return com.pgl.sys.ces.a.c.b();
@@ -261,16 +261,16 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        long timeInMillis = b.a().f11696a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        byte[] bArr = (byte[]) a.meta(222, b.this.f11697b, str);
-                        long timeInMillis2 = b.a().f11696a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        if (b.a().f11696a) {
+                        long timeInMillis = b.a().f11396a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        byte[] bArr = (byte[]) a.meta(222, b.this.f11397b, str);
+                        long timeInMillis2 = b.a().f11396a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        if (b.a().f11396a) {
                             Log.d("CZL_Efficient", "[Efficient] report : " + (timeInMillis2 - timeInMillis));
                         }
                         if (bArr == null || bArr.length <= 0) {
                             throw new NullPointerException("NullPointerException");
                         }
-                        new com.pgl.sys.ces.c.a(b.this.f11697b, b.this.h).d(1, 2, bArr);
+                        new com.pgl.sys.ces.c.a(b.this.f11397b, b.this.h).d(1, 2, bArr);
                     } catch (Throwable th) {
                     }
                 }
@@ -307,7 +307,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     public void setEfficientDebug(boolean z) {
-        this.f11696a = z;
+        this.f11396a = z;
     }
 
     @Override // com.pgl.sys.ces.d.b

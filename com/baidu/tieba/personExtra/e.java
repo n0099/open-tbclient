@@ -14,11 +14,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements com.baidu.tieba.personPolymeric.b.c {
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
-    private com.baidu.tieba.post.a.a muh;
+    private com.baidu.tieba.post.a.a mpC;
     private int mStatus = 0;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.personExtra.e.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,14 +36,14 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                     e.this.mTbPageContext.showToast(R.string.privacy_setting_toast);
                 }
                 e.this.mStatus = 1;
-                e.this.muh.startPullRefresh();
+                e.this.mpC.startPullRefresh();
             }
         }
     };
 
     public e(TbPageContext tbPageContext, com.baidu.tieba.post.a.a aVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.muh = aVar;
+        this.mpC = aVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_PRIVACY_STATUS) { // from class: com.baidu.tieba.personExtra.e.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                         default:
                             return;
                         case 1:
-                            e.this.muh.startPullRefresh();
+                            e.this.mpC.startPullRefresh();
                             return;
                     }
                 }
@@ -70,7 +70,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.c
-    public void dzI() {
+    public void dvQ() {
         if (!j.isNetWorkAvailable()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(R.string.neterror);

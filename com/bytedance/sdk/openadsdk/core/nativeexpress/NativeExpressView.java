@@ -45,10 +45,10 @@ public class NativeExpressView extends FrameLayout implements j {
     private String H;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.dislike.b f6923a;
+    private com.bytedance.sdk.openadsdk.dislike.b f6623a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TTDislikeDialogAbstract f6924b;
+    private TTDislikeDialogAbstract f6624b;
     private String c;
     private String d;
     protected final AtomicBoolean e;
@@ -207,14 +207,14 @@ public class NativeExpressView extends FrameLayout implements j {
         if (this.s != null) {
             this.s.setDislikeOuter(tTDislikeDialogAbstract);
         }
-        this.f6924b = tTDislikeDialogAbstract;
+        this.f6624b = tTDislikeDialogAbstract;
     }
 
     public void setDislike(com.bytedance.sdk.openadsdk.dislike.b bVar) {
         if (this.s != null) {
             this.s.setDislikeInner(bVar);
         }
-        this.f6923a = bVar;
+        this.f6623a = bVar;
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
@@ -389,8 +389,8 @@ public class NativeExpressView extends FrameLayout implements j {
 
     public void a(int i, com.bytedance.sdk.openadsdk.core.d.j jVar) {
         if (i != -1 && jVar != null) {
-            int i2 = jVar.f6803a;
-            int i3 = jVar.f6804b;
+            int i2 = jVar.f6503a;
+            int i3 = jVar.f6504b;
             int i4 = jVar.c;
             int i5 = jVar.d;
             switch (i) {
@@ -418,11 +418,11 @@ public class NativeExpressView extends FrameLayout implements j {
                     }
                     return;
                 case 3:
-                    if (this.f6924b != null) {
-                        this.f6924b.show();
+                    if (this.f6624b != null) {
+                        this.f6624b.show();
                         return;
-                    } else if (this.f6923a != null) {
-                        this.f6923a.showDislikeDialog(0);
+                    } else if (this.f6623a != null) {
+                        this.f6623a.showDislikeDialog(0);
                         return;
                     } else {
                         return;
@@ -584,8 +584,8 @@ public class NativeExpressView extends FrameLayout implements j {
             com.bytedance.sdk.openadsdk.core.widget.webview.d.a().a(this, this.g, true);
             this.E.set(true);
             this.h = null;
-            this.f6923a = null;
-            this.f6924b = null;
+            this.f6623a = null;
+            this.f6624b = null;
             this.j = null;
             this.k = null;
             this.v = null;
@@ -637,15 +637,15 @@ public class NativeExpressView extends FrameLayout implements j {
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6929b;
+        private int f6629b;
 
         public a(int i) {
-            this.f6929b = i;
+            this.f6629b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f6929b == 1) {
+            if (this.f6629b == 1) {
                 u.c("NativeExpressView", "MSG_RENDER_TIME_OUT-->OnAdRenderRunnable......run....");
                 NativeExpressView.this.a(false, 0.0f, 0.0f, 107);
             }

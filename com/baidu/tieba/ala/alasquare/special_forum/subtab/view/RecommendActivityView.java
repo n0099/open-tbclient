@@ -15,24 +15,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.c> {
-    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> gKg;
-    private com.baidu.tieba.ala.alasquare.widget.banner.a gKh;
+    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> gFA;
+    private com.baidu.tieba.ala.alasquare.widget.banner.a gFB;
     private TbPageContext mTbPageContext;
 
     public RecommendActivityView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gKh = new com.baidu.tieba.ala.alasquare.widget.banner.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.2
+        this.gFB = new com.baidu.tieba.ala.alasquare.widget.banner.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.2
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.a
             public AlaBannerViewHolder t(ViewGroup viewGroup2, int i) {
                 return new AlaBannerViewHolder<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(RecommendActivityView.this.mTbPageContext.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.2.1
-                    public TbImageView gKj;
+                    public TbImageView gFD;
 
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
                     protected void ap(View view) {
-                        this.gKj = (TbImageView) view.findViewById(R.id.cover);
-                        this.gKj.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                        this.gFD = (TbImageView) view.findViewById(R.id.cover);
+                        this.gFD.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -40,8 +40,8 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
                     @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
                     /* renamed from: a */
                     public void k(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.gKj != null && !StringUtils.isNull(bVar.pic)) {
-                            this.gKj.startLoad(bVar.pic, 10, false);
+                        if (bVar != null && this.gFD != null && !StringUtils.isNull(bVar.pic)) {
+                            this.gFD.startLoad(bVar.pic, 10, false);
                         }
                     }
 
@@ -53,15 +53,15 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.gKg = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
-        this.gKg.setViewHolderAdapter(this.gKh);
-        this.gKg.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.1
+        this.gFA = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
+        this.gFA.setViewHolderAdapter(this.gFB);
+        this.gFA.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.1
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
             public void aG(Object obj) {
                 if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
                     com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
                     if (!StringUtils.isNull(bVar.url)) {
-                        be.bwv().a((TbPageContext) j.K(RecommendActivityView.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
+                        be.bsB().a((TbPageContext) j.K(RecommendActivityView.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
                     }
                     TiebaStatic.log("c12902");
                 }
@@ -72,7 +72,7 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gKg.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.gFA.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
@@ -89,8 +89,8 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
     @Override // com.baidu.tieba.card.b
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.c cVar) {
-        if (cVar != null && !x.isEmpty(cVar.gID)) {
-            this.gKg.a(cVar.gID, this.gKh);
+        if (cVar != null && !x.isEmpty(cVar.gDX)) {
+            this.gFA.a(cVar.gDX, this.gFB);
             TiebaStatic.log("c12901");
         }
     }
@@ -99,15 +99,15 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
     public void onClick(View view) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public View epV;
-        public RecommendActivityView gKl;
+        public View elg;
+        public RecommendActivityView gFF;
 
         public ViewHolder(RecommendActivityView recommendActivityView) {
             super(recommendActivityView.getView());
-            this.gKl = recommendActivityView;
-            this.epV = recommendActivityView.getView();
+            this.gFF = recommendActivityView;
+            this.elg = recommendActivityView.getView();
         }
     }
 }

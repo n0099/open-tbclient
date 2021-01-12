@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.h;
 
 import android.app.Activity;
+import android.net.http.Headers;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.ar.constants.ARConfigKey;
@@ -24,20 +25,20 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f7465a;
+    private static volatile a f7165a;
 
     private a() {
     }
 
     public static a a() {
-        if (f7465a == null) {
+        if (f7165a == null) {
             synchronized (a.class) {
-                if (f7465a == null) {
-                    f7465a = new a();
+                if (f7165a == null) {
+                    f7165a = new a();
                 }
             }
         }
-        return f7465a;
+        return f7165a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -286,10 +287,10 @@ public class a {
             c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
             JSONObject jSONObject4 = new JSONObject();
             if (a2 != null) {
-                jSONObject4.put("longitude", a2.f7865b);
-                jSONObject4.put("latitude", a2.f7864a);
+                jSONObject4.put("longitude", a2.f7565b);
+                jSONObject4.put("latitude", a2.f7564a);
             }
-            jSONObject3.put("location", jSONObject4);
+            jSONObject3.put(Headers.LOCATION, jSONObject4);
             JSONArray jSONArray = new JSONArray();
             for (com.bytedance.sdk.openadsdk.core.d.d dVar : list) {
                 if (dVar != null) {

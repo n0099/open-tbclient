@@ -7,6 +7,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
@@ -17,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BitmapPreFillRunner implements Runnable {
     static final int BACKOFF_RATIO = 4;
     static final long INITIAL_BACKOFF_MS = 40;
@@ -73,7 +74,7 @@ public final class BitmapPreFillRunner implements Runnable {
                 this.bitmapPool.put(createBitmap);
             }
             if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
+                Log.d(TAG, "allocated [" + remove.getWidth() + Config.EVENT_HEAT_X + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
             }
         }
         return (this.isCancelled || this.toPrefill.isEmpty()) ? false : true;
@@ -101,7 +102,7 @@ public final class BitmapPreFillRunner implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class UniqueKey implements Key {
         UniqueKey() {
         }
@@ -114,7 +115,7 @@ public final class BitmapPreFillRunner implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Clock {
         Clock() {
         }

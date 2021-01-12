@@ -3,38 +3,38 @@ package com.kwad.sdk.crash.report;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<C1122a> f9943a = new ArrayList<>();
+    private ArrayList<C1105a> f9643a = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1122a {
+    /* loaded from: classes4.dex */
+    public static class C1105a {
 
         /* renamed from: a  reason: collision with root package name */
-        private ExceptionMessage f9944a;
+        private ExceptionMessage f9644a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f9945b;
+        private int f9645b;
 
-        C1122a(ExceptionMessage exceptionMessage, int i) {
-            this.f9944a = exceptionMessage;
-            this.f9945b = i;
+        C1105a(ExceptionMessage exceptionMessage, int i) {
+            this.f9644a = exceptionMessage;
+            this.f9645b = i;
         }
     }
 
     private void a() {
-        if (this.f9943a.isEmpty()) {
+        if (this.f9643a.isEmpty()) {
             return;
         }
         try {
-            Iterator<C1122a> it = this.f9943a.iterator();
+            Iterator<C1105a> it = this.f9643a.iterator();
             while (it.hasNext()) {
-                C1122a next = it.next();
-                b(next.f9944a, next.f9945b);
+                C1105a next = it.next();
+                b(next.f9644a, next.f9645b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -55,7 +55,7 @@ public abstract class a implements c {
             b(exceptionMessage, i);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.f9943a.add(new C1122a(exceptionMessage, i));
+            this.f9643a.add(new C1105a(exceptionMessage, i));
         }
     }
 

@@ -1,20 +1,21 @@
 package com.baidu.swan.apps.performance;
 
 import android.util.Log;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String dtI = "NA";
-    private RecordType dtJ = RecordType.KEEP;
-    private boolean dtK = false;
+    private String doS = "NA";
+    private RecordType doT = RecordType.KEEP;
+    private boolean doU = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -34,7 +35,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aHE() {
+    public long aDK() {
         return this.mTime;
     }
 
@@ -42,39 +43,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent ru(String str) {
-        this.dtI = str;
+    public UbcFlowEvent qj(String str) {
+        this.doS = str;
         return this;
     }
 
-    public String aHF() {
-        return this.dtI;
+    public String aDL() {
+        return this.doS;
     }
 
-    public UbcFlowEvent gt(boolean z) {
-        this.dtK = z;
+    public UbcFlowEvent gp(boolean z) {
+        this.doU = z;
         return this;
     }
 
-    public boolean aHG() {
-        return this.dtK;
+    public boolean aDM() {
+        return this.doU;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.dtJ = recordType;
+        this.doT = recordType;
         return this;
     }
 
-    public RecordType aHH() {
-        return this.dtJ;
+    public RecordType aDN() {
+        return this.doT;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aHE());
+        objArr[0] = Long.valueOf(aDK());
         objArr[1] = this.id;
-        objArr[2] = aHG() ? "(justLocalRecord)" : "";
+        objArr[2] = aDM() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 
@@ -83,7 +84,7 @@ public class UbcFlowEvent {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("value", this.mValue);
-            jSONObject.put("ts", this.mTime);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.mTime);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("UbcFlowEvent", "UbcFlowEvent to JSON exception", e);

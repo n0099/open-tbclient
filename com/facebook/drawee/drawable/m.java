@@ -12,77 +12,77 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class m extends Drawable implements j, q {
     @Nullable
-    private r pwE;
+    float[] psF;
     @Nullable
-    Matrix pxD;
+    RectF psJ;
     @Nullable
-    float[] pxh;
+    Matrix psK;
+    private final Drawable psO;
     @Nullable
-    RectF pxl;
+    private r psc;
     @Nullable
-    Matrix pxm;
-    private final Drawable pxq;
-    protected boolean fQD = false;
-    protected boolean pxr = false;
+    Matrix ptb;
+    protected boolean fLW = false;
+    protected boolean psP = false;
     protected float mBorderWidth = 0.0f;
     protected final Path mPath = new Path();
-    protected boolean pxs = true;
+    protected boolean psQ = true;
     protected int mBorderColor = 0;
-    protected final Path eYI = new Path();
-    private final float[] pxt = new float[8];
-    final float[] pxg = new float[8];
-    final RectF pxu = new RectF();
-    final RectF pxv = new RectF();
-    final RectF pxw = new RectF();
-    final RectF pxx = new RectF();
-    final Matrix pxy = new Matrix();
-    final Matrix pxz = new Matrix();
-    final Matrix pxA = new Matrix();
-    final Matrix pxB = new Matrix();
-    final Matrix pxC = new Matrix();
-    final Matrix pxE = new Matrix();
+    protected final Path eTX = new Path();
+    private final float[] psR = new float[8];
+    final float[] psE = new float[8];
+    final RectF psS = new RectF();
+    final RectF psT = new RectF();
+    final RectF psU = new RectF();
+    final RectF psV = new RectF();
+    final Matrix psW = new Matrix();
+    final Matrix psX = new Matrix();
+    final Matrix psY = new Matrix();
+    final Matrix psZ = new Matrix();
+    final Matrix pta = new Matrix();
+    final Matrix ptc = new Matrix();
     private float mPadding = 0.0f;
-    private boolean pxi = false;
-    private boolean pxF = true;
+    private boolean psG = false;
+    private boolean ptd = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Drawable drawable) {
-        this.pxq = drawable;
+        this.psO = drawable;
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void AY(boolean z) {
-        this.fQD = z;
-        this.pxF = true;
+    public void AU(boolean z) {
+        this.fLW = z;
+        this.ptd = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkState(f >= 0.0f);
-        Arrays.fill(this.pxt, f);
-        this.pxr = f != 0.0f;
-        this.pxF = true;
+        Arrays.fill(this.psR, f);
+        this.psP = f != 0.0f;
+        this.ptd = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void z(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.pxt, 0.0f);
-            this.pxr = false;
+            Arrays.fill(this.psR, 0.0f);
+            this.psP = false;
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.pxt, 0, 8);
-            this.pxr = false;
+            System.arraycopy(fArr, 0, this.psR, 0, 8);
+            this.psP = false;
             for (int i = 0; i < 8; i++) {
-                this.pxr = (fArr[i] > 0.0f) | this.pxr;
+                this.psP = (fArr[i] > 0.0f) | this.psP;
             }
         }
-        this.pxF = true;
+        this.ptd = true;
         invalidateSelf();
     }
 
@@ -91,7 +91,7 @@ public abstract class m extends Drawable implements j, q {
         if (this.mBorderColor != i || this.mBorderWidth != f) {
             this.mBorderColor = i;
             this.mBorderWidth = f;
-            this.pxF = true;
+            this.ptd = true;
             invalidateSelf();
         }
     }
@@ -100,173 +100,173 @@ public abstract class m extends Drawable implements j, q {
     public void bF(float f) {
         if (this.mPadding != f) {
             this.mPadding = f;
-            this.pxF = true;
+            this.ptd = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void AZ(boolean z) {
-        if (this.pxi != z) {
-            this.pxi = z;
-            this.pxF = true;
+    public void AV(boolean z) {
+        if (this.psG != z) {
+            this.psG = z;
+            this.ptd = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.q
     public void a(@Nullable r rVar) {
-        this.pwE = rVar;
+        this.psc = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void evV() {
-        if (this.pwE != null) {
-            this.pwE.f(this.pxA);
-            this.pwE.b(this.pxu);
+    public void esc() {
+        if (this.psc != null) {
+            this.psc.f(this.psY);
+            this.psc.b(this.psS);
         } else {
-            this.pxA.reset();
-            this.pxu.set(getBounds());
+            this.psY.reset();
+            this.psS.set(getBounds());
         }
-        this.pxw.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
-        this.pxx.set(this.pxq.getBounds());
-        this.pxy.setRectToRect(this.pxw, this.pxx, Matrix.ScaleToFit.FILL);
-        if (this.pxi) {
-            if (this.pxl == null) {
-                this.pxl = new RectF(this.pxu);
+        this.psU.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
+        this.psV.set(this.psO.getBounds());
+        this.psW.setRectToRect(this.psU, this.psV, Matrix.ScaleToFit.FILL);
+        if (this.psG) {
+            if (this.psJ == null) {
+                this.psJ = new RectF(this.psS);
             } else {
-                this.pxl.set(this.pxu);
+                this.psJ.set(this.psS);
             }
-            this.pxl.inset(this.mBorderWidth, this.mBorderWidth);
-            if (this.pxm == null) {
-                this.pxm = new Matrix();
+            this.psJ.inset(this.mBorderWidth, this.mBorderWidth);
+            if (this.psK == null) {
+                this.psK = new Matrix();
             }
-            this.pxm.setRectToRect(this.pxu, this.pxl, Matrix.ScaleToFit.FILL);
-        } else if (this.pxm != null) {
-            this.pxm.reset();
+            this.psK.setRectToRect(this.psS, this.psJ, Matrix.ScaleToFit.FILL);
+        } else if (this.psK != null) {
+            this.psK.reset();
         }
-        if (!this.pxA.equals(this.pxB) || !this.pxy.equals(this.pxz) || (this.pxm != null && !this.pxm.equals(this.pxD))) {
-            this.pxs = true;
-            this.pxA.invert(this.pxC);
-            this.pxE.set(this.pxA);
-            if (this.pxi) {
-                this.pxE.postConcat(this.pxm);
+        if (!this.psY.equals(this.psZ) || !this.psW.equals(this.psX) || (this.psK != null && !this.psK.equals(this.ptb))) {
+            this.psQ = true;
+            this.psY.invert(this.pta);
+            this.ptc.set(this.psY);
+            if (this.psG) {
+                this.ptc.postConcat(this.psK);
             }
-            this.pxE.preConcat(this.pxy);
-            this.pxB.set(this.pxA);
-            this.pxz.set(this.pxy);
-            if (this.pxi) {
-                if (this.pxD == null) {
-                    this.pxD = new Matrix(this.pxm);
+            this.ptc.preConcat(this.psW);
+            this.psZ.set(this.psY);
+            this.psX.set(this.psW);
+            if (this.psG) {
+                if (this.ptb == null) {
+                    this.ptb = new Matrix(this.psK);
                 } else {
-                    this.pxD.set(this.pxm);
+                    this.ptb.set(this.psK);
                 }
-            } else if (this.pxD != null) {
-                this.pxD.reset();
+            } else if (this.ptb != null) {
+                this.ptb.reset();
             }
         }
-        if (!this.pxu.equals(this.pxv)) {
-            this.pxF = true;
-            this.pxv.set(this.pxu);
+        if (!this.psS.equals(this.psT)) {
+            this.ptd = true;
+            this.psT.set(this.psS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void evU() {
-        if (this.pxF) {
-            this.eYI.reset();
-            this.pxu.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-            if (this.fQD) {
-                this.eYI.addCircle(this.pxu.centerX(), this.pxu.centerY(), Math.min(this.pxu.width(), this.pxu.height()) / 2.0f, Path.Direction.CW);
+    public void esb() {
+        if (this.ptd) {
+            this.eTX.reset();
+            this.psS.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+            if (this.fLW) {
+                this.eTX.addCircle(this.psS.centerX(), this.psS.centerY(), Math.min(this.psS.width(), this.psS.height()) / 2.0f, Path.Direction.CW);
             } else {
-                for (int i = 0; i < this.pxg.length; i++) {
-                    this.pxg[i] = (this.pxt[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                for (int i = 0; i < this.psE.length; i++) {
+                    this.psE[i] = (this.psR[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
                 }
-                this.eYI.addRoundRect(this.pxu, this.pxg, Path.Direction.CW);
+                this.eTX.addRoundRect(this.psS, this.psE, Path.Direction.CW);
             }
-            this.pxu.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+            this.psS.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
             this.mPath.reset();
-            float f = this.mPadding + (this.pxi ? this.mBorderWidth : 0.0f);
-            this.pxu.inset(f, f);
-            if (this.fQD) {
-                this.mPath.addCircle(this.pxu.centerX(), this.pxu.centerY(), Math.min(this.pxu.width(), this.pxu.height()) / 2.0f, Path.Direction.CW);
-            } else if (this.pxi) {
-                if (this.pxh == null) {
-                    this.pxh = new float[8];
+            float f = this.mPadding + (this.psG ? this.mBorderWidth : 0.0f);
+            this.psS.inset(f, f);
+            if (this.fLW) {
+                this.mPath.addCircle(this.psS.centerX(), this.psS.centerY(), Math.min(this.psS.width(), this.psS.height()) / 2.0f, Path.Direction.CW);
+            } else if (this.psG) {
+                if (this.psF == null) {
+                    this.psF = new float[8];
                 }
-                for (int i2 = 0; i2 < this.pxg.length; i2++) {
-                    this.pxh[i2] = this.pxt[i2] - this.mBorderWidth;
+                for (int i2 = 0; i2 < this.psE.length; i2++) {
+                    this.psF[i2] = this.psR[i2] - this.mBorderWidth;
                 }
-                this.mPath.addRoundRect(this.pxu, this.pxh, Path.Direction.CW);
+                this.mPath.addRoundRect(this.psS, this.psF, Path.Direction.CW);
             } else {
-                this.mPath.addRoundRect(this.pxu, this.pxt, Path.Direction.CW);
+                this.mPath.addRoundRect(this.psS, this.psR, Path.Direction.CW);
             }
-            this.pxu.inset(-f, -f);
+            this.psS.inset(-f, -f);
             this.mPath.setFillType(Path.FillType.WINDING);
-            this.pxF = false;
+            this.ptd = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean evT() {
-        return this.fQD || this.pxr || this.mBorderWidth > 0.0f;
+    public boolean esa() {
+        return this.fLW || this.psP || this.mBorderWidth > 0.0f;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        this.pxq.setBounds(rect);
+        this.psO.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.pxq.getIntrinsicWidth();
+        return this.psO.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.pxq.getIntrinsicHeight();
+        return this.psO.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.pxq.getOpacity();
+        return this.psO.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
-        this.pxq.setColorFilter(i, mode);
+        this.psO.setColorFilter(i, mode);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.pxq.setColorFilter(colorFilter);
+        this.psO.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     @Nullable
     @RequiresApi(api = 21)
     public ColorFilter getColorFilter() {
-        return this.pxq.getColorFilter();
+        return this.psO.getColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        this.pxq.clearColorFilter();
+        this.psO.clearColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 19)
     public int getAlpha() {
-        return this.pxq.getAlpha();
+        return this.psO.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.pxq.setAlpha(i);
+        this.psO.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        this.pxq.draw(canvas);
+        this.psO.draw(canvas);
     }
 }

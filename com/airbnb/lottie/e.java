@@ -21,7 +21,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes3.dex */
 public class e {
-    private static final Map<String, l<d>> BX = new HashMap();
+    private static final Map<String, l<d>> BV = new HashMap();
 
     public static l<d> s(Context context, String str) {
         return com.airbnb.lottie.network.b.v(context, str);
@@ -222,8 +222,8 @@ public class e {
                 }
             });
         }
-        if (BX.containsKey(str)) {
-            return BX.get(str);
+        if (BV.containsKey(str)) {
+            return BV.get(str);
         }
         l<d> lVar = new l<>(callable);
         lVar.a(new h<d>() { // from class: com.airbnb.lottie.e.8
@@ -233,17 +233,17 @@ public class e {
                 if (str != null) {
                     com.airbnb.lottie.model.g.jb().a(str, dVar);
                 }
-                e.BX.remove(str);
+                e.BV.remove(str);
             }
         });
         lVar.c(new h<Throwable>() { // from class: com.airbnb.lottie.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
             public void onResult(Throwable th) {
-                e.BX.remove(str);
+                e.BV.remove(str);
             }
         });
-        BX.put(str, lVar);
+        BV.put(str, lVar);
         return lVar;
     }
 }

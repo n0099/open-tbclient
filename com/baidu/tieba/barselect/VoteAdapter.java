@@ -7,10 +7,10 @@ import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<d> ipg;
-    private int iph = -1;
+    private List<d> ikx;
+    private int iky = -1;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -21,9 +21,9 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.ipg = fVar.ctV();
+            this.ikx = fVar.cqd();
         }
-        this.iph = -1;
+        this.iky = -1;
         notifyDataSetChanged();
     }
 
@@ -45,25 +45,25 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.ipg != null) {
-            return this.ipg.size();
+        if (this.ikx != null) {
+            return this.ikx.size();
         }
         return 0;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.ipg == null || this.ipg.size() <= i || this.ipg.get(i).getRank() != 1 || i != 0) {
+        if (this.ikx == null || this.ikx.size() <= i || this.ikx.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.isk;
+        return com.baidu.tieba.barselect.a.a.inD;
     }
 
-    public int ctG() {
-        return this.iph;
+    public int cpO() {
+        return this.iky;
     }
 
-    public void yf(int i) {
-        this.iph = i;
+    public void wz(int i) {
+        this.iky = i;
     }
 }

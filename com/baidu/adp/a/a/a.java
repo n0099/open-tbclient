@@ -1,13 +1,13 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean Ip;
+    private boolean In;
 
     public boolean kF() {
-        return this.Ip;
+        return this.In;
     }
 
     public void start() {
-        this.Ip = true;
+        this.In = true;
     }
 }

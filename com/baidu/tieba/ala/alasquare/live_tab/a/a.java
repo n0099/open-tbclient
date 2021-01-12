@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsNoListItemViewHolder;
 import com.baidu.tieba.frs.s;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.adp.widget.ListView.a<s, FrsNoListItemViewHolder> {
     private final int itemHeight;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), s.jiG);
+        super(tbPageContext.getPageActivity(), s.jdY);
         this.itemHeight = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
@@ -36,9 +36,9 @@ public class a extends com.baidu.adp.widget.ListView.a<s, FrsNoListItemViewHolde
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        frsNoListItemViewHolder.jiJ.setText(R.string.no_data_common_txt);
-        ao.setViewTextColor(frsNoListItemViewHolder.jiJ, R.color.CAM_X0107, 1);
-        ao.setImageResource(frsNoListItemViewHolder.jiK, R.drawable.new_pic_emotion_06);
+        frsNoListItemViewHolder.jeb.setText(R.string.no_data_common_txt);
+        ao.setViewTextColor(frsNoListItemViewHolder.jeb, R.color.CAM_X0107, 1);
+        ao.setImageResource(frsNoListItemViewHolder.jec, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

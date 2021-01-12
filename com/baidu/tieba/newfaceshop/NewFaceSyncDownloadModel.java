@@ -9,9 +9,9 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
-    private final HttpMessageListener lwN = new HttpMessageListener(1003351) { // from class: com.baidu.tieba.newfaceshop.NewFaceSyncDownloadModel.1
+    private final HttpMessageListener lsh = new HttpMessageListener(1003351) { // from class: com.baidu.tieba.newfaceshop.NewFaceSyncDownloadModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,9 +33,9 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public NewFaceSyncDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.lwN.setTag(getUniqueId());
-        this.lwN.setSelfListener(true);
-        registerListener(this.lwN);
+        this.lsh.setTag(getUniqueId());
+        this.lsh.setSelfListener(true);
+        registerListener(this.lsh);
     }
 
     private void registerTask() {

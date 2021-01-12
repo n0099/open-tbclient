@@ -5,20 +5,20 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    protected final d f9769a;
+    protected final d f9469a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Timer f9770b;
+    private Timer f9470b;
     private TimerTask c;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f9769a = dVar;
+        this.f9469a = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,8 +35,8 @@ public abstract class c extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void h() {
         i();
-        if (this.f9770b == null) {
-            this.f9770b = new Timer();
+        if (this.f9470b == null) {
+            this.f9470b = new Timer();
         }
         if (this.c == null) {
             this.c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
@@ -51,14 +51,14 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.f9770b.schedule(this.c, 0L, 1000L);
+        this.f9470b.schedule(this.c, 0L, 1000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
-        if (this.f9770b != null) {
-            this.f9770b.cancel();
-            this.f9770b = null;
+        if (this.f9470b != null) {
+            this.f9470b.cancel();
+            this.f9470b = null;
         }
         if (this.c != null) {
             this.c.cancel();

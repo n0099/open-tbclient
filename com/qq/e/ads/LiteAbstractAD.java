@@ -3,15 +3,16 @@ package com.qq.e.ads;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.mapapi.UIMsg;
 import com.qq.e.comm.a;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class LiteAbstractAD<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private T f11718a;
+    private T f11418a;
 
     protected abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
@@ -25,7 +26,7 @@ public abstract class LiteAbstractAD<T> {
                 public void run() {
                     if (!GDTADManager.getInstance().initWith(context, str)) {
                         GDTLogger.e("Fail to init ADManager");
-                        LiteAbstractAD.this.a(200101);
+                        LiteAbstractAD.this.a(UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
                         return;
                     }
                     try {
@@ -37,10 +38,10 @@ public abstract class LiteAbstractAD<T> {
                             public void run() {
                                 try {
                                     if (pOFactory != null) {
-                                        LiteAbstractAD.this.f11718a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
-                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f11718a);
+                                        LiteAbstractAD.this.f11418a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
+                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f11418a);
                                     } else {
-                                        LiteAbstractAD.this.a(200102);
+                                        LiteAbstractAD.this.a(UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
                                     }
                                 } catch (Throwable th) {
                                     GDTLogger.e("Exception while init Core", th);
@@ -50,7 +51,7 @@ public abstract class LiteAbstractAD<T> {
                         });
                     } catch (Throwable th) {
                         GDTLogger.e("Exception while init plugin", th);
-                        LiteAbstractAD.this.a(200102);
+                        LiteAbstractAD.this.a(UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
                     }
                 }
             });

@@ -14,26 +14,26 @@ import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class u extends e {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public DarkImageView oTw;
-    public TextView oTx;
+    public DarkImageView oOU;
+    public TextView oOV;
 
     @SuppressLint({"InflateParams"})
     public u(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_private_msg_item, (ViewGroup) null);
-        this.oSq = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oSr = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oSs = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
-        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oSp = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
-        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oTw = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oTx = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oNP = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oNQ = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNN = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oOU = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.oOV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -59,9 +59,9 @@ public class u extends e {
         if (TextUtils.isEmpty(covers)) {
             covers = signleGraphicTextMsg.getCover();
         }
-        com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.mContext);
-        ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
-        this.oTx.setText(signleGraphicTextMsg.getDigest());
+        com.baidu.yuyinala.privatemessage.implugin.util.b.hC(this.mContext);
+        ImageLoader.getInstance().displayImage(covers, this.oOU, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+        this.oOV.setText(signleGraphicTextMsg.getDigest());
         super.b(context, chatMsg);
     }
 }

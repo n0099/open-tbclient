@@ -19,12 +19,12 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f7909b = false;
-    private static InterfaceC1044a ppJ;
+    private static boolean f7609b = false;
+    private static InterfaceC1027a pld;
 
     /* renamed from: com.bytedance.tea.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1044a {
+    public interface InterfaceC1027a {
         boolean a();
 
         boolean b();
@@ -33,7 +33,7 @@ public class a {
     }
 
     public static String a(String str, List<Pair<String, String>> list) {
-        if (!TextUtils.isEmpty(str) && ppJ != null && !f7909b) {
+        if (!TextUtils.isEmpty(str) && pld != null && !f7609b) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             try {
                 Uri parse = Uri.parse(str);
@@ -51,12 +51,12 @@ public class a {
                     if (a3 != null) {
                         String encodeToString = Base64.encodeToString(a3, 2);
                         LinkedList linkedList2 = new LinkedList();
-                        if (ppJ.a()) {
+                        if (pld.a()) {
                             LinkedList linkedList3 = new LinkedList();
                             linkedList3.add(encodeToString);
                             linkedList2.add(new Pair("ss_queries", linkedList3));
                         }
-                        if (ppJ.b() && list != null) {
+                        if (pld.b() && list != null) {
                             list.add(new Pair<>("X-SS-QUERIES", a(encodeToString, "UTF-8")));
                         }
                         if (!linkedHashMap.isEmpty()) {
@@ -84,7 +84,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (!ppJ.c()) {
+        if (!pld.c()) {
             map.remove(str);
         }
         return true;

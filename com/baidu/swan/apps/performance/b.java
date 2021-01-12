@@ -1,48 +1,49 @@
 package com.baidu.swan.apps.performance;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private final Map<String, Map<String, HybridUbcFlow>> dsU = new HashMap();
-    private final Map<String, com.baidu.swan.apps.ao.e.b<HybridUbcFlow>> dsV = new HashMap();
-    private final com.baidu.swan.apps.ao.e.b<HybridUbcFlow> dsW = new com.baidu.swan.apps.ao.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.b.1
+    private final Map<String, Map<String, HybridUbcFlow>> doe = new HashMap();
+    private final Map<String, com.baidu.swan.apps.ao.e.b<HybridUbcFlow>> dof = new HashMap();
+    private final com.baidu.swan.apps.ao.e.b<HybridUbcFlow> dog = new com.baidu.swan.apps.ao.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: a */
         public void L(HybridUbcFlow hybridUbcFlow) {
-            b.this.re(hybridUbcFlow.name);
+            b.this.pT(hybridUbcFlow.name);
         }
     };
 
-    private HybridUbcFlow rc(String str) {
+    private HybridUbcFlow pR(String str) {
         HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-        hybridUbcFlow.d("callback_on_submit", this.dsW);
-        com.baidu.swan.apps.ao.e.b<HybridUbcFlow> bVar = this.dsV.get(str);
+        hybridUbcFlow.d("callback_on_submit", this.dog);
+        com.baidu.swan.apps.ao.e.b<HybridUbcFlow> bVar = this.dof.get(str);
         if (bVar != null) {
             bVar.L(hybridUbcFlow);
         }
         return hybridUbcFlow;
     }
 
-    public synchronized HybridUbcFlow rd(String str) {
-        return ck(str, "default");
+    public synchronized HybridUbcFlow pS(String str) {
+        return cj(str, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
     }
 
-    public synchronized HybridUbcFlow ck(String str, String str2) {
+    public synchronized HybridUbcFlow cj(String str, String str2) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.dsU) {
-            Map<String, HybridUbcFlow> map = this.dsU.get(str);
+        synchronized (this.doe) {
+            Map<String, HybridUbcFlow> map = this.doe.get(str);
             if (map == null) {
                 HashMap hashMap = new HashMap();
-                hybridUbcFlow = rc(str);
+                hybridUbcFlow = pR(str);
                 hashMap.put(str2, hybridUbcFlow);
-                this.dsU.put(str, hashMap);
+                this.doe.put(str, hashMap);
             } else {
                 HybridUbcFlow hybridUbcFlow2 = map.get(str2);
                 if (hybridUbcFlow2 == null) {
-                    hybridUbcFlow2 = rc(str);
+                    hybridUbcFlow2 = pR(str);
                     map.put(str2, hybridUbcFlow2);
                 }
                 hybridUbcFlow = hybridUbcFlow2;
@@ -52,25 +53,25 @@ public class b {
     }
 
     public b c(String str, com.baidu.swan.apps.ao.e.b<HybridUbcFlow> bVar) {
-        synchronized (this.dsV) {
-            this.dsV.put(str, bVar);
+        synchronized (this.dof) {
+            this.dof.put(str, bVar);
         }
         return this;
     }
 
-    public b re(String str) {
+    public b pT(String str) {
         if (TextUtils.equals(str, "startup")) {
-            e.aHx();
+            e.aDD();
         }
-        synchronized (this.dsU) {
-            this.dsU.remove(str);
+        synchronized (this.doe) {
+            this.doe.remove(str);
         }
         return this;
     }
 
-    public b cl(String str, String str2) {
-        synchronized (this.dsU) {
-            Map<String, HybridUbcFlow> map = this.dsU.get(str);
+    public b ck(String str, String str2) {
+        synchronized (this.doe) {
+            Map<String, HybridUbcFlow> map = this.doe.get(str);
             if (map != null) {
                 map.remove(str2);
             }
@@ -78,14 +79,14 @@ public class b {
         return this;
     }
 
-    public HybridUbcFlow rf(String str) {
-        return cm(str, "default");
+    public HybridUbcFlow pU(String str) {
+        return cl(str, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
     }
 
-    public HybridUbcFlow cm(String str, String str2) {
+    public HybridUbcFlow cl(String str, String str2) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.dsU) {
-            Map<String, HybridUbcFlow> map = this.dsU.get(str);
+        synchronized (this.doe) {
+            Map<String, HybridUbcFlow> map = this.doe.get(str);
             hybridUbcFlow = map == null ? null : map.get(str2);
         }
         return hybridUbcFlow;

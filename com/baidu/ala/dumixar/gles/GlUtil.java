@@ -6,7 +6,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GlUtil {
     public static final boolean DEBUG = false;
     public static final float[] HORI_FLIP_MATRIX;

@@ -19,15 +19,15 @@ import com.baidu.tieba.e.h;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder> {
-    private com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> jqL;
+    private com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> jme;
     private String mForumId;
 
     public GameSpecialTopicAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jqL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter.1
+        this.jme = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cKI */
+            /* renamed from: cGQ */
             public CardFrsGameSpecialTopicItemView makeObject() {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = new CardFrsGameSpecialTopicItemView(GameSpecialTopicAdapter.this.mContext);
                 cardFrsGameSpecialTopicItemView.setForumId(GameSpecialTopicAdapter.this.mForumId);
@@ -63,7 +63,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
     /* renamed from: bJ */
     public CardFrsGameSpecialTopicHolder e(ViewGroup viewGroup) {
         CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder = new CardFrsGameSpecialTopicHolder(LayoutInflater.from(this.mContext).inflate(R.layout.card_frs_game_special_topic_layout, viewGroup, false));
-        cardFrsGameSpecialTopicHolder.jyC.setViewPool(this.jqL);
+        cardFrsGameSpecialTopicHolder.jtW.setViewPool(this.jme);
         return cardFrsGameSpecialTopicHolder;
     }
 
@@ -71,39 +71,39 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
-        if (hVar != null && hVar.cwB() != null) {
+        if (hVar != null && hVar.csJ() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameSpecialTopicHolder.jyA.setText(hVar.cwB().title);
-            cardFrsGameSpecialTopicHolder.jyA.setTextColor(ao.getColor(skinType, R.color.CAM_X0105));
-            cardFrsGameSpecialTopicHolder.jyC.setPageContext(this.mPageContext);
-            cardFrsGameSpecialTopicHolder.jyC.setData(hVar.cwB().sub_nodes);
-            cardFrsGameSpecialTopicHolder.jyB.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.jyC.getChildItemWidth());
-            cardFrsGameSpecialTopicHolder.jyz.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0201));
-            ao.setBackgroundResource(cardFrsGameSpecialTopicHolder.jyn, R.color.CAM_X0205);
-            ao.setBackgroundResource(cardFrsGameSpecialTopicHolder.iYj, R.color.CAM_X0205);
+            cardFrsGameSpecialTopicHolder.jtU.setText(hVar.csJ().title);
+            cardFrsGameSpecialTopicHolder.jtU.setTextColor(ao.getColor(skinType, R.color.CAM_X0105));
+            cardFrsGameSpecialTopicHolder.jtW.setPageContext(this.mPageContext);
+            cardFrsGameSpecialTopicHolder.jtW.setData(hVar.csJ().sub_nodes);
+            cardFrsGameSpecialTopicHolder.jtV.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.jtW.getChildItemWidth());
+            cardFrsGameSpecialTopicHolder.jtT.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0201));
+            ao.setBackgroundResource(cardFrsGameSpecialTopicHolder.jtH, R.color.CAM_X0205);
+            ao.setBackgroundResource(cardFrsGameSpecialTopicHolder.iTC, R.color.CAM_X0205);
         }
         return cardFrsGameSpecialTopicHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public class CardFrsGameSpecialTopicHolder extends TypeAdapter.ViewHolder {
-        private View iYj;
-        private TextView jyA;
-        private FlexibleHorizontalScrollView jyB;
-        private CardFrsGameSpecialTopicLayout jyC;
-        private View jyn;
-        private LinearLayout jyz;
+        private View iTC;
+        private View jtH;
+        private LinearLayout jtT;
+        private TextView jtU;
+        private FlexibleHorizontalScrollView jtV;
+        private CardFrsGameSpecialTopicLayout jtW;
 
         public CardFrsGameSpecialTopicHolder(View view) {
             super(view);
-            this.jyz = (LinearLayout) view.findViewById(R.id.card_game_special_topic_content);
-            this.jyA = (TextView) view.findViewById(R.id.game_special_topic_title);
-            this.jyB = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_special_topic_scroll_container);
-            this.jyC = (CardFrsGameSpecialTopicLayout) view.findViewById(R.id.game_special_topic_container);
-            this.jyC.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
-            this.jyC.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.jyn = view.findViewById(R.id.divider_line_1);
-            this.iYj = view.findViewById(R.id.divider_line_2);
+            this.jtT = (LinearLayout) view.findViewById(R.id.card_game_special_topic_content);
+            this.jtU = (TextView) view.findViewById(R.id.game_special_topic_title);
+            this.jtV = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_special_topic_scroll_container);
+            this.jtW = (CardFrsGameSpecialTopicLayout) view.findViewById(R.id.game_special_topic_container);
+            this.jtW.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
+            this.jtW.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.jtH = view.findViewById(R.id.divider_line_1);
+            this.iTC = view.findViewById(R.id.divider_line_2);
         }
     }
 }

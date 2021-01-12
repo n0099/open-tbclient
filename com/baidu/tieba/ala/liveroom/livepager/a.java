@@ -4,14 +4,14 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private float cGB;
-    private long gdt;
-    private long gdu;
-    private boolean gdv;
-    private boolean gdw;
-    private InterfaceC0684a hGf;
+    private float cBP;
+    private long fYK;
+    private long fYL;
+    private boolean fYM;
+    private boolean fYN;
+    private InterfaceC0667a hBz;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -20,13 +20,13 @@ public class a {
     private View mView;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.livepager.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0684a {
-        void bMr();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0667a {
+        void bIA();
 
-        void bMs();
+        void bIz();
 
-        void y(float f, float f2);
+        void z(float f, float f2);
     }
 
     public a(View view) {
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.cGB = motionEvent.getY();
-                this.gdt = System.currentTimeMillis();
-                this.gdv = true;
+                this.cBP = motionEvent.getY();
+                this.fYK = System.currentTimeMillis();
+                this.fYM = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.gdt < 100 && currentTimeMillis - this.gdu < 500) {
-                    this.gdw = true;
+                if (currentTimeMillis - this.fYK < 100 && currentTimeMillis - this.fYL < 500) {
+                    this.fYN = true;
                 } else {
-                    this.gdw = false;
+                    this.fYN = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cGB - motionEvent.getY()) > 50.0f) {
-                    this.gdw = false;
-                    this.gdv = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cBP - motionEvent.getY()) > 50.0f) {
+                    this.fYN = false;
+                    this.fYM = false;
                 }
-                if (this.gdw) {
-                    if (this.hGf != null) {
-                        this.hGf.y(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.fYN) {
+                    if (this.hBz != null) {
+                        this.hBz.z(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cGB - motionEvent.getY()) && this.hGf != null) {
-                    this.hGf.bMs();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBP - motionEvent.getY()) && this.hBz != null) {
+                    this.hBz.bIA();
                 }
-                if (!this.gdw && this.gdv && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cGB - motionEvent.getY()) < 30.0f) {
+                if (!this.fYN && this.fYM && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cBP - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.gdw && a.this.gdv && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cGB - motionEvent.getY()) < 30.0f && a.this.hGf != null) {
-                                a.this.hGf.bMr();
+                            if (!a.this.fYN && a.this.fYM && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cBP - motionEvent.getY()) < 30.0f && a.this.hBz != null) {
+                                a.this.hBz.bIz();
                             }
                         }
                     }, 300L);
                 }
-                this.gdu = currentTimeMillis;
+                this.fYL = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0684a interfaceC0684a) {
-        this.hGf = interfaceC0684a;
+    public void setEventListener(InterfaceC0667a interfaceC0667a) {
+        this.hBz = interfaceC0667a;
     }
 
     private void releaseVelocityTracker() {

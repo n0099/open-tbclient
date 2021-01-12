@@ -2,42 +2,42 @@ package com.baidu.live.ag;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.ag.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0165a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0156a {
         void F(Object obj);
 
-        void Ta();
+        void Pf();
 
-        void Tb();
+        void Pg();
 
-        int Tc();
+        int Ph();
 
-        int Td();
+        int Pi();
 
-        int Te();
+        int Pj();
 
         int getImMsgListViewHeight();
     }
 
-    void SY();
+    void Pd();
 
-    void SZ();
+    void Pe();
 
-    void a(InterfaceC0165a interfaceC0165a);
+    void a(InterfaceC0156a interfaceC0156a);
 
     void a(com.baidu.live.j.a aVar);
 
     void a(com.baidu.live.liveroom.b.a aVar);
 
-    void cQ(boolean z);
+    void cM(boolean z);
 
-    void fA(int i);
+    void dT(int i);
 
-    void fz(int i);
+    void dU(int i);
 
     void onDestroy();
 

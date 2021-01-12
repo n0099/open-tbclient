@@ -7,12 +7,12 @@ import com.baidu.live.k.c;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
-    private String aPa;
-    private String bvS;
-    private com.baidu.tieba.ala.guardthrone.view.a heA;
-    private com.baidu.tieba.ala.guardthrone.view.a hez;
+    private String aKn;
+    private String bre;
+    private com.baidu.tieba.ala.guardthrone.view.a gZT;
+    private com.baidu.tieba.ala.guardthrone.view.a gZU;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -23,8 +23,8 @@ public class a implements c {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bvS = str2;
-        this.aPa = str3;
+        this.bre = str2;
+        this.aKn = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,25 +32,25 @@ public class a implements c {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.hez = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.hez.i(this.mLiveId, this.bvS, this.aPa, this.mTabId);
-        this.heA = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.heA.i(this.mLiveId, this.bvS, this.aPa, this.mTabId);
+        this.gZT = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.gZT.i(this.mLiveId, this.bre, this.aKn, this.mTabId);
+        this.gZU = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.gZU.i(this.mLiveId, this.bre, this.aKn, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.heA.getRootView().setVisibility(0);
-            this.hez.getRootView().setVisibility(8);
+            this.gZU.getRootView().setVisibility(0);
+            this.gZT.getRootView().setVisibility(8);
         } else {
-            this.heA.getRootView().setVisibility(8);
-            this.hez.getRootView().setVisibility(0);
+            this.gZU.getRootView().setVisibility(8);
+            this.gZT.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.hez.getRootView(), layoutParams);
-        this.mRootView.addView(this.heA.getRootView(), layoutParams);
+        this.mRootView.addView(this.gZT.getRootView(), layoutParams);
+        this.mRootView.addView(this.gZU.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.k.c
-    public void ca(boolean z) {
+    public void bW(boolean z) {
     }
 
     @Override // com.baidu.live.k.c
@@ -60,28 +60,28 @@ public class a implements c {
 
     @Override // com.baidu.live.k.c
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.hez != null && this.heA != null) {
+        if (this.gZT != null && this.gZU != null) {
             if (configuration.orientation == 2) {
-                this.heA.getRootView().setVisibility(0);
-                this.hez.getRootView().setVisibility(8);
+                this.gZU.getRootView().setVisibility(0);
+                this.gZT.getRootView().setVisibility(8);
             } else {
-                this.heA.getRootView().setVisibility(8);
-                this.hez.getRootView().setVisibility(0);
+                this.gZU.getRootView().setVisibility(8);
+                this.gZT.getRootView().setVisibility(0);
             }
-            this.hez.bnP();
-            this.heA.bnP();
+            this.gZT.bjV();
+            this.gZU.bjV();
         }
     }
 
     @Override // com.baidu.live.k.c
     public void onDestroy() {
-        if (this.hez != null) {
-            this.hez.bZO();
-            this.hez.onDestroy();
+        if (this.gZT != null) {
+            this.gZT.bVW();
+            this.gZT.onDestroy();
         }
-        if (this.heA != null) {
-            this.heA.bZO();
-            this.heA.onDestroy();
+        if (this.gZU != null) {
+            this.gZU.bVW();
+            this.gZU.onDestroy();
         }
     }
 
@@ -91,10 +91,10 @@ public class a implements c {
     }
 
     @Override // com.baidu.live.k.c
-    public void cb(boolean z) {
+    public void bX(boolean z) {
     }
 
     @Override // com.baidu.live.k.c
-    public void cc(boolean z) {
+    public void bY(boolean z) {
     }
 }

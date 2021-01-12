@@ -2,7 +2,7 @@ package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
 import aegon.chrome.base.memory.MemoryPressureCallback;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemoryPressureListener {
     public static final ObserverList<MemoryPressureCallback> sCallbacks = new ObserverList<>();
 

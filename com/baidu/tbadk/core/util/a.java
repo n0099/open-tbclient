@@ -4,33 +4,33 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a fbV = null;
+    private static a eXn = null;
 
     private a() {
     }
 
-    public static synchronized a bvx() {
+    public static synchronized a brD() {
         a aVar;
         synchronized (a.class) {
-            if (fbV == null) {
-                fbV = new a();
+            if (eXn == null) {
+                eXn = new a();
             }
-            aVar = fbV;
+            aVar = eXn;
         }
         return aVar;
     }
 
     @Override // com.baidu.adp.lib.stats.b
     public void c(String str, long j) {
-        TbadkSettings.getInst().saveLong(BF(str), j);
+        TbadkSettings.getInst().saveLong(Au(str), j);
     }
 
     @Override // com.baidu.adp.lib.stats.b
     public long bS(String str) {
-        return TbadkSettings.getInst().loadLong(BF(str), 0L);
+        return TbadkSettings.getInst().loadLong(Au(str), 0L);
     }
 
-    private String BF(String str) {
+    private String Au(String str) {
         return SharedPrefConfig.NEW_LOG_UPLOAD_TIME_PREFIX + str;
     }
 }

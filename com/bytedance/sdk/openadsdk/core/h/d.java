@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6880a;
+    String f6580a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f6881b;
+    int f6581b;
     JSONArray c;
     List<String> d = new ArrayList();
     long e;
@@ -45,19 +45,19 @@ public class d {
     }
 
     public String a() {
-        return this.f6880a;
+        return this.f6580a;
     }
 
     public void a(String str) {
-        this.f6880a = str;
+        this.f6580a = str;
     }
 
     public int b() {
-        return this.f6881b;
+        return this.f6581b;
     }
 
     public void a(int i) {
-        this.f6881b = i;
+        this.f6581b = i;
     }
 
     public JSONArray c() {

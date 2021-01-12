@@ -7,28 +7,28 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final AtomicInteger f11225a = new AtomicInteger(1);
+        private static final AtomicInteger f10925a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f11226b;
+        private final String f10926b;
         private final AtomicInteger d = new AtomicInteger(1);
         private final ThreadGroup c = Thread.currentThread().getThreadGroup();
 
         a(String str) {
-            this.f11226b = f.i(str);
+            this.f10926b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.c, runnable, this.f11226b + this.d.getAndIncrement(), 0L);
+            Thread thread = new Thread(this.c, runnable, this.f10926b + this.d.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

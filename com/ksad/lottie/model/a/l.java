@@ -3,14 +3,14 @@ package com.ksad.lottie.model.a;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class l implements com.ksad.lottie.model.content.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f8346a;
+    private final e f8046a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<PointF, PointF> f8347b;
+    private final m<PointF, PointF> f8047b;
     private final g c;
     private final b d;
     private final d e;
@@ -24,8 +24,8 @@ public class l implements com.ksad.lottie.model.content.b {
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.f8346a = eVar;
-        this.f8347b = mVar;
+        this.f8046a = eVar;
+        this.f8047b = mVar;
         this.c = gVar;
         this.d = bVar;
         this.e = dVar;
@@ -40,11 +40,11 @@ public class l implements com.ksad.lottie.model.content.b {
     }
 
     public e a() {
-        return this.f8346a;
+        return this.f8046a;
     }
 
     public m<PointF, PointF> b() {
-        return this.f8347b;
+        return this.f8047b;
     }
 
     public g c() {

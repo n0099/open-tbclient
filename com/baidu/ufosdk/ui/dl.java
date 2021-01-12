@@ -6,15 +6,15 @@ import com.baidu.ufosdk.UfoSDK;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class dl implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackListActivity f5814a;
+    final /* synthetic */ FeedbackListActivity f5531a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dl(FeedbackListActivity feedbackListActivity) {
-        this.f5814a = feedbackListActivity;
+        this.f5531a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,20 +25,20 @@ public final class dl implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        if (!com.baidu.ufosdk.b.d.c(this.f5814a)) {
+        if (!com.baidu.ufosdk.b.d.c(this.f5531a)) {
             com.baidu.ufosdk.f.c.c("Network is not avaiable. Please try again later.");
             return;
         }
         try {
-            linearLayout = this.f5814a.f5700b;
+            linearLayout = this.f5531a.f5417b;
             linearLayout.setVisibility(8);
-            view2 = this.f5814a.v;
+            view2 = this.f5531a.v;
             view2.setVisibility(0);
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new dm(this)).start();
             } else {
-                this.f5814a.y = Executors.newSingleThreadExecutor();
-                executorService = this.f5814a.y;
+                this.f5531a.y = Executors.newSingleThreadExecutor();
+                executorService = this.f5531a.y;
                 executorService.execute(new dn(this));
             }
         } catch (Exception e) {

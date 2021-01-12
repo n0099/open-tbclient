@@ -7,7 +7,7 @@ import com.baidu.tbadk.editortools.noConflictPanel.a;
 import com.baidu.tbadk.editortools.noConflictPanel.b;
 /* loaded from: classes.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
-    private com.baidu.tbadk.editortools.noConflictPanel.a.b fFQ;
+    private com.baidu.tbadk.editortools.noConflictPanel.a.b fBi;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
@@ -25,53 +25,53 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
     }
 
     private void init(AttributeSet attributeSet) {
-        this.fFQ = new com.baidu.tbadk.editortools.noConflictPanel.a.b(this, attributeSet);
+        this.fBi = new com.baidu.tbadk.editortools.noConflictPanel.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.fFQ.hC(i)) {
+        if (!this.fBi.fV(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] Y = this.fFQ.Y(i, i2);
+        int[] Y = this.fBi.Y(i, i2);
         super.onMeasure(Y[0], Y[1]);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean bFi() {
-        return this.fFQ.bFi();
+    public boolean bBo() {
+        return this.fBi.bBo();
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
     public boolean isVisible() {
-        return this.fFQ.isVisible();
+        return this.fBi.isVisible();
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aja() {
+    public void afg() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void ajb() {
-        this.fFQ.ajb();
+    public void afh() {
+        this.fBi.afh();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.fFQ.setIgnoreRecommendHeight(z);
+        this.fBi.setIgnoreRecommendHeight(z);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void sB(int i) {
-        this.fFQ.sC(i);
+    public void qV(int i) {
+        this.fBi.qW(i);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void kU(boolean z) {
-        this.fFQ.kV(z);
+    public void kQ(boolean z) {
+        this.fBi.kR(z);
     }
 }

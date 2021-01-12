@@ -9,24 +9,24 @@ import com.baidu.live.data.at;
 import com.baidu.live.data.bh;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static PersonUserData a(bh bhVar) {
         PersonUserData personUserData = new PersonUserData();
         personUserData.user_info = new at();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aQe = bhVar.metaKey;
+        personUserData.user_info.aLr = bhVar.metaKey;
         personUserData.user_info.user_id = bhVar.id;
         personUserData.user_info.user_name = bhVar.name;
         personUserData.user_info.user_nickname = bhVar.name_show;
         personUserData.user_info.description = bhVar.intro;
         personUserData.user_info.portrait = bhVar.portrait;
-        personUserData.relation_info.follow_status = bhVar.aQP;
+        personUserData.relation_info.follow_status = bhVar.aMc;
         return personUserData;
     }
 
-    public static String w(int i, String str) {
+    public static String x(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -61,10 +61,10 @@ public class a {
     }
 
     public static String bc(long j) {
-        return j / 10000 > 0 ? o(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+        return j / 10000 > 0 ? i(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String o(double d) {
+    public static String i(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResDialogFragment extends DelegateDialogFragment {
     public ResDialogFragment() {
         super(new KsDialogFragment(null));
@@ -216,7 +216,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.n.a.a.InterfaceC0277a
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
     public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }

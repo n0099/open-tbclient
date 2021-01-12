@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.b;
 /* loaded from: classes3.dex */
 public class t implements n {
-    private static t pCa = null;
+    private static t pxz = null;
 
     private t() {
     }
 
-    public static synchronized t exz() {
+    public static synchronized t etH() {
         t tVar;
         synchronized (t.class) {
-            if (pCa == null) {
-                pCa = new t();
+            if (pxz == null) {
+                pxz = new t();
             }
-            tVar = pCa;
+            tVar = pxz;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exr() {
+    public void etz() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -26,11 +26,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exs() {
+    public void etA() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ext() {
+    public void etB() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -38,7 +38,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exu() {
+    public void etC() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -46,19 +46,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exv() {
+    public void etD() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exw() {
+    public void etE() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exx() {
+    public void etF() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void exy() {
+    public void etG() {
     }
 
     @Override // com.facebook.imagepipeline.b.n

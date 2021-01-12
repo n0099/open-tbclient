@@ -32,10 +32,10 @@ public class l implements e {
     private int x;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6897a = 0;
+    private int f6597a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6898b = -1;
+    private int f6598b = -1;
     private Map<String, a> c = new HashMap();
     private Map<String, m> d = new HashMap();
     private Set<String> f = new HashSet();
@@ -102,8 +102,8 @@ public class l implements e {
             this.N = a(this.N);
             this.z = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", 0L);
             this.A.clear();
-            this.f6897a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
-            this.f6898b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+            this.f6597a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+            this.f6598b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
             this.P = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
             this.O = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
             Set<String> b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "hit_app_list_data", (Set<String>) null);
@@ -130,7 +130,7 @@ public class l implements e {
                         for (int i = 0; i < length; i++) {
                             a b5 = b(jSONArray.optJSONObject(i));
                             if (b5 != null) {
-                                this.c.put(b5.f6869a, b5);
+                                this.c.put(b5.f6569a, b5);
                             }
                         }
                     }
@@ -181,8 +181,8 @@ public class l implements e {
         this.N = a(this.N);
         this.z = K.b("hit_app_list_time", 0L);
         this.A.clear();
-        this.f6897a = K.b("circle_splash_switch", 0);
-        this.f6898b = K.b("circle_load_splash_time", -1);
+        this.f6597a = K.b("circle_splash_switch", 0);
+        this.f6598b = K.b("circle_load_splash_time", -1);
         this.O = K.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
         this.P = K.b("sp_key_if_sp_cache", 0);
         Set<String> b6 = K.b("hit_app_list_data", (Set<String>) null);
@@ -209,7 +209,7 @@ public class l implements e {
                     for (int i2 = 0; i2 < length2; i2++) {
                         a b9 = b(jSONArray2.optJSONObject(i2));
                         if (b9 != null) {
-                            this.c.put(b9.f6869a, b9);
+                            this.c.put(b9.f6569a, b9);
                         }
                     }
                 }
@@ -236,8 +236,8 @@ public class l implements e {
                 for (int i = 0; i < length; i++) {
                     g gVar = new g();
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    gVar.f6883a = optJSONObject.optString("action");
-                    gVar.f6884b = optJSONObject.optString("service");
+                    gVar.f6583a = optJSONObject.optString("action");
+                    gVar.f6584b = optJSONObject.optString("service");
                     gVar.c = optJSONObject.optString("package");
                     gVar.d = optJSONObject.optInt("wakeup_interval");
                     this.i.add(gVar);
@@ -292,8 +292,8 @@ public class l implements e {
         String str2 = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("app_common_config");
         if (optJSONObject != null) {
-            this.f6897a = optJSONObject.optInt("circle_splash", 0);
-            this.f6898b = optJSONObject.optInt("circle_time", -1);
+            this.f6597a = optJSONObject.optInt("circle_splash", 0);
+            this.f6598b = optJSONObject.optInt("circle_time", -1);
             this.P = optJSONObject.optInt("if_sp_cache", 0);
         }
         this.O = jSONObject.optString("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
@@ -397,8 +397,8 @@ public class l implements e {
                         g gVar = new g();
                         JSONObject optJSONObject7 = optJSONArray5.optJSONObject(i4);
                         if (optJSONObject7 != null) {
-                            gVar.f6883a = optJSONObject7.optString("action");
-                            gVar.f6884b = optJSONObject7.optString("service");
+                            gVar.f6583a = optJSONObject7.optString("action");
+                            gVar.f6584b = optJSONObject7.optString("service");
                             gVar.c = optJSONObject7.optString("package");
                             gVar.d = optJSONObject7.optInt("wakeup_interval");
                             this.i.add(gVar);
@@ -430,7 +430,7 @@ public class l implements e {
                 for (int i5 = 0; i5 < length4; i5++) {
                     a b2 = b(optJSONArray.optJSONObject(i5));
                     if (b2 != null) {
-                        this.c.put(b2.f6869a, b2);
+                        this.c.put(b2.f6569a, b2);
                     }
                 }
             }
@@ -491,8 +491,8 @@ public class l implements e {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", Long.valueOf(this.z));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_data", this.A);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "scheme_list_data", this.B);
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f6897a));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f6898b));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f6597a));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f6598b));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", Integer.valueOf(this.P));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "dyn_draw_engine_url", this.O);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_sdk_config", this.p);
@@ -544,8 +544,8 @@ public class l implements e {
         K.a("hit_app_list_time", this.z);
         K.a("hit_app_list_data", this.A);
         K.a("scheme_list_data", this.B);
-        K.a("circle_splash_switch", this.f6897a);
-        K.a("circle_load_splash_time", this.f6898b);
+        K.a("circle_splash_switch", this.f6597a);
+        K.a("circle_load_splash_time", this.f6598b);
         K.a("dyn_draw_engine_url", this.O);
         K.a("sp_key_if_sp_cache", this.P);
         K.a("download_sdk_config", this.p);
@@ -670,11 +670,11 @@ public class l implements e {
     }
 
     public int y() {
-        return this.f6897a;
+        return this.f6597a;
     }
 
     public int z() {
-        return this.f6898b;
+        return this.f6598b;
     }
 
     public String A() {
@@ -875,7 +875,7 @@ public class l implements e {
     }
 
     public int c(int i) {
-        return r(String.valueOf(i)).f6870b;
+        return r(String.valueOf(i)).f6570b;
     }
 
     public int d(int i) {

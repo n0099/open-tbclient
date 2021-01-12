@@ -6,7 +6,7 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class HighLevelEncoder {
     static final int ASCII_ENCODATION = 0;
     static final int BASE256_ENCODATION = 5;

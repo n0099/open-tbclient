@@ -21,8 +21,8 @@ public class e {
                     inputStream.read(bArr);
                     if (f(bArr, "WEBP")) {
                         inputStream.read(bArr);
-                        String ar = ar(bArr);
-                        if ("VP8 ".equals(ar)) {
+                        String aq = aq(bArr);
+                        if ("VP8 ".equals(aq)) {
                             pair = F(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -31,7 +31,7 @@ public class e {
                                     e.printStackTrace();
                                 }
                             }
-                        } else if ("VP8L".equals(ar)) {
+                        } else if ("VP8L".equals(aq)) {
                             pair = G(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -40,7 +40,7 @@ public class e {
                                     e2.printStackTrace();
                                 }
                             }
-                        } else if ("VP8X".equals(ar)) {
+                        } else if ("VP8X".equals(aq)) {
                             pair = H(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -123,7 +123,7 @@ public class e {
         return true;
     }
 
-    private static String ar(byte[] bArr) {
+    private static String aq(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b2 : bArr) {
             sb.append((char) b2);

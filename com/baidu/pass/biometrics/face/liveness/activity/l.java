@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ContrastPortraitResult f4058a;
+    final /* synthetic */ ContrastPortraitResult f4020a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4059b;
+    final /* synthetic */ LivenessRecogActivity f4021b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LivenessRecogActivity livenessRecogActivity, ContrastPortraitResult contrastPortraitResult) {
-        this.f4059b = livenessRecogActivity;
-        this.f4058a = contrastPortraitResult;
+        this.f4021b = livenessRecogActivity;
+        this.f4020a = contrastPortraitResult;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,61 +45,61 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         ArrayList arrayList5;
         int i = 0;
         PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-        if (this.f4058a.isProcessPass()) {
-            this.f4059b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
+        if (this.f4020a.isProcessPass()) {
+            this.f4021b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
             passFaceRecogResult.setResultCode(0);
         } else {
-            this.f4059b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.p;
+            this.f4021b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.p;
             passFaceRecogResult.setResultCode(-302);
         }
-        ContrastPortraitResult contrastPortraitResult = this.f4058a;
+        ContrastPortraitResult contrastPortraitResult = this.f4020a;
         passFaceRecogResult.callbackkey = contrastPortraitResult.callbackkey;
         if (!TextUtils.isEmpty(contrastPortraitResult.imgdigests)) {
-            arrayList = this.f4059b.ga;
+            arrayList = this.f4021b.ga;
             if (arrayList != null) {
-                arrayList2 = this.f4059b.ga;
+                arrayList2 = this.f4021b.ga;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.f4059b.ga;
+                    arrayList3 = this.f4021b.ga;
                     int size = arrayList3.size();
                     while (true) {
                         if (i >= size) {
                             i = -1;
                             break;
                         }
-                        arrayList5 = this.f4059b.ga;
+                        arrayList5 = this.f4021b.ga;
                         byte[] bArr = (byte[]) ((HashMap) arrayList5.get(i)).get("digest");
-                        if (bArr != null && this.f4058a.imgdigests.equals(new String(bArr))) {
+                        if (bArr != null && this.f4020a.imgdigests.equals(new String(bArr))) {
                             break;
                         }
                         i++;
                     }
-                    if (i != -1 && (passFaceRecogDTO = this.f4059b.passFaceRecogDTO) != null) {
+                    if (i != -1 && (passFaceRecogDTO = this.f4021b.passFaceRecogDTO) != null) {
                         if (passFaceRecogDTO.isReturnOriginImage()) {
-                            list = this.f4059b.X;
+                            list = this.f4021b.X;
                             if (list != null) {
-                                list2 = this.f4059b.X;
+                                list2 = this.f4021b.X;
                                 if (list2.size() > 0) {
-                                    LivenessRecogActivity livenessRecogActivity = this.f4059b;
+                                    LivenessRecogActivity livenessRecogActivity = this.f4021b;
                                     list3 = livenessRecogActivity.X;
-                                    list4 = this.f4059b.X;
+                                    list4 = this.f4021b.X;
                                     a2 = livenessRecogActivity.a((int[]) list3.get((list4.size() - i) - 1));
                                     passFaceRecogResult.originalImage = a2;
                                 }
                             }
                         }
-                        if (this.f4059b.passFaceRecogDTO.isReturnCutImage()) {
-                            arrayList4 = this.f4059b.ga;
+                        if (this.f4021b.passFaceRecogDTO.isReturnCutImage()) {
+                            arrayList4 = this.f4021b.ga;
                             byte[] bArr2 = (byte[]) ((HashMap) arrayList4.get(i)).get("data");
                             if (bArr2 != null && (encode = Base64Utils.encode(bArr2)) != null) {
                                 passFaceRecogResult.faceimage = new String(encode);
                             }
-                            passFaceRecogResult.imgdigests = new String(this.f4058a.imgdigests);
+                            passFaceRecogResult.imgdigests = new String(this.f4020a.imgdigests);
                         }
                     }
                 }
             }
         }
-        passFaceRecogResult.authSid = this.f4058a.authsid;
+        passFaceRecogResult.authSid = this.f4020a.authsid;
         return passFaceRecogResult;
     }
 
@@ -111,13 +111,13 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
         super.onPostExecute(passFaceRecogResult);
-        if (this.f4058a.isProcessPass()) {
-            passFaceRecogCallback2 = this.f4059b.t;
+        if (this.f4020a.isProcessPass()) {
+            passFaceRecogCallback2 = this.f4021b.t;
             passFaceRecogCallback2.onSuccess(passFaceRecogResult);
         } else {
-            passFaceRecogCallback = this.f4059b.t;
+            passFaceRecogCallback = this.f4021b.t;
             passFaceRecogCallback.onFailure(passFaceRecogResult);
         }
-        this.f4059b.a(passFaceRecogResult.getResultCode());
+        this.f4021b.a(passFaceRecogResult.getResultCode());
     }
 }

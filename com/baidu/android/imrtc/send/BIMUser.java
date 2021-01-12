@@ -1,5 +1,5 @@
 package com.baidu.android.imrtc.send;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BIMUser {
     public long appId;
     public String appVersion;

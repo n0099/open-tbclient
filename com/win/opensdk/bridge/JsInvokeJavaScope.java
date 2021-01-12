@@ -1,4 +1,4 @@
 package com.win.opensdk.bridge;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JsInvokeJavaScope {
 }

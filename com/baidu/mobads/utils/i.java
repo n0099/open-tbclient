@@ -9,21 +9,21 @@ import java.io.File;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f3537a = 30000000;
+    private static long f3499a = 30000000;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3538b;
+    private Context f3500b;
 
     public i(Context context) {
-        this.f3538b = context;
+        this.f3500b = context;
     }
 
     public static void a(int i) {
-        f3537a = i * 1000 * 1000;
+        f3499a = i * 1000 * 1000;
     }
 
     public void a(String str) {
@@ -60,7 +60,7 @@ public class i {
             File file = new File(b(context, str));
             if (!file.exists()) {
                 a(handler, false);
-                IOAdDownloader createSimpleFileDownloader = com.baidu.mobads.openad.b.d.a(this.f3538b).createSimpleFileDownloader(new URL(str), str2, str3, false);
+                IOAdDownloader createSimpleFileDownloader = com.baidu.mobads.openad.b.d.a(this.f3500b).createSimpleFileDownloader(new URL(str), str2, str3, false);
                 createSimpleFileDownloader.addObserver(new a(handler, str2));
                 createSimpleFileDownloader.start();
             } else {
@@ -124,16 +124,16 @@ public class i {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     class a implements Observer {
 
         /* renamed from: b  reason: collision with root package name */
-        private final Handler f3540b;
+        private final Handler f3502b;
         private final String c;
         private long d = System.currentTimeMillis();
 
         public a(Handler handler, String str) {
-            this.f3540b = handler;
+            this.f3502b = handler;
             this.c = str;
         }
 
@@ -143,12 +143,12 @@ public class i {
             long currentTimeMillis = System.currentTimeMillis() - this.d;
             if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
                 i.this.c(iOAdDownloader.getOutputPath());
-                i.this.a(this.f3540b, iOAdDownloader.getOutputPath(), currentTimeMillis);
+                i.this.a(this.f3502b, iOAdDownloader.getOutputPath(), currentTimeMillis);
                 i.this.a(this.c);
             }
             if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
-                i.this.a(this.f3540b, (Boolean) false, (String) null, currentTimeMillis);
-                i.this.a(this.f3540b, currentTimeMillis);
+                i.this.a(this.f3502b, (Boolean) false, (String) null, currentTimeMillis);
+                i.this.a(this.f3502b, currentTimeMillis);
                 i.this.a(this.c);
             }
         }

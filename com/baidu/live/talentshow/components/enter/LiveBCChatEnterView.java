@@ -8,11 +8,11 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveBCChatEnterView extends FrameLayout {
-    private ImageView bDV;
-    private FrameLayout bDW;
-    private ImageView bDX;
+    private ImageView bzj;
+    private FrameLayout bzk;
+    private ImageView bzl;
 
     public LiveBCChatEnterView(@NonNull Context context) {
         super(context);
@@ -31,28 +31,28 @@ public class LiveBCChatEnterView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = View.inflate(context, a.g.talent_live_bc_audience_enter_view, this);
-        this.bDW = (FrameLayout) inflate.findViewById(a.f.ala_video_bb_layout);
-        this.bDV = (ImageView) inflate.findViewById(a.f.ala_video_bb_connect);
-        this.bDX = (ImageView) inflate.findViewById(a.f.video_bc_red_dot);
+        this.bzk = (FrameLayout) inflate.findViewById(a.f.ala_video_bb_layout);
+        this.bzj = (ImageView) inflate.findViewById(a.f.ala_video_bb_connect);
+        this.bzl = (ImageView) inflate.findViewById(a.f.video_bc_red_dot);
     }
 
     public void setEnterVisible(boolean z) {
-        if (this.bDW != null) {
-            this.bDW.setVisibility(z ? 0 : 8);
+        if (this.bzk != null) {
+            this.bzk.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setRedDotVisible(boolean z) {
-        this.bDX.setVisibility(z ? 0 : 8);
+        this.bzl.setVisibility(z ? 0 : 8);
     }
 
     public ImageView getEnterImage() {
-        return this.bDV;
+        return this.bzj;
     }
 
     public void setEnterImageDrawable(int i) {
-        if (this.bDV != null) {
-            this.bDV.setImageResource(i);
+        if (this.bzj != null) {
+            this.bzj.setImageResource(i);
         }
     }
 }

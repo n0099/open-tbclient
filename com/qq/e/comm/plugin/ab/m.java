@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.qq.e.comm.util.GDTLogger;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class m extends WebViewClient {
     public void onLoadResource(WebView webView, String str) {
         GDTLogger.d("X5 LoadingResource:" + str);

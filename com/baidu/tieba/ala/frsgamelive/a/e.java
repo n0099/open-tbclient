@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
-    private com.baidu.tieba.ala.g gWT;
+    private com.baidu.tieba.ala.g gSn;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -27,12 +27,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        alaGameFrsGameViewHolder.gYz.a(cVar);
-        alaGameFrsGameViewHolder.gYz.c(this.gWT);
+        alaGameFrsGameViewHolder.gTT.a(cVar);
+        alaGameFrsGameViewHolder.gTT.c(this.gSn);
         return alaGameFrsGameViewHolder.getView();
     }
 
     public void a(com.baidu.tieba.ala.g gVar) {
-        this.gWT = gVar;
+        this.gSn = gVar;
     }
 }

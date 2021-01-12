@@ -3,7 +3,7 @@ package com.baidu.searchbox.unitedscheme.intercept;
 import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class UnitedSchemeBaseInterceptor implements UnitedSchemeAbsInterceptor {
     public abstract String getInterceptorName();
 

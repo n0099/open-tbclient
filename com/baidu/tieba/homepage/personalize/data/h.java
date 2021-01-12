@@ -9,17 +9,17 @@ import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes2.dex */
 public class h extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public String aJH;
-    public int amq;
+    public String aEU;
+    public int alz;
     public String imgUrl;
-    public int khS;
+    public int kdm;
 
     public void a(LiveAnswer liveAnswer) {
         if (liveAnswer != null) {
             this.imgUrl = liveAnswer.banner_url;
-            this.khS = liveAnswer.banner_high.intValue();
-            this.amq = liveAnswer.banner_width.intValue();
-            this.aJH = liveAnswer.jump_url;
+            this.kdm = liveAnswer.banner_high.intValue();
+            this.alz = liveAnswer.banner_width.intValue();
+            this.aEU = liveAnswer.jump_url;
         }
     }
 
@@ -31,10 +31,10 @@ public class h extends BaseCardInfo {
     public String toString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("img_width", this.amq);
+            jSONObject.put("img_width", this.alz);
             jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.khS);
-            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.aJH);
+            jSONObject.put("img_height", this.kdm);
+            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.aEU);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

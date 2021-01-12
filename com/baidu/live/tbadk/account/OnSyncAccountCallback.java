@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.account;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface OnSyncAccountCallback {
     void onSyncAccount(boolean z);
 }

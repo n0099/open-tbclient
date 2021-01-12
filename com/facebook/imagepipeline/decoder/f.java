@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements d {
-    private final b pEs;
+    private final b pzR;
 
     /* loaded from: classes3.dex */
     public interface b {
-        List<Integer> ezC();
+        List<Integer> evK();
 
-        int ezD();
+        int evL();
     }
 
     /* loaded from: classes3.dex */
@@ -22,12 +22,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> ezC() {
+        public List<Integer> evK() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int ezD() {
+        public int evL() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.pEs = (b) g.checkNotNull(bVar);
+        this.pzR = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int QT(int i) {
-        List<Integer> ezC = this.pEs.ezC();
-        if (ezC == null || ezC.isEmpty()) {
+    public int Pm(int i) {
+        List<Integer> evK = this.pzR.evK();
+        if (evK == null || evK.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < ezC.size()) {
-                if (ezC.get(i3).intValue() <= i) {
+            if (i3 < evK.size()) {
+                if (evK.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return ezC.get(i3).intValue();
+                    return evK.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -62,7 +62,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h QU(int i) {
-        return com.facebook.imagepipeline.f.g.k(i, i >= this.pEs.ezD(), false);
+    public h Pn(int i) {
+        return com.facebook.imagepipeline.f.g.k(i, i >= this.pzR.evL(), false);
     }
 }

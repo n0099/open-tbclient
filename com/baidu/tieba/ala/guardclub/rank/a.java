@@ -5,22 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.tbadk.core.fragment.SupportXFragment;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends SupportXFragment {
-    private e hcH;
+    private e gYb;
     protected boolean mInitialed;
     protected boolean mVisible;
 
-    protected abstract e bZe();
+    protected abstract e bVm();
 
-    protected abstract int bZf();
+    protected abstract int bVn();
 
     protected abstract void onInflate(View view, Bundle bundle);
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.hcH = bZe();
-        this.mView = layoutInflater.inflate(bZf(), viewGroup, false);
+        this.gYb = bVm();
+        this.mView = layoutInflater.inflate(bVn(), viewGroup, false);
         onInflate(this.mView, bundle);
         return this.mView;
     }
@@ -48,23 +48,23 @@ public abstract class a extends SupportXFragment {
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onResume() {
         super.onResume();
-        if (this.hcH != null) {
-            this.hcH.onResume();
+        if (this.gYb != null) {
+            this.gYb.onResume();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onPause() {
-        if (this.hcH != null) {
-            this.hcH.onPause();
+        if (this.gYb != null) {
+            this.gYb.onPause();
         }
         super.onPause();
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroyView() {
-        if (this.hcH != null) {
-            this.hcH.onDestoryView();
+        if (this.gYb != null) {
+            this.gYb.onDestoryView();
         }
         this.mInitialed = false;
         super.onDestroyView();
@@ -72,23 +72,23 @@ public abstract class a extends SupportXFragment {
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
-        if (this.hcH != null) {
-            this.hcH.onDestroy();
+        if (this.gYb != null) {
+            this.gYb.onDestroy();
         }
         super.onDestroy();
     }
 
     private void initData() {
         this.mInitialed = true;
-        if (this.hcH != null) {
-            this.hcH.onInitial();
+        if (this.gYb != null) {
+            this.gYb.onInitial();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onVisibilityChanged(boolean z) {
-        if (this.hcH != null) {
-            this.hcH.onVisibilityChanged(z);
+        if (this.gYb != null) {
+            this.gYb.onVisibilityChanged(z);
         }
     }
 }

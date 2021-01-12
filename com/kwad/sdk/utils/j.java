@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f11123a = "";
+    private static String f10823a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f11124b = "";
+    private static String f10824b = "";
     private static String c = "";
 
     public static String a(int i) {
@@ -26,11 +26,11 @@ public class j {
         switch (i) {
             case 0:
                 str = "aes_key";
-                str2 = f11123a;
+                str2 = f10823a;
                 break;
             case 1:
                 str = "rsa_public_key";
-                str2 = f11124b;
+                str2 = f10824b;
                 break;
             case 2:
                 str = "rsa_private_key";
@@ -55,10 +55,10 @@ public class j {
                 }
                 switch (i) {
                     case 0:
-                        f11123a = a2;
+                        f10823a = a2;
                         return a2;
                     case 1:
-                        f11124b = a2;
+                        f10824b = a2;
                         return a2;
                     case 2:
                         c = a2;

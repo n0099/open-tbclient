@@ -7,7 +7,7 @@ import android.text.Spanned;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class HtmlCompat {
     public static final int FROM_HTML_MODE_COMPACT = 63;
     public static final int FROM_HTML_MODE_LEGACY = 0;

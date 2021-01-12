@@ -3,19 +3,20 @@ package com.baidu.sofire.i;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f5543a = {"java.lang.UnsatisfiedLinkError"};
+    public static final String[] f5260a = {"java.lang.UnsatisfiedLinkError"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f5544b = {"space left"};
+    public static final String[] f5261b = {"space left"};
 
     public static String a(Context context, String str, String str2) {
         char c;
@@ -23,10 +24,10 @@ public final class j {
         String[] split;
         File[] listFiles;
         try {
-            if (str.contains(f5543a[0])) {
+            if (str.contains(f5260a[0])) {
                 c = 1;
             } else {
-                c = str.contains(f5544b[0]) ? (char) 2 : (char) 0;
+                c = str.contains(f5261b[0]) ? (char) 2 : (char) 0;
             }
             switch (c) {
                 case 1:
@@ -93,7 +94,7 @@ public final class j {
                 } else if (file2.exists()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("path", file2.getAbsolutePath());
-                    jSONObject.put("size", file2.length());
+                    jSONObject.put(TiebaInitialize.LogFields.SIZE, file2.length());
                     jSONArray.put(jSONObject);
                     j += file2.length();
                 }

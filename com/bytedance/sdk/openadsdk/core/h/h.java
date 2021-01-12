@@ -20,10 +20,10 @@ public class h implements Runnable {
     private static volatile h d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f6885a;
+    private final e f6585a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6886b;
+    private final Context f6586b;
 
     public static h a(e eVar) {
         if (d == null) {
@@ -54,11 +54,11 @@ public class h implements Runnable {
     }
 
     private h(e eVar) {
-        this.f6885a = eVar == null ? p.h() : eVar;
-        this.f6886b = p.a();
+        this.f6585a = eVar == null ? p.h() : eVar;
+        this.f6586b = p.a();
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             try {
-                this.f6886b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.dnsSettingReceiver"));
+                this.f6586b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.dnsSettingReceiver"));
             } catch (Throwable th) {
             }
         }
@@ -76,8 +76,8 @@ public class h implements Runnable {
                 if (!TextUtils.isEmpty(stringExtra)) {
                     try {
                         JSONObject jSONObject = new JSONObject(stringExtra);
-                        if (h.this.f6885a != null) {
-                            h.this.f6885a.a(jSONObject);
+                        if (h.this.f6585a != null) {
+                            h.this.f6585a.a(jSONObject);
                         }
                     } catch (Throwable th) {
                     }
@@ -111,9 +111,9 @@ public class h implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!x.a(this.f6886b)) {
+        if (!x.a(this.f6586b)) {
             try {
-                this.f6885a.a();
+                this.f6585a.a();
                 c.set(false);
                 return;
             } catch (Throwable th) {
@@ -124,17 +124,17 @@ public class h implements Runnable {
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void a(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 h.c.set(false);
-                if (pVar == null || pVar.f6345a == null) {
+                if (pVar == null || pVar.f6045a == null) {
                     try {
-                        h.this.f6885a.a();
+                        h.this.f6585a.a();
                         return;
                     } catch (Throwable th2) {
                         return;
                     }
                 }
-                JSONObject jSONObject = pVar.f6345a;
+                JSONObject jSONObject = pVar.f6045a;
                 try {
-                    h.this.f6885a.a(jSONObject);
+                    h.this.f6585a.a(jSONObject);
                 } catch (Throwable th3) {
                 }
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
@@ -146,10 +146,10 @@ public class h implements Runnable {
             public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 h.c.set(false);
                 try {
-                    h.this.f6885a.a();
+                    h.this.f6585a.a();
                 } catch (Throwable th2) {
                 }
             }
-        }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6886b).d());
+        }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6586b).d());
     }
 }

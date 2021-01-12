@@ -86,25 +86,25 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
 
     /* loaded from: classes5.dex */
     final class a implements u<U> {
-        private final WithLatestFromObserver<T, U, R> qkn;
+        private final WithLatestFromObserver<T, U, R> qfL;
 
         a(WithLatestFromObserver<T, U, R> withLatestFromObserver) {
-            this.qkn = withLatestFromObserver;
+            this.qfL = withLatestFromObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.qkn.setOther(bVar);
+            this.qfL.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(U u) {
-            this.qkn.lazySet(u);
+            this.qfL.lazySet(u);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.qkn.otherError(th);
+            this.qfL.otherError(th);
         }
 
         @Override // io.reactivex.u

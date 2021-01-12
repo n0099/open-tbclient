@@ -12,36 +12,36 @@ import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId khQ = BdUniqueId.gen();
-    private List<AlaLiveInfo> khR = new ArrayList();
+    public static final BdUniqueId kdk = BdUniqueId.gen();
+    private List<AlaLiveInfo> kdl = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.khR.clear();
+        this.kdl.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !x.isEmpty(userFollowLive.user_follow_live)) {
-            this.khR.addAll(userFollowLive.user_follow_live);
+            this.kdl.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return khQ;
+        return kdk;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boP() {
+    public bz bkV() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boR() {
+    public at bkX() {
         return null;
     }
 
-    public List<AlaLiveInfo> cTv() {
-        return this.khR;
+    public List<AlaLiveInfo> cPD() {
+        return this.kdl;
     }
 
-    public aq cTw() {
+    public aq cPE() {
         aq aqVar = new aq("c13620");
         aqVar.w("uid", TbadkApplication.getCurrentAccountId());
         aqVar.an("fid", 0);

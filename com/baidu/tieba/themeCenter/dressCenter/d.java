@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
 import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     private String iconUrl;
     private String name;

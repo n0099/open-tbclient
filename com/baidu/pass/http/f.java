@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4144a = "f";
+    private static final String f4106a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f4145b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    private static final Pattern f4107b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     public static boolean c = false;
 
     public static void a(String str, String str2) {
@@ -19,10 +19,10 @@ public class f {
     }
 
     public static boolean b(String str) {
-        return f4145b.matcher(str).matches();
+        return f4107b.matcher(str).matches();
     }
 
     public static void a(String str) {
-        a(f4144a, str);
+        a(f4106a, str);
     }
 }

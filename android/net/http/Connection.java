@@ -2,7 +2,7 @@ package android.net.http;
 
 import android.content.Context;
 import org.apache.http.HttpHost;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 abstract class Connection {
     protected SslCertificate mCertificate;
     protected AndroidHttpClientConnection mHttpClientConnection;

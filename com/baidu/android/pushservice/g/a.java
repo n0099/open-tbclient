@@ -5,40 +5,40 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    protected class C0041a<V> extends FutureTask<V> implements Comparable<C0041a<V>> {
+    /* loaded from: classes14.dex */
+    protected class C0042a<V> extends FutureTask<V> implements Comparable<C0042a<V>> {
 
         /* renamed from: b  reason: collision with root package name */
-        private Object f1306b;
+        private Object f1312b;
 
-        public C0041a(Runnable runnable, V v) {
+        public C0042a(Runnable runnable, V v) {
             super(runnable, v);
-            this.f1306b = runnable;
+            this.f1312b = runnable;
         }
 
-        public C0041a(Callable<V> callable) {
+        public C0042a(Callable<V> callable) {
             super(callable);
-            this.f1306b = callable;
+            this.f1312b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C0041a<V> c0041a) {
-            if (this == c0041a) {
+        public int compareTo(C0042a<V> c0042a) {
+            if (this == c0042a) {
                 return 0;
             }
-            if (c0041a == null) {
+            if (c0042a == null) {
                 return -1;
             }
-            if (this.f1306b == null || c0041a.f1306b == null || !(this.f1306b instanceof c) || !(c0041a.f1306b instanceof c)) {
+            if (this.f1312b == null || c0042a.f1312b == null || !(this.f1312b instanceof c) || !(c0042a.f1312b instanceof c)) {
                 return 0;
             }
-            return ((c) c0041a.f1306b).d() - ((c) this.f1306b).d();
+            return ((c) c0042a.f1312b).d() - ((c) this.f1312b).d();
         }
     }
 
@@ -62,11 +62,11 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
-        return new C0041a(runnable, t);
+        return new C0042a(runnable, t);
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
-        return new C0041a(callable);
+        return new C0042a(callable);
     }
 }

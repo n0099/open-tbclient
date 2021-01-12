@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetUserOrder.DataReq;
 import tbclient.GetUserOrder.GetUserOrderReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetUserOrderRequestMessage extends NetMessage {
     private int orderType;
     private int pn;

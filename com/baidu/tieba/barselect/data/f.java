@@ -4,26 +4,26 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ManagerElection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
-    private BdUniqueId ahE;
+    private BdUniqueId agN;
     private long fid;
     private boolean hasMore;
-    private e ipC;
-    private d ipD;
-    private List<d> ipE;
-    private ManagerElection ipF;
+    private e ikT;
+    private d ikU;
+    private List<d> ikV;
+    private ManagerElection ikW;
 
-    public List<d> ctV() {
-        return this.ipE;
+    public List<d> cqd() {
+        return this.ikV;
     }
 
-    public d ctW() {
-        return this.ipD;
+    public d cqe() {
+        return this.ikU;
     }
 
-    public e ctX() {
-        return this.ipC;
+    public e cqf() {
+        return this.ikT;
     }
 
     public boolean getHasMore() {
@@ -35,23 +35,23 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.ahE;
+        return this.agN;
     }
 
-    public ManagerElection ctY() {
-        return this.ipF;
+    public ManagerElection cqg() {
+        return this.ikW;
     }
 
-    public void ap(ArrayList<d> arrayList) {
-        this.ipE = arrayList;
+    public void ak(ArrayList<d> arrayList) {
+        this.ikV = arrayList;
     }
 
     public void a(e eVar) {
-        this.ipC = eVar;
+        this.ikT = eVar;
     }
 
     public void a(d dVar) {
-        this.ipD = dVar;
+        this.ikU = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -63,10 +63,10 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.ahE = bdUniqueId;
+        this.agN = bdUniqueId;
     }
 
     public void a(ManagerElection managerElection) {
-        this.ipF = managerElection;
+        this.ikW = managerElection;
     }
 }

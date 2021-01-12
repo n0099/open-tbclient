@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AsyncListDiffer<T> {
     private static final Executor sMainThreadExecutor = new MainThreadExecutor();
     final AsyncDifferConfig<T> mConfig;
@@ -22,7 +22,7 @@ public class AsyncListDiffer<T> {
     private List<T> mReadOnlyList;
     private final ListUpdateCallback mUpdateCallback;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class MainThreadExecutor implements Executor {
         final Handler mHandler = new Handler(Looper.getMainLooper());
 

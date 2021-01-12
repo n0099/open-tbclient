@@ -17,152 +17,152 @@ import java.util.List;
 public class a implements d {
     private final Context mContext;
     private final TbPageContext mTbPageContext;
-    private ForumSquareModel nkc;
-    public b nkd;
-    private c nke;
-    private String nkf = "";
+    private String nfA = "";
+    private ForumSquareModel nfx;
+    public b nfy;
+    private c nfz;
 
     public a(Context context, TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
-        this.nkc = new ForumSquareModel(context, this);
-        this.nkd = new b(context, this.mTbPageContext);
+        this.nfx = new ForumSquareModel(context, this);
+        this.nfy = new b(context, this.mTbPageContext);
     }
 
     public void startLoadData() {
-        this.nke = new c(this.mContext, this, this.nkd);
-        this.nke.dNi();
-        cLH();
+        this.nfz = new c(this.mContext, this, this.nfy);
+        this.nfz.dJq();
+        cHP();
     }
 
-    private void cLH() {
-        this.nkd.dNc();
-        this.nkc.SV(this.nkf);
+    private void cHP() {
+        this.nfy.dJk();
+        this.nfx.RN(this.nfA);
     }
 
-    public void dMW() {
-        this.nkd.dMW();
+    public void dJe() {
+        this.nfy.dJe();
     }
 
     @Override // com.baidu.tieba.square.d
     public void d(String str, List<String> list, List<n> list2) {
         boolean z = true;
-        if (this.nkc != null && this.nkd != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.nkf)) {
-                String dMZ = this.nkd.dMZ();
-                if (TextUtils.isEmpty(str) || str.equals(dMZ)) {
+        if (this.nfx != null && this.nfy != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.nfA)) {
+                String dJh = this.nfy.dJh();
+                if (TextUtils.isEmpty(str) || str.equals(dJh)) {
                     z = false;
                 }
             }
-            this.nkf = str;
-            this.nkd.dNd();
-            this.nkd.d(str, list, z);
-            this.nkd.v(list2, this.nkc.w(list2, 300));
+            this.nfA = str;
+            this.nfy.dJl();
+            this.nfy.d(str, list, z);
+            this.nfy.v(list2, this.nfx.w(list2, 300));
             r(str, list2);
         }
     }
 
     private void r(String str, List<n> list) {
-        if (this.nkd != null && this.nkc != null) {
+        if (this.nfy != null && this.nfx != null) {
             if (x.isEmpty(list)) {
-                this.nkd.bVG();
+                this.nfy.bRO();
             } else if (x.getCount(list) < 10) {
-                this.nkd.dNg();
+                this.nfy.dJo();
             } else {
-                this.nkd.xT(this.nkc.SW(str));
+                this.nfy.xP(this.nfx.RO(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void a(String str, ErrorData errorData) {
-        if (this.nkd != null && this.nkc != null) {
-            this.nkd.dNd();
-            com.baidu.tieba.square.data.c SU = this.nkc.SU(str);
-            if (SU == null || (SU.hasMore && x.isEmpty(SU.getDataList()))) {
-                this.nkd.bVG();
-                this.nkd.dNa();
+        if (this.nfy != null && this.nfx != null) {
+            this.nfy.dJl();
+            com.baidu.tieba.square.data.c RM = this.nfx.RM(str);
+            if (RM == null || (RM.hasMore && x.isEmpty(RM.getDataList()))) {
+                this.nfy.bRO();
+                this.nfy.dJi();
                 return;
             }
-            this.nkd.fS(SU.getDataList());
-            r(str, SU.getDataList());
+            this.nfy.fS(RM.getDataList());
+            r(str, RM.getDataList());
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void e(ErrorData errorData) {
-        if (this.nkd != null) {
-            this.nkd.dNb();
+        if (this.nfy != null) {
+            this.nfy.dJj();
         }
     }
 
-    public void bZl() {
+    public void bVt() {
         String className = getClassName();
-        if (this.nkc != null && this.nkd != null) {
-            boolean isLoading = this.nkc.isLoading();
-            boolean xT = this.nkd.xT(this.nkc.SW(className));
-            if (!isLoading && xT) {
-                this.nkc.SV(className);
+        if (this.nfx != null && this.nfy != null) {
+            boolean isLoading = this.nfx.isLoading();
+            boolean xP = this.nfy.xP(this.nfx.RO(className));
+            if (!isLoading && xP) {
+                this.nfx.RN(className);
             }
         }
     }
 
-    public void dMX() {
-        if (this.nkd != null) {
-            this.nkd.dNc();
+    public void dJf() {
+        if (this.nfy != null) {
+            this.nfy.dJk();
         }
-        if (this.nkc != null) {
-            this.nkc.SV(getClassName());
+        if (this.nfx != null) {
+            this.nfx.RN(getClassName());
         }
     }
 
-    public void SO(String str) {
-        SP(this.nkf);
-        this.nkf = str;
-        if (this.nkc != null && this.nkd != null) {
-            com.baidu.tieba.square.data.c SU = this.nkc.SU(str);
-            if (SU == null || (SU.hasMore && x.isEmpty(SU.getDataList()))) {
-                this.nkd.dNe();
+    public void RG(String str) {
+        RH(this.nfA);
+        this.nfA = str;
+        if (this.nfx != null && this.nfy != null) {
+            com.baidu.tieba.square.data.c RM = this.nfx.RM(str);
+            if (RM == null || (RM.hasMore && x.isEmpty(RM.getDataList()))) {
+                this.nfy.dJm();
                 r(str, null);
-                this.nkc.SV(str);
-                this.nkd.scrollToPositionWithOffset(0, 0);
+                this.nfx.RN(str);
+                this.nfy.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.nkd.dNd();
-            r(str, SU.getDataList());
-            this.nkd.fS(SU.getDataList());
-            this.nkd.scrollToPositionWithOffset(SU.nkD, SU.fhK);
+            this.nfy.dJl();
+            r(str, RM.getDataList());
+            this.nfy.fS(RM.getDataList());
+            this.nfy.scrollToPositionWithOffset(RM.nfY, RM.fdc);
         }
     }
 
-    public void SP(String str) {
-        com.baidu.tieba.square.data.c SU;
-        Pair<Integer, Integer> dMY;
-        if (this.nkd != null && this.nkc != null && !TextUtils.isEmpty(str) && (SU = this.nkc.SU(str)) != null && (dMY = this.nkd.dMY()) != null) {
-            SU.nkD = ((Integer) dMY.first).intValue();
-            SU.fhK = ((Integer) dMY.second).intValue();
+    public void RH(String str) {
+        com.baidu.tieba.square.data.c RM;
+        Pair<Integer, Integer> dJg;
+        if (this.nfy != null && this.nfx != null && !TextUtils.isEmpty(str) && (RM = this.nfx.RM(str)) != null && (dJg = this.nfy.dJg()) != null) {
+            RM.nfY = ((Integer) dJg.first).intValue();
+            RM.fdc = ((Integer) dJg.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.nkf;
+        return this.nfA;
     }
 
     public void W(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.nkf = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.nkf) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.nkf = uri.getQueryParameter("tab_name");
+            this.nfA = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.nfA) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.nfA = uri.getQueryParameter("tab_name");
             }
-            this.nkd.xS(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+            this.nfy.xO(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
         }
     }
 
-    public void SQ(String str) {
+    public void RI(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.nkd.SR(str);
-            SO(str);
+            this.nfy.RJ(str);
+            RG(str);
         }
     }
 }

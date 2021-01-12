@@ -5,11 +5,11 @@ import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
         private a() {
         }
@@ -19,25 +19,25 @@ public class e {
         abstract void a(Object obj);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final PrintWriter f9959a;
+        private final PrintWriter f9659a;
 
         b(PrintWriter printWriter) {
             super();
-            this.f9959a = printWriter;
+            this.f9659a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         Object a() {
-            return this.f9959a;
+            return this.f9659a;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         void a(Object obj) {
-            this.f9959a.println(obj);
+            this.f9659a.println(obj);
         }
     }
 

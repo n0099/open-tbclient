@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements c {
-    private ExcContent mdP;
-    private SpannableString mdQ;
+    private ExcContent lZi;
+    private SpannableString lZj;
 
     public a(ExcContent excContent) {
-        this.mdP = excContent;
+        this.lZi = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +22,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence duZ() {
-        return b(this.mdP);
+    public CharSequence drh() {
+        return b(this.lZi);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int DG;
-        a.C0596a Eb;
-        if (this.mdQ == null && (DG = TbFaceManager.bGp().DG((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.bGp().DI(str) + ")";
-            this.mdQ = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), DG);
-            if (TbFaceManager.bGp().Eb(str) != null) {
-                int width = (int) (Eb.getWidth() * 0.6d);
+        int Cv;
+        a.C0579a CQ;
+        if (this.lZj == null && (Cv = TbFaceManager.bCw().Cv((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.bCw().Cx(str) + ")";
+            this.lZj = new SpannableString(str2 + " ");
+            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), Cv);
+            if (TbFaceManager.bCw().CQ(str) != null) {
+                int width = (int) (CQ.getWidth() * 0.6d);
                 dVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.mdQ.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
+            this.lZj.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
         }
-        return this.mdQ;
+        return this.lZj;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dva() {
+    public boolean dri() {
         return false;
     }
 }

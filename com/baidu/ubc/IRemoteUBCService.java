@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IRemoteUBCService extends IInterface {
     void flowAddEvent(Flow flow, String str, String str2) throws RemoteException;
 
@@ -31,7 +31,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void uploadLocalDatas() throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         private static final String DESCRIPTOR = "com.baidu.ubc.IRemoteUBCService";
         static final int TRANSACTION_flowAddEvent = 3;
@@ -146,7 +146,7 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class Proxy implements IRemoteUBCService {
             private IBinder mRemote;
 

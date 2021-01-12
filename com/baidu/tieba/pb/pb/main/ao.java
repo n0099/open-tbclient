@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class ao {
-    private static TextView fPT;
-    private static final int[] lUm = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static TextView fLm;
+    private static final int[] lPI = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aT(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -38,11 +38,11 @@ public class ao {
         return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 
-    public static int drH() {
-        return lUm[new Random().nextInt(lUm.length)];
+    public static int dnP() {
+        return lPI[new Random().nextInt(lPI.length)];
     }
 
-    public static String PV(String str) {
+    public static String ON(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
@@ -51,9 +51,9 @@ public class ao {
             return null;
         }
         String str = "";
-        if (bzVar.btr() == 1) {
+        if (bzVar.bpx() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bzVar.btr() == 2) {
+        } else if (bzVar.bpx() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -69,10 +69,10 @@ public class ao {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (fPT == null) {
-                fPT = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (fLm == null) {
+                fLm = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = fPT;
+            TextView textView = fLm;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -88,16 +88,16 @@ public class ao {
         }
     }
 
-    public static int drI() {
+    public static int dnQ() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.dmF() == null) {
+        if (fVar == null || fVar.diN() == null) {
             return 0;
         }
-        if (fVar.dmF().bsR()) {
-            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.dnc()) && (fVar.dmE() == null || StringUtils.isNull(fVar.dmE().getForumName()))) ? 0 : 2;
+        if (fVar.diN().boX()) {
+            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.djk()) && (fVar.diM() == null || StringUtils.isNull(fVar.diM().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

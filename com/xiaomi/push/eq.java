@@ -8,71 +8,71 @@ import java.util.HashMap;
 public final class eq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile eq f14296a;
+    private static volatile eq f13996a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f381a;
+    private int f380a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f382a;
+    private Context f381a;
 
     /* renamed from: a  reason: collision with other field name */
-    private eu f383a;
+    private eu f382a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f384a;
+    private String f383a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<es, et> f385a = new HashMap<>();
+    private HashMap<es, et> f384a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14297b;
+    private String f13997b;
 
     private eq(Context context) {
-        this.f382a = context;
-        this.f385a.put(es.SERVICE_ACTION, new ew());
-        this.f385a.put(es.SERVICE_COMPONENT, new ex());
-        this.f385a.put(es.ACTIVITY, new eo());
-        this.f385a.put(es.PROVIDER, new ev());
+        this.f381a = context;
+        this.f384a.put(es.SERVICE_ACTION, new ew());
+        this.f384a.put(es.SERVICE_COMPONENT, new ex());
+        this.f384a.put(es.ACTIVITY, new eo());
+        this.f384a.put(es.PROVIDER, new ev());
     }
 
     public static eq a(Context context) {
-        if (f14296a == null) {
+        if (f13996a == null) {
             synchronized (eq.class) {
-                if (f14296a == null) {
-                    f14296a = new eq(context);
+                if (f13996a == null) {
+                    f13996a = new eq(context);
                 }
             }
         }
-        return f14296a;
+        return f13996a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(es esVar, Context context, ep epVar) {
-        this.f385a.get(esVar).a(context, epVar);
+        this.f384a.get(esVar).a(context, epVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m297a(Context context) {
-        return com.xiaomi.push.service.aa.m562a(context, context.getPackageName());
+    public static boolean m293a(Context context) {
+        return com.xiaomi.push.service.aa.m558a(context, context.getPackageName());
     }
 
     public int a() {
-        return this.f381a;
+        return this.f380a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eu m298a() {
+    public eu m294a() {
+        return this.f382a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m295a() {
         return this.f383a;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public String m299a() {
-        return this.f384a;
-    }
-
     public void a(int i) {
-        this.f381a = i;
+        this.f380a = i;
     }
 
     public void a(Context context, String str, int i, String str2, String str3) {
@@ -81,23 +81,23 @@ public final class eq {
             return;
         }
         a(i);
-        ai.a(this.f382a).a(new er(this, str, context, str2, str3));
+        ai.a(this.f381a).a(new er(this, str, context, str2, str3));
     }
 
     public void a(es esVar, Context context, Intent intent, String str) {
         if (esVar != null) {
-            this.f385a.get(esVar).a(context, intent, str);
+            this.f384a.get(esVar).a(context, intent, str);
         } else {
             em.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 
     public void a(eu euVar) {
-        this.f383a = euVar;
+        this.f382a = euVar;
     }
 
     public void a(String str) {
-        this.f384a = str;
+        this.f383a = str;
     }
 
     public void a(String str, String str2, int i, eu euVar) {
@@ -108,10 +108,10 @@ public final class eq {
     }
 
     public String b() {
-        return this.f14297b;
+        return this.f13997b;
     }
 
     public void b(String str) {
-        this.f14297b = str;
+        this.f13997b = str;
     }
 }

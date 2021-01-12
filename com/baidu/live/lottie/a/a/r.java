@@ -4,30 +4,30 @@ import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class r implements b, a.InterfaceC0194a {
-    private final ShapeTrimPath.Type buc;
-    private final com.baidu.live.lottie.a.b.a<?, Float> bud;
-    private final com.baidu.live.lottie.a.b.a<?, Float> bue;
-    private final com.baidu.live.lottie.a.b.a<?, Float> bug;
-    private final List<a.InterfaceC0194a> listeners = new ArrayList();
+/* loaded from: classes9.dex */
+public class r implements b, a.InterfaceC0185a {
+    private final ShapeTrimPath.Type bpp;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpq;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bpr;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bps;
+    private final List<a.InterfaceC0185a> listeners = new ArrayList();
     private final String name;
 
     public r(com.baidu.live.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.buc = shapeTrimPath.PF();
-        this.bud = shapeTrimPath.Qy().PP();
-        this.bue = shapeTrimPath.Qx().PP();
-        this.bug = shapeTrimPath.Qt().PP();
-        aVar.a(this.bud);
-        aVar.a(this.bue);
-        aVar.a(this.bug);
-        this.bud.b(this);
-        this.bue.b(this);
-        this.bug.b(this);
+        this.bpp = shapeTrimPath.LK();
+        this.bpq = shapeTrimPath.MD().LU();
+        this.bpr = shapeTrimPath.MC().LU();
+        this.bps = shapeTrimPath.My().LU();
+        aVar.a(this.bpq);
+        aVar.a(this.bpr);
+        aVar.a(this.bps);
+        this.bpq.b(this);
+        this.bpr.b(this);
+        this.bps.b(this);
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0194a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
     public void is() {
         int i = 0;
         while (true) {
@@ -51,24 +51,24 @@ public class r implements b, a.InterfaceC0194a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0194a interfaceC0194a) {
-        this.listeners.add(interfaceC0194a);
+    public void a(a.InterfaceC0185a interfaceC0185a) {
+        this.listeners.add(interfaceC0185a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type PF() {
-        return this.buc;
+    public ShapeTrimPath.Type LK() {
+        return this.bpp;
     }
 
-    public com.baidu.live.lottie.a.b.a<?, Float> PG() {
-        return this.bud;
+    public com.baidu.live.lottie.a.b.a<?, Float> LL() {
+        return this.bpq;
     }
 
-    public com.baidu.live.lottie.a.b.a<?, Float> PH() {
-        return this.bue;
+    public com.baidu.live.lottie.a.b.a<?, Float> LM() {
+        return this.bpr;
     }
 
-    public com.baidu.live.lottie.a.b.a<?, Float> PI() {
-        return this.bug;
+    public com.baidu.live.lottie.a.b.a<?, Float> LN() {
+        return this.bps;
     }
 }

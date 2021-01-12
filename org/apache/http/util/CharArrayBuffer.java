@@ -1,6 +1,6 @@
 package org.apache.http.util;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CharArrayBuffer {
     public CharArrayBuffer(int i) {
         throw new RuntimeException("Stub!");

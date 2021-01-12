@@ -15,10 +15,10 @@ import com.baidu.tbadk.task.b;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
-    private a eZi;
-    private boolean eZj = false;
-    private int eZk = 1;
-    private com.baidu.adp.framework.listener.a eFZ = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tbadk.core.feedManager.FeedRecModel.1
+    private a eUx;
+    private boolean eUy = false;
+    private int eUz = 1;
+    private com.baidu.adp.framework.listener.a eBn = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tbadk.core.feedManager.FeedRecModel.1
         /* JADX WARN: Removed duplicated region for block: B:18:0x0034  */
         /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
         @Override // com.baidu.adp.framework.listener.a
@@ -28,7 +28,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             boolean z2 = true;
-            if (responsedMessage != null && FeedRecModel.this.eZi != null) {
+            if (responsedMessage != null && FeedRecModel.this.eUx != null) {
                 if (responsedMessage.getOrginalMessage() != null) {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
                     if (extra instanceof FeedRecRequest) {
@@ -38,7 +38,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                             z2 = false;
                         }
                         if (responsedMessage.getError() == 0) {
-                            FeedRecModel.this.eZi.aE(responsedMessage.getError(), responsedMessage.getErrorString());
+                            FeedRecModel.this.eUx.aF(responsedMessage.getError(), responsedMessage.getErrorString());
                             return;
                         }
                         DataRes dataRes = null;
@@ -48,7 +48,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                             dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                         }
                         BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                        FeedRecModel.this.eZi.a(dataRes, z, z2);
+                        FeedRecModel.this.eUx.a(dataRes, z, z2);
                         return;
                     }
                 }
@@ -64,25 +64,25 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public interface a {
         void a(DataRes dataRes, boolean z, boolean z2);
 
-        void aE(int i, String str);
+        void aF(int i, String str);
     }
 
     public FeedRecModel() {
         setUniqueId(BdUniqueId.gen());
-        buH();
-        buG();
-        registerListener(this.eFZ);
+        bqN();
+        bqM();
+        registerListener(this.eBn);
     }
 
     public void a(a aVar) {
-        this.eZi = aVar;
+        this.eUx = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i = this.eZk;
-        this.eZk = i + 1;
+        int i = this.eUz;
+        this.eUz = i + 1;
         feedRecRequest.setRequestTime(i);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -96,7 +96,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void buG() {
+    private void bqM() {
         b bVar = new b(CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.setNeedAck(true);
@@ -104,7 +104,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void buH() {
+    private void bqN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);

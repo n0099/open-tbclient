@@ -15,73 +15,73 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends e {
-    private TbPageContext eXu;
-    protected boolean fKN;
-    private NoDataView fKO;
-    private FrameLayout fKP;
-    private NoDataViewFactory.d fKQ;
-    private NoDataViewFactory.c fKR;
-    private NoDataViewFactory.b fKS;
-    private FrameLayout.LayoutParams fKT;
+    private TbPageContext eSJ;
+    protected boolean fGg;
+    private NoDataView fGh;
+    private FrameLayout fGi;
+    private NoDataViewFactory.d fGj;
+    private NoDataViewFactory.c fGk;
+    private NoDataViewFactory.b fGl;
+    private FrameLayout.LayoutParams fGm;
     private String from;
-    private boolean jia;
-    private List<ICardInfo> kXL;
+    private boolean jdt;
+    private List<ICardInfo> kTg;
     private int mCount;
 
-    protected void bHh() {
-        if (this.fKP != null && this.fKO != null) {
-            this.fKP.removeView(this.fKO);
-            this.fKO = null;
+    protected void bDo() {
+        if (this.fGi != null && this.fGh != null) {
+            this.fGi.removeView(this.fGh);
+            this.fGh = null;
         }
     }
 
-    protected View bHi() {
-        if (this.fKP == null) {
-            this.fKP = new FrameLayout(this.eXu.getPageActivity());
+    protected View bDp() {
+        if (this.fGi == null) {
+            this.fGi = new FrameLayout(this.eSJ.getPageActivity());
         }
-        if (this.fKO == null) {
-            this.fKO = NoDataViewFactory.a(this.eXu.getPageActivity(), this.fKP, this.fKR, this.fKQ, this.fKS);
+        if (this.fGh == null) {
+            this.fGh = NoDataViewFactory.a(this.eSJ.getPageActivity(), this.fGi, this.fGk, this.fGj, this.fGl);
         }
-        this.fKO.setVisibility(0);
-        if (this.fKT != null) {
-            this.fKO.setLayoutParams(this.fKT);
+        this.fGh.setVisibility(0);
+        if (this.fGm != null) {
+            this.fGh.setLayoutParams(this.fGm);
         }
-        this.fKP.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.fKO.onChangeSkinType(this.eXu, TbadkCoreApplication.getInst().getSkinType());
-        return this.fKP;
+        this.fGi.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        this.fGh.onChangeSkinType(this.eSJ, TbadkCoreApplication.getInst().getSkinType());
+        return this.fGi;
     }
 
     public void a(NoDataViewFactory.c cVar, NoDataViewFactory.d dVar, NoDataViewFactory.b bVar, FrameLayout.LayoutParams layoutParams) {
-        this.fKR = cVar;
-        this.fKQ = dVar;
-        this.fKS = bVar;
-        this.fKT = layoutParams;
-        if (this.fKO != null) {
-            this.fKO.setTextOption(dVar);
-            this.fKO.setImgOption(cVar);
-            this.fKO.setButtonOption(bVar);
+        this.fGk = cVar;
+        this.fGj = dVar;
+        this.fGl = bVar;
+        this.fGm = layoutParams;
+        if (this.fGh != null) {
+            this.fGh.setTextOption(dVar);
+            this.fGh.setImgOption(cVar);
+            this.fGh.setButtonOption(bVar);
             if (layoutParams != null) {
-                this.fKO.setLayoutParams(layoutParams);
+                this.fGh.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public void tv(boolean z) {
-        this.fKN = z;
+    public void tr(boolean z) {
+        this.fGg = z;
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mCount = 0;
-        this.fKN = true;
-        this.eXu = tbPageContext;
+        this.fGg = true;
+        this.eSJ = tbPageContext;
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter, com.baidu.adp.widget.ListView.o
     public int getCount() {
-        if (this.mCount == 0 && this.fKN) {
+        if (this.mCount == 0 && this.fGg) {
             return 1;
         }
         return this.mCount;
@@ -94,10 +94,10 @@ public class a extends e {
 
     private int getAdapterCount() {
         int i = 0;
-        if (this.kXL == null) {
+        if (this.kTg == null) {
             return 0;
         }
-        Iterator<ICardInfo> it = this.kXL.iterator();
+        Iterator<ICardInfo> it = this.kTg.iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
@@ -109,13 +109,13 @@ public class a extends e {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter, com.baidu.adp.widget.ListView.o
-    /* renamed from: Fc */
+    /* renamed from: Dw */
     public ICardInfo getItem(int i) {
         return getAdapterItem(i);
     }
 
     private ICardInfo getAdapterItem(int i) {
-        for (ICardInfo iCardInfo : this.kXL) {
+        for (ICardInfo iCardInfo : this.kTg) {
             int adapterCount = iCardInfo.getAdapterCount();
             if (i < adapterCount) {
                 return iCardInfo.getAdapterItem(i);
@@ -129,7 +129,7 @@ public class a extends e {
     public int getItemViewType(int i) {
         ICardInfo adapterItem = getAdapterItem(i);
         if (adapterItem != null) {
-            return com.baidu.tieba.lego.card.e.kXO.get(adapterItem.getAdapterType());
+            return com.baidu.tieba.lego.card.e.kTj.get(adapterItem.getAdapterType());
         }
         return 0;
     }
@@ -141,16 +141,16 @@ public class a extends e {
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return com.baidu.tieba.lego.card.e.kXO.size() + 1;
+        return com.baidu.tieba.lego.card.e.kTj.size() + 1;
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.fKN && isDataEmpty()) {
-            return bHi();
+        if (this.fGg && isDataEmpty()) {
+            return bDp();
         }
-        bHh();
-        Fd(i);
+        bDo();
+        Dx(i);
         ICardInfo adapterItem = getAdapterItem(i);
         BaseLegoCardView a2 = a(view, adapterItem);
         if (a2 != null) {
@@ -161,33 +161,33 @@ public class a extends e {
         return a2;
     }
 
-    private void Fd(int i) {
-        if (this.jia) {
-            int Ff = Ff(i - 1);
-            int Ff2 = Ff(i - 2);
-            Fe(Ff);
-            Fe(Ff2);
+    private void Dx(int i) {
+        if (this.jdt) {
+            int Dz = Dz(i - 1);
+            int Dz2 = Dz(i - 2);
+            Dy(Dz);
+            Dy(Dz2);
             return;
         }
-        int Ff3 = Ff(i + 1);
-        int Ff4 = Ff(i + 2);
-        Fe(Ff3);
-        Fe(Ff4);
+        int Dz3 = Dz(i + 1);
+        int Dz4 = Dz(i + 2);
+        Dy(Dz3);
+        Dy(Dz4);
     }
 
-    private void Fe(int i) {
-        ICardInfo iCardInfo = this.kXL.get(i);
+    private void Dy(int i) {
+        ICardInfo iCardInfo = this.kTg.get(i);
         if (iCardInfo instanceof com.baidu.tieba.lego.card.b.a) {
-            ((com.baidu.tieba.lego.card.b.a) iCardInfo).doLoad(iCardInfo, this.eXu);
+            ((com.baidu.tieba.lego.card.b.a) iCardInfo).doLoad(iCardInfo, this.eSJ);
         }
     }
 
-    private int Ff(int i) {
+    private int Dz(int i) {
         if (i < 0) {
             i = 0;
         }
-        if (i >= this.kXL.size()) {
-            return this.kXL.size() - 1;
+        if (i >= this.kTg.size()) {
+            return this.kTg.size() - 1;
         }
         return i;
     }
@@ -199,31 +199,31 @@ public class a extends e {
         if (view instanceof BaseLegoCardView) {
             return (BaseLegoCardView) view;
         }
-        return (BaseLegoCardView) b.ddm().a(this.eXu, iCardInfo, 0);
+        return (BaseLegoCardView) b.cZu().a(this.eSJ, iCardInfo, 0);
     }
 
     public void eM(List<ICardInfo> list) {
-        if (this.kXL == null) {
-            this.kXL = new ArrayList();
+        if (this.kTg == null) {
+            this.kTg = new ArrayList();
         } else {
-            this.kXL.clear();
+            this.kTg.clear();
         }
         if (list != null) {
-            this.kXL.addAll(list);
+            this.kTg.addAll(list);
         }
         this.mCount = getAdapterCount();
         notifyDataSetChanged();
     }
 
     protected boolean isDataEmpty() {
-        return this.kXL != null && this.kXL.size() == 0;
+        return this.kTg != null && this.kTg.size() == 0;
     }
 
     public void setFrom(String str) {
         this.from = str;
     }
 
-    public void tw(boolean z) {
-        this.jia = z;
+    public void ts(boolean z) {
+        this.jdt = z;
     }
 }

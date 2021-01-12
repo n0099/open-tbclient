@@ -4,15 +4,15 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3967a;
+    final /* synthetic */ e f3929a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.f3967a = eVar;
+        this.f3929a = eVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -35,58 +35,58 @@ public class g extends TimerTask {
         float f14;
         float f15;
         float f16 = 0.0f;
-        f = this.f3967a.i;
+        f = this.f3929a.i;
         float f17 = f * 0.1f;
-        f2 = this.f3967a.j;
+        f2 = this.f3929a.j;
         float f18 = f2 * 0.1f;
         float f19 = 0.005f * 6.0f;
         float f20 = 6.0f * 0.003f;
-        f3 = this.f3967a.i;
+        f3 = this.f3929a.i;
         if (!Float.isInfinite(Math.abs(f3))) {
-            f4 = this.f3967a.i;
+            f4 = this.f3929a.i;
             if (!Float.isNaN(f4)) {
-                f5 = this.f3967a.j;
+                f5 = this.f3929a.j;
                 if (!Float.isInfinite(Math.abs(f5))) {
-                    f6 = this.f3967a.j;
+                    f6 = this.f3929a.j;
                     if (!Float.isNaN(f6)) {
-                        f7 = this.f3967a.i;
+                        f7 = this.f3929a.i;
                         if (Math.abs(f7) > 40.0f) {
-                            e eVar = this.f3967a;
-                            f14 = this.f3967a.i;
+                            e eVar = this.f3929a;
+                            f14 = this.f3929a.i;
                             eVar.i = f14 - f17;
-                            f15 = this.f3967a.i;
+                            f15 = this.f3929a.i;
                             f8 = f15 * f19;
                         } else {
                             f8 = 0.0f;
                         }
-                        f9 = this.f3967a.j;
+                        f9 = this.f3929a.j;
                         if (Math.abs(f9) > 40.0f) {
-                            e eVar2 = this.f3967a;
-                            f12 = this.f3967a.j;
+                            e eVar2 = this.f3929a;
+                            f12 = this.f3929a.j;
                             eVar2.j = f12 - f18;
-                            f13 = this.f3967a.j;
+                            f13 = this.f3929a.j;
                             f16 = f13 * f20;
                         }
-                        f10 = this.f3967a.i;
+                        f10 = this.f3929a.i;
                         if (Math.abs(f10) < 40.0f) {
-                            f11 = this.f3967a.j;
+                            f11 = this.f3929a.j;
                             if (Math.abs(f11) < 40.0f) {
-                                this.f3967a.j();
+                                this.f3929a.j();
                                 return;
                             }
                         }
-                        handler = this.f3967a.o;
+                        handler = this.f3929a.o;
                         Message obtainMessage = handler.obtainMessage();
                         obtainMessage.what = 1001;
                         obtainMessage.arg1 = (int) f8;
                         obtainMessage.arg2 = (int) f16;
-                        handler2 = this.f3967a.o;
+                        handler2 = this.f3929a.o;
                         handler2.sendMessage(obtainMessage);
                         return;
                     }
                 }
             }
         }
-        this.f3967a.j();
+        this.f3929a.j();
     }
 }

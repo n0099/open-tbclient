@@ -9,43 +9,43 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.switchs.AdUploadSwitch;
 /* loaded from: classes.dex */
 public class e {
-    private static e mSF;
-    private CustomMessageListener mSH = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.e.1
+    private static e mNY;
+    private CustomMessageListener mOa = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && e.this.mSG != null) {
-                e.this.mSG.dFY();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && e.this.mNZ != null) {
+                e.this.mNZ.dCg();
             }
         }
     };
-    private f mSG = new i();
+    private f mNZ = new i();
 
-    public static e dFW() {
-        if (mSF == null) {
+    public static e dCe() {
+        if (mNY == null) {
             synchronized (e.class) {
-                if (mSF == null) {
-                    mSF = new e();
+                if (mNY == null) {
+                    mNY = new e();
                 }
             }
         }
-        return mSF;
+        return mNY;
     }
 
-    private boolean dFX() {
+    private boolean dCf() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private e() {
-        MessageManager.getInstance().registerListener(this.mSH);
+        MessageManager.getInstance().registerListener(this.mOa);
     }
 
     public void a(c cVar) {
-        if (dFX() && cVar != null && this.mSG != null) {
+        if (dCf() && cVar != null && this.mNZ != null) {
             if (j.isNetWorkAvailable()) {
-                this.mSG.b(cVar);
+                this.mNZ.b(cVar);
             } else {
-                this.mSG.c(cVar);
+                this.mNZ.c(cVar);
             }
         }
     }

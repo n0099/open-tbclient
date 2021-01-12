@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private static long a(InputStream inputStream, OutputStream outputStream, byte[] bArr) {
         long j = 0;

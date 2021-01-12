@@ -11,6 +11,7 @@ import com.alibaba.fastjson.serializer.ObjectSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -549,7 +550,7 @@ public class JSONPath implements JSONAware {
                                 if (!isEOF()) {
                                     next();
                                 }
-                                if ("size".equals(readName)) {
+                                if (TiebaInitialize.LogFields.SIZE.equals(readName)) {
                                     return SizeSegement.instance;
                                 }
                                 throw new JSONPathException("not support jsonpath : " + this.path);

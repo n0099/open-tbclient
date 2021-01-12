@@ -1,9 +1,9 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface j {
-    void AY(boolean z);
+    void AU(boolean z);
 
-    void AZ(boolean z);
+    void AV(boolean z);
 
     void bF(float f);
 

@@ -18,14 +18,14 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.ab;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrendListItemView extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private RoundAngleImageView f9180a;
+    private RoundAngleImageView f8880a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f9181b;
+    private TextView f8881b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -65,16 +65,16 @@ public class TrendListItemView extends com.kwad.sdk.widget.a {
         } else {
             setBackgroundColor(ViewCompat.MEASURED_SIZE_MASK);
         }
-        KSImageLoader.loadImage(this.f9180a, trendInfo.coverUrl, (AdTemplate) null, KSImageLoader.IMGOPTION_TREND);
-        this.f9181b.setText(String.valueOf(trendInfo.rank));
+        KSImageLoader.loadImage(this.f8880a, trendInfo.coverUrl, (AdTemplate) null, KSImageLoader.IMGOPTION_TREND);
+        this.f8881b.setText(String.valueOf(trendInfo.rank));
         if (trendInfo.rank <= 3) {
-            this.f9181b.setVisibility(8);
+            this.f8881b.setVisibility(8);
             this.f.setVisibility(0);
             this.f.setImageDrawable(ab.b(getContext(), String.format("ksad_trend_list_logo_%d", Integer.valueOf(trendInfo.rank))));
         } else {
-            this.f9181b.setVisibility(0);
+            this.f8881b.setVisibility(0);
             this.f.setVisibility(8);
-            this.f9181b.setTextColor(-2130706433);
+            this.f8881b.setTextColor(-2130706433);
         }
         this.c.setText(trendInfo.name);
         this.d.setText(String.format(getContext().getString(R.string.ksad_trend_list_item_photo_count_format), Integer.valueOf(trendInfo.photoCount)));
@@ -88,9 +88,9 @@ public class TrendListItemView extends com.kwad.sdk.widget.a {
     }
 
     protected void b() {
-        this.f9180a = (RoundAngleImageView) findViewById(R.id.ksad_photo_hot_list_item_photo);
-        this.f9180a.setRadius(ao.a(getContext(), 4.0f));
-        this.f9181b = (TextView) findViewById(R.id.ksad_photo_hot_list_item_index);
+        this.f8880a = (RoundAngleImageView) findViewById(R.id.ksad_photo_hot_list_item_photo);
+        this.f8880a.setRadius(ao.a(getContext(), 4.0f));
+        this.f8881b = (TextView) findViewById(R.id.ksad_photo_hot_list_item_index);
         this.c = (TextView) findViewById(R.id.ksad_photo_hot_list_item_name);
         this.d = (TextView) findViewById(R.id.ksad_photo_hot_enter_photo_count);
         this.e = (TextView) findViewById(R.id.ksad_photo_hot_enter_watch_count);

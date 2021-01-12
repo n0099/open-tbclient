@@ -2,24 +2,24 @@ package com.kwad.sdk.contentalliance.detail.video;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8909a;
+    public String f8609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPlayerStatus f8910b;
+    public VideoPlayerStatus f8610b;
     public c c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f8911a;
+        private String f8611a;
 
         /* renamed from: b  reason: collision with root package name */
-        private VideoPlayerStatus f8912b;
+        private VideoPlayerStatus f8612b;
         private c c;
 
         public a a(@NonNull c cVar) {
@@ -28,12 +28,12 @@ public class d {
         }
 
         public a a(VideoPlayerStatus videoPlayerStatus) {
-            this.f8912b = videoPlayerStatus;
+            this.f8612b = videoPlayerStatus;
             return this;
         }
 
         public a a(String str) {
-            this.f8911a = str;
+            this.f8611a = str;
             return this;
         }
 
@@ -44,11 +44,11 @@ public class d {
 
     private d(a aVar) {
         this.c = new c();
-        this.f8909a = aVar.f8911a;
-        this.f8910b = aVar.f8912b;
+        this.f8609a = aVar.f8611a;
+        this.f8610b = aVar.f8612b;
         if (aVar.c != null) {
-            this.c.f8907a = aVar.c.f8907a;
-            this.c.f8908b = aVar.c.f8908b;
+            this.c.f8607a = aVar.c.f8607a;
+            this.c.f8608b = aVar.c.f8608b;
         }
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.sdk.core.h;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends InputStream {
     private InputStream d;
     private int e;
@@ -11,10 +11,10 @@ public class c extends InputStream {
     private volatile long h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9605a = -1;
+    private int f9305a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9606b = 10000;
+    private int f9306b = 10000;
     private long c = -1;
     private long f = -1;
     private int i = 20480;
@@ -46,17 +46,17 @@ public class c extends InputStream {
     }
 
     private void b() {
-        this.f9605a = 0;
+        this.f9305a = 0;
         this.c = System.currentTimeMillis();
     }
 
     private void c() {
-        if (this.f9605a < this.f9606b) {
+        if (this.f9305a < this.f9306b) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long j = currentTimeMillis - this.c;
-        float f = this.f9605a / this.g;
+        float f = this.f9305a / this.g;
         this.h = a(this.e, currentTimeMillis - this.f);
         if (f > ((float) j)) {
             a(f - ((float) j));
@@ -96,12 +96,12 @@ public class c extends InputStream {
             this.f = System.currentTimeMillis();
         }
         this.e++;
-        if (b.f9604b && b.f9603a) {
-            if (this.f9605a < 0) {
+        if (b.f9304b && b.f9303a) {
+            if (this.f9305a < 0) {
                 b();
             }
             int read = this.d.read();
-            this.f9605a++;
+            this.f9305a++;
             c();
             return read;
         }

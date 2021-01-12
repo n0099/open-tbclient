@@ -8,10 +8,10 @@ import java.util.List;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f7746a = new d();
+    public static final b f7446a = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f7747b = new f();
+    public static final b f7447b = new f();
     public static final b c = new e();
     protected a d;
     protected File e;

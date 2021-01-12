@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.annotation.RestrictTo;
 import java.io.Writer;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class LogWriter extends Writer {
     private StringBuilder mBuilder = new StringBuilder(128);
     private final String mTag;

@@ -12,7 +12,7 @@ public abstract class b extends com.facebook.datasource.a<com.facebook.common.re
             com.facebook.common.references.a<com.facebook.imagepipeline.f.c> result = bVar.getResult();
             Bitmap bitmap = null;
             if (result != null && (result.get() instanceof com.facebook.imagepipeline.f.b)) {
-                bitmap = ((com.facebook.imagepipeline.f.b) result.get()).ezF();
+                bitmap = ((com.facebook.imagepipeline.f.b) result.get()).evN();
             }
             try {
                 f(bitmap);

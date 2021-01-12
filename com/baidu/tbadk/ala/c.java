@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener eJi = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener eEx = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -29,7 +29,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.eJe;
+                AlaUserInfoData alaUserInfoData = aVar.eEt;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -45,23 +45,23 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new aq("c11850").dX("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11850").dW("uid", currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new aq("c11851").dX("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11851").dW("uid", currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new aq("c11852").dX("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11852").dW("uid", currentAccount));
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new aq("c11855").dX("uid", currentAccount).w("click_uid", alaUserInfoData.ala_id).an("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new aq("c11855").dW("uid", currentAccount).w("click_uid", alaUserInfoData.ala_id).an("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new aq("c12542"));
-                            if (aVar.eJf && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
+                            if (aVar.eEu && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bqk();
                                 return;
                             }
                             break;
@@ -78,12 +78,12 @@ public class c {
         }
     };
 
-    public static TextView eR(Context context) {
+    public static TextView eP(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(eJi);
+        textView.setOnClickListener(eEx);
         return textView;
     }
 }

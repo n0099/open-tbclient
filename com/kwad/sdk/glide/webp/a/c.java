@@ -10,7 +10,7 @@ import com.kwad.sdk.glide.c.h;
 import com.kwad.sdk.glide.c.l;
 import com.kwad.sdk.glide.g;
 import com.kwad.sdk.glide.request.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends g {
     public c(@NonNull com.kwad.sdk.glide.c cVar, @NonNull h hVar, @NonNull l lVar, @NonNull Context context) {
         super(cVar, hVar, lVar, context);
@@ -41,7 +41,7 @@ public class c extends g {
     @CheckResult
     /* renamed from: c */
     public <ResourceType> b<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new b<>(this.f10301a, this, cls, this.f10302b);
+        return new b<>(this.f10001a, this, cls, this.f10002b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

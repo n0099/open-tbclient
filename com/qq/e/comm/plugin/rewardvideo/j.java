@@ -45,7 +45,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     private static HashMap<Integer, WeakReference<j>> v = new HashMap<>();
     private LoadAdParams A;
@@ -53,10 +53,10 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     private final Map<String, m> C;
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12709a;
+    private final String f12409a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f12710b;
+    private final String f12410b;
     private final com.qq.e.comm.plugin.ad.l c;
     private final ADListener d;
     private final String e;
@@ -82,7 +82,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     private boolean z;
 
     /* renamed from: com.qq.e.comm.plugin.rewardvideo.j$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class AnonymousClass1 implements e.a {
         AnonymousClass1() {
         }
@@ -101,7 +101,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class a extends Handler {
         a() {
             super(Looper.getMainLooper());
@@ -154,7 +154,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     }
 
     public j(Context context, String str, String str2, com.qq.e.comm.plugin.ad.l lVar, ADListener aDListener) {
-        this.f12709a = getClass().getSimpleName();
+        this.f12409a = getClass().getSimpleName();
         this.i = false;
         this.j = 0L;
         this.k = -1;
@@ -167,7 +167,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
         this.A = null;
         this.B = false;
         this.C = new HashMap(2);
-        this.f12710b = str2;
+        this.f12410b = str2;
         this.t.a(str2);
         this.c = lVar;
         this.f = n.b();
@@ -180,7 +180,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
 
     private com.qq.e.comm.plugin.y.c a(JSONObject jSONObject) {
         com.qq.e.comm.plugin.y.c cVar = new com.qq.e.comm.plugin.y.c();
-        cVar.a(this.f12710b);
+        cVar.a(this.f12410b);
         if (jSONObject != null) {
             cVar.b(jSONObject.optString(Config.CELL_LOCATION));
             cVar.c(jSONObject.optString("traceid"));
@@ -202,7 +202,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     }
 
     private void a(Context context, boolean z, String str) {
-        ai.a(this.f12709a, "jumpToRewardPage");
+        ai.a(this.f12409a, "jumpToRewardPage");
         Intent intent = new Intent();
         intent.setClassName(context, ar.b());
         intent.putExtra(ACTD.DELEGATE_NAME_KEY, "rewardPage");
@@ -210,7 +210,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
         intent.putExtra("objectId", this.u);
         intent.putExtra("clickStartTime", System.currentTimeMillis());
         intent.putExtra(Constants.KEYS.AD_INFO, str);
-        intent.putExtra("posId", this.f12710b);
+        intent.putExtra("posId", this.f12410b);
         intent.putExtra("adThreadId", this.e);
         if (z) {
             intent.addFlags(268435456);
@@ -243,7 +243,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
         String optString = jSONObject.optString("mp");
         if (!TextUtils.isEmpty(optString)) {
             try {
-                this.l = Integer.parseInt(new String(aq.b(Base64.decode(optString, 0)), com.qq.e.comm.plugin.f.a.f12290a));
+                this.l = Integer.parseInt(new String(aq.b(Base64.decode(optString, 0)), com.qq.e.comm.plugin.f.a.f11990a));
             } catch (aq.b e) {
                 e.printStackTrace();
             }
@@ -256,7 +256,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     }
 
     private void a(boolean z) {
-        ai.a(this.f12709a, "callbackADCache, realAdCount : " + this.g);
+        ai.a(this.f12409a, "callbackADCache, realAdCount : " + this.g);
         this.r.sendEmptyMessage(2);
         h.a(this.s, z, true, this.t, null, null);
     }
@@ -271,7 +271,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
     }
 
     private void b(Context context, boolean z) {
-        ai.a(this.f12709a, "jumpToRewardVideo");
+        ai.a(this.f12409a, "jumpToRewardVideo");
         Intent intent = new Intent();
         if ("l".equals(GDTADManager.getInstance().getDeviceStatus().getScreenOrientation())) {
             if (m()) {
@@ -287,7 +287,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
         intent.putExtra("appid", GDTADManager.getInstance().getAppStatus().getAPPID());
         intent.putExtra(ACTD.DELEGATE_NAME_KEY, "rewardVideo");
         intent.putExtra("adThreadId", this.e);
-        intent.putExtra("posId", this.f12710b);
+        intent.putExtra("posId", this.f12410b);
         intent.putExtra(Constants.KEYS.AD_INFO, this.h[0]);
         intent.putExtra("objectId", this.u);
         intent.putExtra("rewardVideoExpireTime", this.j);
@@ -370,7 +370,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
 
     private void c(int i) {
         if (this.q.b()) {
-            ai.a(this.f12709a, "reward Ad retry load");
+            ai.a(this.f12409a, "reward Ad retry load");
             k();
         } else {
             a(501);
@@ -402,7 +402,7 @@ public class j implements RVADI, com.qq.e.comm.plugin.r.a {
 
     private void l() {
         this.y = null;
-        String stringForPlacement = GDTADManager.getInstance().getSM().getStringForPlacement("rewardVideoExp", this.f12710b);
+        String stringForPlacement = GDTADManager.getInstance().getSM().getStringForPlacement("rewardVideoExp", this.f12410b);
         if (TextUtils.isEmpty(stringForPlacement)) {
             return;
         }

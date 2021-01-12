@@ -12,74 +12,74 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class w {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private int eBE;
-    private JSONObject eBF;
-    private List<k> eBG = new ArrayList();
+    private int ewP;
+    private JSONObject ewQ;
+    private List<k> ewR = new ArrayList();
     private String mSign;
     private int mThreshold;
-    private JSONObject oND;
-    private JSONObject oNE;
-    private String oNF;
-    private String oNG;
-    private int oNH;
-    private int oNI;
+    private JSONObject oIY;
+    private JSONObject oIZ;
+    private String oJa;
+    private String oJb;
+    private int oJc;
+    private int oJd;
 
     public w(String str, JSONObject jSONObject) {
         this.mSign = str;
-        this.eBF = jSONObject;
+        this.ewQ = jSONObject;
     }
 
-    public int biO() {
+    public int beU() {
         return this.mThreshold;
     }
 
-    public int biP() {
-        return this.eBE;
+    public int beV() {
+        return this.ewP;
     }
 
-    public List<k> biQ() {
-        return this.eBG;
+    public List<k> beW() {
+        return this.ewR;
     }
 
     public void fx(List<k> list) {
-        this.eBG = list;
+        this.ewR = list;
     }
 
-    public String ejh() {
-        return this.oNG;
+    public String efp() {
+        return this.oJb;
     }
 
-    public JSONObject eji() {
-        return this.oNE;
+    public JSONObject efq() {
+        return this.oIZ;
     }
 
-    public int ejj() {
-        return this.oNH;
+    public int efr() {
+        return this.oJc;
     }
 
-    public int ejk() {
-        return this.oNI;
+    public int efs() {
+        return this.oJd;
     }
 
-    public boolean biR() {
+    public boolean beX() {
         try {
-            if (this.eBF == null) {
+            if (this.ewQ == null) {
                 return false;
             }
-            JSONObject jSONObject = this.eBF;
-            this.oND = jSONObject.optJSONObject("set");
+            JSONObject jSONObject = this.ewQ;
+            this.oIY = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
-            this.eBE = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.oNG = jSONObject.optString("step");
-            this.oNF = jSONObject.optString("replace");
-            this.oNE = jSONObject.optJSONObject("del");
-            this.oNH = jSONObject.optInt("all_size", 614400);
-            this.oNI = jSONObject.optInt("single_size", 153600);
-            if (this.oND != null) {
-                Iterator<String> keys = this.oND.keys();
+            this.ewP = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
+            this.oJb = jSONObject.optString("step");
+            this.oJa = jSONObject.optString("replace");
+            this.oIZ = jSONObject.optJSONObject("del");
+            this.oJc = jSONObject.optInt("all_size", 614400);
+            this.oJd = jSONObject.optInt("single_size", 153600);
+            if (this.oIY != null) {
+                Iterator<String> keys = this.oIY.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject2 = this.oND.getJSONObject(next);
+                    JSONObject jSONObject2 = this.oIY.getJSONObject(next);
                     if (jSONObject2 != null) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("data");
                         String string = jSONObject2.getString("version");
@@ -92,47 +92,47 @@ public class w {
                             if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                                 k kVar = new k(next, string2, string3, i, string5, string4);
                                 if (jSONObject3.has("rate")) {
-                                    kVar.nM(jSONObject3.getInt("rate"));
+                                    kVar.mg(jSONObject3.getInt("rate"));
                                 }
                                 if (jSONObject3.has("c")) {
                                     kVar.setCategory(jSONObject3.getString("c"));
                                 }
                                 if (jSONObject3.has("limitUnit")) {
-                                    kVar.nN(jSONObject3.getInt("limitUnit"));
+                                    kVar.mh(jSONObject3.getInt("limitUnit"));
                                 }
                                 if (jSONObject3.has("limitCnt")) {
-                                    kVar.nO(jSONObject3.getInt("limitCnt"));
+                                    kVar.mi(jSONObject3.getInt("limitCnt"));
                                 }
                                 if (jSONObject3.has("idtype")) {
-                                    kVar.zx(jSONObject3.getString("idtype"));
+                                    kVar.ym(jSONObject3.getString("idtype"));
                                 }
                                 if (jSONObject3.has("ch")) {
-                                    kVar.Xs(jSONObject3.getString("ch"));
+                                    kVar.Wk(jSONObject3.getString("ch"));
                                 }
                                 if (jSONObject3.has("dfc")) {
-                                    kVar.Xt(jSONObject3.getString("dfc"));
+                                    kVar.Wl(jSONObject3.getString("dfc"));
                                 }
                                 if (jSONObject3.has("reallog")) {
-                                    kVar.Xu(jSONObject3.getString("reallog"));
+                                    kVar.Wm(jSONObject3.getString("reallog"));
                                 }
                                 if (jSONObject3.has("gflow")) {
                                     String string6 = jSONObject3.getString("gflow");
                                     if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                        kVar.Xv(string6);
+                                        kVar.Wn(string6);
                                     }
                                 }
                                 if (jSONObject3.has("uploadType")) {
                                     String string7 = jSONObject3.getString("uploadType");
                                     if (!TextUtils.isEmpty(string7)) {
-                                        kVar.Xw(string7);
+                                        kVar.Wo(string7);
                                     }
                                 }
                                 int optInt = jSONObject3.optInt("lcache", 2);
                                 if (optInt == 1 || optInt == 0) {
-                                    kVar.Ot(optInt);
+                                    kVar.MM(optInt);
                                 }
                                 kVar.setVersion(string);
-                                this.eBG.add(kVar);
+                                this.ewR.add(kVar);
                             }
                         }
                     }

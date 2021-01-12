@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());

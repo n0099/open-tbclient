@@ -13,7 +13,7 @@ public class e {
                     break;
             }
             d.b("MultiProcessFileUtils", "saveData = " + str);
-            com.bytedance.sdk.adnet.a.ese().a(context, linkedHashMap);
+            com.bytedance.sdk.adnet.a.eok().a(context, linkedHashMap);
         } catch (Exception e) {
         }
     }
@@ -23,7 +23,7 @@ public class e {
         switch (i) {
             case 1:
                 try {
-                    str = com.bytedance.sdk.adnet.a.ese().a(context, "tnc_config", "");
+                    str = com.bytedance.sdk.adnet.a.eok().a(context, "tnc_config", "");
                     break;
                 } catch (Exception e) {
                     str = "";

@@ -19,5 +19,5 @@ abstract class f {
         return this.g;
     }
 
-    public abstract b l(byte[] bArr, int i, int i2);
+    public abstract b i(byte[] bArr, int i, int i2);
 }

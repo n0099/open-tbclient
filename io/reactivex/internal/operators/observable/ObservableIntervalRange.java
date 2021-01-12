@@ -22,9 +22,9 @@ public final class ObservableIntervalRange extends q<Long> {
         uVar.onSubscribe(intervalRangeObserver);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c eLI = vVar.eLI();
-            intervalRangeObserver.setResource(eLI);
-            eLI.b(intervalRangeObserver, this.initialDelay, this.period, this.unit);
+            v.c eHS = vVar.eHS();
+            intervalRangeObserver.setResource(eHS);
+            eHS.b(intervalRangeObserver, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeObserver.setResource(vVar.a(intervalRangeObserver, this.initialDelay, this.period, this.unit));

@@ -7,25 +7,25 @@ import android.view.View;
 import android.view.WindowManager;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private View hVq;
-    private View hVr;
-    private boolean hVt;
-    private InterfaceC0960a oGY;
+    private View hQJ;
+    private View hQK;
+    private boolean hQM;
+    private InterfaceC0943a oCt;
 
     /* renamed from: com.baidu.tieba.yuyinala.person.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0960a {
-        void cpo();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0943a {
+        void clw();
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.ala_person_dialog_report);
-        if (this.hVt) {
+        if (this.hQM) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -36,16 +36,16 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.hVq = findViewById(a.f.report);
-        this.hVr = findViewById(a.f.report_cancel);
-        this.hVq.setOnClickListener(this);
-        this.hVr.setOnClickListener(this);
+        this.hQJ = findViewById(a.f.report);
+        this.hQK = findViewById(a.f.report_cancel);
+        this.hQJ.setOnClickListener(this);
+        this.hQK.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.f.report && this.oGY != null) {
-            this.oGY.cpo();
+        if (view.getId() == a.f.report && this.oCt != null) {
+            this.oCt.clw();
         }
         dismiss();
     }

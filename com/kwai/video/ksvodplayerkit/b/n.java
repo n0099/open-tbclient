@@ -4,14 +4,14 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import io.flutter.plugin.platform.PlatformPlugin;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11355a = 0;
+    public int f11055a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11356b = 0;
+    public int f11056b = 0;
     public int c = 0;
     public int d = 0;
     public int e = 0;
@@ -35,8 +35,8 @@ public class n {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("rate_adapt_type", this.f11355a);
-            jSONObject.put("bandwidth_estimation_type", this.f11356b);
+            jSONObject.put("rate_adapt_type", this.f11055a);
+            jSONObject.put("bandwidth_estimation_type", this.f11056b);
             jSONObject.put("absolute_low_res_low_device", this.c);
             jSONObject.put("adapt_under_4G", this.d);
             jSONObject.put("adapt_under_wifi", this.e);

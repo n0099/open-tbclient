@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azs() {
+    public String avy() {
         return "setBackgroundMute";
     }
 
@@ -15,7 +15,7 @@ public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Boolean) {
-            bVar.fN(((Boolean) command.obj).booleanValue());
+            bVar.fJ(((Boolean) command.obj).booleanValue());
         }
     }
 }

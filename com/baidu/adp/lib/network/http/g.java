@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    public Map<String, List<String>> MI;
+    public Map<String, List<String>> MG;
     public int downSize;
     public byte[] retBytes;
-    public volatile boolean MH = false;
+    public volatile boolean MF = false;
     public int responseCode = -1;
     public int mNetErrorCode = -1;
     public String contentEncoding = "";
@@ -22,7 +22,7 @@ public class g {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.MI = httpURLConnection.getHeaderFields();
+            this.MG = httpURLConnection.getHeaderFields();
         }
     }
 

@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.framesequence;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.glide.load.resource.b.b<FrameSequenceDrawable> {
     public d(FrameSequenceDrawable frameSequenceDrawable) {
         super(frameSequenceDrawable);
@@ -12,12 +12,12 @@ public class d extends com.kwad.sdk.glide.load.resource.b.b<FrameSequenceDrawabl
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return ((FrameSequenceDrawable) this.f10560a).getSize();
+        return ((FrameSequenceDrawable) this.f10260a).getSize();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        ((FrameSequenceDrawable) this.f10560a).stop();
-        ((FrameSequenceDrawable) this.f10560a).destroy();
+        ((FrameSequenceDrawable) this.f10260a).stop();
+        ((FrameSequenceDrawable) this.f10260a).destroy();
     }
 }

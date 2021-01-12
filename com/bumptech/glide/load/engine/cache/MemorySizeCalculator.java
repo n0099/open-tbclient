@@ -10,7 +10,7 @@ import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.Preconditions;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MemorySizeCalculator {
     @VisibleForTesting
     static final int BYTES_PER_ARGB_8888_PIXEL = 4;
@@ -21,7 +21,7 @@ public final class MemorySizeCalculator {
     private final Context context;
     private final int memoryCacheSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     interface ScreenDimensions {
         int getHeightPixels();
 
@@ -88,7 +88,7 @@ public final class MemorySizeCalculator {
         return true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         static final int ARRAY_POOL_SIZE_BYTES = 4194304;
         static final int BITMAP_POOL_TARGET_SCREENS;
@@ -165,7 +165,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         private final DisplayMetrics displayMetrics;
 

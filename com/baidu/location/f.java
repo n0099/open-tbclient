@@ -6,21 +6,19 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import android.os.Process;
-import android.util.Log;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.location.e.l;
+import com.baidu.location.d.j;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    LLSInterface f2736a = null;
+    LLSInterface f2646a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    LLSInterface f2737b = null;
+    LLSInterface f2647b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
     public static Context mC = null;
@@ -31,7 +29,7 @@ public class f extends Service {
         int readInt;
         boolean z = false;
         try {
-            File file2 = new File(l.j() + "/grtcfrsa.dat");
+            File file2 = new File(j.h() + "/grtcfrsa.dat");
             if (file2.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                 randomAccessFile.seek(200L);
@@ -39,8 +37,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a2 = l.a(file, "SHA-256");
-                    if (str != null && a2 != null && l.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    String a2 = j.a(file, "SHA-256");
+                    if (str != null && a2 != null && j.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
@@ -52,7 +50,7 @@ public class f extends Service {
     }
 
     public static float getFrameVersion() {
-        return 9.02f;
+        return 7.63f;
     }
 
     public static String getJarFileName() {
@@ -63,49 +61,38 @@ public class f extends Service {
         return mC;
     }
 
-    public static void setServiceContext(Context context) {
-        mC = context;
-    }
-
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (this.c != null) {
-            return this.c.onBind(intent);
-        }
-        return null;
+        return this.c.onBind(intent);
     }
 
     @Override // android.app.Service
     @SuppressLint({"NewApi"})
     public void onCreate() {
-        if (isServing) {
-            Log.d("baidu_location_service", "baidu location service can not start again ...20190306..." + Process.myPid());
-            return;
-        }
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f2737b = new com.baidu.location.d.a();
+        this.f2647b = new com.baidu.location.c.a();
         try {
-            File file = new File(l.j() + File.separator + replaceFileName);
-            File file2 = new File(l.j() + File.separator + "app.jar");
+            File file = new File(j.h() + File.separator + replaceFileName);
+            File file2 = new File(j.h() + File.separator + "app.jar");
             if (file.exists()) {
                 if (file2.exists()) {
                     file2.delete();
                 }
                 file.renameTo(file2);
             }
-            if (file2.exists() && a(new File(l.j() + File.separator + "app.jar"))) {
-                this.f2736a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+            if (file2.exists() && a(new File(j.h() + File.separator + "app.jar"))) {
+                this.f2646a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.f2736a = null;
+            this.f2646a = null;
         }
-        if (this.f2736a == null || this.f2736a.getVersion() < this.f2737b.getVersion()) {
-            this.c = this.f2737b;
-            this.f2736a = null;
+        if (this.f2646a == null || this.f2646a.getVersion() < this.f2647b.getVersion()) {
+            this.c = this.f2647b;
+            this.f2646a = null;
         } else {
-            this.c = this.f2736a;
-            this.f2737b = null;
+            this.c = this.f2646a;
+            this.f2647b = null;
         }
         isServing = true;
         this.c.onCreate(this);
@@ -114,9 +101,7 @@ public class f extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         isServing = false;
-        if (this.c != null) {
-            this.c.onDestroy();
-        }
+        this.c.onDestroy();
         if (isStartedServing) {
             stopForeground(true);
         }
@@ -143,13 +128,11 @@ public class f extends Service {
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        if (this.c != null) {
-            this.c.onTaskRemoved(intent);
-        }
+        this.c.onTaskRemoved(intent);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return false;
+        return this.c.onUnBind(intent);
     }
 }

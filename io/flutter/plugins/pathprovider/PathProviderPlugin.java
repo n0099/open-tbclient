@@ -11,7 +11,7 @@ import io.flutter.util.PathUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private MethodChannel channel;
     private Context context;

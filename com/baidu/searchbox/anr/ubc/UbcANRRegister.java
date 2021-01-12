@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UbcANRRegister implements IANRRegister {
     private static final String KEY_EXT = "ext";
     private static final String TAG = "UbcANRRegister";

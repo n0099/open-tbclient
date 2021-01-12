@@ -28,16 +28,16 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Set<String> dKI = new HashSet();
+    public static final Set<String> dFW = new HashSet();
 
     static {
-        dKI.add("_baiduboxapp");
-        dKI.add(BuyTBeanActivityConfig.CALLBACK);
-        dKI.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-        dKI.add("_naExtParams");
+        dFW.add("_baiduboxapp");
+        dFW.add(BuyTBeanActivityConfig.CALLBACK);
+        dFW.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        dFW.add("_naExtParams");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -58,14 +58,14 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (DEBUG) {
             Log.d("SwanLaunchInterceptor", "mAppId: " + l);
         }
-        String axf = SwanLauncher.axf();
-        d.aMh().aMd().aMp().pU(axf);
+        String atl = SwanLauncher.atl();
+        d.aIn().aIj().aIv().oJ(atl);
         if (TextUtils.isEmpty(l)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(1L).cW(1L).uz("appId is empty");
-            e.aQK().j(uz);
-            h.b(new com.baidu.swan.apps.statistic.a.d().tH(h.kX(0)).i(uz).cD("scheme", uri.toString()));
-            i.d(uz);
+            com.baidu.swan.apps.al.a aVar = new com.baidu.swan.apps.al.a().cV(1L).cW(1L).to("appId is empty");
+            e.aMQ().j(aVar);
+            h.b(new com.baidu.swan.apps.statistic.a.d().sw(h.jr(0)).i(aVar).cC("scheme", uri.toString()));
+            i.d(aVar);
             return true;
         }
         String a2 = ai.a(l, uri, true);
@@ -79,11 +79,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         String uri2 = uri.toString();
         com.baidu.swan.apps.console.c.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
         String queryParameter = uri.getQueryParameter("_naExtParams");
-        c.a aVar = (c.a) ((c.a) ((c.a) new c.a().pK(l)).pO(!TextUtils.isEmpty(queryParameter) ? h(uri) : uri2)).pU(axf);
+        c.a aVar2 = (c.a) ((c.a) ((c.a) new c.a().oz(l)).oD(!TextUtils.isEmpty(queryParameter) ? h(uri) : uri2)).oJ(atl);
         if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(g)) {
-            aVar.pP(a2 + "?" + g);
+            aVar2.oE(a2 + "?" + g);
         } else if (!TextUtils.isEmpty(a2)) {
-            aVar.pP(a2);
+            aVar2.oE(a2);
         }
         String str = null;
         String str2 = null;
@@ -92,32 +92,32 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (!TextUtils.isEmpty(param)) {
             try {
                 JSONObject jSONObject = new JSONObject(param);
-                aVar.pN(jSONObject.optString("from"));
-                aVar.pR(jSONObject.optString("notinhis"));
+                aVar2.oC(jSONObject.optString("from"));
+                aVar2.oG(jSONObject.optString("notinhis"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ext");
                 str3 = jSONObject.optString("navi");
-                aVar.bZ("srcAppId", jSONObject.optString("srcAppId"));
+                aVar2.bY("srcAppId", jSONObject.optString("srcAppId"));
                 if (!jSONObject.isNull("extraData")) {
-                    aVar.bZ("extraData", jSONObject.optString("extraData"));
+                    aVar2.bY("extraData", jSONObject.optString("extraData"));
                 }
-                aVar.bZ("srcAppPage", jSONObject.optString("srcAppPage"));
-                JSONObject a3 = com.baidu.swan.c.c.a(aVar.aCw(), jSONObject.optJSONObject("ubc"), "pre_source");
+                aVar2.bY("srcAppPage", jSONObject.optString("srcAppPage"));
+                JSONObject a3 = com.baidu.swan.c.c.a(aVar2.ayC(), jSONObject.optJSONObject("ubc"), "pre_source");
                 if (a3 != null) {
-                    aVar.bZ("ubc", a3.toString());
+                    aVar2.bY("ubc", a3.toString());
                 }
                 if (optJSONObject != null) {
                     str = optJSONObject.optString(ETAG.KEY_SEARCH_ID);
                     str2 = optJSONObject.optString("url");
-                    aVar.pQ(optJSONObject.optString("clkid"));
-                    aVar.bZ("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
-                    aVar.bZ(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
-                    aVar.o("click_time", optJSONObject.optLong("click", -1L));
+                    aVar2.oF(optJSONObject.optString("clkid"));
+                    aVar2.bY("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
+                    aVar2.bY(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+                    aVar2.o("click_time", optJSONObject.optLong("click", -1L));
                 }
                 String optString = jSONObject.optString("veloce");
                 if (!TextUtils.isEmpty(optString)) {
                     long optLong = new JSONObject(optString).optLong(LogBuilder.KEY_START_TIME);
                     if (optLong > 0) {
-                        aVar.p("veloce_start_time", optLong);
+                        aVar2.p("veloce_start_time", optLong);
                     }
                 }
             } catch (JSONException e) {
@@ -126,34 +126,34 @@ public class a extends UnitedSchemeBaseInterceptor {
                 }
             }
         }
-        if (!TextUtils.isEmpty(str) || TextUtils.equals(PayHelper.STATUS_FAIL, aVar.aCw())) {
-            aVar.aCC().putString("search_id", str);
-            aVar.aCC().putString("search_url", str2);
-            aVar.aCC().putLong("search_dom_click_timestamp", System.currentTimeMillis());
-            com.baidu.swan.apps.statistic.search.b.e(aVar);
+        if (!TextUtils.isEmpty(str) || TextUtils.equals(PayHelper.STATUS_FAIL, aVar2.ayC())) {
+            aVar2.ayI().putString("search_id", str);
+            aVar2.ayI().putString("search_url", str2);
+            aVar2.ayI().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+            com.baidu.swan.apps.statistic.search.b.e(aVar2);
         }
-        aVar.ca("tool_ip", unitedSchemeEntity.getParam(AlaStaticKeys.ALA_STATIC_VALUE_TIP));
-        aVar.ca("tool_port", unitedSchemeEntity.getParam("tport"));
-        aVar.ca("projectId", unitedSchemeEntity.getParam("projectId"));
-        aVar.ca("fromHost", unitedSchemeEntity.getParam("fromHost"));
-        aVar.ca("spuId", unitedSchemeEntity.getParam("spuId"));
-        aVar.ca("contentId", unitedSchemeEntity.getParam("contentId"));
+        aVar2.bZ("tool_ip", unitedSchemeEntity.getParam(AlaStaticKeys.ALA_STATIC_VALUE_TIP));
+        aVar2.bZ("tool_port", unitedSchemeEntity.getParam("tport"));
+        aVar2.bZ("projectId", unitedSchemeEntity.getParam("projectId"));
+        aVar2.bZ("fromHost", unitedSchemeEntity.getParam("fromHost"));
+        aVar2.bZ("spuId", unitedSchemeEntity.getParam("spuId"));
+        aVar2.bZ("contentId", unitedSchemeEntity.getParam("contentId"));
         Bundle bundle = null;
         if (!TextUtils.isEmpty(queryParameter)) {
             bundle = new Bundle();
             bundle.putString("_naExtParams", queryParameter);
         }
         if (DEBUG) {
-            Log.d("SwanLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
+            Log.d("SwanLaunchInterceptor", "launchParams: " + aVar2 + " \n_naExtParmas: " + queryParameter);
         }
         String param2 = unitedSchemeEntity.getParam("cb");
-        SwanLauncher.axe().a(aVar, bundle);
+        SwanLauncher.atk().a(aVar2, bundle);
         com.baidu.swan.apps.u.a.a(str3, l, callbackHandler, unitedSchemeEntity, param2);
         return true;
     }
 
     private String g(Uri uri) {
-        return ai.deleteQueryParam(uri.getEncodedQuery(), dKI);
+        return ai.deleteQueryParam(uri.getEncodedQuery(), dFW);
     }
 
     private String h(Uri uri) {

@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.l;
 import com.ss.android.socialbase.downloader.e.h;
 /* loaded from: classes4.dex */
 public interface e {
-    com.ss.android.socialbase.downloader.g.b Tj(int i);
+    com.ss.android.socialbase.downloader.g.b RC(int i);
 
     h a(com.ss.android.socialbase.downloader.e.a aVar, long j);
 

@@ -8,9 +8,9 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private CustomMessageListener gPs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private CustomMessageListener gKM = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -23,7 +23,7 @@ public class b {
             }
         }
     };
-    private c hqa;
+    private c hlt;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -31,41 +31,41 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.gPs.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gPs);
+        this.gKM.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gKM);
     }
 
     public void d(ViewGroup viewGroup, x xVar) {
         if (viewGroup != null && this.mTbPageContext != null && xVar != null) {
-            this.hqa = new c(this.mTbPageContext);
-            ccL();
+            this.hlt = new c(this.mTbPageContext);
+            bYT();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(3, a.f.ala_sdk_recommend_more_id);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds24);
             layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds4);
-            viewGroup.addView(this.hqa.getView(), layoutParams);
-            if (xVar.aKu != null) {
-                this.hqa.fw(xVar.aKu.alaId);
+            viewGroup.addView(this.hlt.getView(), layoutParams);
+            if (xVar.aFH != null) {
+                this.hlt.fw(xVar.aFH.alaId);
             }
         }
     }
 
-    public void wH(int i) {
-        if (this.hqa != null && this.hqa.getView() != null) {
-            this.hqa.getView().setVisibility(i);
+    public void vb(int i) {
+        if (this.hlt != null && this.hlt.getView() != null) {
+            this.hlt.getView().setVisibility(i);
         }
     }
 
-    public void ccL() {
-        if (this.hqa != null && this.hqa.getView() != null && this.hqa.getView().getParent() != null) {
-            ((ViewGroup) this.hqa.getView().getParent()).removeView(this.hqa.getView());
+    public void bYT() {
+        if (this.hlt != null && this.hlt.getView() != null && this.hlt.getView().getParent() != null) {
+            ((ViewGroup) this.hlt.getView().getParent()).removeView(this.hlt.getView());
         }
     }
 
-    public void Id() {
-        if (this.gPs != null) {
-            MessageManager.getInstance().unRegisterListener(this.gPs);
+    public void Ei() {
+        if (this.gKM != null) {
+            MessageManager.getInstance().unRegisterListener(this.gKM);
         }
     }
 }

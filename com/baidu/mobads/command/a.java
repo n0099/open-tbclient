@@ -9,21 +9,22 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a implements Serializable {
     private long A;
     private boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3350a;
+    public String f3312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3351b;
+    public String f3313b;
     public String c;
     public int f;
     public String i;
@@ -51,7 +52,7 @@ public class a implements Serializable {
 
     public a(String str, String str2) {
         this.i = str;
-        this.f3350a = str2;
+        this.f3312a = str2;
     }
 
     public void a(String str, String str2, String str3, boolean z) {
@@ -62,7 +63,7 @@ public class a implements Serializable {
     }
 
     public void a(String str, String str2) {
-        this.f3351b = str;
+        this.f3313b = str;
         this.c = str2;
     }
 
@@ -75,9 +76,9 @@ public class a implements Serializable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, this.g.getCode());
-            jSONObject.put("filename", this.f3351b);
+            jSONObject.put("filename", this.f3313b);
             jSONObject.put("folder", this.c);
-            jSONObject.put("title", this.f3350a);
+            jSONObject.put("title", this.f3312a);
             jSONObject.put("contentLength", this.d);
             jSONObject.put("pk", this.i);
             jSONObject.put("qk", this.n);
@@ -99,7 +100,7 @@ public class a implements Serializable {
                 this.u = System.currentTimeMillis();
                 this.v = Process.myPid();
             }
-            jSONObject.put("ts", this.u);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.u);
             jSONObject.put("clickProcId", this.v);
         } catch (Exception e) {
             this.y.d(e);
@@ -141,7 +142,7 @@ public class a implements Serializable {
                     aVar2.s = jSONObject.optBoolean("mnCfm");
                     aVar2.r = jSONObject.getInt("dlCnt");
                     aVar2.t = jSONObject.optLong("cts");
-                    aVar2.u = jSONObject.optLong("ts");
+                    aVar2.u = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
                     aVar2.v = jSONObject.optInt("clickProcId");
                     return aVar2;
                 } catch (Exception e2) {

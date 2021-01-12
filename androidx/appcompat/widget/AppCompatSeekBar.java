@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 import androidx.appcompat.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppCompatSeekBar extends SeekBar {
     private final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 

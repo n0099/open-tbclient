@@ -5,10 +5,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes2.dex */
 public class LegoItemHolder extends TypeAdapter.ViewHolder {
-    e<?> jCZ;
+    e<?> jyt;
 
     public LegoItemHolder(e<?> eVar) {
         super((View) eVar);
-        this.jCZ = eVar;
+        this.jyt = eVar;
     }
 }

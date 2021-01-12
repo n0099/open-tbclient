@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableAmb<T> extends g<T> {
-    final Iterable<? extends org.a.b<? extends T>> qiu;
+    final Iterable<? extends org.a.b<? extends T>> qdS;
     final org.a.b<? extends T>[] sources;
 
     @Override // io.reactivex.g
@@ -22,7 +22,7 @@ public final class FlowableAmb<T> extends g<T> {
             bVarArr = new org.a.b[8];
             try {
                 int i = 0;
-                for (org.a.b<? extends T> bVar : this.qiu) {
+                for (org.a.b<? extends T> bVar : this.qdS) {
                     if (bVar == null) {
                         EmptySubscription.error(new NullPointerException("One of the sources is null"), cVar);
                         return;
@@ -58,23 +58,23 @@ public final class FlowableAmb<T> extends g<T> {
     /* loaded from: classes5.dex */
     static final class a<T> implements d {
         final org.a.c<? super T> actual;
-        final AmbInnerSubscriber<T>[] qiv;
-        final AtomicInteger qiw = new AtomicInteger();
+        final AmbInnerSubscriber<T>[] qdT;
+        final AtomicInteger qdU = new AtomicInteger();
 
         a(org.a.c<? super T> cVar, int i) {
             this.actual = cVar;
-            this.qiv = new AmbInnerSubscriber[i];
+            this.qdT = new AmbInnerSubscriber[i];
         }
 
         public void a(org.a.b<? extends T>[] bVarArr) {
-            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qiv;
+            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qdT;
             int length = ambInnerSubscriberArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i + 1, this.actual);
             }
-            this.qiw.lazySet(0);
+            this.qdU.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.qiw.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.qdU.get() == 0; i2++) {
                 bVarArr[i2].subscribe(ambInnerSubscriberArr[i2]);
             }
         }
@@ -82,20 +82,20 @@ public final class FlowableAmb<T> extends g<T> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                int i = this.qiw.get();
+                int i = this.qdU.get();
                 if (i > 0) {
-                    this.qiv[i - 1].request(j);
+                    this.qdT[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qiv) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qdT) {
                         ambInnerSubscriber.request(j);
                     }
                 }
             }
         }
 
-        public boolean Tw(int i) {
-            if (this.qiw.get() == 0 && this.qiw.compareAndSet(0, i)) {
-                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qiv;
+        public boolean RP(int i) {
+            if (this.qdU.get() == 0 && this.qdU.compareAndSet(0, i)) {
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qdT;
                 int length = ambInnerSubscriberArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     if (i2 + 1 != i) {
@@ -109,9 +109,9 @@ public final class FlowableAmb<T> extends g<T> {
 
         @Override // org.a.d
         public void cancel() {
-            if (this.qiw.get() != -1) {
-                this.qiw.lazySet(-1);
-                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qiv) {
+            if (this.qdU.get() != -1) {
+                this.qdU.lazySet(-1);
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qdT) {
                     ambInnerSubscriber.cancel();
                 }
             }
@@ -148,7 +148,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onNext(T t) {
             if (this.won) {
                 this.actual.onNext(t);
-            } else if (this.parent.Tw(this.index)) {
+            } else if (this.parent.RP(this.index)) {
                 this.won = true;
                 this.actual.onNext(t);
             } else {
@@ -160,7 +160,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onError(Throwable th) {
             if (this.won) {
                 this.actual.onError(th);
-            } else if (this.parent.Tw(this.index)) {
+            } else if (this.parent.RP(this.index)) {
                 this.won = true;
                 this.actual.onError(th);
             } else {
@@ -173,7 +173,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onComplete() {
             if (this.won) {
                 this.actual.onComplete();
-            } else if (this.parent.Tw(this.index)) {
+            } else if (this.parent.RP(this.index)) {
                 this.won = true;
                 this.actual.onComplete();
             } else {

@@ -14,35 +14,35 @@ import com.baidu.live.gift.n;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
-    private x aGe;
-    private b hNN;
-    private View hNO;
+    private x aBr;
+    private b hJh;
+    private View hJi;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public a(@NonNull Context context, TbPageContext tbPageContext, x xVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.hNN = bVar;
+        this.hJh = bVar;
         this.mPageContext = tbPageContext;
-        this.aGe = xVar;
+        this.aBr = xVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity R = R(this.aGe);
+        ShareEntity R = R(this.aBr);
         if (R != null) {
-            this.hNO = new AlaLandscapeShareView(this.mPageContext, R, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+            this.hJi = new AlaLandscapeShareView(this.mPageContext, R, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.hNN != null) {
-                        a.this.hNN.dismiss();
+                    if (a.this.hJh != null) {
+                        a.this.hJh.dismiss();
                     }
                 }
             });
-            setContentView(this.hNO);
+            setContentView(this.hJi);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -55,14 +55,14 @@ public class a extends Dialog {
                 attributes.width = screenWidth;
                 window.setAttributes(attributes);
             }
-            Ji();
+            Fn();
         }
     }
 
-    private void Ji() {
+    private void Fn() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.hNO.startAnimation(translateAnimation);
+        this.hJi.startAnimation(translateAnimation);
     }
 
     private ShareEntity R(x xVar) {
@@ -70,8 +70,8 @@ public class a extends Dialog {
             return null;
         }
         ShareEntity shareEntity = new ShareEntity();
-        shareEntity.userId = xVar.aKu.userId;
-        shareEntity.userName = xVar.aKu.userName;
+        shareEntity.userId = xVar.aFH.userId;
+        shareEntity.userName = xVar.aFH.userName;
         shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
         shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
         String str = xVar.mLiveInfo.cover;

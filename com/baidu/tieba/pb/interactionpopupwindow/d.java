@@ -7,18 +7,18 @@ import com.baidu.tieba.R;
 public class d extends a<e, CustomDialogData> {
     public d(TbPageContext tbPageContext, CustomDialogData customDialogData) {
         super(tbPageContext, new e(tbPageContext), customDialogData);
-        if (this.lHG instanceof e) {
-            ((e) this.lHG).a(this);
+        if (this.lDb instanceof e) {
+            ((e) this.lDb).a(this);
         }
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean UD() {
+    public boolean QI() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean UE() {
+    public boolean QJ() {
         return true;
     }
 

@@ -14,23 +14,23 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.view.SafeFrameLayout;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseConnectionWheatListView extends SafeFrameLayout implements View.OnClickListener {
-    public CommonEmptyView bxT;
-    public TbPageContext oAe;
-    public AlaConnectionWheatListView oCt;
-    public int oCx;
-    public ConnectionWheatButtonView oCy;
-    public TextView oEZ;
-    public RelativeLayout oFa;
+    public CommonEmptyView btf;
+    public TextView oAu;
+    public RelativeLayout oAv;
+    public TbPageContext ovz;
+    public AlaConnectionWheatListView oxO;
+    public int oxS;
+    public ConnectionWheatButtonView oxT;
 
-    protected abstract void dCG();
+    protected abstract void dyO();
 
     public abstract int getCount();
 
     protected abstract void initListener();
 
-    public abstract void zV(boolean z);
+    public abstract void zR(boolean z);
 
     public BaseConnectionWheatListView(@NonNull Context context) {
         this(context, null);
@@ -44,19 +44,19 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         super(context, attributeSet, i);
         initView();
         initListener();
-        dCG();
+        dyO();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connection_wheat_item, this);
-        this.oCt = (AlaConnectionWheatListView) findViewById(a.f.listView);
-        this.bxT = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.oEZ = (TextView) findViewById(a.f.tv_online_user_num);
-        this.oFa = (RelativeLayout) findViewById(a.f.loading_view_container);
-        this.oCy = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
+        this.oxO = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.btf = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.oAu = (TextView) findViewById(a.f.tv_online_user_num);
+        this.oAv = (RelativeLayout) findViewById(a.f.loading_view_container);
+        this.oxT = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oCy.init();
-            this.oCy.setListener(getConnectionWheatButtonClickListener());
+            this.oxT.init();
+            this.oxT.setListener(getConnectionWheatButtonClickListener());
         }
     }
 
@@ -72,61 +72,61 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     public void onClick(View view) {
     }
 
-    public void efz() {
+    public void ebH() {
         if (getCount() != 0) {
-            this.oCt.setVisibility(0);
-            this.bxT.setVisibility(8);
+            this.oxO.setVisibility(0);
+            this.btf.setVisibility(8);
             return;
         }
-        this.oCt.setVisibility(8);
-        this.bxT.setVisibility(0);
-        this.bxT.reset();
-        this.bxT.setTitle(getNoDataStr());
-        this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-        this.bxT.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
+        this.oxO.setVisibility(8);
+        this.btf.setVisibility(0);
+        this.btf.reset();
+        this.btf.setTitle(getNoDataStr());
+        this.btf.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
+        this.btf.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
-    public void efA() {
-        this.oEZ.setVisibility(8);
-        this.oCt.setVisibility(8);
-        this.bxT.setVisibility(0);
+    public void ebI() {
+        this.oAu.setVisibility(8);
+        this.oxO.setVisibility(8);
+        this.btf.setVisibility(0);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oCy.setVisibility(8);
+            this.oxT.setVisibility(8);
         }
-        this.bxT.reset();
-        this.bxT.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
+        this.btf.reset();
+        this.btf.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseConnectionWheatListView.this.zV(true);
+                BaseConnectionWheatListView.this.zR(true);
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.bxT.setTitle(a.h.yuyin_ala_connection_wheat_data_load_fail_text);
-            this.bxT.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+            this.btf.setTitle(a.h.yuyin_ala_connection_wheat_data_load_fail_text);
+            this.btf.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
         } else {
-            this.bxT.setTitle(a.h.yuyin_ala_connection_wheat_net_load_fail_text);
-            this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+            this.btf.setTitle(a.h.yuyin_ala_connection_wheat_net_load_fail_text);
+            this.btf.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
         }
-        this.bxT.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
+        this.btf.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.oAe = tbPageContext;
+        this.ovz = tbPageContext;
     }
 
     public void setApplyPosition(int i) {
-        this.oCx = i;
+        this.oxS = i;
     }
 
     public void showLoading() {
-        if (this.oFa != null) {
-            this.oFa.setVisibility(0);
+        if (this.oAv != null) {
+            this.oAv.setVisibility(0);
         }
     }
 
     public void hideLoading() {
-        if (this.oFa != null) {
-            this.oFa.setVisibility(8);
+        if (this.oAv != null) {
+            this.oAv.setVisibility(8);
         }
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.sofire.ac.FH;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5382a = "SafeService";
+    private static final String f5099a = "SafeService";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5383b = 120;
+    public static final int f5100b = 120;
     public static final int c = 122;
     public static final int d = 1;
 
@@ -18,14 +18,14 @@ public class c {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f5384a = new c();
+        public static c f5101a = new c();
 
         private b() {
         }
     }
 
     public static c a() {
-        return b.f5384a;
+        return b.f5101a;
     }
 
     private c() {
@@ -36,7 +36,7 @@ public class c {
             FH.init(context, str, str2, iArr);
             return true;
         } catch (Throwable th) {
-            Log.e(f5382a, "init()", th.toString());
+            Log.e(f5099a, "init()", th.toString());
             return false;
         }
     }

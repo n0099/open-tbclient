@@ -10,9 +10,9 @@ public final class i {
         sb.append(abVar.b());
         sb.append(' ');
         if (b(abVar, type)) {
-            sb.append(abVar.eql());
+            sb.append(abVar.emp());
         } else {
-            sb.append(b(abVar.eql()));
+            sb.append(b(abVar.emp()));
         }
         sb.append(" HTTP/1.1");
         return sb.toString();

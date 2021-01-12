@@ -24,10 +24,10 @@ public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
     public static class Builder implements com.baidu.pass.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f4160a;
+        private Context f4122a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f4161b;
+        private String f4123b;
         private String c;
         private boolean d;
         private boolean e = false;
@@ -44,12 +44,12 @@ public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
         private int p;
 
         public Builder(Context context) {
-            this.f4160a = context;
+            this.f4122a = context;
         }
 
         public ConfirmDialog build() {
-            View inflate = LayoutInflater.from(this.f4160a).inflate(R.layout.layout_pass_confirm_dialog, (ViewGroup) null);
-            ConfirmDialog confirmDialog = new ConfirmDialog(this.f4160a, R.style.style_pass_dialog, this.d);
+            View inflate = LayoutInflater.from(this.f4122a).inflate(R.layout.layout_pass_confirm_dialog, (ViewGroup) null);
+            ConfirmDialog confirmDialog = new ConfirmDialog(this.f4122a, R.style.style_pass_dialog, this.d);
             this.f = inflate.findViewById(R.id.first_style_btn);
             this.g = inflate.findViewById(R.id.second_style_btn);
             TextView textView = (TextView) inflate.findViewById(R.id.title);
@@ -61,8 +61,8 @@ public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
             CommonViewUtility.setViewClickAlpha(textView3, 0.2f);
             CommonViewUtility.setViewClickAlpha(textView4, 0.2f);
             textView.setText(this.c);
-            if (!TextUtils.isEmpty(this.f4161b)) {
-                alignPartTextView.setText(this.f4161b);
+            if (!TextUtils.isEmpty(this.f4123b)) {
+                alignPartTextView.setText(this.f4123b);
             } else {
                 SpannableStringBuilder spannableStringBuilder = this.n;
                 if (spannableStringBuilder != null) {
@@ -100,16 +100,16 @@ public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
             window.setAttributes(attributes);
             if (this.d) {
                 inflate.findViewById(R.id.root_view).setBackgroundResource(R.drawable.drawable_pass_dialog_rounded_corner_night);
-                textView.setTextColor(this.f4160a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_title_text_color_night));
-                alignPartTextView.setTextColor(this.f4160a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_content_text_color_night));
-                textView2.setBackground(this.f4160a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_negative_btn_bg_night));
-                textView2.setTextColor(this.f4160a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_negative_btn_text_color_night));
-                textView3.setBackground(this.f4160a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_positive_btn_bg_night));
-                textView3.setTextColor(this.f4160a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_positive_btn_text_color_night));
-                textView4.setBackground(this.f4160a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_negative_btn_bg_night));
-                textView4.setTextColor(this.f4160a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_negative_btn_text_color_night));
+                textView.setTextColor(this.f4122a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_title_text_color_night));
+                alignPartTextView.setTextColor(this.f4122a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_content_text_color_night));
+                textView2.setBackground(this.f4122a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_negative_btn_bg_night));
+                textView2.setTextColor(this.f4122a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_negative_btn_text_color_night));
+                textView3.setBackground(this.f4122a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_positive_btn_bg_night));
+                textView3.setTextColor(this.f4122a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_positive_btn_text_color_night));
+                textView4.setBackground(this.f4122a.getResources().getDrawable(R.drawable.pass_httpclient_permissions_dialog_negative_btn_bg_night));
+                textView4.setTextColor(this.f4122a.getResources().getColor(R.color.pass_httpclient_permissions_dialog_negative_btn_text_color_night));
             }
-            Context context = this.f4160a;
+            Context context = this.f4122a;
             if (context instanceof Activity) {
                 Display defaultDisplay = ((Activity) context).getWindowManager().getDefaultDisplay();
                 WindowManager.LayoutParams attributes2 = confirmDialog.getWindow().getAttributes();
@@ -131,7 +131,7 @@ public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
         }
 
         public Builder setMessage(String str) {
-            this.f4161b = str;
+            this.f4123b = str;
             return this;
         }
 

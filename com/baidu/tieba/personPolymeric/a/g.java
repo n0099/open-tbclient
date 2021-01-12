@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.h, CardViewHolder<com.baidu.tieba.personPolymeric.view.f>> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -27,14 +27,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.f> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.cvH() == null || hVar == null) {
+        if (cardViewHolder == null || cardViewHolder.crP() == null || hVar == null) {
             return null;
         }
-        cardViewHolder.cvH().a(hVar);
-        if (cardViewHolder.cvH().getView() != null) {
-            cardViewHolder.cvH().getView().setOnClickListener(this.mOnClickListener);
+        cardViewHolder.crP().a(hVar);
+        if (cardViewHolder.crP().getView() != null) {
+            cardViewHolder.crP().getView().setOnClickListener(this.mOnClickListener);
         }
-        return cardViewHolder.cvH().getView();
+        return cardViewHolder.crP().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

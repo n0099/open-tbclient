@@ -6,10 +6,10 @@ import com.baidu.live.gift.a.d;
 import com.baidu.live.gift.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(boolean z, int i, String str, String str2, int i2);
 
@@ -22,7 +22,7 @@ public interface c {
 
     void b(d dVar);
 
-    void hB(String str);
+    void gp(String str);
 
     void release();
 }

@@ -7,111 +7,111 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.tieba.yuyinala.charm.charmrank.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private int gPr;
+    private int gKL;
     private String mLiveId;
     private int mUserType;
-    private String ojl;
-    private YuyinCharmRankTotalActivity okP;
-    private c olh;
-    private b oli;
-    b.a olj = new b.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1
+    private String oeF;
+    private c ogC;
+    private b ogD;
+    b.a ogE = new b.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1
         @Override // com.baidu.tieba.yuyinala.charm.charmrank.b.a
         public void a(j jVar) {
-            if (d.this.olh != null) {
-                d.this.olh.it(false);
+            if (d.this.ogC != null) {
+                d.this.ogC.ip(false);
                 if (jVar == null) {
-                    d.this.olh.dM(true);
-                    d.this.olh.zA(false);
+                    d.this.ogC.dI(true);
+                    d.this.ogC.zw(false);
                     return;
                 }
-                d.this.olh.Zj();
-                d.this.olh.gp(jVar.aJx);
-                int size = jVar.aJx.size();
+                d.this.ogC.Vq();
+                d.this.ogC.gp(jVar.aEK);
+                int size = jVar.aEK.size();
                 if (size > 0) {
-                    j.a aVar = jVar.aJw;
-                    aVar.bv(jVar.aJx.size() == 1);
-                    for (int i = 0; i < jVar.aJx.size(); i++) {
-                        if (jVar.aJx.get(i).rank == 100) {
-                            aVar.aK(jVar.aJx.get(i).aJE);
+                    j.a aVar = jVar.aEJ;
+                    aVar.br(jVar.aEK.size() == 1);
+                    for (int i = 0; i < jVar.aEK.size(); i++) {
+                        if (jVar.aEK.get(i).rank == 100) {
+                            aVar.aK(jVar.aEK.get(i).aER);
                         }
                     }
-                    if (d.this.olh != null) {
-                        d.this.olh.b(aVar);
+                    if (d.this.ogC != null) {
+                        d.this.ogC.b(aVar);
                     }
                 }
                 if (size <= 0) {
-                    d.this.olh.dM(true);
-                    d.this.olh.zA(false);
-                    if (d.this.olh != null) {
+                    d.this.ogC.dI(true);
+                    d.this.ogC.zw(false);
+                    if (d.this.ogC != null) {
                         j.a aVar2 = new j.a();
-                        aVar2.aJz = 0L;
+                        aVar2.aEM = 0L;
                         aVar2.bd_portrait = TbadkCoreApplication.getCurrentPortrait();
                         aVar2.user_name = TbadkCoreApplication.getCurrentAccountName();
-                        d.this.olh.b(aVar2);
+                        d.this.ogC.b(aVar2);
                     }
                 } else if (size >= 100) {
-                    d.this.olh.Hl(d.this.okP.getPageContext().getResources().getString(a.h.yuyin_charm_show_100));
+                    d.this.ogC.Ga(d.this.ogk.getPageContext().getResources().getString(a.h.yuyin_charm_show_100));
                 }
-                d.this.DB(size);
+                d.this.BV(size);
             }
         }
 
         @Override // com.baidu.tieba.yuyinala.charm.charmrank.b.a
-        public void v(int i, String str) {
-            if (d.this.olh != null) {
-                d.this.olh.it(false);
-                d.this.olh.dM(false);
-                d.this.olh.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1.1
+        public void w(int i, String str) {
+            if (d.this.ogC != null) {
+                d.this.ogC.ip(false);
+                d.this.ogC.dI(false);
+                d.this.ogC.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            d.this.mH(true);
+                            d.this.mD(true);
                         } else {
-                            d.this.okP.getPageContext().showToast(d.this.okP.getResources().getString(a.h.sdk_no_network_guide));
+                            d.this.ogk.getPageContext().showToast(d.this.ogk.getResources().getString(a.h.sdk_no_network_guide));
                         }
                     }
                 });
             }
         }
     };
+    private YuyinCharmRankTotalActivity ogk;
 
     public d(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, int i, String str, String str2, int i2) {
-        this.okP = yuyinCharmRankTotalActivity;
-        this.gPr = i;
-        this.ojl = str;
+        this.ogk = yuyinCharmRankTotalActivity;
+        this.gKL = i;
+        this.oeF = str;
         this.mLiveId = str2;
         this.mUserType = i2;
     }
 
     public void createView() {
-        this.olh = new c(this.okP, this.gPr, this.ojl, this.mLiveId, this.mUserType);
-        mH(true);
+        this.ogC = new c(this.ogk, this.gKL, this.oeF, this.mLiveId, this.mUserType);
+        mD(true);
     }
 
-    public void mH(boolean z) {
-        if (this.oli == null) {
-            this.oli = new b(this.okP.getPageContext(), this.olj);
+    public void mD(boolean z) {
+        if (this.ogD == null) {
+            this.ogD = new b(this.ogk.getPageContext(), this.ogE);
         }
-        if (this.gPr == 0) {
-            this.oli.gJ("contribution", this.ojl);
+        if (this.gKL == 0) {
+            this.ogD.gI("contribution", this.oeF);
         } else {
-            this.oli.gJ(SdkStaticKeys.RANK_TYPE_CHARM, this.ojl);
+            this.ogD.gI(SdkStaticKeys.RANK_TYPE_CHARM, this.oeF);
         }
-        if (this.olh != null) {
-            this.olh.it(z);
+        if (this.ogC != null) {
+            this.ogC.ip(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DB(final int i) {
-        if (this.olh != null && this.olh.getListView() != null) {
-            this.olh.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.2
+    public void BV(final int i) {
+        if (this.ogC != null && this.ogC.getListView() != null) {
+            this.ogC.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.olh.getListView().getHeight() < d.this.okP.getResources().getDimensionPixelSize(a.d.sdk_ds164) * i && i < 100) {
-                        d.this.olh.Hl(d.this.okP.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
+                    if (d.this.ogC.getListView().getHeight() < d.this.ogk.getResources().getDimensionPixelSize(a.d.sdk_ds164) * i && i < 100) {
+                        d.this.ogC.Ga(d.this.ogk.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
                     }
                 }
             });
@@ -120,24 +120,24 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.olh == null) {
+        if (this.ogC == null) {
             return null;
         }
-        return this.olh.getRootView();
+        return this.ogC.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.gPr == 0 ? "贡献榜" : "魅力榜";
+        return this.gKL == 0 ? "贡献榜" : "魅力榜";
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Mh() {
+    public String Im() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Mi() {
+    public short In() {
         return (short) 0;
     }
 
@@ -151,8 +151,8 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.oli != null) {
-            this.oli.onDestroy();
+        if (this.ogD != null) {
+            this.ogD.onDestroy();
         }
     }
 

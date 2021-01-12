@@ -3,7 +3,7 @@ package com.win.opensdk;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import com.win.opensdk.by;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class cc implements by.a {
     @Override // com.win.opensdk.by.a
     @NonNull
@@ -12,12 +12,12 @@ final class cc implements by.a {
     }
 
     @Override // com.win.opensdk.by.a
-    public final byte[] Tr(int i) {
+    public final byte[] RK(int i) {
         return new byte[i];
     }
 
     @Override // com.win.opensdk.by.a
-    public final int[] Ts(int i) {
+    public final int[] RL(int i) {
         return new int[i];
     }
 }

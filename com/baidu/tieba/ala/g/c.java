@@ -13,33 +13,33 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BdBaseModel {
-    private a hTP;
-    private HttpMessageListener hTQ = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
+    private a hPj;
+    private HttpMessageListener hPk = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hTP != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hPj != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    c.this.hTP.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    c.this.hPj.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    c.this.hTP.c(alaSdkGetGiftListHttpResponseMessage);
+                    c.this.hPj.c(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage);
 
         void onFail(int i, String str);
     }
 
-    private void Gl() {
+    private void Cq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021120, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getGiftListBySceneFrom");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -49,9 +49,9 @@ public class c extends BdBaseModel {
 
     public c(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.hTP = aVar;
-        Gl();
-        registerListener(this.hTQ);
+        this.hPj = aVar;
+        Cq();
+        registerListener(this.hPk);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0041  */
@@ -64,15 +64,15 @@ public class c extends BdBaseModel {
         Address address;
         String str2 = "";
         String str3 = "";
-        x HW = ac.HW();
-        if (HW != null) {
-            if (HW.mLiveInfo != null) {
-                str2 = String.valueOf(HW.mLiveInfo.live_id);
+        x Eb = ac.Eb();
+        if (Eb != null) {
+            if (Eb.mLiveInfo != null) {
+                str2 = String.valueOf(Eb.mLiveInfo.live_id);
             }
-            if (HW.aKu != null) {
-                str3 = String.valueOf(HW.aKu.userId);
+            if (Eb.aFH != null) {
+                str3 = String.valueOf(Eb.aFH.userId);
                 str = str2;
-                com.baidu.live.message.f fVar = new com.baidu.live.message.f(q.XG(), str, str3, "choose", "choose");
+                com.baidu.live.message.f fVar = new com.baidu.live.message.f(q.TN(), str, str3, "choose", "choose");
                 address = BdLocationMananger.getInstance().getAddress(false);
                 if (address == null) {
                     fVar.b(address.getLongitude(), address.getLatitude());
@@ -83,7 +83,7 @@ public class c extends BdBaseModel {
             }
         }
         str = str2;
-        com.baidu.live.message.f fVar2 = new com.baidu.live.message.f(q.XG(), str, str3, "choose", "choose");
+        com.baidu.live.message.f fVar2 = new com.baidu.live.message.f(q.TN(), str, str3, "choose", "choose");
         address = BdLocationMananger.getInstance().getAddress(false);
         if (address == null) {
         }
@@ -102,7 +102,7 @@ public class c extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.hTQ);
+        MessageManager.getInstance().unRegisterListener(this.hPk);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.TbImgSetting;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbImageHelper {
     private static TbImageHelper mInstance = null;
     private boolean mIsWifiCache = false;

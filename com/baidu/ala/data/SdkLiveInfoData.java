@@ -1,12 +1,13 @@
 package com.baidu.ala.data;
 
+import android.net.http.Headers;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SdkLiveInfoData {
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
     public static final int TYPE_TIEBA_GAME_LIVE = 2;
@@ -50,7 +51,7 @@ public class SdkLiveInfoData {
             this.recom_extra_img_height = jSONObject.optInt("recom_extra_img_height");
             this.labelUrl = jSONObject.optString("label_url");
             this.modeUrl = jSONObject.optString("mode_url");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.liveAuthor = new LiveAuthor();
             JSONObject optJSONObject = jSONObject.optJSONObject("author");
             if (optJSONObject != null) {
@@ -69,7 +70,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class LiveAuthor {
         public int gender;
         public String name;
@@ -92,7 +93,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AlaLiveInfo {
         public long audienceCount;
         public AlaChallengeInfoData challengeInfoData;
@@ -125,7 +126,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class UiTransParam {
         public String abTag;
         public String extra;

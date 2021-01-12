@@ -4,7 +4,7 @@ import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import android.util.Log;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiOrientationHelper {
     private static final String TAG = "KwaiOrientationHelper";
     public static final int UIDeviceOrientationFaceDown = 5;
@@ -48,7 +48,7 @@ public class KwaiOrientationHelper {
     private int mDeviceorientation = 0;
     private boolean mWorldRotationMatrixInvalidate = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private float mEyeX = 0.0f;
         private float mEyeY = 0.0f;

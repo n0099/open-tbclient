@@ -6,16 +6,16 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static volatile b d;
-    private static volatile int e = com.baidu.fsg.base.statistics.b.f1985b;
+    private static volatile int e = com.baidu.fsg.base.statistics.b.f1935b;
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile boolean f9603a = true;
+    static volatile boolean f9303a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    static volatile boolean f9604b = false;
+    static volatile boolean f9304b = false;
     static volatile Set<c> c = Collections.newSetFromMap(new WeakHashMap());
 
     public static b a() {
@@ -47,14 +47,14 @@ public class b {
     }
 
     public void a(boolean z) {
-        f9604b = z;
+        f9304b = z;
     }
 
     public void a(boolean z, int i) {
         if (i > 0) {
             e = i * 1024;
         }
-        f9603a = z;
+        f9303a = z;
     }
 
     public InputStream b(InputStream inputStream) {
@@ -62,7 +62,7 @@ public class b {
     }
 
     public boolean b() {
-        return f9603a;
+        return f9303a;
     }
 
     public int c() {

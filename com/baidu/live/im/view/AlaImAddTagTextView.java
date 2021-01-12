@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaImAddTagTextView extends TextView {
     public AlaImAddTagTextView(Context context) {
         this(context, null);

@@ -4,14 +4,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11995a = "#80000000";
+    public static String f11695a = "#80000000";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11996b = "#40000000";
+    public static String f11696b = "#40000000";
     public static String c = "#ff8600";
     public static boolean d = true;
     private static Context e = GDTADManager.getInstance().getAppContext();

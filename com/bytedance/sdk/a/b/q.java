@@ -15,13 +15,13 @@ public final class q {
     private ExecutorService d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6269a = 64;
+    private int f5969a = 64;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6270b = 5;
-    private final Deque<aa.a> pnJ = new ArrayDeque();
-    private final Deque<aa.a> pnK = new ArrayDeque();
-    private final Deque<aa> pnL = new ArrayDeque();
+    private int f5970b = 5;
+    private final Deque<aa.a> pjg = new ArrayDeque();
+    private final Deque<aa.a> pjh = new ArrayDeque();
+    private final Deque<aa> pji = new ArrayDeque();
 
     public synchronized ExecutorService a() {
         if (this.d == null) {
@@ -31,16 +31,16 @@ public final class q {
     }
 
     private void c() {
-        if (this.pnK.size() < this.f6269a && !this.pnJ.isEmpty()) {
-            Iterator<aa.a> it = this.pnJ.iterator();
+        if (this.pjh.size() < this.f5969a && !this.pjg.isEmpty()) {
+            Iterator<aa.a> it = this.pjg.iterator();
             while (it.hasNext()) {
                 aa.a next = it.next();
-                if (a(next) < this.f6270b) {
+                if (a(next) < this.f5970b) {
                     it.remove();
-                    this.pnK.add(next);
+                    this.pjh.add(next);
                     a().execute(next);
                 }
-                if (this.pnK.size() >= this.f6269a) {
+                if (this.pjh.size() >= this.f5969a) {
                     return;
                 }
             }
@@ -49,7 +49,7 @@ public final class q {
 
     private int a(aa.a aVar) {
         int i = 0;
-        Iterator<aa.a> it = this.pnK.iterator();
+        Iterator<aa.a> it = this.pjh.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -62,17 +62,17 @@ public final class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(aa aaVar) {
-        this.pnL.add(aaVar);
+        this.pji.add(aaVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa.a aVar) {
-        a(this.pnK, aVar, true);
+        a(this.pjh, aVar, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa aaVar) {
-        a(this.pnL, aaVar, false);
+        a(this.pji, aaVar, false);
     }
 
     private <T> void a(Deque<T> deque, T t, boolean z) {
@@ -94,6 +94,6 @@ public final class q {
     }
 
     public synchronized int b() {
-        return this.pnK.size() + this.pnL.size();
+        return this.pjh.size() + this.pji.size();
     }
 }

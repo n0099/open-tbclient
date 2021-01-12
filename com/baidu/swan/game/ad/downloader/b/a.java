@@ -5,23 +5,24 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a implements com.baidu.swan.game.ad.downloader.c.a {
-    private final b eaS;
-    private final SQLiteDatabase eaT;
-    private final SQLiteDatabase eaU;
+    private final b dWg;
+    private final SQLiteDatabase dWh;
+    private final SQLiteDatabase dWi;
     private final Context mContext;
-    public static final String[] eaR = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", "size", "progress", "status"};
+    public static final String[] dWf = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", TiebaInitialize.LogFields.SIZE, "progress", "status"};
     public static final int STATUS_COMPLETED = SwanAdDownloadState.DOWNLOADED.value();
     public static final int STATUS_PAUSED = SwanAdDownloadState.DOWNLOAD_PAUSED.value();
 
     public a(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         this.mContext = context;
-        this.eaS = new b(context, aVar);
-        this.eaT = this.eaS.getWritableDatabase();
-        this.eaU = this.eaS.getReadableDatabase();
+        this.dWg = new b(context, aVar);
+        this.dWh = this.dWg.getWritableDatabase();
+        this.dWi = this.dWg.getReadableDatabase();
     }
 
     private void a(Cursor cursor, DownloadInfo downloadInfo) {
@@ -30,7 +31,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
         int columnIndex3 = cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_URI);
         int columnIndex4 = cursor.getColumnIndex("packagename");
         int columnIndex5 = cursor.getColumnIndex("path");
-        int columnIndex6 = cursor.getColumnIndex("size");
+        int columnIndex6 = cursor.getColumnIndex(TiebaInitialize.LogFields.SIZE);
         int columnIndex7 = cursor.getColumnIndex("progress");
         int columnIndex8 = cursor.getColumnIndex("status");
         downloadInfo.setId(cursor.getString(columnIndex));
@@ -44,8 +45,8 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public DownloadInfo vU(String str) {
-        Cursor query = this.eaU.query("ad_download", eaR, "_id=?", new String[]{str}, null, null, "createAt desc");
+    public DownloadInfo uJ(String str) {
+        Cursor query = this.dWi.query("ad_download", dWf, "_id=?", new String[]{str}, null, null, "createAt desc");
         if (query.moveToNext()) {
             DownloadInfo downloadInfo = new DownloadInfo();
             a(query, downloadInfo);
@@ -57,17 +58,17 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public void aVl() {
-        this.eaT.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
+    public void aRr() {
+        this.dWh.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void m(DownloadInfo downloadInfo) {
-        this.eaT.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+        this.dWh.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void n(DownloadInfo downloadInfo) {
-        this.eaT.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        this.dWh.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
     }
 }

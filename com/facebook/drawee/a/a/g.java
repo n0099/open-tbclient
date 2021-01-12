@@ -9,29 +9,29 @@ import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class g {
     private Resources mResources;
-    private com.facebook.imagepipeline.e.a puB;
+    private com.facebook.imagepipeline.e.a ppZ;
     @Nullable
-    private j<Boolean> puE;
-    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> puK;
-    private com.facebook.drawee.components.a puU;
-    private Executor puV;
+    private j<Boolean> pqc;
+    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pqi;
+    private com.facebook.drawee.components.a pqs;
+    private Executor pqt;
     @Nullable
-    private ImmutableList<com.facebook.imagepipeline.e.a> puW;
+    private ImmutableList<com.facebook.imagepipeline.e.a> pqu;
 
     public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.e.a aVar2, Executor executor, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.e.a> immutableList, @Nullable j<Boolean> jVar) {
         this.mResources = resources;
-        this.puU = aVar;
-        this.puB = aVar2;
-        this.puV = executor;
-        this.puK = pVar;
-        this.puW = immutableList;
-        this.puE = jVar;
+        this.pqs = aVar;
+        this.ppZ = aVar2;
+        this.pqt = executor;
+        this.pqi = pVar;
+        this.pqu = immutableList;
+        this.pqc = jVar;
     }
 
-    public d evd() {
-        d a2 = a(this.mResources, this.puU, this.puB, this.puV, this.puK, this.puW);
-        if (this.puE != null) {
-            a2.AR(this.puE.get().booleanValue());
+    public d erj() {
+        d a2 = a(this.mResources, this.pqs, this.ppZ, this.pqt, this.pqi, this.pqu);
+        if (this.pqc != null) {
+            a2.AN(this.pqc.get().booleanValue());
         }
         return a2;
     }

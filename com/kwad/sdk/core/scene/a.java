@@ -5,14 +5,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f9736a;
+    public static a f9436a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object f9737b = new Object();
+    private static Object f9437b = new Object();
     private URLPackage e;
     private HashMap<String, URLPackage> c = new HashMap<>();
     private HashMap<String, URLPackage> d = new HashMap<>();
@@ -20,14 +20,14 @@ public class a {
     private final EntryPackage g = new EntryPackage("", 0);
 
     public static a a() {
-        if (f9736a == null) {
-            synchronized (f9737b) {
-                if (f9736a == null) {
-                    f9736a = new a();
+        if (f9436a == null) {
+            synchronized (f9437b) {
+                if (f9436a == null) {
+                    f9436a = new a();
                 }
             }
         }
-        return f9736a;
+        return f9436a;
     }
 
     private void a(String str, @NonNull URLPackage uRLPackage) {

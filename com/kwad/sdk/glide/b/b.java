@@ -1,14 +1,14 @@
 package com.kwad.sdk.glide.b;
 
 import androidx.annotation.ColorInt;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    int f10236a;
+    int f9936a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f10237b;
+    int f9937b;
     int c;
     int d;
     boolean e;

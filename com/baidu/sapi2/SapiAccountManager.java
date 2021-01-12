@@ -44,10 +44,10 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_DISPLAYNAME = "displayname";
     public static final String SESSION_UID = "uid";
     public static final int VERSION_CODE = 249;
-    public static final String VERSION_NAME = "8.9.9.1";
+    public static final String VERSION_NAME = "8.9.9.3";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4834b = "SapiAccountManager";
+    private static final String f4551b = "SapiAccountManager";
     private static SapiAccountManager c;
     private static SapiConfiguration d;
     private static SapiAccountService e;
@@ -60,7 +60,7 @@ public final class SapiAccountManager implements ISAccountManager {
     private static final List<String> l = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    private char f4835a = 0;
+    private char f4552a = 0;
 
     /* loaded from: classes3.dex */
     public interface CheckUrlIsAvailableListener {
@@ -278,7 +278,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public String getVersionName() {
-        return "8.9.9.1";
+        return "8.9.9.3";
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -319,11 +319,11 @@ public final class SapiAccountManager implements ISAccountManager {
                             if (versionCode > sapiContext.getAppVersionCode()) {
                                 SapiUtils.webLogin(sapiConfiguration.context, SapiUtils.getCookieBduss(), "");
                             }
-                            if ("8.9.9.1".compareTo(sapiContext.getString(SapiContext.KEY_SDK_VERSION)) > 0) {
+                            if ("8.9.9.3".compareTo(sapiContext.getString(SapiContext.KEY_SDK_VERSION)) > 0) {
                                 sapiContext.put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, false);
                             }
                             sapiContext.setAppVersionCode(versionCode);
-                            sapiContext.put(SapiContext.KEY_SDK_VERSION, "8.9.9.1");
+                            sapiContext.put(SapiContext.KEY_SDK_VERSION, "8.9.9.3");
                             SapiConfiguration sapiConfiguration2 = sapiConfiguration;
                             sapiConfiguration2.clientId = SapiUtils.getClientId(sapiConfiguration2.context);
                             sapiConfiguration.clientIp = SapiUtils.getLocalIpAddress();
@@ -417,7 +417,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiContext.getInstance().removeLoginAccount(sapiAccount);
         new com.baidu.sapi2.share.b().a(3);
         try {
-            new OpenBdussService(getSapiConfiguration(), "8.9.9.1").logout();
+            new OpenBdussService(getSapiConfiguration(), "8.9.9.3").logout();
         } catch (Throwable th) {
         }
         if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid) && getGlobalAuthorizationListener() != null) {
@@ -436,11 +436,11 @@ public final class SapiAccountManager implements ISAccountManager {
                 SapiContext.getInstance().setSearchBoxSid(k.tidConvertSid(tid.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)));
                 return;
             } else {
-                Log.d(f4834b, "tid is null or empty");
+                Log.d(f4551b, "tid is null or empty");
                 return;
             }
         }
-        Log.d(f4834b, "convert tid to sid failed, because tidConvertSidCallback is null");
+        Log.d(f4551b, "convert tid to sid failed, because tidConvertSidCallback is null");
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -494,7 +494,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public void getOneKeyLoginIsAvailable(GetOneKeyLoginStateDTO getOneKeyLoginStateDTO, OneKeyLoginCallback oneKeyLoginCallback) {
         if (oneKeyLoginCallback == null) {
-            Log.e(f4834b, "When check oneKeyLogin's ability, oneKeyLoginCallback can't be null!");
+            Log.e(f4551b, "When check oneKeyLogin's ability, oneKeyLoginCallback can't be null!");
         } else if (Build.VERSION.SDK_INT < 19) {
             new OneKeyLoginSdkCall().b(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, null);
         } else if (new OneKeyLoginSdkCall().a()) {
@@ -529,15 +529,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.f4835a == 0) {
+        if (this.f4552a == 0) {
             e sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.m().contains(getConfignation().tpl) && !sapiOptions.m) {
-                this.f4835a = (char) 1;
+                this.f4552a = (char) 1;
             } else {
-                this.f4835a = (char) 2;
+                this.f4552a = (char) 2;
             }
         }
-        if (currentAccount != null && this.f4835a == 1) {
+        if (currentAccount != null && this.f4552a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }

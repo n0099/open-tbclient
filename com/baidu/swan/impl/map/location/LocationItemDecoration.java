@@ -8,33 +8,33 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
-    private static final int esQ = ah.O(15.0f);
-    private ColorDrawable esO;
-    private boolean esP;
+    private static final int eoc = ah.O(15.0f);
+    private ColorDrawable eoa;
+    private boolean eob;
 
     public LocationItemDecoration(Context context) {
         this(context, false);
     }
 
     public LocationItemDecoration(Context context, boolean z) {
-        this.esP = true;
-        this.esO = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
-        this.esP = z;
+        this.eob = true;
+        this.eoa = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
+        this.eob = z;
     }
 
     private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
-        int paddingLeft = recyclerView.getPaddingLeft() + esQ;
-        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - esQ;
+        int paddingLeft = recyclerView.getPaddingLeft() + eoc;
+        int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - eoc;
         int childCount = recyclerView.getChildCount();
-        int i = this.esP ? childCount : childCount - 1;
+        int i = this.eob ? childCount : childCount - 1;
         for (int i2 = 0; i2 < i; i2++) {
             View childAt = recyclerView.getChildAt(i2);
             if (childAt != null) {
                 int bottom = ((RecyclerView.LayoutParams) childAt.getLayoutParams()).bottomMargin + childAt.getBottom();
-                this.esO.setBounds(paddingLeft, bottom, width, bottom + 1);
-                this.esO.draw(canvas);
+                this.eoa.setBounds(paddingLeft, bottom, width, bottom + 1);
+                this.eoa.draw(canvas);
             }
         }
     }

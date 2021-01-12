@@ -3,32 +3,32 @@ package com.baidu.android.pushservice.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f1173a;
+    public e f1179a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f1174b;
+    private c f1180b;
 
     public d(c cVar) {
-        this.f1174b = cVar;
+        this.f1180b = cVar;
     }
 
     public static d a(Context context, String str) {
         b.a(context).b(context);
         e b2 = b.a(context).b(str);
-        if (b2 == null || TextUtils.isEmpty(b2.f1168b)) {
+        if (b2 == null || TextUtils.isEmpty(b2.f1174b)) {
             m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
             return new d(c.UNKNOWN_CLIENT);
         }
         d dVar = new d(c.PUSH_CLIENT);
-        dVar.f1173a = b2;
+        dVar.f1179a = b2;
         return dVar;
     }
 
     public c a() {
-        return this.f1174b;
+        return this.f1180b;
     }
 }

@@ -38,7 +38,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlertController {
     ListAdapter mAdapter;
     private int mAlertDialogLayout;
@@ -104,7 +104,7 @@ public class AlertController {
         }
     };
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class ButtonHandler extends Handler {
         private static final int MSG_DISMISS_DIALOG = 1;
         private WeakReference<DialogInterface> mDialog;
@@ -602,7 +602,7 @@ public class AlertController {
         button.setLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class RecycleListView extends ListView {
         private final int mPaddingBottomNoButtons;
         private final int mPaddingTopNoTitle;
@@ -625,7 +625,7 @@ public class AlertController {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AlertParams {
         public ListAdapter mAdapter;
         public boolean[] mCheckedItems;
@@ -671,7 +671,7 @@ public class AlertController {
         public boolean mRecycleOnMeasure = true;
         public boolean mCancelable = true;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public interface OnPrepareListViewListener {
             void onPrepareListView(ListView listView);
         }
@@ -816,7 +816,7 @@ public class AlertController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
         public CheckedItemAdapter(Context context, int i, int i2, CharSequence[] charSequenceArr) {
             super(context, i, i2, charSequenceArr);

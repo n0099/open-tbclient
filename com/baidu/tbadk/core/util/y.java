@@ -8,7 +8,7 @@ import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes.dex */
 public class y implements MediaScannerConnection.MediaScannerConnectionClient {
     private boolean completed;
-    private a fco;
+    private a eXG;
     private int length;
     private MediaScannerConnection mConnection;
     private Context mContext;
@@ -82,8 +82,8 @@ public class y implements MediaScannerConnection.MediaScannerConnectionClient {
                 this.completed = false;
             }
         }
-        if (this.completed && this.fco != null) {
-            this.fco.onScanCompeted();
+        if (this.completed && this.eXG != null) {
+            this.eXG.onScanCompeted();
         }
     }
 }

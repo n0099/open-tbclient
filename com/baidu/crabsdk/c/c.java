@@ -13,16 +13,16 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class c {
-    private static SimpleDateFormat aqo;
-    private static PackageManager aqp;
+    private static SimpleDateFormat apB;
+    private static PackageManager apC;
 
     public static String a(Date date) {
-        if (aqo == null) {
-            aqo = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (apB == null) {
+            apB = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return aqo.format(date);
+        return apB.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -136,7 +136,7 @@ public final class c {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static byte[] dA(String str) {
+    public static byte[] dv(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -153,11 +153,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aqp == null) {
-            aqp = context.getPackageManager();
+        if (apC == null) {
+            apC = context.getPackageManager();
         }
         try {
-            return aqp.checkPermission(str, context.getPackageName()) == 0;
+            return apC.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

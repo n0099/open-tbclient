@@ -18,15 +18,15 @@ import org.json.JSONObject;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f7400a;
+    private final l f7100a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final b f7401b;
+    private final b f7101b;
     private final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> c = new HashMap();
 
     private a(b bVar, l lVar) {
-        this.f7401b = bVar;
-        this.f7400a = lVar;
+        this.f7101b = bVar;
+        this.f7100a = lVar;
     }
 
     public static a a(b bVar, l lVar) {
@@ -71,14 +71,14 @@ public class a implements c {
         if (!TextUtils.isEmpty(str)) {
             lVar.l(str);
         }
-        if (this.f7400a == null) {
+        if (this.f7100a == null) {
             return lVar;
         }
         String b2 = lVar.U() != null ? lVar.U().b() : null;
         if (TextUtils.isEmpty(b2)) {
-            return this.f7400a;
+            return this.f7100a;
         }
-        return (this.f7400a.U() == null || !b2.equals(this.f7400a.U().b())) ? lVar : this.f7400a;
+        return (this.f7100a.U() == null || !b2.equals(this.f7100a.U().b())) ? lVar : this.f7100a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.c
@@ -90,7 +90,7 @@ public class a implements c {
     }
 
     private void a(Context context, l lVar, JSONObject jSONObject, int i, boolean z) {
-        if (context != null && lVar != null && lVar.U() != null && jSONObject != null && this.f7401b != null && this.c.get(lVar.U().b()) == null) {
+        if (context != null && lVar != null && lVar.U() != null && jSONObject != null && this.f7101b != null && this.c.get(lVar.U().b()) == null) {
             String a2 = aj.a(i);
             if (!TextUtils.isEmpty(a2)) {
                 this.c.put(lVar.U().b(), a(context, lVar, jSONObject, a2, z));
@@ -127,7 +127,7 @@ public class a implements c {
     }
 
     private void a(l lVar, JSONObject jSONObject) {
-        if (this.f7401b != null && lVar != null && lVar.U() != null) {
+        if (this.f7101b != null && lVar != null && lVar.U() != null) {
             String b2 = lVar.U().b();
             if (this.c.containsKey(b2)) {
                 this.c.remove(b2);
@@ -136,7 +136,7 @@ public class a implements c {
                     jSONObject2.put("message", "success");
                     jSONObject2.put("status", "unsubscribed");
                     jSONObject2.put("appad", jSONObject);
-                    this.f7401b.a("app_ad_event", jSONObject2);
+                    this.f7101b.a("app_ad_event", jSONObject2);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -147,7 +147,7 @@ public class a implements c {
     @Override // com.bytedance.sdk.openadsdk.e.c
     public void b(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject != null && this.f7401b != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+        if (jSONObject != null && this.f7101b != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.c.get(a(optJSONObject, (String) null).U().b());
             if (bVar != null) {
                 bVar.f();
@@ -197,7 +197,7 @@ public class a implements c {
                         for (int i = 0; i < strArr.length; i += 2) {
                             jSONObject2.put(strArr[i], strArr[i + 1]);
                         }
-                        a.this.f7401b.a("app_ad_event", jSONObject2);
+                        a.this.f7101b.a("app_ad_event", jSONObject2);
                     } catch (JSONException e) {
                         u.b("JsAppAdDownloadManager", "JSONException");
                     }
@@ -206,8 +206,8 @@ public class a implements c {
         }, false);
         b2.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.e.a.2
         });
-        b2.a(3, new a.InterfaceC1030a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
-            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1030a
+        b2.a(3, new a.InterfaceC1013a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
+            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1013a
             public boolean a(int i, l lVar2, String str2, String str3, Object obj) {
                 boolean z2 = false;
                 if (i != 3 || lVar2 == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {

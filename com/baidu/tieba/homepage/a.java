@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected FollowUserButton.a jVS;
+    protected FollowUserButton.a jRn;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -15,6 +15,6 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void a(FollowUserButton.a aVar) {
-        this.jVS = aVar;
+        this.jRn = aVar;
     }
 }

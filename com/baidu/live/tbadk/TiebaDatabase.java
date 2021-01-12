@@ -4,7 +4,7 @@ import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.live.tbadk.core.util.TiebaMainSdDatabaseHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TiebaDatabase {
     private static TiebaDatabase _instance = new TiebaDatabase();
     private DatabaseManager mainDB;

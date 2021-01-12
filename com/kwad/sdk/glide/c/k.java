@@ -18,7 +18,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k implements Handler.Callback {
     private static final a i = new a() { // from class: com.kwad.sdk.glide.c.k.1
         @Override // com.kwad.sdk.glide.c.k.a
@@ -33,16 +33,16 @@ public class k implements Handler.Callback {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    final Map<FragmentManager, Object> f10251a = new HashMap();
+    final Map<FragmentManager, Object> f9951a = new HashMap();
     @VisibleForTesting
 
     /* renamed from: b  reason: collision with root package name */
-    final Map<KsFragmentManager, n> f10252b = new HashMap();
+    final Map<KsFragmentManager, n> f9952b = new HashMap();
     private final ArrayMap<View, KsFragment> f = new ArrayMap<>();
     private final ArrayMap<View, Fragment> g = new ArrayMap<>();
     private final Bundle h = new Bundle();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         @NonNull
         com.kwad.sdk.glide.g a(@NonNull com.kwad.sdk.glide.c cVar, @NonNull h hVar, @NonNull l lVar, @NonNull Context context);
@@ -56,13 +56,13 @@ public class k implements Handler.Callback {
     @NonNull
     private n a(@NonNull KsFragmentManager ksFragmentManager, @Nullable KsFragment ksFragment, boolean z) {
         n nVar = (n) ksFragmentManager.findFragmentByTag("com.kwad.sdk.glide.manager");
-        if (nVar == null && (nVar = this.f10252b.get(ksFragmentManager)) == null) {
+        if (nVar == null && (nVar = this.f9952b.get(ksFragmentManager)) == null) {
             nVar = new n();
             nVar.a(ksFragment);
             if (z) {
                 nVar.a().a();
             }
-            this.f10252b.put(ksFragmentManager, nVar);
+            this.f9952b.put(ksFragmentManager, nVar);
             ksFragmentManager.beginTransaction().add(nVar, "com.kwad.sdk.glide.manager").commitAllowingStateLoss();
             this.d.obtainMessage(2, ksFragmentManager).sendToTarget();
         }
@@ -128,11 +128,11 @@ public class k implements Handler.Callback {
         switch (message.what) {
             case 1:
                 obj = (FragmentManager) message.obj;
-                remove = this.f10251a.remove(obj);
+                remove = this.f9951a.remove(obj);
                 break;
             case 2:
                 obj = (KsFragmentManager) message.obj;
-                remove = this.f10252b.remove(obj);
+                remove = this.f9952b.remove(obj);
                 break;
             default:
                 z = false;

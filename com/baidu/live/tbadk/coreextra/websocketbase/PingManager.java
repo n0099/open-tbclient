@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.coreextra.websocketbase;
 import android.os.Handler;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.message.BackgroundSwitchMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PingManager extends Handler {
     private static final int MIN_INTERVAL = 180000;
     private static final String MODULE_NAME = "PingManager";

@@ -3,12 +3,11 @@ package com.baidu.swan.game.ad.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +19,7 @@ public class AdResponseInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mq */
+        /* renamed from: kK */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -37,7 +36,7 @@ public class AdResponseInfo implements Parcelable {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONArray jSONArray = jSONObject.getJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
+                JSONArray jSONArray = jSONObject.getJSONArray("ad");
                 if (jSONArray != null) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         try {
@@ -102,7 +101,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo aVF() {
+    public AdElementInfo aRL() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

@@ -8,17 +8,17 @@ import org.a.d;
 public final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> qmK;
+    final a<T> qii;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.qmK = aVar;
+        this.qii = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.qmK.subscribe(cVar);
+        this.qii.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -45,7 +45,7 @@ public final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.qmK.onSubscribe(dVar);
+        this.qii.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.qmK.onNext(t);
+                    this.qii.onNext(t);
                     emitLoop();
                 }
             }
@@ -96,7 +96,7 @@ public final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.d.a.onError(th);
             } else {
-                this.qmK.onError(th);
+                this.qii.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.qmK.onComplete();
+                    this.qii.onComplete();
                 }
             }
         }
@@ -134,7 +134,7 @@ public final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.qmK);
+            aVar.b(this.qii);
         }
     }
 }

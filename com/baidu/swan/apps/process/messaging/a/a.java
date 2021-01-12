@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.swan.apps.process.messaging.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -27,7 +27,7 @@ public class a {
     }
 
     public static void N(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.aIY().a(new c(21, bundle));
+        com.baidu.swan.apps.process.messaging.a.aFe().a(new c(21, bundle));
     }
 
     public static void o(Message message) {
@@ -40,7 +40,7 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.k(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.aIR().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.aEX().a(bVar);
     }
 
     public static void p(Message message) {
@@ -65,7 +65,7 @@ public class a {
     }
 
     public static void c(int i, Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.aIY().a(new c(Opcodes.IAND, bundle).g(i));
+        com.baidu.swan.apps.process.messaging.a.aFe().a(new c(Opcodes.IAND, bundle).g(i));
     }
 
     public static void q(Message message) {
@@ -78,6 +78,6 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.k(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.aIR().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.aEX().a(bVar);
     }
 }

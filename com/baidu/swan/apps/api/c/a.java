@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.api.c;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
     @NonNull
-    public static final a cKY = new b(202, "params parsed as JSONObject is null");
+    public static final a cGm = new b(202, "params parsed as JSONObject is null");
 
     boolean isSuccess();
 

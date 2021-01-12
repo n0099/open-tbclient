@@ -3,10 +3,10 @@ package com.win.opensdk;
 import android.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class an {
-    public static String hw(String str, String str2) {
-        if (abK(str) || abK(str2)) {
+    public static String hv(String str, String str2) {
+        if (aaC(str) || aaC(str2)) {
             return "";
         }
         byte[] bytes = str.getBytes("utf-8");
@@ -20,7 +20,7 @@ public final class an {
         return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
     }
 
-    private static boolean abK(String str) {
+    private static boolean aaC(String str) {
         return str == null || str.length() == 0;
     }
 }

@@ -13,34 +13,34 @@ import java.util.Collection;
 import java.util.concurrent.Executor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class TurbonetEngine {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum AppState {
         APP_STATE_BACKGROUND,
         APP_STATE_FOREGROUND
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum QUICConnectStatus {
         UNKNOWN,
         REACHABLE,
         UNREACHABLE
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface RequestFinishedListener {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum TCPNetworkQualityStatus {
         UNKNOWN,
         WEAK,
         NORMAL
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class UrlRequestInfo {
     }
 
@@ -50,11 +50,11 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean ehJ();
+    public abstract boolean edR();
 
     abstract boolean isEnabled();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private String mAppName;
         private String mAppPackageName;
@@ -67,62 +67,62 @@ public abstract class TurbonetEngine {
         private boolean mQuicEnabled;
         private String mStoragePath;
         private String mUserAgent;
-        private String oLB;
-        private LibraryLoader oLC;
-        private String oLD;
-        private JSONObject oLE;
-        private String oLF;
+        private String oGW;
+        private LibraryLoader oGX;
+        private String oGY;
+        private JSONObject oGZ;
+        private String oHa;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public @interface HttpCacheSetting {
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static abstract class LibraryLoader {
             public abstract void loadLibrary(String str);
         }
 
         public Builder(Context context) {
             this.mContext = context;
-            WZ("turbonet");
-            this.oLE = new JSONObject();
-            Ak(false);
+            VR("turbonet");
+            this.oGZ = new JSONObject();
+            Ag(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void eih() {
-            if (this.oLC == null) {
-                if (this.oLD.equals("turbonet")) {
-                    System.loadLibrary(this.oLD);
+        public void eep() {
+            if (this.oGX == null) {
+                if (this.oGY.equals("turbonet")) {
+                    System.loadLibrary(this.oGY);
                     return;
                 } else {
-                    System.load(this.oLD);
+                    System.load(this.oGY);
                     return;
                 }
             }
-            this.oLC.loadLibrary(this.oLD);
+            this.oGX.loadLibrary(this.oGY);
         }
 
-        public Builder WZ(String str) {
-            this.oLD = str;
+        public Builder VR(String str) {
+            this.oGY = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.oLE.optJSONObject(str);
+                JSONObject optJSONObject = this.oGZ.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.oLE.put(str, optJSONObject);
+                this.oGZ.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder Xa(String str) {
+        public Builder VS(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -133,23 +133,23 @@ public abstract class TurbonetEngine {
             return this.mUserAgent;
         }
 
-        public Builder Ak(boolean z) {
+        public Builder Ag(boolean z) {
             e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
             this.mHttp2Enabled = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean eii() {
+        public boolean eeq() {
             return this.mHttp2Enabled;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean eij() {
+        public boolean eer() {
             return this.mQuicEnabled;
         }
 
-        public Builder Xb(String str) {
+        public Builder VT(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
@@ -158,7 +158,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eid() {
+        public String eel() {
             return this.mStoragePath;
         }
 
@@ -168,7 +168,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long eik() {
+        public long ees() {
             return this.mHttpCacheMaxSize;
         }
 
@@ -193,31 +193,31 @@ public abstract class TurbonetEngine {
             return this.mNetworkQualityEstimatorEnabled;
         }
 
-        public Builder Xc(String str) {
+        public Builder VU(String str) {
             e("app", "cuid", str);
-            this.oLB = str;
+            this.oGW = str;
             return this;
         }
 
-        public Builder Xd(String str) {
+        public Builder VV(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder Xe(String str) {
-            this.oLF = str;
+        public Builder VW(String str) {
+            this.oHa = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eil() {
-            return this.oLF;
+        public String eet() {
+            return this.oHa;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eim() {
-            return this.oLE.toString();
+        public String eeu() {
+            return this.oGZ.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine ein() {
+        public TurbonetEngine eev() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                Xa(c.from(this.mContext));
+                VS(c.from(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -255,26 +255,26 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long oKv;
+        private final Long oFQ;
         @Nullable
-        private final Long oKw;
+        private final Long oFR;
         @Nullable
-        private final Long oLG;
+        private final Long oHb;
         @Nullable
-        private final Long oLH;
+        private final Long oHc;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.oKv = l;
-            this.oKw = l2;
-            this.oLG = l3;
-            this.oLH = l4;
+            this.oFQ = l;
+            this.oFR = l2;
+            this.oHb = l3;
+            this.oHc = l4;
         }
     }
 
-    public long ehA() {
+    public long edI() {
         return 0L;
     }
 }

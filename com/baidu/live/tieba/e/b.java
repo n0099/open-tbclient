@@ -8,26 +8,26 @@ import android.os.Message;
 import android.provider.Settings;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tieba.e.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private a bKZ;
-    private c bLc;
+    private a bGn;
+    private c bGq;
     private Activity mActivity;
     private Sensor mSensor;
     private SensorManager mSensorManager;
-    private boolean bLa = false;
-    private boolean bLb = false;
-    private boolean bLd = false;
-    private boolean bLe = false;
+    private boolean bGo = false;
+    private boolean bGp = false;
+    private boolean bGr = false;
+    private boolean bGs = false;
     private Handler mHandler = new Handler() { // from class: com.baidu.live.tieba.e.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && b.this.mActivity != null && b.this.bLe) {
+            if (message != null && b.this.mActivity != null && b.this.bGs) {
                 switch (message.what) {
                     case 1:
                         int requestedOrientation = b.this.mActivity.getRequestedOrientation();
                         int i = message.arg1;
-                        if (!b.this.bLd) {
+                        if (!b.this.bGr) {
                             if (i > 225 && i < 315) {
                                 if (requestedOrientation == 8) {
                                     BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -43,7 +43,7 @@ public class b {
                                 return;
                             }
                         } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                            if (!b.this.bLb) {
+                            if (!b.this.bGp) {
                                 if (i > 55 && i < 125) {
                                     if (requestedOrientation != 8) {
                                         BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -54,14 +54,14 @@ public class b {
                                     b.this.mActivity.setRequestedOrientation(0);
                                 }
                             }
-                            b.this.bLa = false;
+                            b.this.bGo = false;
                             return;
                         } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                            if (!b.this.bLa && requestedOrientation != 1) {
+                            if (!b.this.bGo && requestedOrientation != 1) {
                                 BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
                                 b.this.mActivity.setRequestedOrientation(1);
                             }
-                            b.this.bLb = false;
+                            b.this.bGp = false;
                             return;
                         } else {
                             return;
@@ -72,10 +72,10 @@ public class b {
             }
         }
     };
-    private c.a bLf = new c.a() { // from class: com.baidu.live.tieba.e.b.2
+    private c.a bGt = new c.a() { // from class: com.baidu.live.tieba.e.b.2
         @Override // com.baidu.live.tieba.e.c.a
         public void onChange(boolean z) {
-            b.this.bLd = z;
+            b.this.bGr = z;
         }
     };
 
@@ -84,59 +84,59 @@ public class b {
             this.mActivity = activity;
             this.mSensorManager = (SensorManager) activity.getSystemService("sensor");
             this.mSensor = this.mSensorManager.getDefaultSensor(1);
-            this.bKZ = new a(this.mHandler);
-            this.bLc = new c(this.mActivity, this.mHandler);
-            this.bLc.a(this.bLf);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.bLc);
+            this.bGn = new a(this.mHandler);
+            this.bGq = new c(this.mActivity, this.mHandler);
+            this.bGq.a(this.bGt);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.bGq);
         }
     }
 
-    public void Wl() {
+    public void Ss() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             if (this.mActivity.getRequestedOrientation() == 0) {
                 this.mActivity.setRequestedOrientation(1);
-                this.bLb = true;
+                this.bGp = true;
                 return;
             }
             this.mActivity.setRequestedOrientation(0);
-            this.bLa = true;
+            this.bGo = true;
         }
     }
 
-    public void Wm() {
+    public void St() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             this.mActivity.setRequestedOrientation(0);
-            this.bLa = true;
+            this.bGo = true;
         }
     }
 
-    public void Wn() {
+    public void Su() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             this.mActivity.setRequestedOrientation(1);
-            this.bLb = true;
+            this.bGp = true;
         }
     }
 
     public void start() {
         if (this.mSensorManager != null) {
-            this.mSensorManager.registerListener(this.bKZ, this.mSensor, 2);
+            this.mSensorManager.registerListener(this.bGn, this.mSensor, 2);
         }
     }
 
     public void stop() {
         if (this.mSensorManager != null) {
-            this.mSensorManager.unregisterListener(this.bKZ);
+            this.mSensorManager.unregisterListener(this.bGn);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.bLc);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.bGq);
         }
     }
 
-    public void dd(boolean z) {
-        this.bLe = z;
+    public void cZ(boolean z) {
+        this.bGs = z;
     }
 }

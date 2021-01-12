@@ -5,54 +5,54 @@ import android.graphics.Rect;
 import android.view.View;
 /* loaded from: classes.dex */
 public abstract class h {
-    protected View fbS;
+    protected View eXk;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a nXC;
-    protected a nXH;
+    protected com.baidu.tieba.write.a nSX;
+    protected a nTc;
     protected int mState = 4;
-    protected Rect nXM = new Rect();
-    protected Rect nXN = new Rect();
+    protected Rect nTh = new Rect();
+    protected Rect nTi = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Mt(int i);
+        void KM(int i);
     }
 
-    public abstract void aEv();
+    public abstract void aAB();
 
-    public abstract void dXX();
+    public abstract void dUf();
 
-    public abstract void dXY();
+    public abstract void dUg();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.nXC = aVar;
+        this.nSX = aVar;
     }
 
     public void a(a aVar) {
-        this.nXH = aVar;
+        this.nTc = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
-        this.fbS = view2;
-        if (this.fbS != null) {
-            this.fbS.getGlobalVisibleRect(this.nXM);
+        this.eXk = view2;
+        if (this.eXk != null) {
+            this.eXk.getGlobalVisibleRect(this.nTh);
         }
     }
 
     public void show() {
-        dXX();
+        dUf();
     }
 
-    public void gI(boolean z) {
+    public void gE(boolean z) {
         if (z) {
-            aEv();
+            aAB();
         } else {
-            dXY();
+            dUg();
         }
     }
 }

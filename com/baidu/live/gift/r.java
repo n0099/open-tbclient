@@ -5,15 +5,15 @@ import com.baidu.live.tbadk.log.LogConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class r extends BaseData {
-    public String aZi;
-    public String aZj;
-    public long aZk;
-    public String aZl;
-    public String aZm;
-    public int aZn;
-    public ArrayList<s> aZo;
+    public int aUA;
+    public ArrayList<s> aUB;
+    public String aUv;
+    public String aUw;
+    public long aUx;
+    public String aUy;
+    public String aUz;
     public long anchorId;
     public int countDown;
     public String giftId;
@@ -24,16 +24,16 @@ public class r extends BaseData {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            this.aZi = jSONObject.optString("tying_gift_id");
-            this.aZj = jSONObject.optString("tying_gift_name");
+            this.aUv = jSONObject.optString("tying_gift_id");
+            this.aUw = jSONObject.optString("tying_gift_name");
             this.liveId = jSONObject.optLong("live_id");
             this.anchorId = jSONObject.optLong("anchor_id");
-            this.aZk = jSONObject.optLong("pay_userid");
-            this.aZl = jSONObject.optString("im_test");
-            this.aZm = jSONObject.optString("pay_username");
+            this.aUx = jSONObject.optLong("pay_userid");
+            this.aUy = jSONObject.optString("im_test");
+            this.aUz = jSONObject.optString("pay_username");
             this.countDown = jSONObject.optInt("count_down");
             this.subappType = jSONObject.optString("subapp_type");
-            this.aZn = jSONObject.optInt("tying_status");
+            this.aUA = jSONObject.optInt("tying_status");
             J(jSONObject);
         }
     }
@@ -41,29 +41,29 @@ public class r extends BaseData {
     private void J(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject.has("gift_member") && (optJSONArray = jSONObject.optJSONArray("gift_member")) != null && optJSONArray.length() > 0) {
-            if (this.aZo == null) {
-                this.aZo = new ArrayList<>();
+            if (this.aUB == null) {
+                this.aUB = new ArrayList<>();
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     s sVar = new s();
                     sVar.parserJson(optJSONObject);
-                    this.aZo.add(sVar);
+                    this.aUB.add(sVar);
                 }
             }
         }
     }
 
-    public String HA() {
-        return this.aZj;
+    public String DF() {
+        return this.aUw;
     }
 
-    public String HB() {
-        return this.aZl;
+    public String DG() {
+        return this.aUy;
     }
 
-    public int HC() {
-        return this.aZn;
+    public int DH() {
+        return this.aUA;
     }
 }

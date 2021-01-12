@@ -7,13 +7,13 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public static void ax(String str, String str2) {
+    public static void aw(String str, String str2) {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", ""));
     }
 
-    public static void s(String str, String str2, String str3) {
+    public static void r(String str, String str2, String str3) {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", str3));
     }
 

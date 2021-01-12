@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TubeProfile implements b, Serializable {
     private static final long serialVersionUID = 7887251687731744372L;
     public String extra;

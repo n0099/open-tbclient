@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.menu.f;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MainMenuView extends BaseMenuView {
-    private View dDI;
-    private RecyclerView eur;
-    private MenuContentAdapter eus;
-    private RecyclerView eut;
-    private MenuContentAdapter euu;
-    private List<List<h>> euv;
-    private View euw;
-    private boolean eux;
+    private View dyW;
+    private RecyclerView epD;
+    private MenuContentAdapter epE;
+    private RecyclerView epF;
+    private MenuContentAdapter epG;
+    private List<List<h>> epH;
+    private View epI;
+    private boolean epJ;
     private LinearLayout mContentView;
     private View mHeaderView;
 
@@ -37,28 +37,28 @@ public class MainMenuView extends BaseMenuView {
         super(context, attributeSet, i);
         this.mContentView = new LinearLayout(context, attributeSet, i);
         this.mContentView.setOrientation(1);
-        this.eur = new RecyclerView(context, attributeSet, i);
-        this.eur.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.epD = new RecyclerView(context, attributeSet, i);
+        this.epD.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.eur.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
-        this.mContentView.addView(this.eur, layoutParams);
-        this.dDI = new View(context);
-        this.dDI.setVisibility(8);
+        this.epD.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
+        this.mContentView.addView(this.epD, layoutParams);
+        this.dyW = new View(context);
+        this.dyW.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
         int dimensionPixelSize = getResources().getDimensionPixelSize(f.b.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.mContentView.addView(this.dDI, layoutParams2);
-        this.eut = new RecyclerView(context, attributeSet, i);
-        this.eut.setVisibility(8);
-        this.eut.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.mContentView.addView(this.eut, new LinearLayout.LayoutParams(-1, -2));
+        this.mContentView.addView(this.dyW, layoutParams2);
+        this.epF = new RecyclerView(context, attributeSet, i);
+        this.epF.setVisibility(8);
+        this.epF.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.mContentView.addView(this.epF, new LinearLayout.LayoutParams(-1, -2));
         a(this.mContentView, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aFP() {
-        return this.euv != null && this.euv.size() > 1;
+    public boolean aBV() {
+        return this.epH != null && this.epH.size() > 1;
     }
 
     public void a(List<List<h>> list, View view, boolean z, int i) {
@@ -78,66 +78,66 @@ public class MainMenuView extends BaseMenuView {
     }
 
     private void a(List<List<h>> list, boolean z, int i) {
-        this.euv = list;
-        this.eux = z;
+        this.epH = list;
+        this.epJ = z;
         if (z && list.size() > 1) {
-            nd(i);
+            lx(i);
         } else {
-            ne(i);
+            ly(i);
         }
     }
 
-    private void nd(int i) {
-        this.dDI.setVisibility(0);
-        this.eut.setVisibility(0);
-        if (this.eus == null) {
-            this.eus = new MenuContentAdapter(getContext());
-            this.eur.setAdapter(this.eus);
+    private void lx(int i) {
+        this.dyW.setVisibility(0);
+        this.epF.setVisibility(0);
+        if (this.epE == null) {
+            this.epE = new MenuContentAdapter(getContext());
+            this.epD.setAdapter(this.epE);
         }
-        this.eus.b(this.euv.subList(0, 1), this.eux, i);
-        if (this.euu == null) {
-            this.euu = new MenuContentAdapter(getContext());
-            this.eut.setAdapter(this.euu);
+        this.epE.b(this.epH.subList(0, 1), this.epJ, i);
+        if (this.epG == null) {
+            this.epG = new MenuContentAdapter(getContext());
+            this.epF.setAdapter(this.epG);
         }
-        this.euu.b(this.euv.subList(1, 2), this.eux, i);
+        this.epG.b(this.epH.subList(1, 2), this.epJ, i);
     }
 
-    private void ne(int i) {
-        this.dDI.setVisibility(8);
-        this.eut.setVisibility(8);
-        if (this.eus == null) {
-            this.eus = new MenuContentAdapter(getContext());
-            this.eur.setAdapter(this.eus);
+    private void ly(int i) {
+        this.dyW.setVisibility(8);
+        this.epF.setVisibility(8);
+        if (this.epE == null) {
+            this.epE = new MenuContentAdapter(getContext());
+            this.epD.setAdapter(this.epE);
         }
-        this.eus.b(this.euv, this.eux, i);
+        this.epE.b(this.epH, this.epJ, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        if (this.eur != null) {
-            this.eur.scrollToPosition(0);
+        if (this.epD != null) {
+            this.epD.scrollToPosition(0);
         }
-        if (this.eut != null) {
-            this.eur.scrollToPosition(0);
+        if (this.epF != null) {
+            this.epD.scrollToPosition(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfj() {
-        if (this.eus != null) {
-            this.eus.notifyDataSetChanged();
+    public void bbp() {
+        if (this.epE != null) {
+            this.epE.notifyDataSetChanged();
         }
-        if (this.euu != null) {
-            this.euu.notifyDataSetChanged();
+        if (this.epG != null) {
+            this.epG.notifyDataSetChanged();
         }
     }
 
     @Nullable
     public View getCoverView() {
-        return this.euw;
+        return this.epI;
     }
 
     public void setCoverView(View view) {
-        this.euw = view;
+        this.epI = view;
     }
 }

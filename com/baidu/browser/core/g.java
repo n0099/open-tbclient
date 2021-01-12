@@ -9,29 +9,29 @@ import java.util.HashMap;
 @SuppressLint({"NewApi"})
 /* loaded from: classes4.dex */
 public final class g {
-    private static g agl;
-    private LongSparseArray<WeakReference<Bitmap>> agm = new LongSparseArray<>();
+    private static g aft;
+    private LongSparseArray<WeakReference<Bitmap>> afu = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = g.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> agn = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> afv = new HashMap<>();
 
     private g() {
     }
 
-    public static synchronized g sQ() {
+    public static synchronized g sF() {
         g gVar;
         synchronized (g.class) {
-            if (agl == null) {
-                agl = new g();
+            if (aft == null) {
+                aft = new g();
             }
-            gVar = agl;
+            gVar = aft;
         }
         return gVar;
     }
 
     private Context getContext() {
         if (this.mContext == null) {
-            this.mContext = BdCore.sJ().getContext();
+            this.mContext = BdCore.sy().getContext();
         }
         if (this.mContext == null) {
             throw new RuntimeException("context is null!");
@@ -40,13 +40,13 @@ public final class g {
     }
 
     @Deprecated
-    public static int O(String str, String str2) {
+    public static int N(String str, String str2) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
-        P(str2, str);
-        com.baidu.browser.core.util.e<String, Integer> eVar2 = agn.get(str);
+        O(str2, str);
+        com.baidu.browser.core.util.e<String, Integer> eVar2 = afv.get(str);
         if (eVar2 == null) {
             com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-            agn.put(str, eVar3);
+            afv.put(str, eVar3);
             eVar = eVar3;
         } else {
             eVar = eVar2;
@@ -54,7 +54,7 @@ public final class g {
         Integer num = eVar.get(str2);
         if (num == null) {
             try {
-                int identifier = sQ().getContext().getResources().getIdentifier(str2, str, sQ().getContext().getPackageName());
+                int identifier = sF().getContext().getResources().getIdentifier(str2, str, sF().getContext().getPackageName());
                 eVar.put(str2, Integer.valueOf(identifier));
                 return identifier;
             } catch (Error e) {
@@ -68,6 +68,6 @@ public final class g {
         return num.intValue();
     }
 
-    public static void P(String str, String str2) {
+    public static void O(String str, String str2) {
     }
 }

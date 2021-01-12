@@ -2,7 +2,6 @@ package com.baidu.swan.apps.ak.e.a;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -10,7 +9,7 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/stopCompass");
@@ -19,7 +18,7 @@ public class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (eVar == null) {
-            c.e(MapController.COMPASS_LAYER_TAG, "none swanApp");
+            c.e("compass", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
             if (DEBUG) {
                 Log.d("SwanAppAction", "stopCompass --- illegal swanApp");
@@ -27,7 +26,7 @@ public class b extends aa {
             }
             return false;
         } else if (context == null) {
-            c.e(MapController.COMPASS_LAYER_TAG, "none context");
+            c.e("compass", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
             if (DEBUG) {
                 Log.d("SwanAppAction", "stopCompass --- illegal context");
@@ -35,8 +34,8 @@ public class b extends aa {
             }
             return false;
         } else {
-            c.i(MapController.COMPASS_LAYER_TAG, "stop listen compass");
-            com.baidu.swan.apps.ak.e.a.aQh().aQj();
+            c.i("compass", "stop listen compass");
+            com.baidu.swan.apps.ak.e.a.aMn().aMp();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

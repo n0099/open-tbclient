@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int Yk;
-    private int Yl;
+    private int Yi;
+    private int Yj;
     private int mEnd;
 
     public GridSpaceItemDecoration(int i, int i2, int i3) {
-        this.Yk = i;
-        this.Yl = i2;
+        this.Yi = i;
+        this.Yj = i2;
         this.mEnd = i3;
     }
 
@@ -21,11 +21,11 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
         GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
         if (layoutParams.getSpanIndex() != -1) {
             if (layoutParams.getSpanIndex() % 2 == 0) {
-                rect.left = this.Yk;
-                rect.right = this.Yl;
+                rect.left = this.Yi;
+                rect.right = this.Yj;
                 return;
             }
-            rect.left = this.Yl;
+            rect.left = this.Yj;
             rect.right = this.mEnd;
         }
     }

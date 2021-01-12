@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.load;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public enum EncodeStrategy {
     SOURCE,
     TRANSFORMED,

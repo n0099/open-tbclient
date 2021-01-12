@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Fade extends Visibility {
     public static final int IN = 1;
     private static final String LOG_TAG = "Fade";
@@ -78,7 +78,7 @@ public class Fade extends Visibility {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FadeAnimatorListener extends AnimatorListenerAdapter {
         private boolean mLayerTypeChanged = false;
         private final View mView;

@@ -4,25 +4,25 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class s {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f11130a;
+        private int f10830a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f11131b;
+        private int f10831b;
         private int c;
         private int d;
         private int e;
         private int f;
 
         public a() {
-            this.f11130a = -1;
-            this.f11131b = -1;
+            this.f10830a = -1;
+            this.f10831b = -1;
             this.c = -1;
             this.d = -1;
             this.e = -1;
@@ -30,18 +30,18 @@ public final class s {
         }
 
         public a(int i, int i2) {
-            this.f11130a = -1;
-            this.f11131b = -1;
+            this.f10830a = -1;
+            this.f10831b = -1;
             this.c = -1;
             this.d = -1;
             this.e = -1;
             this.f = -1;
-            this.f11130a = i;
-            this.f11131b = i2;
+            this.f10830a = i;
+            this.f10831b = i2;
         }
 
         public int a() {
-            return this.f11130a;
+            return this.f10830a;
         }
 
         public void a(float f, float f2) {
@@ -50,12 +50,12 @@ public final class s {
         }
 
         public void a(int i, int i2) {
-            this.f11130a = i;
-            this.f11131b = i2;
+            this.f10830a = i;
+            this.f10831b = i2;
         }
 
         public int b() {
-            return this.f11131b;
+            return this.f10831b;
         }
 
         public void b(float f, float f2) {
@@ -81,7 +81,7 @@ public final class s {
 
         @NonNull
         public String toString() {
-            return "[" + this.f11130a + "," + this.f11131b + "," + this.c + "," + this.d + "," + this.e + "," + this.f + "]";
+            return "[" + this.f10830a + "," + this.f10831b + "," + this.c + "," + this.d + "," + this.e + "," + this.f + "]";
         }
     }
 

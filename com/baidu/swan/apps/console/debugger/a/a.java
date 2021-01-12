@@ -29,14 +29,14 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
-    private static Set<String> cPv;
-    private static Set<String> cPw = new HashSet();
-    private c cPs;
-    private ExecutorService cPt;
-    private int cPu;
-    private c.a cPx;
+    private static Set<String> cKJ;
+    private static Set<String> cKK = new HashSet();
+    private c cKG;
+    private ExecutorService cKH;
+    private int cKI;
+    private c.a cKL;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/debuggerlaunch");
@@ -44,28 +44,28 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        boolean equals = TextUtils.equals(h.aPI().getString("enableSwitch", "1"), "1");
+        boolean equals = TextUtils.equals(h.aLO().getString("enableSwitch", "1"), "1");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null || optParamsAsJo.length() <= 0 || !equals) {
             com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.cPs = c.bk(optParamsAsJo);
-        if (this.cPs == null) {
+        this.cKG = c.bk(optParamsAsJo);
+        if (this.cKG == null) {
             if (DEBUG) {
                 Log.e("DebuggerLaunchAction", "Remote Debug params is invalid");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!apx()) {
+        } else if (!alC()) {
             ag(context, "404");
             return false;
         } else {
-            if (f.cGI.ana() || apw().contains(com.baidu.swan.apps.t.a.aAx().cc(context)) || cPw.contains(cH(context))) {
+            if (f.cBW.ajg() || alB().contains(com.baidu.swan.apps.t.a.awD().cb(context)) || cKK.contains(cG(context))) {
                 a(context, unitedSchemeEntity, callbackHandler);
             } else {
-                com.baidu.swan.apps.a.b.a(this.cPs.appKey, new e.a() { // from class: com.baidu.swan.apps.console.debugger.a.a.1
+                com.baidu.swan.apps.a.b.a(this.cKG.appKey, new e.a() { // from class: com.baidu.swan.apps.console.debugger.a.a.1
                     @Override // com.baidu.swan.apps.adaptation.a.e.a
                     public void n(Exception exc) {
                         com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
@@ -74,10 +74,10 @@ public class a extends aa {
                     }
 
                     @Override // com.baidu.swan.apps.adaptation.a.e.a
-                    public void eN(boolean z) {
+                    public void eJ(boolean z) {
                         if (z) {
                             com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "Authentication Success");
-                            a.cPw.add(a.this.cH(context));
+                            a.cKK.add(a.this.cG(context));
                             a.this.a(context, unitedSchemeEntity, callbackHandler);
                             return;
                         }
@@ -91,13 +91,13 @@ public class a extends aa {
         }
     }
 
-    private Set<String> apw() {
-        if (cPv == null) {
-            cPv = new HashSet();
+    private Set<String> alB() {
+        if (cKJ == null) {
+            cKJ = new HashSet();
             try {
-                JSONArray jSONArray = new JSONArray(h.aPI().getString("authWlist", ""));
+                JSONArray jSONArray = new JSONArray(h.aLO().getString("authWlist", ""));
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    cPv.add(jSONArray.optString(i));
+                    cKJ.add(jSONArray.optString(i));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -105,44 +105,44 @@ public class a extends aa {
                 }
             }
         }
-        return cPv;
+        return cKJ;
     }
 
-    private boolean apx() {
-        return (this.cPs.cPB == null || this.cPs.cPB.length() <= 0 || TextUtils.isEmpty(this.cPs.aAt)) ? false : true;
+    private boolean alC() {
+        return (this.cKG.cKP == null || this.cKG.cKP.length() <= 0 || TextUtils.isEmpty(this.cKG.avG)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cH(Context context) {
-        return com.baidu.swan.apps.t.a.aAx().cc(context) + this.cPs.appKey;
+    public String cG(Context context) {
+        return com.baidu.swan.apps.t.a.awD().cb(context) + this.cKG.appKey;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         int i = 0;
-        d.a(apy());
-        final File apO = d.e.apO();
-        if (apO.exists()) {
-            apO.delete();
+        d.a(alD());
+        final File alT = d.e.alT();
+        if (alT.exists()) {
+            alT.delete();
         }
-        this.cPt = Executors.newFixedThreadPool(4);
-        this.cPu = 0;
+        this.cKH = Executors.newFixedThreadPool(4);
+        this.cKI = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cPs.cPB.length()) {
-                final String ia = this.cPs.ia(i2);
-                if (TextUtils.isEmpty(ia)) {
-                    int i3 = this.cPu + 1;
-                    this.cPu = i3;
-                    if (i3 >= this.cPs.cPB.length()) {
+            if (i2 < this.cKG.cKP.length()) {
+                final String gu = this.cKG.gu(i2);
+                if (TextUtils.isEmpty(gu)) {
+                    int i3 = this.cKI + 1;
+                    this.cKI = i3;
+                    if (i3 >= this.cKG.cKP.length()) {
                         com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "IPs are invalid");
                         ag(context, "404");
                     }
                 } else {
-                    this.cPt.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.a.a.2
+                    this.cKH.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.a.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(context, ia, apO, unitedSchemeEntity, callbackHandler);
+                            a.this.a(context, gu, alT, unitedSchemeEntity, callbackHandler);
                         }
                     });
                 }
@@ -156,23 +156,23 @@ public class a extends aa {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [296=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        c.a apy = apy();
-        d.apG();
-        d.apA().mQ("downloadstart");
+        c.a alD = alD();
+        d.alL();
+        d.alF().lF("downloadstart");
         try {
-            Response executeSync = com.baidu.swan.a.c.a.bfF().getRequest().url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
+            Response executeSync = com.baidu.swan.a.c.a.bbL().getRequest().url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 com.baidu.swan.c.f.streamToFile(executeSync.body().byteStream(), file);
-                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, apy);
+                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, alD);
                 a2.putExtra("remoteDebugUrl", str);
                 context.startActivity(a2);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.cPt != null) {
-                    this.cPt.shutdownNow();
-                    this.cPt = null;
+                if (this.cKH != null) {
+                    this.cKH.shutdownNow();
+                    this.cKH = null;
                 }
-                d.b(apy);
-                d.apA().mQ("downloadsuccess");
+                d.b(alD);
+                d.alF().lF("downloadsuccess");
             }
             if (executeSync != null) {
                 if (0 != 0) {
@@ -183,34 +183,34 @@ public class a extends aa {
             }
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            int i = this.cPu + 1;
-            this.cPu = i;
-            if (i >= this.cPs.cPB.length()) {
+            int i = this.cKI + 1;
+            this.cKI = i;
+            if (i >= this.cKG.cKP.length()) {
                 com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "IPs are invalid");
                 ag(context, "404");
-                d.apA().mQ("downloadfail");
+                d.alF().lF("downloadfail");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ag(Context context, String str) {
-        String string = h.aPI().getString("errorURL", "");
+        String string = h.aLO().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, mP(str)).aLT();
+            com.baidu.swan.apps.res.widget.b.d.a(context, lE(str)).aHZ();
         } else {
             SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + getEncodeValue(string + "?" + str));
         }
     }
 
-    private c.a apy() {
-        if (this.cPx == null) {
-            this.cPx = (c.a) ((c.a) ((c.a) ((c.a) new c.a().pK(this.cPs.appKey)).fW(false)).pP(this.cPs.page)).pR("1");
+    private c.a alD() {
+        if (this.cKL == null) {
+            this.cKL = (c.a) ((c.a) ((c.a) ((c.a) new c.a().oz(this.cKG.appKey)).fS(false)).oE(this.cKG.page)).oG("1");
         }
-        return this.cPx;
+        return this.cKL;
     }
 
-    private String mP(String str) {
+    private String lE(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case 51509:

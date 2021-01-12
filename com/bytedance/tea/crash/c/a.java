@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f7926a;
+    protected JSONObject f7626a;
 
     public a() {
-        this.f7926a = new JSONObject();
+        this.f7626a = new JSONObject();
     }
 
     public a(JSONObject jSONObject) {
-        this.f7926a = jSONObject;
+        this.f7626a = jSONObject;
     }
 
     public static a a(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -55,7 +55,7 @@ public class a {
     }
 
     public JSONObject a() {
-        return this.f7926a;
+        return this.f7626a;
     }
 
     public a a(b bVar) {
@@ -73,7 +73,7 @@ public class a {
         return this;
     }
 
-    public a YY(@NonNull String str) {
+    public a XQ(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             a("session_id", str);
         }
@@ -90,7 +90,7 @@ public class a {
         JSONArray jSONArray = new JSONArray();
         try {
             if (map == null) {
-                this.f7926a.put("plugin_info", jSONArray);
+                this.f7626a.put("plugin_info", jSONArray);
             } else {
                 for (String str : map.keySet()) {
                     JSONObject jSONObject = new JSONObject();
@@ -98,7 +98,7 @@ public class a {
                     jSONObject.put("version_code", map.get(str));
                     jSONArray.put(jSONObject);
                 }
-                this.f7926a.put("plugin_info", jSONArray);
+                this.f7626a.put("plugin_info", jSONArray);
             }
         } catch (Exception e) {
         }
@@ -116,7 +116,7 @@ public class a {
                 }
             }
             try {
-                this.f7926a.put("sdk_info", jSONObject);
+                this.f7626a.put("sdk_info", jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -124,10 +124,10 @@ public class a {
         return this;
     }
 
-    public a ca(int i, String str) {
+    public a cb(int i, String str) {
         try {
-            this.f7926a.put("miniapp_id", i);
-            this.f7926a.put("miniapp_version", str);
+            this.f7626a.put("miniapp_id", i);
+            this.f7626a.put("miniapp_version", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -178,7 +178,7 @@ public class a {
 
     public void a(@NonNull String str, @Nullable Object obj) {
         try {
-            this.f7926a.put(str, obj);
+            this.f7626a.put(str, obj);
         } catch (Exception e) {
             j.b(e);
         }

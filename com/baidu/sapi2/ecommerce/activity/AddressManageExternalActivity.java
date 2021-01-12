@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AddressManageExternalActivity extends AddressManageActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     private static final String TAG = AddressManageExternalActivity.class.getSimpleName();

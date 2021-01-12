@@ -1,12 +1,12 @@
 package com.baidu.live.guess;
 
 import android.content.DialogInterface;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void LH();
+        void HM();
 
         void a(b bVar);
 
@@ -19,21 +19,21 @@ public interface b {
         void onTimeout();
     }
 
-    void LF();
+    void HK();
 
-    void LG();
+    void HL();
 
     void a(DialogInterface.OnKeyListener onKeyListener);
 
     void dismiss();
 
-    void eX(int i);
+    void dr(int i);
 
-    void hG(String str);
+    void gv(String str);
 
-    void hH(String str);
+    void gw(String str);
 
-    void hI(String str);
+    void gx(String str);
 
     boolean isShowing();
 

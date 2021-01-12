@@ -7,7 +7,7 @@ import android.net.Uri;
 import com.bytedance.embedapplog.bi;
 /* loaded from: classes4.dex */
 final class bf implements bi {
-    private aw<Boolean> pgY = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
+    private aw<Boolean> pcw = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -29,13 +29,13 @@ final class bf implements bi {
         if (context == null) {
             return false;
         }
-        return this.pgY.b(context).booleanValue();
+        return this.pcw.b(context).booleanValue();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [55=5, 56=4] */
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hR(Context context) {
+    public bi.a hP(Context context) {
         Cursor cursor;
         try {
             cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
@@ -44,7 +44,7 @@ final class bf implements bi {
             }
             try {
                 bi.a aVar = new bi.a();
-                aVar.f6101b = a(cursor);
+                aVar.f5801b = a(cursor);
                 if (cursor != null) {
                     cursor.close();
                     return aVar;

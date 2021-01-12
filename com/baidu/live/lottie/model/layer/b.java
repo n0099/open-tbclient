@@ -11,32 +11,32 @@ import com.baidu.live.lottie.h;
 import com.baidu.live.lottie.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
-    private final List<a> BT;
-    private final RectF GN;
+    private final List<a> BR;
+    private final RectF GL;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<Float, Float> bvu;
+    private com.baidu.live.lottie.a.b.a<Float, Float> bqG;
     @Nullable
-    private Boolean bvv;
+    private Boolean bqH;
     @Nullable
-    private Boolean bvw;
+    private Boolean bqI;
     private final RectF rect;
 
     public b(h hVar, Layer layer, List<Layer> list, com.baidu.live.lottie.e eVar) {
         super(hVar, layer);
         a aVar;
         a aVar2;
-        this.BT = new ArrayList();
+        this.BR = new ArrayList();
         this.rect = new RectF();
-        this.GN = new RectF();
-        com.baidu.live.lottie.model.a.b QE = layer.QE();
-        if (QE != null) {
-            this.bvu = QE.PP();
-            a(this.bvu);
-            this.bvu.b(this);
+        this.GL = new RectF();
+        com.baidu.live.lottie.model.a.b MJ = layer.MJ();
+        if (MJ != null) {
+            this.bqG = MJ.LU();
+            a(this.bqG);
+            this.bqG.b(this);
         } else {
-            this.bvu = null;
+            this.bqG = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(eVar.hW().size());
         int size = list.size() - 1;
@@ -46,13 +46,13 @@ public class b extends a {
             if (a2 == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a2.Qz().getId(), a2);
+                longSparseArray.put(a2.ME().getId(), a2);
                 if (aVar3 != null) {
                     aVar3.b(a2);
                     aVar2 = null;
                 } else {
-                    this.BT.add(0, a2);
-                    switch (r0.QB()) {
+                    this.BR.add(0, a2);
+                    switch (r0.MG()) {
                         case Add:
                         case Invert:
                             aVar2 = a2;
@@ -68,7 +68,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.Qz().ke())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.ME().ke())) != null) {
                 aVar4.c(aVar);
             }
         }
@@ -78,15 +78,15 @@ public class b extends a {
     void d(Canvas canvas, Matrix matrix, int i) {
         com.baidu.live.lottie.d.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.GN.set(0.0f, 0.0f, this.bvo.ka(), this.bvo.kb());
-        matrix.mapRect(this.GN);
-        for (int size = this.BT.size() - 1; size >= 0; size--) {
+        this.GL.set(0.0f, 0.0f, this.bqA.ka(), this.bqA.kb());
+        matrix.mapRect(this.GL);
+        for (int size = this.BR.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.GN.isEmpty()) {
-                z = canvas.clipRect(this.GN);
+            if (!this.GL.isEmpty()) {
+                z = canvas.clipRect(this.GL);
             }
             if (z) {
-                this.BT.get(size).c(canvas, matrix, i);
+                this.BR.get(size).c(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -97,8 +97,8 @@ public class b extends a {
     public void d(RectF rectF, Matrix matrix) {
         super.d(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.BT.size() - 1; size >= 0; size--) {
-            this.BT.get(size).d(this.rect, this.Gz);
+        for (int size = this.BR.size() - 1; size >= 0; size--) {
+            this.BR.get(size).d(this.rect, this.Gx);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -110,52 +110,52 @@ public class b extends a {
     @Override // com.baidu.live.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.bvu != null) {
-            f = (this.bvu.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().hS();
+        if (this.bqG != null) {
+            f = (this.bqG.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().hS();
         }
-        if (this.bvo.jX() != 0.0f) {
-            f /= this.bvo.jX();
+        if (this.bqA.jX() != 0.0f) {
+            f /= this.bqA.jX();
         }
-        float jY = f - this.bvo.jY();
-        for (int size = this.BT.size() - 1; size >= 0; size--) {
-            this.BT.get(size).setProgress(jY);
+        float jY = f - this.bqA.jY();
+        for (int size = this.BR.size() - 1; size >= 0; size--) {
+            this.BR.get(size).setProgress(jY);
         }
     }
 
     public boolean hasMasks() {
-        if (this.bvw == null) {
-            for (int size = this.BT.size() - 1; size >= 0; size--) {
-                a aVar = this.BT.get(size);
+        if (this.bqI == null) {
+            for (int size = this.BR.size() - 1; size >= 0; size--) {
+                a aVar = this.BR.get(size);
                 if (aVar instanceof e) {
                     if (aVar.jV()) {
-                        this.bvw = true;
+                        this.bqI = true;
                         return true;
                     }
                 } else if ((aVar instanceof b) && ((b) aVar).hasMasks()) {
-                    this.bvw = true;
+                    this.bqI = true;
                     return true;
                 }
             }
-            this.bvw = false;
+            this.bqI = false;
         }
-        return this.bvw.booleanValue();
+        return this.bqI.booleanValue();
     }
 
     public boolean hasMatte() {
-        if (this.bvv == null) {
+        if (this.bqH == null) {
             if (jT()) {
-                this.bvv = true;
+                this.bqH = true;
                 return true;
             }
-            for (int size = this.BT.size() - 1; size >= 0; size--) {
-                if (this.BT.get(size).jT()) {
-                    this.bvv = true;
+            for (int size = this.BR.size() - 1; size >= 0; size--) {
+                if (this.BR.get(size).jT()) {
+                    this.bqH = true;
                     return true;
                 }
             }
-            this.bvv = false;
+            this.bqH = false;
         }
-        return this.bvv.booleanValue();
+        return this.bqH.booleanValue();
     }
 
     @Override // com.baidu.live.lottie.model.layer.a
@@ -163,8 +163,8 @@ public class b extends a {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.BT.size()) {
-                this.BT.get(i3).a(eVar, i, list, eVar2);
+            if (i3 < this.BR.size()) {
+                this.BR.get(i3).a(eVar, i, list, eVar2);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -175,13 +175,13 @@ public class b extends a {
     @Override // com.baidu.live.lottie.model.layer.a, com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
         super.a((b) t, (com.baidu.live.lottie.e.c<b>) cVar);
-        if (t == l.Dc) {
+        if (t == l.Da) {
             if (cVar == null) {
-                this.bvu = null;
+                this.bqG = null;
                 return;
             }
-            this.bvu = new p(cVar);
-            a(this.bvu);
+            this.bqG = new p(cVar);
+            a(this.bqG);
         }
     }
 }

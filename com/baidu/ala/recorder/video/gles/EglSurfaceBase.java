@@ -6,6 +6,7 @@ import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 @TargetApi(18)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class EglSurfaceBase {
     protected static final String TAG = "Grafika";
     protected EglCore mEglCore;
@@ -100,7 +101,7 @@ public class EglSurfaceBase {
                 if (bufferedOutputStream != null) {
                     bufferedOutputStream.close();
                 }
-                Log.d("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                Log.d("Grafika", "Saved " + width + Config.EVENT_HEAT_X + height + " frame as '" + file2 + "'");
             } catch (Throwable th) {
                 th = th;
                 if (bufferedOutputStream != null) {

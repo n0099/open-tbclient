@@ -2,27 +2,27 @@ package com.facebook.drawee.b.a;
 
 import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends com.facebook.drawee.controller.b {
-    private long pwB = -1;
-    private long pwC = -1;
+    private long prZ = -1;
+    private long psa = -1;
     @Nullable
-    private b pwD;
+    private b psb;
 
     public a(@Nullable b bVar) {
-        this.pwD = bVar;
+        this.psb = bVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void f(String str, Object obj) {
-        this.pwB = System.currentTimeMillis();
+        this.prZ = System.currentTimeMillis();
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
-        this.pwC = System.currentTimeMillis();
-        if (this.pwD != null) {
-            this.pwD.iH(this.pwC - this.pwB);
+        this.psa = System.currentTimeMillis();
+        if (this.psb != null) {
+            this.psb.iH(this.psa - this.prZ);
         }
     }
 }

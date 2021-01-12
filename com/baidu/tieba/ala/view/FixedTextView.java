@@ -13,10 +13,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FixedTextView extends View {
-    private int ijZ;
-    private float ika;
+    private int ifs;
+    private float ift;
     private TextPaint mPaint;
     private String mText;
     private int mTextColor;
@@ -38,14 +38,14 @@ public class FixedTextView extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_FixedTextView);
-        this.ijZ = obtainStyledAttributes.getInt(a.j.sdk_FixedTextView_sdk_ftvMaxLine, 1);
+        this.ifs = obtainStyledAttributes.getInt(a.j.sdk_FixedTextView_sdk_ftvMaxLine, 1);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.sdk_FixedTextView_sdk_ftvTextColor, Color.parseColor("#333333"));
-        this.ika = obtainStyledAttributes.getDimension(a.j.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
+        this.ift = obtainStyledAttributes.getDimension(a.j.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
         this.mText = obtainStyledAttributes.getString(a.j.sdk_FixedTextView_sdk_ftvText);
         obtainStyledAttributes.recycle();
         this.mPaint = new TextPaint(1);
         this.mPaint.setColor(this.mTextColor);
-        this.mPaint.setTextSize(this.ika);
+        this.mPaint.setTextSize(this.ift);
         this.mPaint.setStyle(Paint.Style.FILL);
     }
 
@@ -59,17 +59,17 @@ public class FixedTextView extends View {
         int height = canvas.getHeight();
         int floor = (int) Math.floor((width - getPaddingLeft()) - getPaddingRight());
         int floor2 = (int) Math.floor((height - getPaddingTop()) - getPaddingBottom());
-        float floor3 = (float) Math.floor(floor2 / this.ijZ);
-        float max = Math.max(this.ika, floor2);
+        float floor3 = (float) Math.floor(floor2 / this.ifs);
+        float max = Math.max(this.ift, floor2);
         while (true) {
             this.mPaint.setTextSize(max);
             staticLayout = new StaticLayout(this.mText, this.mPaint, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             f = max - 0.1f;
-            if ((this.ika == -1.0f || f > this.ika) && staticLayout.getLineCount() > this.ijZ) {
+            if ((this.ift == -1.0f || f > this.ift) && staticLayout.getLineCount() > this.ifs) {
                 max = f;
             }
         }
-        if (this.ika != -1.0f && f <= this.ika && staticLayout.getLineCount() > this.ijZ) {
+        if (this.ift != -1.0f && f <= this.ift && staticLayout.getLineCount() > this.ifs) {
             staticLayout.getLineCount();
             int lineForVertical = staticLayout.getLineForVertical(floor2);
             int length = this.mText.length();

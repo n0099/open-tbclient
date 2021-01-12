@@ -16,10 +16,10 @@ public interface a extends IInterface {
         public static class C0009a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1130a;
+            public IBinder f1129a;
 
             public C0009a(IBinder iBinder) {
-                this.f1130a = iBinder;
+                this.f1129a = iBinder;
             }
 
             @Override // com.asus.msa.a.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1130a.transact(1, obtain, obtain2, 0);
+                    this.f1129a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -39,7 +39,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1130a;
+                return this.f1129a;
             }
 
             @Override // com.asus.msa.a.a
@@ -48,7 +48,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1130a.transact(2, obtain, obtain2, 0);
+                    this.f1129a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -63,7 +63,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1130a.transact(3, obtain, obtain2, 0);
+                    this.f1129a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -78,7 +78,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1130a.transact(4, obtain, obtain2, 0);
+                    this.f1129a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -93,7 +93,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1130a.transact(5, obtain, obtain2, 0);
+                    this.f1129a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
-/* loaded from: classes8.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0818a> {
-    private f<com.baidu.tieba.newdetail.a.b> kdd;
+/* loaded from: classes7.dex */
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0801a> {
+    private f<com.baidu.tieba.newdetail.a.b> jYy;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lvo);
-        this.kdd = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqI);
+        this.jYy = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newdetail.a.b bVar, int i, long j) {
@@ -33,48 +33,48 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cn */
-    public C0818a e(ViewGroup viewGroup) {
-        C0818a c0818a = new C0818a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0818a.setOnItemCoverListener(this.kdd);
-        c0818a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0818a;
+    public C0801a e(ViewGroup viewGroup) {
+        C0801a c0801a = new C0801a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+        c0801a.setOnItemCoverListener(this.jYy);
+        c0801a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0801a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0818a c0818a) {
-        if (bVar == null || c0818a == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0801a c0801a) {
+        if (bVar == null || c0801a == null) {
             return null;
         }
-        c0818a.a(bVar);
-        c0818a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0818a.getView();
+        c0801a.a(bVar);
+        c0801a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0801a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0818a extends TypeAdapter.ViewHolder {
-        private HotTopicDetailSpecialItem luQ;
+    /* loaded from: classes7.dex */
+    public static class C0801a extends TypeAdapter.ViewHolder {
+        private HotTopicDetailSpecialItem lqk;
 
-        C0818a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+        C0801a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.luQ = hotTopicDetailSpecialItem;
+            this.lqk = hotTopicDetailSpecialItem;
         }
 
         void a(com.baidu.tieba.newdetail.a.b bVar) {
             if (bVar != null) {
-                this.luQ.a(bVar);
+                this.lqk.a(bVar);
             }
         }
 
         public void setOnItemCoverListener(f<com.baidu.tieba.newdetail.a.b> fVar) {
-            this.luQ.setOnItemCoverListener(fVar);
+            this.lqk.setOnItemCoverListener(fVar);
         }
 
         void onChangeSkinType(int i) {
-            this.luQ.onChangeSkinType(i);
+            this.lqk.onChangeSkinType(i);
         }
     }
 }

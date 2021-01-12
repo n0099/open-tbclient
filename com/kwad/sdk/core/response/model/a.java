@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9730a;
+    public int f9430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9731b;
+    public String f9431b;
     public int d;
     public String e;
     public String f;
@@ -24,8 +24,8 @@ public class a implements com.kwad.sdk.core.b {
     public int j = 1;
 
     public void a(@Nullable JSONObject jSONObject) {
-        this.f9730a = jSONObject.optInt("entryType");
-        this.f9731b = jSONObject.optString("sourceDesc");
+        this.f9430a = jSONObject.optInt("entryType");
+        this.f9431b = jSONObject.optString("sourceDesc");
         this.c = jSONObject.optInt("sourceDescPos", this.c);
         this.e = jSONObject.optString("entryId");
         this.d = jSONObject.optInt("likePos", this.d);
@@ -42,8 +42,8 @@ public class a implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "entryType", this.f9730a);
-        o.a(jSONObject, "sourceDesc", this.f9731b);
+        o.a(jSONObject, "entryType", this.f9430a);
+        o.a(jSONObject, "sourceDesc", this.f9431b);
         o.a(jSONObject, "sourceDescPos", this.c);
         o.a(jSONObject, "entryId", this.e);
         o.a(jSONObject, "likePos", this.d);

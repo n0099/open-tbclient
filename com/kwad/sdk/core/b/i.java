@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b;
 import androidx.annotation.NonNull;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface i {
     String a(String str);
 

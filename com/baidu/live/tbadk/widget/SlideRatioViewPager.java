@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SlideRatioViewPager extends ViewGroup {
     private static final int CLOSE_ENOUGH = 2;
     private static final boolean DEBUG = false;
@@ -144,16 +144,16 @@ public class SlideRatioViewPager extends ViewGroup {
     @Target({ElementType.TYPE})
     @Inherited
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public @interface DecorView {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnAdapterChangeListener {
         void onAdapterChanged(@NonNull SlideRatioViewPager slideRatioViewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
@@ -162,13 +162,13 @@ public class SlideRatioViewPager extends ViewGroup {
         void onPageSelected(int i);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface PageTransformer {
         void transformPage(View view, float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class ItemInfo {
         Object object;
         float offset;
@@ -180,7 +180,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -2211,7 +2211,7 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class MyAccessibilityDelegate extends AccessibilityDelegateCompat {
         MyAccessibilityDelegate() {
         }
@@ -2269,7 +2269,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class PagerObserver extends DataSetObserver {
         PagerObserver() {
         }
@@ -2285,7 +2285,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
         public int gravity;
@@ -2309,7 +2309,7 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class ViewPositionComparator implements Comparator<View> {
         ViewPositionComparator() {
         }

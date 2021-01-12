@@ -2,7 +2,7 @@ package com.baidu.swan.apps.statistic;
 
 import android.util.Log;
 import com.baidu.swan.apps.ao.p;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -30,9 +30,9 @@ public final class f {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().tH(h.kX(i)).i(new com.baidu.swan.apps.al.a().cV(11L).cW(2331L).uz("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().sw(h.jr(i)).i(new com.baidu.swan.apps.al.a().cV(11L).cW(2331L).to("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            i2.a(((com.baidu.swan.apps.core.pms.g) dVar).aus());
+            i2.a(((com.baidu.swan.apps.core.pms.g) dVar).aqx());
         }
         a(i2);
         if (DEBUG) {

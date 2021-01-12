@@ -13,20 +13,20 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f9964a = File.separatorChar;
+    public static final char f9664a = File.separatorChar;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9965b;
+    public static final String f9665b;
 
     static {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f9965b = stringBuilderWriter.toString();
+        f9665b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

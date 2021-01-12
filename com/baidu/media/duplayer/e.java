@@ -14,24 +14,36 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class e {
-    private static e cjb;
+    private static e ceo;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3245b = null;
+    private static String f3207b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
 
     private e() {
     }
 
+    public static synchronized e ZI() {
+        e eVar;
+        synchronized (e.class) {
+            if (ceo == null) {
+                f3207b = Utils.f();
+                ceo = new e();
+            }
+            eVar = ceo;
+        }
+        return eVar;
+    }
+
     private String a(Context context, d dVar) {
-        if (dVar.adA() == d.a.LIB_TYPE_JAR) {
+        if (dVar.ZH() == d.a.LIB_TYPE_JAR) {
             return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.c(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
-        } else if (dVar.adA() == d.a.LIB_TYPE_SO) {
+        } else if (dVar.ZH() == d.a.LIB_TYPE_SO) {
             String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
-            return TextUtils.isEmpty(findLibrary) ? c + File.separator + f3245b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
+            return TextUtils.isEmpty(findLibrary) ? c + File.separator + f3207b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
         } else {
             return null;
         }
@@ -52,24 +64,12 @@ public class e {
         }
     }
 
-    public static synchronized e adB() {
-        e eVar;
-        synchronized (e.class) {
-            if (cjb == null) {
-                f3245b = Utils.f();
-                cjb = new e();
-            }
-            eVar = cjb;
-        }
-        return eVar;
-    }
-
     private void b(Context context, String str) {
         c = str + File.separator + "libs";
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a2 = a(context, dVar);
             dVar.a(a2);
-            if (dVar.adA() == d.a.LIB_TYPE_SO) {
+            if (dVar.ZH() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(a2).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
@@ -137,15 +137,15 @@ public class e {
     }
 
     public String c() {
-        return f3245b;
+        return f3207b;
     }
 
     public String c(int i) {
-        d ha = ha(i);
-        if (ha == null) {
+        d ft = ft(i);
+        if (ft == null) {
             return null;
         }
-        return f3245b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.b() + ".zip";
+        return f3207b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ft.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ft.b() + ".zip";
     }
 
     public void d() {
@@ -161,7 +161,7 @@ public class e {
                         for (File file : new File(e.c).listFiles()) {
                             if (file.isFile()) {
                                 e.this.a(file);
-                            } else if (file.getName().equals(e.f3245b)) {
+                            } else if (file.getName().equals(e.f3207b)) {
                                 e.this.b(file);
                             } else {
                                 Utils.a(file);
@@ -186,16 +186,16 @@ public class e {
         return (i & 64) == i;
     }
 
+    public d ft(int i) {
+        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
+    }
+
     public boolean g(int i) {
         return (i & 896) == i;
     }
 
     public boolean h(int i) {
         return (i & 2048) == i;
-    }
-
-    public d ha(int i) {
-        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
     public boolean i(int i) {

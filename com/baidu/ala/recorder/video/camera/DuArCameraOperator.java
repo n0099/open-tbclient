@@ -43,7 +43,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
     private static final String EFFECT_NONE = "none";
@@ -312,9 +312,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            if (b.adN() != null) {
-                b.adN();
-                FILTER_DEFAULT = c.adU();
+            if (b.ZU() != null) {
+                b.ZU();
+                FILTER_DEFAULT = c.aab();
             }
         }
     }
@@ -361,12 +361,12 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            com.baidu.minivideo.arface.bean.b adQ = b.adQ();
-                            if (DuArCameraOperator.this.isDebug() && adQ != null) {
+                            com.baidu.minivideo.arface.bean.b ZX = b.ZX();
+                            if (DuArCameraOperator.this.isDebug() && ZX != null) {
                                 Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
                             }
                             try {
-                                DuArCameraOperator.this.mARProcessor.setQulaityParm(adQ);
+                                DuArCameraOperator.this.mARProcessor.setQulaityParm(ZX);
                             } catch (NullPointerException e) {
                             }
                         }

@@ -5,51 +5,51 @@ import androidx.annotation.NonNull;
 import java.io.File;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock dOC = new ReentrantReadWriteLock();
-    private File dOD = aPA();
+    private static final ReadWriteLock dJQ = new ReentrantReadWriteLock();
+    private File dJR = aLG();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aPB();
+    public abstract String aLH();
 
     @Override // com.baidu.swan.apps.storage.b.d
     public void cQ(long j) {
-        dOC.writeLock().lock();
+        dJQ.writeLock().lock();
         try {
-            if (this.dOD == null) {
-                this.dOD = aPA();
+            if (this.dJR == null) {
+                this.dJR = aLG();
             }
-            File file = this.dOD;
+            File file = this.dJR;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aPz() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aLF() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            dOC.writeLock().unlock();
+            dJQ.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
     public boolean cR(long j) {
-        dOC.readLock().lock();
+        dJQ.readLock().lock();
         try {
-            return aPz() + j > this.MAX_SIZE;
+            return aLF() + j > this.MAX_SIZE;
         } finally {
-            dOC.readLock().unlock();
+            dJQ.readLock().unlock();
         }
     }
 
-    private long aPz() {
-        if (this.dOD == null) {
-            this.dOD = aPA();
+    private long aLF() {
+        if (this.dJR == null) {
+            this.dJR = aLG();
         }
-        File file = this.dOD;
+        File file = this.dJR;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aPA() {
-        return new File(aPB() + File.separator + "record.pro");
+    private File aLG() {
+        return new File(aLH() + File.separator + "record.pro");
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.core.util;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CommonHelper {
     private static String mIp = null;
 

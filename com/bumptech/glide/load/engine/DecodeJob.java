@@ -26,7 +26,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, FactoryPools.Poolable, Comparable<DecodeJob<?>>, Runnable {
     private static final String TAG = "DecodeJob";
     private Callback<R> callback;
@@ -62,7 +62,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     private final ReleaseManager releaseManager = new ReleaseManager();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -72,13 +72,13 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
@@ -86,7 +86,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,
@@ -515,7 +515,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         private final DataSource dataSource;
 
@@ -531,7 +531,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ReleaseManager {
         private boolean isEncodeComplete;
         private boolean isFailed;
@@ -567,7 +567,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DeferredEncodeManager<Z> {
         private ResourceEncoder<Z> encoder;
         private Key key;

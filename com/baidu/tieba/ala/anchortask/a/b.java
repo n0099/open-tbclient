@@ -12,76 +12,76 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.view.web.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.live.b.b {
-    private CustomMessageListener bXd;
-    private c gMY;
-    private PopupWindow.OnDismissListener gMZ;
+    private CustomMessageListener bSr;
+    private c gIs;
+    private PopupWindow.OnDismissListener gIt;
     private Activity mContext;
 
     public b(Activity activity) {
         this.mContext = activity;
-        aag();
+        Wn();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.gMY = new c(this.mContext);
-        this.gMY.setOnDismissListener(this.gMZ);
-        this.gMY.getWebView().setBackgroundColor(ih(str));
+        this.gIs = new c(this.mContext);
+        this.gIs.setOnDismissListener(this.gIt);
+        this.gIs.getWebView().setBackgroundColor(gW(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.gMY).a(this.gMY.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aaf = gVar.aaf();
-        for (com.baidu.live.view.web.a aVar : aaf) {
-            this.gMY.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.gIs).a(this.gIs.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wm = gVar.Wm();
+        for (com.baidu.live.view.web.a aVar : Wm) {
+            this.gIs.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gMY.GA(str + "?anchor_id=" + ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)) + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.gIs.Fp(str + "?anchor_id=" + ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)) + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.gMY != null && this.gMY.isShowing() && this.gMY.getWebView() != null) {
-            this.gMY.getWebView().onResume();
+        if (this.gIs != null && this.gIs.isShowing() && this.gIs.getWebView() != null) {
+            this.gIs.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.gMY != null && this.gMY.isShowing() && this.gMY.getWebView() != null) {
-            this.gMY.getWebView().onPause();
+        if (this.gIs != null && this.gIs.isShowing() && this.gIs.getWebView() != null) {
+            this.gIs.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gMY != null) {
-            this.gMY.aah();
+        if (this.gIs != null) {
+            this.gIs.Wo();
         }
     }
 
-    public void Id() {
+    public void Ei() {
         dismiss();
     }
 
     @Override // com.baidu.live.b.b
     public void release() {
-        Id();
-        MessageManager.getInstance().unRegisterListener(this.bXd);
+        Ei();
+        MessageManager.getInstance().unRegisterListener(this.bSr);
     }
 
-    private void aag() {
-        this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void Wn() {
+        this.bSr = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gMY != null && b.this.gMY.isShowing()) {
-                    b.this.gMY.dismiss();
+                if (b.this.gIs != null && b.this.gIs.isShowing()) {
+                    b.this.gIs.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bXd);
+        MessageManager.getInstance().registerListener(this.bSr);
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private int imageId;
     private String imageUrl;
@@ -39,11 +39,11 @@ public class b {
         this.imageId = i;
     }
 
-    public int cfo() {
+    public int cbw() {
         return this.titleId;
     }
 
-    public void wM(int i) {
+    public void vg(int i) {
         this.titleId = i;
     }
 

@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f12659a;
+    protected Context f12359a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Context f12660b;
+    protected Context f12360b;
     private e d;
     private com.qq.e.comm.plugin.r.b.a e;
     private com.qq.e.comm.plugin.r.b.c g;
@@ -42,8 +42,8 @@ public abstract class a<T> {
     private b o = b.IDLE;
 
     /* renamed from: com.qq.e.comm.plugin.r.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    protected interface InterfaceC1218a {
+    /* loaded from: classes3.dex */
+    protected interface InterfaceC1201a {
         void a();
 
         boolean a(ADEvent aDEvent);
@@ -56,7 +56,7 @@ public abstract class a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         IDLE,
         LOADING
@@ -65,8 +65,8 @@ public abstract class a<T> {
     public a(Context context, String str) {
         this.r = d.a(context);
         this.e = this.r.a(str);
-        this.f12659a = context.getApplicationContext();
-        this.f12660b = context;
+        this.f12359a = context.getApplicationContext();
+        this.f12360b = context;
         if (this.e == null) {
             u.a(70002, 0, new com.qq.e.comm.plugin.y.c().a(str));
             GDTLogger.e("Mediator do not get layer config");

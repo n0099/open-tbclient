@@ -1,9 +1,10 @@
 package com.baidu.ala.dumixar.utils;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class LuaMessageHelper {
     public static final String KEY_EVENT_NAME = "event_name";
     public static final String KEY_GAME_SCORE = "game_score";
@@ -13,7 +14,7 @@ public class LuaMessageHelper {
     public static final String KEY_TEXT_CONTENT = "text_content";
     public static HashMap<String, HashMap> sLuaMessageHashMap = new HashMap<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ILuaMessageReadCallback {
         void onCaseReset();
 
@@ -30,7 +31,7 @@ public class LuaMessageHelper {
         void onShowTextInvoke(String str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface KEY_RECEIVE_LUA_MESSAGE {
         public static final String CASE_RESET = "case_reset";
         public static final String CHILD_STATUS = "child_status";
@@ -41,7 +42,7 @@ public class LuaMessageHelper {
         public static final String SHOW_TEXT = "show_text";
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface KEY_SEND_LUA_MESSAGE {
         public static final String CAPTURE_TIMER_CLEAR = "capture_timer_clear";
         public static final String CAPTURE_TIMER_START = "capture_timer_start";
@@ -312,7 +313,7 @@ public class LuaMessageHelper {
             hashMap.put("texture_path", str);
             hashMap.put("width", Integer.valueOf(i));
             hashMap.put("height", Integer.valueOf(i2));
-            hashMap.put("size", Long.valueOf(j));
+            hashMap.put(TiebaInitialize.LogFields.SIZE, Long.valueOf(j));
             hashMap.put("orientation", Integer.valueOf(i3));
         } else {
             hashMap.put("is_absolute", 0);

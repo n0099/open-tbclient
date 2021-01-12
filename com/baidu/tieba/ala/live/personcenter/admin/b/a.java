@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private int maxCount;
     private List<b> userList = new ArrayList();
@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public int caW() {
+    public int bXe() {
         return this.maxCount;
     }
 

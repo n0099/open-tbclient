@@ -10,29 +10,29 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class Layer {
-    private final float BU;
-    private final List<Mask> EA;
-    private final String GP;
+    private final float BS;
+    private final List<Mask> Ey;
+    private final String GN;
+    private final long GO;
+    private final LayerType GP;
     private final long GQ;
-    private final LayerType GR;
-    private final long GU;
     @Nullable
-    private final String GV;
+    private final String GR;
+    private final int GU;
+    private final int GV;
     private final int GW;
-    private final int GX;
+    private final float GX;
     private final int GY;
-    private final float GZ;
-    private final l Gh;
-    private final int Ha;
-    private final int Hb;
+    private final int GZ;
+    private final l Gf;
     @Nullable
-    private final j Hc;
+    private final j Ha;
     @Nullable
-    private final k Hd;
+    private final k Hb;
     @Nullable
-    private final com.airbnb.lottie.model.a.b He;
-    private final List<com.airbnb.lottie.e.a<Float>> Hf;
-    private final MatteType Hg;
+    private final com.airbnb.lottie.model.a.b Hc;
+    private final List<com.airbnb.lottie.e.a<Float>> Hd;
+    private final MatteType He;
     private final com.airbnb.lottie.d composition;
     private final List<com.airbnb.lottie.model.content.b> shapes;
 
@@ -58,25 +58,25 @@ public class Layer {
     public Layer(List<com.airbnb.lottie.model.content.b> list, com.airbnb.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.airbnb.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.airbnb.lottie.model.a.b bVar) {
         this.shapes = list;
         this.composition = dVar;
-        this.GP = str;
-        this.GQ = j;
-        this.GR = layerType;
-        this.GU = j2;
-        this.GV = str2;
-        this.EA = list2;
-        this.Gh = lVar;
-        this.GW = i;
-        this.GX = i2;
-        this.GY = i3;
-        this.GZ = f;
-        this.BU = f2;
-        this.Ha = i4;
-        this.Hb = i5;
-        this.Hc = jVar;
-        this.Hd = kVar;
-        this.Hf = list3;
-        this.Hg = matteType;
-        this.He = bVar;
+        this.GN = str;
+        this.GO = j;
+        this.GP = layerType;
+        this.GQ = j2;
+        this.GR = str2;
+        this.Ey = list2;
+        this.Gf = lVar;
+        this.GU = i;
+        this.GV = i2;
+        this.GW = i3;
+        this.GX = f;
+        this.BS = f2;
+        this.GY = i4;
+        this.GZ = i5;
+        this.Ha = jVar;
+        this.Hb = kVar;
+        this.Hd = list3;
+        this.He = matteType;
+        this.Hc = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -86,61 +86,61 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float jX() {
-        return this.GZ;
+        return this.GX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float jY() {
-        return this.BU / this.composition.ia();
+        return this.BS / this.composition.ia();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.airbnb.lottie.e.a<Float>> jZ() {
-        return this.Hf;
+        return this.Hd;
     }
 
     public long getId() {
-        return this.GQ;
+        return this.GO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getName() {
-        return this.GP;
+        return this.GN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public String getRefId() {
-        return this.GV;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int ka() {
-        return this.Ha;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int kb() {
-        return this.Hb;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Mask> iM() {
-        return this.EA;
-    }
-
-    public LayerType kc() {
         return this.GR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public int ka() {
+        return this.GY;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int kb() {
+        return this.GZ;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<Mask> iM() {
+        return this.Ey;
+    }
+
+    public LayerType kc() {
+        return this.GP;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     public MatteType kd() {
-        return this.Hg;
+        return this.He;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long ke() {
-        return this.GU;
+        return this.GQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,40 +150,40 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l jL() {
-        return this.Gh;
+        return this.Gf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getSolidColor() {
-        return this.GY;
+        return this.GW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int kf() {
-        return this.GX;
+        return this.GV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int kg() {
-        return this.GW;
+        return this.GU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public j kh() {
-        return this.Hc;
+        return this.Ha;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public k ki() {
-        return this.Hd;
+        return this.Hb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public com.airbnb.lottie.model.a.b kj() {
-        return this.He;
+        return this.Hc;
     }
 
     public String toString() {

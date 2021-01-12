@@ -1,16 +1,16 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class d {
     public static int c = 5;
     public static int d = 40;
-    private a axB = new a(d);
+    private a asP = new a(d);
 
     public d() {
-        this.axB.a(0, d, true);
+        this.asP.a(0, d, true);
     }
 
     public void a(a aVar, int i, int i2, int i3) {
-        a d2 = this.axB.d(i, i + i2);
+        a d2 = this.asP.d(i, i + i2);
         switch (i3) {
             case 0:
                 d2.b(aVar);
@@ -29,11 +29,11 @@ class d {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.axB.a(i + i4, d2.d(i4));
+            this.asP.a(i + i4, d2.d(i4));
         }
     }
 
     public byte[] b() {
-        return this.axB.a();
+        return this.asP.a();
     }
 }

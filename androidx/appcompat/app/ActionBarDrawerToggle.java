@@ -17,7 +17,7 @@ import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private final Delegate mActivityImpl;
     private final int mCloseDrawerContentDescRes;
@@ -31,7 +31,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     View.OnClickListener mToolbarNavigationClickListener;
     private boolean mWarnedForDisplayHomeAsUp;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Delegate {
         Context getActionBarThemedContext();
 
@@ -44,7 +44,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface DelegateProvider {
         @Nullable
         Delegate getDrawerToggleDelegate();
@@ -244,7 +244,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mSlider.setProgress(f);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class FrameworkActionBarDelegate implements Delegate {
         private final Activity mActivity;
         private ActionBarDrawerToggleHoneycomb.SetIndicatorInfo mSetIndicatorInfo;
@@ -305,7 +305,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class ToolbarCompatDelegate implements Delegate {
         final CharSequence mDefaultContentDescription;
         final Drawable mDefaultUpIndicator;

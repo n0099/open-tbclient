@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.location.Address;
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -31,7 +32,7 @@ import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SignStatic {
     public static String Tag = "tag";
 
@@ -39,7 +40,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bOa();
+        bKi();
         registerTask();
     }
 
@@ -72,11 +73,11 @@ public class SignStatic {
                         zVar.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
                     }
                     SignStatic.a(zVar);
-                    zVar.bvR().bwA().mIsNeedTbs = true;
-                    zVar.jM(true);
+                    zVar.brX().bsG().mIsNeedTbs = true;
+                    zVar.jI(true);
                     String postNetData = zVar.postNetData();
                     if (zVar.isNetSuccess()) {
-                        if (zVar.bvR().bwB().isRequestSuccess()) {
+                        if (zVar.brX().bsH().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -84,7 +85,7 @@ public class SignStatic {
                         } else if (!at.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
                             signMessage.parserJson(zVar, jSONObject);
-                            if (AntiHelper.La(zVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (AntiHelper.Jt(zVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -121,12 +122,12 @@ public class SignStatic {
             locationLat = String.valueOf(address.getLatitude());
         }
         if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
-            zVar.addPostData("location", locationLng + "," + locationLat);
+            zVar.addPostData(Headers.LOCATION, locationLng + "," + locationLat);
         }
     }
 
-    private static void bOa() {
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void bKi() {
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

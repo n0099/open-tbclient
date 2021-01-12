@@ -1,29 +1,27 @@
 package com.baidu.platform.comapi.walknavi.g;
 
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
+import com.baidu.platform.comapi.walknavi.g.a;
+import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class d implements BaiduMap.OnBaseIndoorMapListener {
+/* loaded from: classes6.dex */
+public class d implements a.InterfaceC0285a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4549a;
+    final /* synthetic */ a f4334a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.f4549a = aVar;
+        this.f4334a = aVar;
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnBaseIndoorMapListener
-    public void onBaseIndoorMapMode(boolean z, MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        com.baidu.platform.comapi.walknavi.g.a.a aVar;
-        com.baidu.platform.comapi.walknavi.g.a.a aVar2;
-        if (!z || mapBaseIndoorMapInfo == null) {
-            aVar = this.f4549a.B;
-            aVar.c();
-        } else if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
-            aVar2 = this.f4549a.B;
-            aVar2.a(mapBaseIndoorMapInfo);
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0285a
+    public void a() {
+        a.CountDownTimerC0282a countDownTimerC0282a;
+        a.CountDownTimerC0282a countDownTimerC0282a2;
+        countDownTimerC0282a = this.f4334a.q;
+        if (countDownTimerC0282a != null) {
+            countDownTimerC0282a2 = this.f4334a.q;
+            countDownTimerC0282a2.cancel();
         }
     }
 }

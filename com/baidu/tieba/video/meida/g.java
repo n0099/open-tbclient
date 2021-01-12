@@ -13,35 +13,35 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteOrder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
-    public static boolean nKa = false;
+    public static boolean nFv = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int sampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
         public int channelCount = 1;
-        public int nJX = 16;
-        public int nKb = 0;
+        public int nFs = 16;
+        public int nFw = 0;
 
-        public boolean dVa() {
-            return this.nKb == 1 || this.nKb == 4 || this.nKb == 6 || this.nKb == 9;
+        public boolean dRi() {
+            return this.nFw == 1 || this.nFw == 4 || this.nFw == 6 || this.nFw == 9;
         }
 
-        public boolean dVb() {
-            return this.nKb == 3 || this.nKb == 4 || this.nKb == 8 || this.nKb == 9;
+        public boolean dRj() {
+            return this.nFw == 3 || this.nFw == 4 || this.nFw == 8 || this.nFw == 9;
         }
 
-        public boolean dVc() {
-            return this.nKb == 5 || this.nKb == 6 || this.nKb == 8 || this.nKb == 9;
+        public boolean dRk() {
+            return this.nFw == 5 || this.nFw == 6 || this.nFw == 8 || this.nFw == 9;
         }
     }
 
-    public static void dUZ() {
+    public static void dRh() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            nKa = true;
+            nFv = true;
         } else {
-            nKa = false;
+            nFv = false;
         }
     }
 
@@ -58,15 +58,15 @@ public class g {
                 return z2;
             }
             if (aVar.sampleRate != aVarArr[i].sampleRate) {
-                aVarArr[i].nKb++;
+                aVarArr[i].nFw++;
                 z2 = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].nKb += 3;
+                aVarArr[i].nFw += 3;
                 z2 = false;
             }
-            if (aVar.nJX != aVarArr[i].nJX) {
-                aVarArr[i].nKb += 5;
+            if (aVar.nFs != aVarArr[i].nFs) {
+                aVarArr[i].nFw += 5;
                 z = false;
             } else {
                 z = z2;
@@ -76,7 +76,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a UG(String str) {
+    public static a Ty(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -102,7 +102,7 @@ public class g {
             a aVar = new a();
             aVar.sampleRate = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.nJX = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.nFs = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -132,7 +132,7 @@ public class g {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static byte[] a(int i, int i2, int i3, byte[] bArr) {
+    public static byte[] b(int i, int i2, int i3, byte[] bArr) {
         int i4 = 0;
         BdLog.e("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
         if (i != i2) {
@@ -184,7 +184,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], nKa);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], nFv);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -214,7 +214,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * GDiffPatcher.EOF), nKa);
+                                byte[] a2 = a((short) (bArr[i3] * GDiffPatcher.EOF), nFv);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -228,7 +228,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], nKa) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], nFv) / 256);
                             }
                             return bArr3;
                         default:

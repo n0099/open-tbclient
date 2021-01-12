@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import androidx.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cPc = 5;
-    private int[] cPd;
+    private static int cKq = 5;
+    private int[] cKr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cPd = new int[hX(i - 1) + 1];
-        int length = this.cPd.length;
+        this.cKr = new int[gr(i - 1) + 1];
+        int length = this.cKr.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cPd[i2] = -1;
+                this.cKr[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cPd.length << cPc) - 1;
+        int length = (this.cKr.length << cKq) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cPd;
-        int hX = hX(i);
-        iArr[hX] = iArr[hX] | (1 << i);
+        int[] iArr = this.cKr;
+        int gr = gr(i);
+        iArr[gr] = iArr[gr] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cPd.length << cPc) - 1;
+        int length = (this.cKr.length << cKq) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cPd[hX(i)] & (1 << i)) != 0;
+        return (this.cKr[gr(i)] & (1 << i)) != 0;
     }
 
-    private int hX(int i) {
-        return i >> cPc;
+    private int gr(int i) {
+        return i >> cKq;
     }
 }

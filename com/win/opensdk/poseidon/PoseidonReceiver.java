@@ -8,34 +8,34 @@ import com.win.opensdk.PBInterstitial;
 import com.win.opensdk.PBInterstitialListener;
 import com.win.opensdk.az;
 import com.win.opensdk.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PoseidonReceiver extends BroadcastReceiver {
     private String java = "Poseidon";
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.USER_PRESENT".equals(intent.getAction())) {
-            u iJ = u.iJ(context);
-            Context eKu = iJ.eKu();
-            if (eKu == null || iJ.qdp == null || !az.iL(eKu) || !iJ.qdp.isReady()) {
+            u iH = u.iH(context);
+            Context eGE = iH.eGE();
+            if (eGE == null || iH.pYO == null || !az.iJ(eGE) || !iH.pYO.isReady()) {
                 return;
             }
-            iJ.qdp.show();
-            az.j(eKu, (float) System.currentTimeMillis());
+            iH.pYO.show();
+            az.j(eGE, (float) System.currentTimeMillis());
             return;
         }
-        final u iJ2 = u.iJ(context);
-        Context eKu2 = iJ2.eKu();
-        if (eKu2 == null || !az.iL(eKu2)) {
+        final u iH2 = u.iH(context);
+        Context eGE2 = iH2.eGE();
+        if (eGE2 == null || !az.iJ(eGE2)) {
             return;
         }
-        String m69c = az.m69c(eKu2);
-        if (TextUtils.isEmpty(m69c)) {
+        String m65c = az.m65c(eGE2);
+        if (TextUtils.isEmpty(m65c)) {
             return;
         }
-        if (iJ2.qdp == null) {
-            iJ2.qdp = new PBInterstitial(eKu2, m69c);
-            iJ2.qdp.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
+        if (iH2.pYO == null) {
+            iH2.pYO = new PBInterstitial(eGE2, m65c);
+            iH2.pYO.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
                 @Override // com.win.opensdk.PBListener
                 public final void onFail(PBError pBError) {
                 }
@@ -61,9 +61,9 @@ public class PoseidonReceiver extends BroadcastReceiver {
                 }
             });
         }
-        if (iJ2.qdp == null || iJ2.qdp.isReady()) {
+        if (iH2.pYO == null || iH2.pYO.isReady()) {
             return;
         }
-        iJ2.qdp.load();
+        iH2.pYO.load();
     }
 }

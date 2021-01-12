@@ -13,14 +13,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public double f1069a;
+    public double f1068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f1070b;
+    public double f1069b;
     public double c;
     public float d;
 
@@ -28,8 +28,8 @@ public final class o {
     }
 
     public o(JSONObject jSONObject) throws JSONException {
-        this.f1069a = jSONObject.optDouble("latitude", 0.0d);
-        this.f1070b = jSONObject.optDouble("longitude", 0.0d);
+        this.f1068a = jSONObject.optDouble("latitude", 0.0d);
+        this.f1069b = jSONObject.optDouble("longitude", 0.0d);
         this.c = jSONObject.optDouble("altitude", 0.0d);
         this.d = (float) jSONObject.optDouble("accuracy", 0.0d);
     }

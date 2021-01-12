@@ -4,12 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.f, ConcernTabLiveItemView.ViewHolder> {
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gEm);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gzF);
         this.mPageContext = tbPageContext;
     }
 
@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (viewHolder == null || fVar == null) {
             return null;
         }
-        viewHolder.gJW.a(fVar);
+        viewHolder.gFq.a(fVar);
         return viewHolder.getView();
     }
 }

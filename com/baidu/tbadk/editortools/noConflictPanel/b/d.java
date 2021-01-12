@@ -11,12 +11,12 @@ public class d {
         if (view.isInEditMode() || view.getHeight() == i || Math.abs(view.getHeight() - i) == c.getStatusBarHeight(view.getContext())) {
             return false;
         }
-        int fm = b.fm(view.getContext());
+        int fk = b.fk(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(-1, fm));
+            view.setLayoutParams(new ViewGroup.LayoutParams(-1, fk));
         } else {
-            layoutParams.height = fm;
+            layoutParams.height = fk;
             view.requestLayout();
         }
         return true;

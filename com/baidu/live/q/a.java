@@ -17,6 +17,7 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tbadk.timer.LiveTimerManager;
 import com.baidu.live.tbadk.timer.OnLiveTimerListener;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
@@ -33,24 +34,24 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static Map<Long, Boolean> bwV = new HashMap();
-    private static Set<Long> bwW = new HashSet();
-    private static int bwX = 0;
-    private static boolean bwY = true;
+    private static Map<Long, Boolean> bsh = new HashMap();
+    private static Set<Long> bsi = new HashSet();
+    private static int bsj = 0;
+    private static boolean bsk = true;
 
-    public static void c(long j, boolean z) {
-        bwV.clear();
-        bwV.put(Long.valueOf(j), Boolean.valueOf(z));
-        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !bwW.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+    public static void d(long j, boolean z) {
+        bsh.clear();
+        bsh.put(Long.valueOf(j), Boolean.valueOf(z));
+        if (TbadkCoreApplication.getCurrentAccountId() > 0 && !bsi.contains(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "defaultname"));
-            bwW.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+            bsi.add(Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 
-    public static void cE(boolean z) {
-        bwY = z;
+    public static void cA(boolean z) {
+        bsk = z;
     }
 
     public static void c(long j, int i) {
@@ -67,41 +68,41 @@ public class a {
     public static boolean d(long j, int i) {
         boolean z;
         boolean z2 = true;
-        if (TbadkCoreApplication.isLogin() && bwY) {
+        if (TbadkCoreApplication.isLogin() && bsk) {
             if (isDebug()) {
                 return true;
             }
-            if (bwV.containsKey(Long.valueOf(j)) && bwV.get(Long.valueOf(j)).booleanValue()) {
-                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPp == null || com.baidu.live.af.a.SE().bwi.aPp.aRW == 0) {
+            if (bsh.containsKey(Long.valueOf(j)) && bsh.get(Long.valueOf(j)).booleanValue()) {
+                if ((!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isMobileBaidu()) || UtilHelper.getRealScreenOrientation(TbadkCoreApplication.getInst().getContext()) == 2 || com.baidu.live.af.a.OJ().bru == null || com.baidu.live.af.a.OJ().bru.aKC == null || com.baidu.live.af.a.OJ().bru.aKC.aNj == 0) {
                     return false;
                 }
                 if (i == 0) {
-                    z = bwV.get(Long.valueOf(j)).booleanValue();
+                    z = bsh.get(Long.valueOf(j)).booleanValue();
                 } else if (i == 1) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aRX == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNk == 1;
                 } else if (i == 2) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aRY == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNl == 1;
                 } else if (i == 3) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aRZ == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNm == 1;
                 } else if (i == 4) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aSb == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNo == 1;
                 } else if (i == 5) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aSa == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNn == 1;
                 } else if (i == 6) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aSc == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNp == 1;
                 } else if (i == 7) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aSd == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNq == 1;
                 } else if (i == 8) {
-                    z = com.baidu.live.af.a.SE().bwi.aPp.aSe == 1;
+                    z = com.baidu.live.af.a.OJ().bru.aKC.aNr == 1;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    int i2 = com.baidu.live.af.a.SE().bwi.aPp.aSg;
+                    int i2 = com.baidu.live.af.a.OJ().bru.aKC.aNt;
                     if (i2 <= 0) {
                         i2 = 1;
                     }
-                    String string = d.Ba().getString("modify_nickame_show_every_days", "");
+                    String string = d.xf().getString("modify_nickame_show_every_days", "");
                     if (!TextUtils.isEmpty(string)) {
                         try {
                             String b2 = k.b(new Date());
@@ -124,8 +125,8 @@ public class a {
     }
 
     private static void ba(final long j) {
-        if (com.baidu.live.af.a.SE().bwi.aPp != null) {
-            long j2 = com.baidu.live.af.a.SE().bwi.aPp.aSf * 1000;
+        if (com.baidu.live.af.a.OJ().bru.aKC != null) {
+            long j2 = com.baidu.live.af.a.OJ().bru.aKC.aNs * 1000;
             if (isDebug()) {
                 Log.i("ModifyNicknameHelper", "@@ ModifyNickname dealWatch debug duration =" + j2);
                 j2 = 10000;
@@ -136,9 +137,9 @@ public class a {
                 public void onComplete(boolean z) {
                     if (a.d(j, 0)) {
                         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                            a.fl(0);
+                            a.dF(0);
                         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                            a.fm(0);
+                            a.dG(0);
                         }
                     }
                 }
@@ -152,30 +153,30 @@ public class a {
 
     private static void e(long j, int i) {
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-            fl(i);
+            dF(i);
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            fm(i);
+            dG(i);
         }
     }
 
-    private static void Rf() {
-        d.Ba().putString("modify_nickame_show_every_days", k.b(new Date()));
+    private static void Nk() {
+        d.xf().putString("modify_nickame_show_every_days", k.b(new Date()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void fl(int i) {
+    public static void dF(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("title", "设置专属昵称");
             jSONObject.put("subtitle", "让主播更好地认识你");
             jSONObject.put(TrackReferenceTypeBox.TYPE1, "输入昵称");
             jSONObject.put("from", "live");
-            String fn = fn(i);
+            String dH = dH(i);
             JSONObject jSONObject2 = new JSONObject();
-            if (fn == null) {
-                fn = "";
+            if (dH == null) {
+                dH = "";
             }
-            jSONObject2.put("source", fn);
+            jSONObject2.put("source", dH);
             jSONObject.put("extra", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -184,8 +185,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void fm(int i) {
-        bwX = i;
+    public static void dG(int i) {
+        bsj = i;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913235));
     }
 
@@ -198,7 +199,7 @@ public class a {
         ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap2);
     }
 
-    private static String fn(int i) {
+    private static String dH(int i) {
         switch (i) {
             case 0:
                 return "read";
@@ -244,14 +245,14 @@ public class a {
             if (jSONObject.has("op_type")) {
                 int optInt = jSONObject.optInt("op_type");
                 if (optInt == 0) {
-                    Rf();
+                    Nk();
                     LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
-                    ubcStatisticItem.setContentExt(optString, "popup", null);
+                    ubcStatisticItem.setContentExt(optString, UbcStatConstant.SubPage.POPUP, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                 } else if (optInt == 1) {
                     Log.i("ModifyNicknameHelper", "@@ ModifyNickname noticeModifyNickname success");
-                    Rg();
+                    Nl();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
                     ubcStatisticItem2.setContentExt(optString, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
@@ -263,7 +264,7 @@ public class a {
     }
 
     private static void M(Context context, String str) {
-        String fn = fn(bwX);
+        String dH = dH(bsj);
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("action");
@@ -271,18 +272,18 @@ public class a {
             if (TextUtils.equals(optString, "show")) {
                 LiveTimerManager.getInstance().removeLiveTimerTask("ModifyNickname", false);
                 if (optInt == 0) {
-                    Rf();
+                    Nk();
                     UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", SdkStaticKeys.RENAME_SHOW);
-                    ubcStatisticItem.setContentExt(fn, "popup", null);
+                    ubcStatisticItem.setContentExt(dH, UbcStatConstant.SubPage.POPUP, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913236));
             } else if (TextUtils.equals(optString, "modify")) {
                 if (optInt == 0) {
-                    Rg();
+                    Nl();
                     UbcStatisticItem ubcStatisticItem2 = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "renamed");
-                    ubcStatisticItem2.setContentExt(fn, null, null);
+                    ubcStatisticItem2.setContentExt(dH, null, null);
                     UbcStatisticManager.getInstance().logEvent(ubcStatisticItem2);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913236));
@@ -292,7 +293,7 @@ public class a {
         }
     }
 
-    private static void Rg() {
+    private static void Nl() {
         HttpMessage httpMessage = new HttpMessage(1021125);
         httpMessage.addParam("no_cache", 1);
         MessageManager.getInstance().sendMessage(httpMessage);

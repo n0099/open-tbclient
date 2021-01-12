@@ -5,7 +5,7 @@ import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
 import com.baidu.mapapi.search.share.ShareUrlResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.baidu.platform.base.d {
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {

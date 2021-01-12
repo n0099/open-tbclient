@@ -25,38 +25,38 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tieba.model.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private x aGe;
-    private BlueCircleProgressDialog bNp;
-    private com.baidu.live.tieba.model.a hNT;
-    private a.InterfaceC0221a hNU = new a.InterfaceC0221a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
+    private x aBr;
+    private BlueCircleProgressDialog bID;
+    private com.baidu.live.tieba.model.a hJn;
+    private a.InterfaceC0212a hJo = new a.InterfaceC0212a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
     };
     private Handler mHandler = new Handler();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cnh();
+        cjp();
     }
 
     public void d(x xVar, boolean z) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.h.sdk_neterror);
-        } else if (xVar != null && xVar.aKu != null && xVar.mLiveInfo != null) {
-            this.aGe = xVar;
+        } else if (xVar != null && xVar.aFH != null && xVar.mLiveInfo != null) {
+            this.aBr = xVar;
             if (TbadkCoreApplication.IS_SDK) {
                 y yVar = new y();
                 if (this.mPageContext != null) {
                     yVar.activity = this.mPageContext.getPageActivity();
                 }
-                yVar.alaLiveShowData = this.aGe;
+                yVar.alaLiveShowData = this.aBr;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913077, yVar));
             }
         }
     }
 
-    private void cnh() {
+    private void cjp() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -64,18 +64,18 @@ public class a {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     Log.i("AlaLiveViewController", "@@ initShareInterface.onMessage liveOwnerUid = " + longValue);
-                    if (a.this.aGe != null && a.this.aGe.aKu != null && a.this.aGe.aKu.userId == longValue) {
-                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + a.this.aGe.mLiveInfo.live_id);
+                    if (a.this.aBr != null && a.this.aBr.aFH != null && a.this.aBr.aFH.userId == longValue) {
+                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + a.this.aBr.mLiveInfo.live_id);
                         a.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HttpMessage httpMessage = new HttpMessage(1031078);
-                                httpMessage.addParam("live_id", a.this.aGe.mLiveInfo.live_id);
+                                httpMessage.addParam("live_id", a.this.aBr.mLiveInfo.live_id);
                                 MessageManager.getInstance().sendMessage(httpMessage);
                             }
                         });
                     }
-                    a.this.aj(a.this.aGe);
+                    a.this.aj(a.this.aBr);
                 }
             }
         });
@@ -87,8 +87,8 @@ public class a {
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (xVar != null && xVar.aLl != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aLl.croom_id);
+            if (xVar != null && xVar.aGy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aGy.croom_id);
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -96,30 +96,30 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_LIVE_SHARE_TO).setContentExt(jSONObject));
     }
 
-    private void cnj() {
-        if (this.bNp != null) {
-            this.bNp.setDialogVisiable(false);
+    private void cjr() {
+        if (this.bID != null) {
+            this.bID.setDialogVisiable(false);
         }
     }
 
-    public void DC() {
-        cnj();
+    public void zH() {
+        cjr();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hNT != null) {
-            this.hNT.Wk();
+        if (this.hJn != null) {
+            this.hJn.Sr();
         }
     }
 
     public void onDestroy() {
-        cnj();
+        cjr();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hNT != null) {
-            this.hNT.Wk();
-            this.hNT.onDestroy();
+        if (this.hJn != null) {
+            this.hJn.Sr();
+            this.hJn.onDestroy();
         }
     }
 }

@@ -20,13 +20,13 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7962a = null;
+    private static String f7662a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7963b = null;
+    private static String f7663b = null;
     private static Class<?> c = null;
-    private static Field pql = null;
-    private static Field pqm = null;
+    private static Field plG = null;
+    private static Field plH = null;
     private static boolean f = false;
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0068 -> B:32:0x0005). Please submit an issue!!! */
@@ -99,21 +99,21 @@ public final class a {
 
     public static boolean c(Context context) {
         String d = d(context);
-        if (f7963b == null) {
+        if (f7663b == null) {
             try {
-                f7963b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
-                f7963b = f7963b.substring(f7963b.lastIndexOf(":"));
+                f7663b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
+                f7663b = f7663b.substring(f7663b.lastIndexOf(":"));
             } catch (Throwable th) {
                 th.printStackTrace();
-                f7963b = ":npth";
+                f7663b = ":npth";
             }
         }
-        return d != null && d.endsWith(f7963b);
+        return d != null && d.endsWith(f7663b);
     }
 
     @Nullable
     public static String d(Context context) {
-        String str = f7962a;
+        String str = f7662a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -121,19 +121,19 @@ public final class a {
                 if (activityManager != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
                         if (runningAppProcessInfo.pid == myPid) {
-                            f7962a = runningAppProcessInfo.processName;
-                            return f7962a;
+                            f7662a = runningAppProcessInfo.processName;
+                            return f7662a;
                         }
                     }
                 }
             } catch (Throwable th) {
                 j.b(th);
             }
-            f7962a = a();
-            if (f7962a == null) {
+            f7662a = a();
+            if (f7662a == null) {
                 return "";
             }
-            return f7962a;
+            return f7662a;
         }
         return str;
     }
@@ -274,16 +274,16 @@ public final class a {
 
     @NonNull
     public static String e(Context context) {
-        Class<?> ia = ia(context);
-        if (pql == null && ia != null) {
+        Class<?> hY = hY(context);
+        if (plG == null && hY != null) {
             try {
-                pql = ia.getDeclaredField("VERSION_NAME");
+                plG = hY.getDeclaredField("VERSION_NAME");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (pql != null) {
+        if (plG != null) {
             try {
-                return (String) pql.get(null);
+                return (String) plG.get(null);
             } catch (Throwable th) {
             }
         }
@@ -291,16 +291,16 @@ public final class a {
     }
 
     public static int f(Context context) {
-        Class<?> ia = ia(context);
-        if (pqm == null && ia != null) {
+        Class<?> hY = hY(context);
+        if (plH == null && hY != null) {
             try {
-                pqm = ia.getDeclaredField("VERSION_CODE");
+                plH = hY.getDeclaredField("VERSION_CODE");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (pqm != null) {
+        if (plH != null) {
             try {
-                return ((Integer) pqm.get(null)).intValue();
+                return ((Integer) plH.get(null)).intValue();
             } catch (Throwable th) {
             }
         }
@@ -308,7 +308,7 @@ public final class a {
     }
 
     @Nullable
-    private static Class<?> ia(Context context) {
+    private static Class<?> hY(Context context) {
         if (c == null && !f) {
             try {
                 c = Class.forName(context.getPackageName() + ".BuildConfig");

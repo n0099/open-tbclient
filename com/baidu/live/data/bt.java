@@ -2,12 +2,12 @@ package com.baidu.live.data;
 
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bt {
-    public int aSh;
-    public int aSi;
-    public int aSj;
-    public int aSk;
+    public int aNu;
+    public int aNv;
+    public int aNw;
+    public int aNx;
     public int app_size;
     public String app_version;
     public String appendix_link;
@@ -21,16 +21,16 @@ public class bt {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aSh = jSONObject.optInt("popup_id");
-            this.aSi = jSONObject.optInt("popup_times");
-            this.aSj = jSONObject.optInt("popup_type");
+            this.aNu = jSONObject.optInt("popup_id");
+            this.aNv = jSONObject.optInt("popup_times");
+            this.aNw = jSONObject.optInt("popup_type");
             this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
             this.app_version = jSONObject.optString("app_version");
             this.app_size = jSONObject.optInt("app_size");
             this.changelogs = jSONObject.optString("changelogs");
             this.appendix_text = jSONObject.optString("appendix_text");
             this.appendix_link = jSONObject.optString("appendix_link");
-            this.aSk = jSONObject.optInt("appendix_optional");
+            this.aNx = jSONObject.optInt("appendix_optional");
             this.y_btn_text = jSONObject.optString("y_btn_text");
             this.y_btn_link = jSONObject.optString("y_btn_link");
             this.n_btn_text = jSONObject.optString("n_btn_text");

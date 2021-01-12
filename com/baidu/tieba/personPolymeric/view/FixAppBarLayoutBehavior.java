@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FixAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public FixAppBarLayoutBehavior() {
     }

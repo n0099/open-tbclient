@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b implements k {
-    private volatile boolean qsF;
-    private Set<k> qzm;
+    private volatile boolean qod;
+    private Set<k> quK;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qsF;
+        return this.qod;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qsF) {
+            if (!this.qod) {
                 synchronized (this) {
-                    if (!this.qsF) {
-                        if (this.qzm == null) {
-                            this.qzm = new HashSet(4);
+                    if (!this.qod) {
+                        if (this.quK == null) {
+                            this.quK = new HashSet(4);
                         }
-                        this.qzm.add(kVar);
+                        this.quK.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qsF) {
+        if (!this.qod) {
             synchronized (this) {
-                if (!this.qsF && this.qzm != null) {
-                    boolean remove = this.qzm.remove(kVar);
+                if (!this.qod && this.quK != null) {
+                    boolean remove = this.quK.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qsF) {
+        if (!this.qod) {
             synchronized (this) {
-                if (!this.qsF) {
-                    this.qsF = true;
-                    Set<k> set = this.qzm;
-                    this.qzm = null;
+                if (!this.qod) {
+                    this.qod = true;
+                    Set<k> set = this.quK;
+                    this.quK = null;
                     u(set);
                 }
             }

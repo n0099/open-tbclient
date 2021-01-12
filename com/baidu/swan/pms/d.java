@@ -1,16 +1,16 @@
 package com.baidu.swan.pms;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
-    public static boolean DEBUG = bfW().isDebug();
+    public static boolean DEBUG = bcc().isDebug();
 
-    public static b bfW() {
-        return com.baidu.swan.apps.t.a.b.aBM();
+    public static b bcc() {
+        return com.baidu.swan.apps.t.a.b.axS();
     }
 
-    public static a bfX() {
+    public static a bcd() {
         return new a() { // from class: com.baidu.swan.pms.d.1
             @Override // com.baidu.swan.pms.a
-            public String bfV() {
+            public String bcb() {
                 return "";
             }
         };

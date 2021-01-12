@@ -3,7 +3,7 @@ package com.baidu.swan.apps.ao.b;
 import androidx.annotation.Nullable;
 import com.baidu.swan.c.d;
 import java.nio.channels.Channel;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static void a(@Nullable Channel channel) {
         if (channel != null && channel.isOpen()) {

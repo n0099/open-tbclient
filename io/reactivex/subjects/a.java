@@ -5,20 +5,20 @@ import io.reactivex.internal.util.a;
 import io.reactivex.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
+public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
     volatile boolean done;
     boolean emitting;
-    final b<T> qnf;
+    final b<T> qiD;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b<T> bVar) {
-        this.qnf = bVar;
+        this.qiD = bVar;
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.qnf.subscribe(uVar);
+        this.qiD.subscribe(uVar);
     }
 
     @Override // io.reactivex.u
@@ -45,7 +45,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
             bVar.dispose();
             return;
         }
-        this.qnf.onSubscribe(bVar);
+        this.qiD.onSubscribe(bVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.qnf.onNext(t);
+                    this.qiD.onNext(t);
                     emitLoop();
                 }
             }
@@ -96,7 +96,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
             if (z) {
                 io.reactivex.d.a.onError(th);
             } else {
-                this.qnf.onError(th);
+                this.qiD.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.qnf.onComplete();
+                    this.qiD.onComplete();
                 }
             }
         }
@@ -138,8 +138,8 @@ public final class a<T> extends b<T> implements a.InterfaceC1311a<Object> {
         }
     }
 
-    @Override // io.reactivex.internal.util.a.InterfaceC1311a, io.reactivex.b.j
+    @Override // io.reactivex.internal.util.a.InterfaceC1294a, io.reactivex.b.j
     public boolean test(Object obj) {
-        return NotificationLite.acceptFull(obj, this.qnf);
+        return NotificationLite.acceptFull(obj, this.qiD);
     }
 }

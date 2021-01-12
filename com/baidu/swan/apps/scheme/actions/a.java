@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.a;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/abTestConfig");
@@ -26,7 +26,7 @@ public class a extends aa {
             if (optJSONObject != null) {
                 Toast.makeText(context, bT(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                aNt();
+                aJz();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -38,29 +38,29 @@ public class a extends aa {
         if (jSONObject == null) {
             return false;
         }
-        String aNu = aNu();
-        if (TextUtils.isEmpty(aNu)) {
+        String aJA = aJA();
+        if (TextUtils.isEmpty(aJA)) {
             return false;
         }
-        return com.baidu.swan.apps.s.a.p(aNu, jSONObject.toString(), false);
+        return com.baidu.swan.apps.s.a.p(aJA, jSONObject.toString(), false);
     }
 
-    private void aNt() {
-        String aNu = aNu();
-        if (!TextUtils.isEmpty(aNu)) {
-            File file = new File(aNu);
+    private void aJz() {
+        String aJA = aJA();
+        if (!TextUtils.isEmpty(aJA)) {
+            File file = new File(aJA);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String aNu() {
-        File aRn = com.baidu.swan.apps.ao.k.aRn();
-        if (aRn == null) {
+    public static String aJA() {
+        File aNt = com.baidu.swan.apps.ao.k.aNt();
+        if (aNt == null) {
             return null;
         }
-        String path = aRn.getPath();
+        String path = aNt.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

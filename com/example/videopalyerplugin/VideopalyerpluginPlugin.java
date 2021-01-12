@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.view.TextureRegistry;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VideopalyerpluginPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private MethodChannel channel;
     private FlutterState flutterState;
@@ -28,9 +28,9 @@ public class VideopalyerpluginPlugin implements FlutterPlugin, MethodChannel.Met
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (!methodCall.method.equals("create")) {
             if (methodCall.method.equals("checkNeedAutoPlay")) {
-                result.success(Boolean.valueOf(ah.th(((Integer) methodCall.argument("sourceType")).intValue())));
+                result.success(Boolean.valueOf(ah.rB(((Integer) methodCall.argument("sourceType")).intValue())));
             } else if (methodCall.method.equals("isLocalSettingCanAutoPlay")) {
-                result.success(Boolean.valueOf(ah.bJp()));
+                result.success(Boolean.valueOf(ah.bFx()));
             } else {
                 result.notImplemented();
             }
@@ -48,7 +48,7 @@ public class VideopalyerpluginPlugin implements FlutterPlugin, MethodChannel.Met
         this.channel.setMethodCallHandler(null);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class FlutterState {
         private final Context applicationContext;
         private final BinaryMessenger binaryMessenger;

@@ -7,32 +7,32 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class o implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    public n f13840a;
+    public n f13540a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f13841a;
+        public final /* synthetic */ AtomicReference f13541a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f13842b;
+        public final /* synthetic */ AtomicReference f13542b;
         public final /* synthetic */ Object c;
 
         public a(o oVar, AtomicReference atomicReference, AtomicReference atomicReference2, Object obj) {
-            this.f13841a = atomicReference;
-            this.f13842b = atomicReference2;
+            this.f13541a = atomicReference;
+            this.f13542b = atomicReference2;
             this.c = obj;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            this.f13841a.set(iBinder);
-            this.f13842b.set(this);
+            this.f13541a.set(iBinder);
+            this.f13542b.set(this);
             synchronized (this.c) {
                 try {
                     this.c.notifyAll();
@@ -46,22 +46,22 @@ public abstract class o implements k {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f13843a;
+        public final /* synthetic */ AtomicReference f13543a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f13844b;
+        public final /* synthetic */ AtomicReference f13544b;
         public final /* synthetic */ AtomicReference c;
         public final /* synthetic */ Context d;
         public final /* synthetic */ AtomicReference e;
         public final /* synthetic */ Object f;
 
         public b(AtomicReference atomicReference, AtomicReference atomicReference2, AtomicReference atomicReference3, Context context, AtomicReference atomicReference4, Object obj) {
-            this.f13843a = atomicReference;
-            this.f13844b = atomicReference2;
+            this.f13543a = atomicReference;
+            this.f13544b = atomicReference2;
             this.c = atomicReference3;
             this.d = context;
             this.e = atomicReference4;
@@ -72,16 +72,16 @@ public abstract class o implements k {
         public void run() {
             String str;
             try {
-                str = o.this.a((IBinder) this.f13843a.get());
+                str = o.this.a((IBinder) this.f13543a.get());
             } catch (Throwable th) {
-                this.f13844b.set(Integer.valueOf((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL));
+                this.f13544b.set(Integer.valueOf((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL));
                 str = "";
             }
             this.c.set(str);
             try {
                 this.d.unbindService((ServiceConnection) this.e.get());
             } catch (Throwable th2) {
-                this.f13844b.set(-103);
+                this.f13544b.set(-103);
             }
             synchronized (this.f) {
                 try {
@@ -129,18 +129,18 @@ public abstract class o implements k {
 
     @Override // com.tencent.turingfd.sdk.ams.au.k
     public n a(Context context) {
-        n nVar = this.f13840a;
-        if (nVar == null || nVar.f13839b != 0) {
-            this.f13840a = c(context);
+        n nVar = this.f13540a;
+        if (nVar == null || nVar.f13539b != 0) {
+            this.f13540a = c(context);
         }
-        return this.f13840a;
+        return this.f13540a;
     }
 
     public abstract String a(IBinder iBinder) throws Exception;
 
     @Override // com.tencent.turingfd.sdk.ams.au.k
     public void b(Context context) {
-        this.f13840a = c(context);
+        this.f13540a = c(context);
     }
 
     public final n c(Context context) {

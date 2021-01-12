@@ -3,12 +3,12 @@ package com.baidu.live.message;
 import com.baidu.live.data.bm;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AudioGetLiveActivityHttpResponseMessage extends JsonHttpResponsedMessage {
-    private bm bwo;
+    private bm brA;
 
-    public bm QS() {
-        return this.bwo;
+    public bm MX() {
+        return this.brA;
     }
 
     public AudioGetLiveActivityHttpResponseMessage() {
@@ -19,8 +19,8 @@ public class AudioGetLiveActivityHttpResponseMessage extends JsonHttpResponsedMe
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.bwo = new bm();
-            this.bwo.parserJson(jSONObject);
+            this.brA = new bm();
+            this.brA.parserJson(jSONObject);
         }
     }
 }

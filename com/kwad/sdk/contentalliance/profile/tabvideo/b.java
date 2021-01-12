@@ -7,7 +7,7 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b> {
     private ProfileTabVideoParam c;
 
@@ -44,6 +44,6 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b bVar, int i) {
         super.a((b) bVar, i);
-        bVar.f9097a = this.c;
+        bVar.f8797a = this.c;
     }
 }

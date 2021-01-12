@@ -10,14 +10,14 @@ import com.baidu.android.pushservice.f;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1473a;
+    private String f1479a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1474b;
+    private String f1480b;
     private String c;
     private String d;
     private String e;
@@ -48,7 +48,7 @@ public class MzNotifyActivity extends Activity {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f1473a = jSONObject2.getString("Msgid");
+                            this.f1479a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
                             this.c = jSONObject2.getString("msgBody");
@@ -63,11 +63,11 @@ public class MzNotifyActivity extends Activity {
                             this.e = jSONObject3.getString("pkg_content");
                         }
                         if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.f1474b = jSONObject3.getString("mzpri_signinfo");
+                            this.f1480b = jSONObject3.getString("mzpri_signinfo");
                         }
                     }
                 }
-                if (f.a(this, this.f1474b, (this.f1473a + this.d).replaceAll("\\\\", ""))) {
+                if (f.a(this, this.f1480b, (this.f1479a + this.d).replaceAll("\\\\", ""))) {
                     if (TextUtils.isEmpty(this.e)) {
                         Intent intent2 = new Intent();
                         intent2.setClassName(getPackageName(), a(this, getPackageName()));

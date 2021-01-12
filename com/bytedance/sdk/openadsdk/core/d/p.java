@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.core.d;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -10,27 +9,27 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6819a;
+    private String f6519a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6820b;
+    private String f6520b;
     private String c;
     private List<a> d;
 
     public String a() {
-        return this.f6819a;
+        return this.f6519a;
     }
 
     public void a(String str) {
-        this.f6819a = str;
+        this.f6519a = str;
     }
 
     public String b() {
-        return this.f6820b;
+        return this.f6520b;
     }
 
     public void b(String str) {
-        this.f6820b = str;
+        this.f6520b = str;
     }
 
     public String c() {
@@ -72,7 +71,7 @@ public class p {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.putOpt("url", aVar.a());
                         jSONObject2.putOpt("md5", aVar.b());
-                        jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_LEVEL, Integer.valueOf(aVar.c()));
+                        jSONObject2.putOpt("level", Integer.valueOf(aVar.c()));
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -88,33 +87,33 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6821a;
+        private String f6521a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6822b;
+        private String f6522b;
         private int c;
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                return this.f6821a != null && this.f6821a.equals(((a) obj).a());
+                return this.f6521a != null && this.f6521a.equals(((a) obj).a());
             }
             return super.equals(obj);
         }
 
         public String a() {
-            return this.f6821a;
+            return this.f6521a;
         }
 
         public void a(String str) {
-            this.f6821a = str;
+            this.f6521a = str;
         }
 
         public String b() {
-            return this.f6822b;
+            return this.f6522b;
         }
 
         public void b(String str) {
-            this.f6822b = str;
+            this.f6522b = str;
         }
 
         public int c() {
@@ -155,7 +154,7 @@ public class p {
                         a aVar = new a();
                         aVar.a(jSONObject2.getString("url"));
                         aVar.b(jSONObject2.getString("md5"));
-                        aVar.a(jSONObject2.getInt(MapBundleKey.MapObjKey.OBJ_LEVEL));
+                        aVar.a(jSONObject2.getInt("level"));
                         arrayList.add(aVar);
                     }
                 }

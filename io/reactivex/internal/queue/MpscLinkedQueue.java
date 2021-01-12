@@ -4,8 +4,8 @@ import io.reactivex.internal.a.e;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MpscLinkedQueue<T> implements e<T> {
-    private final AtomicReference<LinkedQueueNode<T>> qkG = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<T>> qkH = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> qge = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> qgf = new AtomicReference<>();
 
     public MpscLinkedQueue() {
         LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
@@ -26,15 +26,15 @@ public final class MpscLinkedQueue<T> implements e<T> {
     @Override // io.reactivex.internal.a.e, io.reactivex.internal.a.f
     public T poll() {
         LinkedQueueNode<T> lvNext;
-        LinkedQueueNode<T> eLT = eLT();
-        LinkedQueueNode<T> lvNext2 = eLT.lvNext();
+        LinkedQueueNode<T> eId = eId();
+        LinkedQueueNode<T> lvNext2 = eId.lvNext();
         if (lvNext2 != null) {
             T andNullValue = lvNext2.getAndNullValue();
             b(lvNext2);
             return andNullValue;
-        } else if (eLT != eLR()) {
+        } else if (eId != eIb()) {
             do {
-                lvNext = eLT.lvNext();
+                lvNext = eId.lvNext();
             } while (lvNext == null);
             T andNullValue2 = lvNext.getAndNullValue();
             b(lvNext);
@@ -50,29 +50,29 @@ public final class MpscLinkedQueue<T> implements e<T> {
         }
     }
 
-    LinkedQueueNode<T> eLR() {
-        return this.qkG.get();
+    LinkedQueueNode<T> eIb() {
+        return this.qge.get();
     }
 
     LinkedQueueNode<T> a(LinkedQueueNode<T> linkedQueueNode) {
-        return this.qkG.getAndSet(linkedQueueNode);
+        return this.qge.getAndSet(linkedQueueNode);
     }
 
-    LinkedQueueNode<T> eLS() {
-        return this.qkH.get();
+    LinkedQueueNode<T> eIc() {
+        return this.qgf.get();
     }
 
-    LinkedQueueNode<T> eLT() {
-        return this.qkH.get();
+    LinkedQueueNode<T> eId() {
+        return this.qgf.get();
     }
 
     void b(LinkedQueueNode<T> linkedQueueNode) {
-        this.qkH.lazySet(linkedQueueNode);
+        this.qgf.lazySet(linkedQueueNode);
     }
 
     @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return eLS() == eLR();
+        return eIc() == eIb();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

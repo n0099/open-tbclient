@@ -3,34 +3,25 @@ package com.baidu.mapsdkplatform.comapi.commonutils;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import android.text.TextUtils;
 import com.baidu.mapapi.NetworkUtil;
-import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
-import com.baidu.platform.comapi.util.e;
-import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
-/* loaded from: classes3.dex */
+import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
+/* loaded from: classes6.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private static NACommonMemCache f3142a;
+    static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f3022a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f3143b = false;
-    private static String c = "";
-    private static int d = 0;
-
-    public SysUpdateUtil() {
-        f3142a = e.b();
-    }
+    public static boolean f3023b = false;
+    public static String c = "";
+    public static int d = 0;
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
-    public void init(String str) {
-        if (f3142a != null) {
-            if (TextUtils.isEmpty(str)) {
-                str = SyncSysInfo.getPhoneInfoCache();
-            }
-            f3142a.a(str);
+    public void init() {
+        if (f3022a != null) {
+            f3022a.a();
+            f3022a.b();
         }
     }
 
@@ -47,49 +38,51 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
-            f3143b = false;
+            AppEngine.SetProxyInfo(null, 0);
+            f3023b = false;
         } else if (lowerCase.equals("mobile") || (lowerCase.equals("wifi") && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f3143b = false;
-            if (extraInfo == null) {
-                String defaultHost = Proxy.getDefaultHost();
-                int defaultPort = Proxy.getDefaultPort();
-                if (defaultHost == null || defaultHost.length() <= 0) {
-                    return;
-                }
-                if ("10.0.0.172".equals(defaultHost.trim())) {
+            f3023b = false;
+            if (extraInfo != null) {
+                String lowerCase2 = extraInfo.toLowerCase();
+                if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
                     c = "10.0.0.172";
-                    d = defaultPort;
-                    f3143b = true;
-                    return;
-                } else if ("10.0.0.200".equals(defaultHost.trim())) {
+                    d = 80;
+                    f3023b = true;
+                } else if (lowerCase2.startsWith("ctwap")) {
                     c = "10.0.0.200";
                     d = 80;
-                    f3143b = true;
-                    return;
-                } else {
-                    return;
+                    f3023b = true;
+                } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
+                    f3023b = false;
+                }
+            } else {
+                String defaultHost = Proxy.getDefaultHost();
+                int defaultPort = Proxy.getDefaultPort();
+                if (defaultHost != null && defaultHost.length() > 0) {
+                    if ("10.0.0.172".equals(defaultHost.trim())) {
+                        c = "10.0.0.172";
+                        d = defaultPort;
+                        f3023b = true;
+                    } else if ("10.0.0.200".equals(defaultHost.trim())) {
+                        c = "10.0.0.200";
+                        d = 80;
+                        f3023b = true;
+                    }
                 }
             }
-            String lowerCase2 = extraInfo.toLowerCase();
-            if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
-                c = "10.0.0.172";
-                d = 80;
-                f3143b = true;
-            } else if (lowerCase2.startsWith("ctwap")) {
-                c = "10.0.0.200";
-                d = 80;
-                f3143b = true;
-            } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
-                f3143b = false;
+            if (f3023b) {
+                AppEngine.SetProxyInfo(c, d);
+            } else {
+                AppEngine.SetProxyInfo(null, 0);
             }
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
-    public void updatePhoneInfo(String str) {
-        if (f3142a != null) {
-            f3142a.a(str);
+    public void updatePhoneInfo() {
+        if (f3022a != null) {
+            f3022a.b();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.roomcard;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends HttpMessage {
     public b(String str, String str2, int i) {
         super(1031018);

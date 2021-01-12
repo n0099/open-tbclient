@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView acY;
-    private View nOl;
-    private View nOm;
-    private View nOn;
-    private ObjectAnimator nOo;
-    private ObjectAnimator nOp;
-    private ObjectAnimator nOq;
-    private ObjectAnimator nOr;
+    private TextView acW;
+    private View nJG;
+    private View nJH;
+    private View nJI;
+    private ObjectAnimator nJJ;
+    private ObjectAnimator nJK;
+    private ObjectAnimator nJL;
+    private ObjectAnimator nJM;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.nOl = findViewById(R.id.record_layer1);
-        this.nOm = findViewById(R.id.record_layer2);
-        this.nOn = findViewById(R.id.record_layer3);
-        this.acY = (TextView) findViewById(R.id.tv_tip);
-        this.nOn.setScaleX(0.766f);
-        this.nOn.setScaleY(0.766f);
+        this.nJG = findViewById(R.id.record_layer1);
+        this.nJH = findViewById(R.id.record_layer2);
+        this.nJI = findViewById(R.id.record_layer3);
+        this.acW = (TextView) findViewById(R.id.tv_tip);
+        this.nJI.setScaleX(0.766f);
+        this.nJI.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.nOn;
+        return this.nJI;
     }
 
     public View getLayer1() {
-        return this.nOl;
+        return this.nJG;
     }
 
     public View getLayer2() {
-        return this.nOm;
+        return this.nJH;
     }
 
     public TextView getTvTip() {
-        return this.acY;
+        return this.acW;
     }
 
-    public void dWC() {
-        if (this.nOr != null && this.nOr.isRunning()) {
-            this.nOq.cancel();
+    public void dSK() {
+        if (this.nJM != null && this.nJM.isRunning()) {
+            this.nJL.cancel();
         }
-        if (this.nOq == null) {
-            this.nOq = ObjectAnimator.ofPropertyValuesHolder(this.nOm, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.nOq.setDuration(200L);
+        if (this.nJL == null) {
+            this.nJL = ObjectAnimator.ofPropertyValuesHolder(this.nJH, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.nJL.setDuration(200L);
         }
-        this.nOq.start();
+        this.nJL.start();
     }
 
-    public void dWD() {
-        if (this.nOq != null && this.nOq.isRunning()) {
-            this.nOq.cancel();
+    public void dSL() {
+        if (this.nJL != null && this.nJL.isRunning()) {
+            this.nJL.cancel();
         }
-        if (this.nOm.getScaleX() != 1.0f) {
-            if (this.nOr == null) {
-                this.nOr = ObjectAnimator.ofPropertyValuesHolder(this.nOm, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.nOr.setDuration(200L);
+        if (this.nJH.getScaleX() != 1.0f) {
+            if (this.nJM == null) {
+                this.nJM = ObjectAnimator.ofPropertyValuesHolder(this.nJH, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.nJM.setDuration(200L);
             }
-            this.nOr.start();
+            this.nJM.start();
         }
     }
 
-    public void yR(boolean z) {
-        if (this.nOp != null && this.nOp.isRunning()) {
-            this.nOp.cancel();
+    public void yN(boolean z) {
+        if (this.nJK != null && this.nJK.isRunning()) {
+            this.nJK.cancel();
         }
-        if (this.nOo == null) {
-            this.nOo = ObjectAnimator.ofPropertyValuesHolder(this.nOn, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.nOo.setRepeatCount(-1);
-            this.nOo.setRepeatMode(2);
-            this.nOo.setDuration(1000L);
+        if (this.nJJ == null) {
+            this.nJJ = ObjectAnimator.ofPropertyValuesHolder(this.nJI, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.nJJ.setRepeatCount(-1);
+            this.nJJ.setRepeatMode(2);
+            this.nJJ.setDuration(1000L);
         }
-        this.nOn.setVisibility(0);
+        this.nJI.setVisibility(0);
         if (z) {
-            this.nOl.setVisibility(8);
+            this.nJG.setVisibility(8);
         } else {
-            this.nOl.setBackgroundResource(R.drawable.red_square_bg);
+            this.nJG.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.acY.setVisibility(8);
-        this.nOo.start();
+        this.acW.setVisibility(8);
+        this.nJJ.start();
     }
 
-    public void dWr() {
-        if (this.nOo != null && this.nOo.isRunning()) {
-            this.nOo.cancel();
+    public void dSz() {
+        if (this.nJJ != null && this.nJJ.isRunning()) {
+            this.nJJ.cancel();
         }
-        if (this.nOp == null) {
-            this.nOp = ObjectAnimator.ofPropertyValuesHolder(this.nOn, PropertyValuesHolder.ofFloat("scaleX", this.nOn.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.nOn.getScaleY(), 0.766f));
-            this.nOp.setDuration((500.0f * Math.abs(0.766f - this.nOn.getScaleX())) / 0.3f);
+        if (this.nJK == null) {
+            this.nJK = ObjectAnimator.ofPropertyValuesHolder(this.nJI, PropertyValuesHolder.ofFloat("scaleX", this.nJI.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.nJI.getScaleY(), 0.766f));
+            this.nJK.setDuration((500.0f * Math.abs(0.766f - this.nJI.getScaleX())) / 0.3f);
         }
-        this.nOl.setVisibility(0);
-        this.nOl.setBackgroundResource(R.drawable.red_circle_bg);
-        this.nOp.start();
+        this.nJG.setVisibility(0);
+        this.nJG.setBackgroundResource(R.drawable.red_circle_bg);
+        this.nJK.start();
     }
 }

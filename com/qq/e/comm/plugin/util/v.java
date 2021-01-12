@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import android.os.Bundle;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
@@ -11,14 +12,14 @@ import com.tencent.map.geoloclite.tsa.TencentLiteLocation;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationManager;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile v f12891a = null;
+    private static volatile v f12591a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f12892b = 0.0d;
+    private double f12592b = 0.0d;
     private double c = 0.0d;
     private float d = 0.0f;
     private int e = 0;
@@ -53,23 +54,23 @@ public class v {
     }
 
     public static v a(Context context) {
-        if (f12891a == null) {
+        if (f12591a == null) {
             synchronized (v.class) {
                 try {
-                    if (f12891a == null) {
-                        f12891a = new v(context);
+                    if (f12591a == null) {
+                        f12591a = new v(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12891a;
+        return f12591a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Location location) {
-        this.f12892b = location.getLatitude();
+        this.f12592b = location.getLatitude();
         this.c = location.getLongitude();
         this.d = location.getAccuracy();
         GDTLogger.d("--- Set current location: " + location.toString() + "-timeStamp: " + location.getTime());
@@ -77,10 +78,10 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TencentLiteLocation tencentLiteLocation) {
-        this.f12892b = tencentLiteLocation.getLatitude();
+        this.f12592b = tencentLiteLocation.getLatitude();
         this.c = tencentLiteLocation.getLongitude();
         this.d = tencentLiteLocation.getAccuracy();
-        GDTLogger.d("--- Set current location from tencent location: " + ("latitude=" + this.f12892b + ", longitude=" + this.c + ", accuracy=" + this.d + "timeStamp=" + tencentLiteLocation.getTime()));
+        GDTLogger.d("--- Set current location from tencent location: " + ("latitude=" + this.f12592b + ", longitude=" + this.c + ", accuracy=" + this.d + "timeStamp=" + tencentLiteLocation.getTime()));
     }
 
     public static boolean c(Context context) {
@@ -88,7 +89,7 @@ public class v {
     }
 
     private void d() {
-        this.f12892b = 0.0d;
+        this.f12592b = 0.0d;
         this.c = 0.0d;
         this.d = 0.0f;
     }
@@ -155,7 +156,7 @@ public class v {
     }
 
     private void g(Context context) {
-        this.f = (LocationManager) context.getSystemService("location");
+        this.f = (LocationManager) context.getSystemService(Headers.LOCATION);
         if (this.f == null) {
             GDTLogger.d("### LocationManager unavailable!");
             return;
@@ -166,7 +167,7 @@ public class v {
     }
 
     public double a() {
-        return this.f12892b;
+        return this.f12592b;
     }
 
     public double b() {

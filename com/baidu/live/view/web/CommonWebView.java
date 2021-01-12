@@ -8,11 +8,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CommonWebView extends WebView {
-    private boolean bWN;
-    private boolean bWO;
-    private boolean bWP;
+    private boolean bSb;
+    private boolean bSc;
+    private boolean bSd;
 
     public CommonWebView(Context context) {
         super(context);
@@ -20,41 +20,41 @@ public class CommonWebView extends WebView {
     }
 
     public void setRequestDisallowInterceptTouchEvent(boolean z) {
-        this.bWN = z;
+        this.bSb = z;
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bWO = z;
+        this.bSc = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bWP = z;
+        this.bSd = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        requestDisallowInterceptTouchEvent(this.bWN);
+        requestDisallowInterceptTouchEvent(this.bSb);
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i) {
-        return this.bWP && super.canScrollHorizontally(i);
+        return this.bSd && super.canScrollHorizontally(i);
     }
 
     @Override // android.view.View
     public boolean canScrollVertically(int i) {
-        return this.bWO && super.canScrollVertically(i);
+        return this.bSc && super.canScrollVertically(i);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bWO && !this.bWP) {
+        if (!this.bSc && !this.bSd) {
             scrollTo(0, 0);
-        } else if (!this.bWO) {
+        } else if (!this.bSc) {
             scrollTo(i, 0);
-        } else if (!this.bWP) {
+        } else if (!this.bSd) {
             scrollTo(0, i2);
         }
     }
@@ -67,9 +67,9 @@ public class CommonWebView extends WebView {
     }
 
     private void init() {
-        this.bWN = true;
-        this.bWO = true;
-        this.bWP = true;
+        this.bSb = true;
+        this.bSc = true;
+        this.bSd = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);

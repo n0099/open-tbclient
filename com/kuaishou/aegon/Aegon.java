@@ -12,16 +12,16 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Aegon {
     public static String LIBRARY_NAME = "aegon";
-    public static SignalStrengthListener pSb;
-    public static volatile CronetUrlRequestContext pSd;
+    public static SignalStrengthListener pNB;
+    public static volatile CronetUrlRequestContext pND;
     public static Context sApplicationContext;
-    public static final Object pSc = new Object();
+    public static final Object pNC = new Object();
     public static AtomicBoolean sInitialized = new AtomicBoolean();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
         public abstract void loadLibrary(String str);
     }
@@ -35,27 +35,27 @@ public class Aegon {
         } else {
             System.loadLibrary(LIBRARY_NAME);
         }
-        com.kuaishou.aegon.a.a.a(com.kuaishou.aegon.a.hr(str, str2));
+        com.kuaishou.aegon.a.a.a(com.kuaishou.aegon.a.hq(str, str2));
         Log.i("Aegon", "Initialize finished, cost = " + (System.nanoTime() - nanoTime));
         sApplicationContext = context;
         sInitialized.set(true);
         Handler handler = new Handler(context.getMainLooper());
-        runnable = d.pSi;
+        runnable = d.pNI;
         handler.postDelayed(runnable, IMConnection.RETRY_DELAY_TIMES);
     }
 
     @Nullable
-    public static CronetEngine eDQ() {
+    public static CronetEngine ezY() {
         CronetUrlRequestContext cronetUrlRequestContext;
         Runnable runnable;
         Runnable runnable2;
-        CronetUrlRequestContext cronetUrlRequestContext2 = pSd;
+        CronetUrlRequestContext cronetUrlRequestContext2 = pND;
         if (cronetUrlRequestContext2 != null) {
             return cronetUrlRequestContext2;
         }
         if (sInitialized.get()) {
-            synchronized (pSc) {
-                if (pSd == null && sApplicationContext != null) {
+            synchronized (pNC) {
+                if (pND == null && sApplicationContext != null) {
                     long nanoTime = System.nanoTime();
                     NativeCronetEngineBuilderWithLibraryLoaderImpl nativeCronetEngineBuilderWithLibraryLoaderImpl = new NativeCronetEngineBuilderWithLibraryLoaderImpl(sApplicationContext);
                     nativeCronetEngineBuilderWithLibraryLoaderImpl.mLibraryLoader = new VersionSafeCallbacks$LibraryLoader(new CronetEngine$Builder$LibraryLoader() { // from class: com.kuaishou.aegon.Aegon.1
@@ -63,14 +63,14 @@ public class Aegon {
                         public void loadLibrary(String str) {
                         }
                     });
-                    pSd = new CronetUrlRequestContext(nativeCronetEngineBuilderWithLibraryLoaderImpl);
-                    runnable = b.pSg;
+                    pND = new CronetUrlRequestContext(nativeCronetEngineBuilderWithLibraryLoaderImpl);
+                    runnable = b.pNG;
                     CronetLibraryLoader.postToInitThread(runnable);
-                    runnable2 = c.pSh;
+                    runnable2 = c.pNH;
                     com.kuaishou.aegon.a.a.a(runnable2);
                     Log.i("Aegon", "Create cronet engine finished, cost = " + (System.nanoTime() - nanoTime));
                 }
-                cronetUrlRequestContext = pSd;
+                cronetUrlRequestContext = pND;
             }
             return cronetUrlRequestContext;
         }
@@ -113,7 +113,7 @@ public class Aegon {
 
     public static void setDebug(boolean z) {
         if (sInitialized.get()) {
-            com.kuaishou.aegon.a.a.b(e.Bq(z));
+            com.kuaishou.aegon.a.a.b(e.Bm(z));
         }
     }
 }

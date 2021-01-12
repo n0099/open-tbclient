@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private String d;
     private String e;
@@ -17,14 +17,14 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private String k;
     private int l;
 
-    /* loaded from: classes6.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC1182a<T> {
+    /* loaded from: classes5.dex */
+    public static abstract class a<T extends a<T>> extends a.AbstractC1165a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11578a;
+        private String f11278a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f11579b;
+        private String f11279b;
         private String c;
         private String d;
         private String e;
@@ -39,12 +39,12 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T a(String str) {
-            this.f11578a = str;
+            this.f11278a = str;
             return (T) a();
         }
 
         public T b(String str) {
-            this.f11579b = str;
+            this.f11279b = str;
             return (T) a();
         }
 
@@ -84,25 +84,25 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class C1183b extends a<C1183b> {
-        private C1183b() {
+    /* loaded from: classes5.dex */
+    private static class C1166b extends a<C1166b> {
+        private C1166b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1182a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1165a
         /* renamed from: c */
-        public C1183b a() {
+        public C1166b a() {
             return this;
         }
     }
 
     protected b(a<?> aVar) {
         super(aVar);
-        this.e = ((a) aVar).f11579b;
+        this.e = ((a) aVar).f11279b;
         this.f = ((a) aVar).c;
-        this.d = ((a) aVar).f11578a;
+        this.d = ((a) aVar).f11278a;
         this.g = ((a) aVar).d;
         this.h = ((a) aVar).e;
         this.i = ((a) aVar).f;
@@ -112,12 +112,12 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C1183b();
+        return new C1166b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a(h.f1997a, this.d);
+        cVar.a(h.f1947a, this.d);
         cVar.a(Config.FEED_LIST_PART, this.e);
         cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f);
         cVar.a("pv", this.g);

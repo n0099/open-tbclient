@@ -2,20 +2,20 @@ package com.kwad.sdk.core.b;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Charset f9336a = Charset.forName("ISO-8859-1");
+    private static final Charset f9036a = Charset.forName("ISO-8859-1");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f9337a = new a(false, false);
+        static final a f9037a = new a(false, false);
 
         /* renamed from: b  reason: collision with root package name */
-        static final a f9338b = new a(true, false);
+        static final a f9038b = new a(true, false);
         private static final int[] c = new int[256];
         private static final int[] d = new int[256];
         private final boolean e;
@@ -170,7 +170,7 @@ public class c {
         }
 
         public byte[] a(String str) {
-            return a(str.getBytes(c.f9336a));
+            return a(str.getBytes(c.f9036a));
         }
 
         public byte[] a(byte[] bArr) {
@@ -180,7 +180,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         private final byte[] g;
         private final int h;
@@ -188,10 +188,10 @@ public class c {
         private final boolean j;
 
         /* renamed from: a  reason: collision with root package name */
-        static final b f9339a = new b(false, null, -1, true);
+        static final b f9039a = new b(false, null, -1, true);
 
         /* renamed from: b  reason: collision with root package name */
-        static final b f9340b = new b(true, null, -1, false);
+        static final b f9040b = new b(true, null, -1, false);
         private static final char[] d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
         private static final char[] e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
         private static final byte[] f = {13, 10};
@@ -299,10 +299,10 @@ public class c {
     }
 
     public static b a() {
-        return b.f9339a;
+        return b.f9039a;
     }
 
     public static a b() {
-        return a.f9337a;
+        return a.f9037a;
     }
 }

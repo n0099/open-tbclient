@@ -6,16 +6,16 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
-    private com.baidu.adp.framework.listener.a jaH = new com.baidu.adp.framework.listener.a(1003030, CmdConfigSocket.CMD_DRESSUP_CENTER) { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.1
+    private com.baidu.adp.framework.listener.a iWa = new com.baidu.adp.framework.listener.a(1003030, CmdConfigSocket.CMD_DRESSUP_CENTER) { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof DressupCenterHttpResponseMessage) || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (DressupCenterModel.this.nDK != null) {
-                            DressupCenterModel.this.nDK.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                        if (DressupCenterModel.this.nzf != null) {
+                            DressupCenterModel.this.nzf.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                             return;
                         }
                         return;
@@ -31,8 +31,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
                         DressupCenterModel.this.mRecommand = dressupCenterSocketResponseMessage.getRecommand();
                         DressupCenterModel.this.mThemeCarouselList = dressupCenterSocketResponseMessage.getThemeCarouselList();
                     }
-                    if (DressupCenterModel.this.nDK != null) {
-                        DressupCenterModel.this.nDK.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                    if (DressupCenterModel.this.nzf != null) {
+                        DressupCenterModel.this.nzf.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                     }
                 }
             }
@@ -41,18 +41,18 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     private e mRecommand;
     private List<com.baidu.tieba.themeCenter.dressCenter.a> mThemeCarouselList;
     private List<d> mThemeList;
-    private boolean nBt;
-    private a nDK;
+    private boolean nwO;
+    private a nzf;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, List<com.baidu.tieba.themeCenter.dressCenter.a> list, e eVar, List<d> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
-        this.nBt = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nwO = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
         registerTask();
-        registerListener(this.jaH);
+        registerListener(this.iWa);
     }
 
     private void registerTask() {
@@ -72,14 +72,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public void a(a aVar) {
-        this.nDK = aVar;
+        this.nzf = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jaH);
+        MessageManager.getInstance().unRegisterListener(this.iWa);
     }
 
-    public boolean dMw() {
-        return this.nBt;
+    public boolean dIE() {
+        return this.nwO;
     }
 }

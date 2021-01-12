@@ -8,29 +8,29 @@ import com.qq.e.comm.GDTFileProvider;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Class f12284a;
+    private static Class f11984a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Class f12285b;
+    private static Class f11985b;
     private static Class c;
 
     static {
-        f12284a = null;
-        f12285b = null;
+        f11984a = null;
+        f11985b = null;
         c = null;
         try {
-            f12284a = Class.forName("androidx.core.content.FileProvider");
+            f11984a = Class.forName("androidx.core.content.FileProvider");
         } catch (ClassNotFoundException e) {
-            f12284a = null;
+            f11984a = null;
         }
         try {
-            f12285b = Class.forName("androidx.core.content.FileProvider");
+            f11985b = Class.forName("androidx.core.content.FileProvider");
         } catch (ClassNotFoundException e2) {
-            f12285b = null;
+            f11985b = null;
         }
         try {
             c = Class.forName("com.qq.e.comm.GDTFileProvider");
@@ -55,11 +55,11 @@ public class c {
         Method method = null;
         Uri uri = Uri.EMPTY;
         try {
-            if (f12284a != null) {
-                method = f12284a.getMethod("getUriForFile", Context.class, String.class, File.class);
+            if (f11984a != null) {
+                method = f11984a.getMethod("getUriForFile", Context.class, String.class, File.class);
                 GDTLogger.d("FileProvider androidx support->androidx");
-            } else if (f12285b != null) {
-                method = f12285b.getMethod("getUriForFile", Context.class, String.class, File.class);
+            } else if (f11985b != null) {
+                method = f11985b.getMethod("getUriForFile", Context.class, String.class, File.class);
                 GDTLogger.d("FileProvider support support->androidx");
             }
             if (method != null) {

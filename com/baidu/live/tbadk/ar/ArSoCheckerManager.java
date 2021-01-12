@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.ar;
 
 import com.baidu.live.tbadk.ar.interfaces.ArSoStatusChecker;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ArSoCheckerManager {
     private static ArSoCheckerManager instance = null;
     private ArSoStatusChecker mArSoStatusChecker;

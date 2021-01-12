@@ -8,24 +8,24 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class u implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13999a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+    private static final String f13699a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f14000b = f13999a + File.separator + "config.txt";
+    private static final String f13700b = f13699a + File.separator + "config.txt";
     private static String c = "SdcardCache";
     private File d;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if ("mounted".equals(Environment.getExternalStorageState())) {
-            File file = new File(f13999a);
+            File file = new File(f13699a);
             boolean mkdirs = !file.exists() ? file.mkdirs() : true;
             if (mkdirs) {
-                this.d = new File(f14000b);
+                this.d = new File(f13700b);
                 if (!this.d.exists()) {
                     try {
                         this.d.createNewFile();
@@ -54,7 +54,7 @@ final class u implements c {
     public final void b(String str, String str2) {
         FileOutputStream fileOutputStream;
         Properties a2 = a();
-        String str3 = f14000b;
+        String str3 = f13700b;
         try {
             try {
                 a2.setProperty(str, str2);
@@ -108,7 +108,7 @@ final class u implements c {
         BufferedInputStream bufferedInputStream2 = null;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(new FileInputStream(f14000b));
+                bufferedInputStream = new BufferedInputStream(new FileInputStream(f13700b));
                 try {
                     properties.load(bufferedInputStream);
                     try {

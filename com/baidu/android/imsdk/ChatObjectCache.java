@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk;
 
 import android.util.LruCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChatObjectCache {
     private static ChatObjectCache mInstance = null;
     private LruCache<ChatObject, Object> mCache;

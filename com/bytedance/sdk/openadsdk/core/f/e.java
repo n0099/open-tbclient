@@ -11,10 +11,10 @@ import java.util.Set;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6842a = e.class.getSimpleName();
+    private static final String f6542a = e.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<String> f6843b = new HashSet(1);
+    private final Set<String> f6543b = new HashSet(1);
     private Looper c = Looper.getMainLooper();
 
     public abstract void a();
@@ -22,7 +22,7 @@ public abstract class e {
     public abstract void a(String str);
 
     public synchronized boolean b(String str) {
-        Log.d(f6842a, "Permission not found: " + str);
+        Log.d(f6542a, "Permission not found: " + str);
         return true;
     }
 
@@ -36,10 +36,10 @@ public abstract class e {
     public final synchronized boolean a(@NonNull final String str, c cVar) {
         boolean z = true;
         synchronized (this) {
-            this.f6843b.remove(str);
+            this.f6543b.remove(str);
             switch (cVar) {
                 case GRANTED:
-                    if (this.f6843b.isEmpty()) {
+                    if (this.f6543b.isEmpty()) {
                         new Handler(this.c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -60,7 +60,7 @@ public abstract class e {
                     break;
                 case NOT_FOUND:
                     if (b(str)) {
-                        if (this.f6843b.isEmpty()) {
+                        if (this.f6543b.isEmpty()) {
                             new Handler(this.c).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.f.e.3
                                 @Override // java.lang.Runnable
                                 public void run() {
@@ -90,6 +90,6 @@ public abstract class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final synchronized void a(@NonNull String[] strArr) {
-        Collections.addAll(this.f6843b, strArr);
+        Collections.addAll(this.f6543b, strArr);
     }
 }

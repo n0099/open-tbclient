@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    public static File eL(Context context) {
+    public static File eK(Context context) {
         File dir = context.getDir("pms_dir", 0);
         if (!dir.exists()) {
             dir.mkdir();
@@ -16,11 +16,11 @@ public class d {
         return dir;
     }
 
-    public static String dy(String str, String str2) {
-        return al(str, str2, File.separator);
+    public static String dx(String str, String str2) {
+        return ak(str, str2, File.separator);
     }
 
-    public static String al(String str, String str2, String str3) {
+    public static String ak(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -39,11 +39,11 @@ public class d {
         return str2;
     }
 
-    public static File dz(String str, String str2) {
+    public static File dy(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String dy = dy(str, str2);
-            String str3 = dy;
+            String dx = dx(str, str2);
+            String str3 = dx;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -55,7 +55,7 @@ public class d {
                         e.printStackTrace();
                     }
                 }
-                str3 = dy + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
+                str3 = dx + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }

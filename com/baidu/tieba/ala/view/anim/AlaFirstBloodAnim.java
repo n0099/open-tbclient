@@ -12,24 +12,24 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaFirstBloodAnim extends RelativeLayout implements a {
-    ViewGroup eJJ;
-    ImageView imt;
-    ImageView imu;
-    AnimatorListenerAdapter imv;
-    public AnimatorSet imw;
-    public AnimatorSet imx;
-    public AnimatorSet imy;
-    public AnimatorSet imz;
+    ViewGroup eEY;
+    ImageView ihL;
+    ImageView ihM;
+    AnimatorListenerAdapter ihN;
+    public AnimatorSet ihO;
+    public AnimatorSet ihP;
+    public AnimatorSet ihQ;
+    public AnimatorSet ihR;
     boolean isHost;
 
     public AlaFirstBloodAnim(Context context, boolean z) {
         super(context);
-        this.imw = new AnimatorSet();
-        this.imx = new AnimatorSet();
-        this.imy = new AnimatorSet();
-        this.imz = new AnimatorSet();
+        this.ihO = new AnimatorSet();
+        this.ihP = new AnimatorSet();
+        this.ihQ = new AnimatorSet();
+        this.ihR = new AnimatorSet();
         this.isHost = z;
         init(context);
     }
@@ -40,49 +40,49 @@ public class AlaFirstBloodAnim extends RelativeLayout implements a {
         } else {
             LayoutInflater.from(context).inflate(a.g.ala_pk_rank_firstblood_bottom_layout, this);
         }
-        this.imt = (ImageView) findViewById(a.f.first_blood_cover);
-        this.imu = (ImageView) findViewById(a.f.first_blood_img);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.imt, "alpha", 0.0f, 1.0f);
+        this.ihL = (ImageView) findViewById(a.f.first_blood_cover);
+        this.ihM = (ImageView) findViewById(a.f.first_blood_img);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ihL, "alpha", 0.0f, 1.0f);
         ofFloat.setDuration(300L);
         ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.imu, "scaleX", 5.0f, 1.0f);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.imu, "scaleY", 5.0f, 1.0f);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.imu, "alpha", 1.0f, 0.0f);
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.imt, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ihM, "scaleX", 5.0f, 1.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.ihM, "scaleY", 5.0f, 1.0f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.ihM, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.ihL, "alpha", 1.0f, 0.0f);
         ofFloat5.setDuration(300L);
         ofFloat5.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.imw.play(ofFloat).with(ofFloat2).with(ofFloat3);
-        this.imy.play(ofFloat5).with(ofFloat4).after(IMConnection.RETRY_DELAY_TIMES);
-        this.imz.play(this.imw).before(this.imx).before(this.imy);
+        this.ihO.play(ofFloat).with(ofFloat2).with(ofFloat3);
+        this.ihQ.play(ofFloat5).with(ofFloat4).after(IMConnection.RETRY_DELAY_TIMES);
+        this.ihR.play(this.ihO).before(this.ihP).before(this.ihQ);
     }
 
     public void setAnimatorListenerAdapter(AnimatorListenerAdapter animatorListenerAdapter) {
-        this.imv = animatorListenerAdapter;
+        this.ihN = animatorListenerAdapter;
     }
 
     public void setParentView(ViewGroup viewGroup) {
-        this.eJJ = viewGroup;
+        this.eEY = viewGroup;
     }
 
     @Override // com.baidu.tieba.ala.view.anim.a
     public void startAnim() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         if (this.isHost) {
-            this.imt.setImageResource(a.e.pk_rank_black_cover_top);
+            this.ihL.setImageResource(a.e.pk_rank_black_cover_top);
         } else {
             layoutParams.addRule(12);
-            this.imt.setImageResource(a.e.pk_rank_black_cover_bottom);
+            this.ihL.setImageResource(a.e.pk_rank_black_cover_bottom);
         }
-        this.eJJ.addView(this, layoutParams);
-        this.imz.addListener(this.imv);
-        this.imz.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.anim.AlaFirstBloodAnim.1
+        this.eEY.addView(this, layoutParams);
+        this.ihR.addListener(this.ihN);
+        this.ihR.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.anim.AlaFirstBloodAnim.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                AlaFirstBloodAnim.this.eJJ.removeView(AlaFirstBloodAnim.this);
+                AlaFirstBloodAnim.this.eEY.removeView(AlaFirstBloodAnim.this);
             }
         });
-        this.imu.setVisibility(0);
-        this.imt.setVisibility(0);
-        this.imz.start();
+        this.ihM.setVisibility(0);
+        this.ihL.setVisibility(0);
+        this.ihR.start();
     }
 }

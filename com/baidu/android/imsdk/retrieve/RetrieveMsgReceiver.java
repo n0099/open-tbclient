@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RetrieveMsgReceiver implements IMessageReceiveListener {
     private static final String TAG = "RetrieveMsgReceiver";
     private static volatile RetrieveMsgReceiver mInstance;

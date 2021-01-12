@@ -20,10 +20,10 @@ import org.json.JSONException;
 class g implements v.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h f7418a;
+    private final h f7118a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final t f7419b;
+    private final t f7119b;
     private final Map<String, b> c = new HashMap();
     private final Map<String, d.b> d = new HashMap();
     private final List<p> e = new ArrayList();
@@ -36,10 +36,10 @@ class g implements v.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(@NonNull j jVar, @NonNull com.bytedance.sdk.openadsdk.f.a.a aVar, @Nullable u uVar) {
         this.j = aVar;
-        this.f7418a = jVar.d;
-        this.f7419b = new t(uVar, jVar.l, jVar.m);
-        this.f7419b.a(this);
-        this.f7419b.a(jVar.p);
+        this.f7118a = jVar.d;
+        this.f7119b = new t(uVar, jVar.l, jVar.m);
+        this.f7119b.a(this);
+        this.f7119b.a(jVar.p);
         this.g = jVar.i;
         this.h = jVar.h;
         this.i = jVar.o;
@@ -52,11 +52,11 @@ class g implements v.a {
         b bVar = this.c.get(pVar.d);
         if (bVar != null) {
             try {
-                w b2 = b(fVar.f7417b, bVar);
+                w b2 = b(fVar.f7117b, bVar);
                 fVar.d = b2;
                 if (b2 == null) {
                     if (this.g != null) {
-                        this.g.a(fVar.f7417b, pVar.d, 1);
+                        this.g.a(fVar.f7117b, pVar.d, 1);
                     }
                     i.a("Permission denied, call: " + pVar);
                     throw new r(-1);
@@ -77,7 +77,7 @@ class g implements v.a {
         if (bVar2 != null) {
             d a2 = bVar2.a();
             a2.a(pVar.d);
-            w b3 = b(fVar.f7417b, a2);
+            w b3 = b(fVar.f7117b, a2);
             fVar.d = b3;
             if (b3 == null) {
                 i.a("Permission denied, call: " + pVar);
@@ -88,7 +88,7 @@ class g implements v.a {
             return a(pVar, a2, fVar);
         }
         if (this.g != null) {
-            this.g.a(fVar.f7417b, pVar.d, 2);
+            this.g.a(fVar.f7117b, pVar.d, 2);
         }
         i.b("Received call: " + pVar + ", but not registered.");
         return null;
@@ -110,7 +110,7 @@ class g implements v.a {
     @NonNull
     @MainThread
     private a a(@NonNull p pVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
-        return new a(true, x.a(this.f7418a.a((h) eVar.a(a(pVar.e, (b) eVar), fVar))));
+        return new a(true, x.a(this.f7118a.a((h) eVar.a(a(pVar.e, (b) eVar), fVar))));
     }
 
     @NonNull
@@ -121,7 +121,7 @@ class g implements v.a {
             @Override // com.bytedance.sdk.openadsdk.f.a.d.a
             public void a(@Nullable Object obj) {
                 if (g.this.j != null) {
-                    g.this.j.b(x.a(g.this.f7418a.a((h) obj)), pVar);
+                    g.this.j.b(x.a(g.this.f7118a.a((h) obj)), pVar);
                     g.this.f.remove(dVar);
                 }
             }
@@ -146,11 +146,11 @@ class g implements v.a {
     }
 
     private Object a(String str, b bVar) throws JSONException {
-        return this.f7418a.a(str, a(bVar)[0]);
+        return this.f7118a.a(str, a(bVar)[0]);
     }
 
     private w b(String str, b bVar) {
-        return this.i ? w.PRIVATE : this.f7419b.a(this.h, str, bVar);
+        return this.i ? w.PRIVATE : this.f7119b.a(this.h, str, bVar);
     }
 
     @NonNull
@@ -167,14 +167,14 @@ class g implements v.a {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f7424a;
+        boolean f7124a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7425b;
+        String f7125b;
 
         private a(boolean z, @NonNull String str) {
-            this.f7424a = z;
-            this.f7425b = str;
+            this.f7124a = z;
+            this.f7125b = str;
         }
     }
 }

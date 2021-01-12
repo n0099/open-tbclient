@@ -3,7 +3,6 @@ package com.baidu.mapsdkplatform.comapi;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.os.Process;
 import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
@@ -15,15 +14,15 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NativeLoader {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Context f3115b;
+    private static Context f2995b;
     private static NativeLoader e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3114a = NativeLoader.class.getSimpleName();
+    private static final String f2994a = NativeLoader.class.getSimpleName();
     private static final Set<String> c = new HashSet();
     private static final Set<String> d = new HashSet();
     private static a f = a.ARMEABI;
@@ -31,7 +30,7 @@ public class NativeLoader {
     private static String h = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         ARMEABI("armeabi"),
         ARMV7("armeabi-v7a"),
@@ -55,7 +54,7 @@ public class NativeLoader {
 
     @TargetApi(8)
     private String a() {
-        return 8 <= Build.VERSION.SDK_INT ? f3115b.getPackageCodePath() : "";
+        return 8 <= Build.VERSION.SDK_INT ? f2995b.getPackageCodePath() : "";
     }
 
     private String a(a aVar) {
@@ -77,12 +76,12 @@ public class NativeLoader {
                 try {
                     inputStream.close();
                 } catch (IOException e2) {
-                    Log.e(f3114a, "Close InputStream error", e2);
+                    Log.e(f2994a, "Close InputStream error", e2);
                 }
                 try {
                     fileOutputStream.close();
                 } catch (IOException e3) {
-                    Log.e(f3114a, "Close OutputStream error", e3);
+                    Log.e(f2994a, "Close OutputStream error", e3);
                 }
             }
         }
@@ -90,10 +89,10 @@ public class NativeLoader {
     }
 
     private void a(Throwable th) {
-        Log.e(f3114a, "loadException", th);
+        Log.e(f2994a, "loadException", th);
         Iterator<String> it = d.iterator();
         while (it.hasNext()) {
-            Log.e(f3114a, it.next() + " Failed to load.");
+            Log.e(f2994a, it.next() + " Failed to load.");
         }
     }
 
@@ -144,7 +143,7 @@ public class NativeLoader {
                             try {
                                 zipFile.close();
                             } catch (IOException e2) {
-                                Log.e(f3114a, "Release file failed", e2);
+                                Log.e(f2994a, "Release file failed", e2);
                             }
                         }
                         return false;
@@ -155,19 +154,19 @@ public class NativeLoader {
                             zipFile.close();
                             return true;
                         } catch (IOException e3) {
-                            Log.e(f3114a, "Release file failed", e3);
+                            Log.e(f2994a, "Release file failed", e3);
                             return true;
                         }
                     }
                     return true;
                 } catch (Exception e4) {
                     e = e4;
-                    Log.e(f3114a, "Copy library file error", e);
+                    Log.e(f2994a, "Copy library file error", e);
                     if (zipFile != null) {
                         try {
                             zipFile.close();
                         } catch (IOException e5) {
-                            Log.e(f3114a, "Release file failed", e5);
+                            Log.e(f2994a, "Release file failed", e5);
                         }
                     }
                     return false;
@@ -178,7 +177,7 @@ public class NativeLoader {
                     try {
                         zipFile.close();
                     } catch (IOException e6) {
-                        Log.e(f3114a, "Release file failed", e6);
+                        Log.e(f2994a, "Release file failed", e6);
                     }
                 }
                 throw th;
@@ -200,7 +199,7 @@ public class NativeLoader {
     }
 
     private String b() {
-        File file = new File(f3115b.getFilesDir(), "libs" + File.separator + f.a());
+        File file = new File(f2995b.getFilesDir(), "libs");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -214,20 +213,20 @@ public class NativeLoader {
             if (c.contains(str)) {
                 z = true;
             } else {
-                switch (f) {
-                    case ARM64:
+                switch (d.f3025a[f.ordinal()]) {
+                    case 1:
                         z = c(str, mapLibraryName);
                         break;
-                    case ARMV7:
+                    case 2:
                         z = a(str, mapLibraryName);
                         break;
-                    case ARMEABI:
+                    case 3:
                         z = b(str, mapLibraryName);
                         break;
-                    case X86_64:
+                    case 4:
                         z = e(str, mapLibraryName);
                         break;
-                    case X86:
+                    case 5:
                         z = d(str, mapLibraryName);
                         break;
                 }
@@ -243,7 +242,7 @@ public class NativeLoader {
         if (a(str2, a.ARMEABI)) {
             return f(str2, str);
         }
-        Log.e(f3114a, "found lib " + a.ARMEABI.a() + "/" + str + ".so error");
+        Log.e(f2994a, "found lib" + str + ".so error");
         return false;
     }
 
@@ -256,7 +255,7 @@ public class NativeLoader {
         if (str.contains("arm") && str.contains("v7")) {
             f = a.ARMV7;
         }
-        if (str.contains("arm") && str.contains("64") && d()) {
+        if (str.contains("arm") && str.contains("64")) {
             f = a.ARM64;
         }
         if (str.contains("x86")) {
@@ -273,16 +272,6 @@ public class NativeLoader {
         return !a(str2, a.ARM64) ? a(str, str2) : f(str2, str);
     }
 
-    private static boolean d() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return Process.is64Bit();
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            return Build.CPU_ABI.equals(Build.SUPPORTED_64_BIT_ABIS[0]);
-        }
-        return false;
-    }
-
     private boolean d(String str, String str2) {
         return !a(str2, a.X86) ? a(str, str2) : f(str2, str);
     }
@@ -297,7 +286,6 @@ public class NativeLoader {
             synchronized (c) {
                 c.add(str2);
             }
-            g(str, str2);
             return true;
         } catch (Throwable th) {
             synchronized (d) {
@@ -305,25 +293,6 @@ public class NativeLoader {
                 a(th);
                 return false;
             }
-        }
-    }
-
-    private void g(String str, String str2) {
-        if (str == null || str.isEmpty() || !str.contains("libBaiduMapSDK_")) {
-            return;
-        }
-        try {
-            String[] split = str.split("_v");
-            if (split.length > 1) {
-                File[] listFiles = new File(b()).listFiles(new d(this, split[1]));
-                if (listFiles == null || listFiles.length == 0) {
-                    return;
-                }
-                for (File file : listFiles) {
-                    file.delete();
-                }
-            }
-        } catch (Exception e2) {
         }
     }
 
@@ -340,7 +309,7 @@ public class NativeLoader {
     }
 
     public static void setContext(Context context) {
-        f3115b = context;
+        f2995b = context;
     }
 
     public synchronized boolean loadLibrary(String str) {
@@ -348,7 +317,7 @@ public class NativeLoader {
         if (!g) {
             z = a(str);
         } else if (h == null || h.isEmpty()) {
-            Log.e(f3114a, "Given custom so file path is null, please check!");
+            Log.e(f2994a, "Given custom so file path is null, please check!");
             z = false;
         } else {
             z = b(str);

@@ -12,7 +12,7 @@ public class e {
     public static Rect a(com.baidu.adp.widget.ListView.s sVar, View view, int i) {
         View findViewByPosition;
         if (view.getTag() instanceof AutoVideoCardViewHolder) {
-            return ay.bw(((AutoVideoCardViewHolder) view.getTag()).ta().getVideoContainer());
+            return ay.bw(((AutoVideoCardViewHolder) view.getTag()).sP().getVideoContainer());
         }
         if (sVar instanceof BdTypeRecyclerView) {
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) sVar).getLayoutManager();
@@ -31,7 +31,7 @@ public class e {
             for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
                 Object item2 = com.baidu.tbadk.core.util.x.getItem(data, i2 - headerViewsCount);
                 if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                    return ay.bw(((AutoVideoCardViewHolder) findViewByPosition.getTag()).ta().getVideoContainer());
+                    return ay.bw(((AutoVideoCardViewHolder) findViewByPosition.getTag()).sP().getVideoContainer());
                 }
             }
         }

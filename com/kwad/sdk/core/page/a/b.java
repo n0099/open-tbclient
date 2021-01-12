@@ -13,14 +13,14 @@ import com.kwad.sdk.core.webview.jshandler.j;
 import com.kwad.sdk.core.webview.jshandler.k;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    private g f9646a;
+    private g f9346a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.core.webview.a f9647b;
+    private com.kwad.sdk.core.webview.a f9347b;
     private NestedScrollWebView c;
     private AdTemplate d;
     private k.b e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
@@ -31,33 +31,33 @@ public class b extends Presenter {
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new e(this.f9647b));
-        gVar.a(new f(this.f9647b));
+        gVar.a(new e(this.f9347b));
+        gVar.a(new f(this.f9347b));
         gVar.a(new k(this.e));
-        gVar.a(new j(this.f9647b));
+        gVar.a(new j(this.f9347b));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void e() {
         f();
         ar.a(this.c);
-        this.f9646a = new g(this.c);
-        a(this.f9646a);
-        this.c.addJavascriptInterface(this.f9646a, "KwaiAd");
+        this.f9346a = new g(this.c);
+        a(this.f9346a);
+        this.c.addJavascriptInterface(this.f9346a, "KwaiAd");
     }
 
     private void f() {
-        if (this.f9646a != null) {
-            this.f9646a.a();
-            this.f9646a = null;
+        if (this.f9346a != null) {
+            this.f9346a.a();
+            this.f9346a = null;
         }
     }
 
     private void g() {
-        this.f9647b = new com.kwad.sdk.core.webview.a();
-        this.f9647b.f9837b = this.d;
-        this.f9647b.f9836a = 0;
-        this.f9647b.f = this.c;
+        this.f9347b = new com.kwad.sdk.core.webview.a();
+        this.f9347b.f9537b = this.d;
+        this.f9347b.f9536a = 0;
+        this.f9347b.f = this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

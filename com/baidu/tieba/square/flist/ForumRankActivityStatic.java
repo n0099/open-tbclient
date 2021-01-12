@@ -23,7 +23,7 @@ import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
 import com.baidu.tieba.square.square.f;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForumRankActivityStatic {
     public static String Tag = "tag";
 
@@ -93,7 +93,7 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -114,7 +114,7 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        be.bwv().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new be.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+        be.bsB().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new be.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
             @Override // com.baidu.tbadk.core.util.be.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> MK;
-    private long MN;
+    private List<String> MI;
+    private long MJ;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
@@ -20,7 +20,7 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.MN = jSONObject.optLong("ttl");
+            this.MJ = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
@@ -28,12 +28,12 @@ public class a {
             this.mHost = optJSONObject.keys().next();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.MK = new ArrayList();
+                this.MI = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.MK.add((String) optJSONArray.get(i2));
+                        this.MI.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -50,7 +50,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void C(long j) {
-        this.MN = j;
+        this.MJ = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,10 +59,10 @@ public class a {
     }
 
     public List<String> mf() {
-        return this.MK;
+        return this.MI;
     }
 
     public boolean D(long j) {
-        return j - this.mStartTime > this.MN * 1000;
+        return j - this.mStartTime > this.MJ * 1000;
     }
 }

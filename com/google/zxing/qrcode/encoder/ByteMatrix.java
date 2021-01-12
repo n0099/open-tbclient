@@ -1,7 +1,7 @@
 package com.google.zxing.qrcode.encoder;
 
 import java.lang.reflect.Array;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ByteMatrix {
     private final byte[][] bytes;
     private final int height;

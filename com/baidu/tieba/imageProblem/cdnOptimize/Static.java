@@ -14,9 +14,9 @@ import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Static {
-    private static CustomMessageTask kSU = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    private static CustomMessageTask kOp = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             String str;
@@ -26,15 +26,15 @@ public class Static {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.kSZ == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.kOu == null) {
                         return null;
                     }
-                    if (data.kSW == null) {
-                        if (data.pos >= data.ipListData.kSZ.size()) {
+                    if (data.kOr == null) {
+                        if (data.pos >= data.ipListData.kOu.size()) {
                             z = false;
                             str = "";
                         } else {
-                            ArrayList<String> arrayList = data.ipListData.kSZ.get(data.pos);
+                            ArrayList<String> arrayList = data.ipListData.kOu.get(data.pos);
                             if (arrayList.size() <= 0) {
                                 str2 = "";
                             } else {
@@ -43,18 +43,18 @@ public class Static {
                             z = false;
                             str = str2;
                         }
-                    } else if (data.kSW.length() <= 0) {
+                    } else if (data.kOr.length() <= 0) {
                         return null;
                     } else {
-                        str = data.kSW;
+                        str = data.kOr;
                         z = true;
                     }
-                    if (ad.bvZ() && str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.kTb, data.ipListData.kSY, data.isNormal);
+                    if (ad.bsf() && str.length() > 0) {
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.kOw, data.ipListData.kOt, data.isNormal);
                         data.costTime = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.kSW = str;
+                            data.kOr = str;
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
@@ -79,7 +79,7 @@ public class Static {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, CDNIPDirectConnect.getInstance());
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        kSU.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        kSU.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        kOp.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        kOp.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
     }
 }

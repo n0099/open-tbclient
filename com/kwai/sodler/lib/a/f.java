@@ -10,11 +10,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class f<P extends a> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f11298a;
+    protected String f10998a;
     protected String e;
     protected String f;
     protected boolean g;
@@ -31,7 +31,7 @@ public abstract class f<P extends a> {
     protected int c = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    protected int f11299b = -2233;
+    protected int f10999b = -2233;
     private final byte[] q = new byte[0];
     protected StringBuffer d = new StringBuffer(String.valueOf(this.c));
 
@@ -85,7 +85,7 @@ public abstract class f<P extends a> {
 
     public void b(int i) {
         if (i > 0) {
-            this.f11299b = i;
+            this.f10999b = i;
         }
     }
 
@@ -155,8 +155,8 @@ public abstract class f<P extends a> {
             for (String str2 : file.list()) {
                 if (this.j.e().c(str, str2)) {
                     com.kwai.sodler.lib.b.a aVar = new com.kwai.sodler.lib.b.a();
-                    aVar.f11301a = str;
-                    aVar.f11302b = str2;
+                    aVar.f11001a = str;
+                    aVar.f11002b = str2;
                     aVar.c = true;
                     arrayList.add(aVar);
                 }
@@ -169,8 +169,8 @@ public abstract class f<P extends a> {
     }
 
     public void h() {
-        int i = this.f11299b - 1;
-        this.f11299b = i;
+        int i = this.f10999b - 1;
+        this.f10999b = i;
         if (i < 0) {
             throw new PluginError.RetryError();
         }
@@ -178,7 +178,7 @@ public abstract class f<P extends a> {
 
     @Nullable
     public String i() {
-        return this.f11298a;
+        return this.f10998a;
     }
 
     public boolean j() {
@@ -236,6 +236,6 @@ public abstract class f<P extends a> {
     }
 
     public String toString() {
-        return "PluginRequest{mId='" + this.f11298a + "'}";
+        return "PluginRequest{mId='" + this.f10998a + "'}";
     }
 }

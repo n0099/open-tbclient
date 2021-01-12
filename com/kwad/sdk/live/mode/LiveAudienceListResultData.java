@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LiveAudienceListResultData extends BaseResultData {
     private static final long serialVersionUID = -1400500562354543457L;
     public List<CurrentWatchingUser> currentWatchingUsers = new ArrayList();
@@ -17,14 +17,14 @@ public class LiveAudienceListResultData extends BaseResultData {
     public int pendingDuration;
     public int sequenceId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class CurrentWatchingUser implements b, Serializable {
         private static final long serialVersionUID = -8900509159435327530L;
         public List<HeadUrl> headurls = new ArrayList();
         public long user_id;
         public long user_name;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class HeadUrl implements b, Serializable {
             private static final long serialVersionUID = -8081450700792739733L;
             public String cdn;

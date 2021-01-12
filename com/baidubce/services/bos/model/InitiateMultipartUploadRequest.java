@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InitiateMultipartUploadRequest extends GenericObjectRequest {
     private ObjectMetadata objectMetadata;
     private String storageClass;

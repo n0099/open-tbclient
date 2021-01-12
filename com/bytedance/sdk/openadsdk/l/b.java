@@ -22,18 +22,18 @@ import java.util.UUID;
 public class b implements com.bytedance.sdk.openadsdk.l.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7629a;
+    private final Context f7329a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final f f7630b;
+    private final f f7330b;
 
     public b(Context context, f fVar) {
-        this.f7629a = context;
-        this.f7630b = fVar;
+        this.f7329a = context;
+        this.f7330b = fVar;
     }
 
     public Context b() {
-        return this.f7629a == null ? p.a() : this.f7629a;
+        return this.f7329a == null ? p.a() : this.f7329a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.l.a
@@ -51,7 +51,7 @@ public class b implements com.bytedance.sdk.openadsdk.l.a {
             com.bytedance.sdk.openadsdk.k.a.a().d(new Runnable() { // from class: com.bytedance.sdk.openadsdk.l.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    final List<e> a2 = b.this.f7630b.a();
+                    final List<e> a2 = b.this.f7330b.a();
                     new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.l.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -82,11 +82,11 @@ public class b implements com.bytedance.sdk.openadsdk.l.a {
     public class a extends AsyncTask<Void, Void, Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final e f7636b;
+        private final e f7336b;
         private final String c;
 
         private a(e eVar, String str) {
-            this.f7636b = eVar;
+            this.f7336b = eVar;
             this.c = str;
         }
 
@@ -130,54 +130,54 @@ public class b implements com.bytedance.sdk.openadsdk.l.a {
         /* renamed from: a */
         public Void doInBackground(Void... voidArr) {
             com.bytedance.sdk.adnet.core.p pVar;
-            if (j.a() && a(this.f7636b.b())) {
-                if (this.f7636b.d() != 0) {
+            if (j.a() && a(this.f7336b.b())) {
+                if (this.f7336b.d() != 0) {
                     while (true) {
-                        if (this.f7636b.d() <= 0 || isCancelled()) {
+                        if (this.f7336b.d() <= 0 || isCancelled()) {
                             break;
                         }
                         try {
-                            if (this.f7636b.d() == 5) {
-                                b.this.f7630b.a(this.f7636b);
+                            if (this.f7336b.d() == 5) {
+                                b.this.f7330b.a(this.f7336b);
                             }
                         } catch (Throwable th) {
                         }
                         if (!x.a(b.this.b())) {
                             break;
                         }
-                        String c = c(this.f7636b.b());
-                        if (this.f7636b.c()) {
+                        String c = c(this.f7336b.b());
+                        if (this.f7336b.c()) {
                             c = b(c);
                         }
-                        i esj = i.esj();
-                        new com.bytedance.sdk.adnet.b.j(0, c, esj).setRetryPolicy(com.bytedance.sdk.openadsdk.i.e.b().PT(10000)).build(com.bytedance.sdk.openadsdk.i.e.a(b.this.b()).d());
+                        i eop = i.eop();
+                        new com.bytedance.sdk.adnet.b.j(0, c, eop).setRetryPolicy(com.bytedance.sdk.openadsdk.i.e.b().Om(10000)).build(com.bytedance.sdk.openadsdk.i.e.a(b.this.b()).d());
                         try {
-                            pVar = esj.get();
+                            pVar = eop.get();
                         } catch (Throwable th2) {
                             pVar = null;
                         }
                         if (pVar != null && pVar.a()) {
-                            b.this.f7630b.c(this.f7636b);
+                            b.this.f7330b.c(this.f7336b);
                             if (u.c()) {
-                                u.c("trackurl", "track success : " + this.f7636b.b());
+                                u.c("trackurl", "track success : " + this.f7336b.b());
                             }
                         } else {
                             if (u.c()) {
-                                u.c("trackurl", "track fail : " + this.f7636b.b());
+                                u.c("trackurl", "track fail : " + this.f7336b.b());
                             }
-                            this.f7636b.a(this.f7636b.d() - 1);
-                            if (this.f7636b.d() == 0) {
-                                b.this.f7630b.c(this.f7636b);
+                            this.f7336b.a(this.f7336b.d() - 1);
+                            if (this.f7336b.d() == 0) {
+                                b.this.f7330b.c(this.f7336b);
                                 if (u.c()) {
-                                    u.c("trackurl", "track fail and delete : " + this.f7636b.b());
+                                    u.c("trackurl", "track fail and delete : " + this.f7336b.b());
                                 }
                             } else {
-                                b.this.f7630b.b(this.f7636b);
+                                b.this.f7330b.b(this.f7336b);
                             }
                         }
                     }
                 } else {
-                    b.this.f7630b.c(this.f7636b);
+                    b.this.f7330b.c(this.f7336b);
                 }
             }
             return null;

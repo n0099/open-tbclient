@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f7392a;
+    public l f7092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7393b;
+    public String f7093b;
     public String c;
     public JSONObject d;
 
@@ -53,12 +53,12 @@ public class a {
     }
 
     public a a(l lVar) {
-        this.f7392a = lVar;
+        this.f7092a = lVar;
         return this;
     }
 
     public a a(String str) {
-        this.f7393b = str;
+        this.f7093b = str;
         return this;
     }
 
@@ -76,13 +76,13 @@ public class a {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tag", this.f7393b);
+            jSONObject.put("tag", this.f7093b);
             jSONObject.put("label", this.c);
             if (this.d != null) {
                 jSONObject.put("extra", this.d);
             }
-            if (this.f7392a != null) {
-                jSONObject.put("material_meta", this.f7392a.am());
+            if (this.f7092a != null) {
+                jSONObject.put("material_meta", this.f7092a.am());
             }
         } catch (Exception e) {
         }

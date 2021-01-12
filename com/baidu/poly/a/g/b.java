@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();

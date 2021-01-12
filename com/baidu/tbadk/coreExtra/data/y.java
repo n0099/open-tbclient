@@ -9,10 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y {
-    public static final List<String> fty = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> ftz;
+    public static final List<String> foM = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> foN;
 
-    public static boolean CP(String str) {
+    public static boolean BE(String str) {
         String string;
         if (TbadkCoreApplication.getInst().isDebugMode() || TbSingleton.getInstance().isDebugToolMode()) {
             return true;
@@ -20,16 +20,16 @@ public class y {
         if (at.isEmpty(str)) {
             return false;
         }
-        if (ftz == null && (string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("js_host_white_list", null)) != null) {
-            ftz = CR(string);
+        if (foN == null && (string = com.baidu.tbadk.core.sharedPref.b.brx().getString("js_host_white_list", null)) != null) {
+            foN = BG(string);
         }
-        if (ftz == null) {
-            ftz = fty;
+        if (foN == null) {
+            foN = foM;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : ftz) {
+            for (String str2 : foN) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -38,16 +38,16 @@ public class y {
         return false;
     }
 
-    public static void CQ(String str) {
+    public static void BF(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.bvr().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.brx().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bvr().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.brx().putString("js_host_white_list", str);
         }
-        ftz = CR(str);
+        foN = BG(str);
     }
 
-    private static List<String> CR(String str) {
+    private static List<String> BG(String str) {
         if (at.isEmpty(str)) {
             return null;
         }

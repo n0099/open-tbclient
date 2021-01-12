@@ -37,7 +37,7 @@ public class d {
         try {
             final SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
             if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                com.baidu.lcp.sdk.c.a.aG(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.d.1
+                com.baidu.lcp.sdk.c.a.aF(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.d.1
                     @Override // java.lang.Runnable
                     public void run() {
                         d.writeObjectData(sharedPreferences, str, obj);
@@ -74,7 +74,7 @@ public class d {
     private static void b(final Context context, final String str, final Set<String> set) {
         try {
             if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                com.baidu.lcp.sdk.c.a.aG(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.d.2
+                com.baidu.lcp.sdk.c.a.aF(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.d.2
                     @Override // java.lang.Runnable
                     public void run() {
                         context.getSharedPreferences("track_sp", 0).edit().putStringSet(str, set).apply();
@@ -88,16 +88,16 @@ public class d {
         }
     }
 
-    public static void au(Context context) {
+    public static void at(Context context) {
         writeLongData(context, "track_upload_time", System.currentTimeMillis());
     }
 
-    public static boolean av(Context context) {
+    public static boolean au(Context context) {
         long readLongData = readLongData(context, "track_upload_time", -1L);
         if (readLongData > 0) {
             return System.currentTimeMillis() - readLongData >= 21600000;
         }
-        au(context);
+        at(context);
         return false;
     }
 
@@ -105,7 +105,7 @@ public class d {
         writeIntData(context, "track_upload_state_fail_count", i);
     }
 
-    public static int aw(Context context) {
+    public static int av(Context context) {
         return readIntData(context, "track_upload_state_fail_count", 1);
     }
 
@@ -113,7 +113,7 @@ public class d {
         writeIntData(context, "track_upload_state", i);
     }
 
-    public static boolean ax(Context context) {
+    public static boolean aw(Context context) {
         return readIntData(context, "track_upload_state", 1) == 1;
     }
 
@@ -126,7 +126,7 @@ public class d {
     }
 
     public static void writeLoginFlag(Context context, String str, String str2) {
-        if (ax(context)) {
+        if (aw(context)) {
             writeStringData(context, Constants.KEY_LOGIN_FLAG, System.currentTimeMillis() + ":" + str + ":" + str2);
         }
     }
@@ -151,7 +151,7 @@ public class d {
         writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
     }
 
-    public static Set<String> ay(Context context) {
+    public static Set<String> ax(Context context) {
         return a(context, "track_connection", new HashSet());
     }
 
@@ -159,7 +159,7 @@ public class d {
         b(context, "track_connection", set);
     }
 
-    public static Set<String> az(Context context) {
+    public static Set<String> ay(Context context) {
         return a(context, "track_request", new HashSet());
     }
 
@@ -167,7 +167,7 @@ public class d {
         b(context, "track_request", set);
     }
 
-    public static void aA(Context context) {
+    public static void az(Context context) {
         b(context, "track_connection", new HashSet());
         b(context, "track_request", new HashSet());
     }

@@ -14,13 +14,13 @@ public class a extends c {
     @Override // com.bytedance.tea.crash.e.a.c
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
         com.bytedance.tea.crash.c.a a2 = super.a(aVar);
-        com.bytedance.tea.crash.c.b hZ = com.bytedance.tea.crash.c.b.hZ(this.f7937b);
-        hZ.a(h.esF().a());
-        hZ.a(h.esH().a());
-        hZ.b(this.pqc.c());
-        a2.a(hZ);
-        a2.a("process_name", com.bytedance.tea.crash.g.a.d(this.f7937b));
-        k.a(a2, hZ, this.f7936a);
+        com.bytedance.tea.crash.c.b hX = com.bytedance.tea.crash.c.b.hX(this.f7637b);
+        hX.a(h.eoL().a());
+        hX.a(h.eoN().a());
+        hX.b(this.plx.c());
+        a2.a(hX);
+        a2.a("process_name", com.bytedance.tea.crash.g.a.d(this.f7637b));
+        k.a(a2, hX, this.f7636a);
         return a2;
     }
 }

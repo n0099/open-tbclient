@@ -3,11 +3,10 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class h implements aj<com.airbnb.lottie.model.b> {
-    public static final h Hs = new h();
+    public static final h Hq = new h();
 
     private h() {
     }
@@ -75,7 +74,7 @@ public class h implements aj<com.airbnb.lottie.model.b> {
                     }
                     break;
                 case 3543:
-                    if (nextName.equals(MapBundleKey.MapObjKey.OBJ_OFFSET)) {
+                    if (nextName.equals("of")) {
                         c = '\n';
                         break;
                     }

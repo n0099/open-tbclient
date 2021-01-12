@@ -10,18 +10,18 @@ import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import dalvik.system.DexClassLoader;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    h f3489a;
+    h f3451a;
 
     public e(Context context, IXAdConstants4PDK.SlotType slotType) {
         super(context, null, slotType);
-        this.f3489a = XAdSDKFoundationFacade.getInstance().getAdConstants();
-        this.f3563b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f3451a = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        this.f3525b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         g(1);
-        i(this.f3489a.getAdCreativeTypeImage() + this.f3489a.getAdCreativeTypeVideo() + this.f3489a.getAdCreativeTypeRichmedia());
+        i(this.f3451a.getAdCreativeTypeImage() + this.f3451a.getAdCreativeTypeVideo() + this.f3451a.getAdCreativeTypeRichmedia());
         f(8);
         h(0);
     }

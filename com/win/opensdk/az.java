@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class az {
     private static final String java = az.class.getSimpleName();
 
@@ -51,7 +51,7 @@ public class az {
         F(context, "oaid", str);
     }
 
-    public static String iR(Context context) {
+    public static String iP(Context context) {
         return G(context, "oaid", "");
     }
 
@@ -59,7 +59,7 @@ public class az {
         F(context, "lcss", str);
     }
 
-    public static String iQ(Context context) {
+    public static String iO(Context context) {
         return G(context, "lcss", "");
     }
 
@@ -70,7 +70,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m65a(Context context) {
+    public static String m61a(Context context) {
         return G(context, "sever_tk", "");
     }
 
@@ -78,7 +78,7 @@ public class az {
         n(context, "timeout_sec", i);
     }
 
-    public static int iS(Context context) {
+    public static int iQ(Context context) {
         return m(context, "timeout_sec", 5);
     }
 
@@ -87,7 +87,7 @@ public class az {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m67b(Context context) {
+    public static String m63b(Context context) {
         return G(context, "pids", "[]");
     }
 
@@ -96,7 +96,7 @@ public class az {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m69c(Context context) {
+    public static String m65c(Context context) {
         return G(context, "psdid", "");
     }
 
@@ -104,7 +104,7 @@ public class az {
         n(context, "psdopt", i);
     }
 
-    public static int iT(Context context) {
+    public static int iR(Context context) {
         return m(context, "psdopt", 0);
     }
 
@@ -126,7 +126,7 @@ public class az {
         n(context, "hbsw", i);
     }
 
-    public static boolean iU(Context context) {
+    public static boolean iS(Context context) {
         return m(context, "hbsw", 1) == 1;
     }
 
@@ -143,7 +143,7 @@ public class az {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static String m71d(Context context) {
+    public static String m67d(Context context) {
         return G(context, "bp", "");
     }
 
@@ -159,7 +159,7 @@ public class az {
         i(context, "lu_date", j);
     }
 
-    public static long iV(Context context) {
+    public static long iT(Context context) {
         return j(context, "lu_date", 0L);
     }
 
@@ -180,7 +180,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long m64a(Context context) {
+    public static long m60a(Context context) {
         return j(context, "spl_dev_timeout", 2000L);
     }
 
@@ -203,7 +203,7 @@ public class az {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static String m73e(Context context) {
+    public static String m69e(Context context) {
         return G(context, "p_i", "");
     }
 
@@ -215,21 +215,21 @@ public class az {
         return m(context, "alh", 0);
     }
 
-    public static void iK(Context context) {
+    public static void iI(Context context) {
         i(context, "ck_al", System.currentTimeMillis());
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static long m66b(Context context) {
+    public static long m62b(Context context) {
         return j(context, "ck_al", 0L);
     }
 
-    public static void iW(Context context) {
+    public static void iU(Context context) {
         i(context, "bdts", System.currentTimeMillis());
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static long m68c(Context context) {
+    public static long m64c(Context context) {
         return j(context, "bdts", 0L);
     }
 
@@ -238,7 +238,7 @@ public class az {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static long m70d(Context context) {
+    public static long m66d(Context context) {
         return j(context, "bdtsi", 24L);
     }
 
@@ -271,7 +271,7 @@ public class az {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static long m72e(Context context) {
+    public static long m68e(Context context) {
         return j(context, "las", 12L) * 3600 * 1000;
     }
 
@@ -280,7 +280,7 @@ public class az {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             new ObjectOutputStream(byteArrayOutputStream).writeObject(obj);
-            edit.putString(str, at(byteArrayOutputStream.toByteArray()));
+            edit.putString(str, as(byteArrayOutputStream.toByteArray()));
             edit.commit();
         } catch (IOException e) {
             e.printStackTrace();
@@ -288,7 +288,7 @@ public class az {
         }
     }
 
-    private static String at(byte[] bArr) {
+    private static String as(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -380,7 +380,7 @@ public class az {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2246=4] */
-    public static boolean iL(Context context) {
+    public static boolean iJ(Context context) {
         if (m(context, "psd", 0) == 1) {
             if (((float) (System.currentTimeMillis() / 1000)) - (context.getSharedPreferences("_prefs", 0).getFloat("psdpt", 0.0f) / 1000.0f) >= ((float) m(context, "psdt", 0))) {
                 return true;

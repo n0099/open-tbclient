@@ -1,7 +1,8 @@
 package com.baidu.platform.comapi.wnplatform.n;
-/* loaded from: classes3.dex */
-public interface b {
-    int a();
-
-    int a(String str, int i, int i2);
+/* loaded from: classes6.dex */
+public enum b {
+    BOTTOM,
+    TOP,
+    MID,
+    NULL
 }

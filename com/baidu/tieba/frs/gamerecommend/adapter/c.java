@@ -15,14 +15,14 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.card.m;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, CardViewHolder<com.baidu.tieba.card.e>> {
-    private aa jye;
-    private com.baidu.tieba.card.e jyg;
+    private com.baidu.tieba.card.e jtA;
+    private aa jty;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iCQ);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iyj);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -32,45 +32,45 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, Card
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<com.baidu.tieba.card.e> e(ViewGroup viewGroup) {
-        this.jyg = new com.baidu.tieba.card.e(this.mPageContext);
-        return new CardViewHolder<>(this.jyg);
+        this.jtA = new com.baidu.tieba.card.e(this.mPageContext);
+        return new CardViewHolder<>(this.jtA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, CardViewHolder<com.baidu.tieba.card.e> cardViewHolder) {
-        if (cardViewHolder.cvH() == null) {
+        if (cardViewHolder.crP() == null) {
             return null;
         }
-        cardViewHolder.cvH().a(bVar);
-        cardViewHolder.cvH().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.cvH().c(new aa<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
+        cardViewHolder.crP().a(bVar);
+        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.crP().c(new aa<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.b bVar2) {
-                TiebaStatic.log(new aq("c13047").an("obj_locate", 3).dX("fid", c.this.mForumId));
+                TiebaStatic.log(new aq("c13047").an("obj_locate", 3).dW("fid", c.this.mForumId));
                 c.this.a(view2, bVar2);
             }
         });
-        return cardViewHolder.cvH().getView();
+        return cardViewHolder.crP().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.boP(), null, m.brd(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.boP().getFid()));
-        createFromThreadCfg.setForumName(bVar.boP().brv());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.bkV(), null, m.bnj(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.bkV().getFid()));
+        createFromThreadCfg.setForumName(bVar.bkV().bnB());
         createFromThreadCfg.setStartFrom(0);
-        m.Jn(bVar.boP().getTid());
+        m.Ic(bVar.bkV().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.jye != null) {
-            this.jye.a(view, bVar);
+        if (this.jty != null) {
+            this.jty.a(view, bVar);
         }
     }
 
     public void d(aa aaVar) {
-        this.jye = aaVar;
+        this.jty = aaVar;
     }
 }

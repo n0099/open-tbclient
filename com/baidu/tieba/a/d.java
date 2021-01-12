@@ -9,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d gii;
-    private ArrayList<Integer> gie = new ArrayList<>();
-    private c gif;
-    private a gij;
-    private List<aq> gik;
+    private static volatile d gdz;
+    private a gdA;
+    private List<aq> gdB;
+    private ArrayList<Integer> gdv = new ArrayList<>();
+    private c gdw;
 
-    public static d bOn() {
-        if (gii == null) {
+    public static d bKv() {
+        if (gdz == null) {
             synchronized (c.class) {
-                if (gii == null) {
-                    gii = new d();
+                if (gdz == null) {
+                    gdz = new d();
                 }
             }
         }
-        return gii;
+        return gdz;
     }
 
     private d() {
-        this.gie.add(1);
-        this.gie.add(2);
-        this.gif = new c();
-        this.gij = new a(this.gif, this.gie);
-        setChannel(com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.gdv.add(1);
+        this.gdv.add(2);
+        this.gdw = new c();
+        this.gdA = new a(this.gdw, this.gdv);
+        setChannel(com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int az(String str, int i) {
-        if (this.gij == null) {
+        if (this.gdA == null) {
             return 0;
         }
-        return this.gij.az(str, i);
+        return this.gdA.az(str, i);
     }
 
-    public void Fk(String str) {
-        if (this.gij != null) {
-            this.gij.Fj(str);
+    public void DZ(String str) {
+        if (this.gdA != null) {
+            this.gdA.DY(str);
         }
     }
 
     public void e(aq aqVar) {
         if (aqVar != null) {
-            if (this.gik == null) {
-                this.gik = new ArrayList();
+            if (this.gdB == null) {
+                this.gdB = new ArrayList();
             }
-            this.gik.add(aqVar);
+            this.gdB.add(aqVar);
         }
     }
 
-    public void dR(String str, String str2) {
-        if (!x.isEmpty(this.gik) && this.gif != null && this.gif.bOl()) {
+    public void dQ(String str, String str2) {
+        if (!x.isEmpty(this.gdB) && this.gdw != null && this.gdw.bKt()) {
             int i = -1;
-            for (aq aqVar : this.gik) {
+            for (aq aqVar : this.gdB) {
                 if (aqVar != null) {
                     if (aqVar.getPosition() == 0) {
                         a(str, str2, aqVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.gik.clear();
+            this.gdB.clear();
         }
     }
 
     public void a(String str, String str2, aq aqVar) {
-        if (aqVar != null && this.gif != null && this.gif.bOl()) {
+        if (aqVar != null && this.gdw != null && this.gdw.bKt()) {
             HashMap hashMap = new HashMap();
             List<Object> params = aqVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (at.isEmpty(str) || this.gif == null || !this.gif.bOl()) {
-            com.baidu.ubs.analytics.a.XE(str);
+        if (at.isEmpty(str) || this.gdw == null || !this.gdw.bKt()) {
+            com.baidu.ubs.analytics.a.Ww(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (at.isEmpty(str) || this.gif == null || !this.gif.bOl()) {
-            com.baidu.ubs.analytics.a.XF(str);
+        if (at.isEmpty(str) || this.gdw == null || !this.gdw.bKt()) {
+            com.baidu.ubs.analytics.a.Wx(str);
         }
     }
 
     public void setChannel(int i) {
-        if (this.gif != null) {
-            this.gif.setChannel(i);
+        if (this.gdw != null) {
+            this.gdw.setChannel(i);
         }
     }
 }

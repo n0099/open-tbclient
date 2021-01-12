@@ -8,9 +8,9 @@ import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
 import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d extends k<h, FrsPageAlaStageViewHolder> implements y {
-    private com.baidu.tieba.ala.livecard.a.d hno;
+    private com.baidu.tieba.ala.livecard.a.d hiI;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -23,7 +23,7 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public void wt(int i) {
+    public void uN(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements y {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hno = new com.baidu.tieba.ala.livecard.a.d(this.mPageContext);
-        this.hno.setForumName(this.mForumName);
-        return new FrsPageAlaStageViewHolder(this.hno);
+        this.hiI = new com.baidu.tieba.ala.livecard.a.d(this.mPageContext);
+        this.hiI.setForumName(this.mForumName);
+        return new FrsPageAlaStageViewHolder(this.hiI);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,12 +46,12 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements y {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (h) frsPageAlaStageViewHolder);
         if (hVar != null) {
             int i2 = 0;
-            if (this.jeH != null) {
-                i2 = this.jeH.getTopThreadSize();
+            if (this.jaa != null) {
+                i2 = this.jaa.getTopThreadSize();
             }
-            frsPageAlaStageViewHolder.hnw.eQR = (i + 1) - i2;
-            frsPageAlaStageViewHolder.hnw.setForumName(this.mForumName);
-            frsPageAlaStageViewHolder.hnw.a(hVar);
+            frsPageAlaStageViewHolder.hiQ.eMg = (i + 1) - i2;
+            frsPageAlaStageViewHolder.hiQ.setForumName(this.mForumName);
+            frsPageAlaStageViewHolder.hiQ.a(hVar);
         }
         return view;
     }

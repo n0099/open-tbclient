@@ -3,14 +3,14 @@ package com.win.opensdk;
 import android.content.Context;
 import android.text.TextUtils;
 import com.win.opensdk.as;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class at {
     static final String java = at.class.getCanonicalName();
 
-    private static String iQ(Context context) {
+    private static String iO(Context context) {
         try {
-            as.a iP = as.iP(context);
-            String str = iP == null ? null : iP.java;
+            as.a iN = as.iN(context);
+            String str = iN == null ? null : iN.java;
             if (TextUtils.isEmpty(str)) {
                 az.bJ(context, str);
                 return str;
@@ -21,8 +21,8 @@ public final class at {
         }
     }
 
-    public static String iR(Context context) {
-        String iR = az.iR(context);
-        return !TextUtils.isEmpty(iR) ? iR : iQ(context);
+    public static String iP(Context context) {
+        String iP = az.iP(context);
+        return !TextUtils.isEmpty(iP) ? iP : iO(context);
     }
 }

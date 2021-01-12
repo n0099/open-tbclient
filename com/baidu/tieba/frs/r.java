@@ -34,13 +34,13 @@ public class r extends k<s, FrsNoListItemViewHolder> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) sVar, (s) frsNoListItemViewHolder);
-        if (sVar.cGQ() == 6) {
-            frsNoListItemViewHolder.jiJ.setText(R.string.attention_no_post_tip);
+        if (sVar.cCY() == 6) {
+            frsNoListItemViewHolder.jeb.setText(R.string.attention_no_post_tip);
         } else {
-            frsNoListItemViewHolder.jiJ.setText(R.string.no_data_common_txt);
+            frsNoListItemViewHolder.jeb.setText(R.string.no_data_common_txt);
         }
-        com.baidu.tbadk.core.util.ao.setViewTextColor(frsNoListItemViewHolder.jiJ, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ao.setImageResource(frsNoListItemViewHolder.jiK, R.drawable.new_pic_emotion_06);
+        com.baidu.tbadk.core.util.ao.setViewTextColor(frsNoListItemViewHolder.jeb, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ao.setImageResource(frsNoListItemViewHolder.jec, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

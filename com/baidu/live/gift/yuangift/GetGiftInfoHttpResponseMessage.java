@@ -4,9 +4,9 @@ import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GetGiftInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private g bjX;
+    private g bfh;
 
     public GetGiftInfoHttpResponseMessage() {
         super(1021130);
@@ -18,8 +18,8 @@ public class GetGiftInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONArray("data") != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() > 0 && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
-            this.bjX = new g();
-            this.bjX.parseJson(optJSONObject);
+            this.bfh = new g();
+            this.bfh.parseJson(optJSONObject);
         }
     }
 }

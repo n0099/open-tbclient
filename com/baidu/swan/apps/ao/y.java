@@ -17,15 +17,15 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void dz(Context context) {
+    public static void dy(Context context) {
         if (context != null) {
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
-                dC(context);
+                dB(context);
                 return;
             }
             String lowerCase = str.toLowerCase();
@@ -33,26 +33,26 @@ public class y {
                 Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
             }
             if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
-                dA(context);
+                dz(context);
             } else if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_MEIZU)) {
-                dB(context);
+                dA(context);
             } else {
-                Map<String, ComponentName> aRv = aRv();
-                if (aRv.containsKey(lowerCase)) {
-                    a(context, aRv.get(lowerCase));
+                Map<String, ComponentName> aNB = aNB();
+                if (aNB.containsKey(lowerCase)) {
+                    a(context, aNB.get(lowerCase));
                     return;
                 }
-                Map<String, String> aRw = aRw();
-                if (aRw.containsKey(lowerCase)) {
-                    ao(context, aRw.get(lowerCase));
+                Map<String, String> aNC = aNC();
+                if (aNC.containsKey(lowerCase)) {
+                    ao(context, aNC.get(lowerCase));
                 } else {
-                    dC(context);
+                    dB(context);
                 }
             }
         }
     }
 
-    private static Map<String, ComponentName> aRv() {
+    private static Map<String, ComponentName> aNB() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -61,7 +61,7 @@ public class y {
         return hashMap;
     }
 
-    private static Map<String, String> aRw() {
+    private static Map<String, String> aNC() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_OPPO, "com.coloros.safecenter");
         hashMap.put(RomUtils.MANUFACTURER_VIVO, "com.bairenkeji.icaller");
@@ -69,28 +69,28 @@ public class y {
         return hashMap;
     }
 
-    private static void dA(Context context) {
-        String aRx = aRx();
+    private static void dz(Context context) {
+        String aND = aND();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aRx);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aND);
         }
         Intent intent = new Intent();
-        if ("V10".equals(aRx) || "V9".equals(aRx) || "V8".equals(aRx)) {
+        if ("V10".equals(aND) || "V9".equals(aND) || "V8".equals(aND)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             g(context, intent);
-        } else if ("V7".equals(aRx) || "V6".equals(aRx)) {
+        } else if ("V7".equals(aND) || "V6".equals(aND)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             g(context, intent);
         } else {
-            dC(context);
+            dB(context);
         }
     }
 
-    private static String aRx() {
+    private static String aND() {
         BufferedReader bufferedReader;
         String str = null;
         try {
@@ -123,7 +123,7 @@ public class y {
         return str;
     }
 
-    private static void dB(Context context) {
+    private static void dA(Context context) {
         try {
             Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -133,7 +133,7 @@ public class y {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            dC(context);
+            dB(context);
         }
     }
 
@@ -146,19 +146,19 @@ public class y {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            dC(context);
+            dB(context);
         }
     }
 
     private static void ao(Context context, String str) {
         PackageInfo ap = ap(context, str);
         if (ap == null) {
-            dC(context);
+            dB(context);
             return;
         }
         ResolveInfo e = e(context, ap);
         if (e == null) {
-            dC(context);
+            dB(context);
             return;
         }
         try {
@@ -170,7 +170,7 @@ public class y {
             if (DEBUG) {
                 e2.printStackTrace();
             }
-            dC(context);
+            dB(context);
         }
     }
 
@@ -205,7 +205,7 @@ public class y {
         return list.get(0);
     }
 
-    private static void dC(Context context) {
+    private static void dB(Context context) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.fromParts("package", context.getPackageName(), null));
         g(context, intent);

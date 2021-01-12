@@ -5,50 +5,50 @@ import java.nio.ByteBuffer;
 public abstract class ji {
 
     /* renamed from: a  reason: collision with root package name */
-    protected js f14475a;
+    protected js f14175a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ji(js jsVar) {
-        this.f14475a = jsVar;
+        this.f14175a = jsVar;
     }
 
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m512a();
+    public abstract double m508a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m513a();
+    public abstract int m509a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m514a();
+    public abstract long m510a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m515a();
+    public abstract jf m511a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m516a();
+    public abstract jg m512a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jh m517a();
+    public abstract jh m513a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jm m518a();
+    public abstract jm m514a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jn m519a();
+    public abstract jn m515a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m520a();
+    public abstract String m516a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m521a();
+    public abstract ByteBuffer m517a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m522a();
+    public abstract short m518a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m523a();
+    public abstract void m519a();
 
     public abstract void a(byte b2);
 
@@ -73,7 +73,7 @@ public abstract class ji {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m524a();
+    public abstract boolean m520a();
 
     public abstract void b();
 

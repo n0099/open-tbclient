@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.SafeBrowsingResponseBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     private SafeBrowsingResponseBoundaryInterface mBoundaryInterface;
     private SafeBrowsingResponse mFrameworksImpl;

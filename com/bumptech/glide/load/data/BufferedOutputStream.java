@@ -5,7 +5,7 @@ import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BufferedOutputStream extends OutputStream {
     private ArrayPool arrayPool;
     private byte[] buffer;

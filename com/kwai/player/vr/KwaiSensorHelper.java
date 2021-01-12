@@ -15,7 +15,7 @@ import com.google.b.a.a.e;
 import com.kwai.player.vr.KwaiVR;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiSensorHelper implements SensorEventListener {
     private static final String TAG = "KwaiSensorHelper";
     private KwaiVR.IAdvanceSensorListener mAdvanceSensorListener;

@@ -21,29 +21,29 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.d;
 import com.baidu.tieba.ala.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
     private static String bitmapWHRatio;
-    private bz gAx;
-    View.OnClickListener gKW;
-    private g gWT;
-    private String gYm;
-    private C0650a gZm;
+    View.OnClickListener gGq;
+    private g gSn;
+    private String gTG;
+    private C0633a gUG;
+    private bz gvQ;
     private View mRootView;
     public int mSkinType;
     private TbPageContext<?> mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.gamelist.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0650a {
-        public TextView bac;
-        public TbImageView gKY;
-        public TextView gKZ;
-        public TextView gLa;
-        public RelativeLayout gLb;
-        public ClickableHeaderImageView gLc;
-        public TextView gLd;
-        public TbImageView gYp;
+    /* loaded from: classes9.dex */
+    public static class C0633a {
+        public TextView aVp;
+        public TbImageView gGs;
+        public TextView gGt;
+        public TextView gGu;
+        public RelativeLayout gGv;
+        public ClickableHeaderImageView gGw;
+        public TextView gGx;
+        public TbImageView gTJ;
     }
 
     public View getView() {
@@ -56,48 +56,48 @@ public class a implements View.OnClickListener {
             return;
         }
         getView().setVisibility(0);
-        this.gAx = bzVar;
-        this.gZm.gKY.setDrawerType(0);
-        this.gZm.gKY.setBorderSurroundContent(true);
-        this.gZm.gKY.setDrawBorder(true);
-        this.gZm.gKY.startLoad(this.gAx.brK().cover, 10, false);
-        this.gZm.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gAx.brK().audience_count)));
-        this.gZm.gLc.setData(this.gAx);
-        this.gZm.gLc.setIsRound(true);
-        this.gZm.gLc.setBorderSurroundContent(true);
-        this.gZm.gLd.setText(this.gAx.getTitle());
-        if (this.gAx.brr() != null) {
-            String name_show = this.gAx.brr().getName_show();
+        this.gvQ = bzVar;
+        this.gUG.gGs.setDrawerType(0);
+        this.gUG.gGs.setBorderSurroundContent(true);
+        this.gUG.gGs.setDrawBorder(true);
+        this.gUG.gGs.startLoad(this.gvQ.bnQ().cover, 10, false);
+        this.gUG.gGu.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gvQ.bnQ().audience_count)));
+        this.gUG.gGw.setData(this.gvQ);
+        this.gUG.gGw.setIsRound(true);
+        this.gUG.gGw.setBorderSurroundContent(true);
+        this.gUG.gGx.setText(this.gvQ.getTitle());
+        if (this.gvQ.bnx() != null) {
+            String name_show = this.gvQ.bnx().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
-            this.gZm.bac.setText(name_show);
+            this.gUG.aVp.setText(name_show);
         }
         if ("16:9".equals(bitmapWHRatio)) {
-            String str = this.gAx.brK().label_name;
+            String str = this.gvQ.bnQ().label_name;
             if (at.isEmpty(str)) {
-                String fixedBarText = UtilHelper.getFixedBarText(this.gAx.brv(), 6, true);
+                String fixedBarText = UtilHelper.getFixedBarText(this.gvQ.bnB(), 6, true);
                 if (!TextUtils.isEmpty(fixedBarText)) {
                     String string = this.mTbPageContext.getPageActivity().getResources().getString(R.string.chosen_pb_original_bar, fixedBarText);
-                    this.gZm.gKZ.setBackgroundResource(R.drawable.transparent_bg);
-                    this.gZm.gKZ.setText(string);
-                    this.gZm.gKZ.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.fontsize20));
-                    this.gZm.gKZ.setVisibility(0);
+                    this.gUG.gGt.setBackgroundResource(R.drawable.transparent_bg);
+                    this.gUG.gGt.setText(string);
+                    this.gUG.gGt.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.fontsize20));
+                    this.gUG.gGt.setVisibility(0);
                 }
-            } else if (!str.equals(this.gYm)) {
-                this.gZm.gKZ.setBackgroundResource(R.drawable.game_label_bg);
-                this.gZm.gKZ.setText(str);
-                this.gZm.gKZ.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.ds16));
-                this.gZm.gKZ.setVisibility(0);
+            } else if (!str.equals(this.gTG)) {
+                this.gUG.gGt.setBackgroundResource(R.drawable.game_label_bg);
+                this.gUG.gGt.setText(str);
+                this.gUG.gGt.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.ds16));
+                this.gUG.gGt.setVisibility(0);
             }
         }
-        if (this.gAx.brr() == null || this.gAx.brr().getAlaUserData() == null || at.isEmpty(this.gAx.brr().getAlaUserData().great_anchor_icon)) {
-            this.gZm.gYp.setVisibility(8);
+        if (this.gvQ.bnx() == null || this.gvQ.bnx().getAlaUserData() == null || at.isEmpty(this.gvQ.bnx().getAlaUserData().great_anchor_icon)) {
+            this.gUG.gTJ.setVisibility(8);
         } else {
-            this.gZm.gYp.setVisibility(0);
-            this.gZm.gYp.startLoad(this.gAx.brr().getAlaUserData().great_anchor_icon, 10, false);
+            this.gUG.gTJ.setVisibility(0);
+            this.gUG.gTJ.startLoad(this.gvQ.bnx().getAlaUserData().great_anchor_icon, 10, false);
         }
-        this.gZm.bac.setOnClickListener(this.gKW);
+        this.gUG.aVp.setOnClickListener(this.gGq);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -105,22 +105,22 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
-        } else if (this.gAx != null && this.gAx.brK() != null) {
-            if (this.gWT != null) {
-                this.gWT.R(this.gAx);
+        } else if (this.gvQ != null && this.gvQ.bnQ() != null) {
+            if (this.gSn != null) {
+                this.gSn.R(this.gvQ);
             }
-            d.bRS().bRT();
-            TiebaStatic.log(new aq("c12116").w("obj_id", this.gAx.brK().live_id));
+            d.bOa().bOb();
+            TiebaStatic.log(new aq("c12116").w("obj_id", this.gvQ.bnQ().live_id));
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.gZm.gLb, R.drawable.addresslist_item_bg);
-            ao.setViewTextColor(this.gZm.gKZ, R.color.CAM_X0101);
-            ao.setViewTextColor(this.gZm.gLa, R.color.CAM_X0101);
-            ao.setViewTextColor(this.gZm.bac, R.color.CAM_X0109);
-            ao.setViewTextColor(this.gZm.gLd, R.color.CAM_X0105);
+            ao.setBackgroundResource(this.gUG.gGv, R.drawable.addresslist_item_bg);
+            ao.setViewTextColor(this.gUG.gGt, R.color.CAM_X0101);
+            ao.setViewTextColor(this.gUG.gGu, R.color.CAM_X0101);
+            ao.setViewTextColor(this.gUG.aVp, R.color.CAM_X0109);
+            ao.setViewTextColor(this.gUG.gGx, R.color.CAM_X0105);
             this.mSkinType = i;
         }
     }

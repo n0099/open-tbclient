@@ -2,14 +2,14 @@ package com.qq.e.comm.plugin.ad;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12192a = Build.BRAND;
+    public static final String f11892a = Build.BRAND;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f12193b = Build.DEVICE;
+    public static final String f11893b = Build.DEVICE;
     public static final String c = Build.FINGERPRINT;
     public static final String d = Build.HARDWARE;
     public static final String e = Build.PRODUCT;

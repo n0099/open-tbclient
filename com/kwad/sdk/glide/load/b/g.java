@@ -7,11 +7,11 @@ import androidx.annotation.Nullable;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g implements com.kwad.sdk.glide.load.c {
 
     /* renamed from: b  reason: collision with root package name */
-    private final h f10386b;
+    private final h f10086b;
     @Nullable
     private final URL c;
     @Nullable
@@ -25,23 +25,23 @@ public class g implements com.kwad.sdk.glide.load.c {
     private int h;
 
     public g(String str) {
-        this(str, h.f10388b);
+        this(str, h.f10088b);
     }
 
     public g(String str, h hVar) {
         this.c = null;
         this.d = com.kwad.sdk.glide.g.j.a(str);
-        this.f10386b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f10086b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     public g(URL url) {
-        this(url, h.f10388b);
+        this(url, h.f10088b);
     }
 
     public g(URL url, h hVar) {
         this.c = (URL) com.kwad.sdk.glide.g.j.a(url);
         this.d = null;
-        this.f10386b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f10086b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     private URL d() {
@@ -64,7 +64,7 @@ public class g implements com.kwad.sdk.glide.load.c {
 
     private byte[] f() {
         if (this.g == null) {
-            this.g = c().getBytes(f10432a);
+            this.g = c().getBytes(f10132a);
         }
         return this.g;
     }
@@ -79,7 +79,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     }
 
     public Map<String, String> b() {
-        return this.f10386b.a();
+        return this.f10086b.a();
     }
 
     public String c() {
@@ -90,7 +90,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public boolean equals(Object obj) {
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return c().equals(gVar.c()) && this.f10386b.equals(gVar.f10386b);
+            return c().equals(gVar.c()) && this.f10086b.equals(gVar.f10086b);
         }
         return false;
     }
@@ -99,7 +99,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public int hashCode() {
         if (this.h == 0) {
             this.h = c().hashCode();
-            this.h = (this.h * 31) + this.f10386b.hashCode();
+            this.h = (this.h * 31) + this.f10086b.hashCode();
         }
         return this.h;
     }

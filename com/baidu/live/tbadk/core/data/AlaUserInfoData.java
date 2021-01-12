@@ -1,9 +1,10 @@
 package com.baidu.live.tbadk.core.data;
 
+import android.net.http.Headers;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaUserInfoData {
     public long ala_id;
     public long anchor_live;
@@ -51,7 +52,7 @@ public class AlaUserInfoData {
                 this.sex = jSONObject.optString("sex");
                 this.live_status = jSONObject.optInt("live_status");
                 this.live_id = jSONObject.optLong("live_id");
-                this.location = jSONObject.optString("location");
+                this.location = jSONObject.optString(Headers.LOCATION);
                 this.update_time = jSONObject.optInt("update_time");
                 this.charm_count = jSONObject.optLong("charm_count");
                 this.level_exp = jSONObject.optLong("level_exp");

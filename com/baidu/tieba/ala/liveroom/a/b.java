@@ -19,14 +19,14 @@ import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.live.view.e;
 import com.baidu.live.view.web.CommonWebLayout;
 import com.baidu.live.view.web.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends e implements f {
-    private int bXh;
-    private RoundRectRelativeLayout byQ;
-    private CommonWebLayout byR;
-    private View byS;
-    private float byT;
-    private boolean hpp;
+    private int bSv;
+    private RoundRectRelativeLayout bud;
+    private CommonWebLayout bue;
+    private View bug;
+    private float buh;
+    private boolean hkI;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -36,88 +36,88 @@ public class b extends e implements f {
     }
 
     public CommonWebLayout getWebView() {
-        return this.byR;
+        return this.bue;
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aam()) {
-            aah();
+        if (!Wt()) {
+            Wo();
         }
     }
 
     public void aJ(String str, int i) {
         View findViewById;
-        int aak;
-        int aal;
+        int Wr;
+        int Ws;
         if (!this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (i) {
                 case 0:
-                    this.bXh = 80;
-                    aak = aai();
-                    aal = (int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f);
-                    this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
+                    this.bSv = 80;
+                    Wr = Wp();
+                    Ws = (int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f);
+                    this.bud.setCornerRadius(this.buh, this.buh, 0.0f, 0.0f);
                     break;
                 case 1:
-                    this.bXh = 80;
-                    aak = aai();
-                    aal = ccA();
-                    this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
+                    this.bSv = 80;
+                    Wr = Wp();
+                    Ws = bYI();
+                    this.bud.setCornerRadius(this.buh, this.buh, 0.0f, 0.0f);
                     break;
                 case 2:
-                    this.bXh = 5;
-                    aak = aak();
-                    aal = aal();
-                    this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
+                    this.bSv = 5;
+                    Wr = Wr();
+                    Ws = Ws();
+                    this.bud.setCornerRadius(this.buh, 0.0f, 0.0f, this.buh);
                     break;
                 default:
-                    aal = 0;
-                    aak = 0;
+                    Ws = 0;
+                    Wr = 0;
                     break;
             }
-            setWidth(aak);
-            setHeight(aal);
+            setWidth(Wr);
+            setHeight(Ws);
             showAtLocation(findViewById, 85, 0, 0);
             if (i == 2) {
-                ah(this.byQ);
+                ah(this.bud);
             }
-            Oj();
-            this.byR.loadUrl(str);
+            Ko();
+            this.bue.loadUrl(str);
         }
     }
 
-    public void dU(int i) {
-        int aal;
+    public void co(int i) {
+        int Ws;
         int i2;
         if (this.mActivity.getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 1:
-                    this.bXh = 80;
-                    int aai = aai();
-                    aal = ccA();
-                    this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-                    i2 = aai;
+                    this.bSv = 80;
+                    int Wp = Wp();
+                    Ws = bYI();
+                    this.bud.setCornerRadius(this.buh, this.buh, 0.0f, 0.0f);
+                    i2 = Wp;
                     break;
                 case 2:
-                    this.bXh = 5;
-                    int aak = aak();
-                    aal = aal();
-                    this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                    i2 = aak;
+                    this.bSv = 5;
+                    int Wr = Wr();
+                    Ws = Ws();
+                    this.bud.setCornerRadius(this.buh, 0.0f, 0.0f, this.buh);
+                    i2 = Wr;
                     break;
                 default:
-                    aal = 0;
+                    Ws = 0;
                     i2 = 0;
                     break;
             }
-            update(i2, aal);
+            update(i2, Ws);
             if (i == 2) {
-                ah(this.byQ);
+                ah(this.bud);
             }
         }
     }
 
-    public void aah() {
+    public void Wo() {
         super.dismiss();
     }
 
@@ -130,78 +130,77 @@ public class b extends e implements f {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.a.b.1
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (b.this.byR != null) {
-                    b.this.byR.release();
+                if (b.this.bue != null) {
+                    b.this.bue.release();
                 }
             }
         });
     }
 
     private void initView() {
-        this.byT = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
-        this.byQ = new RoundRectRelativeLayout(this.mActivity);
-        q(this.byQ);
-        r(this.byQ);
-        setContentView(this.byQ);
+        this.buh = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
+        this.bud = new RoundRectRelativeLayout(this.mActivity);
+        q(this.bud);
+        r(this.bud);
+        setContentView(this.bud);
     }
 
     private void q(ViewGroup viewGroup) {
-        this.byR = new CommonWebLayout(this.mActivity);
-        this.byR.setBackgroundColor(this.mActivity.getResources().getColor(a.c.sdk_black_alpha85));
-        this.byR.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.tieba.ala.liveroom.a.b.2
+        this.bue = new CommonWebLayout(this.mActivity);
+        this.bue.setBackgroundColor(this.mActivity.getResources().getColor(a.c.sdk_black_alpha85));
+        this.bue.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.tieba.ala.liveroom.a.b.2
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            /* renamed from: if */
-            public void mo20if(String str) {
-                super.mo20if(str);
-                if (b.this.byS != null) {
-                    b.this.byS.setVisibility(0);
+            public void gU(String str) {
+                super.gU(str);
+                if (b.this.bug != null) {
+                    b.this.bug.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void fu(int i) {
-                super.fu(i);
-                if (i == 100 && b.this.byS != null) {
-                    b.this.byS.setVisibility(8);
+            public void dO(int i) {
+                super.dO(i);
+                if (i == 100 && b.this.bug != null) {
+                    b.this.bug.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void ig(String str) {
-                super.ig(str);
-                if (b.this.byS != null) {
-                    b.this.byS.setVisibility(8);
+            public void gV(String str) {
+                super.gV(str);
+                if (b.this.bug != null) {
+                    b.this.bug.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void e(String str, int i, String str2) {
                 super.e(str, i, str2);
-                if (b.this.byS != null) {
-                    b.this.byS.setVisibility(8);
+                if (b.this.bug != null) {
+                    b.this.bug.setVisibility(8);
                 }
             }
         });
-        viewGroup.addView(this.byR, new ViewGroup.LayoutParams(-1, -1));
+        viewGroup.addView(this.bue, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void r(ViewGroup viewGroup) {
-        this.byS = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
+        this.bug = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        viewGroup.addView(this.byS, layoutParams);
-        this.byS.setVisibility(8);
+        viewGroup.addView(this.bug, layoutParams);
+        this.bug.setVisibility(8);
     }
 
-    private int aai() {
+    private int Wp() {
         return ScreenHelper.getRealScreenWidth(this.mActivity);
     }
 
-    private int aak() {
+    private int Wr() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int ccA() {
+    private int bYI() {
         int dimensionPixelSize;
         int screenHeight = ScreenHelper.getScreenHeight(this.mActivity) - p.v(this.mActivity);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -212,14 +211,14 @@ public class b extends e implements f {
         return screenHeight - dimensionPixelSize;
     }
 
-    private int aal() {
+    private int Ws() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private void Oj() {
+    private void Ko() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.bXh) {
+            switch (this.bSv) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -235,15 +234,15 @@ public class b extends e implements f {
         }
     }
 
-    private boolean aam() {
+    private boolean Wt() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hpp) {
+        if (this.hkI) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.bXh) {
+        switch (this.bSv) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -261,8 +260,8 @@ public class b extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    b.this.aah();
-                    b.this.hpp = false;
+                    b.this.Wo();
+                    b.this.hkI = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -270,17 +269,17 @@ public class b extends e implements f {
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hpp = true;
+            this.hkI = true;
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.live.view.web.f
-    public void fr(int i) {
+    public void dL(int i) {
         dismiss();
-        if (this.byR != null) {
-            this.byR.release();
+        if (this.bue != null) {
+            this.bue.release();
         }
     }
 

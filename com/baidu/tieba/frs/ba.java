@@ -5,6 +5,6 @@ public class ba extends ax {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean aur = true;
-    public boolean jkh = true;
+    public boolean jfz = true;
+    public boolean jfA = true;
 }

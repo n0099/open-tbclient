@@ -2,7 +2,7 @@ package com.kwad.sdk.glide.load.engine.a;
 
 import com.kwad.sdk.glide.load.engine.a.a;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements a {
     @Override // com.kwad.sdk.glide.load.engine.a.a
     public File a(com.kwad.sdk.glide.load.c cVar) {

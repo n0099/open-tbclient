@@ -18,96 +18,96 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.payment.data.PaymentConfirmInfoData;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
-    private TextView lDA;
-    private TextView lDB;
-    private TextView lDC;
-    private TextView lDD;
-    private TextView lDE;
-    private TextView lDF;
-    private CheckBox lDG;
-    private ViewGroup lDH;
-    private TbImageView lDI;
-    private TextView lDJ;
-    private TextView lDK;
-    private ViewGroup lDL;
-    private EditText lDM;
-    private ViewGroup lDN;
-    private TextView lDO;
-    private TextView lDP;
-    private boolean lDQ;
-    private PaymentConfirmActivity lDx;
-    private ViewGroup lDy;
-    private TbImageView lDz;
+    private PaymentConfirmActivity lyS;
+    private ViewGroup lyT;
+    private TbImageView lyU;
+    private TextView lyV;
+    private TextView lyW;
+    private TextView lyX;
+    private TextView lyY;
+    private TextView lyZ;
+    private TextView lza;
+    private CheckBox lzb;
+    private ViewGroup lzc;
+    private TbImageView lzd;
+    private TextView lze;
+    private TextView lzf;
+    private ViewGroup lzg;
+    private EditText lzh;
+    private ViewGroup lzi;
+    private TextView lzj;
+    private TextView lzk;
+    private boolean lzl;
     private ViewGroup mContentView;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public c(PaymentConfirmActivity paymentConfirmActivity, boolean z) {
         super(paymentConfirmActivity.getPageContext());
-        this.lDQ = false;
-        this.lDx = paymentConfirmActivity;
-        this.lDQ = z;
+        this.lzl = false;
+        this.lyS = paymentConfirmActivity;
+        this.lzl = z;
         paymentConfirmActivity.setContentView(R.layout.payment_confirm_activity);
         o(paymentConfirmActivity);
         p(paymentConfirmActivity);
     }
 
     private void o(PaymentConfirmActivity paymentConfirmActivity) {
-        this.mRootView = (ViewGroup) this.lDx.findViewById(R.id.payment_root);
-        this.mNavigationBar = (NavigationBar) this.lDx.findViewById(R.id.payment_navigation_bar);
+        this.mRootView = (ViewGroup) this.lyS.findViewById(R.id.payment_root);
+        this.mNavigationBar = (NavigationBar) this.lyS.findViewById(R.id.payment_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.lDQ) {
-            this.mNavigationBar.setTitleText(this.lDx.getPageContext().getString(R.string.payment_confirm_buy_title));
+        if (this.lzl) {
+            this.mNavigationBar.setTitleText(this.lyS.getPageContext().getString(R.string.payment_confirm_buy_title));
         } else {
-            this.mNavigationBar.setTitleText(this.lDx.getPageContext().getString(R.string.payment_confirm_title));
+            this.mNavigationBar.setTitleText(this.lyS.getPageContext().getString(R.string.payment_confirm_title));
         }
     }
 
     private void p(PaymentConfirmActivity paymentConfirmActivity) {
         this.mContentView = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_content);
-        this.lDy = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
-        this.lDz = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
-        this.lDA = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
-        this.lDB = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
-        this.lDC = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
-        this.lDD = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
-        this.lDE = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name_tip);
-        this.lDF = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price_tip);
-        this.lDG = (CheckBox) paymentConfirmActivity.findViewById(R.id.payment_page_show);
-        this.lDH = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_member_show);
-        this.lDI = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_member_icon);
-        this.lDJ = (TextView) paymentConfirmActivity.findViewById(R.id.payment_member_desc);
-        this.lDK = (TextView) paymentConfirmActivity.findViewById(R.id.payment_performance);
+        this.lyT = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
+        this.lyU = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
+        this.lyV = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
+        this.lyW = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
+        this.lyX = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
+        this.lyY = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
+        this.lyZ = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name_tip);
+        this.lza = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price_tip);
+        this.lzb = (CheckBox) paymentConfirmActivity.findViewById(R.id.payment_page_show);
+        this.lzc = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_member_show);
+        this.lzd = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_member_icon);
+        this.lze = (TextView) paymentConfirmActivity.findViewById(R.id.payment_member_desc);
+        this.lzf = (TextView) paymentConfirmActivity.findViewById(R.id.payment_performance);
     }
 
     public void b(PaymentConfirmInfoData paymentConfirmInfoData, boolean z) {
         PaymentConfirmInfoData.OrderInfo.Cpath cpath;
         if (paymentConfirmInfoData != null) {
-            this.lDy.setVisibility(0);
+            this.lyT.setVisibility(0);
             PaymentConfirmInfoData.GoodsInfo goods_info = paymentConfirmInfoData.getGoods_info();
             if (goods_info != null) {
-                this.lDz.startLoad(goods_info.getGoods_pic(), 10, false);
-                this.lDA.setText(goods_info.getGoods_name());
+                this.lyU.startLoad(goods_info.getGoods_pic(), 10, false);
+                this.lyV.setText(goods_info.getGoods_name());
                 String numFormatOver10000 = at.numFormatOver10000(goods_info.getGoods_num());
-                this.lDB.setText(v(this.lDx.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, ao.getColor(R.color.CAM_X0305)));
+                this.lyW.setText(v(this.lyS.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, ao.getColor(R.color.CAM_X0305)));
                 int goods_duration = goods_info.getGoods_duration();
                 if (goods_duration > 0) {
                     String numFormatOver100002 = at.numFormatOver10000(goods_duration);
-                    this.lDC.setText(v(this.lDx.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, ao.getColor(R.color.CAM_X0305)));
+                    this.lyX.setText(v(this.lyS.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, ao.getColor(R.color.CAM_X0305)));
                 } else {
-                    this.lDC.setText(e(this.lDx.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, ao.getColor(R.color.CAM_X0305)));
+                    this.lyX.setText(e(this.lyS.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, ao.getColor(R.color.CAM_X0305)));
                 }
-                this.lDD.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
-                this.lDD.setText(at.numFormatOver10000wan(goods_info.getTdou_num()));
-                this.lDE.setText(this.lDx.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
+                this.lyY.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.lyY.setText(at.numFormatOver10000wan(goods_info.getTdou_num()));
+                this.lyZ.setText(this.lyS.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
                 if (z) {
-                    ao.setViewTextColor(this.lDF, R.color.CAM_X0105, 1);
-                    this.lDF.setText(hl(goods_info.getTdou_num()));
+                    ao.setViewTextColor(this.lza, R.color.CAM_X0105, 1);
+                    this.lza.setText(hl(goods_info.getTdou_num()));
                 } else {
-                    ao.setViewTextColor(this.lDF, R.color.CAM_X0301, 1);
-                    this.lDF.setText(R.string.payment_confirm_goods_price_tip_notenough);
+                    ao.setViewTextColor(this.lza, R.color.CAM_X0301, 1);
+                    this.lza.setText(R.string.payment_confirm_goods_price_tip_notenough);
                 }
             }
             PaymentConfirmInfoData.OrderInfo order_info = paymentConfirmInfoData.getOrder_info();
@@ -117,45 +117,45 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
                     String icon = member.getIcon();
                     String desc = member.getDesc();
                     if (!StringUtils.isNull(icon) && !StringUtils.isNull(desc)) {
-                        this.lDH.setVisibility(0);
-                        this.lDI.startLoad(icon, 10, false);
-                        this.lDJ.setText(desc);
+                        this.lzc.setVisibility(0);
+                        this.lzd.startLoad(icon, 10, false);
+                        this.lze.setText(desc);
                     } else {
-                        this.lDH.setVisibility(8);
+                        this.lzc.setVisibility(8);
                     }
                 }
                 if (cpath.getTip_exist() == 1) {
-                    this.lDG.setButtonDrawable(ao.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
-                    this.lDG.setVisibility(0);
-                    this.lDG.setText(this.lDx.getResources().getString(R.string.payment_confirm_notshow_page, Integer.valueOf(cpath.getTip_days())));
+                    this.lzb.setButtonDrawable(ao.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
+                    this.lzb.setVisibility(0);
+                    this.lzb.setText(this.lyS.getResources().getString(R.string.payment_confirm_notshow_page, Integer.valueOf(cpath.getTip_days())));
                 } else {
-                    this.lDG.setVisibility(8);
+                    this.lzb.setVisibility(8);
                 }
             }
             if (z) {
-                if (this.lDQ) {
-                    this.lDK.setText(R.string.buy_now);
+                if (this.lzl) {
+                    this.lzf.setText(R.string.buy_now);
                     return;
                 } else {
-                    this.lDK.setText(R.string.goto_exchange);
+                    this.lzf.setText(R.string.goto_exchange);
                     return;
                 }
             }
-            this.lDK.setText(R.string.get_tdou);
+            this.lzf.setText(R.string.get_tdou);
         }
     }
 
     public void hk(long j) {
-        ao.setViewTextColor(this.lDF, R.color.CAM_X0105, 1);
-        this.lDF.setText(hl(j));
-        this.lDK.setText(R.string.goto_exchange);
+        ao.setViewTextColor(this.lza, R.color.CAM_X0105, 1);
+        this.lza.setText(hl(j));
+        this.lzf.setText(R.string.goto_exchange);
     }
 
     private SpannableStringBuilder hl(long j) {
         String str = "" + j;
-        String Pt = Pt(str);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Pt);
-        int indexOf = Pt.indexOf(str);
+        String Ol = Ol(str);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Ol);
+        int indexOf = Ol.indexOf(str);
         if (indexOf >= 0) {
             spannableStringBuilder.insert(indexOf, (CharSequence) " ");
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305));
@@ -165,8 +165,8 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
         return spannableStringBuilder;
     }
 
-    private String Pt(String str) {
-        return this.lDQ ? this.lDx.getResources().getString(R.string.payment_confirm_goods_price_buy_tip, str) : this.lDx.getResources().getString(R.string.payment_confirm_goods_price_tip, str);
+    private String Ol(String str) {
+        return this.lzl ? this.lyS.getResources().getString(R.string.payment_confirm_goods_price_buy_tip, str) : this.lyS.getResources().getString(R.string.payment_confirm_goods_price_tip, str);
     }
 
     private SpannableString e(String str, int i, int i2, int i3) {
@@ -180,45 +180,45 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || (indexOf = str.indexOf(str2)) < 0) ? new SpannableString(str) : e(str, indexOf, str2.length() + indexOf, i);
     }
 
-    public ViewGroup dmi() {
-        if (this.lDL == null) {
-            this.lDL = (ViewGroup) LayoutInflater.from(this.lDx.getPageContext().getPageActivity()).inflate(R.layout.input_password_dialog, (ViewGroup) null, false);
-            com.baidu.tbadk.r.a.a(this.lDx.getPageContext(), this.lDL);
-            this.lDM = (EditText) this.lDL.findViewById(R.id.dialog_input);
-            this.lDN = (ViewGroup) this.lDL.findViewById(R.id.password_tip_layout);
-            this.lDO = (TextView) this.lDL.findViewById(R.id.password_input_tip);
-            this.lDP = (TextView) this.lDL.findViewById(R.id.password_use_tip);
+    public ViewGroup diq() {
+        if (this.lzg == null) {
+            this.lzg = (ViewGroup) LayoutInflater.from(this.lyS.getPageContext().getPageActivity()).inflate(R.layout.input_password_dialog, (ViewGroup) null, false);
+            com.baidu.tbadk.r.a.a(this.lyS.getPageContext(), this.lzg);
+            this.lzh = (EditText) this.lzg.findViewById(R.id.dialog_input);
+            this.lzi = (ViewGroup) this.lzg.findViewById(R.id.password_tip_layout);
+            this.lzj = (TextView) this.lzg.findViewById(R.id.password_input_tip);
+            this.lzk = (TextView) this.lzg.findViewById(R.id.password_use_tip);
         }
-        return this.lDL;
+        return this.lzg;
     }
 
-    public void GC(int i) {
-        if (this.lDN != null) {
+    public void EW(int i) {
+        if (this.lzi != null) {
             if (i == 5) {
-                this.lDN.setVisibility(0);
-                this.lDO.setText("");
-                this.lDP.setText(R.string.payment_input_password_forget);
+                this.lzi.setVisibility(0);
+                this.lzj.setText("");
+                this.lzk.setText(R.string.payment_input_password_forget);
             } else if (i > 0) {
-                this.lDN.setVisibility(0);
-                this.lDO.setText(this.lDx.getResources().getString(R.string.payment_input_password_remainder_time, Integer.valueOf(i)));
-                this.lDP.setText(R.string.payment_input_password_forget);
+                this.lzi.setVisibility(0);
+                this.lzj.setText(this.lyS.getResources().getString(R.string.payment_input_password_remainder_time, Integer.valueOf(i)));
+                this.lzk.setText(R.string.payment_input_password_forget);
             } else {
-                this.lDN.setVisibility(0);
-                this.lDO.setText(this.lDx.getResources().getString(R.string.payment_input_password_remainder_no_time));
-                this.lDP.setText(R.string.sapi_forget_password_title);
+                this.lzi.setVisibility(0);
+                this.lzj.setText(this.lyS.getResources().getString(R.string.payment_input_password_remainder_no_time));
+                this.lzk.setText(R.string.sapi_forget_password_title);
             }
         }
     }
 
-    public void bMt() {
-        if (this.lDM != null) {
-            this.lDM.setText("");
+    public void bIB() {
+        if (this.lzh != null) {
+            this.lzh.setText("");
         }
     }
 
-    public void dmj() {
-        if (this.lDL != null && this.lDL.getParent() != null) {
-            ((ViewGroup) this.lDL.getParent()).removeAllViews();
+    public void dir() {
+        if (this.lzg != null && this.lzg.getParent() != null) {
+            ((ViewGroup) this.lzg.getParent()).removeAllViews();
         }
     }
 
@@ -226,38 +226,38 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
         return this.mContentView;
     }
 
-    public CheckBox dmk() {
-        return this.lDG;
+    public CheckBox dis() {
+        return this.lzb;
     }
 
-    public TextView dml() {
-        return this.lDK;
+    public TextView dit() {
+        return this.lzf;
     }
 
-    public void ur(boolean z) {
-        this.lDK.setEnabled(z);
+    public void un(boolean z) {
+        this.lzf.setEnabled(z);
     }
 
-    public TextView dmm() {
-        return this.lDP;
+    public TextView diu() {
+        return this.lzk;
     }
 
-    public String dmn() {
-        return this.lDM != null ? this.lDM.getText().toString() : "";
+    public String div() {
+        return this.lzh != null ? this.lzh.getText().toString() : "";
     }
 
-    public void us(boolean z) {
-        if (this.lDM != null) {
-            this.lDM.setEnabled(z);
+    public void uo(boolean z) {
+        if (this.lzh != null) {
+            this.lzh.setEnabled(z);
         }
     }
 
-    public EditText dmo() {
-        return this.lDM;
+    public EditText diw() {
+        return this.lzh;
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.r.a.a(this.lDx.getPageContext(), this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.lDx.getPageContext(), i);
+        com.baidu.tbadk.r.a.a(this.lyS.getPageContext(), this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.lyS.getPageContext(), i);
     }
 }

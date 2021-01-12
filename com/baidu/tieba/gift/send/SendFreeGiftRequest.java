@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.SendFreeGift.DataReq;
 import tbclient.SendFreeGift.SendFreeGiftReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SendFreeGiftRequest extends NetMessage {
     private int giftId;
     private long postId;

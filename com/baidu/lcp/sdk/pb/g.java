@@ -10,7 +10,7 @@ import java.util.zip.GZIPOutputStream;
 public class g {
     public com.baidu.lcp.sdk.connect.b b(com.baidu.lcp.sdk.connect.b bVar, boolean z) {
         bVar.needReplay = z;
-        return a(bVar, a(bVar.serviceId, bVar.methodId, bVar.msgId, aY(false)), h(bVar.azH, aY(false)));
+        return a(bVar, a(bVar.serviceId, bVar.methodId, bVar.msgId, aU(false)), h(bVar.auU, aU(false)));
     }
 
     public com.baidu.lcp.sdk.connect.b g(Context context, long j) {
@@ -20,9 +20,9 @@ public class g {
         bVar.needReplay = true;
         bVar.serviceId = 1L;
         bVar.methodId = j;
-        bVar.azN = j == 1;
+        bVar.ava = j == 1;
         bVar.isHeartbeat = j == 3;
-        return a(bVar, a(1L, j, random, aY(false)), h(b(context, random, j), aY(false)));
+        return a(bVar, a(1L, j, random, aU(false)), h(b(context, random, j), aU(false)));
     }
 
     private com.baidu.lcp.sdk.connect.b a(com.baidu.lcp.sdk.connect.b bVar, byte[] bArr, byte[] bArr2) {
@@ -36,29 +36,29 @@ public class g {
             allocate.putInt(bArr.length);
             allocate.put(bArr);
             allocate.put(bArr2);
-            bVar.azH = allocate.array();
+            bVar.auU = allocate.array();
         } catch (Exception e) {
         }
         return bVar;
     }
 
     private byte[] a(long j, long j2, long j3, int i) {
-        return RpcMetaPb.RpcMeta.newBuilder().a(RpcMetaPb.RpcRequestMeta.newBuilder().ao(j3).am(j).an(j2).dF(1).build()).ai(j3).dC(i).dE(1).build().toByteArray();
+        return RpcMetaPb.RpcMeta.newBuilder().a(RpcMetaPb.RpcRequestMeta.newBuilder().ao(j3).am(j).an(j2).bZ(1).build()).ai(j3).bW(i).bY(1).build().toByteArray();
     }
 
     private byte[] b(Context context, long j, long j2) {
         LcmPb.LcmRequest build;
         if (j2 == 4) {
-            return LcmPb.RpcData.newBuilder().b(LcmPb.LcmNotify.newBuilder().ab(j).dw(2).build()).build().toByteArray();
+            return LcmPb.RpcData.newBuilder().b(LcmPb.LcmNotify.newBuilder().ab(j).bQ(2).build()).build().toByteArray();
         }
         if (j2 == 1) {
             try {
                 LcmPb.Common common2 = (LcmPb.Common) com.baidu.lcp.sdk.d.a.h(context, false);
-                LcmPb.LcmRequest build2 = LcmPb.LcmRequest.newBuilder().ac(j).b(common2).fG(com.baidu.lcp.sdk.d.e.getToken(context)).ad(System.currentTimeMillis()).dy(com.baidu.lcp.sdk.a.d.getLoginOpenType(context)).dz(com.baidu.lcp.sdk.d.e.aO(context)).build();
+                LcmPb.LcmRequest build2 = LcmPb.LcmRequest.newBuilder().ac(j).b(common2).eu(com.baidu.lcp.sdk.d.e.getToken(context)).ad(System.currentTimeMillis()).bS(com.baidu.lcp.sdk.a.d.getLoginOpenType(context)).bT(com.baidu.lcp.sdk.d.e.aN(context)).build();
                 com.baidu.lcp.sdk.d.d.d("PbProcessor", "cuid :" + common2.getCuid() + ", device :" + common2.getDeviceType() + ", os:" + common2.getOsVersion() + ", man :" + common2.getManufacture() + ", model :" + common2.getModelType() + ", appId :" + common2.getAppId() + ", app :" + common2.getAppVersion() + ", sdk :" + common2.getSdkVersion() + ", token :" + build2.getToken() + ", net :" + common2.getNetwork() + ", rom :" + common2.getRomVersion() + ", start :" + build2.getStartType() + "，connType :" + build2.getConnType());
                 build = build2;
             } catch (Exception e) {
-                build = LcmPb.LcmRequest.newBuilder().ac(j).fG(com.baidu.lcp.sdk.d.e.getToken(context)).ad(System.currentTimeMillis()).dy(com.baidu.lcp.sdk.a.d.getLoginOpenType(context)).dz(com.baidu.lcp.sdk.d.e.aO(context)).build();
+                build = LcmPb.LcmRequest.newBuilder().ac(j).eu(com.baidu.lcp.sdk.d.e.getToken(context)).ad(System.currentTimeMillis()).bS(com.baidu.lcp.sdk.a.d.getLoginOpenType(context)).bT(com.baidu.lcp.sdk.d.e.aN(context)).build();
             }
         } else if (j2 == 2) {
             build = LcmPb.LcmRequest.newBuilder().ac(j).ad(System.currentTimeMillis()).build();
@@ -71,16 +71,16 @@ public class g {
 
     private byte[] h(byte[] bArr, int i) {
         if (i == 1) {
-            return C(bArr);
+            return B(bArr);
         }
         return bArr;
     }
 
-    private int aY(boolean z) {
+    private int aU(boolean z) {
         return z ? 1 : 0;
     }
 
-    private byte[] C(byte[] bArr) {
+    private byte[] B(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);

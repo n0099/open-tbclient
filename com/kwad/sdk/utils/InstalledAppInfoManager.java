@@ -17,11 +17,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InstalledAppInfoManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class AppPackageInfo implements Serializable {
         private static final long serialVersionUID = -324393456884895874L;
         public String appName;

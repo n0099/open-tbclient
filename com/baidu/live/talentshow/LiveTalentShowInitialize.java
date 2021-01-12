@@ -6,13 +6,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.ao.c;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveTalentShowInitialize {
     static {
-        Ub();
+        Qg();
     }
 
-    private static void Ub() {
+    private static void Qg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913254, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.talentshow.LiveTalentShowInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ao.b> run(CustomMessage<TbPageContext> customMessage) {

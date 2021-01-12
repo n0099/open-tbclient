@@ -23,7 +23,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C1251a(iBinder);
+            return new C1234a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -50,18 +50,18 @@ public interface f extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1251a implements f {
+        private static class C1234a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13410a;
+            private IBinder f13110a;
 
-            C1251a(IBinder iBinder) {
-                this.f13410a = iBinder;
+            C1234a(IBinder iBinder) {
+                this.f13110a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13410a;
+                return this.f13110a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.f
@@ -71,7 +71,7 @@ public interface f extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                     obtain.writeLong(j);
-                    this.f13410a.transact(1, obtain, obtain2, 0);
+                    this.f13110a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {

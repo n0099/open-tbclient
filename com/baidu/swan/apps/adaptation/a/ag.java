@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ag {
-    com.baidu.swan.ubc.m amb();
+    com.baidu.swan.ubc.m aih();
 }

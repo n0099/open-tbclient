@@ -4,21 +4,21 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.Parcel;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class f {
     private static Context d;
     private final Class c;
     private String[] e;
     private String[] f;
-    public h qgx;
-    public i qgy;
+    public h qbW;
+    public i qbX;
 
     private f() {
         this.e = null;
         this.f = null;
         this.c = b();
-        this.qgx = new h(this);
-        this.qgy = new i(this);
+        this.qbW = new h(this);
+        this.qbX = new i(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -93,10 +93,10 @@ public final class f {
         }
     }
 
-    public static f jg(Context context) {
+    public static f je(Context context) {
         f fVar;
         d = context;
-        fVar = g.qgz;
+        fVar = g.qbY;
         return fVar;
     }
 }

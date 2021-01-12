@@ -10,17 +10,18 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import com.baidu.webkit.internal.ETAG;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3554a;
+    public long f3516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3555b;
+    public String f3517b;
     public String c;
     public String d;
     public String e;
@@ -33,32 +34,32 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0274a o;
+    private C0263a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0274a {
+    /* loaded from: classes14.dex */
+    public static class C0263a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3556a;
+        String f3518a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f3557b;
+        String f3519b;
         String c;
         String d;
         String e;
 
-        public C0274a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f3556a = "";
-            this.f3557b = "";
+        public C0263a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f3518a = "";
+            this.f3519b = "";
             this.c = "";
             this.d = "";
             this.e = "";
             if (iXAdInstanceInfo != null) {
-                this.f3556a = iXAdInstanceInfo.getAdId();
-                this.f3557b = iXAdInstanceInfo.getQueryKey();
+                this.f3518a = iXAdInstanceInfo.getAdId();
+                this.f3519b = iXAdInstanceInfo.getQueryKey();
                 this.d = iXAdInstanceInfo.getCreativeType().getValue();
             }
             if (iXAdProdInfo != null) {
@@ -68,14 +69,14 @@ public abstract class a {
         }
     }
 
-    public a(C0274a c0274a) {
-        this(c0274a.f3556a, c0274a.f3557b, c0274a.c);
-        this.o = c0274a;
+    public a(C0263a c0263a) {
+        this(c0263a.f3518a, c0263a.f3519b, c0263a.c);
+        this.o = c0263a;
     }
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.f3555b = "-1";
+        this.f3517b = "-1";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -88,8 +89,8 @@ public abstract class a {
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f3554a = System.currentTimeMillis();
-        this.f3555b = str;
+        this.f3516a = System.currentTimeMillis();
+        this.f3517b = str;
         this.c = str2;
         this.e = this.m.getAppSec(this.l);
         if (this.l != null) {
@@ -105,13 +106,13 @@ public abstract class a {
 
     protected HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("adid", this.f3555b);
+        hashMap.put("adid", this.f3517b);
         hashMap.put("appsec", this.e);
         hashMap.put("appsid", this.f);
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put("ts", "" + this.f3554a);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f3516a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);

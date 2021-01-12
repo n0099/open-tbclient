@@ -10,6 +10,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobstat.Config;
 import com.qq.e.comm.plugin.util.af;
 import com.qq.e.comm.plugin.util.t;
 import com.qq.e.comm.plugin.w.d;
@@ -19,17 +20,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f12029a;
+    private Point f11729a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f12032a = new d();
+        static final d f11732a = new d();
     }
 
     private d() {
@@ -99,16 +100,16 @@ public class d implements e {
     private Point a(Context context) {
         Point point;
         synchronized (this) {
-            if (this.f12029a == null) {
+            if (this.f11729a == null) {
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                this.f12029a = new Point();
+                this.f11729a = new Point();
                 if (Build.VERSION.SDK_INT >= 17) {
-                    windowManager.getDefaultDisplay().getRealSize(this.f12029a);
+                    windowManager.getDefaultDisplay().getRealSize(this.f11729a);
                 } else {
-                    this.f12029a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
+                    this.f11729a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
                 }
             }
-            point = this.f12029a;
+            point = this.f11729a;
         }
         return point;
     }
@@ -127,7 +128,7 @@ public class d implements e {
     }
 
     public static final d a() {
-        return a.f12032a;
+        return a.f11732a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e
@@ -166,7 +167,7 @@ public class d implements e {
                         HashMap hashMap = new HashMap();
                         int[] iArr = new int[2];
                         hVar.a().getLocationOnScreen(iArr);
-                        hashMap.put("x", Integer.valueOf(iArr[0]));
+                        hashMap.put(Config.EVENT_HEAT_X, Integer.valueOf(iArr[0]));
                         hashMap.put("y", Integer.valueOf(iArr[1]));
                         hashMap.put("w", Integer.valueOf(hVar.f()));
                         hashMap.put("h", Integer.valueOf(hVar.g()));

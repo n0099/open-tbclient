@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -41,10 +42,10 @@ public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13744a = "";
+    private static String f13444a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13745b = "";
+    private static String f13445b = "";
     private static String c = "";
     private static String d = "";
     private static int e = -1;
@@ -118,17 +119,17 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13746a;
+        public String f13446a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f13747b;
+        public long f13447b;
         public long c;
 
         public a(String str, int i) {
-            this.f13746a = str;
-            this.f13747b = i;
-            if (this.f13746a != null) {
-                this.c = this.f13746a.length();
+            this.f13446a = str;
+            this.f13447b = i;
+            if (this.f13446a != null) {
+                this.c = this.f13446a.length();
             }
         }
     }
@@ -443,7 +444,7 @@ public class j {
             return "";
         }
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setCostAllowed(false);
             criteria.setAccuracy(2);
@@ -463,9 +464,9 @@ public class j {
         if (context != null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                f13745b = packageInfo.versionName;
-                f13744a = f13745b.substring(0, f13745b.lastIndexOf(46));
-                d = f13745b.substring(f13745b.lastIndexOf(46) + 1, f13745b.length());
+                f13445b = packageInfo.versionName;
+                f13444a = f13445b.substring(0, f13445b.lastIndexOf(46));
+                d = f13445b.substring(f13445b.lastIndexOf(46) + 1, f13445b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
                 com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
@@ -480,7 +481,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13745b;
+        return f13445b;
     }
 
     public static String d(Context context, String str) {
@@ -488,7 +489,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13744a;
+        return f13444a;
     }
 
     public static String e(Context context, String str) {

@@ -5,7 +5,7 @@ import org.apache.http.HeaderIterator;
 import org.apache.http.ParseException;
 import org.apache.http.TokenIterator;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BasicTokenIterator implements TokenIterator {
     public static final String HTTP_SEPARATORS = " ,;=()<>@:\\\"/[]?{}\t";
     protected String currentHeader;

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class URLEncodedUtils {
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
 

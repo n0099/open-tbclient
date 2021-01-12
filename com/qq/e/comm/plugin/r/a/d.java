@@ -3,7 +3,6 @@ package com.qq.e.comm.plugin.r.a;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.managers.status.SDKStatus;
@@ -23,20 +22,20 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile d f12668b;
+    private static volatile d f12368b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f12669a;
+    private Context f12369a;
     private volatile com.qq.e.comm.plugin.r.b.b c;
     private long d;
     private boolean e;
 
     private d(Context context) {
-        this.f12669a = context.getApplicationContext();
+        this.f12369a = context.getApplicationContext();
         c(c.a(context));
         if (c()) {
             a(false, true);
@@ -44,23 +43,23 @@ public class d {
     }
 
     public static d a(Context context) {
-        if (f12668b == null) {
+        if (f12368b == null) {
             synchronized (d.class) {
                 try {
-                    if (f12668b == null) {
-                        f12668b = new d(context);
+                    if (f12368b == null) {
+                        f12368b = new d(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12668b;
+        return f12368b;
     }
 
     private String a(boolean z) {
-        if (com.qq.e.comm.plugin.e.a.f12287b != null) {
-            String a2 = com.qq.e.comm.plugin.e.a.f12287b.a();
+        if (com.qq.e.comm.plugin.e.a.f11987b != null) {
+            String a2 = com.qq.e.comm.plugin.e.a.f11987b.a();
             if (!TextUtils.isEmpty(a2)) {
                 return a2;
             }
@@ -76,9 +75,9 @@ public class d {
             jSONObject.put("sdk_st", aj.a());
             jSONObject.put("plugin_ver", String.valueOf(GDTADManager.getInstance().getPM().getPluginVersion()));
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("lat", v.a(this.f12669a).a());
-            jSONObject2.put("lon", v.a(this.f12669a).b());
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_GEO, jSONObject2);
+            jSONObject2.put("lat", v.a(this.f12369a).a());
+            jSONObject2.put("lon", v.a(this.f12369a).b());
+            jSONObject.put("geo", jSONObject2);
             jSONObject.put("app_ver_name", GDTADManager.getInstance().getAppStatus().getAPPVersion());
             jSONObject.put("device_id", o.l());
             jSONObject.put("encrypt", z2 ? 1 : 0);
@@ -100,10 +99,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final String str) {
-        s.f12889a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.r.a.d.2
+        s.f12589a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.r.a.d.2
             @Override // java.lang.Runnable
             public void run() {
-                c.a(d.this.f12669a, str);
+                c.a(d.this.f12369a, str);
                 d.this.e();
             }
         });
@@ -148,7 +147,7 @@ public class d {
                 }
             }
             jSONObject.put("layerConfigs", jSONArray);
-            c.b(this.f12669a, jSONObject.toString());
+            c.b(this.f12369a, jSONObject.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -222,7 +221,7 @@ public class d {
                         exc.printStackTrace();
                     }
                 };
-                com.qq.e.comm.plugin.t.b.e cVar = !z2 ? new com.qq.e.comm.plugin.t.b.c(a(false), e.a.POST, b(z, false).getBytes(com.qq.e.comm.plugin.f.a.f12290a)) : new g(a(true), b(z, true).getBytes(com.qq.e.comm.plugin.f.a.f12290a));
+                com.qq.e.comm.plugin.t.b.e cVar = !z2 ? new com.qq.e.comm.plugin.t.b.c(a(false), e.a.POST, b(z, false).getBytes(com.qq.e.comm.plugin.f.a.f11990a)) : new g(a(true), b(z, true).getBytes(com.qq.e.comm.plugin.f.a.f11990a));
                 ai.a("gdt_tag_net", ai.a(cVar));
                 com.qq.e.comm.plugin.t.d.a().a(cVar, c.a.High, bVar);
             }

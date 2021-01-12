@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.middleware;
 
 import android.view.KeyEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements d, e, i, j {
     public void e(boolean z, int i) {
     }

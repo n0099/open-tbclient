@@ -80,7 +80,7 @@ public class NativeMemoryChunk implements Closeable {
         return ed;
     }
 
-    public synchronized byte Qg(int i) {
+    public synchronized byte Oz(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long euh() {
+    public long eqn() {
         return this.mNativePtr;
     }
 

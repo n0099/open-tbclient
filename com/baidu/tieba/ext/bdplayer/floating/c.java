@@ -1,24 +1,25 @@
 package com.baidu.tieba.ext.bdplayer.floating;
 
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private JSONObject gVV;
-    private JSONObject gWa;
+    private JSONObject gRp;
+    private JSONObject gRu;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject cAE() {
-        return this.gVV;
+    public JSONObject cwM() {
+        return this.gRp;
     }
 
-    public JSONObject cAF() {
-        return this.gWa;
+    public JSONObject cwN() {
+        return this.gRu;
     }
 
-    public static c JP(String str) {
+    public static c IE(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -34,17 +35,17 @@ public class c {
             return null;
         }
         c cVar = new c();
-        cVar.gVV = jSONObject.optJSONObject("extra");
-        cVar.gWa = jSONObject.optJSONObject("src");
+        cVar.gRp = jSONObject.optJSONObject("extra");
+        cVar.gRu = jSONObject.optJSONObject(UserAccountActionItem.KEY_SRC);
         try {
-            JSONObject cAF = cVar.cAF();
-            if (cAF != null) {
-                cVar.roomId = cAF.optString("room_id");
-                cVar.cover = cAF.optString("cover");
+            JSONObject cwN = cVar.cwN();
+            if (cwN != null) {
+                cVar.roomId = cwN.optString("room_id");
+                cVar.cover = cwN.optString("cover");
             }
-            JSONObject cAE = cVar.cAE();
-            if (cAE != null) {
-                cVar.extra = cAE.toString();
+            JSONObject cwM = cVar.cwM();
+            if (cwM != null) {
+                cVar.extra = cwM.toString();
                 return cVar;
             }
             return cVar;

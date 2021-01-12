@@ -19,10 +19,10 @@ import java.util.List;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6905a;
+    private static String f6605a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6906b;
+    private static String f6606b;
     private static String c;
     private static String d;
     private static String e;
@@ -38,7 +38,7 @@ public class k {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f6905a) && !k) {
+        if (TextUtils.isEmpty(f6605a) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
@@ -46,12 +46,12 @@ public class k {
             }
         }
         try {
-            if (TextUtils.isEmpty(f6905a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                f6905a = d.a(k(context)).b("did", (String) null);
+            if (TextUtils.isEmpty(f6605a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                f6605a = d.a(k(context)).b("did", (String) null);
             }
         } catch (Exception e2) {
         }
-        return f6905a;
+        return f6605a;
     }
 
     public static String b(Context context) {
@@ -66,14 +66,14 @@ public class k {
     }
 
     public static String c(Context context) {
-        if (TextUtils.isEmpty(f6906b) && !k) {
+        if (TextUtils.isEmpty(f6606b) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f6906b;
+        return f6606b;
     }
 
     public static String d(Context context) {
@@ -163,12 +163,12 @@ public class k {
     }
 
     public static void a(Context context, String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(f6905a)) {
+        if (!TextUtils.isEmpty(str) && !str.equals(f6605a)) {
             d.a(context).a("did", str);
-            f6905a = str;
+            f6605a = str;
         }
-        if (!TextUtils.isEmpty(f6905a)) {
-            s.b(f6905a).a(f6905a);
+        if (!TextUtils.isEmpty(f6605a)) {
+            s.b(f6605a).a(f6605a);
         }
     }
 
@@ -201,8 +201,8 @@ public class k {
                 }
             } catch (Exception e3) {
             }
-            f6906b = a(k2, true);
-            f6905a = d.a(k2).b("did", (String) null);
+            f6606b = a(k2, true);
+            f6605a = d.a(k2).b("did", (String) null);
             g = a();
             h = String.valueOf(Build.TIME);
             i = d.a(k2).b("uuid", (String) null);

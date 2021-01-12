@@ -4,10 +4,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.f;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static ImMessageCenterPojo c(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.cYy().cYF());
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.cUG().cUN());
     }
 
     private static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -34,11 +34,11 @@ public class e {
         boolean z2 = true;
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
             if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
-                if (!com.baidu.tieba.im.settingcache.e.cZO().fz(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (!com.baidu.tieba.im.settingcache.e.cVW().fy(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                     z = z2;
                 } else {
-                    f.cZP().setAcceptNotify(true);
+                    f.cVX().setAcceptNotify(true);
                     z = false;
                 }
                 z2 = z;
@@ -46,7 +46,7 @@ public class e {
         }
         if (z2) {
             imMessageCenterPojo2.setUnread_count(1);
-            f.cZP().setAcceptNotify(false);
+            f.cVX().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

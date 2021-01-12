@@ -2,24 +2,24 @@ package com.baidu.tieba.yuyinala.liveroom.task;
 
 import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public int hOu;
-    public String hOv;
-    public int hOw;
-    public int hOx;
+    public int hJO;
+    public String hJP;
+    public int hJQ;
+    public int hJR;
     public String tips;
     public String title;
     public String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hOu = jSONObject.optInt("istip");
+            this.hJO = jSONObject.optInt("istip");
             this.tips = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
-            this.hOv = jSONObject.optString("righttips");
-            this.hOw = jSONObject.optInt("upperlimit");
+            this.hJP = jSONObject.optString("righttips");
+            this.hJQ = jSONObject.optInt("upperlimit");
             this.url = jSONObject.optString("url");
-            this.hOx = jSONObject.optInt("isreward");
+            this.hJR = jSONObject.optInt("isreward");
             this.title = jSONObject.optString("title");
         }
     }

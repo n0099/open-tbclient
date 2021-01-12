@@ -2,7 +2,7 @@ package com.baidubce.services.sts.model;
 
 import com.baidubce.model.AbstractBceResponse;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GetSessionTokenResponse extends AbstractBceResponse {
     private String accessKeyId;
     private Date expiration;

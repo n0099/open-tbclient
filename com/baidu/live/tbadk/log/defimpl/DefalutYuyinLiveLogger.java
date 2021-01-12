@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IYuyinLiveLogger;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DefalutYuyinLiveLogger implements IYuyinLiveLogger {
     @Override // com.baidu.live.tbadk.log.IYuyinLiveLogger
     public void doShowYuyinLiveGuestLog(String str, String str2, int i, boolean z, String str3) {

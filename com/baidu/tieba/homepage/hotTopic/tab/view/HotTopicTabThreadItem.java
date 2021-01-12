@@ -25,128 +25,128 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.e;
 /* loaded from: classes2.dex */
 public class HotTopicTabThreadItem extends RelativeLayout {
-    private TextView akR;
-    private TextView akS;
-    private f<e> aks;
-    private TextView eKc;
-    private int kdK;
-    private TbImageView kdS;
-    private View kdT;
-    private View kdU;
-    private ImageView kdV;
-    private TextView kdW;
-    private View kdX;
-    private e kdY;
+    private f<e> ajB;
+    private TextView aka;
+    private TextView akb;
+    private TextView eFr;
+    private int jZf;
+    private TbImageView jZn;
+    private View jZo;
+    private View jZp;
+    private ImageView jZq;
+    private TextView jZr;
+    private View jZs;
+    private e jZt;
 
     public HotTopicTabThreadItem(Context context) {
         super(context);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_tab_thread_item, (ViewGroup) this, true);
-        this.kdS = (TbImageView) findViewById(R.id.coverView);
-        this.kdT = findViewById(R.id.coverGradientMask);
-        this.kdU = findViewById(R.id.videoTimeContainer);
-        this.kdV = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.kdW = (TextView) findViewById(R.id.videoPlayTime);
-        this.akR = (TextView) findViewById(R.id.indexView);
-        this.eKc = (TextView) findViewById(R.id.titleView);
-        this.akS = (TextView) findViewById(R.id.tagView);
-        this.kdS.setPlaceHolder(2);
-        this.kdS.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.kdS.setConrers(15);
-        this.kdX = findViewById(R.id.rootLayout);
-        this.kdX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
+        this.jZn = (TbImageView) findViewById(R.id.coverView);
+        this.jZo = findViewById(R.id.coverGradientMask);
+        this.jZp = findViewById(R.id.videoTimeContainer);
+        this.jZq = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.jZr = (TextView) findViewById(R.id.videoPlayTime);
+        this.aka = (TextView) findViewById(R.id.indexView);
+        this.eFr = (TextView) findViewById(R.id.titleView);
+        this.akb = (TextView) findViewById(R.id.tagView);
+        this.jZn.setPlaceHolder(2);
+        this.jZn.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.jZn.setConrers(15);
+        this.jZs = findViewById(R.id.rootLayout);
+        this.jZs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItem.this.kdY != null && HotTopicTabThreadItem.this.kdY.eMv != null) {
-                    if (HotTopicTabThreadItem.this.aks != null) {
-                        HotTopicTabThreadItem.this.aks.a(view, HotTopicTabThreadItem.this.kdY, HotTopicTabThreadItem.this.kdY.index, HotTopicTabThreadItem.this.kdY.index);
+                if (HotTopicTabThreadItem.this.jZt != null && HotTopicTabThreadItem.this.jZt.eHK != null) {
+                    if (HotTopicTabThreadItem.this.ajB != null) {
+                        HotTopicTabThreadItem.this.ajB.a(view, HotTopicTabThreadItem.this.jZt, HotTopicTabThreadItem.this.jZt.index, HotTopicTabThreadItem.this.jZt.index);
                     }
-                    ay.a((com.baidu.tbadk.core.data.a) HotTopicTabThreadItem.this.kdY.eMv, view.getContext(), 2, false, true);
+                    ay.a((com.baidu.tbadk.core.data.a) HotTopicTabThreadItem.this.jZt.eHK, view.getContext(), 2, false, true);
                 }
             }
         });
     }
 
     public void setOnItemCoverListener(f<e> fVar) {
-        this.aks = fVar;
+        this.ajB = fVar;
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.kdY = eVar;
+            this.jZt = eVar;
             if (TextUtils.isEmpty(eVar.cover)) {
-                this.kdS.setVisibility(8);
-                this.kdT.setVisibility(8);
-                this.kdU.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.akS.getLayoutParams();
+                this.jZn.setVisibility(8);
+                this.jZo.setVisibility(8);
+                this.jZp.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.akb.getLayoutParams();
                 layoutParams.addRule(8, 0);
                 layoutParams.addRule(3, R.id.titleView);
-                this.akS.setLayoutParams(layoutParams);
+                this.akb.setLayoutParams(layoutParams);
             } else {
-                this.kdS.startLoad(eVar.cover, 10, false);
-                this.kdS.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.akS.getLayoutParams();
+                this.jZn.startLoad(eVar.cover, 10, false);
+                this.jZn.setVisibility(0);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.akb.getLayoutParams();
                 layoutParams2.addRule(8, R.id.coverView);
                 layoutParams2.addRule(3, 0);
-                this.akS.setLayoutParams(layoutParams2);
+                this.akb.setLayoutParams(layoutParams2);
                 if (eVar.time > 0) {
-                    this.kdU.setVisibility(0);
-                    this.kdT.setVisibility(0);
-                    this.kdW.setText(StringUtils.translateSecondsToString(eVar.time));
+                    this.jZp.setVisibility(0);
+                    this.jZo.setVisibility(0);
+                    this.jZr.setText(StringUtils.translateSecondsToString(eVar.time));
                 } else {
-                    this.kdU.setVisibility(8);
-                    this.kdT.setVisibility(8);
+                    this.jZp.setVisibility(8);
+                    this.jZo.setVisibility(8);
                 }
             }
-            this.eKc.setText(eVar.title);
-            this.akS.setText(this.akS.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.dX(eVar.eWw < 1000 ? 1000 : eVar.eWw)));
-            this.akR.setText(String.valueOf(eVar.index));
-            cSH();
-            if (this.aks != null && this.kdY != null) {
-                this.aks.b(this, this.kdY, this.kdY.index, this.kdY.index);
+            this.eFr.setText(eVar.title);
+            this.akb.setText(this.akb.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.dX(eVar.eRL < 1000 ? 1000 : eVar.eRL)));
+            this.aka.setText(String.valueOf(eVar.index));
+            cOP();
+            if (this.ajB != null && this.jZt != null) {
+                this.ajB.b(this, this.jZt, this.jZt.index, this.jZt.index);
             }
         }
     }
 
-    private void cSH() {
-        if (this.kdY != null) {
-            int ql = TagTextHelper.ql(this.kdY.index);
-            Drawable background = this.akS.getBackground();
-            DrawableCompat.setTint(background, ao.getColor(ql));
+    private void cOP() {
+        if (this.jZt != null) {
+            int oE = TagTextHelper.oE(this.jZt.index);
+            Drawable background = this.akb.getBackground();
+            DrawableCompat.setTint(background, ao.getColor(oE));
             background.setAlpha(40);
-            this.akS.setBackgroundDrawable(background);
-            ao.setViewTextColor(this.akS, ql);
-            Drawable background2 = this.akR.getBackground();
-            DrawableCompat.setTint(background2, ao.getColor(ql));
-            this.akR.setBackgroundDrawable(background2);
+            this.akb.setBackgroundDrawable(background);
+            ao.setViewTextColor(this.akb, oE);
+            Drawable background2 = this.aka.getBackground();
+            DrawableCompat.setTint(background2, ao.getColor(oE));
+            this.aka.setBackgroundDrawable(background2);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kdK != i) {
-            com.baidu.tbadk.core.util.f.a.m(this.kdX, R.color.CAM_X0205, R.color.CAM_X0204);
-            ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
-            ao.setViewTextColor(this.akR, R.color.CAM_X0101);
-            ao.setViewTextColor(this.kdW, R.color.CAM_X0101);
-            this.kdV.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-            cSH();
-            this.kdK = i;
+        if (this.jZf != i) {
+            com.baidu.tbadk.core.util.f.a.m(this.jZs, R.color.CAM_X0205, R.color.CAM_X0204);
+            ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
+            ao.setViewTextColor(this.aka, R.color.CAM_X0101);
+            ao.setViewTextColor(this.jZr, R.color.CAM_X0101);
+            this.jZq.setImageDrawable(SvgManager.bsx().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            cOP();
+            this.jZf = i;
         }
     }
 }

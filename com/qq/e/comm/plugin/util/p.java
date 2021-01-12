@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p {
     public static int a(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");

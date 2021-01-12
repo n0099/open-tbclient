@@ -3,14 +3,14 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.chunk.ah;
 import java.io.Closeable;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f10818a;
+    public final k f10518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f10819b;
+    public final boolean f10519b;
     protected final c c;
     protected final a d;
     protected final ah e;
@@ -27,8 +27,8 @@ public class o implements Closeable {
             if (this.d.b(this.c, 36) != 36) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.f10818a = this.c.j();
-            this.f10819b = this.c.k() != null;
+            this.f10518a = this.c.j();
+            this.f10519b = this.c.k() != null;
             b(5024024L);
             a(901001001L);
             c(2024024L);
@@ -123,6 +123,6 @@ public class o implements Closeable {
     }
 
     public String toString() {
-        return this.f10818a.toString() + " interlaced=" + this.f10819b;
+        return this.f10518a.toString() + " interlaced=" + this.f10519b;
     }
 }

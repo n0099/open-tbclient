@@ -9,7 +9,7 @@ import com.baidu.tieba.frs.ba;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
@@ -45,7 +45,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     bz bzVar = new bz();
-                    bzVar.Ba("frs_live_play");
+                    bzVar.zP("frs_live_play");
                     bzVar.parserJson(jSONObject2);
                     this.mThreadList.add(bzVar);
                 }
@@ -56,7 +56,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
                     bz bzVar2 = new bz();
-                    bzVar2.Ba("frs_live_play");
+                    bzVar2.zP("frs_live_play");
                     bzVar2.parserJson(jSONObject3);
                     this.mAltList.add(bzVar2);
                 }

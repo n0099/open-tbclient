@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
 import com.baidu.swan.apps.core.container.NgWebView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface as {
     void a(NgWebView ngWebView);
 

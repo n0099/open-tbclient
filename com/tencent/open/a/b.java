@@ -10,11 +10,11 @@ import java.util.Calendar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f13671a = d.C1281d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f13371a = d.C1264d.a("yy.MM.dd.HH");
     private File g;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13672b = "Tracer.File";
+    private String f13372b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int e = 4096;
@@ -66,11 +66,11 @@ public class b {
     }
 
     public String c() {
-        return this.f13672b;
+        return this.f13372b;
     }
 
     public void a(String str) {
-        this.f13672b = str;
+        this.f13372b = str;
     }
 
     public void a(int i) {

@@ -4,7 +4,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.b.c.b.b;
 import com.kwad.sdk.reward.b.c.b.c;
 import com.kwad.sdk.reward.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends d {
     public a() {
         a((Presenter) new c());

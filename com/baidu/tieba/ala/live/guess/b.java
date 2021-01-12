@@ -23,71 +23,71 @@ import com.baidu.tieba.ala.live.guess.a.d;
 import com.baidu.tieba.ala.live.guess.a.f;
 import com.baidu.tieba.ala.live.guess.a.g;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
-public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.InterfaceC0664a {
+/* loaded from: classes10.dex */
+public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0174c, a.InterfaceC0647a {
     private static String TAG = b.class.getSimpleName();
-    private CustomMessageListener bih;
-    private com.baidu.live.guess.b hhE;
-    private x hhF;
-    private CustomResponsedMessage<Long> hhG;
-    private g hhH;
-    private d hhI;
-    private com.baidu.tieba.ala.live.guess.a.a hhJ;
-    private f hhK;
-    private com.baidu.tieba.ala.live.guess.a hhL;
-    private c hhM;
-    private AlaGuessQuesData hhN;
-    private AlaGuessQuesData hhO;
-    private boolean hhP = false;
-    private String hhQ = "";
-    private volatile int hhR = 0;
-    private volatile boolean hhS = false;
-    private int hhT = -1;
-    private LinkedList<Long> hhU = new LinkedList<>();
-    private LinkedList<Long> hhV = new LinkedList<>();
-    private a hhW;
+    private CustomMessageListener bdo;
+    private com.baidu.live.guess.b hcY;
+    private x hcZ;
+    private CustomResponsedMessage<Long> hda;
+    private g hdb;
+    private d hdc;
+    private com.baidu.tieba.ala.live.guess.a.a hdd;
+    private f hde;
+    private com.baidu.tieba.ala.live.guess.a hdf;
+    private c hdg;
+    private AlaGuessQuesData hdh;
+    private AlaGuessQuesData hdi;
+    private boolean hdj = false;
+    private String hdk = "";
+    private volatile int hdl = 0;
+    private volatile boolean hdm = false;
+    private int hdn = -1;
+    private LinkedList<Long> hdo = new LinkedList<>();
+    private LinkedList<Long> hdp = new LinkedList<>();
+    private a hdq;
     private Activity mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void caC();
+        void bWK();
     }
 
     @Override // com.baidu.live.guess.a
     public void f(x xVar) {
-        this.hhM.LI();
+        this.hdg.HN();
         b(xVar);
     }
 
     @Override // com.baidu.live.guess.a
     public void b(x xVar) {
         if (xVar != null && xVar.mLiveInfo != null) {
-            this.hhF = xVar;
+            this.hcZ = xVar;
             if (BdLog.isDebugMode()) {
-                BdLog.e("AlaLiveGuessController Live guess room id " + this.hhF.mLiveInfo.room_id + " " + this.hhF.mLiveInfo.user_id);
+                BdLog.e("AlaLiveGuessController Live guess room id " + this.hcZ.mLiveInfo.room_id + " " + this.hcZ.mLiveInfo.user_id);
             }
         }
     }
 
     @Override // com.baidu.live.guess.a
-    public void LE() {
-        this.hhP = false;
-        this.hhM.LE();
-        this.hhR = 0;
+    public void HJ() {
+        this.hdj = false;
+        this.hdg.HJ();
+        this.hdl = 0;
     }
 
     @Override // com.baidu.live.guess.a
     public void onDestroy() {
-        this.hhE = null;
-        this.hhV.clear();
-        this.hhU.clear();
-        this.hhM.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bih);
+        this.hcY = null;
+        this.hdp.clear();
+        this.hdo.clear();
+        this.hdg.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.bdo);
     }
 
     public boolean fo(long j) {
-        if (this.hhF == null || this.hhF.mLiveInfo.room_id != j) {
+        if (this.hcZ == null || this.hcZ.mLiveInfo.room_id != j) {
             return false;
         }
         return true;
@@ -96,58 +96,58 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
     @Override // com.baidu.live.guess.a
     public void p(Activity activity) {
         this.mContext = activity;
-        this.hhL = new com.baidu.tieba.ala.live.guess.a();
-        this.hhH = new g(this.mContext);
-        this.hhI = new d(this.mContext);
-        this.hhM = new c(this);
+        this.hdf = new com.baidu.tieba.ala.live.guess.a();
+        this.hdb = new g(this.mContext);
+        this.hdc = new d(this.mContext);
+        this.hdg = new c(this);
         registerListener();
     }
 
     private void registerListener() {
-        this.bih = new CustomMessageListener(2913253) { // from class: com.baidu.tieba.ala.live.guess.b.1
+        this.bdo = new CustomMessageListener(2913253) { // from class: com.baidu.tieba.ala.live.guess.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                     if (TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                        b.this.car();
-                    } else if (TextUtils.equals((String) customResponsedMessage.getData(), "ala/guess/cancelResult") && b.this.hhJ != null && b.this.hhJ.isShowing()) {
-                        b.this.hhJ.dismiss();
+                        b.this.bWz();
+                    } else if (TextUtils.equals((String) customResponsedMessage.getData(), "ala/guess/cancelResult") && b.this.hdd != null && b.this.hdd.isShowing()) {
+                        b.this.hdd.dismiss();
                     }
                 }
             }
         };
-        if (this.hhI != null) {
-            this.hhI.a(new d.a() { // from class: com.baidu.tieba.ala.live.guess.b.2
+        if (this.hdc != null) {
+            this.hdc.a(new d.a() { // from class: com.baidu.tieba.ala.live.guess.b.2
                 @Override // com.baidu.tieba.ala.live.guess.a.d.a
-                public void aqZ() {
+                public void ane() {
                 }
 
                 @Override // com.baidu.tieba.ala.live.guess.a.d.a
-                public void caA() {
-                    b.this.cas();
+                public void bWI() {
+                    b.this.bWA();
                 }
             });
         }
-        MessageManager.getInstance().registerListener(this.bih);
+        MessageManager.getInstance().registerListener(this.bdo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void car() {
-        if (this.hhJ != null && this.hhJ.isShowing()) {
-            this.hhJ.dismiss();
+    public void bWz() {
+        if (this.hdd != null && this.hdd.isShowing()) {
+            this.hdd.dismiss();
         }
-        if (this.hhK != null && this.hhK.isShowing()) {
-            this.hhK.dismiss();
+        if (this.hde != null && this.hde.isShowing()) {
+            this.hde.dismiss();
         }
-        if (this.hhE != null && this.hhE.isShowing()) {
-            this.hhE.dismiss();
+        if (this.hcY != null && this.hcY.isShowing()) {
+            this.hcY.dismiss();
         }
-        if (this.hhI != null && this.hhI.isShowing()) {
-            this.hhI.dismiss();
+        if (this.hdc != null && this.hdc.isShowing()) {
+            this.hdc.dismiss();
         }
-        if (this.hhH != null && this.hhH.isShowing()) {
-            this.hhH.dismiss();
+        if (this.hdb != null && this.hdb.isShowing()) {
+            this.hdb.dismiss();
         }
     }
 
@@ -155,19 +155,19 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
         if (TextUtils.equals("subject_mi_info", alaGuessQuesData.getContentType())) {
             if (fo(alaGuessQuesData.getRoomId()) && !fr(alaGuessQuesData.getQuesId())) {
                 if (fp(alaGuessQuesData.getQuesId())) {
-                    this.hhO = alaGuessQuesData;
-                    caz();
-                    long j = this.hhF.aKQ.userId;
+                    this.hdi = alaGuessQuesData;
+                    bWH();
+                    long j = this.hcZ.aGd.userId;
                     fq(alaGuessQuesData.getQuesId());
                     a(j, (int) alaGuessQuesData.getQuesId(), null);
                     e(alaGuessQuesData);
-                    this.hhR = 0;
-                    this.hhL.caq();
+                    this.hdl = 0;
+                    this.hdf.bWy();
                 } else if (BdLog.isDebugMode()) {
                     BdLog.d(TAG + " Ala guess verify error:Is a old question");
                 }
             }
-        } else if (TextUtils.equals(AlaGuessQuesData.ANSWER_INFO, alaGuessQuesData.getContentType()) && alaGuessQuesData.getRoomId() == this.hhF.mLiveInfo.room_id && alaGuessQuesData.getQuesId() == this.hhL.getId().longValue()) {
+        } else if (TextUtils.equals(AlaGuessQuesData.ANSWER_INFO, alaGuessQuesData.getContentType()) && alaGuessQuesData.getRoomId() == this.hcZ.mLiveInfo.room_id && alaGuessQuesData.getQuesId() == this.hdf.getId().longValue()) {
             d(alaGuessQuesData);
         }
     }
@@ -175,66 +175,66 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
     private void d(AlaGuessQuesData alaGuessQuesData) {
         if (!ft(alaGuessQuesData.getQuesId())) {
             fs(alaGuessQuesData.getQuesId());
-            caz();
-            if (this.hhJ != null) {
-                this.hhJ.wh(this.hhL.fn(alaGuessQuesData.getQuesId()));
-                this.hhJ.aw((float) alaGuessQuesData.getAmount());
-                this.hhJ.wi((int) alaGuessQuesData.getCorrectNum());
-                this.hhJ.setAverage(alaGuessQuesData.getAverage());
-                this.hhJ.h(alaGuessQuesData.getAnswer(), (float) alaGuessQuesData.getCorrectPercent());
-                this.hhJ.eu(alaGuessQuesData.getFirstOpt(), alaGuessQuesData.getSecondOpt());
-                this.hhJ.show();
+            bWH();
+            if (this.hdd != null) {
+                this.hdd.uB(this.hdf.fn(alaGuessQuesData.getQuesId()));
+                this.hdd.aw((float) alaGuessQuesData.getAmount());
+                this.hdd.uC((int) alaGuessQuesData.getCorrectNum());
+                this.hdd.setAverage(alaGuessQuesData.getAverage());
+                this.hdd.h(alaGuessQuesData.getAnswer(), (float) alaGuessQuesData.getCorrectPercent());
+                this.hdd.et(alaGuessQuesData.getFirstOpt(), alaGuessQuesData.getSecondOpt());
+                this.hdd.show();
             }
         }
     }
 
     public void onTimeout() {
-        this.hhH.show();
-        this.hhL.cai();
+        this.hdb.show();
+        this.hdf.bWq();
     }
 
-    public void cas() {
-        if (this.hhG == null && this.hhO != null) {
-            this.hhG = new CustomResponsedMessage<>(2913248, Long.valueOf(this.hhO.getAnchorId()));
+    public void bWA() {
+        if (this.hda == null && this.hdi != null) {
+            this.hda = new CustomResponsedMessage<>(2913248, Long.valueOf(this.hdi.getAnchorId()));
         }
-        MessageManager.getInstance().dispatchResponsedMessage(this.hhG);
-        this.hhL.cal();
+        MessageManager.getInstance().dispatchResponsedMessage(this.hda);
+        this.hdf.bWt();
     }
 
-    public boolean cat() {
-        return this.hhO.getVoucherNum() > 0;
+    public boolean bWB() {
+        return this.hdi.getVoucherNum() > 0;
     }
 
-    public void cau() {
-        this.hhR = 0;
-        if (this.hhE != null) {
-            this.hhE.LG();
-            this.hhE.dismiss();
+    public void bWC() {
+        this.hdl = 0;
+        if (this.hcY != null) {
+            this.hcY.HL();
+            this.hcY.dismiss();
         }
-        if (this.hhK == null) {
-            this.hhK = new f(this.mContext);
-            this.hhK.a(new f.a() { // from class: com.baidu.tieba.ala.live.guess.b.3
+        if (this.hde == null) {
+            this.hde = new f(this.mContext);
+            this.hde.a(new f.a() { // from class: com.baidu.tieba.ala.live.guess.b.3
                 @Override // com.baidu.tieba.ala.live.guess.a.f.a
-                public void aqZ() {
-                    b.this.hhK.dismiss();
+                public void ane() {
+                    b.this.hde.dismiss();
                 }
 
                 @Override // com.baidu.tieba.ala.live.guess.a.f.a
-                public void caB() {
-                    b.this.hhL.can();
-                    b.this.cav();
-                    b.this.hhK.dismiss();
+                public void bWJ() {
+                    b.this.hdf.bWv();
+                    b.this.bWD();
+                    b.this.hde.dismiss();
                 }
             });
         }
-        this.hhK.show();
+        this.hde.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cav() {
-        if (!TextUtils.isEmpty(this.hhQ)) {
+    public void bWD() {
+        if (!TextUtils.isEmpty(this.hdk)) {
             com.baidu.live.ap.c cVar = new com.baidu.live.ap.c();
-            cVar.url = this.hhQ;
+            cVar.url = this.hdk;
             if (!TextUtils.isEmpty(cVar.url) && cVar.url.contains("fullscreen=1")) {
                 cVar.isFullScreen = true;
             }
@@ -243,28 +243,28 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
     }
 
     public void a(long j, int i, a aVar) {
-        this.hhW = aVar;
+        this.hdq = aVar;
         w(j, i);
     }
 
     public void w(long j, int i) {
         if (BdUtilHelper.isNetOk()) {
-            this.hhM.a(j, i, new c.b() { // from class: com.baidu.tieba.ala.live.guess.b.4
+            this.hdg.a(j, i, new c.b() { // from class: com.baidu.tieba.ala.live.guess.b.4
                 @Override // com.baidu.live.guess.c.b
                 public void d(int i2, String str, boolean z) {
-                    if (b.this.hhO != null) {
-                        b.this.hhO.setVoucherNum(i2);
-                        b.this.hhP = z;
-                        b.this.hhQ = str;
+                    if (b.this.hdi != null) {
+                        b.this.hdi.setVoucherNum(i2);
+                        b.this.hdj = z;
+                        b.this.hdk = str;
                     }
-                    if (b.this.hhW != null) {
-                        b.this.hhW.caC();
+                    if (b.this.hdq != null) {
+                        b.this.hdq.bWK();
                     }
                 }
 
                 @Override // com.baidu.live.guess.c.b
                 public void onFailure(int i2) {
-                    if (b.this.hhW != null) {
+                    if (b.this.hdq != null) {
                         CustomToast.newInstance().showToast(b.this.mContext.getString(a.h.ala_guess_net_error));
                     }
                 }
@@ -275,86 +275,86 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
     }
 
     public void c(long j, long j2, int i) {
-        this.hhT = i;
+        this.hdn = i;
         if (BdUtilHelper.isNetOk()) {
-            this.hhM.a(j, j2, i, this);
+            this.hdg.a(j, j2, i, this);
         } else {
             CustomToast.newInstance().showToast(this.mContext.getString(a.h.ala_guess_net_error));
         }
-        this.hhR = 1;
+        this.hdl = 1;
     }
 
     @Override // com.baidu.live.guess.a
-    public void eW(int i) {
-        if (this.hhM != null) {
-            this.hhM.eY(i);
+    public void dq(int i) {
+        if (this.hdg != null) {
+            this.hdg.ds(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wg(final int i) {
-        this.hhL.wf(i);
+    public void uA(final int i) {
+        this.hdf.uz(i);
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mContext);
-        } else if (cat()) {
-            c(this.hhF.aKQ.userId, this.hhO.getQuesId(), i);
+        } else if (bWB()) {
+            c(this.hcZ.aGd.userId, this.hdi.getQuesId(), i);
         } else {
-            a(this.hhF.aKQ.userId, (int) this.hhO.getQuesId(), new a() { // from class: com.baidu.tieba.ala.live.guess.b.5
+            a(this.hcZ.aGd.userId, (int) this.hdi.getQuesId(), new a() { // from class: com.baidu.tieba.ala.live.guess.b.5
                 @Override // com.baidu.tieba.ala.live.guess.b.a
-                public void caC() {
-                    if (!b.this.cat()) {
-                        b.this.hhL.cao();
-                        b.this.cau();
+                public void bWK() {
+                    if (!b.this.bWB()) {
+                        b.this.hdf.bWw();
+                        b.this.bWC();
                         return;
                     }
-                    b.this.c(b.this.hhF.aKQ.userId, b.this.hhO.getQuesId(), i);
+                    b.this.c(b.this.hcZ.aGd.userId, b.this.hdi.getQuesId(), i);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caw() {
-        if (!this.hhP) {
-            if (this.hhE != null) {
-                this.hhE.LG();
-                this.hhE.dismiss();
+    public void bWE() {
+        if (!this.hdj) {
+            if (this.hcY != null) {
+                this.hcY.HL();
+                this.hcY.dismiss();
             }
-            if (this.hhI != null) {
-                this.hhL.cam();
-                this.hhI.show();
+            if (this.hdc != null) {
+                this.hdf.bWu();
+                this.hdc.show();
             }
         }
     }
 
     private boolean fp(long j) {
-        long longValue = this.hhL.getId().longValue();
+        long longValue = this.hdf.getId().longValue();
         return longValue == -1 || longValue != j;
     }
 
     private void x(long j, int i) {
-        this.hhL.v(j, i);
+        this.hdf.v(j, i);
     }
 
     private void e(AlaGuessQuesData alaGuessQuesData) {
         a(this.mContext, alaGuessQuesData);
-        this.hhE.show();
+        this.hcY.show();
     }
 
     private void a(Activity activity, AlaGuessQuesData alaGuessQuesData) {
-        this.hhE = new c.a().nu(true).wj(0).nv(false).a(new b.a() { // from class: com.baidu.tieba.ala.live.guess.b.6
+        this.hcY = new c.a().nq(true).uD(0).nr(false).a(new b.a() { // from class: com.baidu.tieba.ala.live.guess.b.6
             @Override // com.baidu.live.guess.b.a
-            public void LH() {
+            public void HM() {
             }
 
             @Override // com.baidu.live.guess.b.a
             public void a(com.baidu.live.guess.b bVar) {
-                b.this.wg(1);
+                b.this.uA(1);
             }
 
             @Override // com.baidu.live.guess.b.a
             public void b(com.baidu.live.guess.b bVar) {
-                b.this.wg(0);
+                b.this.uA(0);
             }
 
             @Override // com.baidu.live.guess.b.a
@@ -363,27 +363,27 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
 
             @Override // com.baidu.live.guess.b.a
             public void onTimeout() {
-                if (b.this.hhR != 0) {
-                    b.this.caw();
+                if (b.this.hdl != 0) {
+                    b.this.bWE();
                 } else {
                     b.this.onTimeout();
                 }
-                if (b.this.hhE != null) {
-                    b.this.hhE.dismiss();
+                if (b.this.hcY != null) {
+                    b.this.hcY.dismiss();
                 }
             }
 
             @Override // com.baidu.live.guess.b.a
             public void onExit() {
-                b.this.caw();
+                b.this.bWE();
             }
         }).ap(activity);
-        this.hhE.eX(alaGuessQuesData.getAnswerTime());
-        this.hhE.hG("" + alaGuessQuesData.getAmount());
-        this.hhE.setQuesContent("" + alaGuessQuesData.getQuesContent());
-        this.hhE.hI(alaGuessQuesData.getSecondOpt());
-        this.hhE.hH(alaGuessQuesData.getFirstOpt());
-        this.hhE.a(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.b.7
+        this.hcY.dr(alaGuessQuesData.getAnswerTime());
+        this.hcY.gv("" + alaGuessQuesData.getAmount());
+        this.hcY.setQuesContent("" + alaGuessQuesData.getQuesContent());
+        this.hcY.gx(alaGuessQuesData.getSecondOpt());
+        this.hcY.gw(alaGuessQuesData.getFirstOpt());
+        this.hcY.a(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.b.7
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 return false;
@@ -391,33 +391,33 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
         }));
     }
 
-    @Override // com.baidu.live.guess.c.InterfaceC0183c
+    @Override // com.baidu.live.guess.c.InterfaceC0174c
     public void a(AlaGuessQuesData alaGuessQuesData) {
         if (alaGuessQuesData != null) {
-            if (this.hhE == null) {
+            if (this.hcY == null) {
                 a(this.mContext, alaGuessQuesData);
             }
             c(alaGuessQuesData);
         }
     }
 
-    @Override // com.baidu.live.guess.c.InterfaceC0183c
+    @Override // com.baidu.live.guess.c.InterfaceC0174c
     public void b(AlaGuessQuesData alaGuessQuesData) {
         if (alaGuessQuesData != null) {
-            this.hhN = alaGuessQuesData;
-            if (this.hhJ == null) {
-                this.hhJ = new com.baidu.tieba.ala.live.guess.a.a(this.mContext);
-                this.hhJ.a(this);
+            this.hdh = alaGuessQuesData;
+            if (this.hdd == null) {
+                this.hdd = new com.baidu.tieba.ala.live.guess.a.a(this.mContext);
+                this.hdd.a(this);
             }
-            c(this.hhN);
+            c(this.hdh);
         }
     }
 
     @Override // com.baidu.live.guess.c.a
-    public void LM() {
-        this.hhL.cap();
-        x(this.hhO.getQuesId(), this.hhT);
-        this.hhE.LF();
+    public void HR() {
+        this.hdf.bWx();
+        x(this.hdi.getQuesId(), this.hdn);
+        this.hcY.HK();
     }
 
     @Override // com.baidu.live.guess.c.a
@@ -427,38 +427,38 @@ public class b implements com.baidu.live.guess.a, c.a, c.InterfaceC0183c, a.Inte
                 BdLog.d(TAG + " repeat answer");
             }
         } else {
-            this.hhR = 0;
+            this.hdl = 0;
         }
         CustomToast.newInstance().showToast(str);
     }
 
     public void fq(long j) {
-        this.hhU.add(Long.valueOf(j));
+        this.hdo.add(Long.valueOf(j));
     }
 
     public boolean fr(long j) {
-        return this.hhU.contains(Long.valueOf(j));
+        return this.hdo.contains(Long.valueOf(j));
     }
 
     public void fs(long j) {
-        this.hhV.add(Long.valueOf(j));
+        this.hdp.add(Long.valueOf(j));
     }
 
     public boolean ft(long j) {
-        return this.hhV.contains(Long.valueOf(j));
+        return this.hdp.contains(Long.valueOf(j));
     }
 
-    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0664a
-    public void cax() {
-        this.hhL.cak();
+    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0647a
+    public void bWF() {
+        this.hdf.bWs();
     }
 
-    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0664a
-    public void cay() {
-        this.hhL.caj();
+    @Override // com.baidu.tieba.ala.live.guess.a.a.InterfaceC0647a
+    public void bWG() {
+        this.hdf.bWr();
     }
 
-    private void caz() {
+    private void bWH() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913253, "into_end_view"));
     }
 }

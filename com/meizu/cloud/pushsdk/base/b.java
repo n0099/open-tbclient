@@ -12,35 +12,35 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements g {
     private long d = 60;
     private int e = 10;
     private boolean i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private SimpleDateFormat f11528a = new SimpleDateFormat("MM-dd HH:mm:ss");
+    private SimpleDateFormat f11228a = new SimpleDateFormat("MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    private List<a> f11529b = Collections.synchronizedList(new ArrayList());
+    private List<a> f11229b = Collections.synchronizedList(new ArrayList());
     private Handler c = new Handler(Looper.getMainLooper());
     private String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
     private e f = new e();
     private String h = String.valueOf(Process.myPid());
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f11532a;
+        String f11232a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f11533b;
+        String f11233b;
         String c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f11528a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f11228a.format(new Date()));
             stringBuffer.append(" ");
             stringBuffer.append(b.this.h);
             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -48,22 +48,22 @@ public class b implements g {
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f11532a = stringBuffer.toString();
-            this.f11533b = str2;
+            this.f11232a = stringBuffer.toString();
+            this.f11233b = str2;
             this.c = str3;
         }
     }
 
     private void a(a aVar) {
         try {
-            this.f11529b.add(aVar);
+            this.f11229b.add(aVar);
         } catch (Exception e) {
             Log.e("Logger", "add logInfo error " + e.getMessage());
         }
     }
 
     private void b() {
-        if (this.f11529b.size() == 0) {
+        if (this.f11229b.size() == 0) {
             this.c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -74,7 +74,7 @@ public class b implements g {
     }
 
     private void c() {
-        if (this.f11529b.size() == this.e) {
+        if (this.f11229b.size() == this.e) {
             a(true);
         }
     }
@@ -89,7 +89,7 @@ public class b implements g {
         if (this.i) {
             Log.d(str, str2);
         }
-        synchronized (this.f11529b) {
+        synchronized (this.f11229b) {
             b();
             a(new a("D", str, str2));
             c();
@@ -101,7 +101,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2, th);
         }
-        synchronized (this.f11529b) {
+        synchronized (this.f11229b) {
             b();
             a(new a("E", str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
@@ -114,15 +114,15 @@ public class b implements g {
             @Override // java.lang.Runnable
             public void run() {
                 ArrayList<a> arrayList = new ArrayList();
-                synchronized (b.this.f11529b) {
+                synchronized (b.this.f11229b) {
                     b.this.c.removeCallbacksAndMessages(null);
-                    arrayList.addAll(b.this.f11529b);
-                    b.this.f11529b.clear();
+                    arrayList.addAll(b.this.f11229b);
+                    b.this.f11229b.clear();
                 }
                 try {
                     b.this.f.a(b.this.g);
                     for (a aVar : arrayList) {
-                        b.this.f.a(aVar.f11532a, aVar.f11533b, aVar.c);
+                        b.this.f.a(aVar.f11232a, aVar.f11233b, aVar.c);
                     }
                     try {
                         b.this.f.a();
@@ -159,7 +159,7 @@ public class b implements g {
         if (this.i) {
             Log.i(str, str2);
         }
-        synchronized (this.f11529b) {
+        synchronized (this.f11229b) {
             b();
             a(new a("I", str, str2));
             c();
@@ -176,7 +176,7 @@ public class b implements g {
         if (this.i) {
             Log.w(str, str2);
         }
-        synchronized (this.f11529b) {
+        synchronized (this.f11229b) {
             b();
             a(new a("W", str, str2));
             c();
@@ -188,7 +188,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2);
         }
-        synchronized (this.f11529b) {
+        synchronized (this.f11229b) {
             b();
             a(new a("E", str, str2));
             c();

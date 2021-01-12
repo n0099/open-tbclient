@@ -4,16 +4,16 @@ import android.graphics.Bitmap;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ae {
-    private static ae fcJ;
-    private static final BdUniqueId fcK = BdUniqueId.gen();
+    private static ae eYa;
+    private static final BdUniqueId eYb = BdUniqueId.gen();
 
-    public static synchronized ae bwa() {
+    public static synchronized ae bsg() {
         ae aeVar;
         synchronized (ae.class) {
-            if (fcJ == null) {
-                fcJ = new ae();
+            if (eYa == null) {
+                eYa = new ae();
             }
-            aeVar = fcJ;
+            aeVar = eYa;
         }
         return aeVar;
     }
@@ -49,7 +49,7 @@ public class ae {
         int i3;
         int i4;
         boolean z2 = true;
-        int msgSPicMaxSizeInt = LocalViewSize.bvO().getMsgSPicMaxSizeInt();
+        int msgSPicMaxSizeInt = LocalViewSize.brU().getMsgSPicMaxSizeInt();
         if (z) {
             if (i / i2 >= 3) {
                 i3 = i / 2;

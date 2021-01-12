@@ -7,15 +7,15 @@ import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f11047a;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f10747a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsVideoPlayConfig f11048b;
+    public KsVideoPlayConfig f10748b;
     @NonNull
     public AdTemplate c;
     @NonNull

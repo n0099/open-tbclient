@@ -6,22 +6,22 @@ import kotlin.collections.w;
 /* loaded from: classes5.dex */
 final class e extends w {
     private int index;
-    private final float[] qnK;
+    private final float[] qji;
 
     public e(float[] fArr) {
         p.o(fArr, com.baidu.fsg.base.statistics.b.j);
-        this.qnK = fArr;
+        this.qji = fArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qnK.length;
+        return this.index < this.qji.length;
     }
 
     @Override // kotlin.collections.w
-    public float eMB() {
+    public float eIL() {
         try {
-            float[] fArr = this.qnK;
+            float[] fArr = this.qji;
             int i = this.index;
             this.index = i + 1;
             return fArr[i];

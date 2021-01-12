@@ -10,61 +10,61 @@ import com.baidu.fsg.face.base.d.g;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2106a;
+    private Context f2056a;
 
     /* renamed from: b  reason: collision with root package name */
-    private C0111a f2107b;
+    private C0109a f2057b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.f2106a = context;
-        this.f2107b = new C0111a();
+        this.f2056a = context;
+        this.f2057b = new C0109a();
         b.a a2 = b.a(i);
-        c a3 = b.a(context).a(context.getApplicationContext(), a2.f2112a);
-        this.f2107b.j = a2.f2112a;
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f2062a);
+        this.f2057b.j = a2.f2062a;
         try {
             if (!a3.q || !a3.r) {
-                this.f2107b.i = a2.f2113b;
-                this.f2107b.k = true;
+                this.f2057b.i = a2.f2063b;
+                this.f2057b.k = true;
                 a(a2.d, a2);
                 return true;
             }
             if (!a3.p) {
                 a(a2, a3, a2.d);
-            } else if (a2.f2113b.compareTo(a3.n) > 0) {
-                this.f2107b.i = a2.f2113b;
+            } else if (a2.f2063b.compareTo(a3.n) > 0) {
+                this.f2057b.i = a2.f2063b;
                 a(a2.d, a2);
             } else {
                 a(a2, a3, a2.d);
             }
-            this.f2107b.k = true;
+            this.f2057b.k = true;
             return true;
         } catch (Throwable th) {
             try {
-                this.f2107b.n = Log.getStackTraceString(th);
-                this.f2107b.o = this.f2107b.i;
-                this.f2107b.k = false;
+                this.f2057b.n = Log.getStackTraceString(th);
+                this.f2057b.o = this.f2057b.i;
+                this.f2057b.k = false;
                 return false;
             } finally {
-                this.f2107b.b();
+                this.f2057b.b();
             }
         }
     }
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.f2106a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f2056a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
             System.loadLibrary(str);
         }
-        this.f2107b.l = true;
+        this.f2057b.l = true;
     }
 
     private void a(b.a aVar, c cVar, String[] strArr) {
@@ -72,14 +72,14 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.f2106a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f2056a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
-            this.f2107b.i = cVar.n;
+            this.f2057b.i = cVar.n;
         } catch (Throwable th) {
-            this.f2107b.m = false;
-            this.f2107b.i = aVar.f2113b;
-            this.f2107b.n = Log.getStackTraceString(th);
-            this.f2107b.o = cVar.n;
+            this.f2057b.m = false;
+            this.f2057b.i = aVar.f2063b;
+            this.f2057b.n = Log.getStackTraceString(th);
+            this.f2057b.o = cVar.n;
             z = false;
         }
         if (!z) {
@@ -89,11 +89,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0111a {
+    /* loaded from: classes5.dex */
+    public class C0109a {
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f2108b = "load_so_zip_version";
+        private static final String f2058b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
         private static final String e = "load_so_success";
@@ -108,14 +108,14 @@ public class a {
         private String n;
         private String o;
 
-        private C0111a() {
+        private C0109a() {
             this.l = false;
             this.m = true;
         }
 
         private Map<String, String> a() {
             HashMap hashMap = new HashMap();
-            hashMap.put(f2108b, this.i);
+            hashMap.put(f2058b, this.i);
             hashMap.put(c, this.j);
             hashMap.put(d, this.l ? "1" : "-1");
             hashMap.put(e, this.k ? "1" : "-1");

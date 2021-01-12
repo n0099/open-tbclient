@@ -7,17 +7,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.draw.b.b.a;
 import com.kwad.sdk.draw.view.playcard.DrawCardApp;
 import com.kwad.sdk.draw.view.playcard.DrawCardH5;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9990b;
+    private ViewGroup f9690b;
     private DrawCardApp c;
     private DrawCardH5 d;
     private AdTemplate e;
     private AdInfo f;
-    private a.InterfaceC1123a g = new a.InterfaceC1123a() { // from class: com.kwad.sdk.draw.b.b.b.1
-        @Override // com.kwad.sdk.draw.b.b.a.InterfaceC1123a
+    private a.InterfaceC1106a g = new a.InterfaceC1106a() { // from class: com.kwad.sdk.draw.b.b.b.1
+        @Override // com.kwad.sdk.draw.b.b.a.InterfaceC1106a
         public void a() {
             b.this.e();
         }
@@ -33,11 +33,11 @@ public class b extends com.kwad.sdk.draw.a.a {
     }
 
     private void f() {
-        this.f9990b.setVisibility(8);
+        this.f9690b.setVisibility(8);
         this.c.a(this.e, new DrawCardApp.a() { // from class: com.kwad.sdk.draw.b.b.b.2
             @Override // com.kwad.sdk.draw.view.playcard.DrawCardApp.a
             public void a() {
-                b.this.f9990b.setVisibility(0);
+                b.this.f9690b.setVisibility(0);
             }
 
             @Override // com.kwad.sdk.draw.view.playcard.DrawCardApp.a
@@ -50,11 +50,11 @@ public class b extends com.kwad.sdk.draw.a.a {
     }
 
     private void g() {
-        this.f9990b.setVisibility(8);
+        this.f9690b.setVisibility(8);
         this.d.a(this.e, new DrawCardH5.a() { // from class: com.kwad.sdk.draw.b.b.b.3
             @Override // com.kwad.sdk.draw.view.playcard.DrawCardH5.a
             public void a() {
-                b.this.f9990b.setVisibility(0);
+                b.this.f9690b.setVisibility(0);
             }
 
             @Override // com.kwad.sdk.draw.view.playcard.DrawCardH5.a
@@ -68,9 +68,9 @@ public class b extends com.kwad.sdk.draw.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        com.kwad.sdk.core.report.b.a(this.e, 29, this.f9973a.f9975b.getTouchCoords());
-        if (this.f9973a.f9974a != null) {
-            this.f9973a.f9974a.onAdClicked();
+        com.kwad.sdk.core.report.b.a(this.e, 29, this.f9673a.f9675b.getTouchCoords());
+        if (this.f9673a.f9674a != null) {
+            this.f9673a.f9674a.onAdClicked();
         }
     }
 
@@ -78,9 +78,9 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f9973a.c;
+        this.e = this.f9673a.c;
         this.f = com.kwad.sdk.core.response.b.c.j(this.e);
-        this.f9973a.f.a(this.g);
+        this.f9673a.f.a(this.g);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
     }
@@ -91,14 +91,14 @@ public class b extends com.kwad.sdk.draw.a.a {
         super.b_();
         this.c.a();
         this.d.a();
-        this.f9973a.f.a((a.InterfaceC1123a) null);
+        this.f9673a.f.a((a.InterfaceC1106a) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9990b = (ViewGroup) b(R.id.ksad_ad_normal_container);
+        this.f9690b = (ViewGroup) b(R.id.ksad_ad_normal_container);
         this.c = (DrawCardApp) b(R.id.ksad_card_app_container);
         this.d = (DrawCardH5) b(R.id.ksad_card_h5_container);
     }

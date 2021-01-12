@@ -7,60 +7,60 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.swan.c.d;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private static final c dfE = new c();
+        private static final c daP = new c();
     }
 
-    public static c azp() {
-        return a.dfE;
+    public static c avv() {
+        return a.daP;
     }
 
-    public boolean oV(String str) {
+    public boolean nI(String str) {
         String str2;
         String str3;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp start, appKey = " + str);
-        File azr = com.baidu.swan.apps.impl.a.a.a.azr();
-        if (azr == null || !azr.exists()) {
+        com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp start, appKey = " + str);
+        File avx = com.baidu.swan.apps.impl.a.a.a.avx();
+        if (avx == null || !avx.exists()) {
             return false;
         }
-        File file = new File(azr, com.baidu.swan.apps.impl.a.a.a.dfR);
+        File file = new File(avx, com.baidu.swan.apps.impl.a.a.a.dbc);
         if (!file.exists()) {
-            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp clone_zipFiles file not exists");
+            com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp clone_zipFiles file not exists");
             return false;
         }
-        File b2 = b.b(d.N(file), azr);
+        File b2 = b.b(d.M(file), avx);
         if (b2 == null || !b2.exists()) {
-            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp cloneZip.zip file not exists");
+            com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp cloneZip.zip file not exists");
             return false;
         }
-        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.dfI);
+        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.daT);
         if (file2.exists()) {
             d.safeDeleteFile(file2);
         }
         if (!d.ensureDirectoryExist(file2)) {
-            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp root cache dir create fail");
+            com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp root cache dir create fail");
             return false;
         }
-        boolean z = d.dD(b2.getAbsolutePath(), com.baidu.swan.apps.impl.a.a.a.dfI) == null;
+        boolean z = d.dC(b2.getAbsolutePath(), com.baidu.swan.apps.impl.a.a.a.daT) == null;
         if (z) {
             d.deleteFile(file);
             d.deleteFile(b2);
         }
-        com.baidu.swan.apps.impl.a.a.azn().oU("unzip file status = " + z);
-        File file3 = new File(com.baidu.swan.apps.impl.a.a.a.dfI);
+        com.baidu.swan.apps.impl.a.a.avt().nH("unzip file status = " + z);
+        File file3 = new File(com.baidu.swan.apps.impl.a.a.a.daT);
         String[] list = file3.list();
         if (list == null || list.length == 0) {
-            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp unzip file length invalid");
+            com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp unzip file length invalid");
             return false;
         }
         int length = list.length;
@@ -72,19 +72,19 @@ public class c {
                 break;
             }
             str2 = list[i];
-            if (TextUtils.isEmpty(str2) || !str2.startsWith(com.baidu.swan.apps.impl.a.a.a.dfJ)) {
+            if (TextUtils.isEmpty(str2) || !str2.startsWith(com.baidu.swan.apps.impl.a.a.a.daU)) {
                 i++;
             } else {
-                str3 = str2.substring(com.baidu.swan.apps.impl.a.a.a.dfJ.length());
+                str3 = str2.substring(com.baidu.swan.apps.impl.a.a.a.daU.length());
                 break;
             }
         }
         if (!TextUtils.equals(str, str3) || TextUtils.isEmpty(str2)) {
-            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp install appKey not match zip file appKey");
+            com.baidu.swan.apps.impl.a.a.avt().nH("installSwanApp install appKey not match zip file appKey");
             return false;
         }
-        File file4 = new File(com.baidu.swan.apps.impl.a.a.a.dfI, str2);
-        com.baidu.swan.apps.impl.a.a.azn().oU("installSwanPkg = " + j(str, file4) + " ; installCore = " + k(str, file4) + " ; installSp = " + l(str, file4) + " ; installDb = " + m(str, file4) + " ; installAbTest = " + oW(str) + " ; installDynamicLib = " + n(str, file4));
+        File file4 = new File(com.baidu.swan.apps.impl.a.a.a.daT, str2);
+        com.baidu.swan.apps.impl.a.a.avt().nH("installSwanPkg = " + j(str, file4) + " ; installCore = " + k(str, file4) + " ; installSp = " + l(str, file4) + " ; installDb = " + m(str, file4) + " ; installAbTest = " + nJ(str) + " ; installDynamicLib = " + n(str, file4));
         return d.deleteFile(file3);
     }
 
@@ -92,24 +92,24 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.dfL), com.baidu.swan.apps.impl.a.a.a.dfF);
+        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.daW), com.baidu.swan.apps.impl.a.a.a.daQ);
     }
 
     public boolean k(String str, File file) {
         if (file == null || !file.exists()) {
             return false;
         }
-        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.dfM), com.baidu.swan.apps.impl.a.a.a.dfF);
+        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.daX), com.baidu.swan.apps.impl.a.a.a.daQ);
     }
 
     public boolean l(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
             return false;
         }
-        return z(new File(file, com.baidu.swan.apps.impl.a.a.a.dfO));
+        return y(new File(file, com.baidu.swan.apps.impl.a.a.a.daZ));
     }
 
-    private boolean z(@NonNull File file) {
+    private boolean y(@NonNull File file) {
         if (file.exists() && file.isDirectory()) {
             File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
             File file3 = new File(AppRuntime.getAppContext().getFilesDir(), "swan_prefs");
@@ -150,13 +150,13 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        boolean j = j(new File(file, com.baidu.swan.apps.impl.a.a.a.dfP), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, NgWebView.APP_DATABASE_PATH));
-        SwanAppDbControl.cR(AppRuntime.getAppContext()).release();
-        com.baidu.swan.pms.database.provider.a.bgj().release();
+        boolean j = j(new File(file, com.baidu.swan.apps.impl.a.a.a.dba), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, NgWebView.APP_DATABASE_PATH));
+        SwanAppDbControl.cQ(AppRuntime.getAppContext()).release();
+        com.baidu.swan.pms.database.provider.a.bcp().release();
         return j;
     }
 
-    public boolean oW(String str) {
+    public boolean nJ(String str) {
         return true;
     }
 
@@ -164,7 +164,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.dfN), AppRuntime.getAppContext().getFilesDir());
+        return j(new File(file, com.baidu.swan.apps.impl.a.a.a.daY), AppRuntime.getAppContext().getFilesDir());
     }
 
     private boolean j(File file, File file2) {

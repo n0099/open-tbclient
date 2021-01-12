@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class XAdContext implements IXAdContext {
     public static final String PARAMETER_KEY_OF_BASE_HEIGHT = "BASE_HEIGHT";
     public static final String PARAMETER_KEY_OF_BASE_WIDTH = "BASE_WIDTH";
@@ -47,10 +47,10 @@ public class XAdContext implements IXAdContext {
     private IXAdConstants4PDK.ActivityState f = IXAdConstants4PDK.ActivityState.CREATE;
 
     /* renamed from: a  reason: collision with root package name */
-    int f3277a = 0;
+    int f3239a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    int f3278b = 0;
+    int f3240b = 0;
     private final IOAdEventDispatcher p = new c();
     private final XAdSlotManager q = new XAdSlotManager();
     protected IXAdLogger mAdLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
@@ -179,27 +179,27 @@ public class XAdContext implements IXAdContext {
             HashMap<String, String> parameter = retrievePrerollAdSlot.getParameter();
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_REQUESTING_TIMEOUT, "" + this.i);
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_CREATIVE_LOADING_TIMEOUT, "" + this.j);
-            parameter.put(PARAMETER_KEY_OF_BASE_WIDTH, "" + this.f3277a);
-            parameter.put(PARAMETER_KEY_OF_BASE_HEIGHT, "" + this.f3278b);
+            parameter.put(PARAMETER_KEY_OF_BASE_WIDTH, "" + this.f3239a);
+            parameter.put(PARAMETER_KEY_OF_BASE_HEIGHT, "" + this.f3240b);
             retrievePrerollAdSlot.setParameter(parameter);
         }
         retrievePrerollAdSlot.request();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class AdSlotEventListener implements IOAdEventListener {
         public static final String TAG = "AdSlotEventListener";
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f3280a;
+        private final Context f3242a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final IXAdProd f3281b;
+        private final IXAdProd f3243b;
         private final IOAdEventDispatcher c;
 
         public AdSlotEventListener(Context context, IXAdProd iXAdProd, IOAdEventDispatcher iOAdEventDispatcher) {
-            this.f3280a = context;
-            this.f3281b = iXAdProd;
+            this.f3242a = context;
+            this.f3243b = iXAdProd;
             this.c = iOAdEventDispatcher;
         }
 
@@ -210,28 +210,28 @@ public class XAdContext implements IXAdContext {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (iOAdEvent.getType().equals(b.COMPLETE)) {
-                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_REQUEST_COMPLETE, AdSlotEventListener.this.f3281b));
+                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_REQUEST_COMPLETE, AdSlotEventListener.this.f3243b));
                     }
                     if (iOAdEvent.getType().equals(IXAdEvent.AD_STARTED)) {
-                        if (AdSlotEventListener.this.f3281b.getProdBase() != null) {
-                            AdSlotEventListener.this.f3281b.getProdBase().setVisibility(0);
+                        if (AdSlotEventListener.this.f3243b.getProdBase() != null) {
+                            AdSlotEventListener.this.f3243b.getProdBase().setVisibility(0);
                         }
-                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_STARTED, AdSlotEventListener.this.f3281b));
+                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_STARTED, AdSlotEventListener.this.f3243b));
                     }
                     if (iOAdEvent.getType().equals("AdUserClick")) {
-                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_CLICKED, AdSlotEventListener.this.f3281b));
+                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_CLICKED, AdSlotEventListener.this.f3243b));
                     }
                     if (iOAdEvent.getType().equals(IXAdEvent.AD_STOPPED)) {
-                        if (AdSlotEventListener.this.f3281b.getProdBase() != null) {
-                            AdSlotEventListener.this.f3281b.getProdBase().setVisibility(4);
+                        if (AdSlotEventListener.this.f3243b.getProdBase() != null) {
+                            AdSlotEventListener.this.f3243b.getProdBase().setVisibility(4);
                         }
-                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_ENDED, AdSlotEventListener.this.f3281b));
+                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_SLOT_ENDED, AdSlotEventListener.this.f3243b));
                     }
                     if (iOAdEvent.getType().equals(IXAdEvent.AD_ERROR)) {
-                        if (AdSlotEventListener.this.f3281b.getProdBase() != null) {
-                            AdSlotEventListener.this.f3281b.getProdBase().setVisibility(4);
+                        if (AdSlotEventListener.this.f3243b.getProdBase() != null) {
+                            AdSlotEventListener.this.f3243b.getProdBase().setVisibility(4);
                         }
-                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_ERROR, AdSlotEventListener.this.f3281b));
+                        AdSlotEventListener.this.c.dispatchEvent(new XAdEvent4PDK(IXAdConstants4PDK.EVENT_ERROR, AdSlotEventListener.this.f3243b));
                     }
                 }
             });
@@ -292,12 +292,12 @@ public class XAdContext implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setVideoDisplayBaseWidth(int i) {
-        this.f3277a = i;
+        this.f3239a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setVideoDisplayBaseHeight(int i) {
-        this.f3278b = i;
+        this.f3240b = i;
     }
 
     public void setSupportTipView(boolean z) {

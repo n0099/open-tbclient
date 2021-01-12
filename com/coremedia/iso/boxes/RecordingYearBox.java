@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecordingYearBox extends AbstractFullBox {
     public static final String TYPE = "yrrc";
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
     int recordingYear;
 
     static {
@@ -39,7 +39,7 @@ public class RecordingYearBox extends AbstractFullBox {
     }
 
     public void setRecordingYear(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.TI(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sb(i)));
         this.recordingYear = i;
     }
 

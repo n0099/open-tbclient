@@ -1,13 +1,13 @@
 package com.baidu.live.y;
 
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    boolean RS();
+    boolean NX();
 
     void a(x xVar, a aVar);
 
-    void el(int i);
+    void cF(int i);
 
     void onDestroy();
 }

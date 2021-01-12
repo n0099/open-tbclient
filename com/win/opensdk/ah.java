@@ -12,51 +12,51 @@ import android.widget.ImageView;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.d;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ah implements ae<Info> {
 
     /* renamed from: java  reason: collision with other field name */
-    private String f19java;
-    public q qdA;
-    Info qdE;
-    long qdF;
-    private bj qdG;
-    Context qdj;
-    public PBBannerListener qdl;
-    public boolean qdm;
-    public bw qdq;
-    public ad qes;
-    PBBannerView qeu;
+    private String f18java;
+    Context pYI;
+    public PBBannerListener pYK;
+    public boolean pYL;
+    public bw pYP;
+    public q pYZ;
+    public ad pZR;
+    PBBannerView pZT;
+    Info pZd;
+    long pZe;
+    private bj pZf;
     int java = 10;
 
     /* renamed from: case  reason: not valid java name */
-    int f18case = 8;
-    public AtomicInteger qev = new AtomicInteger(0);
-    public Handler qer = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ah.1
+    int f17case = 8;
+    public AtomicInteger pZU = new AtomicInteger(0);
+    public Handler pZQ = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ah.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 100151:
                     int i = 0;
-                    if (ah.this.qdE != null) {
-                        i = ah.this.qdE.getWt();
+                    if (ah.this.pZd != null) {
+                        i = ah.this.pZd.getWt();
                     }
-                    w.iM(ah.this.qdj).a(new x(ah.this.qdE), 2002, i * 1000).eKp();
-                    ah.this.qer.removeMessages(100151);
+                    w.iK(ah.this.pYI).a(new x(ah.this.pZd), 2002, i * 1000).eGz();
+                    ah.this.pZQ.removeMessages(100151);
                     ah.this.a(PBError.TIMEOUT);
                     return;
                 case 100152:
-                    if (ah.this.qev.get() < 3) {
-                        if (ah.this.qeu == null || !ah.this.qeu.isVisible()) {
-                            ah.this.qer.sendEmptyMessageDelayed(100152, ah.this.f18case * 1000);
+                    if (ah.this.pZU.get() < 3) {
+                        if (ah.this.pZT == null || !ah.this.pZT.isVisible()) {
+                            ah.this.pZQ.sendEmptyMessageDelayed(100152, ah.this.f17case * 1000);
                             return;
                         } else {
-                            ah.this.eKp();
+                            ah.this.eGz();
                             return;
                         }
                     }
-                    ah.this.qer.removeMessages(100152);
+                    ah.this.pZQ.removeMessages(100152);
                     return;
                 default:
                     return;
@@ -72,123 +72,123 @@ public final class ah implements ae<Info> {
             a(PBError.NO_FILL);
             return;
         }
-        this.qdE = info2;
-        this.qev.set(0);
-        this.f18case = info2.getTsi();
-        this.qdF = System.currentTimeMillis();
+        this.pZd = info2;
+        this.pZU.set(0);
+        this.f17case = info2.getTsi();
+        this.pZe = System.currentTimeMillis();
         if (info2.getType() != 31) {
             if (info2.getType() != 32) {
                 a(PBError.PID_TYPE_ERROR);
             } else {
                 try {
-                    this.qdA = new q(this.qdj, af.BANNER);
-                    this.qdA.qdW = new bq() { // from class: com.win.opensdk.ah.2
+                    this.pYZ = new q(this.pYI, af.BANNER);
+                    this.pYZ.pZv = new bq() { // from class: com.win.opensdk.ah.2
                         @Override // com.win.opensdk.bq
-                        public final void eKp() {
-                            ah.this.qer.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
+                        public final void eGz() {
+                            ah.this.pZQ.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
                         }
 
                         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [185=4] */
                         @Override // com.win.opensdk.bq
-                        public final void eKq() {
-                            ah.this.qer.removeMessages(100151);
-                            ah.a(ah.this, info2, ah.this.qdA);
-                            w.iM(ah.this.qdj).a(new x(ah.this.qdE), 200, System.currentTimeMillis() - ah.this.qdF).eKp();
-                            w.iM(ah.this.qdj).a(new x(info2)).eKp();
+                        public final void eGA() {
+                            ah.this.pZQ.removeMessages(100151);
+                            ah.a(ah.this, info2, ah.this.pYZ);
+                            w.iK(ah.this.pYI).a(new x(ah.this.pZd), 200, System.currentTimeMillis() - ah.this.pZe).eGz();
+                            w.iK(ah.this.pYI).a(new x(info2)).eGz();
                             ah.a(ah.this);
-                            z.b(ah.this.qdE);
+                            z.b(ah.this.pZd);
                         }
                     };
-                    this.qdA.qdX = new bo() { // from class: com.win.opensdk.ah.3
+                    this.pYZ.pZw = new bo() { // from class: com.win.opensdk.ah.3
                         @Override // com.win.opensdk.bo
-                        public final boolean hu(String str, String str2) {
+                        public final boolean ht(String str, String str2) {
                             ah.a(ah.this, info2, str);
-                            if (ah.this.qdl != null) {
-                                ah.this.qdl.onClicked();
+                            if (ah.this.pYK != null) {
+                                ah.this.pYK.onClicked();
                                 return true;
                             }
                             return true;
                         }
 
                         @Override // com.win.opensdk.bo
-                        public final void abL(String str) {
+                        public final void aaD(String str) {
                         }
                     };
-                    this.qdA.a(info2.getLoad(), this.qdE);
+                    this.pYZ.a(info2.getLoad(), this.pZd);
                 } catch (Exception e) {
                 }
             }
         } else {
             try {
-                this.qdq = new bw(this.qdj);
-                this.qdq.qdW = new bq() { // from class: com.win.opensdk.ah.4
+                this.pYP = new bw(this.pYI);
+                this.pYP.pZv = new bq() { // from class: com.win.opensdk.ah.4
                     @Override // com.win.opensdk.bq
-                    public final void eKp() {
-                        ah.this.qer.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
+                    public final void eGz() {
+                        ah.this.pZQ.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
                     }
 
                     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [251=4] */
                     @Override // com.win.opensdk.bq
-                    public final void eKq() {
-                        ah.this.qer.removeMessages(100151);
-                        ah.a(ah.this, info2, ah.this.qdq);
-                        w.iM(ah.this.qdj).a(new x(ah.this.qdE), 200, System.currentTimeMillis() - ah.this.qdF).eKp();
-                        w.iM(ah.this.qdj).a(new x(info2)).eKp();
+                    public final void eGA() {
+                        ah.this.pZQ.removeMessages(100151);
+                        ah.a(ah.this, info2, ah.this.pYP);
+                        w.iK(ah.this.pYI).a(new x(ah.this.pZd), 200, System.currentTimeMillis() - ah.this.pZe).eGz();
+                        w.iK(ah.this.pYI).a(new x(info2)).eGz();
                         ah.a(ah.this);
-                        z.b(ah.this.qdE);
+                        z.b(ah.this.pZd);
                     }
                 };
-                this.qdq.qdX = new bo() { // from class: com.win.opensdk.ah.5
+                this.pYP.pZw = new bo() { // from class: com.win.opensdk.ah.5
                     @Override // com.win.opensdk.bo
-                    public final boolean hu(String str, String str2) {
+                    public final boolean ht(String str, String str2) {
                         ah.a(ah.this, info2, str);
-                        if (ah.this.qdl != null) {
-                            ah.this.qdl.onClicked();
+                        if (ah.this.pYK != null) {
+                            ah.this.pYK.onClicked();
                             return true;
                         }
                         return true;
                     }
 
                     @Override // com.win.opensdk.bo
-                    public final void abL(String str) {
+                    public final void aaD(String str) {
                     }
                 };
-                this.qdq.a(info2.getLoad(), this.qdE);
+                this.pYP.a(info2.getLoad(), this.pZd);
             } catch (Exception e2) {
             }
         }
-        this.qer.sendEmptyMessageDelayed(100152, this.f18case * 1000);
+        this.pZQ.sendEmptyMessageDelayed(100152, this.f17case * 1000);
     }
 
     public ah(Context context, PBBannerView pBBannerView, String str) {
-        this.qdj = context;
-        this.qeu = pBBannerView;
-        this.f19java = str;
-        this.qdG = new bj(context);
+        this.pYI = context;
+        this.pZT = pBBannerView;
+        this.f18java = str;
+        this.pZf = new bj(context);
     }
 
     final void a(PBError pBError) {
-        if (!this.qdm) {
-            this.qdm = true;
-            if (this.qdl != null) {
-                this.qdl.onFail(pBError);
+        if (!this.pYL) {
+            this.pYL = true;
+            if (this.pYK != null) {
+                this.pYK.onFail(pBError);
             }
         }
     }
 
-    public final void eKp() {
-        if (this.qes == null) {
-            this.qes = new ad(this.qdj, this.f19java, e.java);
+    public final void eGz() {
+        if (this.pZR == null) {
+            this.pZR = new ad(this.pYI, this.f18java, e.java);
         }
-        this.qdm = false;
-        this.qes.qep = this;
-        this.qes.eKp();
+        this.pYL = false;
+        this.pZR.pZO = this;
+        this.pZR.eGz();
     }
 
     @Override // com.win.opensdk.ae
     public final void b(PBError pBError) {
-        int andIncrement = this.qev.getAndIncrement();
-        this.qer.sendEmptyMessageDelayed(100152, this.f18case * 1000);
+        int andIncrement = this.pZU.getAndIncrement();
+        this.pZQ.sendEmptyMessageDelayed(100152, this.f17case * 1000);
         if (andIncrement == 0) {
             a(pBError);
         }
@@ -198,16 +198,16 @@ public final class ah implements ae<Info> {
     static /* synthetic */ void a(ah ahVar, final Info info, bn bnVar) {
         char c = 0;
         try {
-            if (ahVar.qeu != null && bnVar.eKs().getParent() == null) {
-                ahVar.qeu.removeAllViews();
-                ahVar.qeu.addView(bnVar.eKs(), new FrameLayout.LayoutParams(-1, -1));
-                ImageView imageView = new ImageView(ahVar.qdj);
-                int k = bi.k(ahVar.qdj, 15.0f);
+            if (ahVar.pZT != null && bnVar.eGC().getParent() == null) {
+                ahVar.pZT.removeAllViews();
+                ahVar.pZT.addView(bnVar.eGC(), new FrameLayout.LayoutParams(-1, -1));
+                ImageView imageView = new ImageView(ahVar.pYI);
+                int k = bi.k(ahVar.pYI, 15.0f);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
                 layoutParams.gravity = 3;
                 imageView.setImageResource(d.a.btn_op);
-                ahVar.qeu.addView(imageView, layoutParams);
-                ImageView imageView2 = new ImageView(ahVar.qdj);
+                ahVar.pZT.addView(imageView, layoutParams);
+                ImageView imageView2 = new ImageView(ahVar.pYI);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(k, k);
                 layoutParams2.gravity = 53;
                 imageView2.setImageResource(d.a.btn_close_dark);
@@ -215,24 +215,24 @@ public final class ah implements ae<Info> {
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
                         try {
-                            w.iM(ah.this.qdj).c(new x(info)).eKp();
-                            if (ah.this.qdl != null) {
-                                ah.this.qdl.onClosed();
+                            w.iK(ah.this.pYI).c(new x(info)).eGz();
+                            if (ah.this.pYK != null) {
+                                ah.this.pYK.onClosed();
                             }
                         } catch (Exception e) {
                         }
-                        ah.this.qeu.destroy();
+                        ah.this.pZT.destroy();
                     }
                 });
-                ahVar.qeu.addView(imageView2, layoutParams2);
+                ahVar.pZT.addView(imageView2, layoutParams2);
             }
-            if (ahVar.qeu == null) {
+            if (ahVar.pZT == null) {
                 return;
             }
-            ViewGroup.LayoutParams layoutParams3 = ahVar.qeu.getLayoutParams();
-            String str = ahVar.f19java;
+            ViewGroup.LayoutParams layoutParams3 = ahVar.pZT.getLayoutParams();
+            String str = ahVar.f18java;
             int[] iArr = new int[2];
-            if (ax.abK(str)) {
+            if (ax.aaC(str)) {
                 String substring = str.substring(0, 3);
                 switch (substring.hashCode()) {
                     case 53431:
@@ -292,34 +292,34 @@ public final class ah implements ae<Info> {
                         break;
                 }
             }
-            int k2 = bi.k(ahVar.qdj, iArr[0]);
-            int k3 = bi.k(ahVar.qdj, iArr[1]);
+            int k2 = bi.k(ahVar.pYI, iArr[0]);
+            int k3 = bi.k(ahVar.pYI, iArr[1]);
             if (layoutParams3 == null) {
                 layoutParams3 = new ViewGroup.LayoutParams(k2, k3);
             } else {
                 layoutParams3.width = k2;
                 layoutParams3.height = k3;
             }
-            ahVar.qeu.setLayoutParams(layoutParams3);
+            ahVar.pZT.setLayoutParams(layoutParams3);
         } catch (Exception e) {
         }
     }
 
     static /* synthetic */ void a(ah ahVar) {
-        if (ahVar.qdm) {
+        if (ahVar.pYL) {
             return;
         }
-        ahVar.qdm = true;
-        if (ahVar.qdl == null) {
+        ahVar.pYL = true;
+        if (ahVar.pYK == null) {
             return;
         }
-        ahVar.qdl.onLoaded();
+        ahVar.pYK.onLoaded();
     }
 
     static /* synthetic */ void a(ah ahVar, Info info, String str) {
-        aw.a(ahVar.qdj, str, info, ahVar.qdG);
-        w.iM(ahVar.qdj).a(new x(info), str).eKp();
-        ahVar.qer.sendEmptyMessage(100152);
-        z.a(ahVar.qdE);
+        aw.a(ahVar.pYI, str, info, ahVar.pZf);
+        w.iK(ahVar.pYI).a(new x(info), str).eGz();
+        ahVar.pZQ.sendEmptyMessage(100152);
+        z.a(ahVar.pZd);
     }
 }

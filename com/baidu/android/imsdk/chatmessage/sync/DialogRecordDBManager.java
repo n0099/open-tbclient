@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DialogRecordDBManager extends DBBase {
     public static final String TAG = DialogRecordDBManager.class.getSimpleName();
     private static DialogRecordDBManager mInstance;
@@ -236,7 +236,7 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecord) list.get(0);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class Parse implements CursorParse {
         int count;
         List<DialogRecord> result = null;

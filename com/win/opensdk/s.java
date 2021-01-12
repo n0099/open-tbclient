@@ -16,50 +16,50 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class s {
     private static final String java = s.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14056a;
+    private int f13756a;
 
     /* renamed from: case  reason: not valid java name */
-    private int f69case;
+    private int f68case;
 
     /* renamed from: case  reason: not valid java name and collision with other field name */
-    private String f70case;
+    private String f69case;
 
     /* renamed from: java  reason: collision with other field name */
-    private int f71java;
-    private long qdF;
-    private boolean qdM;
-    private URL qdY;
-    public byte[] qdZ;
-    private boolean qdm;
-    private Map<String, List<String>> qea;
-    private Map<String, List<String>> qeb;
+    private int f70java;
+    private boolean pYL;
+    private Map<String, List<String>> pZA;
+    private long pZe;
+    private boolean pZl;
+    private URL pZx;
+    public byte[] pZy;
+    private Map<String, List<String>> pZz;
 
     public s(String str, String str2, Map<String, List<String>> map) {
         this(str, str2, map, (byte) 0);
     }
 
     private s(String str, String str2, Map<String, List<String>> map, byte b2) {
-        this.f70case = "GET";
-        this.f71java = -1;
-        this.qdF = -1L;
-        this.qdm = false;
-        this.qdM = true;
-        this.qdY = new URL(str);
-        this.f70case = str2;
-        this.qea = map;
-        this.f69case = 20000;
-        this.f14056a = 20000;
+        this.f69case = "GET";
+        this.f70java = -1;
+        this.pZe = -1L;
+        this.pYL = false;
+        this.pZl = true;
+        this.pZx = new URL(str);
+        this.f69case = str2;
+        this.pZz = map;
+        this.f68case = 20000;
+        this.f13756a = 20000;
     }
 
-    public final t eKt() {
+    public final t eGD() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         e(byteArrayOutputStream);
-        return new t(this.f71java, byteArrayOutputStream.toByteArray(), this.qeb);
+        return new t(this.f70java, byteArrayOutputStream.toByteArray(), this.pZA);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -68,18 +68,18 @@ public class s {
         HttpsURLConnection httpsURLConnection;
         InputStream errorStream;
         PrintWriter printWriter;
-        String url = this.qdY.toString();
+        String url = this.pZx.toString();
         if (!TextUtils.isEmpty(url) ? url.startsWith(HttpHost.DEFAULT_SCHEME_NAME) : false) {
-            httpsURLConnection = (HttpURLConnection) this.qdY.openConnection();
+            httpsURLConnection = (HttpURLConnection) this.pZx.openConnection();
         } else {
-            httpsURLConnection = (HttpsURLConnection) this.qdY.openConnection();
+            httpsURLConnection = (HttpsURLConnection) this.pZx.openConnection();
         }
-        httpsURLConnection.setRequestMethod(this.f70case);
-        httpsURLConnection.setInstanceFollowRedirects(this.qdM);
-        httpsURLConnection.setReadTimeout(this.f14056a);
-        httpsURLConnection.setConnectTimeout(this.f69case);
+        httpsURLConnection.setRequestMethod(this.f69case);
+        httpsURLConnection.setInstanceFollowRedirects(this.pZl);
+        httpsURLConnection.setReadTimeout(this.f13756a);
+        httpsURLConnection.setConnectTimeout(this.f68case);
         httpsURLConnection.setDoInput(true);
-        Map<String, List<String>> map = this.qea;
+        Map<String, List<String>> map = this.pZz;
         if (map != null && map.size() > 0) {
             for (Map.Entry<String, List<String>> entry : map.entrySet()) {
                 String key = entry.getKey();
@@ -89,16 +89,16 @@ public class s {
                 }
             }
         }
-        if (this.f70case.equals("POST")) {
+        if (this.f69case.equals("POST")) {
             httpsURLConnection.setDoInput(true);
             httpsURLConnection.setDoOutput(true);
             try {
                 OutputStream outputStream2 = httpsURLConnection.getOutputStream();
-                byte[] bArr = this.qdZ;
+                byte[] bArr = this.pZy;
                 if (bArr == null) {
                     printWriter = new PrintWriter((Writer) new OutputStreamWriter(outputStream2, "UTF-8"), true);
                     try {
-                        printWriter.print(this.qdY != null ? this.qdY.getQuery() : null);
+                        printWriter.print(this.pZx != null ? this.pZx.getQuery() : null);
                         printWriter.flush();
                     } catch (Throwable th) {
                         th = th;
@@ -120,10 +120,10 @@ public class s {
                 printWriter = null;
             }
         }
-        this.f71java = httpsURLConnection.getResponseCode();
-        this.qdF = httpsURLConnection.getContentLength();
+        this.f70java = httpsURLConnection.getResponseCode();
+        this.pZe = httpsURLConnection.getContentLength();
         if (httpsURLConnection.getHeaderFields() != null) {
-            this.qeb = httpsURLConnection.getHeaderFields();
+            this.pZA = httpsURLConnection.getHeaderFields();
         }
         try {
             String contentEncoding = httpsURLConnection.getContentEncoding();
@@ -141,7 +141,7 @@ public class s {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
         byte[] bArr2 = new byte[4096];
         int i = 0;
-        while (!this.qdm && i != -1) {
+        while (!this.pYL && i != -1) {
             i = bufferedInputStream.read(bArr2);
             if (i > 0) {
                 outputStream.write(bArr2, 0, i);

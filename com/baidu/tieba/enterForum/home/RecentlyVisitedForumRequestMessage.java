@@ -37,7 +37,7 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("forum_id", com.baidu.adp.lib.f.b.toLong(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.bEo());
+                    jSONObject.put("visit_time", next.bAu());
                     jSONArray.put(jSONObject);
                 }
             }

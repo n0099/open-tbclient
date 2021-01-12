@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ImmutableSet<E> extends HashSet<E> {
     private ImmutableSet(Set<E> set) {
         super(set);

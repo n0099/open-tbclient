@@ -1,145 +1,215 @@
 package com.baidu.location.c;
 
-import androidx.appcompat.widget.ActivityChooserView;
-import com.baidu.android.imsdk.internal.IMConnection;
-import java.util.Locale;
-/* loaded from: classes3.dex */
-public class a {
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.Process;
+import android.util.Log;
+import com.baidu.location.LLSInterface;
+import com.baidu.location.a.h;
+import com.baidu.location.a.j;
+import com.baidu.location.a.l;
+import com.baidu.location.a.n;
+import com.baidu.location.a.p;
+import com.baidu.location.a.v;
+import com.baidu.location.a.w;
+import com.baidu.location.a.x;
+import com.baidu.location.b.e;
+import com.baidu.location.b.i;
+import com.baidu.location.d.b;
+import com.baidu.location.f;
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public class a extends Service implements LLSInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2673a;
+    static HandlerC0245a f2620a = null;
+    private static long f = 0;
+    private Looper c;
+    private HandlerThread d;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2674b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public long g;
-    public int h;
-    public char i;
-    public int j;
-    public int k;
-    public String l;
-    public String m;
-    private boolean n;
+    Messenger f2621b = null;
+    private boolean e = false;
 
-    public a() {
-        this.f2673a = -1;
-        this.f2674b = -1L;
-        this.c = -1;
-        this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.g = 0L;
-        this.h = -1;
-        this.i = '0';
-        this.j = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.k = 0;
-        this.l = null;
-        this.m = null;
-        this.n = false;
-        this.g = System.currentTimeMillis();
-    }
+    /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class HandlerC0245a extends Handler {
 
-    public a(int i, long j, int i2, int i3, int i4, char c, int i5) {
-        this.f2673a = -1;
-        this.f2674b = -1L;
-        this.c = -1;
-        this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.g = 0L;
-        this.h = -1;
-        this.i = '0';
-        this.j = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.k = 0;
-        this.l = null;
-        this.m = null;
-        this.n = false;
-        this.f2673a = i;
-        this.f2674b = j;
-        this.c = i2;
-        this.d = i3;
-        this.h = i4;
-        this.i = c;
-        this.g = System.currentTimeMillis();
-        this.j = i5;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        private final WeakReference<a> f2622a;
 
-    public a(a aVar) {
-        this(aVar.f2673a, aVar.f2674b, aVar.c, aVar.d, aVar.h, aVar.i, aVar.j);
-        this.g = aVar.g;
-        this.l = aVar.l;
-        this.k = aVar.k;
-        this.m = aVar.m;
-    }
-
-    public boolean a() {
-        long currentTimeMillis = System.currentTimeMillis();
-        return currentTimeMillis - this.g > 0 && currentTimeMillis - this.g < IMConnection.RETRY_DELAY_TIMES;
-    }
-
-    public boolean a(a aVar) {
-        return this.f2673a == aVar.f2673a && this.f2674b == aVar.f2674b && this.d == aVar.d && this.c == aVar.c;
-    }
-
-    public boolean b() {
-        return this.f2673a > -1 && this.f2674b > 0;
-    }
-
-    public boolean c() {
-        return this.f2673a == -1 && this.f2674b == -1 && this.d == -1 && this.c == -1;
-    }
-
-    public boolean d() {
-        return this.f2673a > -1 && this.f2674b > -1 && this.d == -1 && this.c == -1;
-    }
-
-    public boolean e() {
-        return this.f2673a > -1 && this.f2674b > -1 && this.d > -1 && this.c > -1;
-    }
-
-    public void f() {
-        this.n = true;
-    }
-
-    public String g() {
-        return String.format(Locale.CHINA, "%d|%d|%d|%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2673a), Long.valueOf(this.f2674b));
-    }
-
-    public String h() {
-        StringBuffer stringBuffer = new StringBuffer(128);
-        stringBuffer.append("&nw=");
-        stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d&clp=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2673a), Long.valueOf(this.f2674b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
-        if (this.j != Integer.MAX_VALUE) {
-            stringBuffer.append("&cl_cs=");
-            stringBuffer.append(this.j);
+        public HandlerC0245a(Looper looper, a aVar) {
+            super(looper);
+            this.f2622a = new WeakReference<>(aVar);
         }
-        if (this.n) {
-            stringBuffer.append("&newcl=1");
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            a aVar = this.f2622a.get();
+            if (aVar == null) {
+                return;
+            }
+            if (f.isServing) {
+                switch (message.what) {
+                    case 11:
+                        aVar.a(message);
+                        break;
+                    case 12:
+                        aVar.b(message);
+                        break;
+                    case 15:
+                        aVar.c(message);
+                        break;
+                    case 22:
+                        l.c().b(message);
+                        break;
+                    case 41:
+                        l.c().h();
+                        break;
+                    case 401:
+                        try {
+                            message.getData();
+                            break;
+                        } catch (Exception e) {
+                            break;
+                        }
+                    case 405:
+                        byte[] byteArray = message.getData().getByteArray("errorid");
+                        if (byteArray != null && byteArray.length > 0) {
+                            new String(byteArray);
+                            break;
+                        }
+                        break;
+                    case 406:
+                        h.a().e();
+                        break;
+                }
+            }
+            if (message.what == 1) {
+                aVar.b();
+            }
+            if (message.what == 0) {
+                aVar.a();
+            }
+            super.handleMessage(message);
         }
-        if (this.m != null) {
-            stringBuffer.append("&clnrs=");
-            stringBuffer.append(this.m);
-        }
-        return stringBuffer.toString();
     }
 
-    public String i() {
-        StringBuffer stringBuffer = new StringBuffer(128);
-        stringBuffer.append("&nw2=");
-        stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d&clp2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2673a), Long.valueOf(this.f2674b), Integer.valueOf(this.h), Integer.valueOf(this.k)));
-        if (this.j != Integer.MAX_VALUE) {
-            stringBuffer.append("&cl_cs2=");
-            stringBuffer.append(this.j);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        j.a().a(f.getServiceContext());
+        b.a();
+        x.a().e();
+        n.a().b();
+        h.a().b();
+        e.a().b();
+        com.baidu.location.b.b.a().b();
+        l.c().d();
+        i.a().c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Message message) {
+        Log.d("baidu_location_service", "baidu location service register ...");
+        com.baidu.location.a.a.a().a(message);
+        p.b().c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        i.a().d();
+        e.a().e();
+        x.a().f();
+        com.baidu.location.b.b.a().c();
+        l.c().e();
+        h.a().c();
+        w.d();
+        com.baidu.location.a.a.a().b();
+        n.a().c();
+        Log.d("baidu_location_service", "baidu location service has stoped ...");
+        if (this.e) {
+            return;
         }
-        if (this.m != null) {
-            stringBuffer.append("&clnrs2=");
-            stringBuffer.append(this.m);
+        Process.killProcess(Process.myPid());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Message message) {
+        com.baidu.location.a.a.a().b(message);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(Message message) {
+        com.baidu.location.a.a.a().c(message);
+    }
+
+    @Override // com.baidu.location.LLSInterface
+    public double getVersion() {
+        return 7.630000114440918d;
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public IBinder onBind(Intent intent) {
+        Bundle extras = intent.getExtras();
+        boolean z = false;
+        if (extras != null) {
+            b.g = extras.getString("key");
+            b.f = extras.getString("sign");
+            this.e = extras.getBoolean("kill_process");
+            z = extras.getBoolean("cache_exception");
         }
-        return stringBuffer.toString();
+        if (!z) {
+        }
+        return this.f2621b.getBinder();
+    }
+
+    @Override // com.baidu.location.LLSInterface
+    public void onCreate(Context context) {
+        f = System.currentTimeMillis();
+        this.d = v.a();
+        this.c = this.d.getLooper();
+        if (this.c == null) {
+            f2620a = new HandlerC0245a(Looper.getMainLooper(), this);
+        } else {
+            f2620a = new HandlerC0245a(this.c, this);
+        }
+        this.f2621b = new Messenger(f2620a);
+        f2620a.sendEmptyMessage(0);
+        Log.d("baidu_location_service", "baidu location service start1 ...20181022..." + Process.myPid());
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public void onDestroy() {
+        try {
+            f2620a.sendEmptyMessage(1);
+        } catch (Exception e) {
+            Log.d("baidu_location_service", "baidu location service stop exception...");
+            b();
+            Process.killProcess(Process.myPid());
+        }
+        Log.d("baidu_location_service", "baidu location service stop ...");
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public int onStartCommand(Intent intent, int i, int i2) {
+        return 1;
+    }
+
+    @Override // android.app.Service, com.baidu.location.LLSInterface
+    public void onTaskRemoved(Intent intent) {
+        Log.d("baidu_location_service", "baidu location service remove task...");
+    }
+
+    @Override // com.baidu.location.LLSInterface
+    public boolean onUnBind(Intent intent) {
+        return false;
     }
 }

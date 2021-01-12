@@ -8,42 +8,42 @@ import com.baidu.tbadk.core.view.MultiLinkCardView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class aa extends h {
-    private MultiLinkCardView aiA;
+    private MultiLinkCardView ahI;
 
     public aa(Context context) {
         super(context);
-        this.aiA = new MultiLinkCardView(context);
+        this.ahI = new MultiLinkCardView(context);
         setTopMargin(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aiA;
+        return this.ahI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (c(aVar) || d(aVar) || aVar == null || aVar.boP() == null || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btB()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) <= 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btC()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) <= 1) || com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) + com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) <= 1))) {
-            this.aiA.setVisibility(8);
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        if (c(aVar) || d(aVar) || aVar == null || aVar.bkV() == null || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.bkV().bpH()) && com.baidu.tbadk.core.util.x.getCount(aVar.bkV().bpI()) <= 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.bkV().bpI()) && com.baidu.tbadk.core.util.x.getCount(aVar.bkV().bpH()) <= 1) || com.baidu.tbadk.core.util.x.getCount(aVar.bkV().bpH()) + com.baidu.tbadk.core.util.x.getCount(aVar.bkV().bpI()) <= 1))) {
+            this.ahI.setVisibility(8);
             return;
         }
-        this.aiA.n(aVar.boP().btB(), aVar.boP().btC());
-        this.aiA.setVisibility(0);
+        this.ahI.n(aVar.bkV().bpH(), aVar.bkV().bpI());
+        this.ahI.setVisibility(0);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aiA.onChangeSkinType();
+        this.ahI.onChangeSkinType();
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.bkV() == null || aVar.bkV().bpG() == null || aVar.bkV().bpG().getOptions() == null || aVar.bkV().bpG().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boP() == null || !aVar.boP().bpW() || aVar.boP().brI() == null) ? false : true;
+        return (aVar == null || aVar.bkV() == null || !aVar.bkV().bmc() || aVar.bkV().bnO() == null) ? false : true;
     }
 }

@@ -7,49 +7,49 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b<T> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f10737a;
+    private final Executor f10437a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private final Executor f10738b;
+    private final Executor f10438b;
     @NonNull
     private final e<T> c;
     @Nullable
     private final Runnable d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> {
         private static final Object e = new Object();
         private static Executor f = null;
-        private static final Executor g = new ExecutorC1152a();
+        private static final Executor g = new ExecutorC1135a();
 
         /* renamed from: a  reason: collision with root package name */
-        private Executor f10739a;
+        private Executor f10439a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Executor f10740b;
+        private Executor f10440b;
         private Runnable c;
         private final e<T> d;
 
         /* renamed from: com.kwad.sdk.lib.widget.recycler.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        private static class ExecutorC1152a implements Executor {
+        /* loaded from: classes4.dex */
+        private static class ExecutorC1135a implements Executor {
 
             /* renamed from: a  reason: collision with root package name */
-            final Handler f10741a;
+            final Handler f10441a;
 
-            private ExecutorC1152a() {
-                this.f10741a = new Handler(Looper.getMainLooper());
+            private ExecutorC1135a() {
+                this.f10441a = new Handler(Looper.getMainLooper());
             }
 
             @Override // java.util.concurrent.Executor
             public void execute(@NonNull Runnable runnable) {
-                this.f10741a.post(runnable);
+                this.f10441a.post(runnable);
             }
         }
 
@@ -59,30 +59,30 @@ public final class b<T> {
 
         @NonNull
         public a<T> a(Executor executor) {
-            this.f10740b = executor;
+            this.f10440b = executor;
             return this;
         }
 
         @NonNull
         public b<T> a() {
-            if (this.f10739a == null) {
-                this.f10739a = g;
+            if (this.f10439a == null) {
+                this.f10439a = g;
             }
-            if (this.f10740b == null) {
+            if (this.f10440b == null) {
                 synchronized (e) {
                     if (f == null) {
                         f = Executors.newFixedThreadPool(2);
                     }
                 }
-                this.f10740b = f;
+                this.f10440b = f;
             }
-            return new b<>(this.f10739a, this.f10740b, this.d, this.c);
+            return new b<>(this.f10439a, this.f10440b, this.d, this.c);
         }
     }
 
     private b(@NonNull Executor executor, @NonNull Executor executor2, @NonNull e<T> eVar, @Nullable Runnable runnable) {
-        this.f10737a = executor;
-        this.f10738b = executor2;
+        this.f10437a = executor;
+        this.f10438b = executor2;
         this.c = eVar;
         this.d = runnable;
     }
@@ -90,12 +90,12 @@ public final class b<T> {
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Executor a() {
-        return this.f10737a;
+        return this.f10437a;
     }
 
     @NonNull
     public Executor b() {
-        return this.f10738b;
+        return this.f10438b;
     }
 
     @NonNull

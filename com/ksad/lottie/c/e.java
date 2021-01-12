@@ -3,7 +3,7 @@ package com.ksad.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.a a(JsonReader jsonReader, com.ksad.lottie.d dVar, int i) {

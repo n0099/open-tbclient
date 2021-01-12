@@ -7,25 +7,25 @@ import android.util.Log;
 import com.baidu.minivideo.arface.utils.g;
 import java.io.File;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends d {
-    private static b cmm = null;
-    private String cmj = "arsource";
-    private File cmk;
-    private Boolean cml;
+    private static b chy = null;
+    private String chv = "arsource";
+    private File chw;
+    private Boolean chx;
     private Context mContext;
 
-    public static final b aeH() {
-        if (cmm == null) {
+    public static final b aaO() {
+        if (chy == null) {
             createInst();
         }
-        return cmm;
+        return chy;
     }
 
     private static synchronized void createInst() {
         synchronized (b.class) {
-            if (cmm == null) {
-                cmm = new b();
+            if (chy == null) {
+                chy = new b();
             }
         }
     }
@@ -33,8 +33,8 @@ public class b extends d {
     @SuppressLint({"NewApi"})
     public void b(Context context, String str, File file) {
         this.mContext = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-        this.cmj = (String) Objects.requireNonNull(str);
-        this.cmk = (File) Objects.requireNonNull(file);
+        this.chv = (String) Objects.requireNonNull(str);
+        this.chw = (File) Objects.requireNonNull(file);
         if (isDebug()) {
             log("init " + str + " to " + file.getAbsolutePath());
         }
@@ -43,52 +43,52 @@ public class b extends d {
     @SuppressLint({"NewApi"})
     public void a(Context context, String str, File file, g.a aVar) {
         this.mContext = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-        this.cmj = (String) Objects.requireNonNull(str);
-        this.cmk = (File) Objects.requireNonNull(file);
+        this.chv = (String) Objects.requireNonNull(str);
+        this.chw = (File) Objects.requireNonNull(file);
         if (isDebug()) {
             log("start " + str + " to " + file.getAbsolutePath());
         }
         super.a(aVar);
     }
 
-    private String aeI() {
-        return this.cmj;
+    private String aaP() {
+        return this.chv;
     }
 
-    private File aeJ() {
-        if (this.cmk == null && com.baidu.minivideo.arface.b.adN() != null && !TextUtils.isEmpty(com.baidu.minivideo.arface.c.adV())) {
-            this.cmk = new File(com.baidu.minivideo.arface.c.adV());
+    private File aaQ() {
+        if (this.chw == null && com.baidu.minivideo.arface.b.ZU() != null && !TextUtils.isEmpty(com.baidu.minivideo.arface.c.aac())) {
+            this.chw = new File(com.baidu.minivideo.arface.c.aac());
         }
-        return this.cmk;
+        return this.chw;
     }
 
     public boolean isValid() {
-        if (this.cml != null) {
-            return this.cml.booleanValue();
+        if (this.chx != null) {
+            return this.chx.booleanValue();
         }
-        String aeI = aeI();
-        File aeJ = aeJ();
+        String aaP = aaP();
+        File aaQ = aaQ();
         if (isDebug()) {
-            log(String.format("from %s to %s ", aeI, aeJ));
+            log(String.format("from %s to %s ", aaP, aaQ));
         }
-        String t = (aeJ != null && aeJ.exists() && aeJ.isDirectory()) ? f.t(new File(aeJ, "version")) : null;
-        String Q = TextUtils.isEmpty(t) ? null : f.Q(this.mContext, aeI + "/version");
+        String s = (aaQ != null && aaQ.exists() && aaQ.isDirectory()) ? f.s(new File(aaQ, "version")) : null;
+        String Q = TextUtils.isEmpty(s) ? null : f.Q(this.mContext, aaP + "/version");
         if (isDebug()) {
-            log("assets=" + Q + ", sdcard=" + t);
+            log("assets=" + Q + ", sdcard=" + s);
         }
-        boolean z = TextUtils.isEmpty(t) || !TextUtils.equals(t, Q);
-        this.cml = Boolean.valueOf(!z);
+        boolean z = TextUtils.isEmpty(s) || !TextUtils.equals(s, Q);
+        this.chx = Boolean.valueOf(!z);
         return !z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bG(Context context) {
+    public void bF(Context context) {
         boolean z = true;
         if (!isValid()) {
-            z = c(context, aeI(), aeJ());
+            z = c(context, aaP(), aaQ());
         }
         if (z) {
-            this.cml = null;
+            this.chx = null;
             setState(2);
         }
         if (isDebug()) {
@@ -100,7 +100,7 @@ public class b extends d {
         if (file.isDirectory()) {
             f.deleteDir(file);
         } else {
-            f.r(file);
+            f.q(file);
         }
         File file2 = new File(file + ".loading");
         boolean assetToSD = new c(context).assetToSD(str, file2);
@@ -126,10 +126,10 @@ public class b extends d {
 
     @Override // com.baidu.minivideo.arface.utils.d
     public void run() {
-        ThreadPool.aeL().execute(new Runnable() { // from class: com.baidu.minivideo.arface.utils.b.1
+        ThreadPool.aaS().execute(new Runnable() { // from class: com.baidu.minivideo.arface.utils.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.bG(b.this.mContext);
+                b.this.bF(b.this.mContext);
             }
         });
     }

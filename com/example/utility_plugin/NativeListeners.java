@@ -11,11 +11,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tbadk.core.e.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
@@ -34,7 +34,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -70,16 +70,17 @@ public class NativeListeners {
     private final String AccountInfoUpdated = "AccountInfoUpdated";
     private final String kUIApplicationEnterPersonalCenterByClickNotification = "kUIApplicationEnterPersonalCenterByClickNotification";
     private final String kUIApplicationSwitchTabNotification = "kUIApplicationSwitchTabNotification";
+    private final String AnimateToBarEntryForumSquare = "AnimateToBarEntryForumSquare";
     private final CustomMessageListener bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dGE().dGA()) {
+                if (a.dCM().dCI()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dGE().dGB()) {
+                } else if (a.dCM().dCJ()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -371,7 +372,19 @@ public class NativeListeners {
             }
         }
     };
-    private CustomMessageListener mSendPrePageKeyToPersonCenterFlutterPage = new CustomMessageListener(2921521) { // from class: com.example.utility_plugin.NativeListeners.22
+    private CustomMessageListener mAnimateToBarEntryForumSquare = new CustomMessageListener(2921528) { // from class: com.example.utility_plugin.NativeListeners.22
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                b.eWb = b.eWc;
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "AnimateToBarEntryForumSquare");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener mSendPrePageKeyToPersonCenterFlutterPage = new CustomMessageListener(2921521) { // from class: com.example.utility_plugin.NativeListeners.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -429,6 +442,18 @@ public class NativeListeners {
         MessageListener<?> listererFromKey = getListererFromKey(str);
         if (listererFromKey != null) {
             MessageManager.getInstance().registerListener(listererFromKey);
+        }
+        dealBeforeAttachNotification(str);
+    }
+
+    private void dealBeforeAttachNotification(String str) {
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.eWb == b.eWd) {
+            com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.example.utility_plugin.NativeListeners.24
+                @Override // java.lang.Runnable
+                public void run() {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
+                }
+            }, 300L);
         }
     }
 
@@ -508,7 +533,7 @@ public class NativeListeners {
                 wVar.setLike(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
                 com.baidu.tieba.tbadkCore.writeModel.e eVar = new com.baidu.tieba.tbadkCore.writeModel.e();
-                eVar.forumId = b.toLong(str2, 0L);
+                eVar.forumId = com.baidu.adp.lib.f.b.toLong(str2, 0L);
                 eVar.isSuccess = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, eVar));
                 break;
@@ -584,6 +609,12 @@ public class NativeListeners {
             case -815635840:
                 if (str.equals("PersonDataChangedNotification")) {
                     c = 14;
+                    break;
+                }
+                break;
+            case -739728061:
+                if (str.equals("AnimateToBarEntryForumSquare")) {
+                    c = 23;
                     break;
                 }
                 break;
@@ -746,6 +777,8 @@ public class NativeListeners {
                 return this.mSendPrePageKeyToFlutterWhenTabChangedListener;
             case 22:
                 return this.mSendPrePageKeyToPersonCenterFlutterPage;
+            case 23:
+                return this.mAnimateToBarEntryForumSquare;
             default:
                 return null;
         }

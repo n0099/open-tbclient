@@ -1,43 +1,48 @@
 package com.baidu.mapapi.map;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.mapapi.map.SwipeDismissTouchListener;
+import android.util.Log;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class v extends AnimatorListenerAdapter {
+/* loaded from: classes6.dex */
+public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup.LayoutParams f2936a;
+    final /* synthetic */ int f2815a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f2937b;
-    final /* synthetic */ SwipeDismissTouchListener c;
+    final /* synthetic */ int f2816b;
+    final /* synthetic */ int c;
+    final /* synthetic */ String d;
+    final /* synthetic */ TileOverlay e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
-        this.c = swipeDismissTouchListener;
-        this.f2936a = layoutParams;
-        this.f2937b = i;
+    public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
+        this.e = tileOverlay;
+        this.f2815a = i;
+        this.f2816b = i2;
+        this.c = i3;
+        this.d = str;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        SwipeDismissTouchListener.DismissCallbacks dismissCallbacks;
-        View view;
-        Object obj;
-        View view2;
-        View view3;
-        dismissCallbacks = this.c.f;
-        view = this.c.e;
-        obj = this.c.l;
-        dismissCallbacks.onDismiss(view, obj);
-        view2 = this.c.e;
-        view2.setTranslationX(0.0f);
-        this.f2936a.height = this.f2937b;
-        view3 = this.c.e;
-        view3.setLayoutParams(this.f2936a);
+    @Override // java.lang.Runnable
+    public void run() {
+        TileProvider tileProvider;
+        String str;
+        HashSet hashSet;
+        String str2;
+        tileProvider = this.e.g;
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2815a, this.f2816b, this.c);
+        if (tile == null) {
+            str = TileOverlay.f2776b;
+            Log.e(str, "FileTile pic is null");
+        } else if (tile.width == 256 && tile.height == 256) {
+            this.e.a(this.f2815a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2816b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
+        } else {
+            str2 = TileOverlay.f2776b;
+            Log.e(str2, "FileTile pic must be 256 * 256");
+        }
+        hashSet = this.e.e;
+        hashSet.remove(this.d);
     }
 }

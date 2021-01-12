@@ -3,18 +3,18 @@ package com.baidu.swan.impl.map.a;
 import android.content.Context;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends a<com.baidu.swan.apps.w.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
 
-    public static d bee() {
+    public static d bak() {
         return new d();
     }
 
     private boolean k(Context context, com.baidu.swan.apps.w.a.c cVar, com.baidu.swan.apps.w.b bVar, e eVar) {
         com.baidu.swan.apps.console.c.i("map", "MapUpdateAction start");
-        boolean b2 = com.baidu.swan.impl.map.c.bea().b(context, cVar);
+        boolean b2 = com.baidu.swan.impl.map.c.bag().b(context, cVar);
         com.baidu.swan.apps.console.c.i("map", "MapUpdateAction end");
         return b2;
     }

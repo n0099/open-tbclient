@@ -4,14 +4,14 @@ import android.graphics.PointF;
 import com.airbnb.lottie.model.a.m;
 /* loaded from: classes3.dex */
 public class PolystarShape implements b {
-    private final Type Eb;
-    private final com.airbnb.lottie.model.a.b FA;
+    private final Type DZ;
+    private final com.airbnb.lottie.model.a.b FX;
+    private final com.airbnb.lottie.model.a.b FY;
     private final com.airbnb.lottie.model.a.b FZ;
-    private final m<PointF, PointF> Fy;
+    private final m<PointF, PointF> Fw;
+    private final com.airbnb.lottie.model.a.b Fy;
     private final com.airbnb.lottie.model.a.b Ga;
     private final com.airbnb.lottie.model.a.b Gb;
-    private final com.airbnb.lottie.model.a.b Gc;
-    private final com.airbnb.lottie.model.a.b Gd;
     private final String name;
 
     /* loaded from: classes3.dex */
@@ -38,14 +38,14 @@ public class PolystarShape implements b {
 
     public PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.Eb = type;
-        this.FZ = bVar;
-        this.Fy = mVar;
-        this.FA = bVar2;
-        this.Ga = bVar3;
-        this.Gb = bVar4;
-        this.Gc = bVar5;
-        this.Gd = bVar6;
+        this.DZ = type;
+        this.FX = bVar;
+        this.Fw = mVar;
+        this.Fy = bVar2;
+        this.FY = bVar3;
+        this.FZ = bVar4;
+        this.Ga = bVar5;
+        this.Gb = bVar6;
     }
 
     public String getName() {
@@ -53,35 +53,35 @@ public class PolystarShape implements b {
     }
 
     public Type jC() {
-        return this.Eb;
+        return this.DZ;
     }
 
     public com.airbnb.lottie.model.a.b jD() {
-        return this.FZ;
+        return this.FX;
     }
 
     public m<PointF, PointF> jf() {
-        return this.Fy;
+        return this.Fw;
     }
 
     public com.airbnb.lottie.model.a.b jh() {
-        return this.FA;
+        return this.Fy;
     }
 
     public com.airbnb.lottie.model.a.b jE() {
-        return this.Ga;
+        return this.FY;
     }
 
     public com.airbnb.lottie.model.a.b jF() {
-        return this.Gb;
+        return this.FZ;
     }
 
     public com.airbnb.lottie.model.a.b jG() {
-        return this.Gc;
+        return this.Ga;
     }
 
     public com.airbnb.lottie.model.a.b jH() {
-        return this.Gd;
+        return this.Gb;
     }
 
     @Override // com.airbnb.lottie.model.content.b

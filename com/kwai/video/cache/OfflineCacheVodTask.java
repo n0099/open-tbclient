@@ -1,7 +1,7 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.hodor.anotations.CalledByNative;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfflineCacheVodTask {
     public static final int TASK_FAIL_REASON_CANCEL = 5;
     public static final int TASK_FAIL_REASON_CREATE_TASK_FAIL = 4;
@@ -12,7 +12,7 @@ public class OfflineCacheVodTask {
     private long nativeTask = 0;
     private OfflineCacheVodTaskListener taskListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OfflineCacheVodTaskListener {
         void onComplete(int i);
     }

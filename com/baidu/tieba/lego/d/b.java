@@ -7,15 +7,15 @@ import com.baidu.tieba.lego.c.e;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class b implements a {
-    public static final AtomicReference<a> lcA = new AtomicReference<>(null);
-    private static final a lcB = new b();
+    public static final AtomicReference<a> kXT = new AtomicReference<>(null);
+    private static final a kXU = new b();
 
     private b() {
     }
 
-    public static a deN() {
-        a aVar = lcA.get();
-        return aVar == null ? lcB : aVar;
+    public static a daV() {
+        a aVar = kXT.get();
+        return aVar == null ? kXU : aVar;
     }
 
     @Override // com.baidu.tieba.lego.d.a

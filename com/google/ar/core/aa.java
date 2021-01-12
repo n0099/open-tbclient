@@ -6,19 +6,19 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class aa implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final /* synthetic */ Context f8152b;
-    final /* synthetic */ ArCoreApk.a pMk;
-    private final /* synthetic */ w pMl;
+    private final /* synthetic */ Context f7852b;
+    final /* synthetic */ ArCoreApk.a pHJ;
+    private final /* synthetic */ w pHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar, Context context, ArCoreApk.a aVar) {
-        this.pMl = wVar;
-        this.f8152b = context;
-        this.pMk = aVar;
+        this.pHK = wVar;
+        this.f7852b = context;
+        this.pHJ = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,14 +26,14 @@ public final class aa implements Runnable {
         com.google.a.b.a.a.a.a aVar;
         Bundle b2;
         try {
-            aVar = this.pMl.pMg;
-            String str = this.f8152b.getApplicationInfo().packageName;
-            w wVar = this.pMl;
+            aVar = this.pHK.pHF;
+            String str = this.f7852b.getApplicationInfo().packageName;
+            w wVar = this.pHK;
             b2 = w.b();
             aVar.a(str, b2, new u(this));
         } catch (RemoteException e) {
             Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.pMk.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.pHJ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.util.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     private long mAudienceCount;
     private List<Long> mIds;

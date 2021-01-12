@@ -5,15 +5,15 @@ import androidx.annotation.NonNull;
 abstract class b<P, R> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7412a;
+    private String f7112a;
 
     public String a() {
-        return this.f7412a;
+        return this.f7112a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str) {
-        this.f7412a = str;
+        this.f7112a = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

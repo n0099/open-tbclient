@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class o {
     public static String a(Map<String, String> map) {
         String encode;

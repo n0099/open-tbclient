@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class n {
-    public static o hW(Context context) {
+    public static o hU(Context context) {
         return a(context, (com.bytedance.sdk.adnet.e.a) null);
     }
 

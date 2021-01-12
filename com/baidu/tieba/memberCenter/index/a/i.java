@@ -5,35 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetVipInfo.VipThemeItem;
 import tbclient.GetVipInfo.VipThemeList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId ljl = BdUniqueId.gen();
+    public static final BdUniqueId leG = BdUniqueId.gen();
     public String cardId;
-    public boolean liN = false;
-    public boolean liO = true;
-    private d liT;
-    private List<j> ljm;
-    private List<j> ljn;
+    private List<j> leH;
+    private List<j> leI;
+    public boolean leh = false;
+    public boolean lei = true;
+    private d leo;
 
     public i(VipThemeList vipThemeList) {
         this.cardId = "";
         if (vipThemeList != null) {
             this.cardId = vipThemeList.card_id;
-            this.liT = new d();
-            this.liT.FG(2);
-            this.liT.setCategoryName(vipThemeList.class_name);
-            this.liT.Os(vipThemeList.class_url_name);
-            this.liT.Ot(vipThemeList.class_url);
+            this.leo = new d();
+            this.leo.Ea(2);
+            this.leo.setCategoryName(vipThemeList.class_name);
+            this.leo.Nk(vipThemeList.class_url_name);
+            this.leo.Nl(vipThemeList.class_url);
             if (vipThemeList.item != null) {
-                this.ljm = new ArrayList();
+                this.leH = new ArrayList();
                 for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                    this.ljm.add(new j(vipThemeItem));
+                    this.leH.add(new j(vipThemeItem));
                 }
             }
             if (vipThemeList.item_card != null) {
-                this.ljn = new ArrayList();
+                this.leI = new ArrayList();
                 for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                    this.ljn.add(new j(vipThemeItem2));
+                    this.leI.add(new j(vipThemeItem2));
                 }
             }
         }
@@ -41,6 +41,6 @@ public class i implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return ljl;
+        return leG;
     }
 }

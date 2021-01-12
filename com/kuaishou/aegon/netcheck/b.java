@@ -1,14 +1,14 @@
 package com.kuaishou.aegon.netcheck;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8419b;
-    private final NetcheckTaskListenerWrapper pSq;
+    private final int f8119b;
+    private final NetcheckTaskListenerWrapper pNQ;
 
     private b(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, int i) {
-        this.pSq = netcheckTaskListenerWrapper;
-        this.f8419b = i;
+        this.pNQ = netcheckTaskListenerWrapper;
+        this.f8119b = i;
     }
 
     public static Runnable b(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, int i) {
@@ -17,6 +17,6 @@ final /* synthetic */ class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pSq.pSp.a(this.f8419b);
+        this.pNQ.pNP.a(this.f8119b);
     }
 }

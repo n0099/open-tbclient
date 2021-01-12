@@ -5,20 +5,20 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
-    private c nDF;
-    private DressupCenterModel nDG;
-    private DressupCenterModel.a nDH = new DressupCenterModel.a() { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity.1
+    private c nza;
+    private DressupCenterModel nzb;
+    private DressupCenterModel.a nzc = new DressupCenterModel.a() { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity.1
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.a
         public void a(int i, String str, List<a> list, e eVar, List<d> list2) {
-            DressupCenterActivity.this.hideLoadingView(DressupCenterActivity.this.nDF.getRootView());
+            DressupCenterActivity.this.hideLoadingView(DressupCenterActivity.this.nza.getRootView());
             if (i == 0) {
-                DressupCenterActivity.this.nDF.a(list, eVar, list2, DressupCenterActivity.this.nDG.dMw());
+                DressupCenterActivity.this.nza.a(list, eVar, list2, DressupCenterActivity.this.nzb.dIE());
                 return;
             }
             DressupCenterActivity.this.showToast(str);
-            DressupCenterActivity.this.nDF.cDo();
+            DressupCenterActivity.this.nza.czw();
         }
     };
 
@@ -26,29 +26,29 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nDG = new DressupCenterModel(this);
-        this.nDG.a(this.nDH);
-        this.nDF = new c(this);
-        showLoadingView(this.nDF.getRootView());
-        this.nDG.LoadData();
+        this.nzb = new DressupCenterModel(this);
+        this.nzb.a(this.nzc);
+        this.nza = new c(this);
+        showLoadingView(this.nza.getRootView());
+        this.nzb.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nDF != null) {
-            this.nDF.bCP();
+        if (this.nza != null) {
+            this.nza.byV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nDG != null && this.nDF != null) {
-            hideNetRefreshView(this.nDF.getRootView());
-            showLoadingView(this.nDF.getRootView());
-            this.nDG.LoadData();
+        if (this.nzb != null && this.nza != null) {
+            hideNetRefreshView(this.nza.getRootView());
+            showLoadingView(this.nza.getRootView());
+            this.nzb.LoadData();
         }
     }
 
@@ -56,8 +56,8 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nDG != null) {
-            this.nDG.destroy();
+        if (this.nzb != null) {
+            this.nzb.destroy();
         }
     }
 

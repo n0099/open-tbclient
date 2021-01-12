@@ -3,31 +3,31 @@ package com.baidu.webkit.logsdk.upload;
 import android.text.TextUtils;
 import com.baidu.webkit.logsdk.d;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f6018a;
+    final /* synthetic */ a f5718a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ b f6019b;
+    final /* synthetic */ b f5719b;
 
     public c(b bVar, a aVar) {
-        this.f6019b = bVar;
-        this.f6018a = aVar;
+        this.f5719b = bVar;
+        this.f5718a = aVar;
     }
 
     @Override // com.baidu.webkit.logsdk.d
     public final void a(byte[] bArr) {
         if (bArr == null) {
-            this.f6019b.a(this.f6018a);
+            this.f5719b.a(this.f5718a);
             return;
         }
-        b bVar = this.f6019b;
-        a aVar = this.f6018a;
+        b bVar = this.f5719b;
+        a aVar = this.f5718a;
         com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "onUploadSuccess", null);
-        String str = aVar.e.f5997a;
-        if (aVar.e.f5998b == 3) {
+        String str = aVar.e.f5697a;
+        if (aVar.e.f5698b == 3) {
             com.baidu.webkit.logsdk.a.b.a().e();
             com.baidu.webkit.logsdk.b.b.a(str, System.currentTimeMillis());
             com.baidu.webkit.logsdk.a.b.a().h().c().a(str, false);

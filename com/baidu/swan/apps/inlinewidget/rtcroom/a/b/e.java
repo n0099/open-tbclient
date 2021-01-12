@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azs() {
+    public String avy() {
         return "enableLocalMirror";
     }
 
@@ -18,11 +18,11 @@ public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         if (command.obj instanceof String) {
             String str = (String) command.obj;
             if (TextUtils.equals("auto", str)) {
-                bVar.pb(str);
+                bVar.nO(str);
             } else if (TextUtils.equals(com.baidu.fsg.face.base.b.c.l, str)) {
-                bVar.pb(str);
+                bVar.nO(str);
             } else if (TextUtils.equals("disable", str)) {
-                bVar.pb(str);
+                bVar.nO(str);
             }
         }
     }

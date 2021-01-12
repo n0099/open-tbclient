@@ -18,10 +18,10 @@ public class w {
     private static volatile w c;
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, String> f7903a;
+    private Map<String, String> f7603a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f7904b = false;
+    private volatile boolean f7604b = false;
     private Context d;
 
     /* JADX DEBUG: Marked for inline */
@@ -120,12 +120,12 @@ public class w {
             return null;
         }
         a();
-        if (this.f7903a == null || this.f7903a.isEmpty()) {
+        if (this.f7603a == null || this.f7603a.isEmpty()) {
             return null;
         }
         String str3 = e;
         do {
-            str2 = this.f7903a.get(str3);
+            str2 = this.f7603a.get(str3);
             if (str2 == null) {
                 str3 = e(str3);
             }
@@ -145,9 +145,9 @@ public class w {
     }
 
     private void a() {
-        if (this.d != null && !this.f7904b) {
+        if (this.d != null && !this.f7604b) {
             synchronized (this) {
-                if (!this.f7904b) {
+                if (!this.f7604b) {
                     List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>() { // from class: com.bytedance.sdk.openadsdk.utils.w.1
                         /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
                             jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -251,7 +251,7 @@ public class w {
                             throw new UnsupportedOperationException("Method not decompiled: com.bytedance.sdk.openadsdk.utils.w.AnonymousClass1.run():java.util.List");
                         }
                     });
-                    this.f7903a = new HashMap(list.size());
+                    this.f7603a = new HashMap(list.size());
                     String str = "";
                     Iterator it = list.iterator();
                     while (it.hasNext()) {
@@ -266,7 +266,7 @@ public class w {
                     if (!str.isEmpty()) {
                         f(str);
                     }
-                    this.f7904b = true;
+                    this.f7604b = true;
                 }
             }
         }
@@ -307,8 +307,8 @@ public class w {
     }
 
     private void a(String str, String str2) {
-        if (str != null && !str.isEmpty() && str2 != null && !str2.isEmpty() && !this.f7903a.containsKey(str)) {
-            this.f7903a.put(str, str2);
+        if (str != null && !str.isEmpty() && str2 != null && !str2.isEmpty() && !this.f7603a.containsKey(str)) {
+            this.f7603a.put(str, str2);
         }
     }
 }

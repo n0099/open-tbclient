@@ -3,14 +3,14 @@ package com.tencent.turingfd.sdk.ams.au;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class bh {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13812a = ab.a("turingfd_protect_").append(af.f13767a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(47).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
+    public static final String f13512a = ab.a("turingfd_protect_").append(af.f13467a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(47).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
 
     public static SharedPreferences a(Context context) {
-        return context.getSharedPreferences(f13812a, 0);
+        return context.getSharedPreferences(f13512a, 0);
     }
 
     public static void a(Context context, String str, int i) {

@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DressupItemView extends LinearLayout {
-    private TextView jnJ;
-    private TbImageView lit;
-    private TbImageView liu;
-    private TextView liv;
+    private TextView jjc;
+    private TbImageView ldN;
+    private TbImageView ldO;
+    private TextView ldP;
     private Context mContext;
     private View mRootView;
 
@@ -37,11 +37,11 @@ public class DressupItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_dressup_item, this);
-        this.lit = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
-        this.liu = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.liu.setDefaultResource(R.drawable.transparent_bg);
-        this.liu.setDefaultBgResource(R.drawable.transparent_bg);
-        this.liv = (TextView) this.mRootView.findViewById(R.id.txt_type);
-        this.jnJ = (TextView) this.mRootView.findViewById(R.id.txt_name);
+        this.ldN = (TbImageView) this.mRootView.findViewById(R.id.bg_image);
+        this.ldO = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.ldO.setDefaultResource(R.drawable.transparent_bg);
+        this.ldO.setDefaultBgResource(R.drawable.transparent_bg);
+        this.ldP = (TextView) this.mRootView.findViewById(R.id.txt_type);
+        this.jjc = (TextView) this.mRootView.findViewById(R.id.txt_name);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.payment.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public static final int FALSE = 0;
     public static final int TRUE = 1;
@@ -45,7 +45,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         this.tbs = str;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class GoodsInfo extends OrmObject implements Serializable {
         private static final int NAME_LENGTH_MAX = 7;
         private static final long serialVersionUID = 3616864478965520380L;
@@ -115,7 +115,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class OrderInfo extends OrmObject implements Serializable {
         private static final long serialVersionUID = -2732450616226807443L;
         private Cpath cpath;
@@ -182,7 +182,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             this.cpath = cpath;
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static final class Cpath extends OrmObject implements Serializable {
             private static final long serialVersionUID = -7950965099930244673L;
             private int gettdou_cashier;
@@ -240,7 +240,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 this.member = member;
             }
 
-            /* loaded from: classes9.dex */
+            /* loaded from: classes8.dex */
             public static final class Member extends OrmObject implements Serializable {
                 private static final long serialVersionUID = 8094155826429200428L;
                 private String desc;
@@ -265,7 +265,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class UserInfo extends OrmObject implements Serializable {
         private static final long serialVersionUID = -4710995963160510207L;
         private UserScores Parr_scores;
@@ -341,7 +341,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             this.Parr_scores = userScores;
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static final class UserScores extends OrmObject implements Serializable {
             private static final long serialVersionUID = -667999598567432177L;
             private int level;

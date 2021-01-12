@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Object sLock;

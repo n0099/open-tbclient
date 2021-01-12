@@ -24,10 +24,10 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 final class a {
-    private static WeakReference<b> dFG;
-    private static Toast dFH;
+    private static WeakReference<b> dAU;
+    private static Toast dAV;
     private static boolean sDebug = com.baidu.swan.apps.b.DEBUG;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
@@ -53,16 +53,16 @@ final class a {
                 textView.setGravity(17);
             }
         }
-        if (c.dl(applicationContext)) {
+        if (c.dk(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.dFH = new Toast(applicationContext);
-                    a.dFH.setView(relativeLayout);
-                    a.dFH.setGravity(17, 0, 0);
-                    c.a(a.dFH, a.i.toast_animation);
+                    Toast unused = a.dAV = new Toast(applicationContext);
+                    a.dAV.setView(relativeLayout);
+                    a.dAV.setGravity(17, 0, 0);
+                    c.a(a.dAV, a.i.toast_animation);
                     try {
-                        a.dFH.show();
+                        a.dAV.show();
                     } catch (NullPointerException e) {
                         if (a.sDebug) {
                             e.printStackTrace();
@@ -81,7 +81,7 @@ final class a {
         bVar.setMask(z2);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.kG(a.i.toast_animation);
+        bVar.ja(a.i.toast_animation);
         bVar.show();
     }
 
@@ -96,15 +96,15 @@ final class a {
             textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
-        if (c.dl(applicationContext)) {
+        if (c.dk(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.dFH = new Toast(applicationContext);
-                    a.dFH.setView(relativeLayout);
-                    a.dFH.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.dFH, a.i.toast_animation);
-                    a.dFH.show();
+                    Toast unused = a.dAV = new Toast(applicationContext);
+                    a.dAV.setView(relativeLayout);
+                    a.dAV.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dAV, a.i.toast_animation);
+                    a.dAV.show();
                     if (a.sDebug) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in showToastBottom");
                     }
@@ -117,7 +117,7 @@ final class a {
         bVar.setView(relativeLayout);
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i);
-        bVar.kG(a.i.toast_animation);
+        bVar.ja(a.i.toast_animation);
         bVar.show();
     }
 
@@ -141,15 +141,15 @@ final class a {
                 imageView.setImageDrawable(resources.getDrawable(a.e.aiapps_highlight_toast_image));
             }
         }
-        if (c.dl(applicationContext)) {
+        if (c.dk(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.dFH = new Toast(context);
-                    a.dFH.setView(linearLayout);
-                    a.dFH.setGravity(17, 0, 0);
-                    c.a(a.dFH, a.i.highlight_toast_animation);
-                    a.dFH.show();
+                    Toast unused = a.dAV = new Toast(context);
+                    a.dAV.setView(linearLayout);
+                    a.dAV.setGravity(17, 0, 0);
+                    c.a(a.dAV, a.i.highlight_toast_animation);
+                    a.dAV.show();
                 }
             });
             return;
@@ -160,7 +160,7 @@ final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.kG(a.i.highlight_toast_animation);
+        bVar.ja(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -175,15 +175,15 @@ final class a {
         if (!TextUtils.isEmpty(charSequence) && textView != null) {
             textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
         }
-        if (c.dl(applicationContext)) {
+        if (c.dk(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.dFH = new Toast(context);
-                    a.dFH.setView(linearLayout);
-                    a.dFH.setGravity(17, 0, 0);
-                    c.a(a.dFH, a.i.highlight_toast_animation);
-                    a.dFH.show();
+                    Toast unused = a.dAV = new Toast(context);
+                    a.dAV.setView(linearLayout);
+                    a.dAV.setGravity(17, 0, 0);
+                    c.a(a.dAV, a.i.highlight_toast_animation);
+                    a.dAV.show();
                 }
             });
             return;
@@ -194,7 +194,7 @@ final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.kG(a.i.highlight_toast_animation);
+        bVar.ja(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -204,7 +204,7 @@ final class a {
         TextView textView2;
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        if (c.dl(context)) {
+        if (c.dk(context)) {
             final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
             relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
             relativeLayout.setClickable(true);
@@ -216,19 +216,19 @@ final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.dFH = new Toast(applicationContext);
-                    a.dFH.setView(relativeLayout);
-                    a.dFH.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.dFH, a.i.toast_animation);
+                    Toast unused = a.dAV = new Toast(applicationContext);
+                    a.dAV.setView(relativeLayout);
+                    a.dAV.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dAV, a.i.toast_animation);
                     relativeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.b.a.7.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (aVar != null) {
-                                aVar.ajN();
+                                aVar.afT();
                             }
                         }
                     });
-                    a.dFH.show();
+                    a.dAV.show();
                 }
             });
             return;
@@ -259,8 +259,8 @@ final class a {
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.aLQ()) {
-            bVar.kH(2003);
+        if (c.aHW()) {
+            bVar.jb(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
@@ -269,7 +269,7 @@ final class a {
         bVar.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i2);
         bVar.a(aVar);
-        bVar.kG(a.i.toast_animation);
+        bVar.ja(a.i.toast_animation);
         bVar.show();
     }
 
@@ -286,7 +286,7 @@ final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().Bc(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().AY(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -340,7 +340,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.aAO().alE() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.awU().ahK() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -354,24 +354,24 @@ final class a {
         } else {
             findViewById.setVisibility(8);
         }
-        if (c.dl(context)) {
+        if (c.dk(context)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     findViewById.setVisibility(8);
-                    Toast unused = a.dFH = new Toast(applicationContext);
-                    a.dFH.setView(linearLayout);
-                    a.dFH.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.dFH, a.i.toast_animation);
-                    a.dFH.show();
+                    Toast unused = a.dAV = new Toast(applicationContext);
+                    a.dAV.setView(linearLayout);
+                    a.dAV.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dAV, a.i.toast_animation);
+                    a.dAV.show();
                 }
             });
             return;
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.aLQ()) {
-            bVar.kH(2003);
+        if (c.aHW()) {
+            bVar.jb(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
@@ -380,25 +380,25 @@ final class a {
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i3);
         bVar.a(aVar);
-        bVar.kG(a.i.toast_animation);
+        bVar.ja(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void cancel() {
         b bVar;
-        if (dFG != null && (bVar = dFG.get()) != null) {
+        if (dAU != null && (bVar = dAU.get()) != null) {
             bVar.cancel();
         }
-        if (dFH != null) {
-            dFH.cancel();
+        if (dAV != null) {
+            dAV.cancel();
         }
     }
 
     private static void a(b bVar) {
-        if (dFG != null) {
-            dFG.clear();
+        if (dAU != null) {
+            dAU.clear();
         }
-        dFG = new WeakReference<>(bVar);
+        dAU = new WeakReference<>(bVar);
     }
 }

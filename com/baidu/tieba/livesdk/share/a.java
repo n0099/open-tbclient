@@ -15,10 +15,10 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.livesdk.c;
 import com.baidu.tieba.sdk.b.e;
 import com.baidu.tieba.tbadkCore.z;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements IShareChannel, e {
     @Override // com.baidu.tieba.sdk.b.e
-    public boolean dfs() {
+    public boolean dbA() {
         return true;
     }
 
@@ -58,7 +58,7 @@ public class a implements IShareChannel, e {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!Fx(i)) {
+            if (!DR(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -72,7 +72,7 @@ public class a implements IShareChannel, e {
         }
     }
 
-    private boolean Fx(int i) {
+    private boolean DR(int i) {
         boolean z = false;
         switch (i) {
             case 2:

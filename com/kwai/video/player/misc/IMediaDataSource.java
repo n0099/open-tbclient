@@ -1,5 +1,5 @@
 package com.kwai.video.player.misc;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IMediaDataSource {
     void close();
 

@@ -1,32 +1,32 @@
 package com.cmic.sso.sdk;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentHashMap<String, Object> f7983a;
+    private ConcurrentHashMap<String, Object> f7683a;
 
     public a(int i) {
-        this.f7983a = new ConcurrentHashMap<>(i);
+        this.f7683a = new ConcurrentHashMap<>(i);
     }
 
     public void a(String str, byte[] bArr) {
         if (str != null && bArr != null) {
-            this.f7983a.put(str, bArr);
+            this.f7683a.put(str, bArr);
         }
     }
 
     public byte[] a(String str) {
         if (str != null) {
-            return (byte[]) this.f7983a.get(str);
+            return (byte[]) this.f7683a.get(str);
         }
         return null;
     }
 
     public void a(String str, String str2) {
         if (str != null && str2 != null) {
-            this.f7983a.put(str, str2);
+            this.f7683a.put(str, str2);
         }
     }
 
@@ -35,25 +35,25 @@ public class a {
     }
 
     public String b(String str, String str2) {
-        return (str == null || !this.f7983a.containsKey(str)) ? str2 : (String) this.f7983a.get(str);
+        return (str == null || !this.f7683a.containsKey(str)) ? str2 : (String) this.f7683a.get(str);
     }
 
     public void a(String str, boolean z) {
         if (str != null) {
-            this.f7983a.put(str, Boolean.valueOf(z));
+            this.f7683a.put(str, Boolean.valueOf(z));
         }
     }
 
     public boolean b(String str, boolean z) {
-        if (str != null && this.f7983a.containsKey(str)) {
-            return ((Boolean) this.f7983a.get(str)).booleanValue();
+        if (str != null && this.f7683a.containsKey(str)) {
+            return ((Boolean) this.f7683a.get(str)).booleanValue();
         }
         return z;
     }
 
     public void a(String str, int i) {
         if (str != null) {
-            this.f7983a.put(str, Integer.valueOf(i));
+            this.f7683a.put(str, Integer.valueOf(i));
         }
     }
 
@@ -62,21 +62,21 @@ public class a {
     }
 
     public int b(String str, int i) {
-        if (str != null && this.f7983a.containsKey(str)) {
-            return ((Integer) this.f7983a.get(str)).intValue();
+        if (str != null && this.f7683a.containsKey(str)) {
+            return ((Integer) this.f7683a.get(str)).intValue();
         }
         return i;
     }
 
     public void a(String str, long j) {
         if (str != null) {
-            this.f7983a.put(str, Long.valueOf(j));
+            this.f7683a.put(str, Long.valueOf(j));
         }
     }
 
     public long b(String str, long j) {
-        if (str != null && this.f7983a.containsKey(str)) {
-            return ((Long) this.f7983a.get(str)).longValue();
+        if (str != null && this.f7683a.containsKey(str)) {
+            return ((Long) this.f7683a.get(str)).longValue();
         }
         return j;
     }

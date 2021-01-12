@@ -1,11 +1,11 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f8275a = new o();
+    public static final o f7975a = new o();
 
     private o() {
     }

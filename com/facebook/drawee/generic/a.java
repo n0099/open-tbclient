@@ -12,48 +12,48 @@ import com.facebook.drawee.drawable.h;
 import com.facebook.drawee.drawable.o;
 import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements com.facebook.drawee.d.c {
     private final Resources mResources;
     @Nullable
-    private RoundingParams pxT;
-    private final d pxU;
-    private final f pxV;
-    private final Drawable pxS = new ColorDrawable(0);
-    private final g pxW = new g(this.pxS);
+    private RoundingParams ptr;
+    private final d ptt;
+    private final f ptu;
+    private final Drawable ptq = new ColorDrawable(0);
+    private final g ptv = new g(this.ptq);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.pxT = bVar.ewa();
-        int size = (bVar.getOverlays() != null ? bVar.getOverlays().size() : 1) + (bVar.ewp() != null ? 1 : 0);
+        this.ptr = bVar.esh();
+        int size = (bVar.esw() != null ? bVar.esw().size() : 1) + (bVar.esx() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), (p.b) null);
-        drawableArr[1] = a(bVar.ewe(), bVar.ewf());
-        drawableArr[2] = a(this.pxW, bVar.ewm(), bVar.ewn(), bVar.ewo());
-        drawableArr[3] = a(bVar.ewk(), bVar.ewl());
-        drawableArr[4] = a(bVar.ewg(), bVar.ewh());
-        drawableArr[5] = a(bVar.ewi(), bVar.ewj());
+        drawableArr[1] = a(bVar.esl(), bVar.esm());
+        drawableArr[2] = a(this.ptv, bVar.est(), bVar.esu(), bVar.esv());
+        drawableArr[3] = a(bVar.esr(), bVar.ess());
+        drawableArr[4] = a(bVar.esn(), bVar.eso());
+        drawableArr[5] = a(bVar.esp(), bVar.esq());
         if (size > 0) {
-            if (bVar.getOverlays() != null) {
-                for (Drawable drawable : bVar.getOverlays()) {
+            if (bVar.esw() != null) {
+                for (Drawable drawable : bVar.esw()) {
                     drawableArr[i + 6] = a(drawable, (p.b) null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.ewp() != null) {
-                drawableArr[i + 6] = a(bVar.ewp(), (p.b) null);
+            if (bVar.esx() != null) {
+                drawableArr[i + 6] = a(bVar.esx(), (p.b) null);
             }
         }
-        this.pxV = new f(drawableArr);
-        this.pxV.Qt(bVar.ewb());
-        this.pxU = new d(e.a(this.pxV, this.pxT));
-        this.pxU.Bb(bVar.ewc());
-        this.pxU.mutate();
-        evY();
+        this.ptu = new f(drawableArr);
+        this.ptu.OM(bVar.esi());
+        this.ptt = new d(e.a(this.ptu, this.ptr));
+        this.ptt.AX(bVar.esj());
+        this.ptt.mutate();
+        esf();
     }
 
     @Nullable
@@ -64,57 +64,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.d(e.a(drawable, this.pxT, this.mResources), bVar);
+        return e.d(e.a(drawable, this.ptr, this.mResources), bVar);
     }
 
-    private void evX() {
-        this.pxW.v(this.pxS);
+    private void ese() {
+        this.ptv.v(this.ptq);
     }
 
-    private void evY() {
-        if (this.pxV != null) {
-            this.pxV.evM();
-            this.pxV.evO();
-            evZ();
-            Qu(1);
-            this.pxV.evP();
-            this.pxV.evN();
+    private void esf() {
+        if (this.ptu != null) {
+            this.ptu.erT();
+            this.ptu.erV();
+            esg();
+            ON(1);
+            this.ptu.erW();
+            this.ptu.erU();
         }
     }
 
-    private void evZ() {
-        Qv(1);
-        Qv(2);
-        Qv(3);
-        Qv(4);
-        Qv(5);
+    private void esg() {
+        OO(1);
+        OO(2);
+        OO(3);
+        OO(4);
+        OO(5);
     }
 
-    private void Qu(int i) {
+    private void ON(int i) {
         if (i >= 0) {
-            this.pxV.Qu(i);
+            this.ptu.ON(i);
         }
     }
 
-    private void Qv(int i) {
+    private void OO(int i) {
         if (i >= 0) {
-            this.pxV.Qv(i);
+            this.ptu.OO(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.pxV.getDrawable(3);
+        Drawable drawable = this.ptu.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                Qv(3);
+                OO(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Qu(3);
+                ON(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -122,98 +122,98 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.pxU;
+        return this.ptt;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        evX();
-        evY();
+        ese();
+        esf();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a2 = e.a(drawable, this.pxT, this.mResources);
+        Drawable a2 = e.a(drawable, this.ptr, this.mResources);
         a2.mutate();
-        this.pxW.v(a2);
-        this.pxV.evM();
-        evZ();
-        Qu(2);
+        this.ptv.v(a2);
+        this.ptu.erT();
+        esg();
+        ON(2);
         setProgress(f);
         if (z) {
-            this.pxV.evP();
+            this.ptu.erW();
         }
-        this.pxV.evN();
+        this.ptu.erU();
     }
 
     @Override // com.facebook.drawee.d.c
     public void d(float f, boolean z) {
-        if (this.pxV.getDrawable(3) != null) {
-            this.pxV.evM();
+        if (this.ptu.getDrawable(3) != null) {
+            this.ptu.erT();
             setProgress(f);
             if (z) {
-                this.pxV.evP();
+                this.ptu.erW();
             }
-            this.pxV.evN();
+            this.ptu.erU();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void A(Throwable th) {
-        this.pxV.evM();
-        evZ();
-        if (this.pxV.getDrawable(5) != null) {
-            Qu(5);
+        this.ptu.erT();
+        esg();
+        if (this.ptu.getDrawable(5) != null) {
+            ON(5);
         } else {
-            Qu(1);
+            ON(1);
         }
-        this.pxV.evN();
+        this.ptu.erU();
     }
 
     @Override // com.facebook.drawee.d.c
     public void B(Throwable th) {
-        this.pxV.evM();
-        evZ();
-        if (this.pxV.getDrawable(4) != null) {
-            Qu(4);
+        this.ptu.erT();
+        esg();
+        if (this.ptu.getDrawable(4) != null) {
+            ON(4);
         } else {
-            Qu(1);
+            ON(1);
         }
-        this.pxV.evN();
+        this.ptu.erU();
     }
 
     @Override // com.facebook.drawee.d.c
     public void u(@Nullable Drawable drawable) {
-        this.pxU.u(drawable);
+        this.ptt.u(drawable);
     }
 
-    private com.facebook.drawee.drawable.c Qw(int i) {
-        com.facebook.drawee.drawable.c Qq = this.pxV.Qq(i);
-        if (Qq.getDrawable() instanceof h) {
-            Qq = (h) Qq.getDrawable();
+    private com.facebook.drawee.drawable.c OP(int i) {
+        com.facebook.drawee.drawable.c OJ = this.ptu.OJ(i);
+        if (OJ.getDrawable() instanceof h) {
+            OJ = (h) OJ.getDrawable();
         }
-        if (Qq.getDrawable() instanceof o) {
-            return (o) Qq.getDrawable();
+        if (OJ.getDrawable() instanceof o) {
+            return (o) OJ.getDrawable();
         }
-        return Qq;
+        return OJ;
     }
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.pxV.a(i, null);
+            this.ptu.a(i, null);
             return;
         }
-        Qw(i).v(e.a(drawable, this.pxT, this.mResources));
+        OP(i).v(e.a(drawable, this.ptr, this.mResources));
     }
 
-    private o Qx(int i) {
-        com.facebook.drawee.drawable.c Qw = Qw(i);
-        return Qw instanceof o ? (o) Qw : e.a(Qw, p.b.pxI);
+    private o OQ(int i) {
+        com.facebook.drawee.drawable.c OP = OP(i);
+        return OP instanceof o ? (o) OP : e.a(OP, p.b.ptg);
     }
 
     public void b(p.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        Qx(2).a(bVar);
+        OQ(2).a(bVar);
     }
 
     public void A(@Nullable Drawable drawable) {
@@ -222,10 +222,10 @@ public class a implements com.facebook.drawee.d.c {
 
     public void b(Drawable drawable, p.b bVar) {
         b(1, drawable);
-        Qx(1).a(bVar);
+        OQ(1).a(bVar);
     }
 
-    public void Qy(int i) {
+    public void OR(int i) {
         A(this.mResources.getDrawable(i));
     }
 
@@ -235,7 +235,7 @@ public class a implements com.facebook.drawee.d.c {
 
     public void c(Drawable drawable, p.b bVar) {
         b(5, drawable);
-        Qx(5).a(bVar);
+        OQ(5).a(bVar);
     }
 
     public void b(int i, p.b bVar) {
@@ -243,15 +243,15 @@ public class a implements com.facebook.drawee.d.c {
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.pxT = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.pxU, this.pxT);
-        for (int i = 0; i < this.pxV.evJ(); i++) {
-            e.a(Qw(i), this.pxT, this.mResources);
+        this.ptr = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.ptt, this.ptr);
+        for (int i = 0; i < this.ptu.erQ(); i++) {
+            e.a(OP(i), this.ptr, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams ewa() {
-        return this.pxT;
+    public RoundingParams esh() {
+        return this.ptr;
     }
 }

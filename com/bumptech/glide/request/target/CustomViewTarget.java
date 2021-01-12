@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     private static final String TAG = "CustomViewTarget";
     @IdRes
@@ -181,7 +181,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static final class SizeDeterminer {
         private static final int PENDING_SIZE = 0;
         @Nullable
@@ -297,7 +297,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             private final WeakReference<SizeDeterminer> sizeDeterminerRef;
 

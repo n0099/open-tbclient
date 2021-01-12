@@ -16,33 +16,33 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a implements ExecutorService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f10479a = TimeUnit.SECONDS.toMillis(10);
+    private static final long f10179a = TimeUnit.SECONDS.toMillis(10);
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile int f10480b;
+    private static volatile int f10180b;
     private final ExecutorService c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.glide.load.engine.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class ThreadFactoryC1144a implements ThreadFactory {
+    /* loaded from: classes4.dex */
+    public static final class ThreadFactoryC1127a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        final b f10481a;
+        final b f10181a;
 
         /* renamed from: b  reason: collision with root package name */
-        final boolean f10482b;
+        final boolean f10182b;
         private final String c;
         private int d;
 
-        ThreadFactoryC1144a(String str, b bVar, boolean z) {
+        ThreadFactoryC1127a(String str, b bVar, boolean z) {
             this.c = str;
-            this.f10481a = bVar;
-            this.f10482b = z;
+            this.f10181a = bVar;
+            this.f10182b = z;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -52,13 +52,13 @@ public final class a implements ExecutorService {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Process.setThreadPriority(9);
-                    if (ThreadFactoryC1144a.this.f10482b) {
+                    if (ThreadFactoryC1127a.this.f10182b) {
                         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectNetwork().penaltyDeath().build());
                     }
                     try {
                         super.run();
                     } catch (Throwable th) {
-                        ThreadFactoryC1144a.this.f10481a.a(th);
+                        ThreadFactoryC1127a.this.f10181a.a(th);
                     }
                 }
             };
@@ -67,18 +67,18 @@ public final class a implements ExecutorService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f10484a = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.1
+        public static final b f10184a = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.1
             @Override // com.kwad.sdk.glide.load.engine.b.a.b
             public void a(Throwable th) {
             }
         };
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f10485b = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.2
+        public static final b f10185b = new b() { // from class: com.kwad.sdk.glide.load.engine.b.a.b.2
             @Override // com.kwad.sdk.glide.load.engine.b.a.b
             public void a(Throwable th) {
                 if (th == null || !Log.isLoggable("GlideExecutor", 6)) {
@@ -95,7 +95,7 @@ public final class a implements ExecutorService {
                 }
             }
         };
-        public static final b d = f10485b;
+        public static final b d = f10185b;
 
         void a(Throwable th);
     }
@@ -110,11 +110,11 @@ public final class a implements ExecutorService {
     }
 
     public static a a(int i, b bVar) {
-        return new a(new ThreadPoolExecutor(0, i, f10479a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1144a("animation", bVar, true)));
+        return new a(new ThreadPoolExecutor(0, i, f10179a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1127a("animation", bVar, true)));
     }
 
     public static a a(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1144a(str, bVar, true)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1127a(str, bVar, true)));
     }
 
     public static a b() {
@@ -122,11 +122,11 @@ public final class a implements ExecutorService {
     }
 
     public static a b(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1144a(str, bVar, false)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1127a(str, bVar, false)));
     }
 
     public static a c() {
-        return new a(new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, f10479a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1144a("source-unlimited", b.d, false)));
+        return new a(new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, f10179a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1127a("source-unlimited", b.d, false)));
     }
 
     public static a d() {
@@ -134,10 +134,10 @@ public final class a implements ExecutorService {
     }
 
     public static int e() {
-        if (f10480b == 0) {
-            f10480b = Math.min(4, com.kwad.sdk.glide.load.engine.b.b.a());
+        if (f10180b == 0) {
+            f10180b = Math.min(4, com.kwad.sdk.glide.load.engine.b.b.a());
         }
-        return f10480b;
+        return f10180b;
     }
 
     @Override // java.util.concurrent.ExecutorService

@@ -3,7 +3,7 @@ package com.baidu.ala.ndk;
 import android.content.res.AssetManager;
 import android.util.Log;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AudioProcessModule {
     public static final int MUTE_FLAGS = 3;
     public static final int PAUSE_FLAGS = 1;
@@ -15,12 +15,12 @@ public class AudioProcessModule {
     private RenderCallback mRenderCallback = null;
     private CaptureCallback mCaptureCallback = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface CaptureCallback {
         void onCaptureData(int i);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface RenderCallback {
         void onRenderData(int i);
     }

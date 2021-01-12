@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class s extends com.baidu.live.view.web.a {
     private SchemeCallback schemeCallback;
 
@@ -26,7 +26,7 @@ public class s extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jf(String str) {
+    public void hU(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl sendTagGiftBridge params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -44,12 +44,12 @@ public class s extends com.baidu.live.view.web.a {
                 e.printStackTrace();
             }
             com.baidu.live.gift.g gVar = new com.baidu.live.gift.g();
-            gVar.gH(optString);
+            gVar.fv(optString);
             gVar.setGiftName(optString3);
             gVar.setPrice(optString2);
-            gVar.gG(String.valueOf(optInt));
-            gVar.setSceneFrom(com.baidu.live.utils.q.XG());
-            gVar.eh(optInt2);
+            gVar.fu(String.valueOf(optInt));
+            gVar.setSceneFrom(com.baidu.live.utils.q.TN());
+            gVar.cB(optInt2);
             gVar.setThumbnailUrl(optString4);
             BdUniqueId gen = BdUniqueId.gen();
             final int id = gen.getId();
@@ -76,7 +76,7 @@ public class s extends com.baidu.live.view.web.a {
     }
 
     private void a(BdUniqueId bdUniqueId, com.baidu.live.gift.g gVar, int i) {
-        com.baidu.live.data.x HW = ac.HW();
-        ac.b(gVar, i, HW.aKu.userId + "", HW.aKu.userName, HW.mLiveInfo.live_id + "", HW.mLiveInfo.room_id + "", HW.mLiveInfo.appId + "", HW.mLiveInfo.feed_id + "", "", 0L, bdUniqueId);
+        com.baidu.live.data.x Eb = ac.Eb();
+        ac.b(gVar, i, Eb.aFH.userId + "", Eb.aFH.userName, Eb.mLiveInfo.live_id + "", Eb.mLiveInfo.room_id + "", Eb.mLiveInfo.appId + "", Eb.mLiveInfo.feed_id + "", "", 0L, bdUniqueId);
     }
 }

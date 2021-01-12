@@ -2,7 +2,7 @@ package com.kwai.video.player;
 
 import com.kwai.player.KwaiRepresentation;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IKwaiRepresentationListener {
     int onSelectRepresentation(List<KwaiRepresentation> list);
 

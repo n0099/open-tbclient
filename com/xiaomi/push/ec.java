@@ -6,10 +6,10 @@ import android.text.TextUtils;
 public class ec extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14260a = "";
+    public static String f13960a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f14261b = "";
+    public static String f13961b = "";
 
     public ec(Context context, int i) {
         super(context, i);
@@ -35,29 +35,29 @@ public class ec extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo196a() {
+    public int mo192a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo196a() {
+    public ho mo192a() {
         return ho.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo196a() {
+    public String mo192a() {
         String str = "";
-        if (!TextUtils.isEmpty(f14260a)) {
-            str = "" + a(dv.f309a, f14260a);
-            f14260a = "";
+        if (!TextUtils.isEmpty(f13960a)) {
+            str = "" + a(dv.f308a, f13960a);
+            f13960a = "";
         }
-        if (TextUtils.isEmpty(f14261b)) {
+        if (TextUtils.isEmpty(f13961b)) {
             return str;
         }
-        String str2 = str + a(dv.f14256b, f14261b);
-        f14261b = "";
+        String str2 = str + a(dv.f13956b, f13961b);
+        f13961b = "";
         return str2;
     }
 }

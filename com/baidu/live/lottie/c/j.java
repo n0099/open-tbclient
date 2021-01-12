@@ -1,10 +1,11 @@
 package com.baidu.live.lottie.c;
 
 import android.util.JsonReader;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.d n(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
@@ -44,7 +45,7 @@ public class j {
                     }
                     break;
                 case 3530753:
-                    if (nextName.equals("size")) {
+                    if (nextName.equals(TiebaInitialize.LogFields.SIZE)) {
                         c2 = 1;
                         break;
                     }

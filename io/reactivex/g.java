@@ -7,7 +7,7 @@ public abstract class g<T> implements org.a.b<T> {
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int eLE() {
+    public static int eHO() {
         return BUFFER_SIZE;
     }
 

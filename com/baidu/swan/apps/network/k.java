@@ -7,13 +7,13 @@ import java.util.Set;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class k {
-    public static final a drK = new a(null);
-    private volatile Set<String> drJ;
+    public static final a dmT = new a(null);
+    private volatile Set<String> dmS;
 
     @kotlin.e
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         private a() {
         }
@@ -25,25 +25,25 @@ public final class k {
 
     public final synchronized void a(WebSocketTask webSocketTask) {
         p.o(webSocketTask, "task");
-        if (this.drJ == null) {
-            this.drJ = new LinkedHashSet();
+        if (this.dmS == null) {
+            this.dmS = new LinkedHashSet();
         }
-        Set<String> set = this.drJ;
+        Set<String> set = this.dmS;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void qU(String str) {
+    public final synchronized void pJ(String str) {
         p.o(str, "taskId");
-        Set<String> set = this.drJ;
+        Set<String> set = this.dmS;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.drJ;
+        Set<String> set = this.dmS;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,16 +53,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.drJ;
+        Set<String> set2 = this.dmS;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean aGF() {
+    public final synchronized boolean aCL() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.drJ;
+            Set<String> set = this.dmS;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

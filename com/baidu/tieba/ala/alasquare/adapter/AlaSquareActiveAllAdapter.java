@@ -10,10 +10,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.c;
 import com.baidu.tieba.ala.alasquare.widget.b;
 import com.baidu.tieba.ala.alasquare.widget.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
-    private int gAa;
-    d gAb;
+    private int gvt;
+    d gvu;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     /* renamed from: P */
     public SquareActiveAllViewHolder e(ViewGroup viewGroup) {
         b bVar = new b(this.mPageContext);
-        bVar.a(this.gAb);
+        bVar.a(this.gvu);
         return new SquareActiveAllViewHolder(bVar);
     }
 
@@ -31,23 +31,23 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, SquareActiveAllViewHolder squareActiveAllViewHolder) {
         b bVar;
-        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gAe) == null || bVar.getView() == null) {
+        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gvx) == null || bVar.getView() == null) {
             return null;
         }
         bVar.a(cVar);
-        if (i == this.gAa) {
+        if (i == this.gvt) {
             bVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareActiveAllViewHolder.getView();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
-        public b gAe;
+        public b gvx;
 
         public SquareActiveAllViewHolder(b bVar) {
             super(bVar.getView());
-            this.gAe = bVar;
+            this.gvx = bVar;
         }
     }
 }

@@ -7,17 +7,17 @@ import java.util.Date;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static d aBD;
+    private static d awQ;
     private static boolean isDebug = false;
-    private static StringBuilder aBC = new StringBuilder();
+    private static StringBuilder awP = new StringBuilder();
 
     public static void a(d dVar) {
-        aBD = dVar;
+        awQ = dVar;
     }
 
-    public static void be(boolean z) {
+    public static void ba(boolean z) {
         isDebug = z;
     }
 
@@ -37,58 +37,58 @@ public class a {
         }
     }
 
-    public static void aj(String str, String str2) {
+    public static void ai(String str, String str2) {
         if (isDebug) {
             Log.d("blmsdk", str + str2);
         }
-        fI(str);
+        ew(str);
     }
 
-    public static void fI(String str) {
-        String f = f(4000, str);
+    public static void ew(String str) {
+        String g = g(4000, str);
         JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(f)) {
+        if (!TextUtils.isEmpty(g)) {
             try {
-                jSONObject.put("blm_msg", f);
+                jSONObject.put("blm_msg", g);
             } catch (JSONException e) {
             }
         }
-        a(b.LOG_ID, b.aBE, b.aBF, b.aBG, jSONObject);
+        a(b.LOG_ID, b.awR, b.awS, b.awT, jSONObject);
     }
 
-    private static synchronized String f(int i, String str) {
-        String Bo;
+    private static synchronized String g(int i, String str) {
+        String xt;
         synchronized (a.class) {
             try {
-                if (aBC == null) {
-                    aBC = new StringBuilder();
+                if (awP == null) {
+                    awP = new StringBuilder();
                 }
-                if (aBC.length() != 0) {
-                    aBC.append(",");
+                if (awP.length() != 0) {
+                    awP.append(",");
                 }
-                aBC.append("[").append(d(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
+                awP.append("[").append(d(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
             } catch (Exception e) {
             }
-            Bo = Bo();
+            xt = xt();
         }
-        return Bo;
+        return xt;
     }
 
     private static String d(long j, String str) {
         return new SimpleDateFormat(str, Locale.getDefault()).format(new Date(j));
     }
 
-    private static synchronized String Bo() {
+    private static synchronized String xt() {
         String sb;
         synchronized (a.class) {
-            if (aBC == null) {
+            if (awP == null) {
                 sb = "";
             } else {
-                sb = aBC.toString();
+                sb = awP.toString();
                 try {
-                    aBC.delete(0, aBC.length());
+                    awP.delete(0, awP.length());
                 } catch (Exception e) {
-                    aBC = new StringBuilder();
+                    awP = new StringBuilder();
                 }
             }
         }
@@ -97,7 +97,7 @@ public class a {
 
     private static synchronized void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         synchronized (a.class) {
-            if (aBD != null) {
+            if (awQ != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("type", str2);
@@ -108,14 +108,14 @@ public class a {
                     }
                 } catch (JSONException e) {
                 }
-                aBD.onLogReport(str, jSONObject2, jSONObject);
+                awQ.onLogReport(str, jSONObject2, jSONObject);
             }
         }
     }
 
     public static void release() {
-        if (aBD != null) {
-            aBD = null;
+        if (awQ != null) {
+            awQ = null;
         }
     }
 }

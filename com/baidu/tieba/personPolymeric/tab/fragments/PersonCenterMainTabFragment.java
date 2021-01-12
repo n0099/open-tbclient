@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.tab.view.b;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
     private long mUserId;
-    private com.baidu.tieba.personPolymeric.tab.view.a myS;
-    private User myU;
-    private b mzb;
-    private com.baidu.tieba.personPolymeric.c.a mzc;
+    private com.baidu.tieba.personPolymeric.tab.view.a muo;
+    private User muq;
+    private b mux;
+    private com.baidu.tieba.personPolymeric.c.a muy;
 
-    public static PersonCenterMainTabFragment p(long j, boolean z) {
+    public static PersonCenterMainTabFragment q(long j, boolean z) {
         PersonCenterMainTabFragment personCenterMainTabFragment = new PersonCenterMainTabFragment();
         Bundle bundle = new Bundle();
         bundle.putLong("uid", j);
@@ -40,10 +40,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.myS = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.myS.setSubType(1011);
-        this.mzb = new b(getPageContext(), this.isHost);
-        this.myS.addHeaderView(this.mzb.getView());
+        this.muo = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.muo.setSubType(1011);
+        this.mux = new b(getPageContext(), this.isHost);
+        this.muo.addHeaderView(this.mux.getView());
         return inflate;
     }
 
@@ -61,10 +61,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.myS != null && isAdded()) {
+        if (aVar != null && this.muo != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.mzc = aVar;
+            this.muy = aVar;
         }
     }
 
@@ -79,29 +79,29 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void wK(boolean z) {
-        cEG();
+    public void wG(boolean z) {
+        cAO();
     }
 
-    public void cEG() {
-        if (this.myS != null && isAdded()) {
-            this.myS.cEG();
+    public void cAO() {
+        if (this.muo != null && isAdded()) {
+            this.muo.cAO();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.myU = user;
+        this.muq = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.myS != null) {
-            this.myS.onChangeSkinType(i);
+        if (this.muo != null) {
+            this.muo.onChangeSkinType(i);
         }
-        if (this.mzb != null) {
-            this.mzb.onChangeSkinType(i);
+        if (this.mux != null) {
+            this.mux.onChangeSkinType(i);
         }
     }
 
@@ -115,29 +115,29 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.myS != null && this.mzb != null && this.mzc != null) {
-            f(this.mzc);
-            this.mzc = null;
+        if (this.muo != null && this.mux != null && this.muy != null) {
+            f(this.muy);
+            this.muy = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.myS != null && this.mzb != null && aVar != null) {
+        if (this.muo != null && this.mux != null && aVar != null) {
             List<n> fE = com.baidu.tieba.personPolymeric.tab.b.a.fE(aVar.getNewestThreadList());
             if (!x.isEmpty(fE)) {
-                this.myS.Is(R.string.person_center_tab_main_footer_text);
+                this.muo.GL(R.string.person_center_tab_main_footer_text);
             }
-            this.myS.fF(fE);
-            this.mzb.b(aVar);
-            this.mzb.aw(x.isEmpty(fE), isHost());
+            this.muo.fF(fE);
+            this.mux.b(aVar);
+            this.mux.aw(x.isEmpty(fE), isHost());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.myS != null) {
-            this.myS.onDestroy();
+        if (this.muo != null) {
+            this.muo.onDestroy();
         }
     }
 }

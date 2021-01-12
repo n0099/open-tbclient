@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import com.baidu.live.lottie.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(h hVar, Layer layer) {

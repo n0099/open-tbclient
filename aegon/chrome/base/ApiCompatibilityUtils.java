@@ -3,7 +3,7 @@ package aegon.chrome.base;
 import android.annotation.TargetApi;
 import android.content.Context;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ApiCompatibilityUtils {
     static {
         ApiCompatibilityUtils.class.desiredAssertionStatus();

@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> eYq = new ArrayList<>();
-    private View.OnClickListener gQP;
-    private View.OnClickListener gQQ;
-    private View.OnClickListener gQR;
-    private int gQS;
+    private ArrayList<ALaCharmData> eTF = new ArrayList<>();
+    private View.OnClickListener gMj;
+    private View.OnClickListener gMk;
+    private View.OnClickListener gMl;
+    private int gMm;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gQS = 1;
+        this.gMm = 1;
         this.mPageContext = tbPageContext;
-        this.gQS = i;
+        this.gMm = i;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gQP = onClickListener;
+        this.gMj = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.gQR = onClickListener;
+        this.gMl = onClickListener;
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.gQQ = onClickListener;
+        this.gMk = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.eYq.clear();
-            this.eYq.addAll(arrayList);
+            this.eTF.clear();
+            this.eTF.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void ac(ArrayList<ALaCharmData> arrayList) {
+    public void X(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.eYq.addAll(arrayList);
+            this.eTF.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eYq == null) {
+        if (this.eTF == null) {
             return 0;
         }
-        return this.eYq.size();
+        return this.eTF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vJ */
+    /* renamed from: ud */
     public ALaCharmData getItem(int i) {
-        if (this.eYq == null) {
+        if (this.eTF == null) {
             return null;
         }
-        return this.eYq.get(i);
+        return this.eTF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gQS == 1) {
+            if (this.gMm == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gQS == 2) {
+            } else if (this.gMm == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            dVar = new d(inflate, this.gQS);
-            dVar.r(this.gQR);
-            dVar.o(this.gQP);
-            dVar.s(this.gQQ);
+            dVar = new d(inflate, this.gMm);
+            dVar.r(this.gMl);
+            dVar.o(this.gMj);
+            dVar.s(this.gMk);
             inflate.setTag(dVar);
             view = inflate;
         } else {
@@ -105,8 +105,8 @@ public class a extends BaseAdapter {
     }
 
     public void aB(String str, boolean z) {
-        if (this.eYq != null && str != null) {
-            Iterator<ALaCharmData> it = this.eYq.iterator();
+        if (this.eTF != null && str != null) {
+            Iterator<ALaCharmData> it = this.eTF.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

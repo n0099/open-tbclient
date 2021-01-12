@@ -13,14 +13,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.a.c;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
-    public TextView anz;
-    public DistributeVideoView mMY;
-    private AdCard mOY;
-    private XfremodeRoundLayout mPS;
-    private TbImageView mPT;
-    public ImageView mPW;
+    public TextView amI;
+    public DistributeVideoView mIr;
+    private AdCard mKu;
+    private XfremodeRoundLayout mLm;
+    private TbImageView mLn;
+    public ImageView mLq;
 
     public AdCardSmallPicVideoView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -33,44 +33,44 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     protected void ec(View view) {
-        float dimensionPixelSize = this.eXu.getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.mPS = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.mPT = (TbImageView) view.findViewById(R.id.ad_img);
-        this.anz = (TextView) view.findViewById(R.id.ad_video_duration);
-        this.mPW = (ImageView) view.findViewById(R.id.video_play_icon);
-        this.mPT.setPlaceHolder(3);
-        this.mPS.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        float dimensionPixelSize = this.eSJ.getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.mLm = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.mLn = (TbImageView) view.findViewById(R.id.ad_img);
+        this.amI = (TextView) view.findViewById(R.id.ad_video_duration);
+        this.mLq = (ImageView) view.findViewById(R.id.video_play_icon);
+        this.mLn.setPlaceHolder(3);
+        this.mLm.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     protected void a(final AdCard adCard) {
         if (adCard == null || adCard.videoInfo == null) {
-            this.mOx.setVisibility(8);
+            this.mJT.setVisibility(8);
             return;
         }
-        this.mOY = adCard;
+        this.mKu = adCard;
         String str = adCard.videoInfo.thumbnail_url;
         if (!TextUtils.isEmpty(str)) {
-            this.mOx.setVisibility(0);
-            this.mPT.startLoad(str, 17, false);
+            this.mJT.setVisibility(0);
+            this.mLn.startLoad(str, 17, false);
         }
         final AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-        if (advertAppInfo != null && advertAppInfo.bpg()) {
+        if (advertAppInfo != null && advertAppInfo.blm()) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardSmallPicVideoView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AdCardSmallPicVideoView.this.mMY == null) {
+                    if (AdCardSmallPicVideoView.this.mIr == null) {
                         AdCardSmallPicVideoView.this.f(adCard);
                     }
-                    if (AdCardSmallPicVideoView.this.mMY != null) {
-                        AdCardSmallPicVideoView.this.mMY.jump2DownloadDetailPage();
+                    if (AdCardSmallPicVideoView.this.mIr != null) {
+                        AdCardSmallPicVideoView.this.mIr.jump2DownloadDetailPage();
                     }
                     c.a(c.c(advertAppInfo));
                 }
             });
         }
-        this.mPW.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-        this.anz.setText(StringUtils.translateSecondsToString(adCard.videoInfo.video_duration.intValue()));
+        this.mLq.setImageDrawable(SvgManager.bsx().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        this.amI.setText(StringUtils.translateSecondsToString(adCard.videoInfo.video_duration.intValue()));
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
@@ -80,14 +80,14 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AdCard adCard) {
-        if (this.mMY == null) {
-            this.mMY = new DistributeVideoView(getContext());
-            this.mMY.setPageContext(this.eXu);
-            this.mMY.setVideoTailFrameData(adCard.tailFrame);
-            this.mMY.setData(adCard.videoInfo);
-            this.mMY.setChargeInfo(adCard.chargeInfo);
-            this.mMY.setScheme(adCard.getScheme());
-            this.mMY.setAdInfo(adCard);
+        if (this.mIr == null) {
+            this.mIr = new DistributeVideoView(getContext());
+            this.mIr.setPageContext(this.eSJ);
+            this.mIr.setVideoTailFrameData(adCard.tailFrame);
+            this.mIr.setData(adCard.videoInfo);
+            this.mIr.setChargeInfo(adCard.chargeInfo);
+            this.mIr.setScheme(adCard.getScheme());
+            this.mIr.setAdInfo(adCard);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (advertAppInfo != null) {
                 int i = -1;
@@ -96,7 +96,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                     i = advertAppInfo.advertAppContext.pn;
                     pageTypeByBusiness = advertAppInfo.advertAppContext.page;
                 }
-                this.mMY.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+                this.mIr.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }
         }
     }

@@ -2,11 +2,11 @@ package com.baidu.mobstat;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f3808a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    private static final byte[] f3770a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
     public static byte[] a(byte[] bArr) {
         return a(bArr, bArr.length);
@@ -100,13 +100,13 @@ public final class bp {
         int i3 = 0;
         for (int i4 = 0; i4 < length2; i4 += 3) {
             int i5 = i3 + 1;
-            bArr2[i3] = f3808a[(bArr[i4] & 255) >> 2];
+            bArr2[i3] = f3770a[(bArr[i4] & 255) >> 2];
             int i6 = i5 + 1;
-            bArr2[i5] = f3808a[((bArr[i4] & 3) << 4) | ((bArr[i4 + 1] & 255) >> 4)];
+            bArr2[i5] = f3770a[((bArr[i4] & 3) << 4) | ((bArr[i4 + 1] & 255) >> 4)];
             int i7 = i6 + 1;
-            bArr2[i6] = f3808a[((bArr[i4 + 1] & 15) << 2) | ((bArr[i4 + 2] & 255) >> 6)];
+            bArr2[i6] = f3770a[((bArr[i4 + 1] & 15) << 2) | ((bArr[i4 + 2] & 255) >> 6)];
             i3 = i7 + 1;
-            bArr2[i7] = f3808a[bArr[i4 + 2] & 63];
+            bArr2[i7] = f3770a[bArr[i4 + 2] & 63];
             if ((i3 - i2) % 76 == 0 && i3 != 0) {
                 i2++;
             }
@@ -114,9 +114,9 @@ public final class bp {
         switch (bArr.length % 3) {
             case 1:
                 int i8 = i3 + 1;
-                bArr2[i3] = f3808a[(bArr[length2] & 255) >> 2];
+                bArr2[i3] = f3770a[(bArr[length2] & 255) >> 2];
                 int i9 = i8 + 1;
-                bArr2[i8] = f3808a[(bArr[length2] & 3) << 4];
+                bArr2[i8] = f3770a[(bArr[length2] & 3) << 4];
                 int i10 = i9 + 1;
                 bArr2[i9] = 61;
                 i = i10 + 1;
@@ -124,11 +124,11 @@ public final class bp {
                 break;
             case 2:
                 int i11 = i3 + 1;
-                bArr2[i3] = f3808a[(bArr[length2] & 255) >> 2];
+                bArr2[i3] = f3770a[(bArr[length2] & 255) >> 2];
                 int i12 = i11 + 1;
-                bArr2[i11] = f3808a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
+                bArr2[i11] = f3770a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
                 int i13 = i12 + 1;
-                bArr2[i12] = f3808a[(bArr[length2 + 1] & 15) << 2];
+                bArr2[i12] = f3770a[(bArr[length2 + 1] & 15) << 2];
                 i = i13 + 1;
                 bArr2[i13] = 61;
                 break;

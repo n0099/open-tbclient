@@ -1,13 +1,13 @@
 package com.sdk.base.framework.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b {
     private int c;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f13112a = System.currentTimeMillis();
+    private long f12812a = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    private c f13113b = new c();
+    private c f12813b = new c();
     private String d = "";
 
     public final String a() {
@@ -27,10 +27,10 @@ public final class b {
     }
 
     public final c c() {
-        return this.f13113b;
+        return this.f12813b;
     }
 
     public final String toString() {
-        return "MobileLog{time=" + this.f13112a + ", status=" + this.f13113b + '}';
+        return "MobileLog{time=" + this.f12812a + ", status=" + this.f12813b + '}';
     }
 }

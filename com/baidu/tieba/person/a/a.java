@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
         if (dVar != null && personCenterIntervalHolder != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (personCenterIntervalHolder.akW != skinType) {
-                personCenterIntervalHolder.akW = skinType;
-                ao.setBackgroundResource(personCenterIntervalHolder.mof, dVar.backgroundId);
+            if (personCenterIntervalHolder.akf != skinType) {
+                personCenterIntervalHolder.akf = skinType;
+                ao.setBackgroundResource(personCenterIntervalHolder.mjB, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.mof.getLayoutParams();
-            if (dVar.mkE > 0) {
-                layoutParams.height = dVar.mkE;
+            ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.mjB.getLayoutParams();
+            if (dVar.mfY > 0) {
+                layoutParams.height = dVar.mfY;
             }
-            if (dVar.mkD > 0) {
-                layoutParams.width = dVar.mkD;
+            if (dVar.mfX > 0) {
+                layoutParams.width = dVar.mfX;
             }
-            personCenterIntervalHolder.mof.setLayoutParams(layoutParams);
-            personCenterIntervalHolder.mof.setOnClickListener(null);
+            personCenterIntervalHolder.mjB.setLayoutParams(layoutParams);
+            personCenterIntervalHolder.mjB.setOnClickListener(null);
         }
         return view;
     }

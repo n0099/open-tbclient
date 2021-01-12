@@ -1,5 +1,6 @@
 package com.baidu.platform.core.b;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
@@ -9,14 +10,13 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4767b = b.class.getSimpleName();
+    private static final String f4484b = b.class.getSimpleName();
     private String c;
 
     private LatLng a(JSONObject jSONObject) {
@@ -57,16 +57,16 @@ public class b extends com.baidu.platform.base.d {
                 geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 return false;
             }
-            geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
+            geoCodeResult.setLocation(a(optJSONObject.optJSONObject(Headers.LOCATION)));
             geoCodeResult.setAddress(this.c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-            geoCodeResult.setLevel(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_LEVEL));
+            geoCodeResult.setLevel(optJSONObject.optString("level"));
             geoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
             return true;
         } catch (JSONException e) {
             geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            Log.e(f4767b, "Parse GeoCodeResult catch JSONException", e);
+            Log.e(f4484b, "Parse GeoCodeResult catch JSONException", e);
             return true;
         }
     }
@@ -125,7 +125,7 @@ public class b extends com.baidu.platform.base.d {
                     geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             } catch (JSONException e) {
-                Log.e(f4767b, "JSONException caught", e);
+                Log.e(f4484b, "JSONException caught", e);
                 geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }

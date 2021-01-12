@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,26 +22,26 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private MessageV3 f11611a;
+    private MessageV3 f11311a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11612b;
+    private String f11312b;
     private int c;
     private int d;
 
     protected c(Parcel parcel) {
-        this.f11611a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
-        this.f11612b = parcel.readString();
+        this.f11311a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.f11312b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
-        this.f11611a = messageV3;
+        this.f11311a = messageV3;
     }
 
     public MessageV3 a() {
-        return this.f11611a;
+        return this.f11311a;
     }
 
     public void a(int i) {
@@ -49,7 +49,7 @@ public class c implements Parcelable {
     }
 
     public void a(String str) {
-        this.f11612b = str;
+        this.f11312b = str;
     }
 
     public int b() {
@@ -70,13 +70,13 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.f11611a + ", notificationPkg='" + this.f11612b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
+        return "NotificationState{messageV3=" + this.f11311a + ", notificationPkg='" + this.f11312b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f11611a, i);
-        parcel.writeString(this.f11612b);
+        parcel.writeParcelable(this.f11311a, i);
+        parcel.writeString(this.f11312b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
     }

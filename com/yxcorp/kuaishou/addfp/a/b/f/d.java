@@ -13,14 +13,14 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import java.security.MessageDigest;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
     private Context e;
-    private com.yxcorp.kuaishou.addfp.a.b.b qgi;
-    public a qgh = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qbH;
+    public a qbG = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14659b = null;
+    private String f14359b = null;
     private String c = null;
     private CountDownLatch f = new CountDownLatch(1);
     private ServiceConnection g = new e(this);
@@ -29,9 +29,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qgi.a(this.qgh);
+                this.qbH.a(this.qbG);
             } else {
-                this.qgi.e();
+                this.qbH.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -60,11 +60,11 @@ public final class d {
         String str2 = null;
         try {
             if (this.h) {
-                if (TextUtils.isEmpty(this.f14659b)) {
-                    this.f14659b = context.getPackageName();
+                if (TextUtils.isEmpty(this.f14359b)) {
+                    this.f14359b = context.getPackageName();
                 }
                 if (TextUtils.isEmpty(this.c)) {
-                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.f14659b, 64).signatures;
+                    Signature[] signatureArr = context.getPackageManager().getPackageInfo(this.f14359b, 64).signatures;
                     if (signatureArr != null && signatureArr.length > 0) {
                         byte[] byteArray = signatureArr[0].toByteArray();
                         MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
@@ -79,10 +79,10 @@ public final class d {
                     }
                     this.c = str2;
                 }
-                if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f14659b)) {
+                if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f14359b)) {
                     return "";
                 }
-                String a2 = this.qgh.a(this.f14659b, this.c, str);
+                String a2 = this.qbG.a(this.f14359b, this.c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             return "";
@@ -101,7 +101,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qgi = bVar;
+            this.qbH = bVar;
             this.e = context;
             this.h = b(context);
             if (this.h) {
@@ -110,7 +110,7 @@ public final class d {
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 if (context.bindService(intent, this.g, 1)) {
                     this.f.await(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS);
-                    if (this.qgh != null) {
+                    if (this.qbG != null) {
                         a(true);
                     } else {
                         a(false);

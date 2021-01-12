@@ -14,19 +14,19 @@ import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class q implements d.a, f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f11944a;
+    private final f f11644a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final d f11945b;
+    private final d f11645b;
     private final c c;
 
     public q(d dVar, f fVar, c cVar) {
-        this.f11944a = fVar;
-        this.f11945b = dVar;
+        this.f11644a = fVar;
+        this.f11645b = dVar;
         this.c = cVar;
         dVar.a(this);
         fVar.a(this);
@@ -96,7 +96,7 @@ class q implements d.a, f.a {
             b(1);
         }
         if (i == 9 || (i == 0 && this.c.d("autoInstall"))) {
-            this.f11944a.a(file);
+            this.f11644a.a(file);
         }
         a(i, str);
     }
@@ -125,6 +125,6 @@ class q implements d.a, f.a {
     }
 
     public void b() {
-        com.qq.e.comm.plugin.util.s.f12889a.submit(this.f11945b);
+        com.qq.e.comm.plugin.util.s.f12589a.submit(this.f11645b);
     }
 }

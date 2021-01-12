@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d UZ;
-    private PluginNetConfigInfos Va = new PluginNetConfigInfos();
-    private b Vb;
+    private static volatile d UX;
+    private PluginNetConfigInfos UY = new PluginNetConfigInfos();
+    private b UZ;
 
     public static d pT() {
-        if (UZ == null) {
+        if (UX == null) {
             synchronized (d.class) {
-                if (UZ == null) {
-                    UZ = new d();
+                if (UX == null) {
+                    UX = new d();
                 }
             }
         }
-        return UZ;
+        return UX;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b2 = b(pluginSettings);
-        if (this.Vb != null) {
-            this.Vb.a(z, b2, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.UZ != null) {
+            this.UZ.a(z, b2, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.Va = pluginNetConfigInfos;
+                        d.this.UY = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Va, str);
+                        aVar.a(z2, cVar, d.this.UY, str);
                     }
                 }
             });
@@ -55,10 +55,10 @@ public class d {
     }
 
     public PluginNetConfigInfos pU() {
-        return this.Va;
+        return this.UY;
     }
 
     public void a(b bVar) {
-        this.Vb = bVar;
+        this.UZ = bVar;
     }
 }

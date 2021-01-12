@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.collector;
 
 import android.util.Log;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThreadCollector {
     public static String getThreadInfo(Thread thread) {
         StringBuilder sb = new StringBuilder();

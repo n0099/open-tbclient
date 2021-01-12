@@ -8,7 +8,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.message.AbstractHttpMessage;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestWrapper extends AbstractHttpMessage implements HttpUriRequest {
     public RequestWrapper(HttpRequest httpRequest) throws ProtocolException {
         throw new RuntimeException("Stub!");

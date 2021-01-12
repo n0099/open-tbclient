@@ -13,22 +13,22 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 @TargetApi(9)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1911a = "WalletDownloadManager";
+    private static final String f1861a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1912b = "content://downloads/my_downloads/";
+    private static final String f1862b = "content://downloads/my_downloads/";
     private static a c;
     private final DownloadManager d;
     private final HashMap<Long, b> e = new HashMap<>();
     private Context f;
 
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0109a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0107a {
         void a(c cVar);
     }
 
@@ -45,30 +45,30 @@ public final class a {
         return c;
     }
 
-    public void a(Context context, long j, InterfaceC0109a interfaceC0109a) {
+    public void a(Context context, long j, InterfaceC0107a interfaceC0107a) {
         b bVar;
-        if (interfaceC0109a != null && -1 != j) {
+        if (interfaceC0107a != null && -1 != j) {
             b bVar2 = this.e.get(Long.valueOf(j));
             if (bVar2 == null) {
                 bVar = new b(context, j);
                 this.e.put(Long.valueOf(j), bVar);
-                context.getContentResolver().registerContentObserver(Uri.parse(f1912b + j), true, bVar);
+                context.getContentResolver().registerContentObserver(Uri.parse(f1862b + j), true, bVar);
             } else {
                 bVar = bVar2;
             }
-            bVar.a(interfaceC0109a);
+            bVar.a(interfaceC0107a);
         }
     }
 
-    public void b(Context context, long j, InterfaceC0109a interfaceC0109a) {
+    public void b(Context context, long j, InterfaceC0107a interfaceC0107a) {
         b bVar;
         if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
             return;
         }
-        bVar.b(interfaceC0109a);
+        bVar.b(interfaceC0107a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
-            this.e.remove(Uri.parse(f1912b + j));
+            this.e.remove(Uri.parse(f1862b + j));
         }
     }
 
@@ -79,7 +79,7 @@ public final class a {
         }
         bVar.b();
         context.getContentResolver().unregisterContentObserver(bVar);
-        this.e.remove(Uri.parse(f1912b + j));
+        this.e.remove(Uri.parse(f1862b + j));
     }
 
     public long a(String str, String str2, boolean z, boolean z2, boolean z3) {
@@ -153,12 +153,12 @@ public final class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private final class b extends ContentObserver {
 
         /* renamed from: b  reason: collision with root package name */
-        private final c f1914b;
-        private final HashSet<InterfaceC0109a> c;
+        private final c f1864b;
+        private final HashSet<InterfaceC0107a> c;
         private long d;
         private long e;
         private int f;
@@ -169,41 +169,41 @@ public final class a {
             this.d = 0L;
             this.e = 0L;
             this.f = 1;
-            this.f1914b = new c(j);
+            this.f1864b = new c(j);
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.f1914b);
+            a.this.a(this.f1864b);
             long currentTimeMillis = System.currentTimeMillis();
-            if ((this.f != this.f1914b.a() || this.d != this.f1914b.b()) && this.e != currentTimeMillis) {
-                if (2 == this.f1914b.a()) {
-                    this.f1914b.c(((this.f1914b.b() - this.d) * 1000) / (currentTimeMillis - this.e));
+            if ((this.f != this.f1864b.a() || this.d != this.f1864b.b()) && this.e != currentTimeMillis) {
+                if (2 == this.f1864b.a()) {
+                    this.f1864b.c(((this.f1864b.b() - this.d) * 1000) / (currentTimeMillis - this.e));
                 } else {
-                    this.f1914b.c(0L);
+                    this.f1864b.c(0L);
                 }
-                this.d = this.f1914b.b();
-                this.f = this.f1914b.a();
+                this.d = this.f1864b.b();
+                this.f = this.f1864b.a();
                 this.e = currentTimeMillis;
                 synchronized (this) {
-                    InterfaceC0109a[] interfaceC0109aArr = new InterfaceC0109a[this.c.size()];
-                    this.c.toArray(interfaceC0109aArr);
-                    for (InterfaceC0109a interfaceC0109a : interfaceC0109aArr) {
-                        interfaceC0109a.a(this.f1914b);
+                    InterfaceC0107a[] interfaceC0107aArr = new InterfaceC0107a[this.c.size()];
+                    this.c.toArray(interfaceC0107aArr);
+                    for (InterfaceC0107a interfaceC0107a : interfaceC0107aArr) {
+                        interfaceC0107a.a(this.f1864b);
                     }
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean a(InterfaceC0109a interfaceC0109a) {
-            return this.c.add(interfaceC0109a);
+        public synchronized boolean a(InterfaceC0107a interfaceC0107a) {
+            return this.c.add(interfaceC0107a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean b(InterfaceC0109a interfaceC0109a) {
-            return this.c.remove(interfaceC0109a);
+        public synchronized boolean b(InterfaceC0107a interfaceC0107a) {
+            return this.c.remove(interfaceC0107a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

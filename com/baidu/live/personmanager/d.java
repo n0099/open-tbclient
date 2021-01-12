@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private a byw;
-    private b byx;
+    private a btJ;
+    private b btK;
     private Context context;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
@@ -24,7 +24,7 @@ public class d {
     private int type;
     private String url;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(bv bvVar);
 
@@ -42,8 +42,8 @@ public class d {
 
     public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.byw != null) {
-                this.byw.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.btJ != null) {
+                this.btJ.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -55,16 +55,16 @@ public class d {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.byx = new b();
-        this.byx.execute(str, str2);
+        this.btK = new b();
+        this.btK.execute(str, str2);
     }
 
     public void a(a aVar) {
-        this.byw = aVar;
+        this.btJ = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class b extends BdAsyncTask<String, Void, Object> {
         private b() {
         }
@@ -93,12 +93,12 @@ public class d {
             netWork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
             String postNetData = netWork.postNetData();
             if (netWork.isRequestSuccess()) {
-                String w = f.w(d.this.type, postNetData);
-                if (TextUtils.isEmpty(w)) {
+                String x = f.x(d.this.type, postNetData);
+                if (TextUtils.isEmpty(x)) {
                     return null;
                 }
                 bv bvVar2 = new bv();
-                bvVar2.parserJson(w);
+                bvVar2.parserJson(x);
                 d.this.hasMore = bvVar2.has_more == 1;
                 if (d.this.type == 1) {
                     d.this.a(str, bvVar2);
@@ -113,8 +113,8 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (d.this.byw != null) {
-                d.this.byw.a((bv) obj);
+            if (d.this.btJ != null) {
+                d.this.btJ.a((bv) obj);
             }
         }
     }
@@ -125,7 +125,7 @@ public class d {
             for (bh bhVar : bvVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bhVar.aQP = 1;
+                    bhVar.aMc = 1;
                 }
             }
         }

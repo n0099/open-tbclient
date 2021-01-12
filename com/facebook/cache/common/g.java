@@ -29,12 +29,12 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public boolean L(Uri uri) {
+    public boolean I(Uri uri) {
         return this.mKey.contains(uri.toString());
     }
 
     @Override // com.facebook.cache.common.b
-    public String etn() {
+    public String ept() {
         return this.mKey;
     }
 }

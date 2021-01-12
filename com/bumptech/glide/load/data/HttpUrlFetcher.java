@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     @VisibleForTesting
     static final HttpUrlConnectionFactory DEFAULT_CONNECTION_FACTORY = new DefaultHttpUrlConnectionFactory();
@@ -33,7 +33,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     private HttpURLConnection urlConnection;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
@@ -172,7 +172,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         return DataSource.REMOTE;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         DefaultHttpUrlConnectionFactory() {
         }

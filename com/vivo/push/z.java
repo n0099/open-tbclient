@@ -1,14 +1,15 @@
 package com.vivo.push;
 
 import android.net.Uri;
-/* loaded from: classes4.dex */
+import com.baidu.mapapi.UIMsg;
+/* loaded from: classes3.dex */
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f14015a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+    public static final Uri f13715a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f14016b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+    public static final Uri f13716b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
     public static final Uri c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
     public static final Uri d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
 
@@ -26,7 +27,7 @@ public final class z {
                 return "method_sdk_bind";
             case 2007:
                 return "method_sdk_unbind";
-            case 2008:
+            case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
                 return "method_stop";
             default:
                 return null;

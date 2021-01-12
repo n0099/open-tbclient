@@ -7,26 +7,26 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
-    private static final Object pLH = new Object();
+    private static final Object pHg = new Object();
     private static volatile String sProcessName;
 
-    public static String eCj() {
+    public static String eyr() {
         String str;
         if (sProcessName != null) {
             return sProcessName;
         }
-        synchronized (pLH) {
+        synchronized (pHg) {
             if (sProcessName != null) {
                 str = sProcessName;
             } else {
-                sProcessName = io(com.github.a.a.c.eBZ().provideContext());
+                sProcessName = im(com.github.a.a.c.eyh().provideContext());
                 str = sProcessName;
             }
         }
         return str;
     }
 
-    private static String io(Context context) {
+    private static String im(Context context) {
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {

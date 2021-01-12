@@ -8,18 +8,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InterstitialFSEventCenter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile InterstitialFSEventCenter f12417a;
+    private static volatile InterstitialFSEventCenter f12117a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, a> f12418b = new HashMap();
+    private Map<String, a> f12118b = new HashMap();
     private Handler c = new Handler(Looper.getMainLooper());
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface InterstitialFSEvent {
         public static final int ON_AD_CLICKED = 10003;
         public static final int ON_AD_CLOSED = 10004;
@@ -35,7 +35,7 @@ public class InterstitialFSEventCenter {
         public static final int ON_VIDEO_START = 10009;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str, int i, Object obj);
     }
@@ -44,18 +44,18 @@ public class InterstitialFSEventCenter {
     }
 
     public static InterstitialFSEventCenter a() {
-        if (f12417a == null) {
+        if (f12117a == null) {
             synchronized (InterstitialFSEventCenter.class) {
                 try {
-                    if (f12417a == null) {
-                        f12417a = new InterstitialFSEventCenter();
+                    if (f12117a == null) {
+                        f12117a = new InterstitialFSEventCenter();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12417a;
+        return f12117a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -63,7 +63,7 @@ public class InterstitialFSEventCenter {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f12418b.remove(str);
+        this.f12118b.remove(str);
     }
 
     public void a(final String str, final int i, final Object obj) {
@@ -73,7 +73,7 @@ public class InterstitialFSEventCenter {
         this.c.post(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.InterstitialFSEventCenter.1
             @Override // java.lang.Runnable
             public void run() {
-                a aVar = (a) InterstitialFSEventCenter.this.f12418b.get(str);
+                a aVar = (a) InterstitialFSEventCenter.this.f12118b.get(str);
                 if (aVar != null) {
                     aVar.a(str, i, obj);
                 }
@@ -85,7 +85,7 @@ public class InterstitialFSEventCenter {
         if (TextUtils.isEmpty(str) || aVar == null) {
             GDTLogger.d("registerListener id null or listener null");
         } else {
-            this.f12418b.put(str, aVar);
+            this.f12118b.put(str, aVar);
         }
     }
 }

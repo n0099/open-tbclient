@@ -9,7 +9,7 @@ import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImageDecodingInfo {
     private final boolean considerExifParams;
     private final BitmapFactory.Options decodingOptions = new BitmapFactory.Options();

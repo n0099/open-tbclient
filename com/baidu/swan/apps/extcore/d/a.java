@@ -7,32 +7,32 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.c.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a del;
-    private static a dem;
+    private static a cZv;
+    private static a cZw;
     public String extensionCoreVersionName;
 
     @NonNull
     public static a a(@NonNull com.baidu.swan.apps.extcore.model.b.a aVar) {
-        return aVar.ayf() == 1 ? oI(aVar.aye()) : oH(aVar.aye());
+        return aVar.aul() == 1 ? nv(aVar.auk()) : nu(aVar.auk());
     }
 
     @NonNull
-    private static a oH(@NonNull String str) {
-        if (del == null) {
-            del = bo(oJ(str));
+    private static a nu(@NonNull String str) {
+        if (cZv == null) {
+            cZv = bo(nw(str));
         }
-        return del;
+        return cZv;
     }
 
     @NonNull
-    private static a oI(@NonNull String str) {
-        if (dem == null) {
-            dem = bo(oJ(str));
+    private static a nv(@NonNull String str) {
+        if (cZw == null) {
+            cZw = bo(nw(str));
         }
-        return dem;
+        return cZw;
     }
 
     @NonNull
@@ -44,7 +44,7 @@ public class a {
         return aVar;
     }
 
-    private static JSONObject oJ(@NonNull String str) {
+    private static JSONObject nw(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }

@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static String a() {
         return a("com.tencent.mobileqq", GDTADManager.getInstance().getSM().getInteger("qqNotFoundSampleRate", 1000));

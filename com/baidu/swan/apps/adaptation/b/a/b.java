@@ -10,7 +10,7 @@ import com.baidu.swan.apps.d.a.i;
 import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.swan.games.c.h;
 import com.baidu.swan.games.view.webview.GameWebViewManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements ba {
     @Override // com.baidu.swan.apps.adaptation.a.ba
     public com.baidu.swan.apps.core.g.a r(Context context, int i) {
@@ -18,41 +18,41 @@ public class b implements ba {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.c ch(Context context) {
+    public com.baidu.swan.apps.adaptation.b.c cg(Context context) {
         return new SwanAppSlaveManager(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.a ci(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a ch(Context context) {
         return new com.baidu.swan.apps.core.c.d(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public com.baidu.swan.apps.adaptation.b.a cj(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a ci(Context context) {
         return new h(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f ck(Context context) {
+    public f cj(Context context) {
         return new SwanAppSimpleH5Widget(context);
     }
 
-    public f co(Context context) {
+    public f cn(Context context) {
         return new e(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f cl(Context context) {
+    public f ck(Context context) {
         return new i(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public f cm(Context context) {
+    public f cl(Context context) {
         return new com.baidu.swan.apps.d.a.b.a.b(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ba
-    public g cn(Context context) {
+    public g cm(Context context) {
         return new GameWebViewManager(context);
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SplashHttpRequest extends HttpMessage {
     private static final String url = "http://afd.baidu.com/afd/entry";
     private static final TbHttpMessageTask mTask = new TbHttpMessageTask(1003192, url);
@@ -28,18 +28,18 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             addParam("mod", d.getPhoneModel());
             addParam("ot", 2);
-            addParam("ov", d.bPP());
+            addParam("ov", d.bLX());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
-            addParam("nt", d.fL(context).intValue());
+            addParam("nt", d.fJ(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam("sw", d.fK(context).intValue());
-            addParam(IXAdRequestInfo.SCREEN_HEIGHT, d.fJ(context).intValue());
+            addParam("sw", d.fI(context).intValue());
+            addParam(IXAdRequestInfo.SCREEN_HEIGHT, d.fH(context).intValue());
             addParam("imei", d.getImei(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);
             addParam("ac", 1);
-            addParam("ad_ext_params", AdExtParam.a.bIt().bIu());
+            addParam("ad_ext_params", AdExtParam.a.bEB().bEC());
         }
     }
 

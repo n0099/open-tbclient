@@ -7,25 +7,25 @@ import com.baidu.bdhttpdns.i;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class k implements i.a {
-    private final BDHttpDns afM;
-    private final h afS;
-    private final BDHttpDns.CachePolicy afT;
-    private final i afU;
+    private final BDHttpDns aeV;
+    private final h afb;
+    private final BDHttpDns.CachePolicy afc;
+    private final i afd;
 
     public k(Context context) {
-        this.afM = BDHttpDns.Q(context);
-        this.afS = this.afM.sv();
-        this.afT = this.afM.sx();
-        this.afU = this.afM.sy();
+        this.aeV = BDHttpDns.P(context);
+        this.afb = this.aeV.sk();
+        this.afc = this.aeV.sm();
+        this.afd = this.aeV.sn();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
     public void a(int i, i.d dVar, Map<String, i.e> map, String str) {
         switch (i) {
             case -1:
-                if (dVar.equals(i.d.DNLIST_HOSTS) && this.afT == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                if (dVar.equals(i.d.DNLIST_HOSTS) && this.afc == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                     for (String str2 : str.split(",")) {
-                        this.afS.b(str2);
+                        this.afb.b(str2);
                     }
                     break;
                 }
@@ -39,9 +39,9 @@ public class k implements i.a {
                         aVar.a(value.b());
                         aVar.b(System.currentTimeMillis() / 1000);
                         aVar.a(value.a());
-                        this.afS.a(key, aVar);
-                    } else if (this.afT == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                        this.afS.b(key);
+                        this.afb.a(key, aVar);
+                    } else if (this.afc == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                        this.afb.b(key);
                     }
                 }
                 break;
@@ -49,10 +49,10 @@ public class k implements i.a {
                 l.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
                 break;
         }
-        if (this.afM.e() <= 0 || this.afU.f()) {
+        if (this.aeV.e() <= 0 || this.afd.f()) {
             return;
         }
-        this.afU.b(true);
+        this.afd.b(true);
         l.a("preResolve has finished", new Object[0]);
     }
 }

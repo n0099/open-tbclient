@@ -3,22 +3,22 @@ package com.baidu.tbadk.coreExtra.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class af {
-    private String ftP;
-    private ArrayList<Object> ftQ;
+    private String fpd;
+    private ArrayList<Object> fpe;
 
     public af() {
-        J(new ArrayList<>());
+        E(new ArrayList<>());
     }
 
-    public String bAd() {
-        return this.ftP;
+    public String bwj() {
+        return this.fpd;
     }
 
-    public ArrayList<Object> bAe() {
-        return this.ftQ;
+    public ArrayList<Object> bwk() {
+        return this.fpe;
     }
 
-    public void J(ArrayList<Object> arrayList) {
-        this.ftQ = arrayList;
+    public void E(ArrayList<Object> arrayList) {
+        this.fpe = arrayList;
     }
 }

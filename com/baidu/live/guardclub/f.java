@@ -5,13 +5,13 @@ import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    public String aLV;
-    public String aWS;
-    public String bkW;
-    public int bkX;
-    public long bkx;
+    public String aHi;
+    public String aSf;
+    public long bfH;
+    public String bgg;
+    public int bgh;
     public JSONObject extInfoJson;
     private int guardGold;
     public int guardGoldenType;
@@ -82,19 +82,19 @@ public class f {
                     this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                     this.rank = jSONObject.optString("rank");
                     this.isFollowed = jSONObject.optInt("follow_status") != 1;
-                    this.bkW = jSONObject.optString("guard_club_id");
+                    this.bgg = jSONObject.optString("guard_club_id");
                     String str5 = "0";
                     str2 = jSONObject.optString("anchor_id");
                     if (!TextUtils.isEmpty(str2)) {
                     }
-                    this.aLV = str2;
+                    this.aHi = str2;
                     optJSONObject = jSONObject.optJSONObject("guard_club");
                     if (optJSONObject != null) {
                     }
-                    this.bkx = jSONObject.optLong("next_level_need_score");
+                    this.bfH = jSONObject.optLong("next_level_need_score");
                     this.portrait = jSONObject.optString("portrait");
-                    this.aWS = jSONObject.optString("bd_portrait");
-                    this.bkX = jSONObject.optInt("attenuat_date");
+                    this.aSf = jSONObject.optString("bd_portrait");
+                    this.bgh = jSONObject.optInt("attenuat_date");
                     this.extInfoJson = jSONObject.optJSONObject("ext_info");
                 }
                 this.userId = str;
@@ -102,13 +102,13 @@ public class f {
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                 this.rank = jSONObject.optString("rank");
                 this.isFollowed = jSONObject.optInt("follow_status") != 1;
-                this.bkW = jSONObject.optString("guard_club_id");
+                this.bgg = jSONObject.optString("guard_club_id");
                 String str52 = "0";
                 str2 = jSONObject.optString("anchor_id");
                 if (!TextUtils.isEmpty(str2)) {
                     str2 = EncryptionHelper.getDecryptUserId(str2);
                 }
-                this.aLV = str2;
+                this.aHi = str2;
                 optJSONObject = jSONObject.optJSONObject("guard_club");
                 if (optJSONObject != null) {
                     this.guardLevel = optJSONObject.optInt("member_guard_level");
@@ -116,10 +116,10 @@ public class f {
                     this.guardGold = optJSONObject.optInt("guard_show_golden_icon");
                     this.guardGoldenType = optJSONObject.optInt("guard_golden_type");
                 }
-                this.bkx = jSONObject.optLong("next_level_need_score");
+                this.bfH = jSONObject.optLong("next_level_need_score");
                 this.portrait = jSONObject.optString("portrait");
-                this.aWS = jSONObject.optString("bd_portrait");
-                this.bkX = jSONObject.optInt("attenuat_date");
+                this.aSf = jSONObject.optString("bd_portrait");
+                this.bgh = jSONObject.optInt("attenuat_date");
                 this.extInfoJson = jSONObject.optJSONObject("ext_info");
             } catch (Exception e4) {
                 BdLog.e(e4.getMessage());

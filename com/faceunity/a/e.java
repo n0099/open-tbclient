@@ -16,46 +16,46 @@ import com.baidu.tieba.l.k;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private boolean cim;
+    private boolean cdz;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private g nsO;
-    private c pIc;
-    private Bundle dvx = new Bundle();
-    private long pIG = 0;
-    private boolean pIB = false;
+    private g noh;
+    private c pDB;
+    private Bundle dqI = new Bundle();
+    private long pEf = 0;
+    private boolean pEa = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.nsO = kVar.diQ();
+            this.noh = kVar.deY();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2363b, i, i2);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2313b, i, i2);
         createVideoFormat.setInteger("color-format", 2130708361);
         createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.mEncoder = MediaCodec.createEncoderByType(f.f2363b);
+        this.mEncoder = MediaCodec.createEncoderByType(f.f2313b);
         this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mInputSurface = this.mEncoder.createInputSurface();
         this.mEncoder.start();
         if (Build.VERSION.SDK_INT >= 19) {
-            this.dvx.putInt("request-sync", 0);
-            this.mEncoder.setParameters(this.dvx);
+            this.dqI.putInt("request-sync", 0);
+            this.mEncoder.setParameters(this.dqI);
         }
         this.mTrackIndex = -1;
-        this.cim = false;
-        this.pIc = cVar;
+        this.cdz = false;
+        this.pDB = cVar;
     }
 
     public synchronized void requestStop() {
-        this.pIB = true;
+        this.pEa = true;
     }
 
     public Surface getInputSurface() {
@@ -68,15 +68,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.pIc != null) {
+        if (this.pDB != null) {
             try {
-                this.pIc.stop();
+                this.pDB.stop();
             } catch (IllegalStateException e) {
-                if (this.nsO != null) {
-                    this.nsO.bD(17, com.baidu.tieba.l.a.p(e));
+                if (this.noh != null) {
+                    this.noh.bE(17, com.baidu.tieba.l.a.p(e));
                 }
             }
-            this.pIc = null;
+            this.pDB = null;
         }
     }
 
@@ -94,25 +94,25 @@ public class e {
             } else if (dequeueOutputBuffer == -3) {
                 outputBuffers = this.mEncoder.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (this.cim) {
+                if (this.cdz) {
                     throw new RuntimeException("format changed twice");
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.pIc.f(outputFormat);
-                if (!this.pIc.start()) {
-                    synchronized (this.pIc) {
-                        while (!this.pIc.isStarted() && !this.pIB) {
+                this.mTrackIndex = this.pDB.f(outputFormat);
+                if (!this.pDB.start()) {
+                    synchronized (this.pDB) {
+                        while (!this.pDB.isStarted() && !this.pEa) {
                             try {
-                                this.pIc.wait(100L);
+                                this.pDB.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.pIB) {
-                    this.cim = true;
+                if (!this.pEa) {
+                    this.cdz = true;
                 } else {
                     return;
                 }
@@ -127,17 +127,17 @@ public class e {
                     this.mBufferInfo.size = 0;
                 }
                 if (this.mBufferInfo.size != 0) {
-                    if (!this.cim) {
+                    if (!this.cdz) {
                         throw new RuntimeException("muxer hasn't started");
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.pIc.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.pDB.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pIG >= 500) {
-                    this.mEncoder.setParameters(this.dvx);
-                    this.pIG = System.currentTimeMillis();
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pEf >= 500) {
+                    this.mEncoder.setParameters(this.dqI);
+                    this.pEf = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

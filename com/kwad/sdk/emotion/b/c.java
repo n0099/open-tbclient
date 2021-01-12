@@ -1,7 +1,7 @@
 package com.kwad.sdk.emotion.b;
 
 import com.kwai.filedownloader.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.filedownloader.i

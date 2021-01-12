@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     private List<Long> mClosedIds;
     private long mInterval;

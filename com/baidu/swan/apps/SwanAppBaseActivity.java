@@ -9,19 +9,19 @@ import androidx.annotation.Nullable;
 import com.baidu.swan.apps.ab.c;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.ai.b cEx = null;
-    private com.baidu.swan.apps.ab.c cEy;
+    private com.baidu.swan.apps.ai.b czL = null;
+    private com.baidu.swan.apps.ab.c czM;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean alE = com.baidu.swan.apps.t.a.aAO().alE();
-        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(alE));
-        k(alE, false);
+        boolean ahK = com.baidu.swan.apps.t.a.awU().ahK();
+        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(ahK));
+        k(ahK, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,33 +41,33 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.cEx == null) {
-            this.cEx = new com.baidu.swan.apps.ai.b();
+        if (this.czL == null) {
+            this.czL = new com.baidu.swan.apps.ai.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.cEx.J(viewGroup);
+            this.czL.J(viewGroup);
         } else {
-            this.cEx.K(viewGroup);
+            this.czL.K(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(5).gH(true));
+            com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(5).gD(true));
         }
     }
 
-    public com.baidu.swan.apps.ai.b ajF() {
-        return this.cEx;
+    public com.baidu.swan.apps.ai.b afL() {
+        return this.czL;
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.cEy = com.baidu.swan.apps.ab.c.aIk();
-        this.cEy.a(this, i, strArr, aVar);
+        this.czM = com.baidu.swan.apps.ab.c.aEq();
+        this.czM.a(this, i, strArr, aVar);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0560a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0543a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.cEy != null) {
-            this.cEy.b(this, i, strArr, iArr);
+        if (this.czM != null) {
+            this.czM.b(this, i, strArr, iArr);
         } else {
             b(i, strArr, iArr);
         }

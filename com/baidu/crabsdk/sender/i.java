@@ -19,7 +19,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class i {
     public static synchronized List<String> A(Context context, String str) {
         ArrayList arrayList;
@@ -59,7 +59,7 @@ public final class i {
         DeflaterOutputStream deflaterOutputStream2;
         Deflater deflater;
         synchronized (i.class) {
-            com.baidu.crabsdk.c.a.dx("writeFile: " + str);
+            com.baidu.crabsdk.c.a.ds("writeFile: " + str);
             h.m(str);
             Deflater deflater2 = "writeFile: ";
             if (com.baidu.crabsdk.a.G) {
@@ -71,7 +71,7 @@ public final class i {
                 }
                 try {
                     String str3 = "key_" + str;
-                    h.b(str3, com.baidu.crabsdk.c.e.dE(c));
+                    h.b(str3, com.baidu.crabsdk.c.e.dz(c));
                     deflater2 = c;
                     deflaterOutputStream = str3;
                     fileOutputStream = "key_";
@@ -284,7 +284,7 @@ public final class i {
         return arrayList;
     }
 
-    public static byte[] dX(String str) {
+    public static byte[] dS(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
@@ -400,7 +400,7 @@ public final class i {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.dy("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.dt("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.a("Could not create JSON object for key " + str, e);
@@ -440,7 +440,7 @@ public final class i {
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.dx("So libs path is: " + str);
+            com.baidu.crabsdk.c.a.ds("So libs path is: " + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -459,7 +459,7 @@ public final class i {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.baidu.crabsdk.c.a.dx("All so libs: " + sb.toString());
+        com.baidu.crabsdk.c.a.ds("All so libs: " + sb.toString());
         return sb.toString();
     }
 }

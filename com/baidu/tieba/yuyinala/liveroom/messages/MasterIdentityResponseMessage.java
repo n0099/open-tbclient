@@ -2,18 +2,18 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int hJW;
-    private String hJX;
-    private int hJY;
-    private int hJZ;
-    private String hKa;
+    private int hFq;
+    private String hFr;
+    private int hFs;
+    private int hFt;
+    private String hFu;
 
     public MasterIdentityResponseMessage() {
         super(1031071);
-        this.hJY = 0;
-        this.hJZ = 0;
+        this.hFs = 0;
+        this.hFt = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.hJW = jSONObject.optInt("anchor_identity");
-                this.hJX = jSONObject.optString("anchor_proportion");
-                this.hJY = jSONObject.optInt("anchor_identity_status");
-                this.hJZ = jSONObject.optInt("anchor_proportion_status");
-                this.hKa = jSONObject.optString("anchor_text");
+                this.hFq = jSONObject.optInt("anchor_identity");
+                this.hFr = jSONObject.optString("anchor_proportion");
+                this.hFs = jSONObject.optInt("anchor_identity_status");
+                this.hFt = jSONObject.optInt("anchor_proportion_status");
+                this.hFu = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int clP() {
-        return this.hJY;
+    public int chX() {
+        return this.hFs;
     }
 
-    public int clQ() {
-        return this.hJZ;
+    public int chY() {
+        return this.hFt;
     }
 
-    public String clR() {
-        return this.hKa;
+    public String chZ() {
+        return this.hFu;
     }
 }

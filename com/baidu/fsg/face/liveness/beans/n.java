@@ -18,11 +18,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2333b;
+    private String f2283b;
     private String c;
     private String d;
     private String e;
@@ -33,7 +33,7 @@ public class n extends l {
     }
 
     public void a(String str) {
-        this.f2333b = str;
+        this.f2283b = str;
     }
 
     public void b(String str) {
@@ -81,11 +81,11 @@ public class n extends l {
         String randomString = RandomUtils.getRandomString(4096);
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2330a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2280a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f2333b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f2283b));
         if (!TextUtils.isEmpty(this.d)) {
             arrayList.add(new RestNameValuePair("zid2", this.d));
         } else if (!TextUtils.isEmpty(this.c)) {

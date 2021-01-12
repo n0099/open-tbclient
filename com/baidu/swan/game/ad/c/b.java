@@ -1,22 +1,22 @@
 package com.baidu.swan.game.ad.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
-    public String ebZ;
-    public String ecb;
-    public String ecc;
-    public String ecd;
-    public String ece;
-    public String ecf;
-    public String ecg;
-    public String ech;
-    public String eci;
-    public String ecj;
-    public String eck;
-    public String ecl;
-    public String ecm;
-    public String ecn;
-    public String eco;
-    public String ecp;
+    public String dXA;
+    public String dXB;
+    public String dXC;
+    public String dXD;
+    public String dXn;
+    public String dXp;
+    public String dXq;
+    public String dXr;
+    public String dXs;
+    public String dXt;
+    public String dXu;
+    public String dXv;
+    public String dXw;
+    public String dXx;
+    public String dXy;
+    public String dXz;
     public String mEndTime;
     public String mStatus;
     public String mType;

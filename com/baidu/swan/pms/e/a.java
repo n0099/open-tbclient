@@ -11,34 +11,34 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    public final String ewI;
-    public final AbiType ewO;
-    public final String libName;
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> eyz = new HashMap();
-    private static Map<String, Map<String, a>> eyA = new HashMap();
+    private static Map<String, a> etK = new HashMap();
+    private static Map<String, Map<String, a>> etL = new HashMap();
+    public final String erV;
+    public final AbiType esb;
+    public final String libName;
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
         this.libName = TextUtils.isEmpty(str) ? "" : str;
-        this.ewO = abiType;
-        this.ewI = c(str, abiType);
+        this.esb = abiType;
+        this.erV = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.ewI + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.erV + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.ewI;
+        return this.erV;
     }
 
     @Nullable
     public static synchronized a b(String str, AbiType abiType) {
-        a dx;
+        a dw;
         synchronized (a.class) {
-            dx = dx(str, c(str, abiType));
+            dw = dw(str, c(str, abiType));
         }
-        return dx;
+        return dw;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
@@ -48,7 +48,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized a dx(String str, String str2) {
+    public static synchronized a dw(String str, String str2) {
         a aVar;
         synchronized (a.class) {
             if (DEBUG) {
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                ze(str);
-                aVar = eyz.get(str2);
+                xT(str);
+                aVar = etK.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> zd(@NonNull String str) {
+    public static synchronized Map<String, a> xS(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(ze(str));
+            hashMap = new HashMap(xT(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> ze(@NonNull String str) {
+    private static synchronized Map<String, a> xT(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = eyA.get(str);
+            map = etL.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.ewI, aVar);
+                        map.put(aVar.erV, aVar);
                     }
-                    eyz.putAll(map);
-                    eyA.put(str, map);
+                    etK.putAll(map);
+                    etL.put(str, map);
                 }
             }
         }

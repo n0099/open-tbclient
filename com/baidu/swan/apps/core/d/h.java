@@ -9,10 +9,10 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class h extends c implements View.OnClickListener {
-    private RelativeLayout cVn;
-    private RelativeLayout cVo;
+    private RelativeLayout cQB;
+    private RelativeLayout cQC;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     @Nullable
@@ -20,77 +20,77 @@ public class h extends c implements View.OnClickListener {
         View inflate = layoutInflater.inflate(a.g.swan_app_settings_layout, viewGroup, false);
         av(inflate);
         ap(inflate);
-        if (asf()) {
+        if (aok()) {
             inflate = az(inflate);
         }
         return a(inflate, this);
     }
 
     private void ap(View view) {
-        this.cVn = (RelativeLayout) view.findViewById(a.f.message_item);
-        this.cVn.setOnClickListener(this);
-        this.cVo = (RelativeLayout) view.findViewById(a.f.authority_item);
-        this.cVo.setOnClickListener(this);
+        this.cQB = (RelativeLayout) view.findViewById(a.f.message_item);
+        this.cQB.setOnClickListener(this);
+        this.cQC = (RelativeLayout) view.findViewById(a.f.authority_item);
+        this.cQC.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
     public void av(View view) {
         ay(view);
-        ik(-1);
-        il(ViewCompat.MEASURED_STATE_MASK);
-        no(getString(a.h.swan_app_menu_setting));
-        fn(true);
+        gE(-1);
+        gF(ViewCompat.MEASURED_STATE_MASK);
+        md(getString(a.h.swan_app_menu_setting));
+        fj(true);
         setRightZoneVisibility(false);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void arC() {
+    protected void anH() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean amN() {
+    protected boolean aiT() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean arD() {
+    public boolean anI() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean amm() {
+    public boolean ais() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void amT() {
+    protected void aiZ() {
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.message_item) {
-            com.baidu.swan.apps.t.a.aBv().alu();
+            com.baidu.swan.apps.t.a.axB().ahA();
         } else if (view.getId() == a.f.authority_item) {
-            atg();
+            apl();
         }
     }
 
-    private void atg() {
+    private void apl() {
         if (DEBUG) {
             Log.d("SwanAppBaseFragment", "startSettingFragment");
         }
-        f ajt = ajt();
-        if (ajt == null) {
-            com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_open_fragment_failed_toast).aLT();
+        f afz = afz();
+        if (afz == null) {
+            com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_open_fragment_failed_toast).aHZ();
             return;
         }
-        ajt.nv("navigateTo").ai(f.cUY, f.cVa).a("authority", null).commit();
-        com.baidu.swan.apps.menu.a.qI("permission");
+        afz.mk("navigateTo").ai(f.cQm, f.cQo).a("authority", null).commit();
+        com.baidu.swan.apps.menu.a.px("permission");
     }
 
-    public static h ath() {
+    public static h apm() {
         return new h();
     }
 }

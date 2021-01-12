@@ -15,10 +15,10 @@ public class b implements n {
     private String cur_time;
     private ForumInfo forum;
     private Long forum_rule_id;
-    private int juj;
-    private boolean juk;
-    private d jul;
-    private a jum;
+    private int jpD;
+    private boolean jpE;
+    private d jpF;
+    private a jpG;
     private String preface;
     private String publish_time;
     private List<ForumRule> rules;
@@ -30,21 +30,21 @@ public class b implements n {
             this.title = dataRes.title;
             this.preface = dataRes.preface;
             this.rules = dataRes.rules;
-            this.juj = dataRes.audit_status.intValue();
+            this.jpD = dataRes.audit_status.intValue();
             this.audit_opinion = dataRes.audit_opinion;
-            this.juk = dataRes.is_manager.intValue() == 1;
+            this.jpE = dataRes.is_manager.intValue() == 1;
             this.forum_rule_id = dataRes.forum_rule_id;
             this.publish_time = dataRes.publish_time;
             this.bazhu = dataRes.bazhu;
             this.cur_time = dataRes.cur_time;
-            this.jul = new d();
-            this.jul.a(dataRes);
-            this.jum = new a();
-            this.jum.a(dataRes);
+            this.jpF = new d();
+            this.jpF.a(dataRes);
+            this.jpG = new a();
+            this.jpG.a(dataRes);
         }
     }
 
-    public ForumInfo cJD() {
+    public ForumInfo cFL() {
         return this.forum;
     }
 
@@ -56,27 +56,27 @@ public class b implements n {
         return this.preface;
     }
 
-    public List<ForumRule> cJE() {
+    public List<ForumRule> cFM() {
         return this.rules;
     }
 
-    public int cJF() {
-        return this.juj;
+    public int cFN() {
+        return this.jpD;
     }
 
-    public String cJG() {
+    public String cFO() {
         return this.audit_opinion;
     }
 
-    public boolean cJH() {
-        return this.juk;
+    public boolean cFP() {
+        return this.jpE;
     }
 
-    public String cJC() {
+    public String cFK() {
         return this.publish_time;
     }
 
-    public BawuRoleInfoPub cJI() {
+    public BawuRoleInfoPub cFQ() {
         return this.bazhu;
     }
 
@@ -88,20 +88,20 @@ public class b implements n {
         this.preface = str;
     }
 
-    public void rc(boolean z) {
-        this.juk = z;
+    public void qY(boolean z) {
+        this.jpE = z;
     }
 
     public void b(BawuRoleInfoPub bawuRoleInfoPub) {
         this.bazhu = bawuRoleInfoPub;
     }
 
-    public String cJJ() {
+    public String cFR() {
         return this.cur_time;
     }
 
-    public a cJK() {
-        return this.jum;
+    public a cFS() {
+        return this.jpG;
     }
 
     @Override // com.baidu.adp.widget.ListView.n

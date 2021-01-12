@@ -12,43 +12,43 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.swan.games.v.c;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kY(String str) {
+    public com.baidu.swan.apps.api.c.b jN(String str) {
         if (DEBUG) {
             Log.d("Api-CheckSession", "start check session");
         }
-        final CallbackHandler anh = anj().anh();
-        e aMm = e.aMm();
-        if (aMm == null) {
-            c.h(anh, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+        final CallbackHandler ajn = ajp().ajn();
+        e aIs = e.aIs();
+        if (aIs == null) {
+            c.h(ajn, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty swanApp");
         }
-        String appKey = aMm.getAppKey();
+        String appKey = aIs.getAppKey();
         if (TextUtils.isEmpty(appKey)) {
-            c.h(anh, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
+            c.h(ajn, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty app key");
         }
-        JSONObject kX = kX(str);
-        if (kX == null) {
-            c.h(anh, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+        JSONObject jM = jM(str);
+        if (jM == null) {
+            c.h(ajn, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
         }
-        final String optString = kX.optString("cb");
+        final String optString = jM.optString("cb");
         if (TextUtils.isEmpty(optString)) {
-            c.h(anh, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+            c.h(ajn, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
         Context context = getContext();
-        if (!aMm.aMy().isLogin(context)) {
-            c.h(anh, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+        if (!aIs.aIE().isLogin(context)) {
+            c.h(ajn, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             return new com.baidu.swan.apps.api.c.b(10004, "user not logged in");
         }
-        com.baidu.swan.apps.runtime.d.aMh().aMj().ajO().alH().ac(context, appKey).A(new com.baidu.swan.apps.ao.e.b<h<JSONObject>>() { // from class: com.baidu.swan.apps.api.module.a.a.1
+        com.baidu.swan.apps.runtime.d.aIn().aIp().afU().ahN().ac(context, appKey).A(new com.baidu.swan.apps.ao.e.b<h<JSONObject>>() { // from class: com.baidu.swan.apps.api.module.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -63,11 +63,11 @@ public class a extends d {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode());
-                    c.h(anh, wrapCallbackParams.toString());
+                    c.h(ajn, wrapCallbackParams.toString());
                 }
-                anh.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
+                ajn.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
             }
-        }).aOc();
+        }).aKi();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 

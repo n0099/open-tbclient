@@ -29,92 +29,92 @@ import com.baidu.live.sdk.a;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class IndicatorSeekBar extends View {
-    private int VV;
-    private int VW;
-    private int adG;
-    private int bbq;
-    private float dAb;
-    private float dzG;
-    private boolean iRD;
+    private int VT;
+    private int VU;
+    private int aWC;
+    private int adE;
+    private float duU;
+    private float dvp;
+    private boolean iMW;
+    private float mAS;
     private Context mContext;
-    private float mFB;
     private int mIndicatorColor;
     private int mMeasuredWidth;
     private float mProgress;
     private Rect mRect;
     private TextPaint mTextPaint;
     private Drawable mThumbDrawable;
-    private float ovA;
-    private float ovB;
-    private boolean ovC;
-    private int ovD;
-    private boolean ovE;
-    private boolean ovF;
-    private boolean ovG;
-    private float[] ovH;
-    private boolean ovI;
-    private boolean ovJ;
-    private boolean ovK;
-    private int ovL;
-    private String[] ovM;
-    private float[] ovN;
-    private float[] ovO;
-    private float ovP;
-    private int ovQ;
-    private Typeface ovR;
-    private int ovS;
-    private int ovT;
-    private int ovU;
-    private CharSequence[] ovV;
-    private c ovW;
-    private boolean ovX;
-    private int ovY;
-    private View ovZ;
-    private int ovb;
-    private Paint ovr;
-    private d ovs;
-    private float ovt;
-    private float ovu;
-    private float ovv;
-    private boolean ovw;
-    private e ovx;
-    private float ovy;
-    private float ovz;
-    private Bitmap owA;
-    private int owB;
-    private boolean owC;
-    private float owD;
-    private int owE;
-    private boolean owF;
-    private boolean owG;
-    private View owa;
-    private int owb;
-    private String owc;
-    private float[] owd;
-    private int owe;
-    private int owf;
-    private int owg;
-    private Bitmap owh;
-    private Bitmap owi;
-    private Drawable owj;
-    private int owk;
-    private boolean owl;
-    private boolean owm;
-    private int own;
-    private boolean owo;
-    private RectF owp;
-    private RectF owq;
-    private int owr;
-    private int ows;
-    private int owt;
-    private int owu;
-    private int[] owv;
-    private boolean oww;
-    private float owx;
-    private Bitmap owy;
-    private int owz;
+    private Paint oqK;
+    private d oqL;
+    private float oqM;
+    private float oqN;
+    private float oqO;
+    private boolean oqP;
+    private e oqQ;
+    private float oqR;
+    private float oqS;
+    private float oqT;
+    private float oqU;
+    private boolean oqV;
+    private int oqW;
+    private boolean oqX;
+    private boolean oqY;
+    private boolean oqZ;
+    private int oqu;
+    private int orA;
+    private Bitmap orB;
+    private Bitmap orC;
+    private Drawable orD;
+    private int orE;
+    private boolean orF;
+    private boolean orG;
+    private int orH;
+    private boolean orI;
+    private RectF orJ;
+    private RectF orK;
+    private int orL;
+    private int orM;
+    private int orN;
+    private int orO;
+    private int[] orP;
+    private boolean orQ;
+    private float orR;
+    private Bitmap orS;
+    private int orT;
+    private Bitmap orU;
+    private int orV;
+    private boolean orW;
+    private float orX;
+    private int orY;
+    private boolean orZ;
+    private float[] ora;
+    private boolean orb;
+    private boolean orc;
+    private boolean ord;
+    private int ore;
+    private String[] orf;
+    private float[] orh;
+    private float[] ori;
+    private float orj;
+    private int ork;
+    private Typeface orl;
+    private int orm;
+    private int orn;
+    private int oro;
+    private CharSequence[] orp;
+    private c orq;
+    private boolean orr;
+    private int ors;
+    private View ort;
+    private View oru;
+    private int orv;
+    private String orw;
+    private float[] orx;
+    private int ory;
+    private int orz;
+    private boolean osa;
 
     public IndicatorSeekBar(Context context) {
         this(context, null);
@@ -122,23 +122,23 @@ public class IndicatorSeekBar extends View {
 
     public IndicatorSeekBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ovv = -1.0f;
-        this.mFB = -1.0f;
-        this.ovD = 1;
+        this.oqO = -1.0f;
+        this.mAS = -1.0f;
+        this.oqW = 1;
         this.mContext = context;
         c(this.mContext, attributeSet);
-        cum();
+        cqu();
     }
 
     @RequiresApi(api = 21)
     public IndicatorSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ovv = -1.0f;
-        this.mFB = -1.0f;
-        this.ovD = 1;
+        this.oqO = -1.0f;
+        this.mAS = -1.0f;
+        this.oqW = 1;
         this.mContext = context;
         c(this.mContext, attributeSet);
-        cum();
+        cqu();
     }
 
     private void c(Context context, AttributeSet attributeSet) {
@@ -148,100 +148,100 @@ public class IndicatorSeekBar extends View {
             return;
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.IndicatorSeekBar);
-        this.ovA = obtainStyledAttributes.getFloat(a.j.IndicatorSeekBar_isb_max, aVar.oun);
-        this.ovB = obtainStyledAttributes.getFloat(a.j.IndicatorSeekBar_isb_min, aVar.ouo);
+        this.oqT = obtainStyledAttributes.getFloat(a.j.IndicatorSeekBar_isb_max, aVar.opH);
+        this.oqU = obtainStyledAttributes.getFloat(a.j.IndicatorSeekBar_isb_min, aVar.opI);
         this.mProgress = obtainStyledAttributes.getFloat(a.j.IndicatorSeekBar_isb_progress, aVar.progress);
-        this.ovC = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_progress_value_float, aVar.oup);
-        this.ovE = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_user_seekable, aVar.ous);
-        this.ovw = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_clear_default_padding, aVar.ouv);
-        this.ovF = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_only_thumb_draggable, aVar.ouu);
-        this.ovG = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_seek_smoothly, aVar.ouq);
-        this.ovI = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_r2l, aVar.our);
-        this.owr = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_track_background_size, aVar.ouC);
-        this.ows = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_track_progress_size, aVar.ouE);
-        this.owt = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_track_background_color, aVar.ouD);
-        this.owu = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_track_progress_color, aVar.ouF);
-        this.owo = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_track_rounded_corners, aVar.ouG);
-        this.bbq = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_thumb_size, aVar.ouJ);
+        this.oqV = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_progress_value_float, aVar.opJ);
+        this.oqX = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_user_seekable, aVar.opM);
+        this.oqP = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_clear_default_padding, aVar.opO);
+        this.oqY = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_only_thumb_draggable, aVar.opN);
+        this.oqZ = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_seek_smoothly, aVar.opK);
+        this.orb = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_r2l, aVar.opL);
+        this.orL = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_track_background_size, aVar.opV);
+        this.orM = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_track_progress_size, aVar.opX);
+        this.orN = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_track_background_color, aVar.opW);
+        this.orO = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_track_progress_color, aVar.opY);
+        this.orI = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_track_rounded_corners, aVar.opZ);
+        this.aWC = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_thumb_size, aVar.oqc);
         this.mThumbDrawable = obtainStyledAttributes.getDrawable(a.j.IndicatorSeekBar_isb_thumb_drawable);
-        this.owG = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_thumb_adjust_auto, true);
-        a(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_thumb_color), aVar.ouK);
-        this.owC = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_show_thumb_text, aVar.ouI);
-        this.owE = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_thumb_text_color, aVar.ouH);
-        this.owe = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_ticks_count, aVar.ouT);
-        this.owk = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_show_tick_marks_type, aVar.ouU);
-        this.own = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_tick_marks_size, aVar.ouW);
-        b(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_tick_marks_color), aVar.ouV);
-        this.owj = obtainStyledAttributes.getDrawable(a.j.IndicatorSeekBar_isb_tick_marks_drawable);
-        this.owm = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_tick_marks_swept_hide, aVar.ouZ);
-        this.owl = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_tick_marks_ends_hide, aVar.ouY);
-        this.ovJ = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_show_tick_texts, aVar.ouN);
-        this.ovQ = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_tick_texts_size, aVar.ouP);
-        c(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_tick_texts_color), aVar.ouO);
-        this.ovV = obtainStyledAttributes.getTextArray(a.j.IndicatorSeekBar_isb_tick_texts_array);
-        a(obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_tick_texts_typeface, -1), aVar.ouR);
-        this.owb = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_show_indicator, aVar.ouw);
-        this.mIndicatorColor = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_indicator_color, aVar.oux);
-        this.ovY = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_indicator_text_size, aVar.ouz);
-        this.ovb = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_indicator_text_color, aVar.ouy);
+        this.osa = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_thumb_adjust_auto, true);
+        a(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_thumb_color), aVar.oqd);
+        this.orW = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_show_thumb_text, aVar.oqb);
+        this.orY = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_thumb_text_color, aVar.oqa);
+        this.ory = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_ticks_count, aVar.oqm);
+        this.orE = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_show_tick_marks_type, aVar.oqn);
+        this.orH = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_tick_marks_size, aVar.oqp);
+        b(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_tick_marks_color), aVar.oqo);
+        this.orD = obtainStyledAttributes.getDrawable(a.j.IndicatorSeekBar_isb_tick_marks_drawable);
+        this.orG = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_tick_marks_swept_hide, aVar.oqs);
+        this.orF = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_tick_marks_ends_hide, aVar.oqr);
+        this.orc = obtainStyledAttributes.getBoolean(a.j.IndicatorSeekBar_isb_show_tick_texts, aVar.oqg);
+        this.ork = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_tick_texts_size, aVar.oqi);
+        c(obtainStyledAttributes.getColorStateList(a.j.IndicatorSeekBar_isb_tick_texts_color), aVar.oqh);
+        this.orp = obtainStyledAttributes.getTextArray(a.j.IndicatorSeekBar_isb_tick_texts_array);
+        a(obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_tick_texts_typeface, -1), aVar.oqk);
+        this.orv = obtainStyledAttributes.getInt(a.j.IndicatorSeekBar_isb_show_indicator, aVar.opP);
+        this.mIndicatorColor = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_indicator_color, aVar.opQ);
+        this.ors = obtainStyledAttributes.getDimensionPixelSize(a.j.IndicatorSeekBar_isb_indicator_text_size, aVar.opS);
+        this.oqu = obtainStyledAttributes.getColor(a.j.IndicatorSeekBar_isb_indicator_text_color, aVar.opR);
         int resourceId = obtainStyledAttributes.getResourceId(a.j.IndicatorSeekBar_isb_indicator_content_layout, 0);
         if (resourceId > 0) {
-            this.ovZ = View.inflate(this.mContext, resourceId, null);
+            this.ort = View.inflate(this.mContext, resourceId, null);
         }
         int resourceId2 = obtainStyledAttributes.getResourceId(a.j.IndicatorSeekBar_isb_indicator_top_content_layout, 0);
         if (resourceId2 > 0) {
-            this.owa = View.inflate(this.mContext, resourceId2, null);
+            this.oru = View.inflate(this.mContext, resourceId2, null);
         }
         obtainStyledAttributes.recycle();
     }
 
-    private void cum() {
-        edB();
-        if (this.owr > this.ows) {
-            this.owr = this.ows;
+    private void cqu() {
+        dZJ();
+        if (this.orL > this.orM) {
+            this.orL = this.orM;
         }
         if (this.mThumbDrawable == null) {
-            this.dzG = this.bbq / 2.0f;
-            this.owx = this.dzG * 1.2f;
+            this.duU = this.aWC / 2.0f;
+            this.orR = this.duU * 1.2f;
         } else {
-            this.dzG = Math.min(f.dp2px(this.mContext, 46.0f), this.bbq) / 2.0f;
-            this.owx = this.dzG;
+            this.duU = Math.min(f.dp2px(this.mContext, 46.0f), this.aWC) / 2.0f;
+            this.orR = this.duU;
         }
-        if (this.owj == null) {
-            this.dAb = this.own / 2.0f;
+        if (this.orD == null) {
+            this.dvp = this.orH / 2.0f;
         } else {
-            this.dAb = Math.min(f.dp2px(this.mContext, 46.0f), this.own) / 2.0f;
+            this.dvp = Math.min(f.dp2px(this.mContext, 46.0f), this.orH) / 2.0f;
         }
-        this.ovt = Math.max(this.owx, this.dAb) * 2.0f;
-        edC();
-        edD();
-        this.ovu = this.mProgress;
-        edz();
-        this.owp = new RectF();
-        this.owq = new RectF();
-        edA();
-        edN();
+        this.oqM = Math.max(this.orR, this.dvp) * 2.0f;
+        dZK();
+        dZL();
+        this.oqN = this.mProgress;
+        dZH();
+        this.orJ = new RectF();
+        this.orK = new RectF();
+        dZI();
+        dZV();
     }
 
-    private void edz() {
-        if (this.owe < 0 || this.owe > 50) {
-            throw new IllegalArgumentException("the Argument: TICK COUNT must be limited between (0-50), Now is " + this.owe);
+    private void dZH() {
+        if (this.ory < 0 || this.ory > 50) {
+            throw new IllegalArgumentException("the Argument: TICK COUNT must be limited between (0-50), Now is " + this.ory);
         }
-        if (this.owe != 0) {
-            this.owd = new float[this.owe];
-            if (this.ovJ) {
-                this.ovO = new float[this.owe];
-                this.ovN = new float[this.owe];
+        if (this.ory != 0) {
+            this.orx = new float[this.ory];
+            if (this.orc) {
+                this.ori = new float[this.ory];
+                this.orh = new float[this.ory];
             }
-            this.ovH = new float[this.owe];
-            for (int i = 0; i < this.ovH.length; i++) {
-                this.ovH[i] = (((this.ovA - this.ovB) * i) / (this.owe + (-1) > 0 ? this.owe - 1 : 1)) + this.ovB;
+            this.ora = new float[this.ory];
+            for (int i = 0; i < this.ora.length; i++) {
+                this.ora[i] = (((this.oqT - this.oqU) * i) / (this.ory + (-1) > 0 ? this.ory - 1 : 1)) + this.oqU;
             }
         }
     }
 
-    private void edA() {
-        if (!this.ovw) {
+    private void dZI() {
+        if (!this.oqP) {
             int dp2px = f.dp2px(this.mContext, 16.0f);
             if (getPaddingLeft() == 0) {
                 setPadding(dp2px, getPaddingTop(), getPaddingRight(), getPaddingBottom());
@@ -252,50 +252,50 @@ public class IndicatorSeekBar extends View {
         }
     }
 
-    private void edB() {
-        if (this.ovA < this.ovB) {
+    private void dZJ() {
+        if (this.oqT < this.oqU) {
             throw new IllegalArgumentException("the Argument: MAX's value must be larger than MIN's.");
         }
-        if (this.mProgress < this.ovB) {
-            this.mProgress = this.ovB;
+        if (this.mProgress < this.oqU) {
+            this.mProgress = this.oqU;
         }
-        if (this.mProgress > this.ovA) {
-            this.mProgress = this.ovA;
-        }
-    }
-
-    private void edC() {
-        if (this.ovr == null) {
-            this.ovr = new Paint();
-        }
-        if (this.owo) {
-            this.ovr.setStrokeCap(Paint.Cap.ROUND);
-        }
-        this.ovr.setAntiAlias(true);
-        if (this.owr > this.ows) {
-            this.ows = this.owr;
+        if (this.mProgress > this.oqT) {
+            this.mProgress = this.oqT;
         }
     }
 
-    private void edD() {
-        if (edE()) {
-            Lg();
-            this.mTextPaint.setTypeface(this.ovR);
+    private void dZK() {
+        if (this.oqK == null) {
+            this.oqK = new Paint();
+        }
+        if (this.orI) {
+            this.oqK.setStrokeCap(Paint.Cap.ROUND);
+        }
+        this.oqK.setAntiAlias(true);
+        if (this.orL > this.orM) {
+            this.orM = this.orL;
+        }
+    }
+
+    private void dZL() {
+        if (dZM()) {
+            Hl();
+            this.mTextPaint.setTypeface(this.orl);
             this.mTextPaint.getTextBounds("j", 0, 1, this.mRect);
-            this.ovL = this.mRect.height() + f.dp2px(this.mContext, 3.0f);
+            this.ore = this.mRect.height() + f.dp2px(this.mContext, 3.0f);
         }
     }
 
-    private boolean edE() {
-        return this.owC || (this.owe != 0 && this.ovJ);
+    private boolean dZM() {
+        return this.orW || (this.ory != 0 && this.orc);
     }
 
-    private void Lg() {
+    private void Hl() {
         if (this.mTextPaint == null) {
             this.mTextPaint = new TextPaint();
             this.mTextPaint.setAntiAlias(true);
             this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-            this.mTextPaint.setTextSize(this.ovQ);
+            this.mTextPaint.setTextSize(this.ork);
         }
         if (this.mRect == null) {
             this.mRect = new Rect();
@@ -305,100 +305,100 @@ public class IndicatorSeekBar extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(resolveSize(f.dp2px(this.mContext, 170.0f), i), Math.round(this.ovt + getPaddingTop() + getPaddingBottom()) + this.ovL);
-        edF();
-        edG();
+        setMeasuredDimension(resolveSize(f.dp2px(this.mContext, 170.0f), i), Math.round(this.oqM + getPaddingTop() + getPaddingBottom()) + this.ore);
+        dZN();
+        dZO();
     }
 
-    private void edF() {
+    private void dZN() {
         this.mMeasuredWidth = getMeasuredWidth();
         if (Build.VERSION.SDK_INT < 17) {
-            this.VW = getPaddingLeft();
-            this.VV = getPaddingRight();
+            this.VU = getPaddingLeft();
+            this.VT = getPaddingRight();
         } else {
-            this.VW = getPaddingStart();
-            this.VV = getPaddingEnd();
+            this.VU = getPaddingStart();
+            this.VT = getPaddingEnd();
         }
-        this.adG = getPaddingTop();
-        this.ovy = (this.mMeasuredWidth - this.VW) - this.VV;
-        this.ovz = this.ovy / (this.owe + (-1) > 0 ? this.owe - 1 : 1);
+        this.adE = getPaddingTop();
+        this.oqR = (this.mMeasuredWidth - this.VU) - this.VT;
+        this.oqS = this.oqR / (this.ory + (-1) > 0 ? this.ory - 1 : 1);
     }
 
-    private void edG() {
-        edI();
-        if (edE()) {
+    private void dZO() {
+        dZQ();
+        if (dZM()) {
             this.mTextPaint.getTextBounds("j", 0, 1, this.mRect);
-            this.ovP = this.adG + this.ovt + Math.round(this.mRect.height() - this.mTextPaint.descent()) + f.dp2px(this.mContext, 3.0f);
-            this.owD = this.ovP;
+            this.orj = this.adE + this.oqM + Math.round(this.mRect.height() - this.mTextPaint.descent()) + f.dp2px(this.mContext, 3.0f);
+            this.orX = this.orj;
         }
-        if (this.owd != null) {
-            edH();
-            if (this.owe > 2) {
-                this.mProgress = this.ovH[getClosestIndex()];
-                this.ovu = this.mProgress;
+        if (this.orx != null) {
+            dZP();
+            if (this.ory > 2) {
+                this.mProgress = this.ora[getClosestIndex()];
+                this.oqN = this.mProgress;
             }
             bh(this.mProgress);
         }
     }
 
-    private void edH() {
-        if (this.owe != 0) {
-            if (this.ovJ) {
-                this.ovM = new String[this.owe];
+    private void dZP() {
+        if (this.ory != 0) {
+            if (this.orc) {
+                this.orf = new String[this.ory];
             }
-            for (int i = 0; i < this.owd.length; i++) {
-                if (this.ovJ) {
-                    this.ovM[i] = Nw(i);
-                    this.mTextPaint.getTextBounds(this.ovM[i], 0, this.ovM[i].length(), this.mRect);
-                    this.ovN[i] = this.mRect.width();
-                    this.ovO[i] = this.VW + (this.ovz * i);
+            for (int i = 0; i < this.orx.length; i++) {
+                if (this.orc) {
+                    this.orf[i] = LP(i);
+                    this.mTextPaint.getTextBounds(this.orf[i], 0, this.orf[i].length(), this.mRect);
+                    this.orh[i] = this.mRect.width();
+                    this.ori[i] = this.VU + (this.oqS * i);
                 }
-                this.owd[i] = this.VW + (this.ovz * i);
+                this.orx[i] = this.VU + (this.oqS * i);
             }
         }
     }
 
-    private void edI() {
-        if (this.ovI) {
-            this.owq.left = this.VW;
-            this.owq.top = this.adG + this.owx;
-            this.owq.right = this.VW + (this.ovy * (1.0f - ((this.mProgress - this.ovB) / getAmplitude())));
-            this.owq.bottom = this.owq.top;
-            this.owp.left = this.owq.right;
-            this.owp.top = this.owq.top;
-            this.owp.right = this.mMeasuredWidth - this.VV;
-            this.owp.bottom = this.owq.bottom;
+    private void dZQ() {
+        if (this.orb) {
+            this.orK.left = this.VU;
+            this.orK.top = this.adE + this.orR;
+            this.orK.right = this.VU + (this.oqR * (1.0f - ((this.mProgress - this.oqU) / getAmplitude())));
+            this.orK.bottom = this.orK.top;
+            this.orJ.left = this.orK.right;
+            this.orJ.top = this.orK.top;
+            this.orJ.right = this.mMeasuredWidth - this.VT;
+            this.orJ.bottom = this.orK.bottom;
             return;
         }
-        this.owp.left = this.VW;
-        this.owp.top = this.adG + this.owx;
-        this.owp.right = (((this.mProgress - this.ovB) * this.ovy) / getAmplitude()) + this.VW;
-        this.owp.bottom = this.owp.top;
-        this.owq.left = this.owp.right;
-        this.owq.top = this.owp.bottom;
-        this.owq.right = this.mMeasuredWidth - this.VV;
-        this.owq.bottom = this.owp.bottom;
+        this.orJ.left = this.VU;
+        this.orJ.top = this.adE + this.orR;
+        this.orJ.right = (((this.mProgress - this.oqU) * this.oqR) / getAmplitude()) + this.VU;
+        this.orJ.bottom = this.orJ.top;
+        this.orK.left = this.orJ.right;
+        this.orK.top = this.orJ.bottom;
+        this.orK.right = this.mMeasuredWidth - this.VT;
+        this.orK.bottom = this.orJ.bottom;
     }
 
-    private String Nw(int i) {
-        if (this.ovV == null) {
-            return bl(this.ovH[i]);
+    private String LP(int i) {
+        if (this.orp == null) {
+            return bl(this.ora[i]);
         }
-        if (i < this.ovV.length) {
-            return String.valueOf(this.ovV[i]);
+        if (i < this.orp.length) {
+            return String.valueOf(this.orp[i]);
         }
         return "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bh(float f) {
-        if (this.ovI) {
-            this.owq.right = this.VW + (this.ovy * (1.0f - ((f - this.ovB) / getAmplitude())));
-            this.owp.left = this.owq.right;
+        if (this.orb) {
+            this.orK.right = this.VU + (this.oqR * (1.0f - ((f - this.oqU) / getAmplitude())));
+            this.orJ.left = this.orK.right;
             return;
         }
-        this.owp.right = (((f - this.ovB) * this.ovy) / getAmplitude()) + this.VW;
-        this.owq.left = this.owp.right;
+        this.orJ.right = (((f - this.oqU) * this.oqR) / getAmplitude()) + this.VU;
+        this.orK.left = this.orJ.right;
     }
 
     @Override // android.view.View
@@ -411,79 +411,79 @@ public class IndicatorSeekBar extends View {
     }
 
     private void ax(Canvas canvas) {
-        if (this.oww) {
-            int i = this.owe + (-1) > 0 ? this.owe - 1 : 1;
+        if (this.orQ) {
+            int i = this.ory + (-1) > 0 ? this.ory - 1 : 1;
             for (int i2 = 0; i2 < i; i2++) {
-                if (this.ovI) {
-                    this.ovr.setColor(this.owv[(i - i2) - 1]);
+                if (this.orb) {
+                    this.oqK.setColor(this.orP[(i - i2) - 1]);
                 } else {
-                    this.ovr.setColor(this.owv[i2]);
+                    this.oqK.setColor(this.orP[i2]);
                 }
                 float thumbPosOnTickFloat = getThumbPosOnTickFloat();
                 if (i2 < thumbPosOnTickFloat && thumbPosOnTickFloat < i2 + 1) {
                     float thumbCenterX = getThumbCenterX();
-                    this.ovr.setStrokeWidth(getLeftSideTrackSize());
-                    canvas.drawLine(this.owd[i2], this.owp.top, thumbCenterX, this.owp.bottom, this.ovr);
-                    this.ovr.setStrokeWidth(getRightSideTrackSize());
-                    canvas.drawLine(thumbCenterX, this.owp.top, this.owd[i2 + 1], this.owp.bottom, this.ovr);
+                    this.oqK.setStrokeWidth(getLeftSideTrackSize());
+                    canvas.drawLine(this.orx[i2], this.orJ.top, thumbCenterX, this.orJ.bottom, this.oqK);
+                    this.oqK.setStrokeWidth(getRightSideTrackSize());
+                    canvas.drawLine(thumbCenterX, this.orJ.top, this.orx[i2 + 1], this.orJ.bottom, this.oqK);
                 } else {
                     if (i2 < thumbPosOnTickFloat) {
-                        this.ovr.setStrokeWidth(getLeftSideTrackSize());
+                        this.oqK.setStrokeWidth(getLeftSideTrackSize());
                     } else {
-                        this.ovr.setStrokeWidth(getRightSideTrackSize());
+                        this.oqK.setStrokeWidth(getRightSideTrackSize());
                     }
-                    canvas.drawLine(this.owd[i2], this.owp.top, this.owd[i2 + 1], this.owp.bottom, this.ovr);
+                    canvas.drawLine(this.orx[i2], this.orJ.top, this.orx[i2 + 1], this.orJ.bottom, this.oqK);
                 }
             }
             return;
         }
-        this.ovr.setColor(this.owu);
-        this.ovr.setStrokeWidth(this.ows);
-        canvas.drawLine(this.owp.left, this.owp.top, this.owp.right, this.owp.bottom, this.ovr);
-        this.ovr.setColor(this.owt);
-        this.ovr.setStrokeWidth(this.owr);
-        canvas.drawLine(this.owq.left, this.owq.top, this.owq.right, this.owq.bottom, this.ovr);
+        this.oqK.setColor(this.orO);
+        this.oqK.setStrokeWidth(this.orM);
+        canvas.drawLine(this.orJ.left, this.orJ.top, this.orJ.right, this.orJ.bottom, this.oqK);
+        this.oqK.setColor(this.orN);
+        this.oqK.setStrokeWidth(this.orL);
+        canvas.drawLine(this.orK.left, this.orK.top, this.orK.right, this.orK.bottom, this.oqK);
     }
 
     private void drawTickMarks(Canvas canvas) {
         float rightSideTrackSize;
-        if (this.owe != 0) {
-            if (this.owk != 0 || this.owj != null) {
+        if (this.ory != 0) {
+            if (this.orE != 0 || this.orD != null) {
                 float thumbCenterX = getThumbCenterX();
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < this.owd.length) {
+                    if (i2 < this.orx.length) {
                         float thumbPosOnTickFloat = getThumbPosOnTickFloat();
-                        if ((!this.owm || thumbCenterX < this.owd[i2]) && ((!this.owl || (i2 != 0 && i2 != this.owd.length - 1)) && (i2 != getThumbPosOnTick() || this.owe <= 2 || this.ovG))) {
+                        if ((!this.orG || thumbCenterX < this.orx[i2]) && ((!this.orF || (i2 != 0 && i2 != this.orx.length - 1)) && (i2 != getThumbPosOnTick() || this.ory <= 2 || this.oqZ))) {
                             if (i2 <= thumbPosOnTickFloat) {
-                                this.ovr.setColor(getLeftSideTickColor());
+                                this.oqK.setColor(getLeftSideTickColor());
                             } else {
-                                this.ovr.setColor(getRightSideTickColor());
+                                this.oqK.setColor(getRightSideTickColor());
                             }
-                            if (this.owj != null) {
-                                if (this.owi == null || this.owh == null) {
-                                    edK();
+                            if (this.orD != null) {
+                                if (this.orC == null || this.orB == null) {
+                                    dZS();
                                 }
-                                if (this.owi == null || this.owh == null) {
+                                if (this.orC == null || this.orB == null) {
                                     break;
                                 } else if (i2 <= thumbPosOnTickFloat) {
-                                    canvas.drawBitmap(this.owi, this.owd[i2] - (this.owh.getWidth() / 2.0f), this.owp.top - (this.owh.getHeight() / 2.0f), this.ovr);
+                                    canvas.drawBitmap(this.orC, this.orx[i2] - (this.orB.getWidth() / 2.0f), this.orJ.top - (this.orB.getHeight() / 2.0f), this.oqK);
                                 } else {
-                                    canvas.drawBitmap(this.owh, this.owd[i2] - (this.owh.getWidth() / 2.0f), this.owp.top - (this.owh.getHeight() / 2.0f), this.ovr);
+                                    canvas.drawBitmap(this.orB, this.orx[i2] - (this.orB.getWidth() / 2.0f), this.orJ.top - (this.orB.getHeight() / 2.0f), this.oqK);
                                 }
-                            } else if (this.owk == 1) {
-                                canvas.drawCircle(this.owd[i2], this.owp.top, this.dAb, this.ovr);
-                            } else if (this.owk == 3) {
+                            } else if (this.orE == 1) {
+                                canvas.drawCircle(this.orx[i2], this.orJ.top, this.dvp, this.oqK);
+                            } else if (this.orE == 3) {
                                 int dp2px = f.dp2px(this.mContext, 1.0f);
-                                if (thumbCenterX >= this.owd[i2]) {
+                                if (thumbCenterX >= this.orx[i2]) {
                                     rightSideTrackSize = getLeftSideTrackSize();
                                 } else {
                                     rightSideTrackSize = getRightSideTrackSize();
                                 }
-                                canvas.drawRect(this.owd[i2] - dp2px, this.owp.top - (rightSideTrackSize / 2.0f), dp2px + this.owd[i2], this.owp.top + (rightSideTrackSize / 2.0f), this.ovr);
-                            } else if (this.owk == 2) {
-                                canvas.drawRect(this.owd[i2] - (this.own / 2.0f), this.owp.top - (this.own / 2.0f), (this.own / 2.0f) + this.owd[i2], (this.own / 2.0f) + this.owp.top, this.ovr);
+                                canvas.drawRect(this.orx[i2] - dp2px, this.orJ.top - (rightSideTrackSize / 2.0f), dp2px + this.orx[i2], this.orJ.top + (rightSideTrackSize / 2.0f), this.oqK);
+                            } else if (this.orE == 2) {
+                                canvas.drawRect(this.orx[i2] - (this.orH / 2.0f), this.orJ.top - (this.orH / 2.0f), (this.orH / 2.0f) + this.orx[i2], (this.orH / 2.0f) + this.orJ.top, this.oqK);
                             }
                         }
                         i = i2 + 1;
@@ -497,24 +497,24 @@ public class IndicatorSeekBar extends View {
     }
 
     private void ay(Canvas canvas) {
-        if (this.ovM != null) {
+        if (this.orf != null) {
             float thumbPosOnTickFloat = getThumbPosOnTickFloat();
-            for (int i = 0; i < this.ovM.length; i++) {
-                if (!this.ovK || i == 0 || i == this.ovM.length - 1) {
+            for (int i = 0; i < this.orf.length; i++) {
+                if (!this.ord || i == 0 || i == this.orf.length - 1) {
                     if (i == getThumbPosOnTick() && i == thumbPosOnTickFloat) {
-                        this.mTextPaint.setColor(this.ovU);
+                        this.mTextPaint.setColor(this.oro);
                     } else if (i < thumbPosOnTickFloat) {
                         this.mTextPaint.setColor(getLeftSideTickTextsColor());
                     } else {
                         this.mTextPaint.setColor(getRightSideTickTextsColor());
                     }
-                    int length = this.ovI ? (this.ovM.length - i) - 1 : i;
+                    int length = this.orb ? (this.orf.length - i) - 1 : i;
                     if (i == 0) {
-                        canvas.drawText(this.ovM[length], (this.ovN[length] / 2.0f) + this.ovO[i], this.ovP, this.mTextPaint);
-                    } else if (i == this.ovM.length - 1) {
-                        canvas.drawText(this.ovM[length], this.ovO[i] - (this.ovN[length] / 2.0f), this.ovP, this.mTextPaint);
+                        canvas.drawText(this.orf[length], (this.orh[length] / 2.0f) + this.ori[i], this.orj, this.mTextPaint);
+                    } else if (i == this.orf.length - 1) {
+                        canvas.drawText(this.orf[length], this.ori[i] - (this.orh[length] / 2.0f), this.orj, this.mTextPaint);
                     } else {
-                        canvas.drawText(this.ovM[length], this.ovO[i], this.ovP, this.mTextPaint);
+                        canvas.drawText(this.orf[length], this.ori[i], this.orj, this.mTextPaint);
                     }
                 }
             }
@@ -522,80 +522,80 @@ public class IndicatorSeekBar extends View {
     }
 
     private void az(Canvas canvas) {
-        if (!this.owF) {
+        if (!this.orZ) {
             float thumbCenterX = getThumbCenterX();
             if (this.mThumbDrawable != null) {
-                if (this.owy == null || this.owA == null) {
-                    edJ();
+                if (this.orS == null || this.orU == null) {
+                    dZR();
                 }
-                if (this.owy == null || this.owA == null) {
+                if (this.orS == null || this.orU == null) {
                     throw new IllegalArgumentException("the format of the selector thumb drawable is wrong!");
                 }
-                this.ovr.setAlpha(255);
-                if (this.iRD) {
-                    canvas.drawBitmap(this.owA, thumbCenterX - (this.owA.getWidth() / 2.0f), this.owp.top - (this.owA.getHeight() / 2.0f), this.ovr);
+                this.oqK.setAlpha(255);
+                if (this.iMW) {
+                    canvas.drawBitmap(this.orU, thumbCenterX - (this.orU.getWidth() / 2.0f), this.orJ.top - (this.orU.getHeight() / 2.0f), this.oqK);
                     return;
                 } else {
-                    canvas.drawBitmap(this.owy, thumbCenterX - (this.owy.getWidth() / 2.0f), this.owp.top - (this.owy.getHeight() / 2.0f), this.ovr);
+                    canvas.drawBitmap(this.orS, thumbCenterX - (this.orS.getWidth() / 2.0f), this.orJ.top - (this.orS.getHeight() / 2.0f), this.oqK);
                     return;
                 }
             }
-            if (this.iRD) {
-                this.ovr.setColor(this.owB);
+            if (this.iMW) {
+                this.oqK.setColor(this.orV);
             } else {
-                this.ovr.setColor(this.owz);
+                this.oqK.setColor(this.orT);
             }
-            canvas.drawCircle(thumbCenterX, this.owp.top, this.iRD ? this.owx : this.dzG, this.ovr);
+            canvas.drawCircle(thumbCenterX, this.orJ.top, this.iMW ? this.orR : this.duU, this.oqK);
         }
     }
 
     private void aA(Canvas canvas) {
-        if (this.owC) {
-            if (!this.ovJ || this.owe <= 2) {
-                this.mTextPaint.setColor(this.owE);
-                canvas.drawText(bl(this.mProgress), getThumbCenterX(), this.owD, this.mTextPaint);
+        if (this.orW) {
+            if (!this.orc || this.ory <= 2) {
+                this.mTextPaint.setColor(this.orY);
+                canvas.drawText(bl(this.mProgress), getThumbCenterX(), this.orX, this.mTextPaint);
             }
         }
     }
 
     private float getThumbCenterX() {
-        return this.ovI ? this.owq.right : this.owp.right;
+        return this.orb ? this.orK.right : this.orJ.right;
     }
 
     private int getLeftSideTickColor() {
-        return this.ovI ? this.owf : this.owg;
+        return this.orb ? this.orz : this.orA;
     }
 
     private int getRightSideTickColor() {
-        return this.ovI ? this.owg : this.owf;
+        return this.orb ? this.orA : this.orz;
     }
 
     private int getLeftSideTickTextsColor() {
-        return this.ovI ? this.ovT : this.ovS;
+        return this.orb ? this.orn : this.orm;
     }
 
     private int getRightSideTickTextsColor() {
-        return this.ovI ? this.ovS : this.ovT;
+        return this.orb ? this.orm : this.orn;
     }
 
     private int getLeftSideTrackSize() {
-        return this.ovI ? this.owr : this.ows;
+        return this.orb ? this.orL : this.orM;
     }
 
     private int getRightSideTrackSize() {
-        return this.ovI ? this.ows : this.owr;
+        return this.orb ? this.orM : this.orL;
     }
 
     private int getThumbPosOnTick() {
-        if (this.owe != 0) {
-            return Math.round((getThumbCenterX() - this.VW) / this.ovz);
+        if (this.ory != 0) {
+            return Math.round((getThumbCenterX() - this.VU) / this.oqS);
         }
         return 0;
     }
 
     private float getThumbPosOnTickFloat() {
-        if (this.owe != 0) {
-            return (getThumbCenterX() - this.VW) / this.ovz;
+        if (this.ory != 0) {
+            return (getThumbCenterX() - this.VU) / this.oqS;
         }
         return 0.0f;
     }
@@ -614,9 +614,9 @@ public class IndicatorSeekBar extends View {
         int dp2px = f.dp2px(this.mContext, 46.0f);
         if (drawable.getIntrinsicWidth() > dp2px) {
             if (z) {
-                i = this.bbq;
+                i = this.aWC;
             } else {
-                i = this.own;
+                i = this.orH;
             }
             intrinsicHeight = g(drawable, i);
             if (i > dp2px) {
@@ -638,8 +638,8 @@ public class IndicatorSeekBar extends View {
     private void a(ColorStateList colorStateList, int i) {
         int[] iArr = null;
         if (colorStateList == null) {
-            this.owz = i;
-            this.owB = this.owz;
+            this.orT = i;
+            this.orV = this.orT;
             return;
         }
         int[][] iArr2 = null;
@@ -659,17 +659,17 @@ public class IndicatorSeekBar extends View {
             }
             if (iArr3 != null && iArr != null) {
                 if (iArr3.length == 1) {
-                    this.owz = iArr[0];
-                    this.owB = this.owz;
+                    this.orT = iArr[0];
+                    this.orV = this.orT;
                 } else if (iArr3.length == 2) {
                     for (int i3 = 0; i3 < iArr3.length; i3++) {
                         int[] iArr4 = iArr3[i3];
                         if (iArr4.length == 0) {
-                            this.owB = iArr[i3];
+                            this.orV = iArr[i3];
                         } else {
                             switch (iArr4[0]) {
                                 case 16842919:
-                                    this.owz = iArr[i3];
+                                    this.orT = iArr[i3];
                                     break;
                                 default:
                                     throw new IllegalArgumentException("the selector color file you set for the argument: isb_thumb_color is in wrong format.");
@@ -688,8 +688,8 @@ public class IndicatorSeekBar extends View {
     private void b(ColorStateList colorStateList, int i) {
         int[] iArr = null;
         if (colorStateList == null) {
-            this.owg = i;
-            this.owf = this.owg;
+            this.orA = i;
+            this.orz = this.orA;
             return;
         }
         int[][] iArr2 = null;
@@ -709,17 +709,17 @@ public class IndicatorSeekBar extends View {
             }
             if (iArr3 != null && iArr != null) {
                 if (iArr3.length == 1) {
-                    this.owg = iArr[0];
-                    this.owf = this.owg;
+                    this.orA = iArr[0];
+                    this.orz = this.orA;
                 } else if (iArr3.length == 2) {
                     for (int i3 = 0; i3 < iArr3.length; i3++) {
                         int[] iArr4 = iArr3[i3];
                         if (iArr4.length == 0) {
-                            this.owf = iArr[i3];
+                            this.orz = iArr[i3];
                         } else {
                             switch (iArr4[0]) {
                                 case 16842913:
-                                    this.owg = iArr[i3];
+                                    this.orA = iArr[i3];
                                     break;
                                 default:
                                     throw new IllegalArgumentException("the selector color file you set for the argument: isb_tick_marks_color is in wrong format.");
@@ -738,9 +738,9 @@ public class IndicatorSeekBar extends View {
     private void c(ColorStateList colorStateList, int i) {
         int[] iArr = null;
         if (colorStateList == null) {
-            this.ovT = i;
-            this.ovS = this.ovT;
-            this.ovU = this.ovT;
+            this.orn = i;
+            this.orm = this.orn;
+            this.oro = this.orn;
             return;
         }
         int[][] iArr2 = null;
@@ -760,21 +760,21 @@ public class IndicatorSeekBar extends View {
             }
             if (iArr3 != null && iArr != null) {
                 if (iArr3.length == 1) {
-                    this.ovT = iArr[0];
-                    this.ovS = this.ovT;
-                    this.ovU = this.ovT;
+                    this.orn = iArr[0];
+                    this.orm = this.orn;
+                    this.oro = this.orn;
                 } else if (iArr3.length == 3) {
                     for (int i3 = 0; i3 < iArr3.length; i3++) {
                         int[] iArr4 = iArr3[i3];
                         if (iArr4.length == 0) {
-                            this.ovT = iArr[i3];
+                            this.orn = iArr[i3];
                         } else {
                             switch (iArr4[0]) {
                                 case 16842913:
-                                    this.ovS = iArr[i3];
+                                    this.orm = iArr[i3];
                                     continue;
                                 case 16843623:
-                                    this.ovU = iArr[i3];
+                                    this.oro = iArr[i3];
                                     continue;
                                 default:
                                     throw new IllegalArgumentException("the selector color file you set for the argument: isb_tick_texts_color is in wrong format.");
@@ -793,29 +793,29 @@ public class IndicatorSeekBar extends View {
     private void a(int i, Typeface typeface) {
         switch (i) {
             case 0:
-                this.ovR = Typeface.DEFAULT;
+                this.orl = Typeface.DEFAULT;
                 return;
             case 1:
-                this.ovR = Typeface.MONOSPACE;
+                this.orl = Typeface.MONOSPACE;
                 return;
             case 2:
-                this.ovR = Typeface.SANS_SERIF;
+                this.orl = Typeface.SANS_SERIF;
                 return;
             case 3:
-                this.ovR = Typeface.SERIF;
+                this.orl = Typeface.SERIF;
                 return;
             default:
                 if (typeface == null) {
-                    this.ovR = Typeface.DEFAULT;
+                    this.orl = Typeface.DEFAULT;
                     return;
                 } else {
-                    this.ovR = typeface;
+                    this.orl = typeface;
                     return;
                 }
         }
     }
 
-    private void edJ() {
+    private void dZR() {
         if (this.mThumbDrawable != null) {
             if (this.mThumbDrawable instanceof StateListDrawable) {
                 try {
@@ -829,31 +829,31 @@ public class IndicatorSeekBar extends View {
                             int[] iArr = (int[]) method.invoke(stateListDrawable, Integer.valueOf(i));
                             if (iArr.length > 0) {
                                 if (iArr[0] == 16842919) {
-                                    this.owA = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), true);
+                                    this.orU = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), true);
                                 } else {
                                     throw new IllegalArgumentException("the state of the selector thumb drawable is wrong!");
                                 }
                             } else {
-                                this.owy = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), true);
+                                this.orS = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), true);
                             }
                         }
                         return;
                     }
                     throw new IllegalArgumentException("the format of the selector thumb drawable is wrong!");
                 } catch (Exception e) {
-                    this.owy = b(this.mThumbDrawable, true);
-                    this.owA = this.owy;
+                    this.orS = b(this.mThumbDrawable, true);
+                    this.orU = this.orS;
                     return;
                 }
             }
-            this.owy = b(this.mThumbDrawable, true);
-            this.owA = this.owy;
+            this.orS = b(this.mThumbDrawable, true);
+            this.orU = this.orS;
         }
     }
 
-    private void edK() {
-        if (this.owj instanceof StateListDrawable) {
-            StateListDrawable stateListDrawable = (StateListDrawable) this.owj;
+    private void dZS() {
+        if (this.orD instanceof StateListDrawable) {
+            StateListDrawable stateListDrawable = (StateListDrawable) this.orD;
             try {
                 Class<?> cls = stateListDrawable.getClass();
                 int intValue = ((Integer) cls.getMethod("getStateCount", new Class[0]).invoke(stateListDrawable, new Object[0])).intValue();
@@ -864,25 +864,25 @@ public class IndicatorSeekBar extends View {
                         int[] iArr = (int[]) method.invoke(stateListDrawable, Integer.valueOf(i));
                         if (iArr.length > 0) {
                             if (iArr[0] == 16842913) {
-                                this.owi = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), false);
+                                this.orC = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), false);
                             } else {
                                 throw new IllegalArgumentException("the state of the selector TickMarks drawable is wrong!");
                             }
                         } else {
-                            this.owh = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), false);
+                            this.orB = b((Drawable) method2.invoke(stateListDrawable, Integer.valueOf(i)), false);
                         }
                     }
                     return;
                 }
                 throw new IllegalArgumentException("the format of the selector TickMarks drawable is wrong!");
             } catch (Exception e) {
-                this.owh = b(this.owj, false);
-                this.owi = this.owh;
+                this.orB = b(this.orD, false);
+                this.orC = this.orB;
                 return;
             }
         }
-        this.owh = b(this.owj, false);
-        this.owi = this.owh;
+        this.orB = b(this.orD, false);
+        this.orC = this.orB;
     }
 
     @Override // android.view.View
@@ -891,15 +891,15 @@ public class IndicatorSeekBar extends View {
             super.setEnabled(z);
             if (isEnabled()) {
                 setAlpha(1.0f);
-                if (this.ovX) {
-                    this.ovZ.setAlpha(1.0f);
+                if (this.orr) {
+                    this.ort.setAlpha(1.0f);
                     return;
                 }
                 return;
             }
             setAlpha(0.3f);
-            if (this.ovX) {
-                this.ovZ.setAlpha(0.3f);
+            if (this.orr) {
+                this.ort.setAlpha(0.3f);
             }
         }
     }
@@ -959,16 +959,16 @@ public class IndicatorSeekBar extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.ovE && isEnabled()) {
+        if (this.oqX && isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
                     performClick();
                     float x = motionEvent.getX();
-                    if (I(x, motionEvent.getY())) {
-                        if (!this.ovF || bk(x)) {
-                            this.iRD = true;
-                            if (this.ovs != null) {
-                                this.ovs.a(this);
+                    if (J(x, motionEvent.getY())) {
+                        if (!this.oqY || bk(x)) {
+                            this.iMW = true;
+                            if (this.oqL != null) {
+                                this.oqL.a(this);
                             }
                             ap(motionEvent);
                             return true;
@@ -978,15 +978,15 @@ public class IndicatorSeekBar extends View {
                     break;
                 case 1:
                 case 3:
-                    this.iRD = false;
-                    if (this.ovs != null) {
-                        this.ovs.b(this);
+                    this.iMW = false;
+                    if (this.oqL != null) {
+                        this.oqL.b(this);
                     }
-                    if (!edP()) {
+                    if (!dZX()) {
                         invalidate();
                     }
-                    if (this.ovW != null) {
-                        this.ovW.hide();
+                    if (this.orq != null) {
+                        this.orq.hide();
                         break;
                     }
                     break;
@@ -1003,92 +1003,92 @@ public class IndicatorSeekBar extends View {
         bh(bi(bj(aq(motionEvent))));
         setSeekListener(true);
         invalidate();
-        edM();
+        dZU();
     }
 
-    private boolean edL() {
-        return this.ovC ? this.ovu != this.mProgress : Math.round(this.ovu) != Math.round(this.mProgress);
+    private boolean dZT() {
+        return this.oqV ? this.oqN != this.mProgress : Math.round(this.oqN) != Math.round(this.mProgress);
     }
 
     private float aq(MotionEvent motionEvent) {
-        if (motionEvent.getX() < this.VW) {
-            return this.VW;
+        if (motionEvent.getX() < this.VU) {
+            return this.VU;
         }
-        if (motionEvent.getX() > this.mMeasuredWidth - this.VV) {
-            return this.mMeasuredWidth - this.VV;
+        if (motionEvent.getX() > this.mMeasuredWidth - this.VT) {
+            return this.mMeasuredWidth - this.VT;
         }
         return motionEvent.getX();
     }
 
     private float bi(float f) {
-        this.ovu = this.mProgress;
-        this.mProgress = this.ovB + ((getAmplitude() * (f - this.VW)) / this.ovy);
+        this.oqN = this.mProgress;
+        this.mProgress = this.oqU + ((getAmplitude() * (f - this.VU)) / this.oqR);
         return this.mProgress;
     }
 
     private float bj(float f) {
-        if (this.owe > 2 && !this.ovG) {
-            f = (Math.round((f - this.VW) / this.ovz) * this.ovz) + this.VW;
+        if (this.ory > 2 && !this.oqZ) {
+            f = (Math.round((f - this.VU) / this.oqS) * this.oqS) + this.VU;
         }
-        if (this.ovI) {
-            return (this.ovy - f) + (this.VW * 2);
+        if (this.orb) {
+            return (this.oqR - f) + (this.VU * 2);
         }
         return f;
     }
 
-    private boolean I(float f, float f2) {
-        if (this.ovv == -1.0f) {
-            this.ovv = f.dp2px(this.mContext, 5.0f);
+    private boolean J(float f, float f2) {
+        if (this.oqO == -1.0f) {
+            this.oqO = f.dp2px(this.mContext, 5.0f);
         }
-        return ((f > (((float) this.VW) - (this.ovv * 2.0f)) ? 1 : (f == (((float) this.VW) - (this.ovv * 2.0f)) ? 0 : -1)) >= 0 && (f > (((float) (this.mMeasuredWidth - this.VV)) + (this.ovv * 2.0f)) ? 1 : (f == (((float) (this.mMeasuredWidth - this.VV)) + (this.ovv * 2.0f)) ? 0 : -1)) <= 0) && ((f2 > ((this.owp.top - this.owx) - this.ovv) ? 1 : (f2 == ((this.owp.top - this.owx) - this.ovv) ? 0 : -1)) >= 0 && (f2 > ((this.owp.top + this.owx) + this.ovv) ? 1 : (f2 == ((this.owp.top + this.owx) + this.ovv) ? 0 : -1)) <= 0);
+        return ((f > (((float) this.VU) - (this.oqO * 2.0f)) ? 1 : (f == (((float) this.VU) - (this.oqO * 2.0f)) ? 0 : -1)) >= 0 && (f > (((float) (this.mMeasuredWidth - this.VT)) + (this.oqO * 2.0f)) ? 1 : (f == (((float) (this.mMeasuredWidth - this.VT)) + (this.oqO * 2.0f)) ? 0 : -1)) <= 0) && ((f2 > ((this.orJ.top - this.orR) - this.oqO) ? 1 : (f2 == ((this.orJ.top - this.orR) - this.oqO) ? 0 : -1)) >= 0 && (f2 > ((this.orJ.top + this.orR) + this.oqO) ? 1 : (f2 == ((this.orJ.top + this.orR) + this.oqO) ? 0 : -1)) <= 0);
     }
 
     private boolean bk(float f) {
         float f2;
         bh(this.mProgress);
-        if (this.ovI) {
-            f2 = this.owq.right;
+        if (this.orb) {
+            f2 = this.orK.right;
         } else {
-            f2 = this.owp.right;
+            f2 = this.orJ.right;
         }
-        return f2 - (((float) this.bbq) / 2.0f) <= f && f <= f2 + (((float) this.bbq) / 2.0f);
+        return f2 - (((float) this.aWC) / 2.0f) <= f && f <= f2 + (((float) this.aWC) / 2.0f);
     }
 
-    private void edM() {
-        if (this.ovX) {
-            edO();
-        } else if (this.ovW != null) {
-            this.ovW.edw();
-            if (this.ovW.isShowing()) {
-                this.ovW.bf(getThumbCenterX());
+    private void dZU() {
+        if (this.orr) {
+            dZW();
+        } else if (this.orq != null) {
+            this.orq.dZE();
+            if (this.orq.isShowing()) {
+                this.orq.bf(getThumbCenterX());
             } else {
-                this.ovW.bg(getThumbCenterX());
+                this.orq.bg(getThumbCenterX());
             }
         }
     }
 
-    private void edN() {
-        if (this.owb != 0 && this.ovW == null) {
-            this.ovW = new c(this.mContext, this, this.mIndicatorColor, this.owb, this.ovY, this.ovb, this.ovZ, this.owa);
-            this.ovZ = this.ovW.edx();
+    private void dZV() {
+        if (this.orv != 0 && this.orq == null) {
+            this.orq = new c(this.mContext, this, this.mIndicatorColor, this.orv, this.ors, this.oqu, this.ort, this.oru);
+            this.ort = this.orq.dZF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edO() {
+    public void dZW() {
         int thumbCenterX;
         int i;
-        if (this.ovX && this.ovW != null) {
-            this.ovW.VZ(getIndicatorTextString());
-            this.ovZ.measure(0, 0);
-            int measuredWidth = this.ovZ.getMeasuredWidth();
+        if (this.orr && this.orq != null) {
+            this.orq.UR(getIndicatorTextString());
+            this.ort.measure(0, 0);
+            int measuredWidth = this.ort.getMeasuredWidth();
             float thumbCenterX2 = getThumbCenterX();
-            if (this.mFB == -1.0f) {
+            if (this.mAS == -1.0f) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
                 if (windowManager != null) {
                     windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-                    this.mFB = displayMetrics.widthPixels;
+                    this.mAS = displayMetrics.widthPixels;
                 }
             }
             if ((measuredWidth / 2) + thumbCenterX2 > this.mMeasuredWidth) {
@@ -1102,31 +1102,31 @@ public class IndicatorSeekBar extends View {
                 thumbCenterX = (int) (getThumbCenterX() - (measuredWidth / 2));
                 i = 0;
             }
-            this.ovW.Nu(thumbCenterX);
-            this.ovW.Nv(i);
+            this.orq.LN(thumbCenterX);
+            this.orq.LO(i);
         }
     }
 
-    private boolean edP() {
-        if (this.owe >= 3 && this.ovG && this.owG) {
+    private boolean dZX() {
+        if (this.ory >= 3 && this.oqZ && this.osa) {
             final int closestIndex = getClosestIndex();
             final float f = this.mProgress;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, Math.abs(f - this.ovH[closestIndex]));
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, Math.abs(f - this.ora[closestIndex]));
             ofFloat.start();
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.IndicatorSeekBar.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    IndicatorSeekBar.this.ovu = IndicatorSeekBar.this.mProgress;
-                    if (f - IndicatorSeekBar.this.ovH[closestIndex] > 0.0f) {
+                    IndicatorSeekBar.this.oqN = IndicatorSeekBar.this.mProgress;
+                    if (f - IndicatorSeekBar.this.ora[closestIndex] > 0.0f) {
                         IndicatorSeekBar.this.mProgress = f - ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     } else {
                         IndicatorSeekBar.this.mProgress = ((Float) valueAnimator.getAnimatedValue()).floatValue() + f;
                     }
                     IndicatorSeekBar.this.bh(IndicatorSeekBar.this.mProgress);
                     IndicatorSeekBar.this.setSeekListener(false);
-                    if (IndicatorSeekBar.this.ovW != null && IndicatorSeekBar.this.ovX) {
-                        IndicatorSeekBar.this.ovW.edy();
-                        IndicatorSeekBar.this.edO();
+                    if (IndicatorSeekBar.this.orq != null && IndicatorSeekBar.this.orr) {
+                        IndicatorSeekBar.this.orq.dZG();
+                        IndicatorSeekBar.this.dZW();
                     }
                     IndicatorSeekBar.this.invalidate();
                 }
@@ -1137,15 +1137,15 @@ public class IndicatorSeekBar extends View {
     }
 
     private String bl(float f) {
-        return this.ovC ? b.b(f, this.ovD) : String.valueOf(Math.round(f));
+        return this.oqV ? b.b(f, this.oqW) : String.valueOf(Math.round(f));
     }
 
     private int getClosestIndex() {
-        float abs = Math.abs(this.ovA - this.ovB);
+        float abs = Math.abs(this.oqT - this.oqU);
         int i = 0;
         int i2 = 0;
-        while (i < this.ovH.length) {
-            float abs2 = Math.abs(this.ovH[i] - this.mProgress);
+        while (i < this.ora.length) {
+            float abs2 = Math.abs(this.ora[i] - this.mProgress);
             if (abs2 <= abs) {
                 i2 = i;
             } else {
@@ -1158,127 +1158,127 @@ public class IndicatorSeekBar extends View {
     }
 
     private float getAmplitude() {
-        if (this.ovA - this.ovB > 0.0f) {
-            return this.ovA - this.ovB;
+        if (this.oqT - this.oqU > 0.0f) {
+            return this.oqT - this.oqU;
         }
         return 1.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSeekListener(boolean z) {
-        if (this.ovs != null && edL()) {
-            this.ovs.a(zG(z));
+        if (this.oqL != null && dZT()) {
+            this.oqL.a(zC(z));
         }
     }
 
-    private e zG(boolean z) {
-        if (this.ovx == null) {
-            this.ovx = new e(this);
+    private e zC(boolean z) {
+        if (this.oqQ == null) {
+            this.oqQ = new e(this);
         }
-        this.ovx.progress = getProgress();
-        this.ovx.owL = getProgressFloat();
-        this.ovx.owM = z;
-        if (this.owe > 2) {
+        this.oqQ.progress = getProgress();
+        this.oqQ.osf = getProgressFloat();
+        this.oqQ.osg = z;
+        if (this.ory > 2) {
             int thumbPosOnTick = getThumbPosOnTick();
-            if (this.ovJ && this.ovM != null) {
-                this.ovx.owO = this.ovM[thumbPosOnTick];
+            if (this.orc && this.orf != null) {
+                this.oqQ.osi = this.orf[thumbPosOnTick];
             }
-            if (this.ovI) {
-                this.ovx.owN = (this.owe - thumbPosOnTick) - 1;
+            if (this.orb) {
+                this.oqQ.osh = (this.ory - thumbPosOnTick) - 1;
             } else {
-                this.ovx.owN = thumbPosOnTick;
+                this.oqQ.osh = thumbPosOnTick;
             }
         }
-        return this.ovx;
+        return this.oqQ;
     }
 
     private void a(a aVar) {
-        this.ovA = aVar.oun;
-        this.ovB = aVar.ouo;
+        this.oqT = aVar.opH;
+        this.oqU = aVar.opI;
         this.mProgress = aVar.progress;
-        this.ovC = aVar.oup;
-        this.owe = aVar.ouT;
-        this.ovG = aVar.ouq;
-        this.ovI = aVar.our;
-        this.ovE = aVar.ous;
-        this.ovw = aVar.ouv;
-        this.ovF = aVar.ouu;
-        this.owb = aVar.ouw;
-        this.mIndicatorColor = aVar.oux;
-        this.ovb = aVar.ouy;
-        this.ovY = aVar.ouz;
-        this.ovZ = aVar.ouA;
-        this.owa = aVar.ouB;
-        this.owr = aVar.ouC;
-        this.owt = aVar.ouD;
-        this.ows = aVar.ouE;
-        this.owu = aVar.ouF;
-        this.owo = aVar.ouG;
-        this.bbq = aVar.ouJ;
-        this.mThumbDrawable = aVar.ouM;
-        this.owE = aVar.ouH;
-        a(aVar.ouL, aVar.ouK);
-        this.owC = aVar.ouI;
-        this.owk = aVar.ouU;
-        this.own = aVar.ouW;
-        this.owj = aVar.ouX;
-        this.owl = aVar.ouY;
-        this.owm = aVar.ouZ;
-        b(aVar.ova, aVar.ouV);
-        this.ovJ = aVar.ouN;
-        this.ovQ = aVar.ouP;
-        this.ovV = aVar.ouQ;
-        this.ovR = aVar.ouR;
-        c(aVar.ouS, aVar.ouO);
+        this.oqV = aVar.opJ;
+        this.ory = aVar.oqm;
+        this.oqZ = aVar.opK;
+        this.orb = aVar.opL;
+        this.oqX = aVar.opM;
+        this.oqP = aVar.opO;
+        this.oqY = aVar.opN;
+        this.orv = aVar.opP;
+        this.mIndicatorColor = aVar.opQ;
+        this.oqu = aVar.opR;
+        this.ors = aVar.opS;
+        this.ort = aVar.opT;
+        this.oru = aVar.opU;
+        this.orL = aVar.opV;
+        this.orN = aVar.opW;
+        this.orM = aVar.opX;
+        this.orO = aVar.opY;
+        this.orI = aVar.opZ;
+        this.aWC = aVar.oqc;
+        this.mThumbDrawable = aVar.oqf;
+        this.orY = aVar.oqa;
+        a(aVar.oqe, aVar.oqd);
+        this.orW = aVar.oqb;
+        this.orE = aVar.oqn;
+        this.orH = aVar.oqp;
+        this.orD = aVar.oqq;
+        this.orF = aVar.oqr;
+        this.orG = aVar.oqs;
+        b(aVar.oqt, aVar.oqo);
+        this.orc = aVar.oqg;
+        this.ork = aVar.oqi;
+        this.orp = aVar.oqj;
+        this.orl = aVar.oqk;
+        c(aVar.oql, aVar.oqh);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void edQ() {
-        this.ovZ.setVisibility(4);
+    public void dZY() {
+        this.ort.setVisibility(4);
         postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.IndicatorSeekBar.3
             @Override // java.lang.Runnable
             public void run() {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
                 alphaAnimation.setDuration(180L);
-                IndicatorSeekBar.this.ovZ.setAnimation(alphaAnimation);
-                IndicatorSeekBar.this.edO();
-                IndicatorSeekBar.this.ovZ.setVisibility(0);
+                IndicatorSeekBar.this.ort.setAnimation(alphaAnimation);
+                IndicatorSeekBar.this.dZW();
+                IndicatorSeekBar.this.ort.setVisibility(0);
             }
         }, 300L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setIndicatorStayAlways(boolean z) {
-        this.ovX = z;
+        this.orr = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View getIndicatorContentView() {
-        return this.ovZ;
+        return this.ort;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getIndicatorTextString() {
-        if (this.owc != null && this.owc.contains("${TICK_TEXT}")) {
-            if (this.owe > 2 && this.ovM != null) {
-                return this.owc.replace("${TICK_TEXT}", this.ovM[getThumbPosOnTick()]);
+        if (this.orw != null && this.orw.contains("${TICK_TEXT}")) {
+            if (this.ory > 2 && this.orf != null) {
+                return this.orw.replace("${TICK_TEXT}", this.orf[getThumbPosOnTick()]);
             }
-        } else if (this.owc != null && this.owc.contains("${PROGRESS}")) {
-            return this.owc.replace("${PROGRESS}", bl(this.mProgress));
+        } else if (this.orw != null && this.orw.contains("${PROGRESS}")) {
+            return this.orw.replace("${PROGRESS}", bl(this.mProgress));
         }
         return bl(this.mProgress);
     }
 
     public c getIndicator() {
-        return this.ovW;
+        return this.orq;
     }
 
     public int getTickCount() {
-        return this.owe;
+        return this.ory;
     }
 
     public synchronized float getProgressFloat() {
-        return BigDecimal.valueOf(this.mProgress).setScale(this.ovD, 4).floatValue();
+        return BigDecimal.valueOf(this.mProgress).setScale(this.oqW, 4).floatValue();
     }
 
     public int getProgress() {
@@ -1286,70 +1286,70 @@ public class IndicatorSeekBar extends View {
     }
 
     public float getMax() {
-        return this.ovA;
+        return this.oqT;
     }
 
     public float getMin() {
-        return this.ovB;
+        return this.oqU;
     }
 
     public d getOnSeekChangeListener() {
-        return this.ovs;
+        return this.oqL;
     }
 
     public synchronized void setProgress(float f) {
-        this.ovu = this.mProgress;
-        if (f < this.ovB) {
-            f = this.ovB;
-        } else if (f > this.ovA) {
-            f = this.ovA;
+        this.oqN = this.mProgress;
+        if (f < this.oqU) {
+            f = this.oqU;
+        } else if (f > this.oqT) {
+            f = this.oqT;
         }
         this.mProgress = f;
-        if (!this.ovG && this.owe > 2) {
-            this.mProgress = this.ovH[getClosestIndex()];
+        if (!this.oqZ && this.ory > 2) {
+            this.mProgress = this.ora[getClosestIndex()];
         }
         setSeekListener(false);
         bh(this.mProgress);
         postInvalidate();
-        edO();
+        dZW();
     }
 
     public synchronized void setMax(float f) {
-        this.ovA = Math.max(this.ovB, f);
-        edB();
-        edz();
-        edG();
+        this.oqT = Math.max(this.oqU, f);
+        dZJ();
+        dZH();
+        dZO();
         invalidate();
-        edO();
+        dZW();
     }
 
     public synchronized void setMin(float f) {
-        this.ovB = Math.min(this.ovA, f);
-        edB();
-        edz();
-        edG();
+        this.oqU = Math.min(this.oqT, f);
+        dZJ();
+        dZH();
+        dZO();
         invalidate();
-        edO();
+        dZW();
     }
 
     public void setR2L(boolean z) {
-        this.ovI = z;
+        this.orb = z;
         requestLayout();
         invalidate();
-        edO();
+        dZW();
     }
 
     public void setThumbDrawable(Drawable drawable) {
         if (drawable == null) {
             this.mThumbDrawable = null;
-            this.owy = null;
-            this.owA = null;
+            this.orS = null;
+            this.orU = null;
         } else {
             this.mThumbDrawable = drawable;
-            this.dzG = Math.min(f.dp2px(this.mContext, 46.0f), this.bbq) / 2.0f;
-            this.owx = this.dzG;
-            this.ovt = Math.max(this.owx, this.dAb) * 2.0f;
-            edJ();
+            this.duU = Math.min(f.dp2px(this.mContext, 46.0f), this.aWC) / 2.0f;
+            this.orR = this.duU;
+            this.oqM = Math.max(this.orR, this.dvp) * 2.0f;
+            dZR();
         }
         requestLayout();
         invalidate();
@@ -1357,50 +1357,50 @@ public class IndicatorSeekBar extends View {
 
     public void setTickMarksDrawable(Drawable drawable) {
         if (drawable == null) {
-            this.owj = null;
-            this.owh = null;
-            this.owi = null;
+            this.orD = null;
+            this.orB = null;
+            this.orC = null;
         } else {
-            this.owj = drawable;
-            this.dAb = Math.min(f.dp2px(this.mContext, 46.0f), this.own) / 2.0f;
-            this.ovt = Math.max(this.owx, this.dAb) * 2.0f;
-            edK();
+            this.orD = drawable;
+            this.dvp = Math.min(f.dp2px(this.mContext, 46.0f), this.orH) / 2.0f;
+            this.oqM = Math.max(this.orR, this.dvp) * 2.0f;
+            dZS();
         }
         invalidate();
     }
 
     public void setDecimalScale(int i) {
-        this.ovD = i;
+        this.oqW = i;
     }
 
     public void setIndicatorTextFormat(String str) {
-        this.owc = str;
-        edH();
-        edO();
+        this.orw = str;
+        dZP();
+        dZW();
     }
 
     public void setOnSeekChangeListener(@NonNull d dVar) {
-        this.ovs = dVar;
+        this.oqL = dVar;
     }
 
     public void setUserSeekAble(boolean z) {
-        this.ovE = z;
+        this.oqX = z;
     }
 
     public synchronized void setTickCount(int i) {
-        if (this.owe < 0 || this.owe > 50) {
-            throw new IllegalArgumentException("the Argument: TICK COUNT must be limited between (0-50), Now is " + this.owe);
+        if (this.ory < 0 || this.ory > 50) {
+            throw new IllegalArgumentException("the Argument: TICK COUNT must be limited between (0-50), Now is " + this.ory);
         }
-        this.owe = i;
-        edz();
-        edH();
-        edF();
-        edG();
+        this.ory = i;
+        dZH();
+        dZP();
+        dZN();
+        dZO();
         invalidate();
-        edO();
+        dZW();
     }
 
     public void setThumbAdjustAuto(boolean z) {
-        this.owG = z;
+        this.osa = z;
     }
 }

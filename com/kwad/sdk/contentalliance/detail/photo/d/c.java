@@ -1,10 +1,10 @@
 package com.kwad.sdk.contentalliance.detail.photo.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f8764a;
+    public d f8464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.photo.f.c f8765b;
+    public com.kwad.sdk.contentalliance.detail.photo.f.c f8465b;
 }

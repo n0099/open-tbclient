@@ -11,14 +11,14 @@ import android.util.Log;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f11672b;
-    public static volatile e pSs;
+    public static boolean f11372b;
+    public static volatile e pNS;
     public Boolean g;
     public BroadcastReceiver h;
-    public a pSt = new a("udid");
-    public a pSu = new a("oaid");
-    public a pSw = new a("vaid");
-    public a pSv = new a("aaid");
+    public a pNT = new a("udid");
+    public a pNU = new a("oaid");
+    public a pNW = new a("vaid");
+    public a pNV = new a("aaid");
 
     public static c C(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -30,13 +30,13 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f11670a = cursor.getString(columnIndex);
+                cVar.f11370a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
             int columnIndex2 = cursor.getColumnIndex("code");
             if (columnIndex2 >= 0) {
-                cVar.f11671b = cursor.getInt(columnIndex2);
+                cVar.f11371b = cursor.getInt(columnIndex2);
             } else {
                 a("parseCode fail, index < 0.");
             }
@@ -51,32 +51,32 @@ public class e {
     }
 
     public static void a(String str) {
-        if (f11672b) {
+        if (f11372b) {
             Log.d("OpenIdManager", str);
         }
     }
 
-    public static final e eDT() {
-        if (pSs == null) {
+    public static final e eAb() {
+        if (pNS == null) {
             synchronized (e.class) {
-                pSs = new e();
+                pNS = new e();
             }
         }
-        return pSs;
+        return pNS;
     }
 
-    public a ZZ(String str) {
+    public a YR(String str) {
         if ("oaid".equals(str)) {
-            return this.pSu;
+            return this.pNU;
         }
         if ("vaid".equals(str)) {
-            return this.pSw;
+            return this.pNW;
         }
         if ("aaid".equals(str)) {
-            return this.pSv;
+            return this.pNV;
         }
         if ("udid".equals(str)) {
-            return this.pSt;
+            return this.pNT;
         }
         return null;
     }
@@ -107,7 +107,7 @@ public class e {
             return null;
         }
         if (aVar.a()) {
-            return aVar.f11669b;
+            return aVar.f11369b;
         }
         a("queryId : " + aVar.c);
         Uri parse = Uri.parse("content://com.meizu.flyme.openidsdk/");
@@ -140,13 +140,13 @@ public class e {
         }
         if (parse != 0) {
             c C = C(parse);
-            str2 = C.f11670a;
+            str2 = C.f11370a;
             try {
                 aVar.a(str2);
                 aVar.a(C.c);
-                aVar.a(C.f11671b);
+                aVar.a(C.f11371b);
                 a(aVar.c + " errorCode : " + aVar.d);
-                if (C.f11671b != 1000) {
+                if (C.f11371b != 1000) {
                     a(context);
                     if (!a(context, false)) {
                         append = new StringBuilder().append("not support, forceQuery isSupported: ").append(a(context, true));
@@ -252,7 +252,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = C(cursor).f11670a;
+                String str2 = C(cursor).f11370a;
                 cursor.close();
                 str = str2;
             } catch (Exception e2) {

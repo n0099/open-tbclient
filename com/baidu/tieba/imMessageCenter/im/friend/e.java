@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage kLZ;
-    private long kMa;
-    private long kwY;
+    private RequestCommitInviteMessage kHu;
+    private long kHv;
+    private long kst;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.kwY = intent.getLongExtra("gid", -1L);
-            this.kMa = intent.getLongExtra("groupid", -1L);
+            this.kst = intent.getLongExtra("gid", -1L);
+            this.kHv = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.kwY = bundle.getLong("gid", -1L);
-            this.kMa = bundle.getLong("groupid", -1L);
+            this.kst = bundle.getLong("gid", -1L);
+            this.kHv = bundle.getLong("groupid", -1L);
         }
     }
 
     public void ay(Bundle bundle) {
-        bundle.putLong("gid", this.kwY);
-        bundle.putLong("groupid", this.kMa);
+        bundle.putLong("gid", this.kst);
+        bundle.putLong("groupid", this.kHv);
     }
 
-    public void NG(String str) {
-        this.kLZ = d(this.kwY, this.kMa, str);
-        super.sendMessage(this.kLZ);
+    public void My(String str) {
+        this.kHu = d(this.kst, this.kHv, str);
+        super.sendMessage(this.kHu);
     }
 
     private RequestCommitInviteMessage d(long j, long j2, String str) {

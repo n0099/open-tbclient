@@ -3,7 +3,7 @@ package com.qq.e.comm.net.rr;
 import com.qq.e.comm.net.rr.a;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class S2SSResponse extends AbstractResponse {
     public S2SSResponse(HttpURLConnection httpURLConnection) {
         super(httpURLConnection);

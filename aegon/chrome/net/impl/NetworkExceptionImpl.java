@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.NetworkException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetworkExceptionImpl extends NetworkException {
     public static final /* synthetic */ boolean $assertionsDisabled = !NetworkExceptionImpl.class.desiredAssertionStatus();
     public final int mCronetInternalErrorCode;

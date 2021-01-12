@@ -1,10 +1,10 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bc extends ba {
     private static bc c = new bc();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3778b;
+    private boolean f3740b;
 
     private bc() {
     }
@@ -14,7 +14,7 @@ public class bc extends ba {
     }
 
     public void a(boolean z) {
-        this.f3778b = z;
+        this.f3740b = z;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -24,6 +24,6 @@ public class bc extends ba {
 
     @Override // com.baidu.mobstat.ba
     public boolean b() {
-        return this.f3778b;
+        return this.f3740b;
     }
 }

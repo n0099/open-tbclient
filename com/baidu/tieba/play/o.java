@@ -6,20 +6,10 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class o {
-    public String anD;
-    public String eQd;
-    public String eVY;
-    public String fPy;
-    public String mDG;
-    public String mDH;
-    public String mDI;
-    public int mDJ;
-    public String mDK;
-    public String mDL;
-    public String mDM;
-    public String mDN;
-    public String mDO;
-    public String mDP;
+    public String amM;
+    public String eLs;
+    public String eRn;
+    public String fKR;
     public String mExtra;
     public String mFloor;
     public String mGroupId;
@@ -28,96 +18,106 @@ public class o {
     public String mType;
     public String mUid;
     public String mVid;
+    public String myX;
+    public String myY;
+    public String myZ;
+    public int mza;
+    public String mzb;
+    public String mzc;
+    public String mzd;
+    public String mze;
+    public String mzf;
+    public String mzg;
 
     public aq f(aq aqVar) {
         if (aqVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                aqVar.dX("obj_locate", this.mLocate);
+                aqVar.dW("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.anD)) {
-                aqVar.dX("tid", this.anD);
+            if (!StringUtils.isNull(this.amM)) {
+                aqVar.dW("tid", this.amM);
             }
-            if (!StringUtils.isNull(this.fPy)) {
-                aqVar.dX("fid", this.fPy);
+            if (!StringUtils.isNull(this.fKR)) {
+                aqVar.dW("fid", this.fKR);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                aqVar.dX("uid", this.mUid);
+                aqVar.dW("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                aqVar.dX("obj_source", this.mSource);
+                aqVar.dW("obj_source", this.mSource);
             } else {
                 aqVar.an("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.mDG)) {
-                aqVar.dX("obj_param1", this.mDG);
+            if (!StringUtils.isNull(this.myX)) {
+                aqVar.dW("obj_param1", this.myX);
             } else {
                 aqVar.an("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.mDH)) {
-                aqVar.dX(TiebaInitialize.Params.OBJ_PARAM2, this.mDH);
+            if (!StringUtils.isNull(this.myY)) {
+                aqVar.dW(TiebaInitialize.Params.OBJ_PARAM2, this.myY);
             }
-            if (!StringUtils.isNull(this.mDI)) {
-                aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, this.mDI);
+            if (!StringUtils.isNull(this.myZ)) {
+                aqVar.dW(TiebaInitialize.Params.OBJ_PARAM3, this.myZ);
             }
-            if (this.mDJ > 0) {
-                aqVar.an("obj_param5", this.mDJ);
+            if (this.mza > 0) {
+                aqVar.an("obj_param5", this.mza);
             }
-            if (!StringUtils.isNull(this.eQd)) {
-                aqVar.dX("obj_id", this.eQd);
+            if (!StringUtils.isNull(this.eLs)) {
+                aqVar.dW("obj_id", this.eLs);
             }
-            if (!StringUtils.isNull(this.mDK)) {
-                aqVar.dX("ab_tag", this.mDK);
+            if (!StringUtils.isNull(this.mzb)) {
+                aqVar.dW("ab_tag", this.mzb);
             } else {
                 aqVar.an("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.mDM)) {
-                aqVar.dX("topic_type", this.mDM);
+            if (!StringUtils.isNull(this.mzd)) {
+                aqVar.dW("topic_type", this.mzd);
             }
             if (!StringUtils.isNull(this.mExtra)) {
-                aqVar.dX("extra", this.mExtra);
+                aqVar.dW("extra", this.mExtra);
             } else {
                 aqVar.an("extra", 0);
             }
-            if (!StringUtils.isNull(this.mDN)) {
-                aqVar.dX("is_vertical", this.mDN);
+            if (!StringUtils.isNull(this.mze)) {
+                aqVar.dW("is_vertical", this.mze);
             }
             if (!StringUtils.isNull(this.mFloor)) {
-                aqVar.dX("obj_floor", this.mFloor);
+                aqVar.dW("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.mDO)) {
-                aqVar.dX("resource_id", this.mDO);
+            if (!StringUtils.isNull(this.mzf)) {
+                aqVar.dW("resource_id", this.mzf);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
-                aqVar.dX("group_id", this.mGroupId);
+                aqVar.dW("group_id", this.mGroupId);
             }
-            aqVar.dX("obj_param4", StringUtils.isNull(this.eVY) ? "" : this.eVY);
-            aqVar.dX("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
-            aqVar.dX(IntentConfig.NID, StringUtils.isNull(this.mDP) ? "" : this.mDP);
+            aqVar.dW("obj_param4", StringUtils.isNull(this.eRn) ? "" : this.eRn);
+            aqVar.dW("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            aqVar.dW(IntentConfig.NID, StringUtils.isNull(this.mzg) ? "" : this.mzg);
         }
         return aqVar;
     }
 
-    public o dBR() {
+    public o dxZ() {
         o oVar = new o();
         oVar.mLocate = this.mLocate;
         oVar.mType = this.mType;
-        oVar.anD = this.anD;
-        oVar.fPy = this.fPy;
+        oVar.amM = this.amM;
+        oVar.fKR = this.fKR;
         oVar.mUid = this.mUid;
         oVar.mSource = this.mSource;
-        oVar.mDG = this.mDG;
-        oVar.mDH = this.mDH;
-        oVar.mDI = this.mDI;
-        oVar.eQd = this.eQd;
-        oVar.mDK = this.mDK;
-        oVar.mDL = this.mDL;
-        oVar.mDM = this.mDM;
+        oVar.myX = this.myX;
+        oVar.myY = this.myY;
+        oVar.myZ = this.myZ;
+        oVar.eLs = this.eLs;
+        oVar.mzb = this.mzb;
+        oVar.mzc = this.mzc;
+        oVar.mzd = this.mzd;
         oVar.mFloor = this.mFloor;
-        oVar.mDO = this.mDO;
+        oVar.mzf = this.mzf;
         oVar.mGroupId = this.mGroupId;
-        oVar.eVY = this.eVY;
+        oVar.eRn = this.eRn;
         oVar.mVid = this.mVid;
-        oVar.mDP = this.mDP;
+        oVar.mzg = this.mzg;
         return oVar;
     }
 }

@@ -8,10 +8,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class v {
-    public static List<u> HF() {
-        String string = com.baidu.live.d.Ba().getString("gift_dynamic_res_last_accessed", "");
+    public static List<u> DK() {
+        String string = com.baidu.live.d.xf().getString("gift_dynamic_res_last_accessed", "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
@@ -30,12 +30,12 @@ public class v {
             return null;
         } catch (JSONException e) {
             e.printStackTrace();
-            com.baidu.live.d.Ba().putString("gift_dynamic_res_last_accessed", "");
+            com.baidu.live.d.xf().putString("gift_dynamic_res_last_accessed", "");
             return null;
         }
     }
 
-    public static void gz(String str) {
+    public static void fn(String str) {
         e(str, System.currentTimeMillis());
     }
 
@@ -43,7 +43,7 @@ public class v {
         JSONArray jSONArray;
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
-            String string = com.baidu.live.d.Ba().getString("gift_dynamic_res_last_accessed", "");
+            String string = com.baidu.live.d.xf().getString("gift_dynamic_res_last_accessed", "");
             try {
                 if (!TextUtils.isEmpty(string)) {
                     jSONArray = new JSONArray(string);
@@ -75,22 +75,22 @@ public class v {
             if (!z) {
                 u uVar = new u();
                 uVar.name = str;
-                uVar.aVW = j;
+                uVar.aRj = j;
                 JSONObject jsonObject = uVar.toJsonObject();
                 if (jsonObject != null) {
                     jSONArray.put(jsonObject);
                 }
             }
-            com.baidu.live.d.Ba().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
+            com.baidu.live.d.xf().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
         }
     }
 
-    public static void gP(String str) {
+    public static void fD(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.live.d.Ba().putString("gift_dynamic_res_last_accessed", "");
+            com.baidu.live.d.xf().putString("gift_dynamic_res_last_accessed", "");
             return;
         }
-        String string = com.baidu.live.d.Ba().getString("gift_dynamic_res_last_accessed", "");
+        String string = com.baidu.live.d.xf().getString("gift_dynamic_res_last_accessed", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONArray jSONArray = new JSONArray(string);
@@ -104,7 +104,7 @@ public class v {
                             declaredField.setAccessible(true);
                             ((List) declaredField.get(jSONArray)).remove(i);
                         }
-                        com.baidu.live.d.Ba().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
+                        com.baidu.live.d.xf().putString("gift_dynamic_res_last_accessed", jSONArray.toString());
                         return;
                     }
                 }

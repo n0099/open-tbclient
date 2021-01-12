@@ -12,23 +12,23 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PersonalCardItemView extends LinearLayout {
-    private int eSI;
-    private int eSJ;
-    private TbImageView lit;
-    private TbImageView liu;
+    private int eNX;
+    private int eNY;
+    private TbImageView ldN;
+    private TbImageView ldO;
     private Context mContext;
     private View mRootView;
-    private ImageView nAO;
-    private TbImageView nBD;
-    private TextView nCn;
-    private TextView nDf;
-    private View nDg;
-    private com.baidu.tieba.themeCenter.a nDh;
-    private a nDi;
+    private TbImageView nwY;
+    private ImageView nwj;
+    private TextView nxI;
+    private TextView nyA;
+    private View nyB;
+    private com.baidu.tieba.themeCenter.a nyC;
+    private a nyD;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(com.baidu.tieba.themeCenter.a aVar);
     }
@@ -53,30 +53,30 @@ public class PersonalCardItemView extends LinearLayout {
 
     private void initView() {
         setOrientation(1);
-        this.eSI = (l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) / 3;
-        this.eSJ = (int) (this.eSI * 0.57d);
+        this.eNX = (l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) / 3;
+        this.eNY = (int) (this.eNX * 0.57d);
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.personal_card_item_layout, this);
-        this.lit = (TbImageView) this.mRootView.findViewById(R.id.image_bg);
-        this.liu = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.liu.setDefaultResource(R.drawable.transparent_bg);
-        this.liu.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nBD = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
-        this.nBD.setDefaultResource(R.drawable.transparent_bg);
-        this.nBD.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nAO = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.nCn = (TextView) this.mRootView.findViewById(R.id.txt_default);
-        this.nDf = (TextView) this.mRootView.findViewById(R.id.view_card_name);
-        this.nDg = this.mRootView.findViewById(R.id.black_stroke);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.lit.getLayoutParams();
-        layoutParams.height = this.eSJ;
-        layoutParams.width = this.eSI;
-        this.lit.setLayoutParams(layoutParams);
-        this.nDg.setLayoutParams(layoutParams);
-        this.lit.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.1
+        this.ldN = (TbImageView) this.mRootView.findViewById(R.id.image_bg);
+        this.ldO = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.ldO.setDefaultResource(R.drawable.transparent_bg);
+        this.ldO.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nwY = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
+        this.nwY.setDefaultResource(R.drawable.transparent_bg);
+        this.nwY.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nwj = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.nxI = (TextView) this.mRootView.findViewById(R.id.txt_default);
+        this.nyA = (TextView) this.mRootView.findViewById(R.id.view_card_name);
+        this.nyB = this.mRootView.findViewById(R.id.black_stroke);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ldN.getLayoutParams();
+        layoutParams.height = this.eNY;
+        layoutParams.width = this.eNX;
+        this.ldN.setLayoutParams(layoutParams);
+        this.nyB.setLayoutParams(layoutParams);
+        this.ldN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PersonalCardItemView.this.nDi != null) {
-                    PersonalCardItemView.this.nDi.a(PersonalCardItemView.this.nDh);
+                if (view != null && PersonalCardItemView.this.nyD != null) {
+                    PersonalCardItemView.this.nyD.a(PersonalCardItemView.this.nyC);
                 }
             }
         });
@@ -84,41 +84,41 @@ public class PersonalCardItemView extends LinearLayout {
 
     public void b(com.baidu.tieba.themeCenter.a aVar) {
         if (aVar != null) {
-            this.nDh = aVar;
-            if (aVar.getCardId() == com.baidu.tieba.themeCenter.a.nAi) {
-                this.lit.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                ao.setBackgroundColor(this.lit, R.color.CAM_X0204);
-                ao.setImageResource(this.lit, R.drawable.icon_bubble_choose_no);
-                this.nCn.setVisibility(0);
-                this.nBD.setVisibility(8);
-                this.liu.setVisibility(8);
+            this.nyC = aVar;
+            if (aVar.getCardId() == com.baidu.tieba.themeCenter.a.nvD) {
+                this.ldN.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                ao.setBackgroundColor(this.ldN, R.color.CAM_X0204);
+                ao.setImageResource(this.ldN, R.drawable.icon_bubble_choose_no);
+                this.nxI.setVisibility(0);
+                this.nwY.setVisibility(8);
+                this.ldO.setVisibility(8);
             } else {
-                this.nCn.setVisibility(8);
-                this.nBD.setVisibility(0);
-                this.liu.setVisibility(0);
-                this.lit.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.lit.setImageBitmap(null);
-                this.lit.setDefaultResource(R.drawable.img_default_100);
-                this.lit.startLoad(aVar.dSv(), 10, false);
+                this.nxI.setVisibility(8);
+                this.nwY.setVisibility(0);
+                this.ldO.setVisibility(0);
+                this.ldN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.ldN.setImageBitmap(null);
+                this.ldN.setDefaultResource(R.drawable.img_default_100);
+                this.ldN.startLoad(aVar.dOD(), 10, false);
             }
-            if (aVar.dSy() == 1) {
-                this.nAO.setVisibility(0);
-                ao.setImageResource(this.nAO, R.drawable.icon_choose_photo);
+            if (aVar.dOG() == 1) {
+                this.nwj.setVisibility(0);
+                ao.setImageResource(this.nwj, R.drawable.icon_choose_photo);
             } else {
-                this.nAO.setVisibility(8);
+                this.nwj.setVisibility(8);
             }
-            this.liu.startLoad(aVar.dSw(), 10, false);
-            this.nBD.startLoad(aVar.dSx(), 10, false);
-            this.nDf.setText(aVar.getTitle());
+            this.ldO.startLoad(aVar.dOE(), 10, false);
+            this.nwY.startLoad(aVar.dOF(), 10, false);
+            this.nyA.setText(aVar.getTitle());
             setVisibility(0);
         }
     }
 
     public a getCardViewController() {
-        return this.nDi;
+        return this.nyD;
     }
 
     public void setCardViewController(a aVar) {
-        this.nDi = aVar;
+        this.nyD = aVar;
     }
 }

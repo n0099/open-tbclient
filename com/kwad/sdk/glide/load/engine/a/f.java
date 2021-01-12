@@ -4,7 +4,7 @@ import android.content.Context;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.kwad.sdk.glide.load.engine.a.d;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class f extends d {
     public f(Context context) {
         this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, 262144000L);

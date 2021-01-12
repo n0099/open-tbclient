@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView obZ;
-    private TBSpecificationBtn oca;
-    private TBSpecificationBtn ocb;
+    private EMTextView nXt;
+    private TBSpecificationBtn nXu;
+    private TBSpecificationBtn nXv;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -27,10 +27,10 @@ public class CustomPrivacyDialogView extends LinearLayout {
 
     public CustomPrivacyDialogView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        eO(context);
+        initView(context);
     }
 
-    private void eO(Context context) {
+    private void initView(Context context) {
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         setOrientation(1);
         setGravity(1);
@@ -40,52 +40,52 @@ public class CustomPrivacyDialogView extends LinearLayout {
         gradientDrawable.setColor(ao.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.obZ = (EMTextView) findViewById(R.id.privacy_message);
-        this.oca = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.ocb = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.oca.setTextSize(R.dimen.tbds34);
+        this.nXt = (EMTextView) findViewById(R.id.privacy_message);
+        this.nXu = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.nXv = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.nXu.setTextSize(R.dimen.tbds34);
         c cVar = new c();
-        cVar.ru(R.color.CAM_X0105);
-        this.oca.setConfig(cVar);
-        this.ocb.setTextSize(R.dimen.tbds34);
+        cVar.pO(R.color.CAM_X0105);
+        this.nXu.setConfig(cVar);
+        this.nXv.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
-        cVar2.rs(R.color.CAM_X0302);
-        this.ocb.setConfig(cVar2);
+        cVar2.pM(R.color.CAM_X0302);
+        this.nXv.setConfig(cVar2);
     }
 
     public void setMessageTextViewColor(int i) {
-        if (this.obZ != null) {
-            this.obZ.setTextColor(i);
+        if (this.nXt != null) {
+            this.nXt.setTextColor(i);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        if (this.obZ != null) {
-            this.obZ.setText(str);
+        if (this.nXt != null) {
+            this.nXt.setText(str);
         }
     }
 
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.oca != null) {
-            this.oca.setOnClickListener(onClickListener);
+        if (this.nXu != null) {
+            this.nXu.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.ocb != null) {
-            this.ocb.setOnClickListener(onClickListener);
+        if (this.nXv != null) {
+            this.nXv.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogCancelButtonText(String str) {
-        if (this.oca != null) {
-            this.oca.setText(str);
+        if (this.nXu != null) {
+            this.nXu.setText(str);
         }
     }
 
     public void setPrivacyDialogConfirmButtonText(String str) {
-        if (this.ocb != null) {
-            this.ocb.setText(str);
+        if (this.nXv != null) {
+            this.nXv.setText(str);
         }
     }
 }

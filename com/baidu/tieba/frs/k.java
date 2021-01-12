@@ -17,17 +17,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes.dex */
 public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int jeE;
-    protected static final int jeF;
-    protected static final int jeG;
-    protected com.baidu.adp.widget.ListView.s iKI;
-    protected FrsViewData jeH;
-    protected f jeI;
-    protected int jeJ;
-    protected i jeK;
-    private boolean jeL;
-    private boolean jeM;
-    protected com.baidu.tieba.card.aa jeN;
+    protected static final int iZX;
+    protected static final int iZY;
+    protected static final int iZZ;
+    protected com.baidu.adp.widget.ListView.s iGb;
+    protected FrsViewData jaa;
+    protected f jab;
+    protected int jac;
+    protected i jad;
+    private boolean jae;
+    private boolean jaf;
+    protected com.baidu.tieba.card.aa jag;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        jeE = resources.getDimensionPixelSize(R.dimen.ds8);
-        jeF = resources.getDimensionPixelSize(R.dimen.ds16);
-        jeG = resources.getDimensionPixelSize(R.dimen.ds1);
+        iZX = resources.getDimensionPixelSize(R.dimen.ds8);
+        iZY = resources.getDimensionPixelSize(R.dimen.ds16);
+        iZZ = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.jeM = false;
+        this.jaf = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.jeM = false;
+        this.jaf = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.jeI = null;
-        this.Wq = null;
-        this.Wr = null;
-        if (this.jeK != null) {
-            this.jeK.destory();
-            this.jeK = null;
+        this.jab = null;
+        this.Wo = null;
+        this.Wp = null;
+        if (this.jad != null) {
+            this.jad.destory();
+            this.jad = null;
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.s sVar) {
-        this.iKI = sVar;
+        this.iGb = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.iKI = (com.baidu.adp.widget.ListView.s) viewGroup;
+        this.iGb = (com.baidu.adp.widget.ListView.s) viewGroup;
         if (t instanceof by) {
-            ((by) t).eMv.oM(2);
+            ((by) t).eHK.ng(2);
             return null;
         }
         return null;
@@ -99,23 +99,23 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void b(FrsViewData frsViewData) {
-        this.jeH = frsViewData;
+        this.jaa = frsViewData;
     }
 
     public void a(f fVar) {
-        this.jeI = fVar;
+        this.jab = fVar;
     }
 
-    public void zQ(int i) {
-        this.jeJ = i;
+    public void yk(int i) {
+        this.jac = i;
     }
 
     public void a(i iVar) {
-        this.jeK = iVar;
+        this.jad = iVar;
     }
 
-    public boolean cEN() {
-        return this.jeL;
+    public boolean cAV() {
+        return this.jae;
     }
 
     public View B(ViewGroup viewGroup, int i) {

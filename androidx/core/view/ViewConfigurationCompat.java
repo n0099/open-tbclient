@@ -9,7 +9,7 @@ import android.view.ViewConfiguration;
 import androidx.annotation.NonNull;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ViewConfigurationCompat {
     private static final String TAG = "ViewConfigCompat";
     private static Method sGetScaledScrollFactorMethod;

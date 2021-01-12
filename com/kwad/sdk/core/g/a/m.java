@@ -5,18 +5,18 @@ import com.kwad.sdk.export.proxy.AdRequestExtentParamsProxy;
 import com.kwad.sdk.utils.o;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f9478a;
+    private String f9178a;
 
     public static m a() {
         Map<String, String> extentParams;
         m mVar = new m();
         AdRequestExtentParamsProxy requestExtentParamsProxy = KsAdSDKImpl.get().getRequestExtentParamsProxy();
         if (requestExtentParamsProxy != null && (extentParams = requestExtentParamsProxy.getExtentParams()) != null) {
-            mVar.f9478a = extentParams.get("user_id");
+            mVar.f9178a = extentParams.get("user_id");
         }
         return mVar;
     }
@@ -24,7 +24,7 @@ public class m implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "user_id", this.f9478a);
+        o.a(jSONObject, "user_id", this.f9178a);
         return jSONObject;
     }
 }

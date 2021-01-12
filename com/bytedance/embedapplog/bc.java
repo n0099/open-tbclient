@@ -5,8 +5,9 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-final class bc {
+public final class bc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(Context context, String str) {
         try {
@@ -26,28 +27,29 @@ final class bc {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
-    static class a implements Runnable {
+    public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Runnable f6096a;
+        private final Runnable f5796a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f6097b;
+        private final String f5797b;
         private final String c = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
 
         a(Runnable runnable, String str) {
-            this.f6096a = runnable;
-            this.f6097b = str;
+            this.f5796a = runnable;
+            this.f5797b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f6096a.run();
+                this.f5796a.run();
             } catch (Exception e) {
                 e.printStackTrace();
-                bb.b("TrackerDr", "Thread:" + this.f6097b + " exception\n" + this.c, e);
+                bb.b("TrackerDr", "Thread:" + this.f5797b + " exception\n" + this.c, e);
             }
         }
     }

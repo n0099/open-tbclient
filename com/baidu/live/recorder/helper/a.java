@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ala.recorder.IRecorderDependency;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements IRecorderDependency {
     @Override // com.baidu.ala.recorder.IRecorderDependency
     public Context getAppContext() {

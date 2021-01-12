@@ -10,34 +10,34 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 @TargetApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static C0063a f1438a;
+    private static C0064a f1444a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1439b;
+    private static boolean f1445b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C0063a {
+    /* loaded from: classes14.dex */
+    private static class C0064a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f1440a;
+        private final Context f1446a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final JobScheduler f1441b;
+        private final JobScheduler f1447b;
         private boolean c;
 
-        C0063a(Context context) {
-            this.f1440a = context;
-            this.f1441b = (JobScheduler) this.f1440a.getSystemService("jobscheduler");
+        C0064a(Context context) {
+            this.f1446a = context;
+            this.f1447b = (JobScheduler) this.f1446a.getSystemService("jobscheduler");
         }
 
         private void a() {
             this.c = false;
-            this.f1441b.cancel(1);
+            this.f1447b.cancel(1);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -49,27 +49,27 @@ public class a {
                     j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                 }
                 this.c = true;
-                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1440a.getPackageName(), PushJobService.class.getName()));
+                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1446a.getPackageName(), PushJobService.class.getName()));
                 builder.setMinimumLatency(j);
                 builder.setOverrideDeadline(j);
                 builder.setRequiredNetworkType(1);
                 builder.setPersisted(false);
-                this.f1441b.schedule(builder.build());
+                this.f1447b.schedule(builder.build());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             this.c = false;
-            this.f1441b.cancelAll();
+            this.f1447b.cancelAll();
         }
     }
 
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            if (f1438a == null && Build.VERSION.SDK_INT >= 21) {
+            if (f1444a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    f1438a = new C0063a(context);
+                    f1444a = new C0064a(context);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -79,10 +79,10 @@ public class a {
 
     public static synchronized void a(Context context, boolean z) {
         synchronized (a.class) {
-            if (f1438a != null) {
+            if (f1444a != null) {
                 try {
-                    f1439b = true;
-                    f1438a.a(z);
+                    f1445b = true;
+                    f1444a.a(z);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -91,19 +91,19 @@ public class a {
     }
 
     public static boolean a() {
-        return f1439b;
+        return f1445b;
     }
 
     public static synchronized void b(Context context) {
         synchronized (a.class) {
-            if (f1438a != null) {
+            if (f1444a != null) {
                 try {
-                    f1438a.b();
+                    f1444a.b();
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
-                f1438a = null;
-                f1439b = false;
+                f1444a = null;
+                f1445b = false;
             }
         }
     }

@@ -1,9 +1,9 @@
 package com.baidu.live.o;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    View Nv();
+    View JA();
 
-    void hS(String str);
+    void gH(String str);
 }

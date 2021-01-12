@@ -8,14 +8,14 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.utils.ao;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8859a;
+    private ImageView f8559a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f8860b;
+    private ImageView f8560b;
     private Handler f;
     private a g;
     private AnimatorSet c = new AnimatorSet();
@@ -36,16 +36,16 @@ public class b {
     private Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f8860b == null) {
+            if (b.this.f8560b == null) {
                 return;
             }
-            b.this.f8860b.setVisibility(0);
-            b.this.f8860b.setPivotX(ao.a(b.this.f8860b.getContext(), 154.0f));
-            b.this.f8860b.setPivotY(ao.a(b.this.f8860b.getContext(), 27.0f));
-            b.this.f8860b.invalidate();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f8860b, "alpha", 0.0f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f8860b, "scaleX", 0.5f, 1.0f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f8860b, "scaleY", 0.5f, 1.0f);
+            b.this.f8560b.setVisibility(0);
+            b.this.f8560b.setPivotX(ao.a(b.this.f8560b.getContext(), 154.0f));
+            b.this.f8560b.setPivotY(ao.a(b.this.f8560b.getContext(), 27.0f));
+            b.this.f8560b.invalidate();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f8560b, "alpha", 0.0f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f8560b, "scaleX", 0.5f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f8560b, "scaleY", 0.5f, 1.0f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
@@ -56,7 +56,7 @@ public class b {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -64,15 +64,15 @@ public class b {
     }
 
     public b(@NonNull ImageView imageView, @NonNull ImageView imageView2, @NonNull Handler handler, @NonNull a aVar) {
-        this.f8859a = imageView;
-        this.f8860b = imageView2;
+        this.f8559a = imageView;
+        this.f8560b = imageView2;
         this.g = aVar;
         this.f = handler;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f8860b == null || this.f8859a == null) {
+        if (this.f8560b == null || this.f8559a == null) {
             return;
         }
         if (this.g != null) {
@@ -84,8 +84,8 @@ public class b {
     }
 
     private void c() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8859a, "scaleX", 1.1f, 1.0f, 1.1f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8859a, "scaleY", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8559a, "scaleX", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8559a, "scaleY", 1.1f, 1.0f, 1.1f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
         this.c.setDuration(600L);
@@ -98,10 +98,10 @@ public class b {
         if (this.g != null) {
             this.g.b();
         }
-        if (this.f8860b != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8860b, "alpha", 1.0f, 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8860b, "scaleX", 1.0f, 0.5f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f8860b, "scaleY", 1.0f, 0.5f);
+        if (this.f8560b != null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8560b, "alpha", 1.0f, 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8560b, "scaleX", 1.0f, 0.5f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f8560b, "scaleY", 1.0f, 0.5f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
@@ -124,8 +124,8 @@ public class b {
             this.f.removeCallbacks(this.h);
             this.f.removeCallbacks(this.i);
         }
-        if (this.f8860b != null) {
-            this.f8860b.setVisibility(8);
+        if (this.f8560b != null) {
+            this.f8560b.setVisibility(8);
         }
         if (this.d != null) {
             this.d.cancel();
@@ -136,8 +136,8 @@ public class b {
         if (this.c != null) {
             this.c.cancel();
         }
-        this.f8859a = null;
-        this.f8860b = null;
+        this.f8559a = null;
+        this.f8560b = null;
         this.g = null;
     }
 

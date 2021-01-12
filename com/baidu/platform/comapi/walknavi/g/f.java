@@ -1,32 +1,24 @@
 package com.baidu.platform.comapi.walknavi.g;
-
-import com.baidu.platform.comapi.walknavi.g.a;
-import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class f implements a.InterfaceC0302a {
+/* loaded from: classes6.dex */
+public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4560a;
+    final /* synthetic */ a f4336a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.f4560a = aVar;
+        this.f4336a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0302a
-    public void a() {
-        a.CountDownTimerC0299a countDownTimerC0299a;
-        a.CountDownTimerC0299a countDownTimerC0299a2;
-        a.CountDownTimerC0299a countDownTimerC0299a3;
-        countDownTimerC0299a = this.f4560a.o;
-        if (countDownTimerC0299a != null) {
-            countDownTimerC0299a2 = this.f4560a.o;
-            countDownTimerC0299a2.onFinish();
-            countDownTimerC0299a3 = this.f4560a.o;
-            countDownTimerC0299a3.cancel();
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.platform.comapi.walknavi.g.b.c cVar;
+        com.baidu.platform.comapi.walknavi.g.b.c cVar2;
+        cVar = this.f4336a.k;
+        if (cVar != null) {
+            cVar2 = this.f4336a.k;
+            cVar2.f();
         }
-        this.f4560a.q();
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FacePurchaseRecordsModel extends BdBaseModel {
-    private float iTY;
-    private a iUH;
+    private float iPr;
+    private a iQa;
     private int mScreenHeight;
     private int mScreenWidth;
     private String mStType;
@@ -23,7 +23,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         Application app = TbadkApplication.getInst().getApp();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(app);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(app);
-        this.iTY = app.getResources().getDisplayMetrics().density;
+        this.iPr = app.getResources().getDisplayMetrics().density;
     }
 
     public void setStType(String str) {
@@ -31,16 +31,16 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
     }
 
     public void loadData() {
-        if (this.iUH == null) {
-            this.iUH = new a();
-            this.iUH.setPriority(3);
-            this.iUH.execute(new Object[0]);
+        if (this.iQa == null) {
+            this.iQa = new a();
+            this.iQa.setPriority(3);
+            this.iQa.execute(new Object[0]);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
-        private com.baidu.tbadk.core.util.z cmJ;
+        private com.baidu.tbadk.core.util.z chV;
 
         private a() {
         }
@@ -51,12 +51,12 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         /* renamed from: y */
         public FacePurchaseRecordsData doInBackground(Object... objArr) {
             try {
-                this.cmJ = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
-                this.cmJ.addPostData("st_type", FacePurchaseRecordsModel.this.mStType);
-                this.cmJ.addPostData("scr_w", String.valueOf(FacePurchaseRecordsModel.this.mScreenWidth));
-                this.cmJ.addPostData("scr_h", String.valueOf(FacePurchaseRecordsModel.this.mScreenHeight));
-                this.cmJ.addPostData("scr_dip", String.valueOf(FacePurchaseRecordsModel.this.iTY));
-                return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.cmJ.postNetData(), FacePurchaseRecordsData.class);
+                this.chV = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
+                this.chV.addPostData("st_type", FacePurchaseRecordsModel.this.mStType);
+                this.chV.addPostData("scr_w", String.valueOf(FacePurchaseRecordsModel.this.mScreenWidth));
+                this.chV.addPostData("scr_h", String.valueOf(FacePurchaseRecordsModel.this.mScreenHeight));
+                this.chV.addPostData("scr_dip", String.valueOf(FacePurchaseRecordsModel.this.iPr));
+                return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.chV.postNetData(), FacePurchaseRecordsData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -68,7 +68,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
-            FacePurchaseRecordsModel.this.iUH = null;
+            FacePurchaseRecordsModel.this.iQa = null;
             FacePurchaseRecordsModel.this.mLoadDataCallBack.callback(facePurchaseRecordsData);
             super.onPostExecute(facePurchaseRecordsData);
         }
@@ -76,10 +76,10 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cmJ != null) {
-                this.cmJ.cancelNetConnect();
+            if (this.chV != null) {
+                this.chV.cancelNetConnect();
             }
-            FacePurchaseRecordsModel.this.iUH = null;
+            FacePurchaseRecordsModel.this.iQa = null;
         }
     }
 
@@ -90,8 +90,8 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iUH != null) {
-            this.iUH.cancel();
+        if (this.iQa != null) {
+            this.iQa.cancel();
             return true;
         }
         return true;

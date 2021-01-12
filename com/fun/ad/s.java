@@ -15,18 +15,18 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class s extends bd {
-    public TTNativeExpressAd pIX;
+    public TTNativeExpressAd pEw;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class b implements TTAdDislike.DislikeInteractionCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f8088a;
+        public final /* synthetic */ View f7788a;
 
         public b(View view) {
-            this.f8088a = view;
+            this.f7788a = view;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
@@ -42,14 +42,14 @@ public class s extends bd {
         @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
         public void onSelected(int i, String str) {
             m.a("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str);
-            View view = this.f8088a;
+            View view = this.f7788a;
             if (view != null && view.getParent() != null) {
-                ((ViewGroup) this.f8088a.getParent()).removeView(this.f8088a);
+                ((ViewGroup) this.f7788a.getParent()).removeView(this.f7788a);
             }
             s sVar = s.this;
-            ax axVar = sVar.pJW;
+            ax axVar = sVar.pFv;
             if (axVar != null) {
-                ((am) axVar).a(sVar.f8064a.f8060a);
+                ((am) axVar).a(sVar.f7764a.f7760a);
             }
         }
     }
@@ -61,17 +61,17 @@ public class s extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        TTNativeExpressAd tTNativeExpressAd = this.pIX;
+        TTNativeExpressAd tTNativeExpressAd = this.pEw;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
-            this.pIX = null;
+            this.pEw = null;
         }
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTNativeExpressAd tTNativeExpressAd = this.pIX;
+        TTNativeExpressAd tTNativeExpressAd = this.pEw;
         if (tTNativeExpressAd == null) {
             return;
         }
@@ -79,16 +79,16 @@ public class s extends bd {
         if (expressAdView != null && expressAdView.getParent() != null) {
             ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
         }
-        this.pIX.setDislikeCallback(activity, new b(expressAdView));
-        this.pIX.setDownloadListener(new bj(null));
+        this.pEw.setDislikeCallback(activity, new b(expressAdView));
+        this.pEw.setDownloadListener(new bj(null));
         funAdView.removeAllViews();
         funAdView.addView(expressAdView);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeExpressAd tTNativeExpressAd = this.pIX;
+        TTNativeExpressAd tTNativeExpressAd = this.pEw;
         if (tTNativeExpressAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeExpressAd, false)) == null) {
             return null;
         }
@@ -104,7 +104,7 @@ public class s extends bd {
         return funRippedAd;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements TTAdNative.NativeExpressAdListener {
         public a() {
         }
@@ -113,10 +113,10 @@ public class s extends bd {
         public void onError(int i, String str) {
             m.a("CSJNativeExpressAd onError code: " + i + ", message: " + str);
             s sVar = s.this;
-            sVar.f8065b = false;
-            ba baVar = sVar.pJV;
+            sVar.f7765b = false;
+            ba baVar = sVar.pFu;
             if (baVar != null) {
-                ((aj) baVar).a(sVar.f8064a.f8060a, i, str);
+                ((aj) baVar).a(sVar.f7764a.f7760a, i, str);
             }
         }
 
@@ -124,10 +124,10 @@ public class s extends bd {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             m.a("CSJNativeExpressAd onNativeExpressAdLoad");
             if (list != null && !list.isEmpty()) {
-                s.this.pIX = list.get(0);
-                AdRipper.ripCSJ(s.this.pIX);
+                s.this.pEw = list.get(0);
+                AdRipper.ripCSJ(s.this.pEw);
                 s sVar = s.this;
-                TTNativeExpressAd tTNativeExpressAd = sVar.pIX;
+                TTNativeExpressAd tTNativeExpressAd = sVar.pEw;
                 tTNativeExpressAd.setExpressInteractionListener(new v(sVar));
                 tTNativeExpressAd.setCanInterruptVideoPlay(true);
                 tTNativeExpressAd.render();
@@ -141,18 +141,18 @@ public class s extends bd {
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
         float expressWidth;
         super.a(context, funAdSlot, baVar);
-        if (!this.f8065b) {
-            this.f8065b = true;
-            AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.f8064a.f8060a).setSupportDeepLink(true).setAdCount(1);
+        if (!this.f7765b) {
+            this.f7765b = true;
+            AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true).setAdCount(1);
             if (funAdSlot.getExpressWidth() == 0) {
-                expressWidth = this.f8064a.e;
+                expressWidth = this.f7764a.e;
             } else {
                 expressWidth = funAdSlot.getExpressWidth();
             }
-            this.pJX.loadNativeExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
-            ba baVar2 = this.pJV;
+            this.pFw.loadNativeExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
+            ba baVar2 = this.pFu;
             if (baVar2 != null) {
-                ((aj) baVar2).a(this.f8064a.f8060a);
+                ((aj) baVar2).a(this.f7764a.f7760a);
             }
         }
     }

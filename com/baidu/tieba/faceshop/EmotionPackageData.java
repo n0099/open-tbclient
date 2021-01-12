@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionPackageData extends OrmObject {
     public static final int EMOTION_HITS_STATUS = 5;
     public static final int EMOTION_MINE = 1;
@@ -38,7 +38,7 @@ public class EmotionPackageData extends OrmObject {
     public String url;
     public String vote_num;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class SingleEmotionData extends OrmObject {
         public int height;
         public long id;

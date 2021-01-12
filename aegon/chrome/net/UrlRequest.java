@@ -1,14 +1,14 @@
 package aegon.chrome.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class UrlRequest {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Builder {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         public void onCanceled(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         }
@@ -24,7 +24,7 @@ public abstract class UrlRequest {
         public abstract void onSucceeded(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class StatusListener {
         public abstract void onStatus(int i);
     }

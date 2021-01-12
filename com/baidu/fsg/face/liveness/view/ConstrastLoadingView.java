@@ -8,14 +8,14 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConstrastLoadingView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f2377a;
+    private ImageView f2327a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f2378b;
+    private ImageView f2328b;
 
     public ConstrastLoadingView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-        this.f2377a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.f2378b = (ImageView) findViewById(R.id.iv_recog_logo);
+        this.f2327a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.f2328b = (ImageView) findViewById(R.id.iv_recog_logo);
         a();
     }
 
@@ -50,11 +50,11 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     private void a() {
-        this.f2377a.startAnimation(a(true, 1200L));
+        this.f2327a.startAnimation(a(true, 1200L));
     }
 
     public void clearAnim() {
-        this.f2377a.clearAnimation();
+        this.f2327a.clearAnimation();
         clearAnimation();
         setVisibility(4);
     }

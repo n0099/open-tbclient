@@ -1,13 +1,13 @@
 package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    static j f11510a;
+    static j f11210a;
 
     /* renamed from: b  reason: collision with root package name */
-    static long f11511b;
+    static long f11211b;
 
     private k() {
     }
@@ -15,11 +15,11 @@ public final class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static j a() {
         synchronized (k.class) {
-            if (f11510a != null) {
-                j jVar = f11510a;
-                f11510a = jVar.f;
+            if (f11210a != null) {
+                j jVar = f11210a;
+                f11210a = jVar.f;
                 jVar.f = null;
-                f11511b -= 2048;
+                f11211b -= 2048;
                 return jVar;
             }
             return new j();
@@ -35,12 +35,12 @@ public final class k {
             return;
         }
         synchronized (k.class) {
-            if (f11511b + 2048 <= 65536) {
-                f11511b += 2048;
-                jVar.f = f11510a;
+            if (f11211b + 2048 <= 65536) {
+                f11211b += 2048;
+                jVar.f = f11210a;
                 jVar.c = 0;
-                jVar.f11509b = 0;
-                f11510a = jVar;
+                jVar.f11209b = 0;
+                f11210a = jVar;
             }
         }
     }

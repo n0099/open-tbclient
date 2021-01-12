@@ -3,14 +3,14 @@ package com.kwad.sdk.emotion.a;
 import com.kwad.sdk.emotion.model.EmotionPackage;
 import com.kwad.sdk.utils.z;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.emotion.c f10027a;
+    private final com.kwad.sdk.emotion.c f9727a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final EmotionPackage f10028b;
+    private final EmotionPackage f9728b;
     private final Runnable f;
     private final AtomicInteger c = new AtomicInteger(0);
     private final AtomicInteger d = new AtomicInteger(0);
@@ -19,8 +19,8 @@ public class b extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(EmotionPackage emotionPackage, com.kwad.sdk.emotion.c cVar, Runnable runnable) {
-        this.f10027a = cVar;
-        this.f10028b = emotionPackage;
+        this.f9727a = cVar;
+        this.f9728b = emotionPackage;
         this.f = runnable;
     }
 
@@ -34,11 +34,11 @@ public class b extends a {
 
     @Override // com.kwad.sdk.emotion.a.a
     public int a() {
-        if (z.a(this.f10028b, "未成功初始化emoji package但调用了get总数.") == null) {
+        if (z.a(this.f9728b, "未成功初始化emoji package但调用了get总数.") == null) {
             return 0;
         }
-        z.a(this.f10028b.emotions, "未成功初始化emoji package但调用了get总数.");
-        return this.f10028b.emotions.size();
+        z.a(this.f9728b.emotions, "未成功初始化emoji package但调用了get总数.");
+        return this.f9728b.emotions.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -61,8 +61,8 @@ public class b extends a {
         if (this.g) {
             synchronized (this.e) {
                 if (this.g) {
-                    if (this.f10027a != null) {
-                        this.f10027a.a(this.f10028b);
+                    if (this.f9727a != null) {
+                        this.f9727a.a(this.f9728b);
                     }
                     this.g = false;
                     f();
@@ -76,8 +76,8 @@ public class b extends a {
         if (this.g) {
             synchronized (this.e) {
                 if (this.g) {
-                    if (this.f10027a != null) {
-                        this.f10027a.a(this.f10028b, new IllegalStateException("download all cdn fail."));
+                    if (this.f9727a != null) {
+                        this.f9727a.a(this.f9728b, new IllegalStateException("download all cdn fail."));
                     }
                     this.g = false;
                     f();

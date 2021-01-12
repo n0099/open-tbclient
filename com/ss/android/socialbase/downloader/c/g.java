@@ -7,26 +7,26 @@ import com.ss.android.socialbase.downloader.m.h;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SQLiteDatabase f13403a;
+    private final SQLiteDatabase f13103a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f13404b;
+    private final String f13104b;
     private final String[] c;
     private final String[] d;
     private SQLiteStatement e;
-    private SQLiteStatement pYW;
-    private SQLiteStatement pYX;
+    private SQLiteStatement pUw;
+    private SQLiteStatement pUx;
 
     public g(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
-        this.f13403a = sQLiteDatabase;
-        this.f13404b = str;
+        this.f13103a = sQLiteDatabase;
+        this.f13104b = str;
         this.c = strArr;
         this.d = strArr2;
     }
 
-    public SQLiteStatement eHs() {
+    public SQLiteStatement eDC() {
         if (this.e == null) {
-            SQLiteStatement compileStatement = this.f13403a.compileStatement(h.d("INSERT INTO ", this.f13404b, this.c));
+            SQLiteStatement compileStatement = this.f13103a.compileStatement(h.d("INSERT INTO ", this.f13104b, this.c));
             synchronized (this) {
                 if (this.e == null) {
                     this.e = compileStatement;
@@ -39,33 +39,33 @@ public class g {
         return this.e;
     }
 
-    public SQLiteStatement eHt() {
-        if (this.pYX == null) {
-            SQLiteStatement compileStatement = this.f13403a.compileStatement(h.a(this.f13404b, this.d));
+    public SQLiteStatement eDD() {
+        if (this.pUx == null) {
+            SQLiteStatement compileStatement = this.f13103a.compileStatement(h.a(this.f13104b, this.d));
             synchronized (this) {
-                if (this.pYX == null) {
-                    this.pYX = compileStatement;
+                if (this.pUx == null) {
+                    this.pUx = compileStatement;
                 }
             }
-            if (this.pYX != compileStatement) {
+            if (this.pUx != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.pYX;
+        return this.pUx;
     }
 
-    public SQLiteStatement eHu() {
-        if (this.pYW == null) {
-            SQLiteStatement compileStatement = this.f13403a.compileStatement(h.a(this.f13404b, this.c, this.d));
+    public SQLiteStatement eDE() {
+        if (this.pUw == null) {
+            SQLiteStatement compileStatement = this.f13103a.compileStatement(h.a(this.f13104b, this.c, this.d));
             synchronized (this) {
-                if (this.pYW == null) {
-                    this.pYW = compileStatement;
+                if (this.pUw == null) {
+                    this.pUw = compileStatement;
                 }
             }
-            if (this.pYW != compileStatement) {
+            if (this.pUw != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.pYW;
+        return this.pUw;
     }
 }

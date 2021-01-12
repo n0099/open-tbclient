@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaAttentionData implements Cloneable {
     public static final String FROM_IN_LIVE = "1";
     public static final String FROM_NORMAL = "0";

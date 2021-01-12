@@ -5,14 +5,14 @@ import com.baidu.searchbox.websocket.WebSocketRequest;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 class bw extends bv {
-    private final m phu;
-    private final cn phv;
+    private final m pcS;
+    private final cn pcT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(Context context, m mVar, cn cnVar) {
         super(context);
-        this.phu = mVar;
-        this.phv = cnVar;
+        this.pcS = mVar;
+        this.pcT = cnVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -22,26 +22,26 @@ class bw extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        return this.phv.h() + 21600000;
+        return this.pcT.h() + 21600000;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epx() {
+    long[] elB() {
         return cc.c;
     }
 
     @Override // com.bytedance.embedapplog.bv
     public boolean d() {
-        JSONObject a2 = this.phu.a();
-        if (this.phu.o() != 0 && a2 != null && this.phv.h() + 21600000 <= System.currentTimeMillis()) {
+        JSONObject a2 = this.pcS.a();
+        if (this.pcS.o() != 0 && a2 != null && this.pcT.h() + 21600000 <= System.currentTimeMillis()) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a2);
             jSONObject.put("_gen_time", System.currentTimeMillis());
-            JSONObject y = aa.y(aa.a(ab.a(this.f6114a, this.phu.a(), aa.ept().epE(), true, b.eoP()), aa.c), jSONObject);
-            b.eoW().onRemoteConfigGet(!av.a(y, this.phv.epJ()), y);
+            JSONObject y = aa.y(aa.a(ab.a(this.f5814a, this.pcS.a(), aa.elx().elI(), true, b.ekT()), aa.c), jSONObject);
+            b.ela().onRemoteConfigGet(!av.a(y, this.pcT.elN()), y);
             if (y != null) {
-                this.phv.a(y);
+                this.pcT.a(y);
                 return true;
             }
         }

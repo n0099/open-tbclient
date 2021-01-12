@@ -6,27 +6,27 @@ import java.io.ByteArrayOutputStream;
 public class jd {
 
     /* renamed from: a  reason: collision with root package name */
-    private ji f14466a;
+    private ji f14166a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jp f849a;
+    private final jp f848a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ByteArrayOutputStream f850a;
+    private final ByteArrayOutputStream f849a;
 
     public jd() {
         this(new je.a());
     }
 
     public jd(jk jkVar) {
-        this.f850a = new ByteArrayOutputStream();
-        this.f849a = new jp(this.f850a);
-        this.f14466a = jkVar.a(this.f849a);
+        this.f849a = new ByteArrayOutputStream();
+        this.f848a = new jp(this.f849a);
+        this.f14166a = jkVar.a(this.f848a);
     }
 
     public byte[] a(ix ixVar) {
-        this.f850a.reset();
-        ixVar.b(this.f14466a);
-        return this.f850a.toByteArray();
+        this.f849a.reset();
+        ixVar.b(this.f14166a);
+        return this.f849a.toByteArray();
     }
 }

@@ -1,7 +1,7 @@
 package aegon.chrome.net;
 
 import aegon.chrome.net.NetworkChangeNotifierAutoDetect;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RegistrationPolicyAlwaysRegister extends NetworkChangeNotifierAutoDetect.RegistrationPolicy {
     @Override // aegon.chrome.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy
     public void destroy() {

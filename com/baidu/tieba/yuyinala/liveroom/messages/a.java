@@ -1,27 +1,27 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends HttpMessage {
-    private double aZd;
-    private double aZe;
-    private long bvY;
-    private String bvZ;
+    private double aUq;
+    private double aUr;
+    private long brk;
+    private String brl;
     private String mForumName;
     private String roomId;
     private String uk;
 
     public void setLiveId(long j) {
-        this.bvY = j;
+        this.brk = j;
     }
 
     public void b(double d, double d2) {
-        this.aZd = d;
-        this.aZe = d2;
+        this.aUq = d;
+        this.aUr = d2;
     }
 
-    public void Ba(String str) {
-        this.bvZ = str;
+    public void zP(String str) {
+        this.brl = str;
     }
 
     public void setUk(String str) {
@@ -39,22 +39,22 @@ public class a extends HttpMessage {
     public a() {
         super(1031023);
         this.roomId = "";
-        this.bvZ = "";
+        this.brl = "";
         this.uk = "";
         this.mForumName = "";
     }
 
     public void setParams() {
-        if (this.bvY > 0) {
-            addParam("live_id", this.bvY);
+        if (this.brk > 0) {
+            addParam("live_id", this.brk);
         } else {
             addParam("live_id", "0");
         }
         addParam("room_id", this.roomId);
-        addParam("from_type", this.bvZ);
+        addParam("from_type", this.brl);
         addParam("uk", this.uk);
         addParam("forum_name", this.mForumName);
-        addParam("lng", this.aZd);
-        addParam("lat", this.aZe);
+        addParam("lng", this.aUq);
+        addParam("lat", this.aUr);
     }
 }

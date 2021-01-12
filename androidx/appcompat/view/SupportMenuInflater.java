@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SupportMenuInflater extends MenuInflater {
     static final String LOG_TAG = "SupportMenuInflater";
     static final int NO_ID = 0;
@@ -111,7 +111,7 @@ public class SupportMenuInflater extends MenuInflater {
                         if (name2.equals("group")) {
                             menuState.readGroup(attributeSet);
                             z = z2;
-                        } else if (name2.equals("item")) {
+                        } else if (name2.equals(XML_ITEM)) {
                             menuState.readItem(attributeSet);
                             z = z2;
                         } else if (name2.equals(XML_MENU)) {
@@ -135,7 +135,7 @@ public class SupportMenuInflater extends MenuInflater {
                     } else if (name3.equals("group")) {
                         menuState.resetGroup();
                         z = z2;
-                    } else if (name3.equals("item")) {
+                    } else if (name3.equals(XML_ITEM)) {
                         if (!menuState.hasAddedItem()) {
                             if (menuState.itemActionProvider != null && menuState.itemActionProvider.hasSubMenu()) {
                                 menuState.addSubMenuItem();
@@ -173,7 +173,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         private static final Class<?>[] PARAM_TYPES = {MenuItem.class};
         private Method mMethod;
@@ -206,7 +206,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class MenuState {
         private static final int defaultGroupId = 0;
         private static final int defaultItemCategory = 0;

@@ -14,85 +14,85 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class d extends v {
-    static final RxThreadFactory qlm;
-    static final RxThreadFactory qln;
-    private static final TimeUnit qlo = TimeUnit.SECONDS;
-    static final c qlp = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a qlq;
-    final ThreadFactory qkT;
-    final AtomicReference<a> qkU;
+    static final RxThreadFactory qgK;
+    static final RxThreadFactory qgL;
+    private static final TimeUnit qgM = TimeUnit.SECONDS;
+    static final c qgN = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a qgO;
+    final ThreadFactory qgr;
+    final AtomicReference<a> qgs;
 
     static {
-        qlp.dispose();
+        qgN.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        qlm = new RxThreadFactory("RxCachedThreadScheduler", max);
-        qln = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        qlq = new a(0L, null, qlm);
-        qlq.shutdown();
+        qgK = new RxThreadFactory("RxCachedThreadScheduler", max);
+        qgL = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        qgO = new a(0L, null, qgK);
+        qgO.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a implements Runnable {
-        private final ThreadFactory qkT;
-        private final long qlr;
-        private final ConcurrentLinkedQueue<c> qls;
-        final io.reactivex.disposables.a qlt;
-        private final ScheduledExecutorService qlu;
-        private final Future<?> qlv;
+        private final long qgP;
+        private final ConcurrentLinkedQueue<c> qgQ;
+        final io.reactivex.disposables.a qgR;
+        private final ScheduledExecutorService qgS;
+        private final Future<?> qgT;
+        private final ThreadFactory qgr;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService;
-            this.qlr = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.qls = new ConcurrentLinkedQueue<>();
-            this.qlt = new io.reactivex.disposables.a();
-            this.qkT = threadFactory;
+            this.qgP = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.qgQ = new ConcurrentLinkedQueue<>();
+            this.qgR = new io.reactivex.disposables.a();
+            this.qgr = threadFactory;
             if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, d.qln);
-                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, this.qlr, this.qlr, TimeUnit.NANOSECONDS);
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, d.qgL);
+                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, this.qgP, this.qgP, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
                 scheduledExecutorService = null;
             }
-            this.qlu = scheduledExecutorService;
-            this.qlv = scheduledFuture;
+            this.qgS = scheduledExecutorService;
+            this.qgT = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            eMa();
+            eIk();
         }
 
-        c eLZ() {
-            if (this.qlt.isDisposed()) {
-                return d.qlp;
+        c eIj() {
+            if (this.qgR.isDisposed()) {
+                return d.qgN;
             }
-            while (!this.qls.isEmpty()) {
-                c poll = this.qls.poll();
+            while (!this.qgQ.isEmpty()) {
+                c poll = this.qgQ.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.qkT);
-            this.qlt.a(cVar);
+            c cVar = new c(this.qgr);
+            this.qgR.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.ju(now() + this.qlr);
-            this.qls.offer(cVar);
+            cVar.ju(now() + this.qgP);
+            this.qgQ.offer(cVar);
         }
 
-        void eMa() {
-            if (!this.qls.isEmpty()) {
+        void eIk() {
+            if (!this.qgQ.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.qls.iterator();
+                Iterator<c> it = this.qgQ.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.eMb() <= now) {
-                        if (this.qls.remove(next)) {
-                            this.qlt.b(next);
+                    if (next.eIl() <= now) {
+                        if (this.qgQ.remove(next)) {
+                            this.qgR.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.qlt.dispose();
-            if (this.qlv != null) {
-                this.qlv.cancel(true);
+            this.qgR.dispose();
+            if (this.qgT != null) {
+                this.qgT.cancel(true);
             }
-            if (this.qlu != null) {
-                this.qlu.shutdownNow();
+            if (this.qgS != null) {
+                this.qgS.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(qlm);
+        this(qgK);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.qkT = threadFactory;
-        this.qkU = new AtomicReference<>(qlq);
+        this.qgr = threadFactory;
+        this.qgs = new AtomicReference<>(qgO);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, qlo, this.qkT);
-        if (!this.qkU.compareAndSet(qlq, aVar)) {
+        a aVar = new a(60L, qgM, this.qgr);
+        if (!this.qgs.compareAndSet(qgO, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c eLI() {
-        return new b(this.qkU.get());
+    public v.c eHS() {
+        return new b(this.qgs.get());
     }
 
     /* loaded from: classes5.dex */
     static final class b extends v.c {
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a qlf = new io.reactivex.disposables.a();
-        private final a qlw;
-        private final c qlx;
+        private final io.reactivex.disposables.a qgD = new io.reactivex.disposables.a();
+        private final a qgU;
+        private final c qgV;
 
         b(a aVar) {
-            this.qlw = aVar;
-            this.qlx = aVar.eLZ();
+            this.qgU = aVar;
+            this.qgV = aVar.eIj();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.qlf.dispose();
-                this.qlw.a(this.qlx);
+                this.qgD.dispose();
+                this.qgU.a(this.qgV);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.qlf.isDisposed() ? EmptyDisposable.INSTANCE : this.qlx.a(runnable, j, timeUnit, this.qlf);
+            return this.qgD.isDisposed() ? EmptyDisposable.INSTANCE : this.qgV.a(runnable, j, timeUnit, this.qgD);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class c extends f {
-        private long qly;
+        private long qgW;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.qly = 0L;
+            this.qgW = 0L;
         }
 
-        public long eMb() {
-            return this.qly;
+        public long eIl() {
+            return this.qgW;
         }
 
         public void ju(long j) {
-            this.qly = j;
+            this.qgW = j;
         }
     }
 }

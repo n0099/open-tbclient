@@ -6,34 +6,34 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.sofire.k.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b implements com.baidu.sofire.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f5577a;
+    private a f5294a;
 
     @Override // com.baidu.sofire.j.b
     public final void a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5577a = new a(context, cVar);
-        final a aVar = this.f5577a;
+        this.f5294a = new a(context, cVar);
+        final a aVar = this.f5294a;
         aVar.c = new ServiceConnection() { // from class: com.baidu.sofire.k.a.1
             @Override // android.content.ServiceConnection
             public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                aVar.f5575b = c.a.a(iBinder);
+                aVar.f5292b = c.a.a(iBinder);
             }
 
             @Override // android.content.ServiceConnection
             public final void onServiceDisconnected(ComponentName componentName) {
-                aVar.f5575b = null;
+                aVar.f5292b = null;
             }
         };
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
-        aVar.f5574a.bindService(intent, aVar.c, 1);
+        aVar.f5291a.bindService(intent, aVar.c, 1);
     }
 
     @Override // com.baidu.sofire.j.b
     public final String b() {
-        return this.f5577a.a();
+        return this.f5294a.a();
     }
 }

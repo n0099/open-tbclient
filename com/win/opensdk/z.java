@@ -3,15 +3,15 @@ package com.win.opensdk;
 import android.text.TextUtils;
 import com.win.opensdk.core.Info;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class z {
     public static void a(Info info) {
         try {
             a(info, 200);
             if (info != null && !TextUtils.isEmpty(info.getClick_urls())) {
-                abL(info.getClick_urls());
+                aaD(info.getClick_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_click_urls())) {
-                abL(info.getVv_click_urls());
+                aaD(info.getVv_click_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,9 +22,9 @@ public final class z {
         try {
             a(info, 100);
             if (info != null && !TextUtils.isEmpty(info.getImp_urls())) {
-                abL(info.getImp_urls());
+                aaD(info.getImp_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_show_urls())) {
-                abL(info.getVv_show_urls());
+                aaD(info.getVv_show_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +33,7 @@ public final class z {
 
     public static void a(Info info, int i) {
         if (info != null) {
-            abL(cm(info.getEvents().get(i, ""), i));
+            aaD(cm(info.getEvents().get(i, ""), i));
         }
     }
 
@@ -49,7 +49,7 @@ public final class z {
         return str;
     }
 
-    public static void abL(String str) {
+    public static void aaD(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONArray jSONArray = new JSONArray(str);
@@ -67,11 +67,11 @@ public final class z {
                                         }
 
                                         @Override // com.win.opensdk.r
-                                        public final void eKp() {
+                                        public final void eGz() {
                                         }
 
                                         @Override // com.win.opensdk.r
-                                        public final void cc(int i2, String str2) {
+                                        public final void cd(int i2, String str2) {
                                         }
                                     });
                                 }

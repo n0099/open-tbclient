@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.kwai.filedownloader.f.f;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.kwai.filedownloader.d.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,10 +26,10 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11188a;
+    private int f10888a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11189b;
+    private String f10889b;
     private String c;
     private boolean d;
     private String e;
@@ -47,8 +47,8 @@ public class c implements Parcelable {
     }
 
     protected c(Parcel parcel) {
-        this.f11188a = parcel.readInt();
-        this.f11189b = parcel.readString();
+        this.f10888a = parcel.readInt();
+        this.f10889b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readByte() != 0;
         this.e = parcel.readString();
@@ -62,7 +62,7 @@ public class c implements Parcelable {
     }
 
     public int a() {
-        return this.f11188a;
+        return this.f10888a;
     }
 
     public void a(byte b2) {
@@ -70,7 +70,7 @@ public class c implements Parcelable {
     }
 
     public void a(int i) {
-        this.f11188a = i;
+        this.f10888a = i;
     }
 
     public void a(long j) {
@@ -78,7 +78,7 @@ public class c implements Parcelable {
     }
 
     public void a(String str) {
-        this.f11189b = str;
+        this.f10889b = str;
     }
 
     public void a(String str, boolean z) {
@@ -87,7 +87,7 @@ public class c implements Parcelable {
     }
 
     public String b() {
-        return this.f11189b;
+        return this.f10889b;
     }
 
     public void b(int i) {
@@ -198,13 +198,13 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f11188a), this.f11189b, this.c, Integer.valueOf(this.f.get()), this.g, Long.valueOf(this.h), this.j, super.toString());
+        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f10888a), this.f10889b, this.c, Integer.valueOf(this.f.get()), this.g, Long.valueOf(this.h), this.j, super.toString());
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11188a);
-        parcel.writeString(this.f11189b);
+        parcel.writeInt(this.f10888a);
+        parcel.writeString(this.f10889b);
         parcel.writeString(this.c);
         parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
         parcel.writeString(this.e);

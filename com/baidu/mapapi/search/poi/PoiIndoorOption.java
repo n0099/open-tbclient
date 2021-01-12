@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PoiIndoorOption {
     public String bid;
     public String floor;

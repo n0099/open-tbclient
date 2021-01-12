@@ -8,26 +8,26 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14486a = 0;
+    private static int f14186a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f14487b = -1;
+    private static int f14187b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f865a = null;
+    private static Map<String, o> f864a = null;
 
     public static synchronized int a() {
         int i;
         boolean z = false;
         synchronized (l.class) {
-            if (f14486a == 0) {
-                if (!TextUtils.isEmpty(m528a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m528a("ro.miui.ui.version.name"))) {
+            if (f14186a == 0) {
+                if (!TextUtils.isEmpty(m524a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m524a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
-                f14486a = z ? 1 : 2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f14486a);
+                f14186a = z ? 1 : 2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f14186a);
             }
-            i = f14486a;
+            i = f14186a;
         }
         return i;
     }
@@ -38,17 +38,17 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m527a() {
+    public static synchronized String m523a() {
         String str;
         synchronized (l.class) {
             int a2 = t.a();
-            str = (!m530a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+            str = (!m526a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m528a(String str) {
+    public static String m524a(String str) {
         String str2;
         try {
             try {
@@ -64,58 +64,58 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m529a() {
-        if (f865a != null) {
+    private static void m525a() {
+        if (f864a != null) {
             return;
         }
-        f865a = new HashMap();
-        f865a.put("CN", o.China);
-        f865a.put("FI", o.Europe);
-        f865a.put("SE", o.Europe);
-        f865a.put("NO", o.Europe);
-        f865a.put("FO", o.Europe);
-        f865a.put("EE", o.Europe);
-        f865a.put("LV", o.Europe);
-        f865a.put("LT", o.Europe);
-        f865a.put("BY", o.Europe);
-        f865a.put("MD", o.Europe);
-        f865a.put("UA", o.Europe);
-        f865a.put("PL", o.Europe);
-        f865a.put("CZ", o.Europe);
-        f865a.put("SK", o.Europe);
-        f865a.put("HU", o.Europe);
-        f865a.put("DE", o.Europe);
-        f865a.put("AT", o.Europe);
-        f865a.put("CH", o.Europe);
-        f865a.put("LI", o.Europe);
-        f865a.put("GB", o.Europe);
-        f865a.put("IE", o.Europe);
-        f865a.put("NL", o.Europe);
-        f865a.put("BE", o.Europe);
-        f865a.put("LU", o.Europe);
-        f865a.put("FR", o.Europe);
-        f865a.put("RO", o.Europe);
-        f865a.put("BG", o.Europe);
-        f865a.put("RS", o.Europe);
-        f865a.put("MK", o.Europe);
-        f865a.put("AL", o.Europe);
-        f865a.put("GR", o.Europe);
-        f865a.put("SI", o.Europe);
-        f865a.put("HR", o.Europe);
-        f865a.put("IT", o.Europe);
-        f865a.put("SM", o.Europe);
-        f865a.put("MT", o.Europe);
-        f865a.put("ES", o.Europe);
-        f865a.put("PT", o.Europe);
-        f865a.put("AD", o.Europe);
-        f865a.put("CY", o.Europe);
-        f865a.put("DK", o.Europe);
-        f865a.put("RU", o.Russia);
-        f865a.put("IN", o.India);
+        f864a = new HashMap();
+        f864a.put("CN", o.China);
+        f864a.put("FI", o.Europe);
+        f864a.put("SE", o.Europe);
+        f864a.put("NO", o.Europe);
+        f864a.put("FO", o.Europe);
+        f864a.put("EE", o.Europe);
+        f864a.put("LV", o.Europe);
+        f864a.put("LT", o.Europe);
+        f864a.put("BY", o.Europe);
+        f864a.put("MD", o.Europe);
+        f864a.put("UA", o.Europe);
+        f864a.put("PL", o.Europe);
+        f864a.put("CZ", o.Europe);
+        f864a.put("SK", o.Europe);
+        f864a.put("HU", o.Europe);
+        f864a.put("DE", o.Europe);
+        f864a.put("AT", o.Europe);
+        f864a.put("CH", o.Europe);
+        f864a.put("LI", o.Europe);
+        f864a.put("GB", o.Europe);
+        f864a.put("IE", o.Europe);
+        f864a.put("NL", o.Europe);
+        f864a.put("BE", o.Europe);
+        f864a.put("LU", o.Europe);
+        f864a.put("FR", o.Europe);
+        f864a.put("RO", o.Europe);
+        f864a.put("BG", o.Europe);
+        f864a.put("RS", o.Europe);
+        f864a.put("MK", o.Europe);
+        f864a.put("AL", o.Europe);
+        f864a.put("GR", o.Europe);
+        f864a.put("SI", o.Europe);
+        f864a.put("HR", o.Europe);
+        f864a.put("IT", o.Europe);
+        f864a.put("SM", o.Europe);
+        f864a.put("MT", o.Europe);
+        f864a.put("ES", o.Europe);
+        f864a.put("PT", o.Europe);
+        f864a.put("AD", o.Europe);
+        f864a.put("CY", o.Europe);
+        f864a.put("DK", o.Europe);
+        f864a.put("RU", o.Russia);
+        f864a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m530a() {
+    public static synchronized boolean m526a() {
         boolean z;
         synchronized (l.class) {
             z = a() == 1;
@@ -124,8 +124,8 @@ public class l {
     }
 
     private static o b(String str) {
-        m529a();
-        return f865a.get(str.toUpperCase());
+        m525a();
+        return f864a.get(str.toUpperCase());
     }
 
     public static String b() {
@@ -158,18 +158,18 @@ public class l {
             a2 = s.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m80a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m84a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m80a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static synchronized boolean m531b() {
+    public static synchronized boolean m527b() {
         boolean z;
         synchronized (l.class) {
             z = a() == 2;
@@ -178,14 +178,14 @@ public class l {
     }
 
     public static boolean c() {
-        if (f14487b < 0) {
+        if (f14187b < 0) {
             Object a2 = ba.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-            f14487b = 0;
+            f14187b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                f14487b = 1;
+                f14187b = 1;
             }
         }
-        return f14487b > 0;
+        return f14187b > 0;
     }
 
     public static boolean d() {

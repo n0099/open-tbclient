@@ -28,32 +28,32 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.z;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
-    private ImageViewerActivity kRS;
-    private a kRT;
-    private View.OnClickListener kRU;
-    private final int fYX = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-    private final int kRV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
-    private Runnable hht = new Runnable() { // from class: com.baidu.tieba.image.h.1
+    private ImageViewerActivity kNn;
+    private a kNo;
+    private View.OnClickListener kNp;
+    private final int fUq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+    private final int kNq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
+    private Runnable hcN = new Runnable() { // from class: com.baidu.tieba.image.h.1
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.kRT != null) {
-                h.this.kRT.dismiss();
+            if (h.this.kNo != null) {
+                h.this.kNo.dismiss();
             }
         }
     };
 
     public h(ImageViewerActivity imageViewerActivity) {
-        this.kRS = imageViewerActivity;
-        this.kRT = new a(imageViewerActivity);
+        this.kNn = imageViewerActivity;
+        this.kNo = new a(imageViewerActivity);
     }
 
     public void a(MultiImageView multiImageView, int i, View.OnClickListener onClickListener) {
         ImageUrlData imageUrlData;
-        if (this.kRT != null && multiImageView != null) {
-            if (!this.kRT.isShowing()) {
-                com.baidu.adp.lib.f.g.showPopupWindowAtLocation(this.kRT, multiImageView, 81, 0, com.baidu.adp.lib.util.a.getNavigationBarHeight(this.kRS) + this.fYX + i);
+        if (this.kNo != null && multiImageView != null) {
+            if (!this.kNo.isShowing()) {
+                com.baidu.adp.lib.f.g.showPopupWindowAtLocation(this.kNo, multiImageView, 81, 0, com.baidu.adp.lib.util.a.getNavigationBarHeight(this.kNn) + this.fUq + i);
                 String str = "";
                 String str2 = "";
                 String str3 = "";
@@ -63,19 +63,19 @@ public class h {
                     str = imageUrlData.threadId + "";
                     str2 = imageUrlData.forumId + "";
                     str3 = imageUrlData.postId + "";
-                    i2 = NP(imageUrlData.from);
+                    i2 = MH(imageUrlData.from);
                 }
-                TiebaStatic.log(new aq("c14045").dX("post_id", str3).dX("tid", str).dX("fid", str2).an("obj_source", i2));
+                TiebaStatic.log(new aq("c14045").dW("post_id", str3).dW("tid", str).dW("fid", str2).an("obj_source", i2));
             }
-            this.kRT.j(multiImageView);
-            this.kRU = onClickListener;
-            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.hht);
-            com.baidu.adp.lib.f.e.mB().postDelayed(this.hht, 5000L);
+            this.kNo.j(multiImageView);
+            this.kNp = onClickListener;
+            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.hcN);
+            com.baidu.adp.lib.f.e.mB().postDelayed(this.hcN, 5000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int NP(String str) {
+    public int MH(String str) {
         if ("index".equals(str)) {
             return 1;
         }
@@ -92,119 +92,119 @@ public class h {
     }
 
     public void onDestroy() {
-        if (this.kRT != null) {
-            this.kRT.onDestroy();
+        if (this.kNo != null) {
+            this.kNo.onDestroy();
         }
-        this.kRS = null;
-        this.kRU = null;
+        this.kNn = null;
+        this.kNp = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends PopupWindow implements View.OnClickListener {
         private Activity activity;
         private View contentView;
-        private EMTextView eYh;
-        private ImageView kRX;
-        private ImageView kRY;
-        private ImageView kRZ;
-        private MultiImageView kRj;
-        private ImageView kSa;
-        private ImageView kSb;
-        private com.baidu.tbadk.coreExtra.share.g kSc;
+        private EMTextView eTw;
+        private MultiImageView kME;
+        private ImageView kNs;
+        private ImageView kNt;
+        private ImageView kNu;
+        private ImageView kNv;
+        private ImageView kNw;
+        private com.baidu.tbadk.coreExtra.share.g kNx;
 
         public a(Activity activity) {
             super(activity);
             this.activity = activity;
-            this.kSc = new com.baidu.tbadk.coreExtra.share.g(activity, null);
-            setWidth(l.getEquipmentWidth(activity) - (h.this.kRV * 2));
+            this.kNx = new com.baidu.tbadk.coreExtra.share.g(activity, null);
+            setWidth(l.getEquipmentWidth(activity) - (h.this.kNq * 2));
             setHeight(-2);
             setFocusable(false);
             setTouchable(true);
             setOutsideTouchable(true);
             setBackgroundDrawable(new ColorDrawable(0));
-            abo();
+            Xv();
             onChangeSkinType();
         }
 
-        private void abo() {
+        private void Xv() {
             this.contentView = LayoutInflater.from(this.activity).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
-            this.eYh = (EMTextView) this.contentView.findViewById(R.id.title);
-            this.kRX = (ImageView) this.contentView.findViewById(R.id.qq_friend);
-            this.kRX.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_qq40_svg));
-            this.kRX.setOnClickListener(this);
-            this.kRY = (ImageView) this.contentView.findViewById(R.id.qq_zone);
-            this.kRY.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
-            this.kRY.setOnClickListener(this);
-            this.kRZ = (ImageView) this.contentView.findViewById(R.id.wechat_friend);
-            this.kRZ.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
-            this.kRZ.setOnClickListener(this);
-            this.kSa = (ImageView) this.contentView.findViewById(R.id.wechat_timeline);
-            this.kSa.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_circle40_svg));
-            this.kSa.setOnClickListener(this);
-            this.kSb = (ImageView) this.contentView.findViewById(R.id.wechat_emotion);
-            this.kSb.setImageDrawable(this.activity.getDrawable(R.drawable.icon_share_wechatexpression));
-            this.kSb.setOnClickListener(this);
+            this.eTw = (EMTextView) this.contentView.findViewById(R.id.title);
+            this.kNs = (ImageView) this.contentView.findViewById(R.id.qq_friend);
+            this.kNs.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_qq40_svg));
+            this.kNs.setOnClickListener(this);
+            this.kNt = (ImageView) this.contentView.findViewById(R.id.qq_zone);
+            this.kNt.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
+            this.kNt.setOnClickListener(this);
+            this.kNu = (ImageView) this.contentView.findViewById(R.id.wechat_friend);
+            this.kNu.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
+            this.kNu.setOnClickListener(this);
+            this.kNv = (ImageView) this.contentView.findViewById(R.id.wechat_timeline);
+            this.kNv.setImageDrawable(this.activity.getDrawable(R.drawable.icon_mask_share_circle40_svg));
+            this.kNv.setOnClickListener(this);
+            this.kNw = (ImageView) this.contentView.findViewById(R.id.wechat_emotion);
+            this.kNw.setImageDrawable(this.activity.getDrawable(R.drawable.icon_share_wechatexpression));
+            this.kNw.setOnClickListener(this);
             setContentView(this.contentView);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ShareItem dcf = dcf();
-            if (dcf != null) {
+            ShareItem cYn = cYn();
+            if (cYn != null) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-                } else if (view == this.kRX) {
+                } else if (view == this.kNs) {
                     if (z.isInstalledPackage(this.activity, "com.tencent.mobileqq")) {
-                        if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(4)) {
-                            com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 8, null);
+                        if (l(cYn) && cYn.getCommandChannelArray() != null && cYn.getCommandChannelArray().contains(4)) {
+                            com.baidu.tbadk.coreExtra.share.a.a(cYn, this.activity, 8, null);
                             return;
                         } else {
-                            this.kSc.g(dcf);
+                            this.kNx.g(cYn);
                             return;
                         }
                     }
-                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bue();
-                } else if (view == this.kRY) {
+                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bqk();
+                } else if (view == this.kNt) {
                     if (z.isInstalledPackage(this.activity, "com.tencent.mobileqq")) {
-                        if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(4)) {
-                            com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 4, null);
+                        if (l(cYn) && cYn.getCommandChannelArray() != null && cYn.getCommandChannelArray().contains(4)) {
+                            com.baidu.tbadk.coreExtra.share.a.a(cYn, this.activity, 4, null);
                             return;
                         } else {
-                            this.kSc.h(dcf);
+                            this.kNx.h(cYn);
                             return;
                         }
                     }
-                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bue();
-                } else if (view == this.kRZ) {
-                    if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(3)) {
-                        com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 3, null);
-                    } else if (dcf.fxC != 1) {
-                        this.kSc.e(dcf);
+                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bqk();
+                } else if (view == this.kNu) {
+                    if (l(cYn) && cYn.getCommandChannelArray() != null && cYn.getCommandChannelArray().contains(3)) {
+                        com.baidu.tbadk.coreExtra.share.a.a(cYn, this.activity, 3, null);
+                    } else if (cYn.fsT != 1) {
+                        this.kNx.e(cYn);
                     }
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_source", 22).dX("tid", dcf.tid).dX("fid", dcf.fid));
-                } else if (view == this.kSa) {
-                    if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(2)) {
-                        com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 2, null);
-                    } else if (dcf.fxC != 1) {
-                        if (dcf.fwX) {
-                            dcf.content = "【" + dcf.title + "】 " + dcf.content;
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_source", 22).dW("tid", cYn.tid).dW("fid", cYn.fid));
+                } else if (view == this.kNv) {
+                    if (l(cYn) && cYn.getCommandChannelArray() != null && cYn.getCommandChannelArray().contains(2)) {
+                        com.baidu.tbadk.coreExtra.share.a.a(cYn, this.activity, 2, null);
+                    } else if (cYn.fsT != 1) {
+                        if (cYn.fso) {
+                            cYn.content = "【" + cYn.title + "】 " + cYn.content;
                         }
-                        this.kSc.f(dcf);
+                        this.kNx.f(cYn);
                     }
-                } else if (view == this.kSb && h.this.kRU != null) {
-                    h.this.kRU.onClick(view);
+                } else if (view == this.kNw && h.this.kNp != null) {
+                    h.this.kNp.onClick(view);
                 }
             }
         }
 
         public void j(MultiImageView multiImageView) {
-            this.kRj = multiImageView;
+            this.kME = multiImageView;
         }
 
-        private ShareItem dcf() {
+        private ShareItem cYn() {
             UrlDragImageView currentUrlDragImageView;
-            if (this.kRj == null || (currentUrlDragImageView = this.kRj.getCurrentUrlDragImageView()) == null) {
+            if (this.kME == null || (currentUrlDragImageView = this.kME.getCurrentUrlDragImageView()) == null) {
                 return null;
             }
             ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
@@ -215,7 +215,7 @@ public class h {
                 str2 = com.baidu.tbadk.core.util.d.b.getNameMd5FromUrl(str);
             }
             if (TextUtils.isEmpty(str)) {
-                str = this.kRj.getCurrentImageUrl();
+                str = this.kME.getCurrentImageUrl();
                 str2 = av.getNameMd5FromUrl(str);
             }
             ShareItem shareItem = new ShareItem();
@@ -227,7 +227,7 @@ public class h {
                 }
                 shareItem.tid = j + "";
                 shareItem.fid = imageUrlData.forumId;
-                i = h.this.NP(imageUrlData.from);
+                i = h.this.MH(imageUrlData.from);
             }
             if (!at.isEmpty(str)) {
                 shareItem.imageUri = Uri.parse(str);
@@ -252,18 +252,18 @@ public class h {
         }
 
         private boolean l(ShareItem shareItem) {
-            return (TextUtils.isEmpty(shareItem.fxJ) || TextUtils.isEmpty(shareItem.fxK)) ? false : true;
+            return (TextUtils.isEmpty(shareItem.fta) || TextUtils.isEmpty(shareItem.ftb)) ? false : true;
         }
 
         public void onChangeSkinType() {
-            ao.setViewTextColor(this.eYh, R.color.CAM_X0109);
-            com.baidu.tbadk.core.elementsMaven.c.bv(this.contentView).pK(R.string.J_X06).setBackGroundColor(R.color.CAM_X0204);
+            ao.setViewTextColor(this.eTw, R.color.CAM_X0109);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.contentView).od(R.string.J_X06).setBackGroundColor(R.color.CAM_X0204);
         }
 
         public void onDestroy() {
-            this.kRj = null;
+            this.kME = null;
             this.activity = null;
-            this.kSc = null;
+            this.kNx = null;
         }
     }
 }

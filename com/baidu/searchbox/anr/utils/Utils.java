@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     private static final String KEY_ANR_LOG = "Wrote stack traces to ";
     private static final int LOG_MONITOR_TIMEOUT = 5000;

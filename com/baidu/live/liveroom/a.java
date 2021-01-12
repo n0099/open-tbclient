@@ -7,28 +7,28 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.player.ubc.PlayerSpeedTracker;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private a() {
     }
 
     /* renamed from: com.baidu.live.liveroom.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private static class C0192a {
-        private static a bsB = new a();
+    /* loaded from: classes10.dex */
+    private static class C0183a {
+        private static a bnP = new a();
     }
 
-    public static a OO() {
-        return C0192a.bsB;
+    public static a KT() {
+        return C0183a.bnP;
     }
 
-    public b OP() {
+    public b KU() {
         return new b();
     }
 
     public void a(b bVar) {
         if (TextUtils.isEmpty(bVar.getKey())) {
-            bVar.hW(String.valueOf(System.currentTimeMillis()));
+            bVar.gL(String.valueOf(System.currentTimeMillis()));
         }
         if (!TbadkCoreApplication.getInst().isTieba() && !PlayerSpeedTracker.hasCreateFlow(bVar.getKey())) {
             PlayerSpeedTracker.beginTrack(bVar.getKey());

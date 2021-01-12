@@ -4,20 +4,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class as {
-    private static as fdq;
+    private static as eYH;
 
-    public static synchronized as bwp() {
+    public static synchronized as bsv() {
         as asVar;
         synchronized (as.class) {
-            if (fdq == null) {
-                fdq = new as();
+            if (eYH == null) {
+                eYH = new as();
             }
-            asVar = fdq;
+            asVar = eYH;
         }
         return asVar;
     }
 
-    public String BY(String str) {
+    public String AN(String str) {
         if (str == null) {
             return null;
         }
@@ -28,12 +28,12 @@ public class as {
         return "image/" + (j % 20);
     }
 
-    private void T(File file) {
+    private void S(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    T(file2);
+                    S(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
                 }
@@ -41,17 +41,17 @@ public class as {
         }
     }
 
-    public void bwq() {
-        U(new File(n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + n.getPrefixByType(3)));
+    public void bsw() {
+        T(new File(n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + n.getPrefixByType(3)));
     }
 
-    private void U(File file) {
+    private void T(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    T(file2);
+                    S(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
                 }

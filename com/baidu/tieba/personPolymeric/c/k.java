@@ -2,9 +2,9 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k extends BaseCardInfo {
-    public static final BdUniqueId mxn = BdUniqueId.gen();
+    public static final BdUniqueId msJ = BdUniqueId.gen();
     public int paddingBottom;
     public int paddingLeft;
     public int paddingTop;
@@ -12,6 +12,6 @@ public class k extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mxn;
+        return msJ;
     }
 }

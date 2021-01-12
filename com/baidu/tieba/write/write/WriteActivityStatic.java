@@ -57,10 +57,10 @@ import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WriteActivityStatic {
-    private static int ogD = 11;
-    private static int ogE = 18;
+    private static int obW = 11;
+    private static int obX = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -79,9 +79,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(RelevanceItemSearchActivityConfig.class, RelevanceItemSearchActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
-        LocationModel.dPX();
-        cQp();
-        be.bwv().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new be.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.dMf();
+        cMx();
+        be.bsB().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new be.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.be.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
@@ -89,13 +89,13 @@ public class WriteActivityStatic {
                 }
             }
         });
-        eaZ();
+        dXh();
         registerListener();
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM, GetRepostForumSocketResMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM, 1003323, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
     }
 
-    private static void eaZ() {
+    private static void dXh() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.write.write.WriteActivityStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.b.f
@@ -106,7 +106,7 @@ public class WriteActivityStatic {
                     if ((data instanceof IntentConfig) && ((IntentConfig) data).getContext() != null && (WriteActivityConfig.class == (cls = data.getClass()) || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls)) {
                         String simpleName = ((IntentConfig) data).getContext().getClass().getSimpleName();
                         if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                            com.baidu.tieba.tbadkCore.writeModel.a.dQB().D(com.baidu.adp.base.j.K(((IntentConfig) data).getContext()).getUniqueId());
+                            com.baidu.tieba.tbadkCore.writeModel.a.dMJ().D(com.baidu.adp.base.j.K(((IntentConfig) data).getContext()).getUniqueId());
                         }
                     }
                 }
@@ -118,7 +118,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void J(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= ogE && Build.VERSION.SDK_INT >= ogD) {
+        if (Build.VERSION.SDK_INT <= obX && Build.VERSION.SDK_INT >= obW) {
             N(tbPageContext);
         } else {
             O(tbPageContext);
@@ -157,7 +157,7 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void cQp() {
+    public static void cMx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.c> run(CustomMessage<Object> customMessage) {

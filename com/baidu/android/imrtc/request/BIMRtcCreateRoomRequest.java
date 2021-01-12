@@ -11,13 +11,14 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.sapi2.SapiContext;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcCreateRoomRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -63,7 +64,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             jSONObject.put("signal_sdk_version", j);
             jSONObject.put("unique_key", "" + currentTimeMillis);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("ts", currentTimeMillis);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
             jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
             LogUtils.d(TAG, "RtcGetTokenRequest msg :" + jSONObject.toString());
             return jSONObject.toString().getBytes();

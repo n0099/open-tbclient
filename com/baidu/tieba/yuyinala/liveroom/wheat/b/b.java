@@ -10,11 +10,11 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.atomdata.YuyinAlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public void a(TbPageContext tbPageContext, x xVar) {
-        if (xVar != null && xVar.aKQ != null && xVar.mLiveInfo != null) {
-            AlaLiveUserInfoData alaLiveUserInfoData = xVar.aKQ;
+        if (xVar != null && xVar.aGd != null && xVar.mLiveInfo != null) {
+            AlaLiveUserInfoData alaLiveUserInfoData = xVar.aGd;
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(tbPageContext.getPageActivity(), ExtraParamsManager.getDecryptUserId(alaLiveUserInfoData.userUk), alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.sex, alaLiveUserInfoData.levelId, null, null, 0L, alaLiveUserInfoData.fansCount, alaLiveUserInfoData.followCount, alaLiveUserInfoData.userStatus, Long.toString(xVar.mLiveInfo.group_id), Long.toString(xVar.mLiveInfo.live_id), false, null, null, alaLiveUserInfoData.nickName, "")));
         }
     }

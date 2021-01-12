@@ -7,11 +7,11 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f8458b;
+    private ViewGroup f8158b;
     private TextView c;
     private AdTemplate d;
     private AdInfo e;
@@ -25,45 +25,45 @@ public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         this.c.setText(com.kwad.sdk.core.response.b.a.w(this.e));
-        this.f8458b.setOnClickListener(this);
-        this.f8458b.setVisibility(0);
+        this.f8158b.setOnClickListener(this);
+        this.f8158b.setVisibility(0);
     }
 
     private void f() {
-        com.kwad.sdk.core.download.b.a.a(this.f8458b.getContext(), this.d, new a.InterfaceC1105a() { // from class: com.kwad.sdk.a.b.h.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+        com.kwad.sdk.core.download.b.a.a(this.f8158b.getContext(), this.d, new a.InterfaceC1088a() { // from class: com.kwad.sdk.a.b.h.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
             public void a() {
-                com.kwad.sdk.core.report.b.a(h.this.d, 2, h.this.f8436a.c.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(h.this.d, 2, h.this.f8136a.c.getTouchCoords());
             }
         }, null);
     }
 
     private void g() {
-        this.f8436a.f8437a.onAdClicked(this.f8458b, null);
+        this.f8136a.f8137a.onAdClicked(this.f8158b, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f8436a.d;
+        this.d = this.f8136a.d;
         this.e = com.kwad.sdk.core.response.b.c.j(this.d);
-        this.f8436a.f.a(this.f);
-        this.f8458b.setVisibility(8);
+        this.f8136a.f.a(this.f);
+        this.f8158b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8436a.f.b(this.f);
+        this.f8136a.f.b(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8458b = (ViewGroup) b(R.id.ksad_video_complete_h5_container);
+        this.f8158b = (ViewGroup) b(R.id.ksad_video_complete_h5_container);
         this.c = (TextView) b(R.id.ksad_h5_open);
     }
 

@@ -13,31 +13,31 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tieba.ala.category.b.c gOE;
-    private TextView gOG;
-    private ImageView gOH;
+    private com.baidu.tieba.ala.category.b.c gJY;
+    private TextView gKa;
+    private ImageView gKb;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.g.item_live_category_two, (ViewGroup) null));
-        this.gOG = (TextView) getView().findViewById(a.f.category_two_name_tv);
-        this.gOH = (ImageView) getView().findViewById(a.f.cb_iv);
-        this.gOH.setOnClickListener(this);
+        this.gKa = (TextView) getView().findViewById(a.f.category_two_name_tv);
+        this.gKb = (ImageView) getView().findViewById(a.f.cb_iv);
+        this.gKb.setOnClickListener(this);
     }
 
     public void a(com.baidu.tieba.ala.category.b.c cVar, String str) {
         if (cVar != null) {
-            this.gOE = cVar;
-            this.gOG.setText(this.gOE.getName());
-            this.gOH.setSelected(!StringUtils.isNull(this.gOE.getId()) && TextUtils.equals(this.gOE.getId(), str));
+            this.gJY = cVar;
+            this.gKa.setText(this.gJY.getName());
+            this.gKb.setSelected(!StringUtils.isNull(this.gJY.getId()) && TextUtils.equals(this.gJY.getId(), str));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.gOG.isSelected()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.gOE));
+        if (!this.gKa.isSelected()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.gJY));
         }
     }
 }

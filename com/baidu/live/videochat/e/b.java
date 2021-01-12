@@ -12,18 +12,18 @@ import com.baidu.live.data.x;
 import com.baidu.live.videochat.message.LiveVideoChatSendCheckConnectResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendFinishResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendGetChatInfoResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class b {
-    protected x aGe;
-    private c bRx;
-    private a bRy;
-    public BdUniqueId bwz;
+    protected x aBr;
+    private c bML;
+    private a bMM;
+    public BdUniqueId brL;
     public Context mContext;
     private long mChatId = 0;
-    private boolean bRs = false;
-    private long bRz = 2000;
-    private long bRA = IMConnection.RETRY_DELAY_TIMES;
-    private HttpMessageListener bRB = new HttpMessageListener(1021179) { // from class: com.baidu.live.videochat.e.b.1
+    private boolean bMG = false;
+    private long bMN = 2000;
+    private long bMO = IMConnection.RETRY_DELAY_TIMES;
+    private HttpMessageListener bMP = new HttpMessageListener(1021179) { // from class: com.baidu.live.videochat.e.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -32,7 +32,7 @@ public abstract class b {
             }
         }
     };
-    private HttpMessageListener bRC = new HttpMessageListener(1021180) { // from class: com.baidu.live.videochat.e.b.2
+    private HttpMessageListener bMQ = new HttpMessageListener(1021180) { // from class: com.baidu.live.videochat.e.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,7 +41,7 @@ public abstract class b {
             }
         }
     };
-    private HttpMessageListener bRD = new HttpMessageListener(1021176) { // from class: com.baidu.live.videochat.e.b.3
+    private HttpMessageListener bMR = new HttpMessageListener(1021176) { // from class: com.baidu.live.videochat.e.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -50,22 +50,22 @@ public abstract class b {
             }
         }
     };
-    private Runnable bRE = new Runnable() { // from class: com.baidu.live.videochat.e.b.4
+    private Runnable bMS = new Runnable() { // from class: com.baidu.live.videochat.e.b.4
         @Override // java.lang.Runnable
         public void run() {
             b.this.mHandler.removeCallbacks(this);
-            MessageManager.getInstance().removeMessage(1021179, b.this.bwz);
-            b.this.Zd();
-            b.this.mHandler.postDelayed(this, b.this.bRA);
+            MessageManager.getInstance().removeMessage(1021179, b.this.brL);
+            b.this.Vk();
+            b.this.mHandler.postDelayed(this, b.this.bMO);
         }
     };
-    private Runnable bRF = new Runnable() { // from class: com.baidu.live.videochat.e.b.5
+    private Runnable bMT = new Runnable() { // from class: com.baidu.live.videochat.e.b.5
         @Override // java.lang.Runnable
         public void run() {
             b.this.mHandler.removeCallbacks(this);
-            MessageManager.getInstance().removeMessage(1021180, b.this.bwz);
-            b.this.Zf();
-            b.this.mHandler.postDelayed(this, b.this.bRz);
+            MessageManager.getInstance().removeMessage(1021180, b.this.brL);
+            b.this.Vm();
+            b.this.mHandler.postDelayed(this, b.this.bMN);
         }
     };
     public Handler mHandler = new Handler();
@@ -74,7 +74,7 @@ public abstract class b {
 
     public b(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.bwz = bdUniqueId;
+        this.brL = bdUniqueId;
         registerTask();
         registerListener();
     }
@@ -86,17 +86,17 @@ public abstract class b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.bRD);
-        MessageManager.getInstance().registerListener(this.bRB);
-        MessageManager.getInstance().registerListener(this.bRC);
+        MessageManager.getInstance().registerListener(this.bMR);
+        MessageManager.getInstance().registerListener(this.bMP);
+        MessageManager.getInstance().registerListener(this.bMQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendCheckConnectResponseMessage liveVideoChatSendCheckConnectResponseMessage) {
         if (liveVideoChatSendCheckConnectResponseMessage != null && liveVideoChatSendCheckConnectResponseMessage.getError() == 0) {
-            this.bRA = liveVideoChatSendCheckConnectResponseMessage.getInterval();
-            if (this.bRx != null) {
-                this.bRx.a(liveVideoChatSendCheckConnectResponseMessage.getStatus(), liveVideoChatSendCheckConnectResponseMessage.getStatusText(), liveVideoChatSendCheckConnectResponseMessage.YW(), liveVideoChatSendCheckConnectResponseMessage.YU(), liveVideoChatSendCheckConnectResponseMessage.YV());
+            this.bMO = liveVideoChatSendCheckConnectResponseMessage.getInterval();
+            if (this.bML != null) {
+                this.bML.a(liveVideoChatSendCheckConnectResponseMessage.getStatus(), liveVideoChatSendCheckConnectResponseMessage.getStatusText(), liveVideoChatSendCheckConnectResponseMessage.Vd(), liveVideoChatSendCheckConnectResponseMessage.Vb(), liveVideoChatSendCheckConnectResponseMessage.Vc());
             }
         }
     }
@@ -104,19 +104,19 @@ public abstract class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendGetChatInfoResponseMessage liveVideoChatSendGetChatInfoResponseMessage) {
         if (liveVideoChatSendGetChatInfoResponseMessage != null && liveVideoChatSendGetChatInfoResponseMessage.getError() == 0) {
-            this.bRz = liveVideoChatSendGetChatInfoResponseMessage.getInterval();
-            com.baidu.live.videochat.b.b Za = liveVideoChatSendGetChatInfoResponseMessage.Za();
+            this.bMN = liveVideoChatSendGetChatInfoResponseMessage.getInterval();
+            com.baidu.live.videochat.b.b Vh = liveVideoChatSendGetChatInfoResponseMessage.Vh();
             boolean z = false;
             if (liveVideoChatSendGetChatInfoResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.b) {
-                z = ((com.baidu.live.videochat.message.b) liveVideoChatSendGetChatInfoResponseMessage.getOrginalMessage()).YX();
+                z = ((com.baidu.live.videochat.message.b) liveVideoChatSendGetChatInfoResponseMessage.getOrginalMessage()).Ve();
             }
-            if (Za != null) {
-                if (Za.YB()) {
-                    if (this.bRx != null) {
-                        this.bRx.a(liveVideoChatSendGetChatInfoResponseMessage.Za(), liveVideoChatSendGetChatInfoResponseMessage.YY(), liveVideoChatSendGetChatInfoResponseMessage.YZ());
+            if (Vh != null) {
+                if (Vh.UI()) {
+                    if (this.bML != null) {
+                        this.bML.a(liveVideoChatSendGetChatInfoResponseMessage.Vh(), liveVideoChatSendGetChatInfoResponseMessage.Vf(), liveVideoChatSendGetChatInfoResponseMessage.Vg());
                     }
-                } else if (Za.UW() && this.bRx != null) {
-                    this.bRx.a(z, liveVideoChatSendGetChatInfoResponseMessage.Za(), liveVideoChatSendGetChatInfoResponseMessage.YY(), liveVideoChatSendGetChatInfoResponseMessage.YZ());
+                } else if (Vh.Rb() && this.bML != null) {
+                    this.bML.a(z, liveVideoChatSendGetChatInfoResponseMessage.Vh(), liveVideoChatSendGetChatInfoResponseMessage.Vf(), liveVideoChatSendGetChatInfoResponseMessage.Vg());
                 }
             }
         }
@@ -126,95 +126,95 @@ public abstract class b {
     public void a(LiveVideoChatSendFinishResponseMessage liveVideoChatSendFinishResponseMessage) {
         if (liveVideoChatSendFinishResponseMessage != null) {
             if (liveVideoChatSendFinishResponseMessage.getError() == 0) {
-                if (this.bRx != null) {
-                    this.bRx.Yq();
+                if (this.bML != null) {
+                    this.bML.Ux();
                 }
-            } else if (this.bRx != null) {
-                this.bRx.O(liveVideoChatSendFinishResponseMessage.getError(), liveVideoChatSendFinishResponseMessage.getErrorString());
+            } else if (this.bML != null) {
+                this.bML.P(liveVideoChatSendFinishResponseMessage.getError(), liveVideoChatSendFinishResponseMessage.getErrorString());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(c cVar) {
-        this.bRx = cVar;
+        this.bML = cVar;
     }
 
-    public long YC() {
+    public long UJ() {
         return this.mChatId;
     }
 
     public void a(a aVar) {
-        this.bRy = aVar;
+        this.bMM = aVar;
     }
 
     public void bz(long j) {
-        if (this.aGe != null && this.aGe.mLiveInfo != null) {
+        if (this.aBr != null && this.aBr.mLiveInfo != null) {
             HttpMessage httpMessage = new HttpMessage(1021176);
             httpMessage.addParam("chat_id", j);
-            httpMessage.addParam("live_id", this.aGe.mLiveInfo.live_id);
-            httpMessage.setTag(this.bwz);
+            httpMessage.addParam("live_id", this.aBr.mLiveInfo.live_id);
+            httpMessage.setTag(this.brL);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void Zc() {
-        Ze();
-        Zd();
-        this.mHandler.postDelayed(this.bRE, this.bRA);
+    public void Vj() {
+        Vl();
+        Vk();
+        this.mHandler.postDelayed(this.bMS, this.bMO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zd() {
-        if (this.aGe != null && this.aGe.mLiveInfo != null && this.aGe.aKu != null) {
+    public void Vk() {
+        if (this.aBr != null && this.aBr.mLiveInfo != null && this.aBr.aFH != null) {
             HttpMessage httpMessage = new HttpMessage(1021179);
             httpMessage.addParam("user_type", getChatType());
-            httpMessage.addParam("live_id", this.aGe.mLiveInfo.live_id);
-            httpMessage.addParam("anchor_id", this.aGe.aKu.userId);
-            httpMessage.setTag(this.bwz);
+            httpMessage.addParam("live_id", this.aBr.mLiveInfo.live_id);
+            httpMessage.addParam("anchor_id", this.aBr.aFH.userId);
+            httpMessage.setTag(this.brL);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void Ze() {
-        this.mHandler.removeCallbacks(this.bRE);
-        MessageManager.getInstance().removeMessage(1021179, this.bwz);
+    public void Vl() {
+        this.mHandler.removeCallbacks(this.bMS);
+        MessageManager.getInstance().removeMessage(1021179, this.brL);
     }
 
-    public void d(long j, boolean z) {
+    public void e(long j, boolean z) {
         this.mChatId = j;
-        this.bRs = z;
-        Zg();
-        Zf();
-        this.mHandler.postDelayed(this.bRF, this.bRz);
+        this.bMG = z;
+        Vn();
+        Vm();
+        this.mHandler.postDelayed(this.bMT, this.bMN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zf() {
+    public void Vm() {
         int i;
         int i2;
-        if (this.aGe != null && this.aGe.mLiveInfo != null && this.aGe.aKu != null) {
-            if (this.bRy != null) {
-                i = this.bRy.DW();
-                i2 = this.bRy.Yk();
+        if (this.aBr != null && this.aBr.mLiveInfo != null && this.aBr.aFH != null) {
+            if (this.bMM != null) {
+                i = this.bMM.Ab();
+                i2 = this.bMM.Ur();
             } else {
                 i = 0;
                 i2 = 0;
             }
-            com.baidu.live.videochat.message.b bVar = new com.baidu.live.videochat.message.b(this.bRs);
+            com.baidu.live.videochat.message.b bVar = new com.baidu.live.videochat.message.b(this.bMG);
             bVar.addParam("chat_id", this.mChatId);
-            bVar.addParam("anchor_id", this.aGe.aKu.userId);
-            bVar.addParam("live_id", this.aGe.mLiveInfo.live_id);
-            bVar.addParam("anchor_id", this.aGe.mLiveInfo.user_id);
+            bVar.addParam("anchor_id", this.aBr.aFH.userId);
+            bVar.addParam("live_id", this.aBr.mLiveInfo.live_id);
+            bVar.addParam("anchor_id", this.aBr.mLiveInfo.user_id);
             bVar.addParam("avts_conn", i2);
             bVar.addParam("avts_fail", i);
-            bVar.setTag(this.bwz);
+            bVar.setTag(this.brL);
             MessageManager.getInstance().sendMessage(bVar);
         }
     }
 
-    public void Zg() {
-        this.mHandler.removeCallbacks(this.bRF);
-        MessageManager.getInstance().removeMessage(1021180, this.bwz);
+    public void Vn() {
+        this.mHandler.removeCallbacks(this.bMT);
+        MessageManager.getInstance().removeMessage(1021180, this.brL);
     }
 }

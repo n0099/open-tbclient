@@ -9,10 +9,10 @@ import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private AudienceStickerContainerView hOl;
-    private List<AlaLiveStickerInfo> hOm;
+    private AudienceStickerContainerView hJF;
+    private List<AlaLiveStickerInfo> hJG;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -21,32 +21,32 @@ public class a {
 
     public void aP(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hOl == null) {
-                this.hOl = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.hJF == null) {
+                this.hJF = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.hOl.getParent() != null) {
-                ((ViewGroup) this.hOl.getParent()).removeView(this.hOl);
+            if (this.hJF.getParent() != null) {
+                ((ViewGroup) this.hJF.getParent()).removeView(this.hJF);
             }
-            viewGroup.addView(this.hOl, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hJF, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public void cN(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.hOl.getWidth() > 0 && this.hOl.getHeight() > 0) {
-            if (this.hOm != null && list != null) {
-                if (this.hOm.size() != list.size()) {
-                    this.hOm = list;
+        if (this.hJF.getWidth() > 0 && this.hJF.getHeight() > 0) {
+            if (this.hJG != null && list != null) {
+                if (this.hJG.size() != list.size()) {
+                    this.hJG = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.hOm.get(i).equals(list.get(i))) {
+                            if (this.hJG.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.hOm = list;
+                                this.hJG = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.hOm != null && list == null) {
-                this.hOm = list;
-            } else if (this.hOm != null || list == null) {
+            } else if (this.hJG != null && list == null) {
+                this.hJG = list;
+            } else if (this.hJG != null || list == null) {
                 z2 = false;
             } else {
-                this.hOm = list;
+                this.hJG = list;
             }
             if (z2) {
-                this.hOl.removeAllViews();
-                if (this.hOm != null && this.hOm.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hOm) {
+                this.hJF.removeAllViews();
+                if (this.hJG != null && this.hJG.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hJG) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.hOl.b(alaLiveStickerInfo);
+                        a.this.hJF.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void cno() {
-        this.hOl.setVisibility(8);
+    public void cjw() {
+        this.hJF.setVisibility(8);
     }
 
-    public void cnp() {
-        this.hOl.setVisibility(0);
+    public void cjx() {
+        this.hJF.setVisibility(0);
     }
 }

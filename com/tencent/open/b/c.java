@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
 /* loaded from: classes4.dex */
@@ -17,10 +18,10 @@ public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f13690a = null;
+    static String f13390a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    static String f13691b = null;
+    static String f13391b = null;
     static String c = null;
     private static String e = null;
 
@@ -50,7 +51,7 @@ public class c {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();
-            d = width + "x" + windowManager.getDefaultDisplay().getHeight();
+            d = width + Config.EVENT_HEAT_X + windowManager.getDefaultDisplay().getHeight();
         }
         return d;
     }
@@ -60,30 +61,30 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f13690a != null && f13690a.length() > 0) {
-            return f13690a;
+        if (f13390a != null && f13390a.length() > 0) {
+            return f13390a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13690a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f13690a;
+            f13390a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f13390a;
         } catch (Exception e2) {
             return "";
         }
     }
 
     public static String c(Context context) {
-        if (f13691b != null && f13691b.length() > 0) {
-            return f13691b;
+        if (f13391b != null && f13391b.length() > 0) {
+            return f13391b;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13691b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-            return f13691b;
+            f13391b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
+            return f13391b;
         } catch (Exception e2) {
             return "";
         }

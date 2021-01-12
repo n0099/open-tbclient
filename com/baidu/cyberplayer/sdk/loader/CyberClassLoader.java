@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    static Class f1833a = null;
+    static Class f1783a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    static Class f1834b = null;
+    static Class f1784b = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -35,7 +35,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -52,7 +52,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -68,7 +68,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class d {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -108,9 +108,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     private static void a() throws Exception {
-        if (f1833a == null || f1834b == null) {
-            f1833a = Class.forName("dalvik.system.DexPathList");
-            Class<?>[] declaredClasses = f1833a.getDeclaredClasses();
+        if (f1783a == null || f1784b == null) {
+            f1783a = Class.forName("dalvik.system.DexPathList");
+            Class<?>[] declaredClasses = f1783a.getDeclaredClasses();
             int length = declaredClasses.length;
             int i = 0;
             while (true) {
@@ -119,12 +119,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 }
                 Class<?> cls = declaredClasses[i];
                 if (cls.getSimpleName().equals("Element")) {
-                    f1834b = cls;
+                    f1784b = cls;
                     break;
                 }
                 i++;
             }
-            if (f1834b == null) {
+            if (f1784b == null) {
                 throw new AndroidRuntimeException("DexPathList$Element not found!");
             }
         }
@@ -168,7 +168,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         try {
             a();
             DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + new File(str).getName().replace(PluginInstallerService.APK_LIB_SUFFIX, ".dex"), 0);
-            Constructor<?> constructor = f1834b.getConstructors()[0];
+            Constructor<?> constructor = f1784b.getConstructors()[0];
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
                 newInstance = constructor.newInstance(new File(str), false, null, loadDex);
@@ -177,12 +177,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
             } else {
                 newInstance = constructor.newInstance(new File(str), null, loadDex);
             }
-            Object newInstance2 = Array.newInstance(f1834b, 1);
+            Object newInstance2 = Array.newInstance(f1784b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(f1833a, a2, "dexElements", newInstance2);
+            a(f1783a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(f1833a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f1783a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e) {
             e.printStackTrace();

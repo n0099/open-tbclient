@@ -9,79 +9,79 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
-    private j odV;
-    private k ogX;
+    private j nZo;
+    private k ocq;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.odV = new j(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
+        this.nZo = new j(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dZz() {
-                WriteMultiImgsActivity.this.ogX.ebb();
-                WriteMultiImgsActivity.this.ogX.zv(true);
+            public void dVH() {
+                WriteMultiImgsActivity.this.ocq.dXj();
+                WriteMultiImgsActivity.this.ocq.zr(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dZA() {
-                WriteMultiImgsActivity.this.ogX.ebg();
-                WriteMultiImgsActivity.this.ogX.zv(false);
+            public void dVI() {
+                WriteMultiImgsActivity.this.ocq.dXo();
+                WriteMultiImgsActivity.this.ocq.zr(false);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public boolean U(Bitmap bitmap) {
-                return WriteMultiImgsActivity.this.ogX.W(bitmap);
+                return WriteMultiImgsActivity.this.ocq.W(bitmap);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dZB() {
-                WriteMultiImgsActivity.this.ogX.dZB();
+            public void dVJ() {
+                WriteMultiImgsActivity.this.ocq.dVJ();
             }
         });
-        setContentView(this.odV.iSr);
-        this.ogX = new k(getPageContext(), this.odV, bundle);
-        if (this.ogX.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            TbadkCoreApplication.getInst().setSkinType(this.ogX.mSkinType);
+        setContentView(this.nZo.iNK);
+        this.ocq = new k(getPageContext(), this.nZo, bundle);
+        if (this.ocq.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+            TbadkCoreApplication.getInst().setSkinType(this.ocq.mSkinType);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.ogX != null && this.ogX.ohh != null) {
-            bundle.putInt("OutState_Current_Index", this.ogX.ohh.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.ogX.ebe());
-            bundle.putSerializable("OutState_Write_Info_Data", this.ogX.cFJ());
-            this.ogX.ohh.zp(true);
-            if (this.ogX.ebh() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.ogX.ebh().toJsonString());
+        if (this.ocq != null && this.ocq.ocB != null) {
+            bundle.putInt("OutState_Current_Index", this.ocq.ocB.getCurrentIndex());
+            bundle.putInt("OutState_Write_Entrance", this.ocq.dXm());
+            bundle.putSerializable("OutState_Write_Info_Data", this.ocq.cBR());
+            this.ocq.ocB.zl(true);
+            if (this.ocq.dXp() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.ocq.dXp().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ebb() {
-        if (this.ogX != null) {
-            this.ogX.ebb();
+    public void dXj() {
+        if (this.ocq != null) {
+            this.ocq.dXj();
         }
     }
 
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
-        if (this.ogX != null) {
-            if (1 == this.ogX.ebe()) {
-                ForumWriteData cFJ = this.ogX.cFJ();
-                if (cFJ != null) {
+        if (this.ocq != null) {
+            if (1 == this.ocq.dXm()) {
+                ForumWriteData cBR = this.ocq.cBR();
+                if (cBR != null) {
                     if (!WriteActivityConfig.isAsyncWriting()) {
-                        WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(cFJ).setWriteImagesInfo(writeImagesInfo).send();
+                        WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(cBR).setWriteImagesInfo(writeImagesInfo).send();
                     } else {
                         return;
                     }
                 }
-            } else if (2 == this.ogX.ebe()) {
+            } else if (2 == this.ocq.dXm()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);
@@ -119,21 +119,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.odV != null) {
-            this.odV.MQ(i);
+        if (this.nZo != null) {
+            this.nZo.Lj(i);
         }
-        this.ogX.ohh.notifyDataSetChanged();
+        this.ocq.ocB.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ogX != null) {
-            this.ogX.destroy();
+        if (this.ocq != null) {
+            this.ocq.destroy();
         }
         TbadkCoreApplication.getInst().delRemoteActivity(this);
-        if (this.odV != null) {
-            this.odV.onDestroy();
+        if (this.nZo != null) {
+            this.nZo.onDestroy();
         }
         super.onDestroy();
     }

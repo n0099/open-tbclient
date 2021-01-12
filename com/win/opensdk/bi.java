@@ -8,7 +8,7 @@ import android.os.Build;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewParent;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class bi {
     public static Context ey(View view) {
         if (view == null) {
@@ -27,31 +27,31 @@ public final class bi {
         return ((View) parent).getContext();
     }
 
-    public static int[] iZ(Context context) {
-        int iS;
-        int iT;
+    public static int[] iX(Context context) {
+        int iQ;
+        int iR;
         if (context instanceof Activity) {
             Display defaultDisplay = ((Activity) context).getWindowManager().getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 13) {
                 Point point = new Point();
                 defaultDisplay.getSize(point);
-                iS = point.x;
-                iT = point.y;
+                iQ = point.x;
+                iR = point.y;
             } else {
-                iS = defaultDisplay.getWidth();
-                iT = defaultDisplay.getHeight();
+                iQ = defaultDisplay.getWidth();
+                iR = defaultDisplay.getHeight();
             }
         } else {
-            iS = bd.iS(context);
-            iT = bd.iT(context);
+            iQ = bd.iQ(context);
+            iR = bd.iR(context);
         }
-        return new int[]{iS, iT};
+        return new int[]{iQ, iR};
     }
 
-    public static int[] ja(Context context) {
-        int[] iZ = iZ(context);
-        b(context, iZ);
-        return iZ;
+    public static int[] iY(Context context) {
+        int[] iX = iX(context);
+        b(context, iX);
+        return iX;
     }
 
     public static void b(Context context, int[] iArr) {

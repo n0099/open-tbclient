@@ -1,11 +1,11 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface bt {
-    void Tq(int i);
+    void RJ(int i);
 
     void a();
 
-    void eKp();
+    void eGA();
 
-    void eKq();
+    void eGz();
 }

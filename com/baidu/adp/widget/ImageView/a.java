@@ -16,9 +16,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
     public static final Object lockForSyncImageDecoder = new Object();
-    private int Wi;
-    private int Wj;
-    private com.baidu.adp.gif.b Wk;
+    private int Wg;
+    private int Wh;
+    private com.baidu.adp.gif.b Wi;
     private AtomicBoolean drawingNow;
     private Bitmap image;
     private volatile boolean isGif;
@@ -134,7 +134,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.Wk = bVar;
+        this.Wi = bVar;
         this.image = bitmap;
         this.isGif = z;
     }
@@ -151,7 +151,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.Wk = bVar;
+        this.Wi = bVar;
         this.mIsEmotionGif = true;
     }
 
@@ -168,7 +168,7 @@ public class a {
     }
 
     public com.baidu.adp.gif.b getGif() {
-        return this.Wk;
+        return this.Wi;
     }
 
     public int getWidth() {
@@ -240,9 +240,9 @@ public class a {
                 this.image = null;
                 bitmap.recycle();
             }
-            if (this.Wk != null) {
-                com.baidu.adp.gif.b bVar = this.Wk;
-                this.Wk = null;
+            if (this.Wi != null) {
+                com.baidu.adp.gif.b bVar = this.Wi;
+                this.Wi = null;
                 bVar.close();
             }
             return true;
@@ -317,11 +317,11 @@ public class a {
     }
 
     public void aP(int i) {
-        this.Wi = i;
+        this.Wg = i;
     }
 
     public void aQ(int i) {
-        this.Wj = i;
+        this.Wh = i;
     }
 
     public void setNeedCache(boolean z) {

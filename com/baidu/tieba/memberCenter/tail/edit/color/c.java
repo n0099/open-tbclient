@@ -3,32 +3,32 @@ package com.baidu.tieba.memberCenter.tail.edit.color;
 import com.baidu.adp.base.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private String dQd = "7a7c80";
-    private List<String> loV = new ArrayList();
+    private String dLr = "7a7c80";
+    private List<String> lkl = new ArrayList();
 
-    public String dhR() {
-        return this.dQd;
+    public String ddZ() {
+        return this.dLr;
     }
 
-    public void uv(String str) {
-        this.dQd = str;
+    public void tk(String str) {
+        this.dLr = str;
     }
 
-    public List<String> dhS() {
-        return this.loV;
+    public List<String> dea() {
+        return this.lkl;
     }
 
     public c(f<?> fVar) {
-        this.loV.add("7a7c80");
-        this.loV.add("f55925");
-        this.loV.add("ff5460");
-        this.loV.add("cc3314");
-        this.loV.add("26bf85");
-        this.loV.add("33aaff");
-        this.loV.add("3385ff");
-        this.loV.add("3668b2");
-        this.loV.add("673699");
+        this.lkl.add("7a7c80");
+        this.lkl.add("f55925");
+        this.lkl.add("ff5460");
+        this.lkl.add("cc3314");
+        this.lkl.add("26bf85");
+        this.lkl.add("33aaff");
+        this.lkl.add("3385ff");
+        this.lkl.add("3668b2");
+        this.lkl.add("673699");
     }
 }

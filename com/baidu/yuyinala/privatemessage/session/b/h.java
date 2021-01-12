@@ -6,25 +6,25 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private static h pdF = null;
-    private Map<String, String> pdG = new HashMap();
-    private HashSet<String> pdH = new HashSet<>();
+    private static h oZa = null;
+    private Map<String, String> oZb = new HashMap();
+    private HashSet<String> oZc = new HashSet<>();
 
-    public static h eov() {
-        if (pdF == null) {
+    public static h ekz() {
+        if (oZa == null) {
             synchronized (h.class) {
-                if (pdF == null) {
-                    pdF = new h();
+                if (oZa == null) {
+                    oZa = new h();
                 }
             }
         }
-        return pdF;
+        return oZa;
     }
 
-    public Map<String, String> eow() {
-        return this.pdG;
+    public Map<String, String> ekA() {
+        return this.oZb;
     }
 
     public static String encode(String str) {
@@ -42,7 +42,7 @@ public class h {
         }
         if (!z) {
             if (gVar != null) {
-                gVar.aXJ();
+                gVar.aTP();
                 return;
             }
             return;
@@ -54,7 +54,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String Yy(String str) {
-        return this.pdG.get(str);
+    public String Xq(String str) {
+        return this.oZb.get(str);
     }
 }

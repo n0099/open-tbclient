@@ -6,7 +6,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RFC2965DomainAttributeHandler implements CookieAttributeHandler {
     public RFC2965DomainAttributeHandler() {
         throw new RuntimeException("Stub!");

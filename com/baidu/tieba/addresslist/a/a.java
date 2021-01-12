@@ -17,50 +17,50 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private int gkE;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> gkQ;
-    private int gkT = R.color.CAM_X0105;
-    private int gkU = R.color.CAM_X0108;
-    private int gkV = R.color.CAM_X0109;
-    private Drawable gkW;
-    private Drawable gkX;
-    private boolean gkY;
+    private int gfW;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> ggi;
+    private int ggl = R.color.CAM_X0105;
+    private int ggm = R.color.CAM_X0108;
+    private int ggn = R.color.CAM_X0109;
+    private Drawable ggo;
+    private Drawable ggp;
+    private boolean ggq;
     private Context mContext;
     private int size;
 
     public a(Context context, com.baidu.tbadk.core.c cVar) {
-        this.gkY = true;
+        this.ggq = true;
         this.mContext = context;
         this.size = l.getDimens(this.mContext, R.dimen.ds24);
-        this.gkY = TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
+        this.ggq = TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.gkQ = list;
+        this.ggi = list;
         notifyDataSetChanged();
     }
 
-    public void uF(int i) {
-        this.gkE = i;
+    public void sZ(int i) {
+        this.gfW = i;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int i = this.gkY ? 3 : 2;
-        return this.gkQ == null ? i : i + this.gkQ.size();
+        int i = this.ggq ? 3 : 2;
+        return this.ggi == null ? i : i + this.ggi.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uE */
+    /* renamed from: sY */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        int i2 = this.gkY ? 3 : 2;
+        int i2 = this.ggq ? 3 : 2;
         if (i < i2 || i >= getCount()) {
             return null;
         }
-        return this.gkQ.get(i - i2);
+        return this.ggi.get(i - i2);
     }
 
     @Override // android.widget.Adapter
@@ -82,18 +82,18 @@ public class a extends BaseAdapter {
         if (i == 1) {
             return 5;
         }
-        if (i == 2 && this.gkY) {
+        if (i == 2 && this.ggq) {
             return 1;
         }
         if (item == null) {
             return 4;
         }
-        return (!TextUtils.isEmpty(item.bCB()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
+        return (!TextUtils.isEmpty(item.byH()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0612a c0612a;
+        C0595a c0595a;
         b bVar;
         c cVar;
         c cVar2;
@@ -107,17 +107,17 @@ public class a extends BaseAdapter {
                 c cVar4 = new c();
                 cVar4.icon = (ImageView) view.findViewById(R.id.addresslist_new_friend_icon);
                 cVar4.title = (TextView) view.findViewById(R.id.addresslist_new_friend_text);
-                cVar4.bUk = view.findViewById(R.id.addresslist_new_friend_divider);
+                cVar4.bPy = view.findViewById(R.id.addresslist_new_friend_divider);
                 view.setTag(cVar4);
                 cVar3 = cVar4;
             } else {
                 cVar3 = (c) view.getTag();
             }
             ao.setImageResource(cVar3.icon, R.drawable.icon_new_friend);
-            ao.setViewTextColor(cVar3.title, this.gkT, 1);
-            ao.setBackgroundResource(cVar3.bUk, R.color.CAM_X0204);
+            ao.setViewTextColor(cVar3.title, this.ggl, 1);
+            ao.setBackgroundResource(cVar3.bPy, R.color.CAM_X0204);
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            b((TextView) view.findViewById(R.id.addresslist_new_friend_message), this.gkE);
+            b((TextView) view.findViewById(R.id.addresslist_new_friend_message), this.gfW);
             return view;
         } else if (getItemViewType(i) == 5) {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof c)) {
@@ -125,16 +125,16 @@ public class a extends BaseAdapter {
                 c cVar5 = new c();
                 cVar5.icon = (ImageView) view.findViewById(R.id.addresslist_new_friend_icon);
                 cVar5.title = (TextView) view.findViewById(R.id.addresslist_new_friend_text);
-                cVar5.bUk = view.findViewById(R.id.addresslist_new_friend_divider);
+                cVar5.bPy = view.findViewById(R.id.addresslist_new_friend_divider);
                 view.setTag(cVar5);
                 cVar2 = cVar5;
             } else {
                 cVar2 = (c) view.getTag();
             }
             ao.setImageResource(cVar2.icon, R.drawable.icon_add_friend);
-            ao.setViewTextColor(cVar2.title, this.gkT, 1);
+            ao.setViewTextColor(cVar2.title, this.ggl, 1);
             cVar2.title.setText(this.mContext.getResources().getString(R.string.find_new_friend));
-            ao.setBackgroundResource(cVar2.bUk, R.color.CAM_X0204);
+            ao.setBackgroundResource(cVar2.bPy, R.color.CAM_X0204);
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             ((TextView) view.findViewById(R.id.addresslist_new_friend_message)).setVisibility(8);
             return view;
@@ -150,7 +150,7 @@ public class a extends BaseAdapter {
                 cVar = (c) view.getTag();
             }
             ao.setImageResource(cVar.icon, R.drawable.icon_me_group);
-            ao.setViewTextColor(cVar.title, this.gkT, 1);
+            ao.setViewTextColor(cVar.title, this.ggl, 1);
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         } else {
@@ -159,83 +159,83 @@ public class a extends BaseAdapter {
                 if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                     view = LayoutInflater.from(this.mContext).inflate(R.layout.addresslist_group_item, (ViewGroup) null);
                     b bVar2 = new b();
-                    bVar2.glc = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                    bVar2.bUk = view.findViewById(R.id.addresslist_group_item_divider);
+                    bVar2.ggu = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                    bVar2.bPy = view.findViewById(R.id.addresslist_group_item_divider);
                     view.setTag(bVar2);
                     bVar = bVar2;
                 } else {
                     bVar = (b) view.getTag();
                 }
-                if (item.bCB() != null) {
-                    bVar.glc.setText(item.bCB());
+                if (item.byH() != null) {
+                    bVar.ggu.setText(item.byH());
                 }
-                ao.setViewTextColor(bVar.glc, this.gkU, 1);
-                ao.setBackgroundResource(bVar.bUk, R.color.CAM_X0204);
+                ao.setViewTextColor(bVar.ggu, this.ggm, 1);
+                ao.setBackgroundResource(bVar.bPy, R.color.CAM_X0204);
                 return view;
             } else if (getItemViewType(i) == 3) {
-                if (view == null || view.getTag() == null || !(view.getTag() instanceof C0612a)) {
-                    C0612a c0612a2 = new C0612a();
+                if (view == null || view.getTag() == null || !(view.getTag() instanceof C0595a)) {
+                    C0595a c0595a2 = new C0595a();
                     view = LayoutInflater.from(this.mContext).inflate(R.layout.addresslist_child_item, (ViewGroup) null);
-                    c0612a2.gkR = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                    c0612a2.gkS = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                    c0612a2.gkZ = (TextView) view.findViewById(R.id.detail_info_distance);
-                    c0612a2.gla = (TextView) view.findViewById(R.id.detail_info_time);
-                    c0612a2.bUk = view.findViewById(R.id.addresslist_child_item_divider);
-                    view.setTag(c0612a2);
-                    c0612a = c0612a2;
+                    c0595a2.ggj = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                    c0595a2.ggk = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                    c0595a2.ggr = (TextView) view.findViewById(R.id.detail_info_distance);
+                    c0595a2.ggs = (TextView) view.findViewById(R.id.detail_info_time);
+                    c0595a2.bPy = view.findViewById(R.id.addresslist_child_item_divider);
+                    view.setTag(c0595a2);
+                    c0595a = c0595a2;
                 } else {
-                    c0612a = (C0612a) view.getTag();
+                    c0595a = (C0595a) view.getTag();
                 }
                 if (item.getUserName() != null) {
-                    c0612a.gkS.setText(item.getUserName());
-                    c0612a.gkR.startLoad(item.getUserPortrait(), 12, false);
+                    c0595a.ggk.setText(item.getUserName());
+                    c0595a.ggj.startLoad(item.getUserPortrait(), 12, false);
                 }
                 item.setLbsInfo(null);
                 if (item.getLbsInfo() != null) {
-                    if (item.getLbsInfo().bCD() == 1) {
-                        c0612a.gkZ.setVisibility(0);
-                        ao.setViewTextColor(c0612a.gkZ, this.gkV, 1);
-                        c0612a.gkZ.setText(this.mContext.getResources().getString(R.string.contact_yinshen));
-                        c0612a.gkZ.setCompoundDrawables(null, null, null, null);
-                        c0612a.gla.setVisibility(8);
-                    } else if (item.getLbsInfo().bCD() == 0) {
-                        if (!FG(item.getLbsInfo().getDistance()) || !eL(item.getLbsInfo().getTime())) {
-                            c0612a.gkZ.setVisibility(8);
-                            c0612a.gla.setVisibility(8);
+                    if (item.getLbsInfo().byJ() == 1) {
+                        c0595a.ggr.setVisibility(0);
+                        ao.setViewTextColor(c0595a.ggr, this.ggn, 1);
+                        c0595a.ggr.setText(this.mContext.getResources().getString(R.string.contact_yinshen));
+                        c0595a.ggr.setCompoundDrawables(null, null, null, null);
+                        c0595a.ggs.setVisibility(8);
+                    } else if (item.getLbsInfo().byJ() == 0) {
+                        if (!Ev(item.getLbsInfo().getDistance()) || !eL(item.getLbsInfo().getTime())) {
+                            c0595a.ggr.setVisibility(8);
+                            c0595a.ggs.setVisibility(8);
                         } else {
-                            c0612a.gkZ.setVisibility(0);
-                            c0612a.gla.setVisibility(0);
-                            c0612a.gkZ.setText(item.getLbsInfo().getDistance());
-                            c0612a.gla.setText(at.getTimeInterval(item.getLbsInfo().getTime()));
-                            ao.setViewTextColor(c0612a.gkZ, this.gkV, 1);
-                            this.gkW = ao.getDrawable(R.drawable.icon_friend_pin);
-                            this.gkW.setBounds(0, 0, this.size, this.size);
-                            c0612a.gkZ.setCompoundDrawables(this.gkW, null, null, null);
-                            this.gkX = ao.getDrawable(R.drawable.icon_friend_time);
-                            this.gkX.setBounds(0, 0, this.size, this.size);
-                            c0612a.gla.setCompoundDrawables(this.gkX, null, null, null);
-                            ao.setViewTextColor(c0612a.gla, this.gkV, 1);
+                            c0595a.ggr.setVisibility(0);
+                            c0595a.ggs.setVisibility(0);
+                            c0595a.ggr.setText(item.getLbsInfo().getDistance());
+                            c0595a.ggs.setText(at.getTimeInterval(item.getLbsInfo().getTime()));
+                            ao.setViewTextColor(c0595a.ggr, this.ggn, 1);
+                            this.ggo = ao.getDrawable(R.drawable.icon_friend_pin);
+                            this.ggo.setBounds(0, 0, this.size, this.size);
+                            c0595a.ggr.setCompoundDrawables(this.ggo, null, null, null);
+                            this.ggp = ao.getDrawable(R.drawable.icon_friend_time);
+                            this.ggp.setBounds(0, 0, this.size, this.size);
+                            c0595a.ggs.setCompoundDrawables(this.ggp, null, null, null);
+                            ao.setViewTextColor(c0595a.ggs, this.ggn, 1);
                         }
                     } else {
-                        c0612a.gkZ.setVisibility(8);
-                        c0612a.gla.setVisibility(8);
+                        c0595a.ggr.setVisibility(8);
+                        c0595a.ggs.setVisibility(8);
                     }
                 } else {
-                    c0612a.gkZ.setVisibility(8);
-                    c0612a.gla.setVisibility(8);
+                    c0595a.ggr.setVisibility(8);
+                    c0595a.ggs.setVisibility(8);
                 }
-                ao.setViewTextColor(c0612a.gkS, this.gkT, 1);
-                String bCB = item.bCB();
+                ao.setViewTextColor(c0595a.ggk, this.ggl, 1);
+                String byH = item.byH();
                 com.baidu.tbadk.coreExtra.relationship.a item2 = getItem(i + 1);
-                if ((TextUtils.isEmpty(bCB) || item2 == null || bCB.equals(item2.bCB())) ? false : true) {
-                    c0612a.bUk.setVisibility(4);
+                if ((TextUtils.isEmpty(byH) || item2 == null || byH.equals(item2.byH())) ? false : true) {
+                    c0595a.bPy.setVisibility(4);
                 } else {
-                    c0612a.bUk.setVisibility(0);
-                    ao.setBackgroundResource(c0612a.bUk, R.color.CAM_X0204);
+                    c0595a.bPy.setVisibility(0);
+                    ao.setBackgroundResource(c0595a.bPy, R.color.CAM_X0204);
                 }
                 ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-                ao.setViewTextColor(c0612a.gkS, this.gkT, 1);
-                ao.setBackgroundResource(c0612a.bUk, R.color.CAM_X0204);
+                ao.setViewTextColor(c0595a.ggk, this.ggl, 1);
+                ao.setBackgroundResource(c0595a.bPy, R.color.CAM_X0204);
                 ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
                 return view;
             } else {
@@ -244,7 +244,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public boolean FG(String str) {
+    public boolean Ev(String str) {
         return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
     }
 
@@ -273,9 +273,9 @@ public class a extends BaseAdapter {
         ao.setBackgroundResource(textView, i2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class c {
-        View bUk;
+        View bPy;
         ImageView icon;
         TextView title;
 
@@ -283,25 +283,25 @@ public class a extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class b {
-        View bUk;
-        TextView glc;
+        View bPy;
+        TextView ggu;
 
         private b() {
         }
     }
 
     /* renamed from: com.baidu.tieba.addresslist.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private class C0612a {
-        View bUk;
-        HeadImageView gkR;
-        TextView gkS;
-        TextView gkZ;
-        TextView gla;
+    /* loaded from: classes7.dex */
+    private class C0595a {
+        View bPy;
+        HeadImageView ggj;
+        TextView ggk;
+        TextView ggr;
+        TextView ggs;
 
-        private C0612a() {
+        private C0595a() {
         }
     }
 }

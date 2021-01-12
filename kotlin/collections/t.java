@@ -15,15 +15,15 @@ public class t extends s {
     @kotlin.e
     /* loaded from: classes5.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable qnu;
+        final /* synthetic */ Iterable qiS;
 
         public a(Iterable iterable) {
-            this.qnu = iterable;
+            this.qiS = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.qnu.iterator();
+            return this.qiS.iterator();
         }
     }
 
@@ -97,7 +97,7 @@ public class t extends s {
 
     public static final <T> HashSet<T> f(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.p.o(iterable, "$receiver");
-        return (HashSet) n.a(iterable, new HashSet(aa.TE(n.a(iterable, 12))));
+        return (HashSet) n.a(iterable, new HashSet(aa.RX(n.a(iterable, 12))));
     }
 
     public static final <T> List<T> g(Iterable<? extends T> iterable) {
@@ -105,7 +105,7 @@ public class t extends s {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return n.eMw();
+                    return n.eIG();
                 case 1:
                     return n.bS(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

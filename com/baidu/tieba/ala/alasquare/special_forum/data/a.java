@@ -6,26 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public String gIA;
-    public int gIB;
-    public int gIC;
-    public String gIy;
-    public String gIz;
-    public List<bz> geK;
+    public String gDS;
+    public String gDT;
+    public String gDU;
+    public int gDV;
+    public int gDW;
+    public List<bz> gaa;
 
     public void parse(JSONObject jSONObject) {
         int i = 0;
         if (jSONObject != null) {
-            this.gIy = jSONObject.optString("head_pic");
-            this.gIz = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
-            this.gIA = jSONObject.optString("url");
-            this.gIB = jSONObject.optInt("head_type", 0);
-            this.gIC = jSONObject.optInt("is_set", -1);
+            this.gDS = jSONObject.optString("head_pic");
+            this.gDT = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
+            this.gDU = jSONObject.optString("url");
+            this.gDV = jSONObject.optInt("head_type", 0);
+            this.gDW = jSONObject.optInt("is_set", -1);
             JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.geK = new ArrayList(optJSONArray.length());
+                this.gaa = new ArrayList(optJSONArray.length());
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
@@ -33,7 +33,7 @@ public class a {
                         if (jSONObject2 != null) {
                             bz bzVar = new bz();
                             bzVar.parserJson(jSONObject2);
-                            this.geK.add(bzVar);
+                            this.gaa.add(bzVar);
                         }
                         i = i2 + 1;
                     } else {

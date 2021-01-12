@@ -3,102 +3,102 @@ package com.baidu.tieba.yuyinala.charm.audiencelist;
 import android.view.View;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g implements com.baidu.live.liveroom.d.d {
-    private String aGB;
-    private String beR;
-    private boolean boZ;
-    private boolean bxC;
+    private String aBO;
+    private String bab;
+    private boolean bkm;
+    private boolean bsO;
     private String mLiveId;
-    private YuyinALaAudiencesActivity ojM;
-    com.baidu.live.k.c oke = null;
+    private YuyinALaAudiencesActivity ofh;
+    com.baidu.live.k.c ofz = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.ojM = yuyinALaAudiencesActivity;
+        this.ofh = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
-        eVar.mTbPageContext = this.ojM.getPageContext();
+        eVar.mTbPageContext = this.ofh.getPageContext();
         eVar.mLiveId = this.mLiveId;
-        eVar.bvS = this.aGB;
-        eVar.mIsHost = this.boZ;
-        eVar.bxC = this.bxC;
+        eVar.bre = this.aBO;
+        eVar.mIsHost = this.bkm;
+        eVar.bsO = this.bsO;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.k.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.oke = (com.baidu.live.k.c) runTask.getData();
+            this.ofz = (com.baidu.live.k.c) runTask.getData();
         }
     }
 
-    public g VI(String str) {
+    public g UA(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public g zy(boolean z) {
-        this.bxC = z;
+    public g zu(boolean z) {
+        this.bsO = z;
         return this;
     }
 
-    public g zz(boolean z) {
-        this.boZ = z;
+    public g zv(boolean z) {
+        this.bkm = z;
         return this;
     }
 
-    public g VJ(String str) {
-        this.aGB = str;
+    public g UB(String str) {
+        this.aBO = str;
         return this;
     }
 
-    public g VK(String str) {
-        this.beR = str;
+    public g UC(String str) {
+        this.bab = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.oke == null) {
+        if (this.ofz == null) {
             return null;
         }
-        return this.oke.getView();
+        return this.ofz.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.oke == null) {
+        if (this.ofz == null) {
             return null;
         }
-        return this.oke.getTitle();
+        return this.ofz.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Mh() {
+    public String Im() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Mi() {
+    public short In() {
         return (short) 1;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.oke != null) {
-            this.oke.ca(false);
+        if (this.ofz != null) {
+            this.ofz.bW(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.oke != null) {
-            this.oke.ca(true);
+        if (this.ofz != null) {
+            this.ofz.bW(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.oke != null) {
-            this.oke.onDestroy();
+        if (this.ofz != null) {
+            this.ofz.onDestroy();
         }
     }
 
@@ -106,9 +106,9 @@ public class g implements com.baidu.live.liveroom.d.d {
     public void onChangeSkinType(int i) {
     }
 
-    public void mH(boolean z) {
-        if (this.oke != null) {
-            this.oke.cb(z);
+    public void mD(boolean z) {
+        if (this.ofz != null) {
+            this.ofz.bX(z);
         }
     }
 }

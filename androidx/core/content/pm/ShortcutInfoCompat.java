@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.graphics.drawable.IconCompat;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ShortcutInfoCompat {
     ComponentName mActivity;
     Context mContext;
@@ -102,7 +102,7 @@ public class ShortcutInfoCompat {
         return (Intent[]) Arrays.copyOf(this.mIntents, this.mIntents.length);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private final ShortcutInfoCompat mInfo = new ShortcutInfoCompat();
 

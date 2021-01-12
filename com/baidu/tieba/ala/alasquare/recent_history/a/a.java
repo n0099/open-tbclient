@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends BaseAdapter {
-    protected int gHq;
+    protected int gCK;
     protected Context mContext;
     protected List<com.baidu.tieba.ala.alasquare.recent_history.b.b> mData = new ArrayList();
     protected TbPageContext mPageContext;
@@ -41,7 +41,7 @@ public abstract class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vn */
+    /* renamed from: tH */
     public com.baidu.tieba.ala.alasquare.recent_history.b.b getItem(int i) {
         return this.mData.get(i);
     }
@@ -53,17 +53,17 @@ public abstract class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext, bz bzVar, String str) {
-        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.bnx() != null && bzVar.bnQ() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brr().getUserId();
+                String userId = bzVar.bnx().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
-            alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.bnQ());
+            alaLiveInfoCoreData.userName = bzVar.bnx().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }

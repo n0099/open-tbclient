@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.data;
 
+import android.net.http.Headers;
 import com.baidu.live.tbadk.core.data.ConstantData;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -48,7 +50,7 @@ public class ay {
                 builder3.album_id = Long.valueOf(optJSONObject2.optLong("album_id"));
                 builder3.album_name = optJSONObject2.optString("album_name");
                 builder3.end_time = Integer.valueOf(optJSONObject2.optInt("end_time"));
-                builder3.location = optJSONObject2.optString("location");
+                builder3.location = optJSONObject2.optString(Headers.LOCATION);
                 builder3.num_join = Integer.valueOf(optJSONObject2.optInt("num_join"));
                 builder3.num_signup = Integer.valueOf(optJSONObject2.optInt("num_signup"));
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("pic_urls");
@@ -100,7 +102,7 @@ public class ay {
             builder.packet_name = jSONObject.optString("packet_name");
             builder.phonetype = jSONObject.optString("phonetype");
             builder.show_original_btn = Integer.valueOf(jSONObject.optInt("show_original_btn"));
-            builder.src = jSONObject.optString("src");
+            builder.src = jSONObject.optString(UserAccountActionItem.KEY_SRC);
             builder.text = jSONObject.optString("text");
             builder.uid = Long.valueOf(jSONObject.optLong("uid"));
             builder.type = Integer.valueOf(jSONObject.optInt("type"));

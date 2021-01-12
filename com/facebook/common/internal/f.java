@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class f {
     @CheckReturnValue
     public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
@@ -27,17 +27,17 @@ public final class f {
         return replaceAll.substring(lastIndexOf + 1);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
         private final String className;
-        private C1054a ptc;
-        private C1054a ptd;
-        private boolean pte;
+        private C1037a poA;
+        private C1037a poB;
+        private boolean poC;
 
         private a(String str) {
-            this.ptc = new C1054a();
-            this.ptd = this.ptc;
-            this.pte = false;
+            this.poA = new C1037a();
+            this.poB = this.poA;
+            this.poC = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,47 +54,47 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.pte;
+            boolean z = this.poC;
             String str = "";
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
-            for (C1054a c1054a = this.ptc.ptf; c1054a != null; c1054a = c1054a.ptf) {
-                if (!z || c1054a.value != null) {
+            for (C1037a c1037a = this.poA.poD; c1037a != null; c1037a = c1037a.poD) {
+                if (!z || c1037a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c1054a.name != null) {
-                        append.append(c1054a.name).append('=');
+                    if (c1037a.name != null) {
+                        append.append(c1037a.name).append('=');
                     }
-                    append.append(c1054a.value);
+                    append.append(c1037a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C1054a etY() {
-            C1054a c1054a = new C1054a();
-            this.ptd.ptf = c1054a;
-            this.ptd = c1054a;
-            return c1054a;
+        private C1037a eqe() {
+            C1037a c1037a = new C1037a();
+            this.poB.poD = c1037a;
+            this.poB = c1037a;
+            return c1037a;
         }
 
         private a J(String str, @Nullable Object obj) {
-            C1054a etY = etY();
-            etY.value = obj;
-            etY.name = (String) g.checkNotNull(str);
+            C1037a eqe = eqe();
+            eqe.value = obj;
+            eqe.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static final class C1054a {
+        /* loaded from: classes14.dex */
+        public static final class C1037a {
             @Nullable
             String name;
-            C1054a ptf;
+            C1037a poD;
             @Nullable
             Object value;
 
-            private C1054a() {
+            private C1037a() {
             }
         }
     }

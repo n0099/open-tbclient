@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     private String groupId;
     private String groupName;
     private int height;
-    private ArrayList<String> iRT = new ArrayList<>();
+    private ArrayList<String> iNm = new ArrayList<>();
     private int width;
 
     public c(EmotionGroupData emotionGroupData) {
@@ -21,56 +21,56 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     private void init() {
-        sA(2);
-        sz(4);
-        Bitmap eR = b.eR(this.groupId, "panel.png");
-        Bitmap eR2 = b.eR(this.groupId, "panel_momo.png");
-        if (eR != null) {
-            c(new com.baidu.adp.widget.ImageView.a(eR, false));
+        qU(2);
+        qT(4);
+        Bitmap eQ = b.eQ(this.groupId, "panel.png");
+        Bitmap eQ2 = b.eQ(this.groupId, "panel_momo.png");
+        if (eQ != null) {
+            c(new com.baidu.adp.widget.ImageView.a(eQ, false));
         }
-        if (eR2 != null) {
-            d(new com.baidu.adp.widget.ImageView.a(eR2, false));
+        if (eQ2 != null) {
+            d(new com.baidu.adp.widget.ImageView.a(eQ2, false));
         }
-        this.iRT.clear();
-        for (EmotionData emotionData : i.cBl().Ke(this.groupId)) {
-            this.iRT.add(emotionData.getSharpText());
+        this.iNm.clear();
+        for (EmotionData emotionData : i.cxt().IT(this.groupId)) {
+            this.iNm.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String sy(int i) {
-        if (i >= this.iRT.size()) {
+    public String qS(int i) {
+        if (i >= this.iNm.size()) {
             return null;
         }
-        return this.iRT.get(i);
+        return this.iNm.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean DJ(String str) {
-        return this.iRT.contains(str);
+    public boolean Cy(String str) {
+        return this.iNm.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType bFd() {
+    public EmotionGroupType bBj() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a DK(String str) {
+    public com.baidu.adp.widget.ImageView.a Cz(String str) {
         String aN;
-        if (JG(str)) {
+        if (Iv(str)) {
             aN = b.j(str, true, false);
         } else {
             aN = b.aN(str, false);
         }
-        Bitmap eR = b.eR(this.groupId, aN);
-        if (eR == null) {
+        Bitmap eQ = b.eQ(this.groupId, aN);
+        if (eQ == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(eR, false, str);
+        return new com.baidu.adp.widget.ImageView.a(eQ, false, str);
     }
 
-    public boolean JG(String str) {
+    public boolean Iv(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(","));
@@ -80,13 +80,13 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a DL(String str) {
+    public com.baidu.adp.widget.ImageView.a CA(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return this.iRT.size();
+        return this.iNm.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -110,7 +110,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean bFc() {
+    public boolean bBi() {
         return false;
     }
 }

@@ -1,5 +1,5 @@
 package aegon.chrome.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class CpuFeatures {
     public static native int nativeGetCoreCount();
 

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class o1 extends LinearLayout {
     public o1(Context context) {
         this(context, null);

@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<com.baidu.swan.games.binding.model.c> elI = new ArrayList();
+    private List<com.baidu.swan.games.binding.model.c> egW = new ArrayList();
 
     public c(JSONArray jSONArray) {
         if (jSONArray != null) {
@@ -43,7 +43,7 @@ public class c {
                     switch (c) {
                         case 0:
                             if (i2 < 3) {
-                                this.elI.add(cC(optJSONObject));
+                                this.egW.add(cC(optJSONObject));
                                 i2++;
                                 break;
                             } else {
@@ -51,7 +51,7 @@ public class c {
                             }
                         case 1:
                             if (i < 10) {
-                                this.elI.add(cD(optJSONObject));
+                                this.egW.add(cD(optJSONObject));
                                 i++;
                                 break;
                             } else {
@@ -67,9 +67,9 @@ public class c {
     public void b(com.baidu.swan.games.f.b bVar) {
         if (bVar != null) {
             if (DEBUG) {
-                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.elI);
+                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.egW);
             }
-            for (com.baidu.swan.games.binding.model.c cVar : this.elI) {
+            for (com.baidu.swan.games.binding.model.c cVar : this.egW) {
                 if (cVar != null) {
                     String optString = cVar.optString("type");
                     char c = 65535;

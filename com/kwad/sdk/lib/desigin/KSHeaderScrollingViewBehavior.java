@@ -13,7 +13,7 @@ import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class KSHeaderScrollingViewBehavior extends KSViewOffsetBehavior<View> {
     private int mOverlayTop;
     final Rect mTempRect1;

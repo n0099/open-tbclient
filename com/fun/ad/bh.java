@@ -16,9 +16,9 @@ import com.qq.e.ads.nativ.NativeUnifiedAD;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bh extends an {
-    public NativeUnifiedADData pKa;
+    public NativeUnifiedADData pFz;
 
     public bh(au.a aVar) {
         super(aVar);
@@ -27,17 +27,17 @@ public class bh extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        NativeUnifiedADData nativeUnifiedADData = this.pKa;
+        NativeUnifiedADData nativeUnifiedADData = this.pFz;
         if (nativeUnifiedADData != null) {
             nativeUnifiedADData.destroy();
-            this.pKa = null;
+            this.pFz = null;
         }
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         AdRipper.RippedGDTAd rippedGDTNativeUnifiedAd;
-        NativeUnifiedADData nativeUnifiedADData = this.pKa;
+        NativeUnifiedADData nativeUnifiedADData = this.pFz;
         if (nativeUnifiedADData == null || (rippedGDTNativeUnifiedAd = AdRipper.getRippedGDTNativeUnifiedAd(nativeUnifiedADData, false)) == null) {
             return null;
         }
@@ -55,17 +55,17 @@ public class bh extends an {
     @Override // com.fun.ad.an
     public void a(Context context, FunAdSlot funAdSlot, ak akVar) {
         super.a(context.getApplicationContext(), funAdSlot, akVar);
-        if (!this.f8053b) {
-            this.f8053b = true;
-            NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context.getApplicationContext(), this.f8052a.f8060a, new a());
+        if (!this.f7753b) {
+            this.f7753b = true;
+            NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context.getApplicationContext(), this.f7752a.f7760a, new a());
             nativeUnifiedAD.setMinVideoDuration(0);
             nativeUnifiedAD.setMaxVideoDuration(0);
             nativeUnifiedAD.setVideoPlayPolicy(1);
             nativeUnifiedAD.setVideoADContainerRender(1);
             nativeUnifiedAD.loadData(1);
-            ak akVar2 = this.pJH;
+            ak akVar2 = this.pFg;
             if (akVar2 != null) {
-                ((x) akVar2).a(this.f8052a.f8060a);
+                ((x) akVar2).a(this.f7752a.f7760a);
             }
         }
     }
@@ -74,16 +74,16 @@ public class bh extends an {
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         int i;
         super.a(activity, funAdView, ahVar);
-        if (this.pKa == null) {
-            ah ahVar2 = this.pJI;
+        if (this.pFz == null) {
+            ah ahVar2 = this.pFh;
             if (ahVar2 != null) {
-                ((aa) ahVar2).a(this.f8052a.f8060a, 0, "Custom error message: mNativeUnifiedADData is null when show");
+                ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mNativeUnifiedADData is null when show");
                 return;
             }
             return;
         }
-        m.a("GDTNativeUnifiedAd AdPatternType: " + this.pKa.getAdPatternType());
-        switch (this.pKa.getAdPatternType()) {
+        m.a("GDTNativeUnifiedAd AdPatternType: " + this.pFz.getAdPatternType());
+        switch (this.pFz.getAdPatternType()) {
             case 1:
                 i = R.layout.gdt_ad_native_unified_img2_view;
                 break;
@@ -91,7 +91,7 @@ public class bh extends an {
                 i = R.layout.gdt_ad_native_unified_video_view;
                 break;
             case 3:
-                if (this.pKa.getImgList().size() == 3) {
+                if (this.pFz.getImgList().size() == 3) {
                     i = R.layout.gdt_ad_native_unified_img3_view;
                     break;
                 }
@@ -104,38 +104,38 @@ public class bh extends an {
         v0 v0Var = (v0) LayoutInflater.from(activity).inflate(i, (ViewGroup) funAdView, false);
         funAdView.removeAllViews();
         funAdView.addView(v0Var);
-        v0Var.a(activity, this.f8052a, this.pKa, ahVar);
+        v0Var.a(activity, this.f7752a, this.pFz, ahVar);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements NativeADUnifiedListener {
         public a() {
         }
 
         @Override // com.qq.e.ads.AbstractAD.BasicADListener
         public void onNoAD(AdError adError) {
-            bh.this.f8053b = false;
+            bh.this.f7753b = false;
             m.a("GDTNativeUnifiedAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bh bhVar = bh.this;
-            ak akVar = bhVar.pJH;
+            ak akVar = bhVar.pFg;
             if (akVar != null) {
-                ((x) akVar).a(bhVar.f8052a.f8060a, adError.getErrorCode(), adError.getErrorMsg());
+                ((x) akVar).a(bhVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADUnifiedListener
         public void onADLoaded(List<NativeUnifiedADData> list) {
             m.a("GDTNativeUnifiedAd onADLoaded");
-            bh.this.f8053b = false;
+            bh.this.f7753b = false;
             if (list != null && !list.isEmpty()) {
-                bh.this.pKa = list.get(0);
-                m.a("GDTNativeUnifiedAd onADLoaded adPatternType: " + bh.this.pKa.getAdPatternType());
+                bh.this.pFz = list.get(0);
+                m.a("GDTNativeUnifiedAd onADLoaded adPatternType: " + bh.this.pFz.getAdPatternType());
                 bh bhVar = bh.this;
-                ak akVar = bhVar.pJH;
+                ak akVar = bhVar.pFg;
                 if (akVar != null) {
-                    ((x) akVar).b(bhVar.f8052a.f8060a);
+                    ((x) akVar).b(bhVar.f7752a.f7760a);
                 }
-                AdRipper.ripGDTNativeUnified(bh.this.pKa);
+                AdRipper.ripGDTNativeUnified(bh.this.pFz);
                 return;
             }
             m.a("GDTNativeUnifiedAd onADLoaded error: adList is null or empty");

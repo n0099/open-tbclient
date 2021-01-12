@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f>> {
-    private com.baidu.adp.widget.ListView.s anl;
-    public BdUniqueId fJu;
+    private com.baidu.adp.widget.ListView.s amu;
+    public BdUniqueId fEN;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,13 +25,13 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: bd */
     public ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.personalize.view.a(this.mPageContext, this.fJu));
-        aVar.tx().bB(0);
-        aVar.tx().bD(0);
-        aVar.tx().bC(0);
-        aVar.tx().bz(0);
-        ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f> threadCardViewHolder = new ThreadCardViewHolder<>(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.anl));
-        threadCardViewHolder.setPageId(this.fJu);
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.a(this.mPageContext, this.fEN));
+        aVar.tl().bz(0);
+        aVar.tl().bB(0);
+        aVar.tl().bA(0);
+        aVar.tl().bx(0);
+        ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f> threadCardViewHolder = new ThreadCardViewHolder<>(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amu));
+        threadCardViewHolder.setPageId(this.fEN);
         return threadCardViewHolder;
     }
 
@@ -43,13 +43,13 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f>) fVar);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.cvb().e(fVar.cTw());
-        com.baidu.tieba.a.d.bOn().e(fVar.cTw());
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.s.crj().e(fVar.cPE());
+        com.baidu.tieba.a.d.bKv().e(fVar.cPE());
         return threadCardViewHolder.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fJu = bdUniqueId;
+        this.fEN = bdUniqueId;
     }
 }

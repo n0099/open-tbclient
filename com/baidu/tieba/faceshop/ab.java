@@ -27,33 +27,33 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ab {
-    private static ab iWb;
-    private GetEmotionInfosModel iWc;
+    private static ab iRu;
+    private GetEmotionInfosModel iRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onFail();
 
         void onSuccess();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void S(int i, int i2, int i3);
     }
 
-    public static ab cCn() {
-        if (iWb == null) {
-            iWb = new ab();
+    public static ab cyv() {
+        if (iRu == null) {
+            iRu = new ab();
         }
-        return iWb;
+        return iRu;
     }
 
-    public void eV(String str, String str2) {
-        if (com.baidu.tieba.newfaceshop.d.dkg().dkk()) {
+    public void eU(String str, String str2) {
+        if (com.baidu.tieba.newfaceshop.d.dgo().dgs()) {
             com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
             return;
         }
@@ -69,7 +69,7 @@ public class ab {
         if (com.baidu.tbadk.core.util.x.isEmpty(list) && cVar != null) {
             cVar.S(4, 0, 0);
         }
-        if (com.baidu.tieba.newfaceshop.d.dkg().dkk()) {
+        if (com.baidu.tieba.newfaceshop.d.dgo().dgs()) {
             com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
             cVar.S(4, 0, 0);
             return;
@@ -89,7 +89,7 @@ public class ab {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Integer doInBackground(Void... voidArr) {
-                return Integer.valueOf(i.cBl().Kg(TbadkApplication.getCurrentAccount()) - 1);
+                return Integer.valueOf(i.cxt().IV(TbadkApplication.getCurrentAccount()) - 1);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -136,15 +136,15 @@ public class ab {
                     if (cVar2.pkgId != null) {
                         hashMap.put(cVar2.picUrl, cVar2.pkgId);
                     }
-                } else if (!ac.cCq().Kq(cVar2.picId)) {
+                } else if (!ac.cyy().Jf(cVar2.picId)) {
                     arrayList.add(cVar2);
                 }
             }
             if (arrayList2.size() > 0) {
-                if (this.iWc == null) {
-                    this.iWc = new GetEmotionInfosModel();
+                if (this.iRv == null) {
+                    this.iRv = new GetEmotionInfosModel();
                 }
-                this.iWc.a(arrayList2, new GetEmotionInfosModel.a() { // from class: com.baidu.tieba.faceshop.ab.2
+                this.iRv.a(arrayList2, new GetEmotionInfosModel.a() { // from class: com.baidu.tieba.faceshop.ab.2
                     @Override // com.baidu.tbadk.img.GetEmotionInfosModel.a
                     public void ai(List<com.baidu.tbadk.img.c> list2) {
                         if (list2 == null || list2.isEmpty()) {
@@ -155,8 +155,8 @@ public class ab {
                             }
                         }
                         for (com.baidu.tbadk.img.c cVar3 : list2) {
-                            if (!ac.cCq().Kq(cVar3.picId)) {
-                                cVar3.pkgId = (String) hashMap.get(cVar3.eJd);
+                            if (!ac.cyy().Jf(cVar3.picId)) {
+                                cVar3.pkgId = (String) hashMap.get(cVar3.eEs);
                                 arrayList.add(cVar3);
                             }
                         }
@@ -218,7 +218,7 @@ public class ab {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                return Boolean.valueOf(i.cBl().de(list));
+                return Boolean.valueOf(i.cxt().de(list));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -231,7 +231,7 @@ public class ab {
                     } else {
                         cVar.S(4, 1, 0);
                     }
-                    ac.cCq().cCr();
+                    ac.cyy().cyz();
                     if (z) {
                         new UserCollectModel().upload();
                     }
@@ -260,33 +260,33 @@ public class ab {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<Integer> doInBackground(Void[] voidArr) {
-                List<CollectEmotionData> Kf = i.cBl().Kf(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
                 HashMap hashMap = new HashMap();
-                for (CollectEmotionData collectEmotionData : Kf) {
+                for (CollectEmotionData collectEmotionData : IU) {
                     hashMap.put(collectEmotionData.getSharpText(), collectEmotionData);
                 }
-                int size = Kf.size() - 2;
+                int size = IU.size() - 2;
                 for (int i = 0; i < list.size(); i++) {
                     CollectEmotionData collectEmotionData2 = (CollectEmotionData) list.get(i);
                     collectEmotionData2.orderId = size;
                     String sharpText = collectEmotionData2.getSharpText();
                     if (hashMap.containsKey(sharpText)) {
-                        Kf.remove(hashMap.get(sharpText));
+                        IU.remove(hashMap.get(sharpText));
                         hashMap.remove(sharpText);
                     }
-                    i.cBl().c(collectEmotionData2);
+                    i.cxt().c(collectEmotionData2);
                     size--;
                 }
-                for (int i2 = 0; i2 < Kf.size(); i2++) {
-                    CollectEmotionData collectEmotionData3 = Kf.get(i2);
+                for (int i2 = 0; i2 < IU.size(); i2++) {
+                    CollectEmotionData collectEmotionData3 = IU.get(i2);
                     if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData3.sharpText)) {
                         collectEmotionData3.orderId = size;
-                        i.cBl().c(collectEmotionData3);
+                        i.cxt().c(collectEmotionData3);
                         size--;
                     }
                 }
                 if (list.size() > 0) {
-                    ac.cCq().cCr();
+                    ac.cyy().cyz();
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Integer.valueOf(list.size()));
@@ -332,7 +332,7 @@ public class ab {
                 int i = 0;
                 for (CollectEmotionData collectEmotionData : list) {
                     if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData.sharpText)) {
-                        i.cBl().b(collectEmotionData);
+                        i.cxt().b(collectEmotionData);
                         if (collectEmotionData.imageFileInfo != null && !TextUtils.isEmpty(collectEmotionData.imageFileInfo.getFilePath())) {
                             File file = new File(collectEmotionData.imageFileInfo.getFilePath());
                             if (file.exists()) {
@@ -351,16 +351,16 @@ public class ab {
                         i++;
                     }
                 }
-                List<CollectEmotionData> Kf = i.cBl().Kf(TbadkCoreApplication.getCurrentAccount());
-                for (int i2 = 0; i2 < Kf.size(); i2++) {
-                    CollectEmotionData collectEmotionData2 = Kf.get(i2);
+                List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
+                for (int i2 = 0; i2 < IU.size(); i2++) {
+                    CollectEmotionData collectEmotionData2 = IU.get(i2);
                     if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData2.getSharpText())) {
-                        collectEmotionData2.orderId = (Kf.size() - i2) - 1;
-                        i.cBl().c(collectEmotionData2);
+                        collectEmotionData2.orderId = (IU.size() - i2) - 1;
+                        i.cxt().c(collectEmotionData2);
                     }
                 }
                 if (i > 0) {
-                    ac.cCq().cCr();
+                    ac.cyy().cyz();
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Integer.valueOf(i));
@@ -407,10 +407,10 @@ public class ab {
                             File file = new File(filePath.replace("_s.jpg", "_b.jpg"));
                             byte[] bArr = null;
                             if (file.exists()) {
-                                bArr = ab.this.ac(file);
+                                bArr = ab.this.ab(file);
                             }
                             if (bArr == null) {
-                                bArr = ab.this.ac(new File(filePath.replace("_s.jpg", "_b.gif")));
+                                bArr = ab.this.ab(new File(filePath.replace("_s.jpg", "_b.gif")));
                             }
                             if (bArr != null && com.baidu.tbadk.core.util.n.saveImageFileByUser(collectEmotionData.picUrl, bArr, TbadkCoreApplication.getInst().getContext()) == 0) {
                                 i2++;
@@ -443,7 +443,7 @@ public class ab {
         }
     }
 
-    public byte[] ac(File file) {
+    public byte[] ab(File file) {
         FileInputStream fileInputStream;
         byte[] bArr = null;
         if (file != null && file.exists()) {
@@ -495,13 +495,13 @@ public class ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b extends BdAsyncTask<com.baidu.tbadk.img.c, Void, Boolean> {
-        private com.baidu.tbadk.img.c iWl;
-        private a iWm;
+        private com.baidu.tbadk.img.c iRE;
+        private a iRF;
 
         b(a aVar) {
-            this.iWm = aVar;
+            this.iRF = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -512,11 +512,11 @@ public class ab {
             if (cVarArr == null || cVarArr.length <= 0) {
                 return false;
             }
-            this.iWl = cVarArr[0];
+            this.iRE = cVarArr[0];
             com.baidu.tbadk.core.util.b.i iVar = new com.baidu.tbadk.core.util.b.i();
-            byte[] ax = iVar.ax(this.iWl.picUrl, false);
-            if (ax != null && iVar.bwI()) {
-                String a2 = ab.this.a(this.iWl, true);
+            byte[] ax = iVar.ax(this.iRE.picUrl, false);
+            if (ax != null && iVar.bsO()) {
+                String a2 = ab.this.a(this.iRE, true);
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
@@ -527,16 +527,16 @@ public class ab {
                 if (!file.getParentFile().exists()) {
                     file.getParentFile().mkdirs();
                 }
-                if (!ab.this.d(file, ax)) {
+                if (!ab.this.c(file, ax)) {
                     return false;
                 }
-                byte[] ax2 = iVar.ax(this.iWl.thumbnail, false);
-                if (ax2 != null && iVar.bwI()) {
-                    String a3 = ab.this.a(this.iWl, false);
+                byte[] ax2 = iVar.ax(this.iRE.thumbnail, false);
+                if (ax2 != null && iVar.bsO()) {
+                    String a3 = ab.this.a(this.iRE, false);
                     if (TextUtils.isEmpty(a3)) {
                         return false;
                     }
-                    if (!ab.this.d(new File(a3), ax2)) {
+                    if (!ab.this.c(new File(a3), ax2)) {
                         return false;
                     }
                     return true;
@@ -551,18 +551,18 @@ public class ab {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (bool != null && bool.booleanValue()) {
-                if (this.iWm != null) {
-                    this.iWm.onSuccess();
+                if (this.iRF != null) {
+                    this.iRF.onSuccess();
                 }
-            } else if (this.iWm != null) {
-                this.iWm.onFail();
+            } else if (this.iRF != null) {
+                this.iRF.onFail();
             }
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [591=5, 592=5, 594=5, 595=5] */
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean d(File file, byte[] bArr) {
+    public boolean c(File file, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
         FileOutputStream fileOutputStream2 = null;
         try {
@@ -654,14 +654,14 @@ public class ab {
         return str2;
     }
 
-    public void cCo() {
+    public void cyw() {
         new BdAsyncTask<Void, Void, List<CollectEmotionData>>() { // from class: com.baidu.tieba.faceshop.ab.8
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<CollectEmotionData> doInBackground(Void... voidArr) {
-                return ab.this.cCp();
+                return ab.this.cyx();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -687,13 +687,13 @@ public class ab {
         }.execute(new Void[0]);
     }
 
-    public boolean qe(boolean z) {
-        List<CollectEmotionData> cCp = cCp();
-        if (cCp == null || cCp.isEmpty()) {
+    public boolean qa(boolean z) {
+        List<CollectEmotionData> cyx = cyx();
+        if (cyx == null || cyx.isEmpty()) {
             return true;
         }
         if (z) {
-            d(cCp, false, new c() { // from class: com.baidu.tieba.faceshop.ab.9
+            d(cyx, false, new c() { // from class: com.baidu.tieba.faceshop.ab.9
                 @Override // com.baidu.tieba.faceshop.ab.c
                 public void S(int i, int i2, int i3) {
                 }
@@ -703,11 +703,11 @@ public class ab {
         return false;
     }
 
-    public List<CollectEmotionData> cCp() {
+    public List<CollectEmotionData> cyx() {
         ArrayList arrayList = new ArrayList();
-        List<CollectEmotionData> Kf = i.cBl().Kf(TbadkCoreApplication.getCurrentAccount());
-        if (Kf != null) {
-            for (CollectEmotionData collectEmotionData : Kf) {
+        List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
+        if (IU != null) {
+            for (CollectEmotionData collectEmotionData : IU) {
                 if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !new File(aO(collectEmotionData.pid, false)).exists()) {
                     arrayList.add(collectEmotionData);
                 }
@@ -731,7 +731,7 @@ public class ab {
         collectEmotionData.pid = cVar.picId;
         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
         collectEmotionData.sharpText = "#(" + sb.toString() + lowerCase + ")";
-        collectEmotionData.orderId = i.cBl().Kg(collectEmotionData.uid) + 1;
+        collectEmotionData.orderId = i.cxt().IV(collectEmotionData.uid) + 1;
         collectEmotionData.width = cVar.width;
         collectEmotionData.height = cVar.height;
         collectEmotionData.picUrl = cVar.picUrl;

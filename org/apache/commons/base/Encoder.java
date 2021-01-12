@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface Encoder {
     Object encode(Object obj) throws EncoderException;
 }

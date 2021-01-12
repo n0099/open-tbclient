@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     private static final int DEFAULT_REBOUND_MAX_OFFSET = 150;
     private static final int REBOUND_ANIM_TIME = 200;
@@ -41,7 +41,7 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     private int mReboundViewOriginHeight;
     private int mReboundViewOriginWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface HeaderTopBottomOffsetChangeListener {
         void onHeaderTopBottomOffsetChange(int i, int i2);
     }

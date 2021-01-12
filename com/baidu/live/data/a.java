@@ -4,21 +4,20 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.util.TbEnum;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public long aIT;
-    public long aIU;
-    public int aIV;
-    public boolean aIW;
-    public boolean aIX;
-    public int aIY;
-    public List<AlaLiveMarkData> aIZ;
+    public long aEg;
+    public long aEh;
+    public int aEi;
+    public boolean aEj;
+    public boolean aEk;
+    public int aEl;
+    public List<AlaLiveMarkData> aEm;
     public String appId;
     public JSONObject extInfoJson;
     public JSONObject extraUserInfo;
@@ -42,27 +41,27 @@ public class a {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.level_id = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL);
+            this.level_id = jSONObject.optInt("level");
             this.sex = jSONObject.optInt("sex");
-            this.aIT = jSONObject.optLong("fan_num");
-            this.aIU = jSONObject.optLong("concern_num");
-            this.aIV = jSONObject.optInt("have_concern");
-            this.aIW = jSONObject.optBoolean("isOfficial");
-            this.aIX = jSONObject.optBoolean("isLiveAdmin");
+            this.aEg = jSONObject.optLong("fan_num");
+            this.aEh = jSONObject.optLong("concern_num");
+            this.aEi = jSONObject.optInt("have_concern");
+            this.aEj = jSONObject.optBoolean("isOfficial");
+            this.aEk = jSONObject.optBoolean("isLiveAdmin");
             this.appId = jSONObject.optString("app_id");
             this.tagName = jSONObject.optString("tag_name");
-            this.aIY = jSONObject.optInt("tag_type");
+            this.aEl = jSONObject.optInt("tag_type");
             this.appId = jSONObject.optString("app_id");
             this.extInfoJson = jSONObject.optJSONObject("ext_info");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aIZ = new ArrayList(optJSONArray.length());
+                this.aEm = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.userLevel = this.level_id;
                     alaLiveMarkData.parserJson(optJSONObject);
-                    this.aIZ.add(alaLiveMarkData);
+                    this.aEm.add(alaLiveMarkData);
                 }
             }
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
@@ -78,22 +77,22 @@ public class a {
             jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.userId);
             jSONObject.put("name_show", this.name_show);
             jSONObject.put("portrait", this.portrait);
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_LEVEL, this.level_id);
+            jSONObject.put("level", this.level_id);
             jSONObject.put("sex", this.sex);
-            jSONObject.put("fan_num", this.aIT);
-            jSONObject.put("concern_num", this.aIU);
-            jSONObject.put("have_concern", this.aIV);
-            jSONObject.put("isOfficial", this.aIW);
-            jSONObject.put("isLiveAdmin", this.aIX);
+            jSONObject.put("fan_num", this.aEg);
+            jSONObject.put("concern_num", this.aEh);
+            jSONObject.put("have_concern", this.aEi);
+            jSONObject.put("isOfficial", this.aEj);
+            jSONObject.put("isLiveAdmin", this.aEk);
             jSONObject.put("app_id", this.appId);
             jSONObject.put("tag_name", this.tagName);
-            jSONObject.put("tag_type", this.aIY);
+            jSONObject.put("tag_type", this.aEl);
             if (this.extInfoJson != null) {
                 jSONObject.put("ext_info", this.extInfoJson);
             }
             JSONArray jSONArray = new JSONArray();
-            if (this.aIZ != null) {
-                for (AlaLiveMarkData alaLiveMarkData : this.aIZ) {
+            if (this.aEm != null) {
+                for (AlaLiveMarkData alaLiveMarkData : this.aEm) {
                     jSONArray.put(alaLiveMarkData.toJsonObject());
                 }
             }

@@ -3,20 +3,20 @@ package com.kwad.sdk.contentalliance.profile.tabvideo.a.b;
 import android.view.View;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f9102b;
+    private View f8802b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.kwad.sdk.core.response.b.c.z((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10752a).i) == ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10752a).f9097a.mCurrentPhotoId) {
-            this.f9102b.setVisibility(0);
+        if (com.kwad.sdk.core.response.b.c.z((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10452a).i) == ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10452a).f8797a.mCurrentPhotoId) {
+            this.f8802b.setVisibility(0);
         } else {
-            this.f9102b.setVisibility(8);
+            this.f8802b.setVisibility(8);
         }
     }
 
@@ -24,6 +24,6 @@ public class d extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9102b = b(R.id.ksad_profile_watched_tip);
+        this.f8802b = b(R.id.ksad_profile_watched_tip);
     }
 }

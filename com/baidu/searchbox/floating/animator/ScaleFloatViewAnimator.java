@@ -13,7 +13,7 @@ import kotlin.TypeCastException;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     private final long mDuration = 2000;
 

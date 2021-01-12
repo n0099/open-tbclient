@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6129a;
+    private String f5829a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6130b;
+    private String f5830b;
     private String c;
     private String d;
     private String e;
@@ -21,8 +21,8 @@ public class l {
     private int n;
     private int o;
     private int p;
-    private j pgF;
-    private k pgG;
+    private j pcc;
+    private k pcd;
     private String r;
     private String s;
     private String t;
@@ -35,27 +35,27 @@ public class l {
     private boolean y = true;
 
     public l(@NonNull String str, @NonNull String str2) {
-        this.f6129a = str;
-        this.f6130b = str2;
+        this.f5829a = str;
+        this.f5830b = str2;
     }
 
-    public String epa() {
+    public String ele() {
         return this.j;
     }
 
-    public boolean epb() {
+    public boolean elf() {
         return this.h;
     }
 
-    public String yz() {
-        return this.f6129a;
+    public String uE() {
+        return this.f5829a;
     }
 
     public String getChannel() {
-        return this.f6130b;
+        return this.f5830b;
     }
 
-    public String epc() {
+    public String elg() {
         return this.c;
     }
 
@@ -63,16 +63,16 @@ public class l {
         return this.d;
     }
 
-    public String epd() {
+    public String elh() {
         return this.e;
     }
 
-    public String epe() {
+    public String eli() {
         return this.f;
     }
 
     @NonNull
-    public l AI(boolean z) {
+    public l AE(boolean z) {
         this.i = z ? 1 : 2;
         return this;
     }
@@ -81,11 +81,11 @@ public class l {
         return this.i;
     }
 
-    public j epf() {
-        return this.pgF;
+    public j elj() {
+        return this.pcc;
     }
 
-    public l PC(int i) {
+    public l NV(int i) {
         aa.a(i);
         return this;
     }
@@ -98,7 +98,7 @@ public class l {
         return this.l;
     }
 
-    public String epg() {
+    public String elk() {
         return this.m;
     }
 
@@ -106,63 +106,63 @@ public class l {
         return this.n;
     }
 
-    public int eph() {
+    public int ell() {
         return this.o;
     }
 
-    public int epi() {
+    public int elm() {
         return this.p;
     }
 
-    public String epj() {
+    public String eln() {
         return this.r;
     }
 
-    public String epk() {
+    public String elo() {
         return this.s;
     }
 
-    public String epl() {
+    public String elp() {
         return this.t;
     }
 
-    public String epm() {
+    public String elq() {
         return this.u;
     }
 
-    public String epn() {
+    public String elr() {
         return this.v;
     }
 
-    public String epo() {
+    public String els() {
         return this.w;
     }
 
-    public void AJ(boolean z) {
+    public void AF(boolean z) {
         this.x = z;
     }
 
-    public boolean epp() {
+    public boolean elt() {
         return this.y;
     }
 
-    public void AK(boolean z) {
+    public void AG(boolean z) {
         this.y = z;
     }
 
-    public String epq() {
+    public String elu() {
         return this.z;
     }
 
-    public void YB(String str) {
+    public void Xt(String str) {
         this.z = str;
     }
 
-    public k epr() {
-        return this.pgG;
+    public k elv() {
+        return this.pcd;
     }
 
     public void a(k kVar) {
-        this.pgG = kVar;
+        this.pcd = kVar;
     }
 }

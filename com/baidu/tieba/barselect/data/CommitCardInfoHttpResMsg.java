@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CommitCardInfo.CommitCardInfoResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CommitCardInfoHttpResMsg extends TbHttpResponsedMessage {
     public CommitCardInfoHttpResMsg() {
         super(CmdConfigHttp.CMD_COMMIT_CARD_INFO);

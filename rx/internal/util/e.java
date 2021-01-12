@@ -1,10 +1,10 @@
 package rx.internal.util;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class e<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] qmb;
+    T[] qhz;
     int size;
 
     public e() {
@@ -13,31 +13,31 @@ public final class e<T> {
 
     public e(int i, float f) {
         this.loadFactor = f;
-        int TA = rx.internal.util.a.h.TA(i);
-        this.mask = TA - 1;
-        this.maxSize = (int) (TA * f);
-        this.qmb = (T[]) new Object[TA];
+        int RT = rx.internal.util.a.h.RT(i);
+        this.mask = RT - 1;
+        this.maxSize = (int) (RT * f);
+        this.qhz = (T[]) new Object[RT];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.qmb;
+        T[] tArr = this.qhz;
         int i = this.mask;
-        int Tz = Tz(t.hashCode()) & i;
-        T t3 = tArr[Tz];
+        int RS = RS(t.hashCode()) & i;
+        T t3 = tArr[RS];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Tz = (Tz + 1) & i;
-                t2 = tArr[Tz];
+                RS = (RS + 1) & i;
+                t2 = tArr[RS];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Tz] = t;
+        tArr[RS] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.qmb;
+        T[] tArr = this.qhz;
         int i = this.mask;
-        int Tz = Tz(t.hashCode()) & i;
-        T t3 = tArr[Tz];
+        int RS = RS(t.hashCode()) & i;
+        T t3 = tArr[RS];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Tz, tArr, i);
+            return a(RS, tArr, i);
         }
         do {
-            Tz = (Tz + 1) & i;
-            t2 = tArr[Tz];
+            RS = (RS + 1) & i;
+            t2 = tArr[RS];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Tz, tArr, i);
+        return a(RS, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class e<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Tz = Tz(t.hashCode()) & i2;
+                int RS = RS(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Tz && Tz > i3) {
+                    if (i >= RS && RS > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Tz && Tz <= i3) {
+                } else if (i < RS && RS <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.qmb = (T[]) new Object[0];
+        this.qhz = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.qmb;
+        T[] tArr = this.qhz;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -114,24 +114,24 @@ public final class e<T> {
                 do {
                     length--;
                 } while (tArr[length] == null);
-                int Tz = Tz(tArr[length].hashCode()) & i2;
-                if (tArr2[Tz] != null) {
+                int RS = RS(tArr[length].hashCode()) & i2;
+                if (tArr2[RS] != null) {
                     do {
-                        Tz = (Tz + 1) & i2;
-                    } while (tArr2[Tz] != null);
+                        RS = (RS + 1) & i2;
+                    } while (tArr2[RS] != null);
                 }
-                tArr2[Tz] = tArr[length];
+                tArr2[RS] = tArr[length];
                 i3 = i4;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.qmb = tArr2;
+                this.qhz = tArr2;
                 return;
             }
         }
     }
 
-    static int Tz(int i) {
+    static int RS(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
@@ -140,7 +140,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] eOM() {
-        return this.qmb;
+    public T[] eKW() {
+        return this.qhz;
     }
 }

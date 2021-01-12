@@ -1,5 +1,5 @@
 package com.kwai.player.vr;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiPlayerStereoMesh {
     private static final String TAG = "KwaiPlayerStereoMesh";
     private KwaiBaseMesh mKwaiBaseMesh;

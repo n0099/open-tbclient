@@ -7,19 +7,19 @@ import com.baidu.tbadk.editortools.noConflictPanel.b.d;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.editortools.noConflictPanel.a {
-    private final View fFt;
-    private boolean fFw;
-    private boolean cDR = false;
-    private boolean fFx = false;
+    private final View fAL;
+    private boolean fAO;
+    private boolean czf = false;
+    private boolean fAP = false;
 
     public b(View view, AttributeSet attributeSet) {
-        this.fFw = false;
-        this.fFt = view;
+        this.fAO = false;
+        this.fAL = view;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = view.getContext().obtainStyledAttributes(attributeSet, R.styleable.KPSwitchPanelLayout);
-                this.fFw = typedArray.getBoolean(R.styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
+                this.fAO = typedArray.getBoolean(R.styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
             } finally {
                 if (typedArray != null) {
                     typedArray.recycle();
@@ -28,56 +28,56 @@ public class b implements com.baidu.tbadk.editortools.noConflictPanel.a {
         }
     }
 
-    public boolean hC(int i) {
+    public boolean fV(int i) {
         if (i == 0) {
-            this.cDR = false;
+            this.czf = false;
         }
-        if (i == this.fFt.getVisibility()) {
+        if (i == this.fAL.getVisibility()) {
             return true;
         }
-        return bFi() && i == 0;
+        return bBo() && i == 0;
     }
 
     public int[] Y(int i, int i2) {
-        if (this.cDR) {
-            this.fFt.setVisibility(8);
+        if (this.czf) {
+            this.fAL.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
         return new int[]{i, i2};
     }
 
-    public void kV(boolean z) {
-        this.fFx = z;
+    public void kR(boolean z) {
+        this.fAP = z;
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean bFi() {
-        return this.fFx;
+    public boolean bBo() {
+        return this.fAP;
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
     public boolean isVisible() {
-        return !this.cDR;
+        return !this.czf;
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aja() {
+    public void afg() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void ajb() {
-        this.cDR = true;
+    public void afh() {
+        this.czf = true;
     }
 
-    public void sC(int i) {
-        if (!this.fFw) {
-            d.r(this.fFt, i);
+    public void qW(int i) {
+        if (!this.fAO) {
+            d.r(this.fAL, i);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.fFw = z;
+        this.fAO = z;
     }
 }

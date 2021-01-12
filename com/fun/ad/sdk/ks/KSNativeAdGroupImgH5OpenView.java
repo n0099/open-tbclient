@@ -17,20 +17,19 @@ import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class KSNativeAdGroupImgH5OpenView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8127a;
+    public TextView f7827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f8128b;
+    public LinearLayout f7828b;
     public ImageView c;
     public ImageView d;
     public ImageView e;
-    public ImageView f;
-    public TextView g;
-    public Button h;
+    public TextView f;
+    public Button g;
 
     public KSNativeAdGroupImgH5OpenView(Context context) {
         this(context, null);
@@ -53,47 +52,46 @@ public class KSNativeAdGroupImgH5OpenView extends o1 {
         if (imageList != null && imageList.size() >= 3) {
             KsImage ksImage = imageList.get(0);
             if (ksImage != null && ksImage.isValid()) {
-                ap.a.pJL.a(getContext(), ksImage.getImageUrl(), this.c);
+                ap.a.pFk.a(getContext(), ksImage.getImageUrl(), this.c);
             }
             KsImage ksImage2 = imageList.get(1);
             if (ksImage2 != null && ksImage2.isValid()) {
-                ap.a.pJL.a(getContext(), ksImage2.getImageUrl(), this.d);
+                ap.a.pFk.a(getContext(), ksImage2.getImageUrl(), this.d);
             }
             KsImage ksImage3 = imageList.get(2);
             if (ksImage3 != null && ksImage3.isValid()) {
-                ap.a.pJL.a(getContext(), ksImage3.getImageUrl(), this.e);
+                ap.a.pFk.a(getContext(), ksImage3.getImageUrl(), this.e);
             }
         }
-        this.f.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f8127a.setText(ksNativeAd.getAdDescription());
-        this.g.setText(ksNativeAd.getAdSource());
-        this.h.setText(ksNativeAd.getActionDescription());
-        ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.h, str, FunAdType.KS_NATIVE, str2));
+        this.f7827a.setText(ksNativeAd.getAdDescription());
+        this.f.setText(ksNativeAd.getAdSource());
+        this.g.setText(ksNativeAd.getActionDescription());
+        ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.g, str, FunAdType.KS_NATIVE, str2));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8127a = (TextView) findViewById(R.id.ad_description);
-        this.f8128b = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f7827a = (TextView) findViewById(R.id.ad_description);
+        this.f7828b = (LinearLayout) findViewById(R.id.ad_img_container);
         this.c = (ImageView) findViewById(R.id.ad_img_1);
         this.d = (ImageView) findViewById(R.id.ad_img_2);
         this.e = (ImageView) findViewById(R.id.ad_img_3);
-        this.f = (ImageView) findViewById(R.id.ad_logo);
-        this.g = (TextView) findViewById(R.id.ad_h5_description);
-        this.h = (Button) findViewById(R.id.ad_h5_open);
+        ImageView imageView = (ImageView) findViewById(R.id.ad_logo);
+        this.f = (TextView) findViewById(R.id.ad_h5_description);
+        this.g = (Button) findViewById(R.id.ad_h5_open);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8128b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7828b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.e.getLayoutParams();
         layoutParams.width = i5;
         layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-        this.f8128b.setLayoutParams(layoutParams);
+        this.f7828b.setLayoutParams(layoutParams);
     }
 }

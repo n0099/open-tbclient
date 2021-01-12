@@ -26,7 +26,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void b() {
         this.d = false;
         this.i = "draw_ad";
-        p.h().s(String.valueOf(aj.d(this.f7020a.W())));
+        p.h().s(String.valueOf(aj.d(this.f6720a.W())));
         super.b();
     }
 
@@ -76,7 +76,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
         f();
         if (this.e != null) {
             if (this.e.getVisibility() != 0) {
-                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f7020a.F().g(), this.f);
+                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f6720a.F().g(), this.f);
             } else {
                 return;
             }

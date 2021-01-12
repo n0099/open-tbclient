@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.AddTaskScores.AddTaskScoresReqIdl;
 import tbclient.AddTaskScores.DataReq;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetTaskScoresRequestMessage extends NetMessage {
     private int taskId;
     private long userId;

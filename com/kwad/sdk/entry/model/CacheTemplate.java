@@ -3,7 +3,7 @@ package com.kwad.sdk.entry.model;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CacheTemplate extends AdTemplate {
     public CacheTemplate(AdTemplate adTemplate, SceneImpl sceneImpl) {
         this.posId = adTemplate.posId;

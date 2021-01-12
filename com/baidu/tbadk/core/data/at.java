@@ -6,10 +6,10 @@ import org.json.JSONArray;
 public class at {
     public String abTag;
     public int cardType;
-    private long eQM;
-    public int eQP;
-    public JSONArray eQQ;
-    public int eQR;
+    private long eMb;
+    public int eMe;
+    public JSONArray eMf;
+    public int eMg;
     public String extra;
     private String fid;
     private String nid;
@@ -19,8 +19,8 @@ public class at {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> eQN = null;
-    public SparseArray<String> eQO = null;
+    public SparseArray<String> eMc = null;
+    public SparseArray<String> eMd = null;
 
     public String getTid() {
         return this.tid;
@@ -58,31 +58,31 @@ public class at {
         this.feedBackReasonMap = sparseArray;
     }
 
-    public void oA(int i) {
-        this.eQP = i;
+    public void mU(int i) {
+        this.eMe = i;
     }
 
-    public int bpM() {
-        return this.eQP;
+    public int blS() {
+        return this.eMe;
     }
 
     public void Q(JSONArray jSONArray) {
-        this.eQQ = jSONArray;
+        this.eMf = jSONArray;
     }
 
-    public JSONArray bpN() {
-        return this.eQQ;
+    public JSONArray blT() {
+        return this.eMf;
     }
 
-    public long bpO() {
-        return this.eQM;
+    public long blU() {
+        return this.eMb;
     }
 
     public void dD(long j) {
-        this.eQM = j;
+        this.eMb = j;
     }
 
-    public String bpP() {
+    public String blV() {
         return this.nid;
     }
 

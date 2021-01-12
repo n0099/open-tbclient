@@ -20,7 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Loader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class DelegateFragment extends Fragment implements IDelegateFragment {
     private static final String REAL_BASE_CLASS = "real_base_class";
     private IFragmentLifecycle mBase;
@@ -217,7 +217,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
         this.mBase.onPrepareOptionsMenu(menu);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.n.a.a.InterfaceC0277a
+    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.mBase.onRequestPermissionsResult(i, strArr, iArr);

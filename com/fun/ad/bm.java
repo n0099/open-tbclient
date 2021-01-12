@@ -13,11 +13,11 @@ import com.fun.ad.sdk.FunRippedAd;
 import com.qq.e.ads.rewardvideo.RewardVideoAD;
 import com.qq.e.ads.rewardvideo.RewardVideoADListener;
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bm extends an {
-    public RewardVideoAD pKi;
+    public RewardVideoAD pFH;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements RewardVideoADListener {
         public a() {
         }
@@ -26,9 +26,9 @@ public class bm extends an {
         public void onADClick() {
             m.a("GDTRewardVideoAd onADClick");
             bm bmVar = bm.this;
-            ah ahVar = bmVar.pJI;
+            ah ahVar = bmVar.pFh;
             if (ahVar != null) {
-                ((aa) ahVar).c(bmVar.f8052a.f8060a);
+                ((aa) ahVar).c(bmVar.f7752a.f7760a);
             }
         }
 
@@ -36,9 +36,9 @@ public class bm extends an {
         public void onADClose() {
             m.a("GDTRewardVideoAd onADClose");
             bm bmVar = bm.this;
-            ah ahVar = bmVar.pJI;
+            ah ahVar = bmVar.pFh;
             if (ahVar != null) {
-                ((aa) ahVar).a(bmVar.f8052a.f8060a);
+                ((aa) ahVar).a(bmVar.f7752a.f7760a);
             }
         }
 
@@ -46,9 +46,9 @@ public class bm extends an {
         public void onADExpose() {
             m.a("GDTRewardVideoAd onADExpose");
             bm bmVar = bm.this;
-            ah ahVar = bmVar.pJI;
+            ah ahVar = bmVar.pFh;
             if (ahVar != null) {
-                ((aa) ahVar).b(bmVar.f8052a.f8060a);
+                ((aa) ahVar).b(bmVar.f7752a.f7760a);
             }
         }
 
@@ -56,12 +56,12 @@ public class bm extends an {
         public void onADLoad() {
             m.a("GDTRewardVideoAd onADLoad");
             bm bmVar = bm.this;
-            bmVar.f8053b = false;
-            ak akVar = bmVar.pJH;
+            bmVar.f7753b = false;
+            ak akVar = bmVar.pFg;
             if (akVar != null) {
-                ((x) akVar).b(bmVar.f8052a.f8060a);
+                ((x) akVar).b(bmVar.f7752a.f7760a);
             }
-            AdRipper.ripGDTRewardVideo(bm.this.pKi);
+            AdRipper.ripGDTRewardVideo(bm.this.pFH);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
@@ -73,10 +73,10 @@ public class bm extends an {
         public void onError(AdError adError) {
             m.a("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bm bmVar = bm.this;
-            bmVar.f8053b = false;
-            ak akVar = bmVar.pJH;
+            bmVar.f7753b = false;
+            ak akVar = bmVar.pFg;
             if (akVar != null) {
-                ((x) akVar).a(bmVar.f8052a.f8060a, adError.getErrorCode(), adError.getErrorMsg());
+                ((x) akVar).a(bmVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
@@ -84,27 +84,27 @@ public class bm extends an {
         public void onReward() {
             m.a("GDTRewardVideoAd onReward");
             bm bmVar = bm.this;
-            ah ahVar = bmVar.pJI;
+            ah ahVar = bmVar.pFh;
             if (ahVar != null) {
-                String str = bmVar.f8052a.f8060a;
+                String str = bmVar.f7752a.f7760a;
                 aa aaVar = (aa) ahVar;
                 if (aaVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 优量汇广告 onRewardedVideo，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = aaVar.pJv;
+                FunAdInteractionListener funAdInteractionListener = aaVar.pEU;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onRewardedVideo(aaVar.pJx.pJf.f8058a);
+                    funAdInteractionListener.onRewardedVideo(aaVar.pEW.pEE.f7758a);
                 }
-                d.b bVar = d.pIU;
-                ((d.a) bVar).e(aaVar.f8042b, aaVar.pJw.f8061b, str);
+                d.b bVar = d.pEt;
+                ((d.a) bVar).e(aaVar.f7742b, aaVar.pEV.f7761b, str);
             }
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onVideoCached() {
             m.a("GDTRewardVideoAd onVideoCached");
-            ah ahVar = bm.this.pJI;
+            ah ahVar = bm.this.pFh;
             if (ahVar != null) {
                 if (((aa) ahVar) == null) {
                     throw null;
@@ -116,7 +116,7 @@ public class bm extends an {
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onVideoComplete() {
             m.a("GDTRewardVideoAd onVideoComplete");
-            ah ahVar = bm.this.pJI;
+            ah ahVar = bm.this.pFh;
             if (ahVar != null) {
                 if (((aa) ahVar) == null) {
                     throw null;
@@ -133,13 +133,13 @@ public class bm extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        this.pKi = null;
+        this.pFH = null;
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         AdRipper.RippedGDTAd rippedGDTRewardVideoAd;
-        RewardVideoAD rewardVideoAD = this.pKi;
+        RewardVideoAD rewardVideoAD = this.pFH;
         if (rewardVideoAD == null || (rippedGDTRewardVideoAd = AdRipper.getRippedGDTRewardVideoAd(rewardVideoAD, false)) == null) {
             return null;
         }
@@ -157,14 +157,14 @@ public class bm extends an {
     @Override // com.fun.ad.an
     public void a(Context context, FunAdSlot funAdSlot, ak akVar) {
         super.a(context.getApplicationContext(), funAdSlot, akVar);
-        if (!this.f8053b) {
-            this.f8053b = true;
-            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.f8052a.f8060a, (RewardVideoADListener) new a(), true);
-            this.pKi = rewardVideoAD;
+        if (!this.f7753b) {
+            this.f7753b = true;
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.f7752a.f7760a, (RewardVideoADListener) new a(), true);
+            this.pFH = rewardVideoAD;
             rewardVideoAD.loadAD();
-            ak akVar2 = this.pJH;
+            ak akVar2 = this.pFg;
             if (akVar2 != null) {
-                ((x) akVar2).a(this.f8052a.f8060a);
+                ((x) akVar2).a(this.f7752a.f7760a);
             }
         }
     }
@@ -172,14 +172,14 @@ public class bm extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        RewardVideoAD rewardVideoAD = this.pKi;
+        RewardVideoAD rewardVideoAD = this.pFH;
         if (rewardVideoAD != null) {
             rewardVideoAD.showAD(activity);
             return;
         }
-        ah ahVar2 = this.pJI;
+        ah ahVar2 = this.pFh;
         if (ahVar2 != null) {
-            ((aa) ahVar2).a(this.f8052a.f8060a, 0, "Custom error message: mRewardVideoAD is null when show");
+            ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mRewardVideoAD is null when show");
         }
     }
 }

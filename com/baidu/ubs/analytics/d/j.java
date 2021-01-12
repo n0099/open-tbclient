@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class j {
-    private static int oOV = 1000;
-    private static boolean oOW = true;
+    private static int oKt = 1000;
+    private static boolean oKu = true;
 
     public static void c(boolean z) {
-        oOW = z;
+        oKu = z;
     }
 
     public static void I(String str) {
-        if (oOW) {
+        if (oKu) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oOW) {
+        if (oKu) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oOW) {
+        if (oKu) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oOW) {
+        if (oKu) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oOV) {
+            if (str2.length() >= oKt) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oOV));
+                        Log.v(str, str2.substring(0, oKt));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oOV));
+                        Log.d(str, str2.substring(0, oKt));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oOV));
+                        Log.i(str, str2.substring(0, oKt));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oOV));
+                        Log.w(str, str2.substring(0, oKt));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oOV));
+                        Log.e(str, str2.substring(0, oKt));
                         break;
                 }
             } else {

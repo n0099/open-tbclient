@@ -4,12 +4,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class q implements com.baidu.ubc.q {
     @Override // com.baidu.ubc.q
-    public String aGV() {
+    public String aDb() {
         return null;
     }
 
     @Override // com.baidu.ubc.q
-    public boolean qX(String str) {
+    public boolean pM(String str) {
         return false;
     }
 
@@ -24,7 +24,7 @@ public class q implements com.baidu.ubc.q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dLO() {
+    public List<String> dHW() {
         return null;
     }
 }

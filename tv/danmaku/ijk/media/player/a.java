@@ -2,14 +2,14 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f15043a;
+    private b.f f14746a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b.InterfaceC1334b f15044b;
+    private b.InterfaceC1317b f14747b;
     private b.a c;
     private b.g d;
     private b.i e;
@@ -19,9 +19,9 @@ public abstract class a implements b {
     private b.e i;
 
     public void a() {
-        this.f15043a = null;
+        this.f14746a = null;
         this.c = null;
-        this.f15044b = null;
+        this.f14747b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -51,8 +51,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1334b interfaceC1334b) {
-        this.f15044b = interfaceC1334b;
+    public final void a(b.InterfaceC1317b interfaceC1317b) {
+        this.f14747b = interfaceC1317b;
     }
 
     public final void a(b.c cVar) {
@@ -68,7 +68,7 @@ public abstract class a implements b {
     }
 
     public final void a(b.f fVar) {
-        this.f15043a = fVar;
+        this.f14746a = fVar;
     }
 
     public final void a(b.g gVar) {
@@ -93,8 +93,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f15043a != null) {
-            this.f15043a.a(this);
+        if (this.f14746a != null) {
+            this.f14746a.a(this);
         }
     }
 
@@ -105,8 +105,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.f15044b != null) {
-            this.f15044b.b(this);
+        if (this.f14747b != null) {
+            this.f14747b.b(this);
         }
     }
 

@@ -24,20 +24,20 @@ import com.baidu.tieba.ala.category.c.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivity> {
-    private CommonEmptyView bxT;
-    private TextView gOm;
-    private BdTypeListView gOn;
-    private BdTypeListView gOo;
-    private a gOp;
-    private com.baidu.tieba.ala.category.a.a gOq;
-    private c gOr;
-    private String gOs;
-    private String gOt;
-    private com.baidu.tieba.ala.category.b.c gOu;
-    private com.baidu.tieba.ala.category.b.c gOv;
-    private MessageListener<?> gOw = new CustomMessageListener(2913200) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.3
+    private CommonEmptyView btf;
+    private TextView gJG;
+    private BdTypeListView gJH;
+    private BdTypeListView gJI;
+    private a gJJ;
+    private com.baidu.tieba.ala.category.a.a gJK;
+    private c gJL;
+    private String gJM;
+    private String gJN;
+    private com.baidu.tieba.ala.category.b.c gJO;
+    private com.baidu.tieba.ala.category.b.c gJP;
+    private MessageListener<?> gJQ = new CustomMessageListener(2913200) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -46,7 +46,7 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             }
         }
     };
-    private MessageListener<?> gOx = new CustomMessageListener(2913201) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.4
+    private MessageListener<?> gJR = new CustomMessageListener(2913201) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -73,38 +73,38 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gOv != null && !TextUtils.equals(this.gOv.getId(), this.gOt)) {
+        if (this.gJP != null && !TextUtils.equals(this.gJP.getId(), this.gJN)) {
             com.baidu.tieba.ala.category.b.a aVar = new com.baidu.tieba.ala.category.b.a();
-            aVar.c(this.gOu);
-            aVar.d(this.gOv);
+            aVar.c(this.gJO);
+            aVar.d(this.gJP);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913202, aVar));
         }
     }
 
     private void registerListener() {
-        registerListener(this.gOw);
-        registerListener(this.gOx);
+        registerListener(this.gJQ);
+        registerListener(this.gJR);
     }
 
     private void initData() {
-        this.gOs = getIntent().getStringExtra("cat1_id");
-        this.gOt = getIntent().getStringExtra("cat2_id");
-        this.gOp = new com.baidu.tieba.ala.category.c.a(getPageContext());
-        this.gOp.a(new a.InterfaceC0639a() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.1
-            @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0639a
+        this.gJM = getIntent().getStringExtra("cat1_id");
+        this.gJN = getIntent().getStringExtra("cat2_id");
+        this.gJJ = new com.baidu.tieba.ala.category.c.a(getPageContext());
+        this.gJJ.a(new a.InterfaceC0622a() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.1
+            @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0622a
             public void onLoadSuccess() {
-                List<IAdapterData> bWC = AlaLiveCategoryActivity.this.gOp.bWC();
-                AlaLiveCategoryActivity.this.gOn.setData(bWC);
-                AlaLiveCategoryActivity.this.cs(bWC);
+                List<IAdapterData> bSK = AlaLiveCategoryActivity.this.gJJ.bSK();
+                AlaLiveCategoryActivity.this.gJH.setData(bSK);
+                AlaLiveCategoryActivity.this.cs(bSK);
             }
 
-            @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0639a
-            public void aE(int i, String str) {
-                AlaLiveCategoryActivity.this.bUM();
+            @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0622a
+            public void aF(int i, String str) {
+                AlaLiveCategoryActivity.this.bQU();
             }
         });
-        this.gOq = new com.baidu.tieba.ala.category.a.a(getPageContext().getContext(), this.gOp.getUniqueId());
-        this.gOr = new c(getPageContext().getContext(), this.gOp.getUniqueId());
+        this.gJK = new com.baidu.tieba.ala.category.a.a(getPageContext().getContext(), this.gJJ.getUniqueId());
+        this.gJL = new c(getPageContext().getContext(), this.gJJ.getUniqueId());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -120,11 +120,11 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             IAdapterData next = it.next();
             if (next instanceof com.baidu.tieba.ala.category.b.c) {
                 cVar = cVar2 == null ? (com.baidu.tieba.ala.category.b.c) next : cVar2;
-                if (TextUtils.equals(((com.baidu.tieba.ala.category.b.c) next).getId(), this.gOs)) {
-                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bWD()) {
-                        if ((iAdapterData instanceof com.baidu.tieba.ala.category.b.c) && TextUtils.equals(((com.baidu.tieba.ala.category.b.c) iAdapterData).getId(), this.gOt)) {
-                            this.gOu = (com.baidu.tieba.ala.category.b.c) next;
-                            this.gOv = (com.baidu.tieba.ala.category.b.c) iAdapterData;
+                if (TextUtils.equals(((com.baidu.tieba.ala.category.b.c) next).getId(), this.gJM)) {
+                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bSL()) {
+                        if ((iAdapterData instanceof com.baidu.tieba.ala.category.b.c) && TextUtils.equals(((com.baidu.tieba.ala.category.b.c) iAdapterData).getId(), this.gJN)) {
+                            this.gJO = (com.baidu.tieba.ala.category.b.c) next;
+                            this.gJP = (com.baidu.tieba.ala.category.b.c) iAdapterData;
                             break loop0;
                         }
                     }
@@ -134,72 +134,72 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
                 }
             }
         }
-        if (this.gOu != null) {
-            cVar = this.gOu;
+        if (this.gJO != null) {
+            cVar = this.gJO;
         }
         a(cVar);
-        b(this.gOv);
+        b(this.gJP);
     }
 
     private void initView() {
         this.mRootView = (RelativeLayout) findViewById(a.f.root_view);
-        this.bxT = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.btf = (CommonEmptyView) findViewById(a.f.empty_view);
         this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_live_category_nav_bar);
         TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.h.ala_live_category_title));
         SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.f.widget_navi_back_button), a.e.sdk_d_icon_return_n, a.e.sdk_d_icon_return_n);
         SkinManager.setNavbarTitleColor(centerTextTitle, a.c.sdk_cp_cont_i, a.c.sdk_cp_cont_i);
-        this.gOm = (TextView) findViewById(a.f.selected_category_tv);
-        this.gOn = (BdTypeListView) findViewById(a.f.ala_live_category_one_list);
-        this.gOo = (BdTypeListView) findViewById(a.f.ala_live_category_two_list);
+        this.gJG = (TextView) findViewById(a.f.selected_category_tv);
+        this.gJH = (BdTypeListView) findViewById(a.f.ala_live_category_one_list);
+        this.gJI = (BdTypeListView) findViewById(a.f.ala_live_category_two_list);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.gOq);
-        this.gOn.addAdapters(arrayList);
+        arrayList.add(this.gJK);
+        this.gJH.addAdapters(arrayList);
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(this.gOr);
-        this.gOo.addAdapters(arrayList2);
-        ViewGroup.LayoutParams layoutParams = this.gOn.getLayoutParams();
+        arrayList2.add(this.gJL);
+        this.gJI.addAdapters(arrayList2);
+        ViewGroup.LayoutParams layoutParams = this.gJH.getLayoutParams();
         layoutParams.width = (ScreenHelper.getScreenWidth(getPageContext().getContext()) * 85) / 375;
-        this.gOn.setLayoutParams(layoutParams);
+        this.gJH.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.gOp.bWH();
+        this.gJJ.bSP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.c cVar) {
         if (cVar != null) {
-            this.gOq.GP(cVar.getId());
-            this.gOo.setData(cVar.bWD());
-            this.gOo.setTag(cVar);
+            this.gJK.FE(cVar.getId());
+            this.gJI.setData(cVar.bSL());
+            this.gJI.setTag(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.ala.category.b.c cVar) {
         if (cVar != null) {
-            this.gOv = cVar;
-            this.gOu = (com.baidu.tieba.ala.category.b.c) this.gOo.getTag();
-            this.gOr.GP(this.gOv.getId());
-            this.gOm.setText(cVar.getName());
+            this.gJP = cVar;
+            this.gJO = (com.baidu.tieba.ala.category.b.c) this.gJI.getTag();
+            this.gJL.FE(this.gJP.getId());
+            this.gJG.setText(cVar.getName());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUM() {
-        this.bxT.reset();
-        this.bxT.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.2
+    public void bQU() {
+        this.btf.reset();
+        this.btf.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveCategoryActivity.this.loadData();
-                AlaLiveCategoryActivity.this.bxT.setVisibility(8);
+                AlaLiveCategoryActivity.this.btf.setVisibility(8);
                 AlaLiveCategoryActivity.this.mRootView.setVisibility(0);
             }
         });
-        this.bxT.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.bxT.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
-        this.bxT.setVisibility(0);
+        this.btf.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.btf.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+        this.btf.setVisibility(0);
         this.mRootView.setVisibility(8);
     }
 }

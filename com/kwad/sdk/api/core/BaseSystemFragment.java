@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseSystemFragment extends Fragment {
     @KsAdSdkDynamicApi
     @Keep

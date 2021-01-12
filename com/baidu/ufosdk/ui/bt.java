@@ -2,36 +2,36 @@ package com.baidu.ufosdk.ui;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class bt implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5756a;
+    final /* synthetic */ FeedbackInputActivity f5473a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(FeedbackInputActivity feedbackInputActivity) {
-        this.f5756a = feedbackInputActivity;
+        this.f5473a = feedbackInputActivity;
     }
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
         boolean z;
-        z = this.f5756a.au;
+        z = this.f5473a.au;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5756a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5473a);
             dVar.b(dVar.b() + 1);
-            this.f5756a.au = true;
+            this.f5473a.au = true;
         }
-        switch (this.f5756a.I) {
+        switch (this.f5473a.I) {
             case 0:
-                if (this.f5756a.E.getText().toString().trim().length() > 0) {
-                    this.f5756a.J.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                if (this.f5473a.E.getText().toString().trim().length() > 0) {
+                    this.f5473a.J.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
                     return;
                 }
                 return;
             case 1:
-                if (this.f5756a.E.getText().toString().trim().length() <= 0) {
-                    this.f5756a.J.setTextColor(com.baidu.ufosdk.b.y);
+                if (this.f5473a.E.getText().toString().trim().length() <= 0) {
+                    this.f5473a.J.setTextColor(com.baidu.ufosdk.b.y);
                     return;
                 }
                 return;
@@ -42,10 +42,10 @@ final class bt implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        if (this.f5756a.E.getText().toString().trim().length() <= 0) {
-            this.f5756a.I = 0;
+        if (this.f5473a.E.getText().toString().trim().length() <= 0) {
+            this.f5473a.I = 0;
         } else {
-            this.f5756a.I = 1;
+            this.f5473a.I = 1;
         }
     }
 

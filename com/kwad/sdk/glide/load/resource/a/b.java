@@ -3,14 +3,14 @@ package com.kwad.sdk.glide.load.resource.a;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.glide.g.j;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements s<byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f10557a;
+    private final byte[] f10257a;
 
     public b(byte[] bArr) {
-        this.f10557a = (byte[]) j.a(bArr);
+        this.f10257a = (byte[]) j.a(bArr);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -24,12 +24,12 @@ public class b implements s<byte[]> {
     @NonNull
     /* renamed from: b */
     public byte[] e() {
-        return this.f10557a;
+        return this.f10257a;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.f10557a.length;
+        return this.f10257a.length;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

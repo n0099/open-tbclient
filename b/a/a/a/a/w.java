@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.http.Headers;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -14,49 +15,49 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class w {
-    private static w AW;
-    public final x AX;
-    public final WifiManager AY;
-    public final LocationManager AZ;
-    public final SharedPreferences Ba;
+    private static w AV;
+    public final x AW;
+    public final WifiManager AX;
+    public final LocationManager AY;
+    public final SharedPreferences AZ;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f1082a;
+    public final Context f1081a;
     public final ExecutorService c;
     final PackageManager d;
     public final TelephonyManager e;
 
     private w(Context context) {
-        this.f1082a = context;
-        this.d = this.f1082a.getPackageManager();
-        this.e = (TelephonyManager) this.f1082a.getSystemService("phone");
-        this.AY = (WifiManager) this.f1082a.getApplicationContext().getSystemService("wifi");
-        this.AZ = (LocationManager) this.f1082a.getSystemService("location");
-        this.Ba = this.f1082a.getSharedPreferences("loc_sdk_lite", 0);
+        this.f1081a = context;
+        this.d = this.f1081a.getPackageManager();
+        this.e = (TelephonyManager) this.f1081a.getSystemService("phone");
+        this.AX = (WifiManager) this.f1081a.getApplicationContext().getSystemService("wifi");
+        this.AY = (LocationManager) this.f1081a.getSystemService(Headers.LOCATION);
+        this.AZ = this.f1081a.getSharedPreferences("loc_sdk_lite", 0);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 5, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         }
         this.c = threadPoolExecutor;
-        this.AX = new x(this);
-        this.AX.a();
+        this.AW = new x(this);
+        this.AW.a();
     }
 
     public static w G(Context context) {
-        if (AW == null) {
+        if (AV == null) {
             synchronized (w.class) {
                 try {
-                    if (AW == null) {
-                        AW = new w(context);
+                    if (AV == null) {
+                        AV = new w(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return AW;
+        return AV;
     }
 
     public final boolean a() {
@@ -64,16 +65,16 @@ public class w {
     }
 
     public final boolean b() {
-        return this.AY != null;
+        return this.AX != null;
     }
 
     public final boolean c() {
-        return this.AZ != null;
+        return this.AY != null;
     }
 
     public final String d() {
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.f1082a.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.f1081a.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
             return activeNetworkInfo == null ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase() + "[" + activeNetworkInfo.getSubtypeName() + "]";
         } catch (Throwable th) {

@@ -2,28 +2,28 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import tbclient.TopicList.TabList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class p implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId krH = BdUniqueId.gen();
-    public String heM;
-    public String kkR;
-    public String krI;
+    public static final BdUniqueId knc = BdUniqueId.gen();
+    public String hag;
+    public String kgl;
+    public String knd;
     public String shareTitle;
     public String shareUrl;
     public String tabName;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return krH;
+        return knc;
     }
 
     public void a(TabList tabList) {
         if (tabList != null) {
             this.tabName = tabList.tab_name;
-            this.heM = tabList.tab_type;
-            this.kkR = tabList.share_pic;
+            this.hag = tabList.tab_type;
+            this.kgl = tabList.share_pic;
             this.shareTitle = tabList.share_title;
-            this.krI = tabList.share_desc;
+            this.knd = tabList.share_desc;
             this.shareUrl = tabList.share_url;
         }
     }

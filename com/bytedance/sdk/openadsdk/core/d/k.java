@@ -6,26 +6,26 @@ import com.bytedance.sdk.openadsdk.TTImage;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6807a;
+    private String f6507a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6808b;
+    private int f6508b;
     private int c;
 
     public String a() {
-        return this.f6807a;
+        return this.f6507a;
     }
 
     public void a(String str) {
-        this.f6807a = str;
+        this.f6507a = str;
     }
 
     public int b() {
-        return this.f6808b;
+        return this.f6508b;
     }
 
     public void a(int i) {
-        this.f6808b = i;
+        this.f6508b = i;
     }
 
     public int c() {
@@ -37,7 +37,7 @@ public class k {
     }
 
     public boolean d() {
-        return !TextUtils.isEmpty(this.f6807a) && this.f6808b > 0 && this.c > 0;
+        return !TextUtils.isEmpty(this.f6507a) && this.f6508b > 0 && this.c > 0;
     }
 
     public static TTImage a(k kVar) {

@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.session.view.smrlistview;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean eoB();
+    boolean ekF();
 
-    boolean eoC();
+    boolean ekG();
 }

@@ -7,18 +7,18 @@ import android.system.OsConstants;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f7952a = -1;
+    private static long f7652a = -1;
 
     /* loaded from: classes4.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static long f7953a = -1;
+        private static long f7653a = -1;
 
         public static long a(long j) {
             long a2;
-            if (f7953a > 0) {
-                return f7953a;
+            if (f7653a > 0) {
+                return f7653a;
             }
             if (Build.VERSION.SDK_INT >= 21) {
                 a2 = Os.sysconf(OsConstants._SC_CLK_TCK);
@@ -28,15 +28,15 @@ public class i {
             if (a2 > 0) {
                 j = a2;
             }
-            f7953a = j;
-            return f7953a;
+            f7653a = j;
+            return f7653a;
         }
 
         public static long a() {
-            if (i.f7952a == -1) {
-                long unused = i.f7952a = 1000 / b();
+            if (i.f7652a == -1) {
+                long unused = i.f7652a = 1000 / b();
             }
-            return i.f7952a;
+            return i.f7652a;
         }
 
         public static long b() {

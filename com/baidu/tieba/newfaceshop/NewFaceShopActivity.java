@@ -57,13 +57,13 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NewFaceShopActivity extends BaseActivity {
-    private g gLj;
-    private NewFaceGroupDownloadModel iTd;
-    private NewFaceGroupShareModel iTe;
-    private String iTf;
-    private RelativeLayout lwL;
+    private g gGD;
+    private NewFaceGroupDownloadModel iOw;
+    private NewFaceGroupShareModel iOx;
+    private String iOy;
+    private RelativeLayout lsf;
     private boolean mLoadSuccess;
     private TbPageContext<NewFaceShopActivity> mPageContext;
     private h mRefreshView;
@@ -71,15 +71,15 @@ public class NewFaceShopActivity extends BaseActivity {
     private Handler mUIHandler;
     private String mUrl;
     private BaseWebView mWebView;
-    private final String lwK = "http://tieba.baidu.com/n/interact/emoticoncenter";
-    private CustomMessageListener iWC = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.1
+    private final String lse = "http://tieba.baidu.com/n/interact/emoticoncenter";
+    private CustomMessageListener iRV = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_refresh_has_action()");
         }
     };
-    private CustomMessageListener iWD = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.10
+    private CustomMessageListener iRW = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -88,7 +88,7 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
     };
-    private CustomMessageListener iWE = new CustomMessageListener(CmdConfigCustom.CMD_NOTIFY_VOTE_EMOTION_PACKAGE_SUCCESS) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.11
+    private CustomMessageListener iRX = new CustomMessageListener(CmdConfigCustom.CMD_NOTIFY_VOTE_EMOTION_PACKAGE_SUCCESS) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -100,22 +100,22 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
     };
-    CustomMessageListener iWF = new CustomMessageListener(CmdConfigCustom.CMD_UPLOAD_FACE_GROUP_FINISH) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.9
+    CustomMessageListener iRY = new CustomMessageListener(CmdConfigCustom.CMD_UPLOAD_FACE_GROUP_FINISH) { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
                 if (hashMap == null || hashMap.isEmpty()) {
-                    NewFaceShopActivity.this.bs(0, null);
+                    NewFaceShopActivity.this.bt(0, null);
                 } else if (!hashMap.containsKey("upload_result")) {
-                    NewFaceShopActivity.this.bs(0, null);
+                    NewFaceShopActivity.this.bt(0, null);
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    NewFaceShopActivity.this.bs(0, null);
+                    NewFaceShopActivity.this.bt(0, null);
                 } else if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    NewFaceShopActivity.this.bs(1, null);
+                    NewFaceShopActivity.this.bt(1, null);
                 } else {
-                    NewFaceShopActivity.this.bs(0, (hashMap.containsKey("upload_msg") && hashMap.get("upload_msg") != null && (hashMap.get("upload_msg") instanceof String)) ? (String) hashMap.get("upload_msg") : null);
+                    NewFaceShopActivity.this.bt(0, (hashMap.containsKey("upload_msg") && hashMap.get("upload_msg") != null && (hashMap.get("upload_msg") instanceof String)) ? (String) hashMap.get("upload_msg") : null);
                 }
             }
         }
@@ -136,60 +136,60 @@ public class NewFaceShopActivity extends BaseActivity {
         initView();
         com.baidu.tbadk.browser.a.initCookie(getApplicationContext());
         loadUrl(this.mUrl);
-        registerListener(this.iWC);
-        registerListener(this.iWD);
-        registerListener(this.iWE);
+        registerListener(this.iRV);
+        registerListener(this.iRW);
+        registerListener(this.iRX);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        registerListener(this.iWF);
-        cCt();
+        registerListener(this.iRY);
+        cyB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.iWF);
+        MessageManager.getInstance().unRegisterListener(this.iRY);
     }
 
     private void initView() {
         this.mRootView = findViewById(R.id.root_layout);
-        this.lwL = (RelativeLayout) findViewById(R.id.webview_container);
+        this.lsf = (RelativeLayout) findViewById(R.id.webview_container);
         this.mWebView = new BaseWebView(getPageContext().getPageActivity());
         this.mWebView.setWebViewClient(new a());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         if (isUseStyleImmersiveSticky()) {
             layoutParams.topMargin = l.getStatusBarHeight(getPageContext().getPageActivity());
         }
-        this.lwL.addView(this.mWebView, layoutParams);
+        this.lsf.addView(this.mWebView, layoutParams);
     }
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.gLj = new g(this.mPageContext.getPageActivity());
-            this.gLj.attachView(this.mRootView, false);
-            this.gLj.onChangeSkinType();
+            this.gGD = new g(this.mPageContext.getPageActivity());
+            this.gGD.attachView(this.mRootView, false);
+            this.gGD.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gLj != null) {
-            this.gLj.dettachView(this.mRootView);
-            this.gLj = null;
+        if (this.gGD != null) {
+            this.gGD.dettachView(this.mRootView);
+            this.gGD = null;
         }
     }
 
-    public void bUI() {
+    public void bQQ() {
         String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.12
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    NewFaceShopActivity.this.bYB();
+                    NewFaceShopActivity.this.bUJ();
                 }
             });
             this.mRefreshView.onChangeSkinType();
@@ -203,7 +203,7 @@ public class NewFaceShopActivity extends BaseActivity {
         this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
     }
 
-    public void bXg() {
+    public void bTo() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
@@ -213,7 +213,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    public void bYB() {
+    public void bUJ() {
         if (this.mWebView != null) {
             if (this.mLoadSuccess) {
                 loadUrl("javascript:window.reload_page()");
@@ -232,7 +232,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends WebViewClient {
         private a() {
         }
@@ -247,10 +247,10 @@ public class NewFaceShopActivity extends BaseActivity {
                 e.printStackTrace();
             }
             if (!StringUtils.isNull(str)) {
-                if (NewFaceShopActivity.this.Kr(str)) {
+                if (NewFaceShopActivity.this.Jg(str)) {
                     return true;
                 }
-                int a2 = be.bwv().a(NewFaceShopActivity.this.getPageContext(), new String[]{str});
+                int a2 = be.bsB().a(NewFaceShopActivity.this.getPageContext(), new String[]{str});
                 if (a2 == 1) {
                     NewFaceShopActivity.this.finish();
                     return true;
@@ -273,7 +273,7 @@ public class NewFaceShopActivity extends BaseActivity {
             super.onPageFinished(webView, str);
             NewFaceShopActivity.this.hideLoadingView();
             if (j.isNetWorkAvailable()) {
-                NewFaceShopActivity.this.bXg();
+                NewFaceShopActivity.this.bTo();
                 NewFaceShopActivity.this.mLoadSuccess = true;
             }
         }
@@ -281,58 +281,58 @@ public class NewFaceShopActivity extends BaseActivity {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            NewFaceShopActivity.this.bUI();
+            NewFaceShopActivity.this.bQQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Kr(String str) {
-        JSONObject Ks;
-        if ((str.contains(UrlSchemaHelper.SCHEMA_TYPE_DOWNLOAD_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DELETE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_HAS_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_ORDER_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DIALOG_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_TOAST_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_COLLECT_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_SAVE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_TO_PACKAGE_DETAIL) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_SINGLE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CERCON_FORUM) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CHECK_EMOTION_UPLOADING)) && (Ks = Ks(str)) != null) {
+    public boolean Jg(String str) {
+        JSONObject Jh;
+        if ((str.contains(UrlSchemaHelper.SCHEMA_TYPE_DOWNLOAD_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DELETE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_HAS_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_ORDER_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DIALOG_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_TOAST_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_COLLECT_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_SAVE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_TO_PACKAGE_DETAIL) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_SINGLE_EMOTION) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CERCON_FORUM) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_CHECK_EMOTION_UPLOADING)) && (Jh = Jh(str)) != null) {
             if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DOWNLOAD_EMOTION)) {
-                ei(Ks);
+                ei(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DELETE_EMOTION)) {
-                ek(Ks);
+                ek(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE_EMOTION)) {
-                el(Ks);
+                el(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HAS_EMOTION)) {
-                cCv();
+                cyD();
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DIALOG_EMOTION)) {
-                em(Ks);
+                em(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_TOAST_EMOTION)) {
-                showToast(Ks);
+                showToast(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_ORDER_EMOTION)) {
-                en(Ks);
+                en(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_COLLECT_EMOTION)) {
-                eo(Ks);
+                eo(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_SAVE_EMOTION)) {
-                ep(Ks);
+                ep(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_TO_PACKAGE_DETAIL)) {
-                eq(Ks);
+                eq(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_EMOTION)) {
-                cCw();
+                cyE();
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_CREATE_SINGLE_EMOTION)) {
-                cCu();
+                cyC();
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_CERCON_FORUM)) {
-                ej(Ks);
+                ej(Jh);
             } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_CHECK_EMOTION_UPLOADING)) {
-                cCt();
+                cyB();
             }
             return true;
         }
         return false;
     }
 
-    private void cCu() {
+    private void cyC() {
         com.baidu.tieba.faceshop.emotioncenter.a.a aVar = new com.baidu.tieba.faceshop.emotioncenter.a.a(getPageContext().getPageActivity(), 1);
         aVar.a(new com.baidu.tieba.faceshop.emotioncenter.a.c() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.13
             @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-            public void cCx() {
+            public void cyF() {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(NewFaceShopActivity.this.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
             }
 
             @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-            public void cCy() {
+            public void cyG() {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(NewFaceShopActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
             }
         });
@@ -352,7 +352,7 @@ public class NewFaceShopActivity extends BaseActivity {
                         if (likeModel.getErrorCode() == 22) {
                             NewFaceShopActivity.this.showToast(R.string.unfollow_title);
                             NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
-                        } else if (AntiHelper.bP(likeModel.getErrorCode(), likeModel.getErrorString())) {
+                        } else if (AntiHelper.bQ(likeModel.getErrorCode(), likeModel.getErrorString())) {
                             AntiHelper.bs(NewFaceShopActivity.this.getPageContext().getPageActivity(), likeModel.getErrorString());
                         } else if (likeModel.getErrorCode() != 0) {
                             NewFaceShopActivity.this.showToast(likeModel.getErrorString());
@@ -372,7 +372,7 @@ public class NewFaceShopActivity extends BaseActivity {
                         }
                     }
                 });
-                likeModel.gr(optString2, String.valueOf(optString));
+                likeModel.gq(optString2, String.valueOf(optString));
             }
         }
     }
@@ -384,14 +384,14 @@ public class NewFaceShopActivity extends BaseActivity {
     private void eo(JSONObject jSONObject) {
         String optString = jSONObject.optString("url");
         int optInt = jSONObject.optInt("pck_id");
-        ab.cCn().eV(optString, optInt == -1 ? "" : "" + optInt);
+        ab.cyv().eU(optString, optInt == -1 ? "" : "" + optInt);
         loadUrl("javascript:__js_bridge_emoticon_coll_action(2)");
     }
 
     private void ep(JSONObject jSONObject) {
         String optString = jSONObject.optString("url");
         if (!TextUtils.isEmpty(optString)) {
-            c.dkc().a(optString, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.15
+            c.dgk().a(optString, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.15
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onSuccess(String str) {
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
@@ -417,7 +417,7 @@ public class NewFaceShopActivity extends BaseActivity {
             loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.Bo(optString);
+        aVar.Ad(optString);
         aVar.a(optString2, new a.b() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.16
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -438,20 +438,20 @@ public class NewFaceShopActivity extends BaseActivity {
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         });
-        aVar.b(getPageContext()).btY();
+        aVar.b(getPageContext()).bqe();
     }
 
-    private void cCv() {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.3
+    private void cyD() {
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                List<MyEmotionGroupData> dkd = c.dkc().dkd();
-                if (dkd == null || dkd.isEmpty()) {
+                List<MyEmotionGroupData> dgl = c.dgk().dgl();
+                if (dgl == null || dgl.isEmpty()) {
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_has_action()");
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
-                for (MyEmotionGroupData myEmotionGroupData : dkd) {
+                for (MyEmotionGroupData myEmotionGroupData : dgl) {
                     if (myEmotionGroupData != null) {
                         sb.append(myEmotionGroupData.getGroupId());
                         sb.append(",");
@@ -462,7 +462,7 @@ public class NewFaceShopActivity extends BaseActivity {
         });
     }
 
-    private JSONObject Ks(String str) {
+    private JSONObject Jh(String str) {
         if (str.contains("data=")) {
             try {
                 return new JSONObject(str.substring("data=".length() + str.indexOf("data=")).replaceAll("\\\\", ""));
@@ -488,16 +488,16 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void en(final JSONObject jSONObject) {
-        if (d.dkg().dkj()) {
+        if (d.dgo().dgr()) {
             loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             l.showToast(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
             return;
         }
         TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.5
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.5
             @Override // java.lang.Runnable
             public void run() {
-                c.dkc().v(new ArrayList(Arrays.asList(jSONObject.optString("id").split(","))), true);
+                c.dgk().v(new ArrayList(Arrays.asList(jSONObject.optString("id").split(","))), true);
                 NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             }
         });
@@ -505,17 +505,17 @@ public class NewFaceShopActivity extends BaseActivity {
 
     private void ei(JSONObject jSONObject) {
         if (bg.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (d.dkg().dkj()) {
+            if (d.dgo().dgr()) {
                 loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
                 l.showToast(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
             String optString = jSONObject.optString("id");
-            if (this.iTd == null) {
-                this.iTd = new NewFaceGroupDownloadModel();
+            if (this.iOw == null) {
+                this.iOw = new NewFaceGroupDownloadModel();
             }
-            this.iTd.a(optString, true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.6
+            this.iOw.a(optString, true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.6
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onSuccess(String str) {
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
@@ -544,19 +544,19 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     private void ek(final JSONObject jSONObject) {
-        if (d.dkg().dkj()) {
+        if (d.dgo().dgr()) {
             loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
             l.showToast(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
             return;
         }
         TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.7
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.7
             @Override // java.lang.Runnable
             public void run() {
                 ArrayList<String> arrayList = new ArrayList(Arrays.asList(jSONObject.optString("id").split(",")));
-                boolean u = c.dkc().u(arrayList, true);
+                boolean u = c.dgk().u(arrayList, true);
                 for (String str : arrayList) {
-                    i.cBl().Kd(str);
+                    i.cxt().IS(str);
                 }
                 if (u) {
                     NewFaceShopActivity.this.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
@@ -574,7 +574,7 @@ public class NewFaceShopActivity extends BaseActivity {
         shareItem.content = jSONObject.optString("content");
         shareItem.linkUrl = jSONObject.optString("linkUrl");
         shareItem.imageUri = Uri.parse(jSONObject.optString("imageUri"));
-        this.iTf = shareItem.linkUrl;
+        this.iOy = shareItem.linkUrl;
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(getPageContext().getPageActivity(), shareItem, true);
         shareDialogConfig.setIsCopyLink(true);
         shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.NewFaceShopActivity.8
@@ -605,11 +605,11 @@ public class NewFaceShopActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iTd != null) {
-            this.iTd.cancelLoadData();
+        if (this.iOw != null) {
+            this.iOw.cancelLoadData();
         }
-        if (this.iTe != null) {
-            this.iTe.cancelLoadData();
+        if (this.iOx != null) {
+            this.iOx.cancelLoadData();
         }
         this.mWebView.destroy();
         this.mWebView = null;
@@ -622,11 +622,11 @@ public class NewFaceShopActivity extends BaseActivity {
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_TO_SHARE /* 24007 */:
-                    aBX();
+                    ayd();
                     return;
                 case RequestResponseCode.REQUEST_FACE_GROUP_MAKE /* 25021 */:
                     if (intent != null && intent.getBooleanExtra("uploading", false)) {
-                        bt(1, null);
+                        bu(1, null);
                         return;
                     }
                     return;
@@ -639,40 +639,40 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    private void cCw() {
+    private void cyE() {
         if (bg.checkUpIsLogin(getPageContext().getPageActivity())) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
         }
     }
 
-    private void cCt() {
-        if (com.baidu.tieba.newfaceshop.facemake.e.dku().dkw()) {
-            bt(1, null);
-        } else if (com.baidu.tieba.newfaceshop.facemake.e.dku().dkv() == null) {
-            bt(0, null);
+    private void cyB() {
+        if (com.baidu.tieba.newfaceshop.facemake.e.dgC().dgE()) {
+            bu(1, null);
+        } else if (com.baidu.tieba.newfaceshop.facemake.e.dgC().dgD() == null) {
+            bu(0, null);
         } else {
-            FaceGroupDraft dkv = com.baidu.tieba.newfaceshop.facemake.e.dku().dkv();
-            if (!TextUtils.isEmpty(dkv.getFailMsg())) {
-                bt(2, dkv.getFailMsg());
+            FaceGroupDraft dgD = com.baidu.tieba.newfaceshop.facemake.e.dgC().dgD();
+            if (!TextUtils.isEmpty(dgD.getFailMsg())) {
+                bu(2, dgD.getFailMsg());
             } else {
-                bt(2, null);
+                bu(2, null);
             }
         }
     }
 
-    private void aBX() {
+    private void ayd() {
         String[] split;
-        if (!TextUtils.isEmpty(this.iTf) && this.iTf.contains("emoticonpackage") && (split = this.iTf.split("/")) != null && split.length > 0) {
+        if (!TextUtils.isEmpty(this.iOy) && this.iOy.contains("emoticonpackage") && (split = this.iOy.split("/")) != null && split.length > 0) {
             String str = split[split.length - 1];
-            if (this.iTe == null) {
-                this.iTe = new NewFaceGroupShareModel();
+            if (this.iOx == null) {
+                this.iOx = new NewFaceGroupShareModel();
             }
-            this.iTe.Pg(str);
+            this.iOx.NY(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bs(int i, String str) {
+    public void bt(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             loadUrl("javascript:__js_bridge_emoticon_uploading_finish_action('" + i + "','" + str + "')");
         } else {
@@ -680,7 +680,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    private void bt(int i, String str) {
+    private void bu(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             loadUrl("javascript:__js_bridge_emoticon_uploading_status_action('" + i + "','" + str + "')");
         } else {

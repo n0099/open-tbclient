@@ -3,19 +3,19 @@ package com.baidu.tbadk.BdToken;
 import com.kwad.sdk.collector.AppStatusRules;
 /* loaded from: classes.dex */
 public class l extends h {
-    private volatile long eGX;
+    private volatile long eCl;
 
     public l(b bVar) {
         super(bVar);
-        this.eGX = System.currentTimeMillis();
+        this.eCl = System.currentTimeMillis();
     }
 
-    public synchronized long blv() {
-        this.eGX = System.currentTimeMillis() + AppStatusRules.DEFAULT_GRANULARITY;
-        return this.eGX;
+    public synchronized long bhB() {
+        this.eCl = System.currentTimeMillis() + AppStatusRules.DEFAULT_GRANULARITY;
+        return this.eCl;
     }
 
     public boolean isTimeout() {
-        return System.currentTimeMillis() - this.eGX >= AppStatusRules.DEFAULT_GRANULARITY;
+        return System.currentTimeMillis() - this.eCl >= AppStatusRules.DEFAULT_GRANULARITY;
     }
 }

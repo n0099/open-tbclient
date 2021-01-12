@@ -10,35 +10,35 @@ import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.core.widget.ScrollerCompat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SMLayout extends FrameLayout {
     private View mContentView;
     private GestureDetectorCompat mGestureDetector;
-    private int pfk;
-    private SMView pfl;
-    private int pfm;
-    private GestureDetector.OnGestureListener pfn;
-    private boolean pfo;
-    private int pfp;
-    private int pfq;
-    private ScrollerCompat pfr;
-    private ScrollerCompat pfs;
-    private int pft;
-    private Interpolator pfu;
-    private Interpolator pfv;
+    private int paH;
+    private SMView paI;
+    private int paJ;
+    private GestureDetector.OnGestureListener paK;
+    private boolean paL;
+    private int paM;
+    private int paN;
+    private ScrollerCompat paO;
+    private ScrollerCompat paP;
+    private int paQ;
+    private Interpolator paR;
+    private Interpolator paS;
     private int position;
     private int state;
 
     public SMLayout(View view, SMView sMView, Interpolator interpolator, Interpolator interpolator2) {
         super(view.getContext());
         this.state = 0;
-        this.pfp = wT(15);
-        this.pfq = -wT(500);
-        this.pfu = interpolator;
-        this.pfv = interpolator2;
+        this.paM = vn(15);
+        this.paN = -vn(500);
+        this.paR = interpolator;
+        this.paS = interpolator2;
         this.mContentView = view;
-        this.pfl = sMView;
-        this.pfl.setLayout(this);
+        this.paI = sMView;
+        this.paI.setLayout(this);
         init();
     }
 
@@ -48,49 +48,49 @@ public class SMLayout extends FrameLayout {
 
     public void setPosition(int i) {
         this.position = i;
-        this.pfl.setPosition(i);
+        this.paI.setPosition(i);
     }
 
     public void setSwipeDirection(int i) {
-        this.pfk = i;
+        this.paH = i;
     }
 
     private void init() {
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-        this.pfn = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMLayout.1
+        this.paK = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMLayout.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                SMLayout.this.pfo = false;
+                SMLayout.this.paL = false;
                 return true;
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (Math.abs(motionEvent.getX() - motionEvent2.getX()) > SMLayout.this.pfp && f < SMLayout.this.pfq) {
-                    SMLayout.this.pfo = true;
+                if (Math.abs(motionEvent.getX() - motionEvent2.getX()) > SMLayout.this.paM && f < SMLayout.this.paN) {
+                    SMLayout.this.paL = true;
                 }
                 return super.onFling(motionEvent, motionEvent2, f, f2);
             }
         };
-        this.mGestureDetector = new GestureDetectorCompat(getContext(), this.pfn);
-        if (this.pfu != null) {
-            this.pfs = ScrollerCompat.create(getContext(), this.pfu);
+        this.mGestureDetector = new GestureDetectorCompat(getContext(), this.paK);
+        if (this.paR != null) {
+            this.paP = ScrollerCompat.create(getContext(), this.paR);
         } else {
-            this.pfs = ScrollerCompat.create(getContext());
+            this.paP = ScrollerCompat.create(getContext());
         }
-        if (this.pfv != null) {
-            this.pfr = ScrollerCompat.create(getContext(), this.pfv);
+        if (this.paS != null) {
+            this.paO = ScrollerCompat.create(getContext(), this.paS);
         } else {
-            this.pfr = ScrollerCompat.create(getContext());
+            this.paO = ScrollerCompat.create(getContext());
         }
         this.mContentView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         if (this.mContentView.getId() < 1) {
             this.mContentView.setId(1);
         }
-        this.pfl.setId(2);
-        this.pfl.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        this.paI.setId(2);
+        this.paI.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         addView(this.mContentView);
-        addView(this.pfl);
+        addView(this.paI);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -107,23 +107,23 @@ public class SMLayout extends FrameLayout {
         this.mGestureDetector.onTouchEvent(motionEvent);
         switch (motionEvent.getAction()) {
             case 0:
-                this.pfm = (int) motionEvent.getX();
-                this.pfo = false;
+                this.paJ = (int) motionEvent.getX();
+                this.paL = false;
                 break;
             case 1:
-                if ((this.pfo || Math.abs(this.pfm - motionEvent.getX()) > this.pfl.getWidth() / 2) && Math.signum(this.pfm - motionEvent.getX()) == this.pfk) {
-                    eoE();
+                if ((this.paL || Math.abs(this.paJ - motionEvent.getX()) > this.paI.getWidth() / 2) && Math.signum(this.paJ - motionEvent.getX()) == this.paH) {
+                    ekI();
                     break;
                 } else {
-                    eoD();
+                    ekH();
                     return false;
                 }
             case 2:
-                int x = (int) (this.pfm - motionEvent.getX());
+                int x = (int) (this.paJ - motionEvent.getX());
                 if (this.state == 1) {
-                    x += this.pfl.getWidth() * this.pfk;
+                    x += this.paI.getWidth() * this.paH;
                 }
-                Px(x);
+                NQ(x);
                 break;
         }
         return true;
@@ -138,62 +138,62 @@ public class SMLayout extends FrameLayout {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void Px(int i) {
-        if (Math.signum(i) != this.pfk) {
+    private void NQ(int i) {
+        if (Math.signum(i) != this.paH) {
             i = 0;
-        } else if (Math.abs(i) > this.pfl.getWidth()) {
-            i = this.pfl.getWidth() * this.pfk;
+        } else if (Math.abs(i) > this.paI.getWidth()) {
+            i = this.paI.getWidth() * this.paH;
         }
         this.mContentView.layout(-i, this.mContentView.getTop(), this.mContentView.getWidth() - i, getMeasuredHeight());
-        if (this.pfk == 1) {
-            this.pfl.layout(this.mContentView.getWidth() - i, this.pfl.getTop(), (this.mContentView.getWidth() + this.pfl.getWidth()) - i, this.pfl.getBottom());
+        if (this.paH == 1) {
+            this.paI.layout(this.mContentView.getWidth() - i, this.paI.getTop(), (this.mContentView.getWidth() + this.paI.getWidth()) - i, this.paI.getBottom());
         } else {
-            this.pfl.layout((-this.pfl.getWidth()) - i, this.pfl.getTop(), -i, this.pfl.getBottom());
+            this.paI.layout((-this.paI.getWidth()) - i, this.paI.getTop(), -i, this.paI.getBottom());
         }
     }
 
     @Override // android.view.View
     public void computeScroll() {
         if (this.state == 1) {
-            if (this.pfr.computeScrollOffset()) {
-                Px(this.pfr.getCurrX() * this.pfk);
+            if (this.paO.computeScrollOffset()) {
+                NQ(this.paO.getCurrX() * this.paH);
                 postInvalidate();
             }
-        } else if (this.pfs.computeScrollOffset()) {
-            Px((this.pft - this.pfs.getCurrX()) * this.pfk);
+        } else if (this.paP.computeScrollOffset()) {
+            NQ((this.paQ - this.paP.getCurrX()) * this.paH);
             postInvalidate();
         }
     }
 
-    public void eoD() {
+    public void ekH() {
         this.state = 0;
-        if (this.pfk == 1) {
-            this.pft = -this.mContentView.getLeft();
-            this.pfs.startScroll(0, 0, this.pfl.getWidth(), 0, 350);
+        if (this.paH == 1) {
+            this.paQ = -this.mContentView.getLeft();
+            this.paP.startScroll(0, 0, this.paI.getWidth(), 0, 350);
         } else {
-            this.pft = this.pfl.getRight();
-            this.pfs.startScroll(0, 0, this.pfl.getWidth(), 0, 350);
+            this.paQ = this.paI.getRight();
+            this.paP.startScroll(0, 0, this.paI.getWidth(), 0, 350);
         }
         postInvalidate();
     }
 
-    public void eoE() {
+    public void ekI() {
         this.state = 1;
-        if (this.pfk == 1) {
-            this.pfr.startScroll(-this.mContentView.getLeft(), 0, this.pfl.getWidth(), 0, 350);
+        if (this.paH == 1) {
+            this.paO.startScroll(-this.mContentView.getLeft(), 0, this.paI.getWidth(), 0, 350);
         } else {
-            this.pfr.startScroll(this.mContentView.getLeft(), 0, this.pfl.getWidth(), 0, 350);
+            this.paO.startScroll(this.mContentView.getLeft(), 0, this.paI.getWidth(), 0, 350);
         }
         postInvalidate();
     }
 
-    public void eoF() {
-        if (this.pfs.computeScrollOffset()) {
-            this.pfs.abortAnimation();
+    public void ekJ() {
+        if (this.paP.computeScrollOffset()) {
+            this.paP.abortAnimation();
         }
         if (this.state == 1) {
             this.state = 0;
-            Px(0);
+            NQ(0);
         }
     }
 
@@ -202,35 +202,35 @@ public class SMLayout extends FrameLayout {
     }
 
     public SMView getMenuView() {
-        return this.pfl;
+        return this.paI;
     }
 
-    private int wT(int i) {
+    private int vn(int i) {
         return (int) TypedValue.applyDimension(1, i, getContext().getResources().getDisplayMetrics());
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.pfl.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 1073741824));
+        this.paI.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 1073741824));
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         this.mContentView.layout(0, 0, getMeasuredWidth(), this.mContentView.getMeasuredHeight());
-        if (this.pfk == 1) {
-            this.pfl.layout(getMeasuredWidth(), 0, getMeasuredWidth() + this.pfl.getMeasuredWidth(), this.mContentView.getMeasuredHeight());
+        if (this.paH == 1) {
+            this.paI.layout(getMeasuredWidth(), 0, getMeasuredWidth() + this.paI.getMeasuredWidth(), this.mContentView.getMeasuredHeight());
         } else {
-            this.pfl.layout(-this.pfl.getMeasuredWidth(), 0, 0, this.mContentView.getMeasuredHeight());
+            this.paI.layout(-this.paI.getMeasuredWidth(), 0, 0, this.mContentView.getMeasuredHeight());
         }
     }
 
     public void setMenuHeight(int i) {
         Log.i("byz", "pos = " + this.position + ", height = " + i);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.pfl.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.paI.getLayoutParams();
         if (layoutParams.height != i) {
             layoutParams.height = i;
-            this.pfl.setLayoutParams(this.pfl.getLayoutParams());
+            this.paI.setLayoutParams(this.paI.getLayoutParams());
         }
     }
 }

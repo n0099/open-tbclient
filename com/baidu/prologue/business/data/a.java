@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.prologue.a.c.k;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,11 +11,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
-    protected static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
+    protected static final boolean DEBUG = com.baidu.prologue.a.a.a.coo;
 
-    public static List<e> bd(String str, String str2) throws ParseError {
+    public static List<e> bc(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -30,7 +29,7 @@ public class a {
 
     public static List<e> l(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> agS;
+        List<e> acY;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -43,7 +42,7 @@ public class a {
             return null;
         }
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("splash");
-        JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
+        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
             SplashStyleRecorder.aA(optJSONObject2.optJSONObject("style_desc"));
@@ -60,9 +59,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (agS = d.agS()) != null) {
-                        for (e eVar : agS) {
-                            if (TextUtils.equals(eVar.ctG, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (acY = d.acY()) != null) {
+                        for (e eVar : acY) {
+                            if (TextUtils.equals(eVar.coP, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,15 +85,15 @@ public class a {
         List<e> q = e.q(jSONArray);
         if (z) {
             for (e eVar : q) {
-                eVar.ctQ = true;
+                eVar.coZ = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> agT = d.agT();
-            if (agT == null || agT.size() == 0) {
+            HashMap<String, e> acZ = d.acZ();
+            if (acZ == null || acZ.size() == 0) {
                 d.aC(q);
             } else {
-                d.agR();
+                d.acX();
                 d.aC(q);
             }
             d.aD(q);

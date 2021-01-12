@@ -3,32 +3,32 @@ package com.baidu.tieba.personCenter.c;
 import tbclient.SmartApp;
 /* loaded from: classes2.dex */
 public class m implements c {
-    private String OZ;
-    private String eRJ;
+    private String OX;
+    private String eMY;
     private String mAppKey;
     private String mLink;
     private String mName;
     private int mType;
-    private Long mpO;
-    private String mpP;
-    private String mpQ;
-    private Integer mpR;
+    private Long mlj;
+    private String mlk;
+    private String mll;
+    private Integer mlm;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.mpO = smartApp.swan_app_id;
+            this.mlj = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eRJ = smartApp.avatar;
+            this.eMY = smartApp.avatar;
             this.mName = smartApp.name;
-            this.OZ = smartApp._abstract;
-            this.mpP = smartApp.pic;
-            this.mpQ = smartApp.h5_url;
+            this.OX = smartApp._abstract;
+            this.mlk = smartApp.pic;
+            this.mll = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.mpR = smartApp.is_game;
+            this.mlm = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dyq() {
-        return this.mpO;
+    public Long duy() {
+        return this.mlj;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class m implements c {
     }
 
     public String getAvatar() {
-        return this.eRJ;
+        return this.eMY;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.mpQ;
+        return this.mll;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dyr() {
-        return this.mpR;
+    public Integer duz() {
+        return this.mlm;
     }
 }

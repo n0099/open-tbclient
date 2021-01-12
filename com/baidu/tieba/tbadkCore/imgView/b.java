@@ -11,9 +11,9 @@ import android.util.DisplayMetrics;
 public class b {
     public Bitmap bm;
     private Context mContext;
-    public Bundle ntM;
-    public boolean ntN;
-    public boolean ntO;
+    public Bundle nph;
+    public boolean npi;
+    public boolean npj;
     public Rect rect;
     private Rect src = new Rect();
 

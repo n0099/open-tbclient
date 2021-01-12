@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class b implements com.ss.android.a.a.a.f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7359a;
+    private final WeakReference<Context> f7059a;
 
     public b(Context context) {
-        this.f7359a = new WeakReference<>(context);
+        this.f7059a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.f
@@ -46,10 +46,10 @@ public class b implements com.ss.android.a.a.a.f {
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.ss.android.a.a.d.d f7360a;
+        private final com.ss.android.a.a.d.d f7060a;
 
         /* renamed from: b  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.downloadnew.a.b.a f7361b;
+        private com.bytedance.sdk.openadsdk.downloadnew.a.b.a f7061b;
         private l c;
 
         public static a a(com.ss.android.a.a.d.d dVar) {
@@ -57,15 +57,15 @@ public class b implements com.ss.android.a.a.a.f {
         }
 
         private a(com.ss.android.a.a.d.d dVar) {
-            this.f7360a = dVar;
-            if (this.f7360a != null && this.f7360a.d() != null) {
-                String optString = this.f7360a.d().optString("ad_extra_data");
+            this.f7060a = dVar;
+            if (this.f7060a != null && this.f7060a.d() != null) {
+                String optString = this.f7060a.d().optString("ad_extra_data");
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f7361b = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
-                        this.f7361b.b(this.f7360a.b());
-                        if (this.f7361b != null) {
-                            this.c = this.f7361b.f7392a;
+                        this.f7061b = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
+                        this.f7061b.b(this.f7060a.b());
+                        if (this.f7061b != null) {
+                            this.c = this.f7061b.f7092a;
                         }
                     } catch (Exception e) {
                     }
@@ -78,24 +78,24 @@ public class b implements com.ss.android.a.a.a.f {
         }
 
         private boolean a(String str) {
-            return !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f7360a.a()) || "draw_ad".equals(this.f7360a.a()) || "draw_ad_landingpage".equals(this.f7360a.a()) || "banner_ad".equals(this.f7360a.a()) || "banner_call".equals(this.f7360a.a()) || "banner_ad_landingpage".equals(this.f7360a.a()) || "feed_call".equals(this.f7360a.a()) || "embeded_ad_landingpage".equals(this.f7360a.a()) || "interaction".equals(this.f7360a.a()) || "interaction_call".equals(this.f7360a.a()) || "interaction_landingpage".equals(this.f7360a.a()) || "slide_banner_ad".equals(this.f7360a.a()) || "splash_ad".equals(this.f7360a.a()) || "fullscreen_interstitial_ad".equals(this.f7360a.a()) || "splash_ad_landingpage".equals(this.f7360a.a()) || "rewarded_video".equals(this.f7360a.a()) || "rewarded_video_landingpage".equals(this.f7360a.a()) || "openad_sdk_download_complete_tag".equals(this.f7360a.a()) || "download_notification".equals(this.f7360a.a()) || "landing_h5_download_ad_button".equals(this.f7360a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f7360a.a()));
+            return !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f7060a.a()) || "draw_ad".equals(this.f7060a.a()) || "draw_ad_landingpage".equals(this.f7060a.a()) || "banner_ad".equals(this.f7060a.a()) || "banner_call".equals(this.f7060a.a()) || "banner_ad_landingpage".equals(this.f7060a.a()) || "feed_call".equals(this.f7060a.a()) || "embeded_ad_landingpage".equals(this.f7060a.a()) || "interaction".equals(this.f7060a.a()) || "interaction_call".equals(this.f7060a.a()) || "interaction_landingpage".equals(this.f7060a.a()) || "slide_banner_ad".equals(this.f7060a.a()) || "splash_ad".equals(this.f7060a.a()) || "fullscreen_interstitial_ad".equals(this.f7060a.a()) || "splash_ad_landingpage".equals(this.f7060a.a()) || "rewarded_video".equals(this.f7060a.a()) || "rewarded_video_landingpage".equals(this.f7060a.a()) || "openad_sdk_download_complete_tag".equals(this.f7060a.a()) || "download_notification".equals(this.f7060a.a()) || "landing_h5_download_ad_button".equals(this.f7060a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f7060a.a()));
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if (this.f7360a != null) {
-                    String a2 = this.f7360a.a();
+                if (this.f7060a != null) {
+                    String a2 = this.f7060a.a();
                     u.f("LibEventLogger", "tag " + a2);
-                    u.f("LibEventLogger", "label " + this.f7360a.b());
-                    if (this.f7361b != null && !TextUtils.isEmpty(this.f7361b.f7393b)) {
-                        a2 = this.f7361b.f7393b;
+                    u.f("LibEventLogger", "label " + this.f7060a.b());
+                    if (this.f7061b != null && !TextUtils.isEmpty(this.f7061b.f7093b)) {
+                        a2 = this.f7061b.f7093b;
                     }
-                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.e.a(a2, this.f7360a.b(), this.c, new HashMap()) && this.f7361b != null && this.c != null && !TextUtils.isEmpty(this.f7360a.a()) && !TextUtils.isEmpty(this.f7360a.b())) {
-                        JSONObject e = b.e(this.f7360a);
-                        String str = this.f7361b.f7393b;
-                        if (a(this.f7360a.a()) && !"click".equals(this.f7360a.b())) {
-                            com.bytedance.sdk.openadsdk.c.d.b(a(), this.c, str, this.f7360a.b(), e);
+                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.e.a(a2, this.f7060a.b(), this.c, new HashMap()) && this.f7061b != null && this.c != null && !TextUtils.isEmpty(this.f7060a.a()) && !TextUtils.isEmpty(this.f7060a.b())) {
+                        JSONObject e = b.e(this.f7060a);
+                        String str = this.f7061b.f7093b;
+                        if (a(this.f7060a.a()) && !"click".equals(this.f7060a.b())) {
+                            com.bytedance.sdk.openadsdk.c.d.b(a(), this.c, str, this.f7060a.b(), e);
                         }
                     }
                 }

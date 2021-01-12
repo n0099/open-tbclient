@@ -1,22 +1,26 @@
 package com.baidu.mapapi.map;
-
-import android.graphics.Bitmap;
-import com.baidu.mapapi.map.BaiduMap;
-/* loaded from: classes3.dex */
-class i implements com.baidu.platform.comapi.map.c {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2919a;
+    final /* synthetic */ int f2796a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ int f2797b;
+    final /* synthetic */ int c;
+    final /* synthetic */ HeatMap d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(BaiduMap baiduMap) {
-        this.f2919a = baiduMap;
+    public i(HeatMap heatMap, int i, int i2, int i3) {
+        this.d = heatMap;
+        this.f2796a = i;
+        this.f2797b = i2;
+        this.c = i3;
     }
 
-    @Override // com.baidu.platform.comapi.map.c
-    public void a(Bitmap bitmap) {
-        BaiduMap.SnapshotReadyCallback snapshotReadyCallback;
-        snapshotReadyCallback = this.f2919a.B;
-        snapshotReadyCallback.onSnapshotReady(bitmap);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.d.b(this.f2796a, this.f2797b, this.c);
     }
 }

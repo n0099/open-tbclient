@@ -2,7 +2,7 @@ package com.qq.e.comm.net.rr;
 
 import com.qq.e.comm.net.rr.Request;
 import java.net.HttpURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class S2SSRequest extends AbstractRequest {
     public S2SSRequest(String str, byte[] bArr) {
         super(str, Request.Method.POST, bArr);

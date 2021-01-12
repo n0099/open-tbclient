@@ -5,7 +5,7 @@ import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class t {
-    public static final t pig = new t() { // from class: com.bytedance.sdk.a.a.t.1
+    public static final t pdC = new t() { // from class: com.bytedance.sdk.a.a.t.1
         @Override // com.bytedance.sdk.a.a.t
         public t c(long j, TimeUnit timeUnit) {
             return this;
@@ -22,10 +22,10 @@ public class t {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6151a;
+    private boolean f5851a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f6152b;
+    private long f5852b;
     private long d;
 
     public t c(long j, TimeUnit timeUnit) {
@@ -39,34 +39,34 @@ public class t {
         return this;
     }
 
-    public long eqe() {
+    public long emi() {
         return this.d;
     }
 
     public boolean c() {
-        return this.f6151a;
+        return this.f5851a;
     }
 
-    public long eqf() {
-        if (this.f6151a) {
-            return this.f6152b;
+    public long emj() {
+        if (this.f5851a) {
+            return this.f5852b;
         }
         throw new IllegalStateException("No deadline");
     }
 
     public t im(long j) {
-        this.f6151a = true;
-        this.f6152b = j;
+        this.f5851a = true;
+        this.f5852b = j;
         return this;
     }
 
-    public t eqg() {
+    public t emk() {
         this.d = 0L;
         return this;
     }
 
-    public t eqh() {
-        this.f6151a = false;
+    public t eml() {
+        this.f5851a = false;
         return this;
     }
 
@@ -74,7 +74,7 @@ public class t {
         if (Thread.interrupted()) {
             Thread.currentThread().interrupt();
             throw new InterruptedIOException("interrupted");
-        } else if (this.f6151a && this.f6152b - System.nanoTime() <= 0) {
+        } else if (this.f5851a && this.f5852b - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

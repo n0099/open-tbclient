@@ -12,7 +12,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlertDialogLayout extends LinearLayoutCompat {
     public AlertDialogLayout(@Nullable Context context) {
         super(context);

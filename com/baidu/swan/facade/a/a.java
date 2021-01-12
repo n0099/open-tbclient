@@ -1,11 +1,11 @@
 package com.baidu.swan.facade.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static c aTL() {
+    public static c aPR() {
         return new com.baidu.swan.bdprivate.a();
     }
 
-    public static b aTM() {
-        return com.baidu.tieba.aiapps.apps.h.d.bQP();
+    public static b aPS() {
+        return com.baidu.tieba.aiapps.apps.h.d.bMX();
     }
 }

@@ -20,12 +20,12 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        b.a aMp;
-        b.a aMp2;
+        b.a aIv;
+        b.a aIv2;
         p.o(jSONObject, "paramsJson");
         p.o(bVar, BuyTBeanActivityConfig.CALLBACK);
-        Application aAs = com.baidu.swan.apps.t.a.aAs();
-        if (aAs == null) {
+        Application awy = com.baidu.swan.apps.t.a.awy();
+        if (awy == null) {
             bVar.onFail(202, "params may be error");
         } else {
             String optString = jSONObject.optString("appKey");
@@ -34,17 +34,17 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
                 bVar.onFail(202, "params may be error");
             } else {
                 JSONObject jSONObject2 = new JSONObject();
-                com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
-                jSONObject2.put("pre_source", (aMm == null || (aMp2 = aMm.aMp()) == null || (r0 = aMp2.aCw()) == null) ? "" : "");
-                com.baidu.swan.apps.runtime.e aMm2 = com.baidu.swan.apps.runtime.e.aMm();
-                jSONObject2.put("pre_appid", (aMm2 == null || (aMp = aMm2.aMp()) == null || (r0 = aMp.getAppKey()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aIs = com.baidu.swan.apps.runtime.e.aIs();
+                jSONObject2.put("pre_source", (aIs == null || (aIv2 = aIs.aIv()) == null || (r0 = aIv2.ayC()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aIs2 = com.baidu.swan.apps.runtime.e.aIs();
+                jSONObject2.put("pre_appid", (aIs2 == null || (aIv = aIs2.aIv()) == null || (r0 = aIv.getAppKey()) == null) ? "" : "");
                 jSONObject.put("ubc", jSONObject2);
                 String b2 = c.b(optString, 1, jSONObject);
                 String str2 = b2;
                 Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b2);
                 if (parse == null) {
                     bVar.onFail(202, "params may be error");
-                } else if (SchemeRouter.invokeScheme(aAs, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                } else if (SchemeRouter.invokeScheme(awy, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
                     bVar.aI(null);
                 } else {
                     bVar.onFail(202, "params may be error");

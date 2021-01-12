@@ -1,20 +1,20 @@
 package com.baidu.live.talentshow.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends HttpMessage {
-    private com.baidu.live.talentshow.b.d bHx;
+    private com.baidu.live.talentshow.b.d bCL;
 
     public e() {
         super(1021225);
     }
 
     public void d(com.baidu.live.talentshow.b.d dVar) {
-        this.bHx = dVar;
+        this.bCL = dVar;
     }
 
-    public com.baidu.live.talentshow.b.d Vw() {
-        return this.bHx;
+    public com.baidu.live.talentshow.b.d RD() {
+        return this.bCL;
     }
 
     public void setLiveId(long j) {

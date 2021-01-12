@@ -3,10 +3,10 @@ package com.pgl.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11681a = 255;
+    public static int f11381a = 255;
 
     public static String a() {
-        switch (f11681a) {
+        switch (f11381a) {
             case 0:
                 return "https://bds.snssdk.com";
             default:
@@ -16,12 +16,12 @@ public class a {
 
     public static synchronized void a(int i) {
         synchronized (a.class) {
-            f11681a = i;
+            f11381a = i;
         }
     }
 
     public static String b() {
-        switch (f11681a) {
+        switch (f11381a) {
             case 0:
                 return "https://sdfp.snssdk.com";
             default:

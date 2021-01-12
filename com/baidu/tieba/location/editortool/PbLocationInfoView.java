@@ -10,9 +10,9 @@ import com.baidu.adp.base.j;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect leE;
+    private Rect kZW;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.leE = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.kZW = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         setTextColor(ao.getColor(R.color.CAM_X0108));
-        dfz();
+        dbH();
     }
 
     public void setState(int i, String str) {
@@ -48,18 +48,18 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        dfz();
+        dbH();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void dfz() {
+    public void dbH() {
         if (this.mState == 1) {
             Drawable drawable = ao.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.leE);
+                drawable.setBounds(this.kZW);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) j.J(getContext()), (Animatable) drawable);
@@ -67,7 +67,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = ao.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.leE);
+            drawable2.setBounds(this.kZW);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

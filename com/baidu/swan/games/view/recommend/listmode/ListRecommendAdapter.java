@@ -8,15 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.model.a epG;
-    private a epY;
+    private com.baidu.swan.games.view.recommend.model.a ekR;
+    private a elj;
     private LayoutInflater mInflater;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void mX(int i);
+        void lr(int i);
     }
 
     public ListRecommendAdapter(@NonNull Context context) {
@@ -34,40 +34,40 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
-        RecommendItemModel recommendItemModel = this.epG.eqk.get(i);
+        RecommendItemModel recommendItemModel = this.ekR.elv.get(i);
         if (recommendItemModel != null) {
-            listRecommendViewHolder.epW.setImageURI(recommendItemModel.iconUrl);
-            listRecommendViewHolder.epX.setText(recommendItemModel.appName);
-            listRecommendViewHolder.eqh.setText(recommendItemModel.desc);
-            listRecommendViewHolder.eqi.setText(recommendItemModel.buttonText);
+            listRecommendViewHolder.elh.setImageURI(recommendItemModel.iconUrl);
+            listRecommendViewHolder.eli.setText(recommendItemModel.appName);
+            listRecommendViewHolder.els.setText(recommendItemModel.desc);
+            listRecommendViewHolder.elt.setText(recommendItemModel.buttonText);
             listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
-            listRecommendViewHolder.eqi.setTag(Integer.valueOf(i));
+            listRecommendViewHolder.elt.setTag(Integer.valueOf(i));
             listRecommendViewHolder.itemView.setOnClickListener(this);
-            listRecommendViewHolder.eqi.setOnClickListener(this);
+            listRecommendViewHolder.elt.setOnClickListener(this);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.epG == null || this.epG.eqk == null) {
+        if (this.ekR == null || this.ekR.elv == null) {
             return 0;
         }
-        return this.epG.eqk.size();
+        return this.ekR.elv.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.epY != null && view != null && (view.getTag() instanceof Integer)) {
-            this.epY.mX(((Integer) view.getTag()).intValue());
+        if (this.elj != null && view != null && (view.getTag() instanceof Integer)) {
+            this.elj.lr(((Integer) view.getTag()).intValue());
         }
     }
 
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.epG = aVar;
+        this.ekR = aVar;
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.epY = aVar;
+        this.elj = aVar;
     }
 }

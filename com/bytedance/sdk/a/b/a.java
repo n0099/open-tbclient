@@ -12,30 +12,30 @@ import org.apache.http.HttpHost;
 public final class a {
     final List<w> e;
     final List<n> f;
-    final s pih;
-    final r pii;
-    final SocketFactory pij;
-    final e pik;
-    final ProxySelector pil;
-    final Proxy pim;
-    final SSLSocketFactory pio;
-    final HostnameVerifier pip;
-    final j piq;
+    final s pdD;
+    final r pdE;
+    final SocketFactory pdF;
+    final e pdG;
+    final ProxySelector pdH;
+    final Proxy pdI;
+    final SSLSocketFactory pdJ;
+    final HostnameVerifier pdK;
+    final j pdL;
 
     public a(String str, int i, r rVar, SocketFactory socketFactory, SSLSocketFactory sSLSocketFactory, HostnameVerifier hostnameVerifier, j jVar, e eVar, Proxy proxy, List<w> list, List<n> list2, ProxySelector proxySelector) {
-        this.pih = new s.a().YP(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).YN(str).PS(i).erC();
+        this.pdD = new s.a().XH(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).XF(str).Ol(i).enH();
         if (rVar == null) {
             throw new NullPointerException("dns == null");
         }
-        this.pii = rVar;
+        this.pdE = rVar;
         if (socketFactory == null) {
             throw new NullPointerException("socketFactory == null");
         }
-        this.pij = socketFactory;
+        this.pdF = socketFactory;
         if (eVar == null) {
             throw new NullPointerException("proxyAuthenticator == null");
         }
-        this.pik = eVar;
+        this.pdG = eVar;
         if (list == null) {
             throw new NullPointerException("protocols == null");
         }
@@ -47,27 +47,27 @@ public final class a {
         if (proxySelector == null) {
             throw new NullPointerException("proxySelector == null");
         }
-        this.pil = proxySelector;
-        this.pim = proxy;
-        this.pio = sSLSocketFactory;
-        this.pip = hostnameVerifier;
-        this.piq = jVar;
+        this.pdH = proxySelector;
+        this.pdI = proxy;
+        this.pdJ = sSLSocketFactory;
+        this.pdK = hostnameVerifier;
+        this.pdL = jVar;
     }
 
-    public s eql() {
-        return this.pih;
+    public s emp() {
+        return this.pdD;
     }
 
-    public r eqm() {
-        return this.pii;
+    public r emq() {
+        return this.pdE;
     }
 
-    public SocketFactory eqn() {
-        return this.pij;
+    public SocketFactory emr() {
+        return this.pdF;
     }
 
-    public e eqo() {
-        return this.pik;
+    public e ems() {
+        return this.pdG;
     }
 
     public List<w> e() {
@@ -78,45 +78,45 @@ public final class a {
         return this.f;
     }
 
-    public ProxySelector eqp() {
-        return this.pil;
+    public ProxySelector emt() {
+        return this.pdH;
     }
 
-    public Proxy eqq() {
-        return this.pim;
+    public Proxy emu() {
+        return this.pdI;
     }
 
-    public SSLSocketFactory eqr() {
-        return this.pio;
+    public SSLSocketFactory emv() {
+        return this.pdJ;
     }
 
-    public HostnameVerifier eqs() {
-        return this.pip;
+    public HostnameVerifier emw() {
+        return this.pdK;
     }
 
-    public j eqt() {
-        return this.piq;
+    public j emx() {
+        return this.pdL;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && this.pih.equals(((a) obj).pih) && a((a) obj);
+        return (obj instanceof a) && this.pdD.equals(((a) obj).pdD) && a((a) obj);
     }
 
     public int hashCode() {
-        return (((this.pip != null ? this.pip.hashCode() : 0) + (((this.pio != null ? this.pio.hashCode() : 0) + (((this.pim != null ? this.pim.hashCode() : 0) + ((((((((((((this.pih.hashCode() + 527) * 31) + this.pii.hashCode()) * 31) + this.pik.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.pil.hashCode()) * 31)) * 31)) * 31)) * 31) + (this.piq != null ? this.piq.hashCode() : 0);
+        return (((this.pdK != null ? this.pdK.hashCode() : 0) + (((this.pdJ != null ? this.pdJ.hashCode() : 0) + (((this.pdI != null ? this.pdI.hashCode() : 0) + ((((((((((((this.pdD.hashCode() + 527) * 31) + this.pdE.hashCode()) * 31) + this.pdG.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.pdH.hashCode()) * 31)) * 31)) * 31)) * 31) + (this.pdL != null ? this.pdL.hashCode() : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(a aVar) {
-        return this.pii.equals(aVar.pii) && this.pik.equals(aVar.pik) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.pil.equals(aVar.pil) && com.bytedance.sdk.a.b.a.c.a(this.pim, aVar.pim) && com.bytedance.sdk.a.b.a.c.a(this.pio, aVar.pio) && com.bytedance.sdk.a.b.a.c.a(this.pip, aVar.pip) && com.bytedance.sdk.a.b.a.c.a(this.piq, aVar.piq) && eql().g() == aVar.eql().g();
+        return this.pdE.equals(aVar.pdE) && this.pdG.equals(aVar.pdG) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.pdH.equals(aVar.pdH) && com.bytedance.sdk.a.b.a.c.a(this.pdI, aVar.pdI) && com.bytedance.sdk.a.b.a.c.a(this.pdJ, aVar.pdJ) && com.bytedance.sdk.a.b.a.c.a(this.pdK, aVar.pdK) && com.bytedance.sdk.a.b.a.c.a(this.pdL, aVar.pdL) && emp().g() == aVar.emp().g();
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder().append("Address{").append(this.pih.f()).append(":").append(this.pih.g());
-        if (this.pim != null) {
-            append.append(", proxy=").append(this.pim);
+        StringBuilder append = new StringBuilder().append("Address{").append(this.pdD.f()).append(":").append(this.pdD.g());
+        if (this.pdI != null) {
+            append.append(", proxy=").append(this.pdI);
         } else {
-            append.append(", proxySelector=").append(this.pil);
+            append.append(", proxySelector=").append(this.pdH);
         }
         append.append("}");
         return append.toString();

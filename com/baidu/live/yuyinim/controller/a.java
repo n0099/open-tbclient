@@ -37,18 +37,18 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements k {
-    private List<String> bqg;
-    private List<String> bqh;
-    private k.a bqj;
-    private final ALaImMsgView cdK;
-    private final ALALiveTextView cdL;
+    private final ALaImMsgView bYU;
+    private final ALALiveTextView bYV;
+    private List<String> blt;
+    private List<String> blu;
+    private k.a blw;
     private String mGroupId;
     private TbPageContext mPageContext;
-    private boolean aWW = false;
-    private Set<Long> cdM = new HashSet();
-    private CustomMessageListener bnb = new CustomMessageListener(2913038) { // from class: com.baidu.live.yuyinim.controller.a.1
+    private boolean aSj = false;
+    private Set<Long> bYW = new HashSet();
+    private CustomMessageListener bio = new CustomMessageListener(2913038) { // from class: com.baidu.live.yuyinim.controller.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -64,26 +64,26 @@ public class a implements k {
             }
         }
     };
-    private CustomMessageListener bnc = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinim.controller.a.3
+    private CustomMessageListener bip = new CustomMessageListener(2913037) { // from class: com.baidu.live.yuyinim.controller.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof b)) {
                 b bVar = (b) customResponsedMessage.getData();
-                if (!a.this.aWW && bVar != null && (bVar.Nw() instanceof com.baidu.live.data.a)) {
-                    bVar.Nw().aIY = -1;
+                if (!a.this.aSj && bVar != null && (bVar.JB() instanceof com.baidu.live.data.a)) {
+                    bVar.JB().aEl = -1;
                 }
                 a.this.t(bVar);
             }
         }
     };
-    private CustomMessageListener bqk = new CustomMessageListener(2913044) { // from class: com.baidu.live.yuyinim.controller.a.4
+    private CustomMessageListener blx = new CustomMessageListener(2913044) { // from class: com.baidu.live.yuyinim.controller.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         }
     };
-    private CustomMessageListener bql = new CustomMessageListener(2913095) { // from class: com.baidu.live.yuyinim.controller.a.5
+    private CustomMessageListener bly = new CustomMessageListener(2913095) { // from class: com.baidu.live.yuyinim.controller.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -92,32 +92,32 @@ public class a implements k {
                 if (str == null) {
                     str = "";
                 }
-                if (a.this.cdL != null) {
-                    a.this.cdL.hU(str);
+                if (a.this.bYV != null) {
+                    a.this.bYV.gJ(str);
                 }
             }
         }
     };
-    private final a.InterfaceC0239a bqn = new a.InterfaceC0239a() { // from class: com.baidu.live.yuyinim.controller.a.6
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public boolean ME() {
-            return a.this.bqj != null && a.this.bqj.ME();
+    private final a.InterfaceC0230a blA = new a.InterfaceC0230a() { // from class: com.baidu.live.yuyinim.controller.a.6
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public boolean IJ() {
+            return a.this.blw != null && a.this.blw.IJ();
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
         public void t(String str, boolean z) {
             Log.i("i", "@@@ localText nmpanctr sdhdl 1");
-            if (a.this.bqj != null) {
-                if (a.this.bqj.ME()) {
+            if (a.this.blw != null) {
+                if (a.this.blw.IJ()) {
                     ImSendMsgData imSendMsgData = new ImSendMsgData(str);
-                    if (a.this.cdL != null && a.this.cdL.Ot()) {
-                        ck barrageInfo = a.this.cdL.getBarrageInfo();
+                    if (a.this.bYV != null && a.this.bYV.Ky()) {
+                        ck barrageInfo = a.this.bYV.getBarrageInfo();
                         if (barrageInfo != null) {
-                            if (barrageInfo.type == 16 && !a.this.bqj.MJ()) {
+                            if (barrageInfo.type == 16 && !a.this.blw.IO()) {
                                 BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.h.sdk_throne_disabled_alert);
                                 return;
-                            } else if (barrageInfo.type == 17 && barrageInfo.aTG > a.this.bqj.MK()) {
-                                if (barrageInfo.aTG == 7) {
+                            } else if (barrageInfo.type == 17 && barrageInfo.aOT > a.this.blw.IP()) {
+                                if (barrageInfo.aOT == 7) {
                                     BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.h.sdk_noble_king_disabled_alert);
                                     return;
                                 } else {
@@ -136,90 +136,90 @@ public class a implements k {
                     }
                     Log.i("i", "@@@ localText nmpanctr sdhdl cmd");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, imSendMsgData));
-                    if (!z && a.this.cdL != null) {
-                        a.this.cdL.Ox();
+                    if (!z && a.this.bYV != null) {
+                        a.this.bYV.KC();
                     }
                 } else if (!z) {
                     Log.i("i", "@@@ localText nmpanctr sdhdl nolg");
-                    a.this.bqj.MF();
+                    a.this.blw.IK();
                 }
                 if (z) {
-                    a.this.bqj.hO(str);
+                    a.this.blw.gD(str);
                 }
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public void MG() {
-            if (a.this.bqj != null) {
-                a.this.bqj.MG();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public void IL() {
+            if (a.this.blw != null) {
+                a.this.blw.IL();
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public void MH() {
-            if (a.this.bqj != null) {
-                a.this.bqj.MH();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public void IM() {
+            if (a.this.blw != null) {
+                a.this.blw.IM();
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public void MI() {
-            if (a.this.bqj != null) {
-                a.this.bqj.MI();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public void IN() {
+            if (a.this.blw != null) {
+                a.this.blw.IN();
             }
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public boolean MJ() {
-            return a.this.bqj != null && a.this.bqj.MJ();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public boolean IO() {
+            return a.this.blw != null && a.this.blw.IO();
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public int MK() {
-            if (a.this.bqj != null) {
-                return a.this.bqj.MK();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public int IP() {
+            if (a.this.blw != null) {
+                return a.this.blw.IP();
             }
             return 0;
         }
 
-        @Override // com.baidu.live.view.input.a.InterfaceC0239a
-        public boolean ML() {
-            if (a.this.bqj != null) {
-                return a.this.bqj.ML();
+        @Override // com.baidu.live.view.input.a.InterfaceC0230a
+        public boolean IQ() {
+            if (a.this.blw != null) {
+                return a.this.blw.IQ();
             }
             return false;
         }
     };
-    private Runnable bqp = new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.2
+    private Runnable blC = new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cdK.abL();
+            a.this.bYU.XS();
         }
     };
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.cdK = new ALaImMsgView(tbPageContext.getPageActivity());
-        this.cdK.setPageContext(this.mPageContext);
-        this.cdK.setNeedTopAlphaShade(true);
-        this.cdK.setMode(false);
-        this.cdL = new ALALiveTextView(tbPageContext.getPageActivity(), tbPageContext);
-        this.cdL.setMsHandler(this.bqn);
-        this.cdL.setBdPageContext(tbPageContext);
-        this.bqg = new ArrayList();
-        this.bqh = new ArrayList();
-        this.bqg.add("allin");
+        this.bYU = new ALaImMsgView(tbPageContext.getPageActivity());
+        this.bYU.setPageContext(this.mPageContext);
+        this.bYU.setNeedTopAlphaShade(true);
+        this.bYU.setMode(false);
+        this.bYV = new ALALiveTextView(tbPageContext.getPageActivity(), tbPageContext);
+        this.bYV.setMsHandler(this.blA);
+        this.bYV.setBdPageContext(tbPageContext);
+        this.blt = new ArrayList();
+        this.blu = new ArrayList();
+        this.blt.add("allin");
     }
 
     @Override // com.baidu.live.im.k
     public void setFromMaster(boolean z) {
-        this.aWW = z;
-        if (this.cdK != null) {
-            this.cdK.setFromMaster(z);
+        this.aSj = z;
+        if (this.bYU != null) {
+            this.bYU.setFromMaster(z);
         }
-        if (this.cdL != null) {
-            this.cdL.setFromMaster(z);
+        if (this.bYV != null) {
+            this.bYV.setFromMaster(z);
         }
     }
 
@@ -229,16 +229,16 @@ public class a implements k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(List<b> list, boolean z) {
-        if (this.cdK != null) {
-            boolean az = this.cdK.az(list);
-            this.cdK.setMsgData(list);
+        if (this.bYU != null) {
+            boolean az = this.bYU.az(list);
+            this.bYU.setMsgData(list);
             if (az) {
-                this.cdK.OK();
+                this.bYU.KP();
                 if (z) {
-                    this.cdK.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.7
+                    this.bYU.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.7
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.cdK.Mz();
+                            a.this.bYU.IE();
                         }
                     }, 350L);
                 }
@@ -250,13 +250,13 @@ public class a implements k {
     public void a(List<b> list, b bVar) {
         if (bVar != null && list != null) {
             list.add(bVar);
-            if (this.cdK != null) {
-                this.cdK.setMsgData(list);
-                this.cdK.OK();
-                this.cdK.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.8
+            if (this.bYU != null) {
+                this.bYU.setMsgData(list);
+                this.bYU.KP();
+                this.bYU.postDelayed(new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cdK.Mz();
+                        a.this.bYU.IE();
                     }
                 }, 350L);
             }
@@ -282,86 +282,86 @@ public class a implements k {
             } catch (JSONException e2) {
                 str = null;
             }
-            if ("enter_live".equals(str) && com.baidu.live.entereffect.a.FB().h(bVar)) {
-                this.cdK.B(bVar);
+            if ("enter_live".equals(str) && com.baidu.live.entereffect.a.BG().h(bVar)) {
+                this.bYU.B(bVar);
             }
         }
     }
 
     @Override // com.baidu.live.im.k
-    public j MA() {
-        return this.cdK;
+    public j IF() {
+        return this.bYU;
     }
 
     @Override // com.baidu.live.im.k
-    public com.baidu.live.view.input.a MB() {
-        return this.cdL;
+    public com.baidu.live.view.input.a IG() {
+        return this.bYV;
     }
 
     @Override // com.baidu.live.im.k
-    public com.baidu.live.view.input.b MC() {
+    public com.baidu.live.view.input.b IH() {
         return null;
     }
 
     @Override // com.baidu.live.im.k
     public void setLogData(String str, String str2) {
-        if (this.cdL != null) {
-            this.cdL.setLogData(str, str2);
+        if (this.bYV != null) {
+            this.bYV.setLogData(str, str2);
         }
-        if (this.cdK != null) {
-            this.cdK.setLogData(str, str2);
+        if (this.bYU != null) {
+            this.bYU.setLogData(str, str2);
         }
     }
 
     @Override // com.baidu.live.im.k
     public void a(String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
         this.mGroupId = str;
-        MessageManager.getInstance().registerListener(this.bnb);
-        MessageManager.getInstance().registerListener(this.bnc);
-        MessageManager.getInstance().registerListener(this.bqk);
-        MessageManager.getInstance().registerListener(this.bql);
-        this.cdM.clear();
-        this.cdK.LI();
-        this.cdK.a(str, str4, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str3), str3, str6);
-        MessageManager.getInstance().registerListener(this.cdL.bpW);
-        MessageManager.getInstance().registerListener(this.cdL.bih);
+        MessageManager.getInstance().registerListener(this.bio);
+        MessageManager.getInstance().registerListener(this.bip);
+        MessageManager.getInstance().registerListener(this.blx);
+        MessageManager.getInstance().registerListener(this.bly);
+        this.bYW.clear();
+        this.bYU.HN();
+        this.bYU.a(str, str4, !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str3), str3, str6);
+        MessageManager.getInstance().registerListener(this.bYV.blj);
+        MessageManager.getInstance().registerListener(this.bYV.bdo);
     }
 
     @Override // com.baidu.live.im.k
-    public void Dc() {
-        MessageManager.getInstance().unRegisterListener(this.bnb);
-        MessageManager.getInstance().unRegisterListener(this.bnc);
-        MessageManager.getInstance().unRegisterListener(this.bqk);
-        MessageManager.getInstance().unRegisterListener(this.bql);
-        this.cdM.clear();
-        if (this.cdK != null) {
-            this.cdK.Ng();
+    public void zh() {
+        MessageManager.getInstance().unRegisterListener(this.bio);
+        MessageManager.getInstance().unRegisterListener(this.bip);
+        MessageManager.getInstance().unRegisterListener(this.blx);
+        MessageManager.getInstance().unRegisterListener(this.bly);
+        this.bYW.clear();
+        if (this.bYU != null) {
+            this.bYU.Jl();
         }
-        if (this.cdL != null) {
-            this.cdL.Ox();
-            MessageManager.getInstance().unRegisterListener(this.cdL.bpW);
-            MessageManager.getInstance().unRegisterListener(this.cdL.bih);
+        if (this.bYV != null) {
+            this.bYV.KC();
+            MessageManager.getInstance().unRegisterListener(this.bYV.blj);
+            MessageManager.getInstance().unRegisterListener(this.bYV.bdo);
         }
         LiveTimerManager.getInstance().removeLiveTimerTask("live_show_tag_view", true);
-        SafeHandler.getInst().removeCallbacks(this.bqp);
+        SafeHandler.getInst().removeCallbacks(this.blC);
     }
 
     @Override // com.baidu.live.im.k
     public void g(Map<String, Integer> map) {
-        if (this.cdL != null) {
-            this.cdL.g(map);
+        if (this.bYV != null) {
+            this.bYV.g(map);
         }
     }
 
     @Override // com.baidu.live.im.k
     public void a(k.a aVar) {
-        this.bqj = aVar;
+        this.blw = aVar;
     }
 
     @Override // com.baidu.live.im.k
     public void a(boolean z, int i, int i2, String str) {
-        if (this.cdL != null) {
-            this.cdL.b(z, i, i2, str);
+        if (this.bYV != null) {
+            this.bYV.b(z, i, i2, str);
         }
     }
 
@@ -372,11 +372,11 @@ public class a implements k {
 
     @Override // com.baidu.live.im.k
     public int getImMsgListViewHeight() {
-        return this.cdK.getHeight();
+        return this.bYU.getHeight();
     }
 
     @Override // com.baidu.live.im.k
-    public int MD() {
+    public int II() {
         return 0;
     }
 
@@ -485,7 +485,7 @@ public class a implements k {
             if (!ListUtils.isEmpty(hashMap2)) {
                 for (Map.Entry entry : hashMap2.entrySet()) {
                     if (!StringUtils.isNull((String) entry.getValue(), true)) {
-                        if (!com.baidu.live.aq.a.aan().jm(com.baidu.live.aq.a.aan().aas())) {
+                        if (!com.baidu.live.aq.a.Wu().ib(com.baidu.live.aq.a.Wu().Wz())) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501026, entry.getValue()));
                         } else {
                             try {
@@ -508,20 +508,20 @@ public class a implements k {
     public void W(List<b> list) {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = new ArrayList();
-            if (this.aWW) {
-                if (ListUtils.isEmpty(this.bqg)) {
+            if (this.aSj) {
+                if (ListUtils.isEmpty(this.blt)) {
                     return;
                 }
-            } else if (ListUtils.isEmpty(this.bqh)) {
+            } else if (ListUtils.isEmpty(this.blu)) {
                 return;
             }
             for (b bVar : list) {
                 if (bVar != null && (bVar.getMsgType() == 13 || bVar.getMsgType() == 26 || bVar.getMsgType() == 27 || bVar.getMsgType() == 12)) {
-                    if (this.aWW) {
-                        if (this.bqg.contains(z(bVar))) {
+                    if (this.aSj) {
+                        if (this.blt.contains(z(bVar))) {
                             arrayList.add(bVar);
                         }
-                    } else if (this.bqh.contains(z(bVar))) {
+                    } else if (this.blu.contains(z(bVar))) {
                         arrayList.add(bVar);
                     }
                 }
@@ -537,9 +537,9 @@ public class a implements k {
         }
         ArrayList arrayList = new ArrayList();
         for (b bVar : list) {
-            if (bVar != null && "audio_emoticon".equals(z(bVar)) && !this.cdM.contains(Long.valueOf(bVar.getMsgId())) && (com.baidu.live.aq.a.aan().jm(ExtraParamsManager.getEncryptionUserId(bVar.getUserId() + "")) || !StringUtils.isNull(H(bVar), true))) {
+            if (bVar != null && "audio_emoticon".equals(z(bVar)) && !this.bYW.contains(Long.valueOf(bVar.getMsgId())) && (com.baidu.live.aq.a.Wu().ib(ExtraParamsManager.getEncryptionUserId(bVar.getUserId() + "")) || !StringUtils.isNull(H(bVar), true))) {
                 arrayList.add(bVar);
-                this.cdM.add(Long.valueOf(bVar.getMsgId()));
+                this.bYW.add(Long.valueOf(bVar.getMsgId()));
             }
         }
         list.removeAll(arrayList);
@@ -567,8 +567,8 @@ public class a implements k {
                             public void onLoaded() {
                                 if (str == a.this.mGroupId) {
                                     a.this.a(list, bVar);
-                                    if (!bVar.Nz()) {
-                                        a.this.I(optString, optString2, optString3);
+                                    if (!bVar.JE()) {
+                                        a.this.H(optString, optString2, optString3);
                                     }
                                 }
                             }
@@ -586,7 +586,7 @@ public class a implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void I(String str, String str2, String str3) {
+    public void H(String str, String str2, String str3) {
         if (!StringUtils.isNull(str, true) && !StringUtils.isNull(str3, true)) {
             HashMap hashMap = new HashMap();
             hashMap.put("user_uk", str3);

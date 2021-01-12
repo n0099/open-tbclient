@@ -2,12 +2,12 @@ package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class q extends BaseData {
-    public AlaLiveUserInfoData aKu;
-    public AlaLocationData aKv;
-    public AlaRelationData aKw;
-    public long aKx;
+    public AlaLiveUserInfoData aFH;
+    public AlaLocationData aFI;
+    public AlaRelationData aFJ;
+    public long aFK;
     public int hadPoked;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -15,25 +15,25 @@ public class q extends BaseData {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aKu = new AlaLiveUserInfoData();
-                this.aKu.parserJson(optJSONObject);
+                this.aFH = new AlaLiveUserInfoData();
+                this.aFH.parserJson(optJSONObject);
                 this.hadPoked = optJSONObject.optInt("poke_flag", 0);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("location_info");
             if (optJSONObject2 != null) {
-                this.aKv = new AlaLocationData();
-                this.aKv.parserJson(optJSONObject2);
+                this.aFI = new AlaLocationData();
+                this.aFI.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("relation_info");
             if (optJSONObject3 != null) {
-                this.aKw = new AlaRelationData();
-                this.aKw.parserJson(optJSONObject3);
+                this.aFJ = new AlaRelationData();
+                this.aFJ.parserJson(optJSONObject3);
             }
-            this.aKx = jSONObject.optLong("rank_num");
-            if (this.aKu == null) {
+            this.aFK = jSONObject.optLong("rank_num");
+            if (this.aFH == null) {
                 try {
-                    this.aKu = new AlaLiveUserInfoData();
-                    this.aKu.parserJson(jSONObject);
+                    this.aFH = new AlaLiveUserInfoData();
+                    this.aFH.parserJson(jSONObject);
                 } catch (Exception e) {
                 }
             }

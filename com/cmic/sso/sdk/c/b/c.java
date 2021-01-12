@@ -1,19 +1,19 @@
 package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8004a;
+    private String f7704a;
 
     public c(String str) {
-        this.f8004a = str;
+        this.f7704a = str;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.f8004a;
+        return this.f7704a;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g

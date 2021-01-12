@@ -33,10 +33,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
     @SuppressLint({"UseSparseArrays"})
-    private static Map<Long, Long> ceb = new HashMap();
+    private static Map<Long, Long> bZl = new HashMap();
 
     public static String h(Context context, long j) {
         SimpleDateFormat simpleDateFormat;
@@ -49,7 +49,7 @@ public class f {
         }
         TimeZone timeZone = Calendar.getInstance().getTimeZone();
         String str = "";
-        if (hH(context)) {
+        if (hF(context)) {
             simpleDateFormat = new SimpleDateFormat("HH:mm", Locale.CHINA);
         } else {
             str = i(context, j) + " ";
@@ -64,7 +64,7 @@ public class f {
         }
         if (c(Long.valueOf(currentTimeMillis), j)) {
             Calendar.getInstance().setTimeInMillis(j);
-            return Pl(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
+            return NE(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
         } else if (d(Long.valueOf(currentTimeMillis), j) || e(Long.valueOf(currentTimeMillis), j)) {
             new SimpleDateFormat("MM-dd ", Locale.CHINA).setTimeZone(timeZone);
             return simpleDateFormat2.format(new Date(j)) + str + simpleDateFormat.format(new Date(j));
@@ -74,7 +74,7 @@ public class f {
         }
     }
 
-    private static String Pl(int i) {
+    private static String NE(int i) {
         switch (i) {
             case 1:
                 return "星期日";
@@ -95,7 +95,7 @@ public class f {
         }
     }
 
-    private static boolean hH(Context context) {
+    private static boolean hF(Context context) {
         return DateFormat.is24HourFormat(context);
     }
 
@@ -203,7 +203,7 @@ public class f {
         return 55;
     }
 
-    public static long enW() {
+    public static long ekb() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -221,7 +221,7 @@ public class f {
         return j;
     }
 
-    public static boolean hI(Context context) {
+    public static boolean hG(Context context) {
         long h = com.baidu.yuyinala.privatemessage.implugin.util.c.b.h(context, "check_sdcard", 0L);
         return h == 0 || (System.currentTimeMillis() / 1000) - h > 18000;
     }
@@ -261,7 +261,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().h(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -282,20 +282,20 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void emC() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emI = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().emI();
-        if (emI != null) {
-            emI.emC();
+    public static void eiI() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a eiO = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eiJ().eiO();
+        if (eiO != null) {
+            eiO.eiI();
         }
     }
 
-    public static int dM(Context context) {
+    public static int dL(Context context) {
         try {
             if (context.getResources().getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE) != 0) {
                 return context.getResources().getDimensionPixelSize(context.getResources().getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));

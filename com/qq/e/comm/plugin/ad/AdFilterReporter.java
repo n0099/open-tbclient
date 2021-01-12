@@ -10,17 +10,17 @@ import java.lang.annotation.RetentionPolicy;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdFilterReporter {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONArray f12166a = new JSONArray();
+    private JSONArray f11866a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12167b;
+    private String f11867b;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface FilterCode {
         public static final int FILTER_INSTALLED = 2;
         public static final int FILTER_NONE = 0;
@@ -29,34 +29,34 @@ public class AdFilterReporter {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f12167b) || this.f12166a.length() <= 0) {
+        if (TextUtils.isEmpty(this.f11867b) || this.f11866a.length() <= 0) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("data", this.f12166a);
+            jSONObject.put("data", this.f11866a);
             String jSONObject2 = jSONObject.toString();
-            ai.a("AdFilterReporter url:" + this.f12167b + " data:" + jSONObject2, new Object[0]);
-            com.qq.e.comm.plugin.t.b.c cVar = new com.qq.e.comm.plugin.t.b.c(this.f12167b, e.a.POST, jSONObject2.getBytes(com.qq.e.comm.plugin.f.a.f12290a));
+            ai.a("AdFilterReporter url:" + this.f11867b + " data:" + jSONObject2, new Object[0]);
+            com.qq.e.comm.plugin.t.b.c cVar = new com.qq.e.comm.plugin.t.b.c(this.f11867b, e.a.POST, jSONObject2.getBytes(com.qq.e.comm.plugin.f.a.f11990a));
             cVar.a("Content-Type", HttpHelper.CONTENT_JSON);
             com.qq.e.comm.plugin.t.d.a().a(cVar);
         } catch (JSONException e) {
             ai.a("AdFilterReporter report error", e);
         }
-        this.f12166a = new JSONArray();
+        this.f11866a = new JSONArray();
     }
 
     public void a(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (TextUtils.isEmpty(this.f12167b)) {
+        if (TextUtils.isEmpty(this.f11867b)) {
             int indexOf = str.indexOf(63);
             if (indexOf == -1) {
                 ai.a("AdFilterReporter fl is not valid:" + str, new Object[0]);
                 return;
             }
-            this.f12167b = str.substring(0, indexOf);
+            this.f11867b = str.substring(0, indexOf);
         }
         String queryParameter = Uri.parse(str).getQueryParameter("viewid");
         if (TextUtils.isEmpty(queryParameter)) {
@@ -66,7 +66,7 @@ public class AdFilterReporter {
         try {
             jSONObject.put("view_id", queryParameter);
             jSONObject.put("filter_code", i);
-            this.f12166a.put(jSONObject);
+            this.f11866a.put(jSONObject);
         } catch (JSONException e) {
             ai.a("AdFilterReporter addData error", e);
         }

@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpRequest {
     private static final String TAG = HttpRequest.class.getSimpleName();
 

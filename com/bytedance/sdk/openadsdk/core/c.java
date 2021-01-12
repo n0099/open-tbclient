@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
@@ -122,8 +123,8 @@ public class c {
         JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
         if (optJSONObject4 != null) {
             com.bytedance.sdk.openadsdk.core.d.e eVar = new com.bytedance.sdk.openadsdk.core.d.e();
-            eVar.f6791a = optJSONObject4.optBoolean("click_upper_content_area", true);
-            eVar.f6792b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+            eVar.f6491a = optJSONObject4.optBoolean("click_upper_content_area", true);
+            eVar.f6492b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
             eVar.c = optJSONObject4.optBoolean("click_lower_content_area", true);
             eVar.d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
             eVar.e = optJSONObject4.optBoolean("click_button_area", true);
@@ -311,7 +312,7 @@ public class c {
         sVar.b(jSONObject.optInt("cover_height"));
         sVar.c(jSONObject.optInt("cover_width"));
         sVar.a(jSONObject.optString("resolution"));
-        sVar.a(jSONObject.optLong("size"));
+        sVar.a(jSONObject.optLong(TiebaInitialize.LogFields.SIZE));
         sVar.a(jSONObject.optDouble(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
         sVar.b(jSONObject.optString("cover_url"));
         sVar.c(jSONObject.optString("video_url"));

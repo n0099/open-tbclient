@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class dc {
-    public String aSC;
-    public String aVt;
+    public String aNP;
+    public String aQG;
     public String liveId;
     public String roomId;
     public long time;

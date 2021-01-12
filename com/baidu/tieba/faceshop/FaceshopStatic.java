@@ -42,7 +42,7 @@ import com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity;
 import com.baidu.tieba.newfaceshop.facemake.SelectSingleForumActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceshopStatic {
     public static String Tag = "tag";
 
@@ -65,15 +65,15 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                     final int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                    com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1
+                    com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            List<MyEmotionGroupData> dkd = com.baidu.tieba.newfaceshop.c.dkc().dkd();
+                            List<MyEmotionGroupData> dgl = com.baidu.tieba.newfaceshop.c.dgk().dgl();
                             final StringBuilder sb = new StringBuilder();
-                            if (dkd != null) {
-                                int size = dkd.size();
+                            if (dgl != null) {
+                                int size = dgl.size();
                                 for (int i = 0; i < size; i++) {
-                                    sb.append(dkd.get(i).getGroupId());
+                                    sb.append(dgl.get(i).getGroupId());
                                     if (i != size - 1) {
                                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                                     }
@@ -96,9 +96,9 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                     List list = (List) customResponsedMessage.getData();
-                    list.add(ac.cCq());
-                    list.add(x.cCg());
-                    list.add(v.cCf());
+                    list.add(ac.cyy());
+                    list.add(x.cyo());
+                    list.add(v.cyn());
                 }
             }
         });
@@ -108,10 +108,10 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     if (customResponsedMessage.getData() instanceof String) {
-                        ab.cCn().eV((String) customResponsedMessage.getData(), null);
+                        ab.cyv().eU((String) customResponsedMessage.getData(), null);
                     } else if (customResponsedMessage.getData() instanceof d.a) {
                         d.a aVar = (d.a) customResponsedMessage.getData();
-                        ab.cCn().eV(aVar.url, aVar.pkgId);
+                        ab.cyv().eU(aVar.url, aVar.pkgId);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class FaceshopStatic {
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 if (intent != null && !TextUtils.isEmpty(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL)) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    ab.cCn().eV(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL), intent.getStringExtra(com.baidu.tbadk.imageManager.d.PACKAGE_ID));
+                    ab.cyv().eU(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL), intent.getStringExtra(com.baidu.tbadk.imageManager.d.PACKAGE_ID));
                 }
             }
         };
@@ -130,7 +130,7 @@ public class FaceshopStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.EMOTION_SYNC_DOWNLOAD, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                com.baidu.tieba.newfaceshop.d.dkg().dki();
+                com.baidu.tieba.newfaceshop.d.dgo().dgq();
                 return null;
             }
         });
@@ -139,7 +139,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_ADS_EMOTION);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         if (com.baidu.adp.lib.util.j.isWifiNet() && TbadkApplication.getCurrentAccount() != null) {
-            com.baidu.tieba.newfaceshop.d.dkg().dki();
+            com.baidu.tieba.newfaceshop.d.dgo().dgq();
         }
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_FACESHOP_FACEBUYWEBVIEW, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -197,7 +197,7 @@ public class FaceshopStatic {
         });
         customMessageTask6.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask6);
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.3
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.3
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

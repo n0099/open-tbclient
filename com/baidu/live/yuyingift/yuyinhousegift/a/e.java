@@ -5,7 +5,8 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes11.dex */
+import com.baidu.mobstat.Config;
+/* loaded from: classes10.dex */
 public class e extends a {
     public float endX;
     public float endY;
@@ -18,13 +19,13 @@ public class e extends a {
         this.startY = f2;
         this.endX = f3;
         this.endY = f4;
-        this.ccF = abz();
+        this.bXR = XG();
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet abz() {
+    protected AnimatorSet XG() {
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 1.2f, 1.0f))).with(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("x", this.startX, this.endX), PropertyValuesHolder.ofFloat("y", this.startY, this.endY)));
+        animatorSet.play(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 1.2f, 1.0f))).with(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat(Config.EVENT_HEAT_X, this.startX, this.endX), PropertyValuesHolder.ofFloat("y", this.startY, this.endY)));
         animatorSet.setInterpolator(new LinearInterpolator());
         animatorSet.setDuration(500L);
         return animatorSet;

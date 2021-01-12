@@ -1,50 +1,43 @@
 package com.baidu.platform.base;
 
-import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.platform.comapi.basestruct.Point;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4179b = true;
+    private boolean f4141b = true;
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f4178a = new com.baidu.platform.util.a();
+    protected com.baidu.platform.util.a f4140a = new com.baidu.platform.util.a();
 
-    private String a(SearchType searchType, String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    public String a() {
+        String a2 = a(com.baidu.platform.domain.d.a());
+        String authToken = HttpClient.getAuthToken();
+        if (authToken == null) {
+            Log.e("SearchRequest", "toUrlString get authtoken failed");
+            int permissionCheck = PermissionCheck.permissionCheck();
+            if (permissionCheck != 0) {
+                Log.e("SearchRequest", "try permissionCheck result is: " + permissionCheck);
+                return null;
+            }
+            authToken = HttpClient.getAuthToken();
         }
-        return SearchType.REVERSE_GEO_CODER == searchType ? a(str) : str;
-    }
-
-    private String a(String str) {
-        String substring = str.substring(str.indexOf("location=") + "location=".length(), str.indexOf(ETAG.ITEM_SEPARATOR, str.indexOf("location=")));
-        if (TextUtils.isEmpty(substring)) {
-            return str;
+        if (this.f4141b) {
+            this.f4140a.a("token", authToken);
         }
-        byte[] bArr = {0};
-        try {
-            bArr = AlgorithmUtil.setUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), substring.getBytes());
-        } catch (Exception e) {
-            Log.e("BaseSearch", "get location failed", e);
+        String str = this.f4140a.a() + HttpClient.getPhoneInfo();
+        if (this.c) {
+            str = str + "&sign=" + AppMD5.getSignMD5String(str);
         }
-        return str.replace(substring, Base64.encodeToString(bArr, 0).trim());
-    }
-
-    private boolean b(SearchType searchType) {
-        return SearchType.REVERSE_GEO_CODER == searchType;
+        return a2 + "?" + str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,32 +58,6 @@ public abstract class e {
         }
     }
 
-    public String a(SearchType searchType) {
-        String a2 = a(com.baidu.platform.domain.d.a());
-        String authToken = HttpClient.getAuthToken();
-        if (authToken == null) {
-            Log.e("SearchRequest", "toUrlString get authtoken failed");
-            int permissionCheck = PermissionCheck.permissionCheck();
-            if (permissionCheck != 0) {
-                Log.e("SearchRequest", "try permissionCheck result is: " + permissionCheck);
-                return null;
-            }
-            authToken = HttpClient.getAuthToken();
-        }
-        if (this.f4179b) {
-            this.f4178a.a("token", authToken);
-        }
-        String a3 = this.f4178a.a();
-        if (b(searchType)) {
-            a3 = a(searchType, a3);
-        }
-        String str = a3 + HttpClient.getPhoneInfo();
-        if (this.c) {
-            str = str + "&sign=" + AppMD5.getSignMD5String(str);
-        }
-        return a2 + "?" + str;
-    }
-
     public abstract String a(com.baidu.platform.domain.c cVar);
 
     public void a(boolean z) {
@@ -98,6 +65,6 @@ public abstract class e {
     }
 
     public void b(boolean z) {
-        this.f4179b = z;
+        this.f4141b = z;
     }
 }

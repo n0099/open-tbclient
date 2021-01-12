@@ -2,18 +2,18 @@ package com.baidu.swan.apps.inlinewidget;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface d {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void fI(boolean z);
+        void fE(boolean z);
     }
 
     void a(@NonNull a aVar);
 
     @Nullable
-    String azu();
+    String avA();
 
     @Nullable
     String getSlaveId();

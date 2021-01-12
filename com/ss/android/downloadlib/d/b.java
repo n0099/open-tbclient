@@ -20,34 +20,34 @@ public class b implements g {
 
     @WorkerThread
     public void a(com.ss.android.socialbase.downloader.g.c cVar, int i, boolean z) {
-        com.ss.android.downloadlib.a.b.d.eFT().b();
-        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eFT().j(cVar);
+        com.ss.android.downloadlib.a.b.d.eCc().b();
+        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(cVar);
         if (j == null) {
             i.b();
             return;
         }
         try {
             if (z) {
-                j.c(cVar.eJo());
+                j.c(cVar.eFy());
             } else if (j.g() != -1) {
                 j.c(-1);
             } else {
                 return;
             }
-            com.ss.android.downloadlib.a.b.g.eFW().d(j);
+            com.ss.android.downloadlib.a.b.g.eCf().d(j);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("download_id", cVar.g());
             jSONObject.put("name", cVar.h());
             jSONObject.put("url", cVar.j());
-            jSONObject.put("download_time", cVar.eIS());
+            jSONObject.put("download_time", cVar.eFc());
             jSONObject.put("download_status", i);
-            jSONObject.put("cur_bytes", cVar.eIz());
-            jSONObject.put("total_bytes", cVar.ejL());
+            jSONObject.put("cur_bytes", cVar.eEJ());
+            jSONObject.put("total_bytes", cVar.efR());
             jSONObject.put("only_wifi", cVar.x() ? 1 : 0);
-            jSONObject.put("chunk_count", cVar.eJl());
+            jSONObject.put("chunk_count", cVar.eFv());
             jSONObject.put("launch_resumed", z ? 1 : 2);
-            jSONObject.put("failed_resume_count", cVar.eJo());
-            com.ss.android.downloadlib.e.a.eGB().a("embeded_ad", "download_uncompleted", jSONObject, j);
+            jSONObject.put("failed_resume_count", cVar.eFy());
+            com.ss.android.downloadlib.e.a.eCL().a("embeded_ad", "download_uncompleted", jSONObject, j);
         } catch (Throwable th) {
             th.printStackTrace();
         }

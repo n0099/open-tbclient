@@ -4,15 +4,15 @@ import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.util.SvgManager;
 /* loaded from: classes.dex */
 public class c extends a {
-    public int ffF;
+    public int faW;
 
     public c(int i, int i2) {
         super(i);
-        this.ffF = i2;
+        this.faW = i2;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
     public Drawable getDrawable() {
-        return SvgManager.bwr().a(this.eYQ, this.ffF, this.ffE);
+        return SvgManager.bsx().a(this.eUf, this.faW, this.faV);
     }
 }

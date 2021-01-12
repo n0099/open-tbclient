@@ -87,7 +87,7 @@ public final class Util {
         int e = e(bArr, 6);
         int e2 = e(bArr, 8);
         f fVar = new f();
-        fVar.c(((e2 >> 9) & 127) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
+        fVar.d(((e2 >> 9) & 127) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
         return fVar;
     }
 

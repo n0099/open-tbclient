@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cc {
-    public int aSD;
-    public int aSE;
-    public int aSF;
-    public int aSG;
+    public int aNQ;
+    public int aNR;
+    public int aNS;
+    public int aNT;
 }

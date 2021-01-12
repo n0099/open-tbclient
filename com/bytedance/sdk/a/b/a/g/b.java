@@ -13,14 +13,14 @@ import javax.net.ssl.X509TrustManager;
 public final class b extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    final Method f6234a;
+    final Method f5934a;
 
     /* renamed from: b  reason: collision with root package name */
-    final Method f6235b;
+    final Method f5935b;
 
     b(Method method, Method method2) {
-        this.f6234a = method;
-        this.f6235b = method2;
+        this.f5934a = method;
+        this.f5935b = method2;
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
@@ -28,7 +28,7 @@ public final class b extends e {
         try {
             SSLParameters sSLParameters = sSLSocket.getSSLParameters();
             List<String> a2 = a(list);
-            this.f6234a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
+            this.f5934a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
             sSLSocket.setSSLParameters(sSLParameters);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw com.bytedance.sdk.a.b.a.c.f("unable to set ssl parameters", e);
@@ -38,7 +38,7 @@ public final class b extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
         try {
-            String str = (String) this.f6235b.invoke(sSLSocket, new Object[0]);
+            String str = (String) this.f5935b.invoke(sSLSocket, new Object[0]);
             if (str != null) {
                 if (!str.equals("")) {
                     return str;
@@ -55,7 +55,7 @@ public final class b extends e {
         throw new UnsupportedOperationException("clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on JDK 9+");
     }
 
-    public static b era() {
+    public static b enf() {
         try {
             return new b(SSLParameters.class.getMethod("setApplicationProtocols", String[].class), SSLSocket.class.getMethod("getApplicationProtocol", new Class[0]));
         } catch (NoSuchMethodException e) {

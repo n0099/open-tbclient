@@ -6,14 +6,14 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class e implements j, l, a.InterfaceC0194a {
-    private boolean DM;
+/* loaded from: classes9.dex */
+public class e implements j, l, a.InterfaceC0185a {
+    private boolean DJ;
     @Nullable
-    private r btF;
-    private final com.baidu.live.lottie.a.b.a<?, PointF> btH;
-    private final com.baidu.live.lottie.a.b.a<?, PointF> btI;
-    private final com.baidu.live.lottie.model.content.a btJ;
+    private r boS;
+    private final com.baidu.live.lottie.a.b.a<?, PointF> boU;
+    private final com.baidu.live.lottie.a.b.a<?, PointF> boV;
+    private final com.baidu.live.lottie.model.content.a boW;
     private final com.baidu.live.lottie.h lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -21,22 +21,22 @@ public class e implements j, l, a.InterfaceC0194a {
     public e(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, com.baidu.live.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = hVar;
-        this.btH = aVar2.PZ().PP();
-        this.btI = aVar2.PS().PP();
-        this.btJ = aVar2;
-        aVar.a(this.btH);
-        aVar.a(this.btI);
-        this.btH.b(this);
-        this.btI.b(this);
+        this.boU = aVar2.Me().LU();
+        this.boV = aVar2.LX().LU();
+        this.boW = aVar2;
+        aVar.a(this.boU);
+        aVar.a(this.boV);
+        this.boU.b(this);
+        this.boV.b(this);
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0194a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
     public void is() {
         invalidate();
     }
 
     private void invalidate() {
-        this.DM = false;
+        this.DJ = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC0194a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).PF() == ShapeTrimPath.Type.Simultaneously) {
-                    this.btF = (r) bVar;
-                    this.btF.a(this);
+                if ((bVar instanceof r) && ((r) bVar).LK() == ShapeTrimPath.Type.Simultaneously) {
+                    this.boS = (r) bVar;
+                    this.boS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -65,17 +65,17 @@ public class e implements j, l, a.InterfaceC0194a {
 
     @Override // com.baidu.live.lottie.a.a.l
     public Path iv() {
-        if (this.DM) {
+        if (this.DJ) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.btH.getValue();
+        PointF value = this.boU.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.btJ.isReversed()) {
+        if (this.boW.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,11 +88,11 @@ public class e implements j, l, a.InterfaceC0194a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.btI.getValue();
+        PointF value2 = this.boV.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.baidu.live.lottie.d.f.a(this.path, this.btF);
-        this.DM = true;
+        com.baidu.live.lottie.d.f.a(this.path, this.boS);
+        this.DJ = true;
         return this.path;
     }
 
@@ -103,10 +103,10 @@ public class e implements j, l, a.InterfaceC0194a {
 
     @Override // com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        if (t == com.baidu.live.lottie.l.CH) {
-            this.btH.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CI) {
-            this.btI.a(cVar);
+        if (t == com.baidu.live.lottie.l.CF) {
+            this.boU.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CG) {
+            this.boV.a(cVar);
         }
     }
 }

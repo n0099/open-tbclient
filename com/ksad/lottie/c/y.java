@@ -3,11 +3,11 @@ package com.ksad.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class y implements aj<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f8280a = new y();
+    public static final y f7980a = new y();
 
     private y() {
     }

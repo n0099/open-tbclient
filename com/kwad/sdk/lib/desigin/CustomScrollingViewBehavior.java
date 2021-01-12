@@ -7,7 +7,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout;
 import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomScrollingViewBehavior extends KSAppBarLayout.ScrollingViewBehavior {
     public CustomScrollingViewBehavior(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

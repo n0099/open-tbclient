@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PoiInfo implements Parcelable {
     public static final Parcelable.Creator<PoiInfo> CREATOR = new g();
     public String address;
@@ -22,11 +22,10 @@ public class PoiInfo implements Parcelable {
     public String postCode;
     public String province;
     public String street_id;
-    public String tag;
     public POITYPE type;
     public String uid;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum POITYPE {
         POINT(0),
         BUS_STATION(1),
@@ -36,10 +35,10 @@ public class PoiInfo implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2965a;
+        private int f2843a;
 
         POITYPE(int i) {
-            this.f2965a = i;
+            this.f2843a = i;
         }
 
         public static POITYPE fromInt(int i) {
@@ -60,11 +59,11 @@ public class PoiInfo implements Parcelable {
         }
 
         public int getInt() {
-            return this.f2965a;
+            return this.f2843a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ParentPoiInfo implements Parcelable {
         public static final Parcelable.Creator<ParentPoiInfo> CREATOR = new h();
         public String parentPoiAddress;
@@ -169,7 +168,6 @@ public class PoiInfo implements Parcelable {
     public PoiInfo(Parcel parcel) {
         this.name = parcel.readString();
         this.uid = parcel.readString();
-        this.tag = parcel.readString();
         this.address = parcel.readString();
         this.province = parcel.readString();
         this.city = parcel.readString();
@@ -247,10 +245,6 @@ public class PoiInfo implements Parcelable {
 
     public String getStreetId() {
         return this.street_id;
-    }
-
-    public String getTag() {
-        return this.tag;
     }
 
     public POITYPE getType() {
@@ -333,10 +327,6 @@ public class PoiInfo implements Parcelable {
         this.street_id = str;
     }
 
-    public void setTag(String str) {
-        this.tag = str;
-    }
-
     public void setType(POITYPE poitype) {
         this.type = poitype;
     }
@@ -365,7 +355,6 @@ public class PoiInfo implements Parcelable {
         }
         stringBuffer.append("; hasCaterDetails = ").append(this.hasCaterDetails);
         stringBuffer.append("; isPano = ").append(this.isPano);
-        stringBuffer.append("; tag = ").append(this.tag);
         stringBuffer.append("; poiDetailInfo = ");
         if (this.poiDetailInfo != null) {
             stringBuffer.append(this.poiDetailInfo.toString());
@@ -390,7 +379,6 @@ public class PoiInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.name);
         parcel.writeString(this.uid);
-        parcel.writeString(this.tag);
         parcel.writeString(this.address);
         parcel.writeString(this.province);
         parcel.writeString(this.city);

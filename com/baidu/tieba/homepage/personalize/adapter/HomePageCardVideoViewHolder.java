@@ -7,25 +7,25 @@ import com.baidu.tieba.card.l;
 public class HomePageCardVideoViewHolder<T extends com.baidu.tieba.card.l> extends CardViewHolder<T> implements com.baidu.tieba.play.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: cTm */
-    public T cvH() {
-        return (T) this.iAP;
+    /* renamed from: cPu */
+    public T crP() {
+        return (T) this.iwi;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.iAP == 0) {
+        if (this.iwi == 0) {
             return false;
         }
-        return ((com.baidu.tieba.card.l) this.iAP).isPlayStarted();
+        return ((com.baidu.tieba.card.l) this.iwi).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.iAP == 0) {
+        if (this.iwi == 0) {
             return false;
         }
-        return ((com.baidu.tieba.card.l) this.iAP).isPlaying();
+        return ((com.baidu.tieba.card.l) this.iwi).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
@@ -35,39 +35,39 @@ public class HomePageCardVideoViewHolder<T extends com.baidu.tieba.card.l> exten
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.iAP != 0) {
-            ((com.baidu.tieba.card.l) this.iAP).startPlay();
+        if (this.iwi != 0) {
+            ((com.baidu.tieba.card.l) this.iwi).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.iAP != 0) {
-            ((com.baidu.tieba.card.l) this.iAP).stopPlay();
+        if (this.iwi != 0) {
+            ((com.baidu.tieba.card.l) this.iwi).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.iAP == 0) {
+        if (this.iwi == 0) {
             return null;
         }
-        return ((com.baidu.tieba.card.l) this.iAP).getVideoContainer();
+        return ((com.baidu.tieba.card.l) this.iwi).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.iAP == 0) {
+        if (this.iwi == 0) {
             return null;
         }
-        return ((com.baidu.tieba.card.l) this.iAP).getPlayUrl();
+        return ((com.baidu.tieba.card.l) this.iwi).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.iAP == 0) {
+        if (this.iwi == 0) {
             return 0;
         }
-        return ((com.baidu.tieba.card.l) this.iAP).getCurrentPosition();
+        return ((com.baidu.tieba.card.l) this.iwi).getCurrentPosition();
     }
 }

@@ -7,7 +7,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.HttpInetConnection;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface OperatedClientConnection extends HttpClientConnection, HttpInetConnection {
     Socket getSocket();
 

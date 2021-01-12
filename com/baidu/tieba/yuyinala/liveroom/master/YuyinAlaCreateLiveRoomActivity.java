@@ -44,23 +44,23 @@ import com.baidu.tieba.yuyinala.liveroom.k.d;
 import com.baidu.webkit.sdk.PermissionRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateLiveRoomActivity> {
     private int availableHeight;
-    private PermissionJudgePolicy bFL;
-    private boolean bzP;
+    private PermissionJudgePolicy bAZ;
+    private boolean bvd;
     private ViewTreeObserver.OnGlobalLayoutListener globalListener;
-    private Bundle hGx;
-    private String hoR;
-    private a orh;
-    private d ori;
+    private Bundle hBR;
+    private String hkk;
+    private d omA;
+    private a omz;
     private boolean mIsKeyboardOpen = false;
     private volatile boolean isBackground = false;
-    private boolean hGw = false;
-    private boolean hGy = false;
-    private boolean hGz = true;
-    private int hGA = -1;
-    private CustomMessageListener bDh = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.1
+    private boolean hBQ = false;
+    private boolean hBS = false;
+    private boolean hBT = true;
+    private int hBU = -1;
+    private CustomMessageListener byv = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,30 +69,30 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
             }
         }
     };
-    private CustomMessageListener hGC = new CustomMessageListener(2913169, true) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.2
+    private CustomMessageListener hBW = new CustomMessageListener(2913169, true) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof Boolean) {
-                YuyinAlaCreateLiveRoomActivity.this.hGz = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                YuyinAlaCreateLiveRoomActivity.this.hBT = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
-    private CustomMessageListener hpc = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.6
+    private CustomMessageListener hkv = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int netType;
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && (netType = BdNetTypeUtil.netType()) != YuyinAlaCreateLiveRoomActivity.this.hGA) {
-                YuyinAlaCreateLiveRoomActivity.this.hGA = netType;
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && (netType = BdNetTypeUtil.netType()) != YuyinAlaCreateLiveRoomActivity.this.hBU) {
+                YuyinAlaCreateLiveRoomActivity.this.hBU = netType;
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        YuyinAlaCreateLiveRoomActivity.this.cjM();
-                    } else if (BdNetTypeUtil.isMobileNet() && m.XC()) {
-                        YuyinAlaCreateLiveRoomActivity.this.cjL();
+                        YuyinAlaCreateLiveRoomActivity.this.cfU();
+                    } else if (BdNetTypeUtil.isMobileNet() && m.TJ()) {
+                        YuyinAlaCreateLiveRoomActivity.this.cfT();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        YuyinAlaCreateLiveRoomActivity.this.cjN();
+                        YuyinAlaCreateLiveRoomActivity.this.cfV();
                     }
                 }
             }
@@ -106,10 +106,10 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
         setIsAddSwipeBackLayout(false);
         getWindow().setSoftInputMode(32);
         super.onCreate(bundle);
-        this.bzP = true;
+        this.bvd = true;
         if (!isFinishing()) {
-            this.hGx = bundle;
-            if (!cjF()) {
+            this.hBR = bundle;
+            if (!cfN()) {
                 init();
             }
             TbConfig.liveScene = 2;
@@ -130,47 +130,47 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
 
-    private boolean cjF() {
+    private boolean cfN() {
         Activity pageActivity = getPageContext().getPageActivity();
-        this.bFL = new PermissionJudgePolicy();
-        this.bFL.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.3
+        this.bAZ = new PermissionJudgePolicy();
+        this.bAZ.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.3
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener
             public void onDialogCaneled(String str) {
-                YuyinAlaCreateLiveRoomActivity.this.hGw = true;
+                YuyinAlaCreateLiveRoomActivity.this.hBQ = true;
                 YuyinAlaCreateLiveRoomActivity.this.finish();
             }
 
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener
             public void onDialogComfirmed(String str) {
-                YuyinAlaCreateLiveRoomActivity.this.hGw = true;
+                YuyinAlaCreateLiveRoomActivity.this.hBQ = true;
                 YuyinAlaCreateLiveRoomActivity.this.finish();
             }
         });
-        this.bFL.clearRequestPermissionList();
-        this.bFL.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        this.bFL.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        return this.bFL.startRequestPermission(pageActivity);
+        this.bAZ.clearRequestPermissionList();
+        this.bAZ.appendRequestPermission(pageActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        this.bAZ.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        return this.bAZ.startRequestPermission(pageActivity);
     }
 
     private void init() {
-        this.hGw = true;
+        this.hBQ = true;
         setUseStyleImmersiveSticky(true);
         getWindow().addFlags(128);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        initData(this.hGx);
+        initData(this.hBR);
     }
 
     private void initData(Bundle bundle) {
         if (!UtilHelper.isARM()) {
-            cjG();
+            cfO();
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
             String stringExtra = intent.getStringExtra("live_forum_name");
             String stringExtra2 = intent.getStringExtra("live_forum_id");
-            this.hGy = intent.getBooleanExtra("stop_im_when_close", false);
+            this.hBS = intent.getBooleanExtra("stop_im_when_close", false);
             intent.getIntExtra("create_master_live_type", 1);
             String stringExtra3 = intent.getStringExtra("special_forum_type");
             String stringExtra4 = intent.getStringExtra("live_info_core");
@@ -188,24 +188,24 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
                     AlaLiveSwitchData.liveActivityType = jSONObject.getString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
                     String optString = jSONObject.optString("extra");
                     if (TextUtils.isEmpty(optString)) {
-                        this.hoR = null;
+                        this.hkk = null;
                     } else {
-                        this.hoR = new JSONObject(optString).optString("live_back_scheme");
+                        this.hkk = new JSONObject(optString).optString("live_back_scheme");
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.hoR = null;
+                    this.hkk = null;
                     AlaLiveSwitchData.liveActivityType = "";
                 }
             }
-            MessageManager.getInstance().registerListener(this.hpc);
-            MessageManager.getInstance().registerListener(this.bDh);
-            MessageManager.getInstance().registerListener(this.hGC);
+            MessageManager.getInstance().registerListener(this.hkv);
+            MessageManager.getInstance().registerListener(this.byv);
+            MessageManager.getInstance().registerListener(this.hBW);
             a(bundle, stringExtra, stringExtra2, stringExtra3);
         }
     }
 
-    private void cjG() {
+    private void cfO() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -221,10 +221,10 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     }
 
     private void a(Bundle bundle, String str, String str2, String str3) {
-        this.ori = new d(getPageContext());
-        this.orh = new a(this);
-        this.orh.a(this.ori);
-        this.orh.a(str, str2, str3, bundle);
+        this.omA = new d(getPageContext());
+        this.omz = new a(this);
+        this.omz.a(this.omA);
+        this.omz.a(str, str2, str3, bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -233,7 +233,7 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
         this.globalListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.liveroom.master.YuyinAlaCreateLiveRoomActivity.5
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (YuyinAlaCreateLiveRoomActivity.this.hGz) {
+                if (YuyinAlaCreateLiveRoomActivity.this.hBT) {
                     Rect rect = new Rect();
                     YuyinAlaCreateLiveRoomActivity.this.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                     int statusBarHeight = BdUtilHelper.getStatusBarHeight(YuyinAlaCreateLiveRoomActivity.this.getPageContext().getPageActivity());
@@ -257,15 +257,15 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.hGw) {
+        if (this.hBQ) {
             getWindow().clearFlags(128);
-            MessageManager.getInstance().unRegisterListener(this.hpc);
-            MessageManager.getInstance().unRegisterListener(this.bDh);
-            MessageManager.getInstance().unRegisterListener(this.hGC);
+            MessageManager.getInstance().unRegisterListener(this.hkv);
+            MessageManager.getInstance().unRegisterListener(this.byv);
+            MessageManager.getInstance().unRegisterListener(this.hBW);
             getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
             this.globalListener = null;
-            this.bDh = null;
-            this.hpc = null;
+            this.byv = null;
+            this.hkv = null;
             System.gc();
         }
         AlaLiveSwitchData.liveActivityType = null;
@@ -277,8 +277,8 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         Log.i("CreateAudioRoom", "YuyinAlaCreateLiveRoomActivity:onActivityResult:" + i2 + "," + i);
-        if (this.orh != null) {
-            this.orh.onActivityResult(i, i2, intent);
+        if (this.omz != null) {
+            this.omz.onActivityResult(i, i2, intent);
         }
     }
 
@@ -295,7 +295,7 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
                     init();
                 } else if (strArr.length > 0) {
                     for (String str : strArr) {
-                        if (!this.bFL.checkPermissionForbidden(getActivity(), str)) {
+                        if (!this.bAZ.checkPermissionForbidden(getActivity(), str)) {
                             return;
                         }
                     }
@@ -307,7 +307,7 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
         }
     }
 
-    public void cjJ() {
+    public void cfR() {
         this.isBackground = false;
         finish();
     }
@@ -316,15 +316,15 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     public void finish() {
         if (!this.isBackground) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913072));
-            if (this.hGy) {
+            if (this.hBS) {
                 BdSocketLinkService.setHasAbsoluteClose(true);
                 BdSocketLinkService.close("live close");
             }
             super.finish();
-            if (!TextUtils.isEmpty(this.hoR)) {
+            if (!TextUtils.isEmpty(this.hkk)) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                    BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hoR);
-                    this.hoR = null;
+                    BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hkk);
+                    this.hkk = null;
                 }
             }
         }
@@ -334,8 +334,8 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     @Override // com.baidu.live.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        if (this.orh != null) {
-            this.orh.onKeyboardVisibilityChanged(z);
+        if (this.omz != null) {
+            this.omz.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -349,21 +349,21 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
     }
 
-    public void cjL() {
+    public void cfT() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjM() {
+    public void cfU() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.h.ala_create_no_network));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjN() {
+    public void cfV() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.h.ala_watch_live_user_has_change_to_wifi));
         }

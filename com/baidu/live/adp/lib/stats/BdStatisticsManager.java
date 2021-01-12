@@ -3,13 +3,14 @@ package com.baidu.live.adp.lib.stats;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Address;
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.lbs.BdLocationMananger;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.compatible.EditorHelper;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdStatisticsManager {
     private static volatile BdStatisticsManager statisticsManager = null;
     private Context mContext;
@@ -33,7 +34,7 @@ public class BdStatisticsManager {
         if (bdStatsItem != null) {
             Address address = BdLocationMananger.getInstance().getAddress(false, false);
             if (address != null) {
-                bdStatsItem.append("location", address.getLocality());
+                bdStatsItem.append(Headers.LOCATION, address.getLocality());
             }
             addLog(BdStatsConstant.StatsType.PERFORMANCE, str, -1L, null, bdStatsItem, new Object[0]);
         }

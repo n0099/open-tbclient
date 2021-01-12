@@ -4,7 +4,7 @@ import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 import com.baidu.media.duplayer.Keep;
 @Keep
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DlnaProviderImpl extends DlnaProvider {
     @Override // com.baidu.cyberplayer.sdk.dlna.DlnaProvider
     public CtrlPointProvider ctrlPoint(String str) {

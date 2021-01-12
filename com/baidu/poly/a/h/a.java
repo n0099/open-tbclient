@@ -4,63 +4,63 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    private static Long cow = 0L;
-    private static Long cox = 0L;
+    private static Long cjH = 0L;
+    private static Long cjI = 0L;
 
     public static final void E() {
-        Long l = cox;
+        Long l = cjI;
         if (l != null) {
             if (l == null) {
-                p.eMM();
+                p.eIW();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = cox;
+                    Long l2 = cjI;
                     if (l2 == null) {
-                        p.eMM();
+                        p.eIW();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
                 d.a(new b("1000").ax(jSONObject));
-                cox = 0L;
+                cjI = 0L;
             }
         }
     }
 
     public static final void F() {
-        Long l = cow;
+        Long l = cjH;
         if (l != null) {
             if (l == null) {
-                p.eMM();
+                p.eIW();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = cow;
+                    Long l2 = cjH;
                     if (l2 == null) {
-                        p.eMM();
+                        p.eIW();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
                 d.a(new b("1000").ax(jSONObject));
-                cow = 0L;
+                cjH = 0L;
             }
         }
     }
 
     public static final void a(Long l) {
-        cow = l;
+        cjH = l;
     }
 
     public static final void d(Long l) {
-        cox = l;
+        cjI = l;
     }
 
     public static final void i(String str) {

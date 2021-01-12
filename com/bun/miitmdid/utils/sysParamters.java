@@ -10,13 +10,13 @@ import androidx.annotation.Keep;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class sysParamters {
-    private static volatile sysParamters pgu;
+    private static volatile sysParamters pbR;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6067a;
+    private String f5767a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6068b;
+    private String f5768b;
     private String c;
     private String d = "Android";
     @Keep
@@ -46,15 +46,15 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters eoN() {
-        if (pgu == null) {
+    public static sysParamters ekR() {
+        if (pbR == null) {
             synchronized (sysParamters.class) {
-                if (pgu == null) {
-                    pgu = new sysParamters();
+                if (pbR == null) {
+                    pbR = new sysParamters();
                 }
             }
         }
-        return pgu;
+        return pbR;
     }
 
     public static String f() {
@@ -71,11 +71,11 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f6067a)) {
-            this.f6067a = a(b.a());
-            return this.f6067a;
+        if (TextUtils.isEmpty(this.f5767a)) {
+            this.f5767a = a(b.a());
+            return this.f5767a;
         }
-        return this.f6067a;
+        return this.f5767a;
     }
 
     public String c() {
@@ -83,12 +83,12 @@ public class sysParamters {
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.f6068b)) {
-            this.f6068b = Build.MODEL;
-            this.f6068b = this.f6068b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            return this.f6068b;
+        if (TextUtils.isEmpty(this.f5768b)) {
+            this.f5768b = Build.MODEL;
+            this.f5768b = this.f5768b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            return this.f5768b;
         }
-        return this.f6068b;
+        return this.f5768b;
     }
 
     public String e() {

@@ -4,10 +4,10 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.live.utils.q;
 import com.baidu.mobstat.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends HttpMessage {
     private long anchorId;
-    private int bkE;
+    private int bfO;
     private int pn;
     private int ps;
 
@@ -15,7 +15,7 @@ public class h extends HttpMessage {
         super(1021138);
         this.ps = 20;
         this.pn = 1;
-        this.bkE = 2;
+        this.bfO = 2;
     }
 
     public void setPs(int i) {
@@ -31,10 +31,10 @@ public class h extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", q.Ia());
+        addParam("scene_from", q.Ef());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.anchorId + ""));
-        addParam("client_type", this.bkE);
+        addParam("client_type", this.bfO);
     }
 }

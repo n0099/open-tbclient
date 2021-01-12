@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.util;
 
 import android.net.http.SslError;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class r {
     public static void a(SslError sslError) {
         if (sslError == null || !as.d()) {

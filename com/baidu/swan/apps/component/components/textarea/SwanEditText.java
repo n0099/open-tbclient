@@ -3,11 +3,11 @@ package com.baidu.swan.apps.component.components.textarea;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatEditText;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanEditText extends AppCompatEditText {
-    private a cOU;
+    private a cKi;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void ae(int i, int i2);
     }
@@ -30,12 +30,12 @@ public class SwanEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     protected void onSelectionChanged(int i, int i2) {
         super.onSelectionChanged(i, i2);
-        if (this.cOU != null) {
-            this.cOU.ae(i, i2);
+        if (this.cKi != null) {
+            this.cKi.ae(i, i2);
         }
     }
 
     public void setSelectListener(a aVar) {
-        this.cOU = aVar;
+        this.cKi = aVar;
     }
 }

@@ -7,15 +7,15 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f {
     private static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3949a;
+    private int f3911a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3950b;
+    private int f3912b;
     private int c;
     private int d;
     private String e = "-1";
@@ -84,7 +84,7 @@ public class f {
     private String f() {
         String str = null;
         try {
-            str = com.baidu.a.a.a.a.a.c(this.i);
+            str = com.baidu.android.bbalbs.common.util.b.b(this.i);
         } catch (Exception e) {
         }
         return str == null ? "" : str;
@@ -117,11 +117,11 @@ public class f {
     }
 
     private int i() {
-        return this.f3949a;
+        return this.f3911a;
     }
 
     private int j() {
-        return this.f3950b;
+        return this.f3912b;
     }
 
     private int k() {
@@ -143,8 +143,8 @@ public class f {
     private void n() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f3949a = displayMetrics.widthPixels;
-            this.f3950b = displayMetrics.heightPixels;
+            this.f3911a = displayMetrics.widthPixels;
+            this.f3912b = displayMetrics.heightPixels;
         }
     }
 }

@@ -3,21 +3,21 @@ package com.baidu.tieba.ala.liveroom.challenge.rewarddialog;
 import com.baidu.live.adp.base.BdLoadDataCallBack;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a hyI;
+    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a huc;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        public static final e hyK = new e();
+        public static final e hue = new e();
     }
 
-    public static e cgI() {
-        return a.hyK;
+    public static e ccQ() {
+        return a.hue;
     }
 
     public void a(com.baidu.live.challenge.c cVar) {
-        if (this.hyI == null || !this.hyI.isShowing()) {
+        if (this.huc == null || !this.huc.isShowing()) {
             final TbPageContext tbPageContext = cVar.pageContext;
             c cVar2 = new c(tbPageContext);
             cVar2.setLoadDataCallBack(new BdLoadDataCallBack() { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.1
@@ -26,10 +26,10 @@ public class e {
                     if (obj != null && (obj instanceof AlaChallengeRewardData)) {
                         AlaChallengeRewardData alaChallengeRewardData = (AlaChallengeRewardData) obj;
                         if (alaChallengeRewardData.errno == 0) {
-                            if (e.this.hyI == null || !e.this.hyI.isShowing()) {
-                                e.this.hyI = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
-                                if (e.this.hyI != null) {
-                                    e.this.hyI.show();
+                            if (e.this.huc == null || !e.this.huc.isShowing()) {
+                                e.this.huc = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
+                                if (e.this.huc != null) {
+                                    e.this.huc.show();
                                     return;
                                 }
                                 return;

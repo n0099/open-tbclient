@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.live.data.bi;
 import com.baidu.live.guardclub.g;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     private Context mContext;
     private View mView;
@@ -23,9 +23,9 @@ public class c {
     private void u(View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.f.textView);
-        bi LA = g.Ly().LA();
-        if (LA != null && !TextUtils.isEmpty(LA.aQZ)) {
-            this.textView.setText(LA.aQZ);
+        bi HF = g.HD().HF();
+        if (HF != null && !TextUtils.isEmpty(HF.aMm)) {
+            this.textView.setText(HF.aMm);
         }
         this.mView.setOnClickListener(onClickListener);
     }

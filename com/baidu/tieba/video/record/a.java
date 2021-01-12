@@ -11,9 +11,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static boolean yM(boolean z) {
+    public static boolean yI(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -35,7 +35,7 @@ public class a {
         return true;
     }
 
-    public static int yN(boolean z) {
+    public static int yJ(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -99,7 +99,7 @@ public class a {
     public static Camera.Size a(Camera camera, int i, int i2) {
         Camera.Size size;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0904a());
+        Collections.sort(supportedPreviewSizes, new C0887a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -131,9 +131,9 @@ public class a {
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private static class C0904a implements Comparator<Camera.Size> {
-        private C0904a() {
+    /* loaded from: classes7.dex */
+    private static class C0887a implements Comparator<Camera.Size> {
+        private C0887a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

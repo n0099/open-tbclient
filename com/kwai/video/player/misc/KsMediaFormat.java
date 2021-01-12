@@ -6,7 +6,7 @@ import com.kwai.video.player.KsMediaMeta;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KsMediaFormat implements IMediaFormat {
     public static final String CODEC_NAME_H264 = "h264";
     public static final String KEY_KS_BIT_RATE_UI = "ks-bit-rate-ui";
@@ -21,7 +21,7 @@ public class KsMediaFormat implements IMediaFormat {
     public final KsMediaMeta.KSYStreamMeta mMediaFormat;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Formatter {
         private Formatter() {
         }

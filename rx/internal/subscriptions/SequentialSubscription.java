@@ -3,7 +3,7 @@ package rx.internal.subscriptions;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 import rx.subscriptions.e;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class SequentialSubscription extends AtomicReference<k> implements k {
     private static final long serialVersionUID = 995205034283130269L;
 
@@ -17,7 +17,7 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
     public k current() {
         k kVar = (k) super.get();
         if (kVar == Unsubscribed.INSTANCE) {
-            return e.ePN();
+            return e.eLX();
         }
         return kVar;
     }

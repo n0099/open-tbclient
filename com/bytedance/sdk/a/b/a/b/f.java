@@ -17,37 +17,37 @@ import java.util.NoSuchElementException;
 /* loaded from: classes4.dex */
 public final class f {
     private int f;
-    private final com.bytedance.sdk.a.b.a piU;
-    private final d piV;
-    private final h piW;
-    private final t piX;
+    private final com.bytedance.sdk.a.b.a pep;
+    private final d peq;
+    private final h per;
+    private final t pes;
     private List<Proxy> e = Collections.emptyList();
     private List<InetSocketAddress> g = Collections.emptyList();
     private final List<com.bytedance.sdk.a.b.d> h = new ArrayList();
 
     public f(com.bytedance.sdk.a.b.a aVar, d dVar, h hVar, t tVar) {
-        this.piU = aVar;
-        this.piV = dVar;
-        this.piW = hVar;
-        this.piX = tVar;
-        a(aVar.eql(), aVar.eqq());
+        this.pep = aVar;
+        this.peq = dVar;
+        this.per = hVar;
+        this.pes = tVar;
+        a(aVar.emp(), aVar.emu());
     }
 
     public boolean a() {
         return c() || !this.h.isEmpty();
     }
 
-    public a eqB() throws IOException {
+    public a emF() throws IOException {
         if (!a()) {
             throw new NoSuchElementException();
         }
         ArrayList arrayList = new ArrayList();
         while (c()) {
-            Proxy eqC = eqC();
+            Proxy emG = emG();
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.piU, eqC, this.g.get(i));
-                if (this.piV.c(dVar)) {
+                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.pep, emG, this.g.get(i));
+                if (this.peq.c(dVar)) {
                     this.h.add(dVar);
                 } else {
                     arrayList.add(dVar);
@@ -65,10 +65,10 @@ public final class f {
     }
 
     public void a(com.bytedance.sdk.a.b.d dVar, IOException iOException) {
-        if (dVar.ero().type() != Proxy.Type.DIRECT && this.piU.eqp() != null) {
-            this.piU.eqp().connectFailed(this.piU.eql().erz(), dVar.ero().address(), iOException);
+        if (dVar.ent().type() != Proxy.Type.DIRECT && this.pep.emt() != null) {
+            this.pep.emt().connectFailed(this.pep.emp().enD(), dVar.ent().address(), iOException);
         }
-        this.piV.a(dVar);
+        this.peq.a(dVar);
     }
 
     private void a(s sVar, Proxy proxy) {
@@ -76,7 +76,7 @@ public final class f {
         if (proxy != null) {
             this.e = Collections.singletonList(proxy);
         } else {
-            List<Proxy> select = this.piU.eqp().select(sVar.erz());
+            List<Proxy> select = this.pep.emt().select(sVar.enD());
             if (select != null && !select.isEmpty()) {
                 P = com.bytedance.sdk.a.b.a.c.a(select);
             } else {
@@ -91,9 +91,9 @@ public final class f {
         return this.f < this.e.size();
     }
 
-    private Proxy eqC() throws IOException {
+    private Proxy emG() throws IOException {
         if (!c()) {
-            throw new SocketException("No route to " + this.piU.eql().f() + "; exhausted proxy configurations: " + this.e);
+            throw new SocketException("No route to " + this.pep.emp().f() + "; exhausted proxy configurations: " + this.e);
         }
         List<Proxy> list = this.e;
         int i = this.f;
@@ -108,8 +108,8 @@ public final class f {
         int g;
         this.g = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            f = this.piU.eql().f();
-            g = this.piU.eql().g();
+            f = this.pep.emp().f();
+            g = this.pep.emp().g();
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
@@ -126,12 +126,12 @@ public final class f {
             this.g.add(InetSocketAddress.createUnresolved(f, g));
             return;
         }
-        this.piX.a(this.piW, f);
-        List<InetAddress> a2 = this.piU.eqm().a(f);
+        this.pes.a(this.per, f);
+        List<InetAddress> a2 = this.pep.emq().a(f);
         if (a2.isEmpty()) {
-            throw new UnknownHostException(this.piU.eqm() + " returned no addresses for " + f);
+            throw new UnknownHostException(this.pep.emq() + " returned no addresses for " + f);
         }
-        this.piX.a(this.piW, f, a2);
+        this.pes.a(this.per, f, a2);
         int size = a2.size();
         for (int i = 0; i < size; i++) {
             this.g.add(new InetSocketAddress(a2.get(i), g));
@@ -147,31 +147,31 @@ public final class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<com.bytedance.sdk.a.b.d> f6167a;
+        private final List<com.bytedance.sdk.a.b.d> f5867a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6168b = 0;
+        private int f5868b = 0;
 
         a(List<com.bytedance.sdk.a.b.d> list) {
-            this.f6167a = list;
+            this.f5867a = list;
         }
 
         public boolean a() {
-            return this.f6168b < this.f6167a.size();
+            return this.f5868b < this.f5867a.size();
         }
 
-        public com.bytedance.sdk.a.b.d eqD() {
+        public com.bytedance.sdk.a.b.d emH() {
             if (!a()) {
                 throw new NoSuchElementException();
             }
-            List<com.bytedance.sdk.a.b.d> list = this.f6167a;
-            int i = this.f6168b;
-            this.f6168b = i + 1;
+            List<com.bytedance.sdk.a.b.d> list = this.f5867a;
+            int i = this.f5868b;
+            this.f5868b = i + 1;
             return list.get(i);
         }
 
         public List<com.bytedance.sdk.a.b.d> c() {
-            return new ArrayList(this.f6167a);
+            return new ArrayList(this.f5867a);
         }
     }
 }

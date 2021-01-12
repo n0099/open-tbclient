@@ -20,21 +20,21 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.s;
 import com.baidu.live.yuyingift.container.e;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
-    private CustomMessageListener bdN;
-    private CustomMessageListener biy;
-    private com.baidu.live.yuyingift.container.e cbd;
-    private long biv = 0;
-    private long biw = 0;
-    private e.a bZx = new e.a() { // from class: com.baidu.live.yuyingift.panel.c.3
+    private CustomMessageListener aYZ;
+    private com.baidu.live.yuyingift.container.e bWr;
+    private CustomMessageListener bdF;
+    private long bdC = 0;
+    private long bdD = 0;
+    private e.a bUL = new e.a() { // from class: com.baidu.live.yuyingift.panel.c.3
         @Override // com.baidu.live.yuyingift.container.e.a
         public void b(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<k> arrayList3, aa aaVar) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
             }
-            c.this.caX.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
-            c.this.caX.b(aaVar);
+            c.this.bWl.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
+            c.this.bWl.b(aaVar);
         }
     };
 
@@ -42,39 +42,39 @@ public class c extends b {
     @Override // com.baidu.live.yuyingift.panel.b, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.caX.setType(0);
-        this.caX.bZC.setText("赠送");
+        this.bWl.setType(0);
+        this.bWl.bUQ.setText("赠送");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.yuyingift.panel.b, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     public void onInitial() {
         super.onInitial();
-        this.biv = TbadkCoreApplication.getInst().currentAccountTdouNum;
-        this.biw = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-        KJ();
-        KK();
-        this.cbd = new com.baidu.live.yuyingift.container.e(getPageContext(), this.caO.beV);
-        this.cbd.a(this.bZx);
-        this.cbd.ho(this.caO.beU);
+        this.bdC = TbadkCoreApplication.getInst().currentAccountTdouNum;
+        this.bdD = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+        GO();
+        GP();
+        this.bWr = new com.baidu.live.yuyingift.container.e(getPageContext(), this.bWc.baf);
+        this.bWr.a(this.bUL);
+        this.bWr.gc(this.bWc.bae);
     }
 
     @Override // com.baidu.live.yuyingift.panel.b, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.biy);
-        MessageManager.getInstance().unRegisterListener(this.bdN);
+        MessageManager.getInstance().unRegisterListener(this.bdF);
+        MessageManager.getInstance().unRegisterListener(this.aYZ);
     }
 
     @Override // com.baidu.live.yuyingift.panel.b
-    protected boolean abi() {
+    protected boolean Xp() {
         return true;
     }
 
     private boolean b(g gVar) {
-        if (com.baidu.live.af.a.SE().bCb != null && com.baidu.live.af.a.SE().bCb.aRA != null) {
-            String str = com.baidu.live.af.a.SE().bCb.aRA.aQR;
-            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.GV()))) {
+        if (com.baidu.live.af.a.OJ().bxp != null && com.baidu.live.af.a.OJ().bxp.aMN != null) {
+            String str = com.baidu.live.af.a.OJ().bxp.aMN.aMe;
+            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.Da()))) {
                 return true;
             }
         }
@@ -83,104 +83,104 @@ public class c extends b {
 
     @Override // com.baidu.live.yuyingift.panel.b
     protected boolean l(long j, int i) {
-        g Jc = this.caX.Jc();
-        if (Jc == null) {
+        g Fh = this.bWl.Fh();
+        if (Fh == null) {
             return false;
         }
-        if (b(Jc) && !this.bcJ) {
+        if (b(Fh) && !this.aXV) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913179));
             return false;
         }
-        int i2 = this.caO.bbl;
-        if (Jc.Ha()) {
-            if (Jc.GV() == 6 && i2 < 3) {
+        int i2 = this.bWc.aWx;
+        if (Fh.Df()) {
+            if (Fh.Da() == 6 && i2 < 3) {
                 return false;
             }
-            if (Jc.GV() == 7 && i2 < 7) {
+            if (Fh.Da() == 7 && i2 < 7) {
                 return false;
             }
-            if (Jc.GV() == 8 && i2 < 13) {
+            if (Fh.Da() == 8 && i2 < 13) {
                 return false;
             }
-            if (Jc.GV() == 9 && i2 < 22) {
+            if (Fh.Da() == 9 && i2 < 22) {
                 return false;
             }
-            if (Jc.GV() == 10 && i2 < 29) {
+            if (Fh.Da() == 10 && i2 < 29) {
                 return false;
             }
-            if (Jc.GV() == 11 && i2 < 39) {
+            if (Fh.Da() == 11 && i2 < 39) {
                 return false;
             }
-            if (Jc.GV() == 12 && i2 < 47) {
+            if (Fh.Da() == 12 && i2 < 47) {
                 return false;
             }
         }
-        int Jd = this.caX.Jd();
-        if (a(Jc, Jd)) {
-            long j2 = JavaTypesHelper.toLong(Jc.getPrice(), 0L) * Jd * abg();
-            if (Jc.GG()) {
-                if (this.biv <= 0 || this.biv < j2) {
-                    KC();
+        int Fi = this.bWl.Fi();
+        if (a(Fh, Fi)) {
+            long j2 = JavaTypesHelper.toLong(Fh.getPrice(), 0L) * Fi * Xn();
+            if (Fh.CL()) {
+                if (this.bdC <= 0 || this.bdC < j2) {
+                    GH();
                     return false;
                 }
-                Jc.aXM = this.caY != null ? this.caY.IF() : null;
-                if (Jc.aXM == null) {
+                Fh.aSZ = this.bWm != null ? this.bWm.EK() : null;
+                if (Fh.aSZ == null) {
                     return false;
                 }
-                Jc.aXM.aYS = Jc.GC();
-                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
-                this.biv -= j2;
-                this.caX.aN(this.biv);
+                Fh.aSZ.aUf = Fh.CH();
+                com.baidu.live.yuyingift.b.b.Xh().a(Fh, Fi, this.bWc.mUserId, this.bWc.mUserName, this.bWc.mLiveId, this.bWc.mRoomId, this.bWc.mAppId, this.bWc.bac, this.bWc.otherParams, 0L, s.ak(Xm().bXq), this.bWp, this.bWo);
+                this.bdC -= j2;
+                this.bWl.aN(this.bdC);
                 closeActivity();
-            } else if (Jc.GJ()) {
-                if (this.biw <= 0 || this.biw < j2) {
+            } else if (Fh.CO()) {
+                if (this.bdD <= 0 || this.bdD < j2) {
                     BdUtilHelper.showToast(getPageContext().getPageActivity(), getPageContext().getResources().getString(a.h.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
-                this.biw -= j2;
-                this.caX.aO(this.biw);
-            } else if (this.biv <= 0 || this.biv < j2) {
-                KC();
+                com.baidu.live.yuyingift.b.b.Xh().a(Fh, Fi, this.bWc.mUserId, this.bWc.mUserName, this.bWc.mLiveId, this.bWc.mRoomId, this.bWc.mAppId, this.bWc.bac, this.bWc.otherParams, 0L, s.ak(Xm().bXq), this.bWp, this.bWo);
+                this.bdD -= j2;
+                this.bWl.aO(this.bdD);
+            } else if (this.bdC <= 0 || this.bdC < j2) {
+                GH();
                 return false;
             } else {
-                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
-                this.biv -= j2;
-                this.caX.aN(this.biv);
+                com.baidu.live.yuyingift.b.b.Xh().a(Fh, Fi, this.bWc.mUserId, this.bWc.mUserName, this.bWc.mLiveId, this.bWc.mRoomId, this.bWc.mAppId, this.bWc.bac, this.bWc.otherParams, 0L, s.ak(Xm().bXq), this.bWp, this.bWo);
+                this.bdC -= j2;
+                this.bWl.aN(this.bdC);
             }
         }
         return true;
     }
 
     @Override // com.baidu.live.yuyingift.panel.b
-    protected void KH() {
-        this.cbd.hp(this.caO.beU);
+    protected void GM() {
+        this.bWr.gd(this.bWc.bae);
     }
 
-    private void KJ() {
-        this.biy = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.yuyingift.panel.c.1
+    private void GO() {
+        this.bdF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.yuyingift.panel.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.caX != null) {
-                    c.this.biv = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                    c.this.biw = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-                    c.this.caX.aN(TbadkCoreApplication.getInst().currentAccountTdouNum);
-                    c.this.caX.aO(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+                if (c.this.bWl != null) {
+                    c.this.bdC = TbadkCoreApplication.getInst().currentAccountTdouNum;
+                    c.this.bdD = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+                    c.this.bWl.aN(TbadkCoreApplication.getInst().currentAccountTdouNum);
+                    c.this.bWl.aO(TbadkCoreApplication.getInst().currentAccountFlowerNum);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.biy);
+        MessageManager.getInstance().registerListener(this.bdF);
     }
 
-    private void KK() {
-        this.bdN = new CustomMessageListener(2913120) { // from class: com.baidu.live.yuyingift.panel.c.2
+    private void GP() {
+        this.aYZ = new CustomMessageListener(2913120) { // from class: com.baidu.live.yuyingift.panel.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.this.bcJ = true;
+                c.this.aXV = true;
             }
         };
-        MessageManager.getInstance().registerListener(this.bdN);
+        MessageManager.getInstance().registerListener(this.aYZ);
     }
 }

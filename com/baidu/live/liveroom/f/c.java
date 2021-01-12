@@ -1,24 +1,24 @@
 package com.baidu.live.liveroom.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static volatile c btd = null;
-    private b bte = null;
+    private static volatile c bor = null;
+    private b bos = null;
 
     private c() {
     }
 
-    public static c Px() {
-        if (btd == null) {
+    public static c LC() {
+        if (bor == null) {
             synchronized (c.class) {
-                if (btd == null) {
-                    btd = new c();
+                if (bor == null) {
+                    bor = new c();
                 }
             }
         }
-        return btd;
+        return bor;
     }
 
-    public b Py() {
-        return this.bte;
+    public b LD() {
+        return this.bos;
     }
 }

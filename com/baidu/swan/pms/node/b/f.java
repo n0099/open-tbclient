@@ -7,20 +7,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
-    private final Set<String> eyk;
+    private final Set<String> etw;
     private final String mVersion;
 
     public f(String str, Set<String> set) {
         this.mVersion = str;
-        this.eyk = set;
+        this.etw = set;
     }
 
     public String getVersion() {
         return this.mVersion;
     }
 
-    public Set<String> bhn() {
-        return this.eyk;
+    public Set<String> bdt() {
+        return this.etw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

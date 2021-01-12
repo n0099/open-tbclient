@@ -2,11 +2,11 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class l extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2330a;
+    protected String f2280a;
 
     public l(Context context) {
         super(context);
@@ -17,6 +17,6 @@ public abstract class l extends BaseBean {
     }
 
     public void d(String str) {
-        this.f2330a = str;
+        this.f2280a = str;
     }
 }

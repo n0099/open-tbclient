@@ -8,37 +8,37 @@ public interface a {
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a implements a {
-        private static a JR;
-        private int JS;
-        private final d JT = new d();
+        private static a JP;
+        private int JQ;
+        private final d JR = new d();
 
         public C0013a() {
-            this.JS = 0;
-            if (NSGif.JV) {
-                this.JS = 0;
+            this.JQ = 0;
+            if (NSGif.JT) {
+                this.JQ = 0;
             } else {
-                this.JS = 1;
+                this.JQ = 1;
             }
         }
 
         public static synchronized a le() {
             a aVar;
             synchronized (C0013a.class) {
-                if (JR == null) {
-                    JR = new C0013a();
+                if (JP == null) {
+                    JP = new C0013a();
                 }
-                aVar = JR;
+                aVar = JP;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a bs(String str) {
-            if (this.JS != 0) {
+            if (this.JQ != 0) {
                 return null;
             }
             try {
-                return this.JT.bs(str);
+                return this.JR.bs(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a f(byte[] bArr, int i, int i2) {
-            if (this.JS != 0) {
+            if (this.JQ != 0) {
                 return null;
             }
             try {
-                return this.JT.f(bArr, i, i2);
+                return this.JR.f(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

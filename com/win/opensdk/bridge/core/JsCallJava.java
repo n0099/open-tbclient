@@ -7,21 +7,21 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JsCallJava {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14030a;
+    private String f13730a;
 
     /* renamed from: case  reason: not valid java name */
-    private String f30case;
+    private String f29case;
     private String java;
-    private JSONObject qez;
+    private JSONObject pZY;
 
     private JsCallJava() {
     }
 
-    public static JsCallJava eKG() {
+    public static JsCallJava eGQ() {
         return new JsCallJava();
     }
 
@@ -32,26 +32,26 @@ public class JsCallJava {
                 this.java = parse.getHost();
                 String path = parse.getPath();
                 if (!TextUtils.isEmpty(path)) {
-                    this.f30case = path.replace("/", "");
+                    this.f29case = path.replace("/", "");
                 } else {
-                    this.f30case = "";
+                    this.f29case = "";
                 }
-                this.f14030a = String.valueOf(parse.getPort());
+                this.f13730a = String.valueOf(parse.getPort());
                 try {
-                    this.qez = new JSONObject(parse.getQuery());
+                    this.pZY = new JSONObject(parse.getQuery());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    this.qez = new JSONObject();
+                    this.pZY = new JSONObject();
                 }
             }
-            Method hx = NativeMethodInjectHelper.eKH().hx(this.java, this.f30case);
-            JsCallback g = JsCallback.g(webView, this.f14030a);
-            if (hx == null) {
-                JsCallback.a(g, false, null, "Method (" + this.f30case + ") in this class (" + this.java + ") not found!");
+            Method hw = NativeMethodInjectHelper.eGR().hw(this.java, this.f29case);
+            JsCallback g = JsCallback.g(webView, this.f13730a);
+            if (hw == null) {
+                JsCallback.a(g, false, null, "Method (" + this.f29case + ") in this class (" + this.java + ") not found!");
                 return;
             }
             try {
-                hx.invoke(null, webView, this.qez, g);
+                hw.invoke(null, webView, this.pZY, g);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {

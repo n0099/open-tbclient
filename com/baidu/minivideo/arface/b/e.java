@@ -6,75 +6,75 @@ import android.os.Environment;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.File;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private static e clf;
-    private File clg;
-    private File clh;
-    private File cli;
-    private File clj;
-    private File clk;
-    private File cll;
+    private static e cgs;
+    private File cgt;
+    private File cgu;
+    private File cgv;
+    private File cgw;
+    private File cgx;
+    private File cgy;
     private File mSourceDir;
 
-    public static e ael() {
-        if (clf == null) {
+    public static e aas() {
+        if (cgs == null) {
             createInst();
         }
-        return clf;
+        return cgs;
     }
 
     private static synchronized void createInst() {
         synchronized (e.class) {
-            if (clf == null) {
-                clf = new e();
+            if (cgs == null) {
+                cgs = new e();
             }
         }
     }
 
     public void init(Context context) {
-        this.clg = bE(context);
-        this.clh = bD(context);
-        if (this.clh == null) {
-            this.clh = this.clg;
+        this.cgt = bD(context);
+        this.cgu = bC(context);
+        if (this.cgu == null) {
+            this.cgu = this.cgt;
         }
-        if (this.clh != null) {
-            this.clj = new File(this.clh, CashierData.SDK);
-            this.mSourceDir = new File(this.clj, "arsource");
+        if (this.cgu != null) {
+            this.cgw = new File(this.cgu, CashierData.SDK);
+            this.mSourceDir = new File(this.cgw, "arsource");
             if (!this.mSourceDir.exists()) {
                 this.mSourceDir.mkdirs();
             }
         }
-        if (this.clg != null) {
-            this.cli = new File(this.clg, CashierData.SDK);
-            this.clk = new File(this.clg, "sdklibs/armeabi-v7a");
-            if (!this.clk.exists()) {
-                this.clk.mkdirs();
+        if (this.cgt != null) {
+            this.cgv = new File(this.cgt, CashierData.SDK);
+            this.cgx = new File(this.cgt, "sdklibs/armeabi-v7a");
+            if (!this.cgx.exists()) {
+                this.cgx.mkdirs();
             }
-            this.cll = new File(this.clg, "sdklibs/armeabi-v7a-2");
-            if (!this.cll.exists()) {
-                this.cll.mkdirs();
+            this.cgy = new File(this.cgt, "sdklibs/armeabi-v7a-2");
+            if (!this.cgy.exists()) {
+                this.cgy.mkdirs();
             }
         }
     }
 
-    public File aem() {
+    public File aat() {
         return this.mSourceDir;
     }
 
-    public File aen() {
-        return this.clj;
+    public File aau() {
+        return this.cgw;
     }
 
     @SuppressLint({"NewApi"})
-    public File bD(Context context) {
+    public File bC(Context context) {
         if (!Environment.getExternalStorageState().equals("mounted")) {
             return null;
         }
         return ((Context) Objects.requireNonNull(context)).getExternalFilesDir("duar");
     }
 
-    public static File bE(Context context) {
+    public static File bD(Context context) {
         File file = new File(context.getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -82,11 +82,11 @@ public class e {
         return file;
     }
 
-    public static File aeo() {
-        return ael().clk;
+    public static File aav() {
+        return aas().cgx;
     }
 
-    public static File aep() {
-        return ael().cll;
+    public static File aaw() {
+        return aas().cgy;
     }
 }

@@ -21,16 +21,16 @@ import android.widget.ImageView;
 import com.baidu.poly.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PayWebActivity extends Activity {
-    private Bundle cpD;
+    private Bundle ckN;
     private ImageView i;
     private boolean j;
     private String k;
     private WebView webView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         a() {
         }
@@ -46,7 +46,7 @@ public class PayWebActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.cpD = intent.getBundleExtra("launch_payment_data");
+            this.ckN = intent.getBundleExtra("launch_payment_data");
         }
     }
 
@@ -122,14 +122,14 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.cpD);
+            intent.putExtras(this.ckN);
             setResult(-1, intent);
             finish();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends WebViewClient {
         b() {
         }

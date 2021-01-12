@@ -7,15 +7,15 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static volatile b e;
 
     /* renamed from: a  reason: collision with root package name */
-    private g f11113a;
+    private g f10813a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<WeakReference<g.a>> f11114b = new ArrayList();
+    private List<WeakReference<g.a>> f10814b = new ArrayList();
     private boolean c = false;
     private boolean d = false;
 
@@ -36,11 +36,11 @@ public class b {
 
     private void a(Context context) {
         this.c = false;
-        this.f11113a = new g(context);
-        this.f11113a.a(new g.a() { // from class: com.kwad.sdk.utils.b.1
+        this.f10813a = new g(context);
+        this.f10813a.a(new g.a() { // from class: com.kwad.sdk.utils.b.1
             @Override // com.kwad.sdk.utils.g.a
             public void a() {
-                Iterator it = b.this.f11114b.iterator();
+                Iterator it = b.this.f10814b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference == null) {
@@ -59,7 +59,7 @@ public class b {
 
             @Override // com.kwad.sdk.utils.g.a
             public void b() {
-                Iterator it = b.this.f11114b.iterator();
+                Iterator it = b.this.f10814b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference == null) {
@@ -78,22 +78,22 @@ public class b {
     }
 
     public void a(g.a aVar) {
-        this.f11114b.add(new WeakReference<>(aVar));
+        this.f10814b.add(new WeakReference<>(aVar));
     }
 
     public void a(boolean z) {
-        if (this.f11113a == null) {
+        if (this.f10813a == null) {
             return;
         }
         if (z || !this.c) {
-            this.f11113a.a();
+            this.f10813a.a();
             this.c = true;
             this.d = false;
         }
     }
 
     public void b(g.a aVar) {
-        Iterator<WeakReference<g.a>> it = this.f11114b.iterator();
+        Iterator<WeakReference<g.a>> it = this.f10814b.iterator();
         while (it.hasNext()) {
             WeakReference<g.a> next = it.next();
             if (next == null) {

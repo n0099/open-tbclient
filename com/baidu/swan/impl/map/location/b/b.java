@@ -9,20 +9,20 @@ import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
 import com.baidu.mapapi.walknavi.params.WalkNaviLaunchParam;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void beO();
+        void baU();
 
-        void beP();
+        void baV();
 
-        void yH(String str);
+        void xw(String str);
     }
 
     public static void a(Activity activity, LatLng latLng, LatLng latLng2, a aVar) {
-        com.baidu.swan.impl.map.a.bdT();
+        com.baidu.swan.impl.map.a.aZZ();
         b(activity, latLng, latLng2, aVar);
     }
 
@@ -30,12 +30,12 @@ public class b {
         final WalkNavigateHelper walkNavigateHelper = WalkNavigateHelper.getInstance();
         if (aVar != null) {
             try {
-                aVar.beO();
+                aVar.baU();
             } catch (Exception e) {
                 c.e("map", "initNaviEngine fail");
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.yH(e.getMessage());
+                    aVar.xw(e.getMessage());
                     return;
                 }
                 return;
@@ -44,21 +44,21 @@ public class b {
         walkNavigateHelper.initNaviEngine(activity, new IWEngineInitListener() { // from class: com.baidu.swan.impl.map.location.b.b.1
             @Override // com.baidu.mapapi.walknavi.adapter.IWEngineInitListener
             public void engineInitSuccess() {
-                b.a(walkNavigateHelper, b.a(LatLng.this, latLng2), aVar);
+                b.a(walkNavigateHelper, b.g(LatLng.this, latLng2), aVar);
             }
 
             @Override // com.baidu.mapapi.walknavi.adapter.IWEngineInitListener
             public void engineInitFail() {
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.yH("engineInitFail");
+                    aVar.xw("engineInitFail");
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static WalkNaviLaunchParam a(LatLng latLng, LatLng latLng2) {
+    public static WalkNaviLaunchParam g(LatLng latLng, LatLng latLng2) {
         LatLng g = g(latLng);
         return new WalkNaviLaunchParam().stPt(g).endPt(g(latLng2));
     }
@@ -81,7 +81,7 @@ public class b {
                 @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
                 public void onRoutePlanSuccess() {
                     if (a.this != null) {
-                        a.this.beP();
+                        a.this.baV();
                     }
                 }
 
@@ -89,7 +89,7 @@ public class b {
                 public void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError) {
                     walkNavigateHelper.quit();
                     if (a.this != null) {
-                        a.this.yH(walkRoutePlanError.toString());
+                        a.this.xw(walkRoutePlanError.toString());
                     }
                 }
             });
@@ -97,7 +97,7 @@ public class b {
             c.e("map", "routePlanWithParams fail");
             walkNavigateHelper.quit();
             if (aVar != null) {
-                aVar.yH(e.getMessage());
+                aVar.xw(e.getMessage());
             }
         }
     }

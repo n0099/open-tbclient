@@ -2,38 +2,34 @@ package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class MapPoi {
     private static final String d = MapPoi.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    String f2837a;
+    String f2730a;
 
     /* renamed from: b  reason: collision with root package name */
-    LatLng f2838b;
+    LatLng f2731b;
     String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
+        this.f2730a = jSONObject.optString("tx");
+        if (this.f2730a != null && !this.f2730a.equals("")) {
+            this.f2730a = this.f2730a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
         }
-        this.f2837a = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_TEXT);
-        if (this.f2837a != null && !this.f2837a.equals("")) {
-            this.f2837a = this.f2837a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
-        }
-        this.f2838b = CoordUtil.decodeNodeLocation(jSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO));
+        this.f2731b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
         this.c = jSONObject.optString("ud");
     }
 
     public String getName() {
-        return this.f2837a;
+        return this.f2730a;
     }
 
     public LatLng getPosition() {
-        return this.f2838b;
+        return this.f2731b;
     }
 
     public String getUid() {

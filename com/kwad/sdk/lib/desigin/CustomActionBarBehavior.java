@@ -12,7 +12,7 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.Arrays;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class CustomActionBarBehavior extends KSCoordinatorLayout.Behavior<RelativeLayout> {
     private int mActionBarBgColor;
     private float mActionBarColorChangeRange;

@@ -7,7 +7,7 @@ import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 @RequiresApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class SizeStrategy implements LruPoolStrategy {
     private static final int MAX_SIZE_MULTIPLE = 8;
     private final KeyPool keyPool = new KeyPool();
@@ -90,7 +90,7 @@ final class SizeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
@@ -111,7 +111,7 @@ final class SizeStrategy implements LruPoolStrategy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Key implements Poolable {
         private final KeyPool pool;
         int size;

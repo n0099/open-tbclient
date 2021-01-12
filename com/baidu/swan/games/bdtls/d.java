@@ -8,19 +8,19 @@ import com.baidu.swan.games.bdtls.model.g;
 import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.i;
 import com.baidu.swan.games.bdtls.model.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static volatile d efU;
+    private static volatile d ebi;
 
-    public static d aXS() {
-        if (efU == null) {
+    public static d aTY() {
+        if (ebi == null) {
             synchronized (d.class) {
-                if (efU == null) {
-                    efU = new d();
+                if (ebi == null) {
+                    ebi = new d();
                 }
             }
         }
-        return efU;
+        return ebi;
     }
 
     private d() {
@@ -33,11 +33,11 @@ public class d {
         try {
             byte[] a2 = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a2 != null) {
-                h aYQ = h.egp.aYQ();
-                aYQ.c((byte) 22);
-                aYQ.d((short) a2.length);
-                aYQ.S(a2);
-                return com.baidu.swan.games.bdtls.a.b.a(aYQ);
+                h aUW = h.ebC.aUW();
+                aUW.c((byte) 22);
+                aUW.d((short) a2.length);
+                aUW.R(a2);
+                return com.baidu.swan.games.bdtls.a.b.a(aUW);
             }
             return null;
         } catch (Exception e) {
@@ -55,19 +55,19 @@ public class d {
             return null;
         }
         try {
-            h aYQ = h.egp.aYQ();
-            aYQ.c((byte) 23);
-            byte[] aZc = jVar.aZc();
-            if (aZc != null && aZc.length > 0 && aZc.length <= 32767) {
-                aYQ.d((short) aZc.length);
-                aYQ.S(aZc);
+            h aUW = h.ebC.aUW();
+            aUW.c((byte) 23);
+            byte[] aVi = jVar.aVi();
+            if (aVi != null && aVi.length > 0 && aVi.length <= 32767) {
+                aUW.d((short) aVi.length);
+                aUW.R(aVi);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] h = AES.h(str, jVar.aZb());
-                aYQ.mC(h.length);
-                aYQ.setContent(h);
+                byte[] h = AES.h(str, jVar.aVh());
+                aUW.kW(h.length);
+                aUW.setContent(h);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(aYQ);
+            return com.baidu.swan.games.bdtls.a.b.a(aUW);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -81,10 +81,10 @@ public class d {
     public i a(j jVar, byte[] bArr) {
         i iVar = new i();
         try {
-            h W = com.baidu.swan.games.bdtls.a.b.W(bArr);
-            switch (W.aYL()) {
+            h V = com.baidu.swan.games.bdtls.a.b.V(bArr);
+            switch (V.aUR()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(W.aYP());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(V.aUV());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
                         if (a.DEBUG) {
@@ -115,7 +115,7 @@ public class d {
                     }
                     break;
                 case 23:
-                    iVar.wV(new String(AES.d(W.getContent(), jVar.aZb())));
+                    iVar.vK(new String(AES.d(V.getContent(), jVar.aVh())));
                     iVar.h(1);
                     break;
             }
@@ -129,11 +129,11 @@ public class d {
         return iVar;
     }
 
-    public static byte[] mx(int i) {
+    public static byte[] kR(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 
-    public static int O(byte[] bArr) {
+    public static int N(byte[] bArr) {
         int i = 0;
         if (bArr == null) {
             return 0;
@@ -152,7 +152,7 @@ public class d {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String P(byte[] bArr) {
+    public static String O(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
             sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);

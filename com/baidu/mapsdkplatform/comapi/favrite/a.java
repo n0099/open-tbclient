@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.common.SysOSUtil;
-import com.baidu.platform.comapi.basestruct.Point;
-import com.baidu.platform.comjni.map.favorite.NAFavorite;
+import com.baidu.mapapi.model.inner.Point;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static a f3161b = null;
+    private static a f3029b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private NAFavorite f3162a = null;
+    private com.baidu.mapsdkplatform.comjni.map.favorite.a f3030a = null;
     private boolean c = false;
     private boolean d = false;
     private Vector<String> e = null;
@@ -32,9 +32,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0264a implements Comparator<String> {
-        C0264a() {
+    /* loaded from: classes6.dex */
+    public class C0250a implements Comparator<String> {
+        C0250a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private class b {
 
         /* renamed from: b  reason: collision with root package name */
-        private long f3165b;
+        private long f3033b;
         private long c;
 
         private b() {
@@ -57,7 +57,7 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
-            this.f3165b = System.currentTimeMillis();
+            this.f3033b = System.currentTimeMillis();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -67,15 +67,15 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean c() {
-            return this.c - this.f3165b > 1000;
+            return this.c - this.f3033b > 1000;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private class c {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3167b;
+        private String f3035b;
         private long c;
         private long d;
 
@@ -86,18 +86,18 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public String a() {
-            return this.f3167b;
+            return this.f3035b;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str) {
-            this.f3167b = str;
+            this.f3035b = str;
             this.d = System.currentTimeMillis();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean b() {
-            return TextUtils.isEmpty(this.f3167b);
+            return TextUtils.isEmpty(this.f3035b);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -110,26 +110,26 @@ public class a {
     }
 
     public static a a() {
-        if (f3161b == null) {
+        if (f3029b == null) {
             synchronized (a.class) {
-                if (f3161b == null) {
-                    f3161b = new a();
-                    f3161b.h();
+                if (f3029b == null) {
+                    f3029b = new a();
+                    f3029b.h();
                 }
             }
         }
-        return f3161b;
+        return f3029b;
     }
 
     public static boolean g() {
-        return (f3161b == null || f3161b.f3162a == null || !f3161b.f3162a.d()) ? false : true;
+        return (f3029b == null || f3029b.f3030a == null || !f3029b.f3030a.d()) ? false : true;
     }
 
     private boolean h() {
-        if (this.f3162a == null) {
-            this.f3162a = new NAFavorite();
-            if (this.f3162a.a() == 0) {
-                this.f3162a = null;
+        if (this.f3030a == null) {
+            this.f3030a = new com.baidu.mapsdkplatform.comjni.map.favorite.a();
+            if (this.f3030a.a() == 0) {
+                this.f3030a = null;
                 return false;
             }
             j();
@@ -140,12 +140,12 @@ public class a {
     }
 
     private boolean i() {
-        if (this.f3162a == null) {
+        if (this.f3030a == null) {
             return false;
         }
         String str = SysOSUtil.getModuleFileName() + "/";
-        this.f3162a.a(1);
-        return this.f3162a.a(str, "fav_poi", "fifo", 10, 501, -1);
+        this.f3030a.a(1);
+        return this.f3030a.a(str, "fav_poi", "fifo", 10, 501, -1);
     }
 
     private void j() {
@@ -155,7 +155,7 @@ public class a {
 
     public synchronized int a(String str, FavSyncPoi favSyncPoi) {
         int i;
-        if (this.f3162a == null) {
+        if (this.f3030a == null) {
             i = 0;
         } else if (str == null || str.equals("") || favSyncPoi == null) {
             i = -1;
@@ -169,7 +169,7 @@ public class a {
                     Iterator<String> it = e.iterator();
                     while (it.hasNext()) {
                         FavSyncPoi b2 = b(it.next());
-                        if (b2 != null && str.equals(b2.f3160b)) {
+                        if (b2 != null && str.equals(b2.f3028b)) {
                             i = -1;
                             break;
                         }
@@ -177,16 +177,16 @@ public class a {
                 }
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    favSyncPoi.f3160b = str;
+                    favSyncPoi.f3028b = str;
                     String valueOf = String.valueOf(System.currentTimeMillis());
                     String str2 = valueOf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + favSyncPoi.hashCode();
                     favSyncPoi.h = valueOf;
-                    favSyncPoi.f3159a = str2;
+                    favSyncPoi.f3027a = str2;
                     jSONObject.put("bdetail", favSyncPoi.i);
-                    jSONObject.put("uspoiname", favSyncPoi.f3160b);
+                    jSONObject.put("uspoiname", favSyncPoi.f3028b);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("x", favSyncPoi.c.getDoubleX());
-                    jSONObject2.put("y", favSyncPoi.c.getDoubleY());
+                    jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
+                    jSONObject2.put("y", favSyncPoi.c.getmPty());
                     jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
@@ -196,7 +196,7 @@ public class a {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("Fav_Sync", jSONObject);
                     jSONObject3.put("Fav_Content", favSyncPoi.j);
-                    if (this.f3162a.a(str2, jSONObject3.toString())) {
+                    if (this.f3030a.a(str2, jSONObject3.toString())) {
                         j();
                         i = 1;
                         g();
@@ -219,31 +219,31 @@ public class a {
     public synchronized boolean a(String str) {
         boolean z = false;
         synchronized (this) {
-            if (this.f3162a != null && str != null && !str.equals("") && c(str)) {
+            if (this.f3030a != null && str != null && !str.equals("") && c(str)) {
                 j();
-                z = this.f3162a.a(str);
+                z = this.f3030a.a(str);
             }
         }
         return z;
     }
 
     public FavSyncPoi b(String str) {
-        if (this.f3162a == null || str == null || str.equals("")) {
+        if (this.f3030a == null || str == null || str.equals("")) {
             return null;
         }
         try {
             if (c(str)) {
                 FavSyncPoi favSyncPoi = new FavSyncPoi();
-                String b2 = this.f3162a.b(str);
+                String b2 = this.f3030a.b(str);
                 if (b2 == null || b2.equals("")) {
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject(b2);
                 JSONObject optJSONObject = jSONObject.optJSONObject("Fav_Sync");
                 String optString = jSONObject.optString("Fav_Content");
-                favSyncPoi.f3160b = optJSONObject.optString("uspoiname");
+                favSyncPoi.f3028b = optJSONObject.optString("uspoiname");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("pt");
-                favSyncPoi.c = new Point(optJSONObject2.optInt("x"), optJSONObject2.optInt("y"));
+                favSyncPoi.c = new Point(optJSONObject2.optInt(Config.EVENT_HEAT_X), optJSONObject2.optInt("y"));
                 favSyncPoi.e = optJSONObject.optString("ncityid");
                 favSyncPoi.f = optJSONObject.optString("uspoiuid");
                 favSyncPoi.g = optJSONObject.optInt("npoitype");
@@ -251,7 +251,7 @@ public class a {
                 favSyncPoi.h = optJSONObject.optString("addtimesec");
                 favSyncPoi.i = optJSONObject.optBoolean("bdetail");
                 favSyncPoi.j = optString;
-                favSyncPoi.f3159a = str;
+                favSyncPoi.f3027a = str;
                 return favSyncPoi;
             }
             return null;
@@ -265,25 +265,25 @@ public class a {
     }
 
     public void b() {
-        if (f3161b != null) {
-            if (f3161b.f3162a != null) {
-                f3161b.f3162a.b();
-                f3161b.f3162a = null;
+        if (f3029b != null) {
+            if (f3029b.f3030a != null) {
+                f3029b.f3030a.b();
+                f3029b.f3030a = null;
             }
-            f3161b = null;
+            f3029b = null;
         }
     }
 
     public synchronized boolean b(String str, FavSyncPoi favSyncPoi) {
         boolean z = false;
         synchronized (this) {
-            if (this.f3162a != null && str != null && !str.equals("") && favSyncPoi != null && c(str)) {
+            if (this.f3030a != null && str != null && !str.equals("") && favSyncPoi != null && c(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("uspoiname", favSyncPoi.f3160b);
+                    jSONObject.put("uspoiname", favSyncPoi.f3028b);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("x", favSyncPoi.c.getDoubleX());
-                    jSONObject2.put("y", favSyncPoi.c.getDoubleY());
+                    jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
+                    jSONObject2.put("y", favSyncPoi.c.getmPty());
                     jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
@@ -296,8 +296,8 @@ public class a {
                     jSONObject3.put("Fav_Sync", jSONObject);
                     jSONObject3.put("Fav_Content", favSyncPoi.j);
                     j();
-                    if (this.f3162a != null) {
-                        if (this.f3162a.b(str, jSONObject3.toString())) {
+                    if (this.f3030a != null) {
+                        if (this.f3030a.b(str, jSONObject3.toString())) {
                             z = true;
                         }
                     }
@@ -310,29 +310,29 @@ public class a {
 
     public synchronized boolean c() {
         boolean c2;
-        if (this.f3162a == null) {
+        if (this.f3030a == null) {
             c2 = false;
         } else {
             j();
-            c2 = this.f3162a.c();
+            c2 = this.f3030a.c();
             g();
         }
         return c2;
     }
 
     public boolean c(String str) {
-        return (this.f3162a == null || str == null || str.equals("") || !this.f3162a.c(str)) ? false : true;
+        return (this.f3030a == null || str == null || str.equals("") || !this.f3030a.c(str)) ? false : true;
     }
 
     public ArrayList<String> d() {
         String b2;
-        if (this.f3162a == null) {
+        if (this.f3030a == null) {
             return null;
         }
         if (!this.d || this.f == null) {
             try {
                 Bundle bundle = new Bundle();
-                this.f3162a.a(bundle);
+                this.f3030a.a(bundle);
                 String[] stringArray = bundle.getStringArray("rstString");
                 if (stringArray != null) {
                     if (this.f == null) {
@@ -341,13 +341,13 @@ public class a {
                         this.f.clear();
                     }
                     for (int i = 0; i < stringArray.length; i++) {
-                        if (!stringArray[i].equals("data_version") && (b2 = this.f3162a.b(stringArray[i])) != null && !b2.equals("")) {
+                        if (!stringArray[i].equals("data_version") && (b2 = this.f3030a.b(stringArray[i])) != null && !b2.equals("")) {
                             this.f.add(stringArray[i]);
                         }
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0264a());
+                            Collections.sort(this.f, new C0250a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -366,13 +366,13 @@ public class a {
     }
 
     public ArrayList<String> e() {
-        if (this.f3162a == null) {
+        if (this.f3030a == null) {
             return null;
         }
         if (!this.c || this.e == null) {
             try {
                 Bundle bundle = new Bundle();
-                this.f3162a.a(bundle);
+                this.f3030a.a(bundle);
                 String[] stringArray = bundle.getStringArray("rstString");
                 if (stringArray != null) {
                     if (this.e == null) {
@@ -387,7 +387,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0264a());
+                            Collections.sort(this.e, new C0250a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -413,7 +413,7 @@ public class a {
         String b2;
         if (!this.i.c() || this.h.c() || this.h.b()) {
             this.i.a();
-            if (this.f3162a == null) {
+            if (this.f3030a == null) {
                 return null;
             }
             ArrayList<String> d = d();
@@ -425,7 +425,7 @@ public class a {
                     Iterator<String> it = d.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
-                        if (next == null || next.equals("data_version") || (b2 = this.f3162a.b(next)) == null || b2.equals("")) {
+                        if (next == null || next.equals("data_version") || (b2 = this.f3030a.b(next)) == null || b2.equals("")) {
                             i = i2;
                         } else {
                             JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");

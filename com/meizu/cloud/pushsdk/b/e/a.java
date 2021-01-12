@@ -5,11 +5,11 @@ import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.k;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11482a = null;
+    public static String f11182a = null;
 
     public static k a(com.meizu.cloud.pushsdk.b.a.b bVar) throws com.meizu.cloud.pushsdk.b.b.a {
         try {
@@ -46,9 +46,9 @@ public final class a {
     public static void a(i.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar) {
         if (bVar.h() != null) {
             aVar.a("User-Agent", bVar.h());
-        } else if (f11482a != null) {
-            bVar.a(f11482a);
-            aVar.a("User-Agent", f11482a);
+        } else if (f11182a != null) {
+            bVar.a(f11182a);
+            aVar.a("User-Agent", f11182a);
         }
         com.meizu.cloud.pushsdk.b.c.c o = bVar.o();
         if (o != null) {

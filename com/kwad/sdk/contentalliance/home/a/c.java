@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends a {
     private SceneImpl c;
     private int d;
@@ -45,7 +45,7 @@ public class c extends a {
             }
         }
         com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "usePreloadContentData cache item list size=" + a2.size());
-        this.f8922a.addAll(a2);
+        this.f8622a.addAll(a2);
         a3.b(posId);
         a(false, this.d);
         return true;
@@ -104,13 +104,13 @@ public class c extends a {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        c.this.f8922a.clear();
+                        c.this.f8622a.clear();
                         c.this.d = 0;
                     }
-                    if (c.this.f8922a.isEmpty()) {
+                    if (c.this.f8622a.isEmpty()) {
                         m.e();
                     }
-                    c.this.f8922a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    c.this.f8622a.addAll(com.kwad.sdk.contentalliance.home.c.b());
                     com.kwad.sdk.contentalliance.home.c.c();
                     c.this.a(z, c.this.d);
                     c.b(c.this);
@@ -119,7 +119,7 @@ public class c extends a {
             });
             return;
         }
-        if (!TextUtils.isEmpty(this.g) || z || z2 || !this.f8922a.isEmpty()) {
+        if (!TextUtils.isEmpty(this.g) || z || z2 || !this.f8622a.isEmpty()) {
             z3 = false;
         } else {
             z3 = a(this.c);
@@ -129,9 +129,9 @@ public class c extends a {
         }
         final h.a aVar = new h.a();
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-        fVar.f9466b = this.c.getPageScene();
+        fVar.f9166b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9561a.add(fVar);
+        aVar.f9261a.add(fVar);
         switch (i) {
             case 0:
                 i2 = 3;
@@ -163,12 +163,12 @@ public class c extends a {
         }
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         cVar.c = i2;
-        cVar.f9460b = this.e;
+        cVar.f9160b = this.e;
         cVar.d = this.j;
-        aVar.f9562b = cVar;
+        aVar.f9262b = cVar;
         aVar.c = this.g;
         if (z3) {
-            aVar.d = new com.kwad.sdk.core.g.a.j(this.f8922a);
+            aVar.d = new com.kwad.sdk.core.g.a.j(this.f8622a);
         }
         this.k = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.h, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -187,8 +187,8 @@ public class c extends a {
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f9561a) {
-                    arrayList.add(fVar2.f9465a);
+                for (com.kwad.sdk.core.g.a.f fVar2 : aVar.f9261a) {
+                    arrayList.add(fVar2.f9165a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);
@@ -225,14 +225,14 @@ public class c extends a {
                         c.this.h = false;
                         if (z) {
                             c.this.d = 0;
-                            c.this.f8922a.clear();
+                            c.this.f8622a.clear();
                         }
-                        if (c.this.f8922a.isEmpty()) {
+                        if (c.this.f8622a.isEmpty()) {
                             m.e();
                         }
-                        c.this.f8922a.addAll(arrayList);
+                        c.this.f8622a.addAll(arrayList);
                         c.this.a(z, c.this.d);
-                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f8922a.size());
+                        com.kwad.sdk.core.d.a.a("DataFetcherContentImpl", "onContentAllianceLoad mTemplateList:" + c.this.f8622a.size());
                         c.this.f = false;
                         c.b(c.this);
                         c.c(c.this);

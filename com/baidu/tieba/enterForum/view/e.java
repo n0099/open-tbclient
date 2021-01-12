@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a iPS;
-    private b iPU;
+    private a iLl;
+    private b iLn;
     private int mScrollState = -1;
-    private int iPT = 0;
+    private int iLm = 0;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.iPT != 0 && this.iPU != null) {
-                    this.iPU.a(absListView, 0, -this.iPT);
+                if (this.iLm != 0 && this.iLn != null) {
+                    this.iLn.a(absListView, 0, -this.iLm);
                 }
-                this.iPT = 0;
-                this.iPS = null;
+                this.iLm = 0;
+                this.iLl = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.iPS == null) {
-                this.iPS = aVar;
-                this.iPT = absListView.getPaddingTop() - childAt.getTop();
-                if (this.iPU != null) {
-                    this.iPU.a(absListView, this.iPT, 0);
+            if (this.iLl == null) {
+                this.iLl = aVar;
+                this.iLm = absListView.getPaddingTop() - childAt.getTop();
+                if (this.iLn != null) {
+                    this.iLn.a(absListView, this.iLm, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.iPS.a(aVar);
-            this.iPS = aVar;
-            this.iPT += a2;
-            if (this.iPU != null) {
-                this.iPU.a(absListView, this.iPT, a2);
+            int a2 = this.iLl.a(aVar);
+            this.iLl = aVar;
+            this.iLm += a2;
+            if (this.iLn != null) {
+                this.iLn.a(absListView, this.iLm, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.iPU = bVar;
+        this.iLn = bVar;
     }
 
     /* loaded from: classes2.dex */

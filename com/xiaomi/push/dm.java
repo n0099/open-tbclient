@@ -21,35 +21,35 @@ import java.util.List;
 public class dm implements LoggerInterface {
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f304a;
+    private Context f303a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14249b;
+    private String f13949b;
     private String c = "";
 
     /* renamed from: a  reason: collision with other field name */
-    private static final SimpleDateFormat f302a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    private static final SimpleDateFormat f301a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
 
     /* renamed from: a  reason: collision with root package name */
-    private static al f14248a = new al(true);
+    private static al f13948a = new al(true);
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f301a = "/MiPushLog";
+    public static String f300a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<Pair<String, Throwable>> f303a = Collections.synchronizedList(new ArrayList());
+    private static List<Pair<String, Throwable>> f302a = Collections.synchronizedList(new ArrayList());
 
     public dm(Context context) {
-        this.f304a = context;
+        this.f303a = context;
         if (context.getApplicationContext() != null) {
-            this.f304a = context.getApplicationContext();
+            this.f303a = context.getApplicationContext();
         }
-        this.f14249b = this.f304a.getPackageName();
+        this.f13949b = this.f303a.getPackageName();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a  reason: collision with other method in class */
-    public void m260a() {
+    public void m256a() {
         BufferedWriter bufferedWriter;
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
@@ -61,24 +61,24 @@ public class dm implements LoggerInterface {
         BufferedWriter bufferedWriter3 = null;
         try {
             try {
-                if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f304a.getExternalFilesDir(null)) != null) {
+                if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f303a.getExternalFilesDir(null)) != null) {
                     this.c = externalFilesDir.getAbsolutePath() + "";
                 }
-                File file = new File(this.c + f301a);
+                File file = new File(this.c + f300a);
                 if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                    Log.w(this.f14249b, "Create mipushlog directory fail.");
+                    Log.w(this.f13949b, "Create mipushlog directory fail.");
                     if (0 != 0) {
                         try {
                             bufferedWriter3.close();
                         } catch (IOException e) {
-                            Log.e(this.f14249b, "", e);
+                            Log.e(this.f13949b, "", e);
                         }
                     }
                     if (0 != 0 && fileLock2.isValid()) {
                         try {
                             fileLock3.release();
                         } catch (IOException e2) {
-                            Log.e(this.f14249b, "", e2);
+                            Log.e(this.f13949b, "", e2);
                         }
                     }
                     if (0 != 0) {
@@ -86,7 +86,7 @@ public class dm implements LoggerInterface {
                             randomAccessFile2.close();
                             return;
                         } catch (IOException e3) {
-                            Log.e(this.f14249b, "", e3);
+                            Log.e(this.f13949b, "", e3);
                             return;
                         }
                     }
@@ -101,9 +101,9 @@ public class dm implements LoggerInterface {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
                         bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                        while (!f303a.isEmpty()) {
+                        while (!f302a.isEmpty()) {
                             try {
-                                Pair<String, Throwable> remove = f303a.remove(0);
+                                Pair<String, Throwable> remove = f302a.remove(0);
                                 String str = (String) remove.first;
                                 if (remove.second != null) {
                                     str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -118,21 +118,21 @@ public class dm implements LoggerInterface {
                                     try {
                                         bufferedWriter.close();
                                     } catch (IOException e5) {
-                                        Log.e(this.f14249b, "", e5);
+                                        Log.e(this.f13949b, "", e5);
                                     }
                                 }
                                 if (fileLock != null && fileLock.isValid()) {
                                     try {
                                         fileLock.release();
                                     } catch (IOException e6) {
-                                        Log.e(this.f14249b, "", e6);
+                                        Log.e(this.f13949b, "", e6);
                                     }
                                 }
                                 if (randomAccessFile != null) {
                                     try {
                                         randomAccessFile.close();
                                     } catch (IOException e7) {
-                                        Log.e(this.f14249b, "", e7);
+                                        Log.e(this.f13949b, "", e7);
                                     }
                                 }
                                 throw th;
@@ -158,45 +158,45 @@ public class dm implements LoggerInterface {
                                 try {
                                     bufferedWriter2.close();
                                 } catch (IOException e8) {
-                                    Log.e(this.f14249b, "", e8);
+                                    Log.e(this.f13949b, "", e8);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e9) {
-                                    Log.e(this.f14249b, "", e9);
+                                    Log.e(this.f13949b, "", e9);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e10) {
-                                    Log.e(this.f14249b, "", e10);
+                                    Log.e(this.f13949b, "", e10);
                                 }
                             }
                         } catch (Exception e11) {
                             e = e11;
-                            Log.e(this.f14249b, "", e);
+                            Log.e(this.f13949b, "", e);
                             if (bufferedWriter2 != null) {
                                 try {
                                     bufferedWriter2.close();
                                 } catch (IOException e12) {
-                                    Log.e(this.f14249b, "", e12);
+                                    Log.e(this.f13949b, "", e12);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e13) {
-                                    Log.e(this.f14249b, "", e13);
+                                    Log.e(this.f13949b, "", e13);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e14) {
-                                    Log.e(this.f14249b, "", e14);
+                                    Log.e(this.f13949b, "", e14);
                                 }
                             }
                         }
@@ -240,12 +240,12 @@ public class dm implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        f303a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f302a.format(new Date()), this.f14249b, str), th));
-        f14248a.a(new dn(this));
+        f302a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f301a.format(new Date()), this.f13949b, str), th));
+        f13948a.a(new dn(this));
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void setTag(String str) {
-        this.f14249b = str;
+        this.f13949b = str;
     }
 }

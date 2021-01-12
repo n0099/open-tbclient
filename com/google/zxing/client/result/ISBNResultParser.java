@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ISBNResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

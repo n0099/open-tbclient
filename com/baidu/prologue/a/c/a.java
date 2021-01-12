@@ -1,7 +1,7 @@
 package com.baidu.prologue.a.c;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class a implements g {
     @Override // com.baidu.prologue.a.c.g
     public int d(String str, String str2) {

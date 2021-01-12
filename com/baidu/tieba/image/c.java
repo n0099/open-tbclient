@@ -14,23 +14,23 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements ImagePagerAdapter.a {
-    private DragImageView.d fAM;
-    private boolean kQk;
-    private ImageViewerActivity kQm;
-    private View kQn;
+    private DragImageView.d fwe;
+    private boolean kLF;
+    private ImageViewerActivity kLH;
+    private View kLI;
     private RelativeLayout mRootView;
     private TbPageContext mTbPageContext;
     private int mCount = 0;
-    private int kQi = 0;
-    private boolean kQo = false;
-    private boolean kQp = false;
-    private final a.f kQq = new a.f() { // from class: com.baidu.tieba.image.c.2
+    private int kLD = 0;
+    private boolean kLJ = false;
+    private boolean kLK = false;
+    private final a.f kLL = new a.f() { // from class: com.baidu.tieba.image.c.2
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.c
         public void onAdClose(String str) {
-            if (c.this.kQm != null) {
-                c.this.kQm.finish();
+            if (c.this.kLH != null) {
+                c.this.kLH.finish();
             }
         }
 
@@ -41,37 +41,37 @@ public class c implements ImagePagerAdapter.a {
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.e
         public void onAdError(String str, int i, String str2) {
             c.this.setAddSize(0);
-            c.this.ET(1);
+            c.this.Dn(1);
         }
 
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.e
         public void onAdClicked(String str) {
-            c.this.dbA();
+            c.this.cXI();
         }
     };
 
     public void cU(int i, int i2) {
-        this.kQi = i;
+        this.kLD = i;
         this.mCount = i2;
     }
 
     public c(@NonNull ImageViewerActivity imageViewerActivity, boolean z) {
-        this.kQm = imageViewerActivity;
+        this.kLH = imageViewerActivity;
         this.mTbPageContext = imageViewerActivity.getPageContext();
-        this.kQk = z;
-        this.mRootView = new RelativeLayout(this.kQm);
-        this.kQn = com.baidu.tieba.h.a.cPn().g(imageViewerActivity, "6051001309-133086300");
-        if (this.kQn != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.kQm), -2);
+        this.kLF = z;
+        this.mRootView = new RelativeLayout(this.kLH);
+        this.kLI = com.baidu.tieba.h.a.cLv().g(imageViewerActivity, "6051001536-500920287");
+        if (this.kLI != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.kLH), -2);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            this.mRootView.addView(this.kQn, layoutParams);
+            this.mRootView.addView(this.kLI, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View p(ViewGroup viewGroup, int i) {
-        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dbz()) {
+        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dl(i) && cXH()) {
             if (this.mRootView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
@@ -81,26 +81,26 @@ public class c implements ImagePagerAdapter.a {
         return null;
     }
 
-    public boolean ES(int i) {
-        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dbz()) {
-            com.baidu.tieba.h.a.cPn().a(this.mTbPageContext.getPageActivity(), "6051001309-133086300", this.kQn, this.kQq);
-            ao.setBackgroundColor(this.kQn, R.color.CAM_X0101, 0);
-            ET(0);
+    public boolean Dm(int i) {
+        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dl(i) && cXH()) {
+            com.baidu.tieba.h.a.cLv().a(this.mTbPageContext.getPageActivity(), "6051001536-500920287", this.kLI, this.kLL);
+            ao.setBackgroundColor(this.kLI, R.color.CAM_X0101, 0);
+            Dn(0);
             return true;
         }
         return false;
     }
 
-    public boolean dbz() {
-        return this.kQo;
+    public boolean cXH() {
+        return this.kLJ;
     }
 
-    public boolean dby() {
-        return this.kQk && this.kQn != null && this.kQo;
+    public boolean cXG() {
+        return this.kLF && this.kLI != null && this.kLJ;
     }
 
-    private boolean ER(int i) {
-        return this.kQi != 0 && i == this.kQi;
+    private boolean Dl(int i) {
+        return this.kLD != 0 && i == this.kLD;
     }
 
     public boolean W(int i, int i2, int i3) {
@@ -108,63 +108,63 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.fAM = dVar;
+        this.fwe = dVar;
     }
 
     public void onDestroy() {
-        com.baidu.tieba.h.a.cPn().destroyAd("6051001309-133086300");
+        com.baidu.tieba.h.a.cLv().destroyAd("6051001536-500920287");
     }
 
     public void onAdShow() {
     }
 
     public void setAddSize(int i) {
-        if (this.kQm != null) {
-            this.kQm.setAddSize(i);
+        if (this.kLH != null) {
+            this.kLH.setAddSize(i);
         }
     }
 
     public void X(int i, int i2, final int i3) {
-        if (this.kQk && this.kQn != null && !this.kQp && !this.kQo && W(i, i2, i3)) {
-            this.kQp = true;
-            com.baidu.tieba.h.a.cPn().a(this.kQm, "6051001309-133086300", new a.d() { // from class: com.baidu.tieba.image.c.1
+        if (this.kLF && this.kLI != null && !this.kLK && !this.kLJ && W(i, i2, i3)) {
+            this.kLK = true;
+            com.baidu.tieba.h.a.cLv().a(this.kLH, "6051001536-500920287", new a.d() { // from class: com.baidu.tieba.image.c.1
                 @Override // com.baidu.tieba.h.a.d
                 public void a(String str, n nVar) {
-                    c.this.kQp = false;
-                    c.this.kQo = true;
-                    if (com.baidu.tieba.h.a.cPn().isAdReady(str)) {
+                    c.this.kLK = false;
+                    c.this.kLJ = true;
+                    if (com.baidu.tieba.h.a.cLv().isAdReady(str)) {
                         c.this.setAddSize(1);
-                        c.this.ES(i3);
-                        c.this.Cx(0);
+                        c.this.Dm(i3);
+                        c.this.AR(0);
                         return;
                     }
                     c.this.setAddSize(0);
-                    c.this.Cx(1);
+                    c.this.AR(1);
                 }
 
                 @Override // com.baidu.tieba.h.a.d
                 public void onError(String str) {
-                    c.this.kQp = false;
-                    c.this.kQo = true;
+                    c.this.kLK = false;
+                    c.this.kLJ = true;
                     c.this.setAddSize(0);
-                    c.this.Cx(1);
+                    c.this.AR(1);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbA() {
-        aq.BX("c14053").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).bwo();
+    public void cXI() {
+        aq.AM("c14053").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).bsu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cx(int i) {
-        aq.BX("c14005").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwo();
+    public void AR(int i) {
+        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bsu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ET(int i) {
-        aq.BX("c14006").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwo();
+    public void Dn(int i) {
+        aq.AM("c14006").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bsu();
     }
 }

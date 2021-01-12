@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bh {
-    public int aQO;
-    public int aQP;
+    public int aMb;
+    public int aMc;
     public String id;
     public String intro;
     public int live_status;
@@ -28,8 +28,8 @@ public class bh {
             }
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.aQO = jSONObject.optInt("live_id");
-            this.aQP = jSONObject.optInt("has_concerned");
+            this.aMb = jSONObject.optInt("live_id");
+            this.aMc = jSONObject.optInt("has_concerned");
         }
     }
 
@@ -46,8 +46,8 @@ public class bh {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("intro", this.intro);
             jSONObject.put("live_status", this.live_status);
-            jSONObject.put("live_id", this.aQO);
-            jSONObject.put("has_concerned", this.aQP);
+            jSONObject.put("live_id", this.aMb);
+            jSONObject.put("has_concerned", this.aMc);
         } catch (JSONException e) {
             e.printStackTrace();
         }

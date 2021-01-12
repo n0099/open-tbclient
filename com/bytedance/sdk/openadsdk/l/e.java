@@ -4,27 +4,27 @@ package com.bytedance.sdk.openadsdk.l;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7638a;
+    private String f7338a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7639b;
+    private String f7339b;
     private boolean c;
     private int d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str, String str2, boolean z, int i) {
-        this.f7638a = str;
-        this.f7639b = str2;
+        this.f7338a = str;
+        this.f7339b = str2;
         this.c = z;
         this.d = i;
     }
 
     public String a() {
-        return this.f7638a;
+        return this.f7338a;
     }
 
     public String b() {
-        return this.f7639b;
+        return this.f7339b;
     }
 
     public boolean c() {

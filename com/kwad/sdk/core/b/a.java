@@ -6,7 +6,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.j;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a implements i {
     private static String a() {
         Context context = KsAdSDKImpl.get().getContext();

@@ -1,4 +1,6 @@
 package com.baidu.searchbox.afx.recode;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes5.dex */
 public final class Mp4Info {
     private final int mBitrate;
@@ -36,6 +38,6 @@ public final class Mp4Info {
     }
 
     public String toString() {
-        return "[" + this.mWidth + "x" + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
+        return "[" + this.mWidth + Config.EVENT_HEAT_X + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
     }
 }

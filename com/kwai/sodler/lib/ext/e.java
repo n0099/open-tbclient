@@ -3,7 +3,7 @@ package com.kwai.sodler.lib.ext;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static Field a(Object obj, String str) {
         for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {

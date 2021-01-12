@@ -1,23 +1,23 @@
 package com.baidu.live.videochat.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static String bGI = "liveshow_battle";
-    public static String bQv = "show_pub_v1";
-    protected static int bGJ = 0;
-    protected static int bQw = 1;
-    protected static int bQx = 2;
-    protected static int bQy = 3;
-    protected static int bGM = 4;
-    protected static int bGN = 5;
-    public static int bGP = -1;
-    public static int bGQ = -2;
-    public static int bGR = -3;
-    public static int bGS = -4;
-    public static int bGT = -5;
-    public static int bGU = -6;
-    public static int bGV = -7;
-    public static int bQz = -8;
-    public static int bQA = -9;
-    public static int bQB = -10;
-    public static int bQC = -11;
+    public static String bBW = "liveshow_battle";
+    public static String bLJ = "show_pub_v1";
+    protected static int bBX = 0;
+    protected static int bLK = 1;
+    protected static int bLL = 2;
+    protected static int bLM = 3;
+    protected static int bCa = 4;
+    protected static int bCb = 5;
+    public static int bCd = -1;
+    public static int bCe = -2;
+    public static int bCf = -3;
+    public static int bCg = -4;
+    public static int bCh = -5;
+    public static int bCi = -6;
+    public static int bCj = -7;
+    public static int bLN = -8;
+    public static int bLO = -9;
+    public static int bLP = -10;
+    public static int bLQ = -11;
 }

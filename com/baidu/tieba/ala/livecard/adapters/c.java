@@ -12,15 +12,15 @@ import com.baidu.tieba.ala.livecard.holder.FrsPageAlaEmptyLiveViewHolder;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends k<bz, FrsPageAlaEmptyLiveViewHolder> implements y {
-    private com.baidu.tieba.ala.livecard.a.b hnh;
-    private aa<bz> hni;
+    private com.baidu.tieba.ala.livecard.a.b hiB;
+    private aa<bz> hiC;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hni = new aa<bz>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.hiC = new aa<bz>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -45,21 +45,21 @@ public class c extends k<bz, FrsPageAlaEmptyLiveViewHolder> implements y {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hnh = new com.baidu.tieba.ala.livecard.a.b(this.mPageContext);
-        this.hnh.o(this.mPageId);
-        this.hnh.setForumName(this.mForumName);
-        return new FrsPageAlaEmptyLiveViewHolder(this.hnh);
+        this.hiB = new com.baidu.tieba.ala.livecard.a.b(this.mPageContext);
+        this.hiB.o(this.mPageId);
+        this.hiB.setForumName(this.mForumName);
+        return new FrsPageAlaEmptyLiveViewHolder(this.hiB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bz bzVar, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        frsPageAlaEmptyLiveViewHolder.hnu.a(bzVar);
-        frsPageAlaEmptyLiveViewHolder.hnu.setForumName(this.mForumName);
-        frsPageAlaEmptyLiveViewHolder.hnu.c(this.hni);
+        frsPageAlaEmptyLiveViewHolder.hiO.a(bzVar);
+        frsPageAlaEmptyLiveViewHolder.hiO.setForumName(this.mForumName);
+        frsPageAlaEmptyLiveViewHolder.hiO.c(this.hiC);
         if (bzVar != null) {
-            bzVar.bsF();
+            bzVar.boL();
         }
         return frsPageAlaEmptyLiveViewHolder.getView();
     }
@@ -70,6 +70,6 @@ public class c extends k<bz, FrsPageAlaEmptyLiveViewHolder> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public void wt(int i) {
+    public void uN(int i) {
     }
 }

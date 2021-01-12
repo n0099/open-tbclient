@@ -10,14 +10,14 @@ import android.widget.TextView;
 import androidx.core.view.ViewCompat;
 import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.ap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f12685a;
+    private TextView f12385a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f12686b;
+    private TextView f12386b;
 
     public a(Context context) {
         super(context);
@@ -47,34 +47,34 @@ public class a extends AlertDialog {
         linearLayout2.setOrientation(0);
         linearLayout.addView(linearLayout2, new LinearLayout.LayoutParams(-1, ak.a(context, 44)));
         if (!TextUtils.isEmpty(str3)) {
-            this.f12686b = new TextView(context);
-            this.f12686b.setText(str3);
-            this.f12686b.setTextSize(16.0f);
-            this.f12686b.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-            this.f12686b.setGravity(17);
+            this.f12386b = new TextView(context);
+            this.f12386b.setText(str3);
+            this.f12386b.setTextSize(16.0f);
+            this.f12386b.setTextColor(ViewCompat.MEASURED_STATE_MASK);
+            this.f12386b.setGravity(17);
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, ak.a(context, 44));
             layoutParams3.weight = 1.0f;
-            linearLayout2.addView(this.f12686b, layoutParams3);
+            linearLayout2.addView(this.f12386b, layoutParams3);
             TextView textView3 = new TextView(context);
             textView3.setBackgroundColor(Color.parseColor("#ececec"));
             linearLayout2.addView(textView3, new LinearLayout.LayoutParams(ak.a(context, 1), -1));
         }
-        this.f12685a = new TextView(context);
-        this.f12685a.setText(str2);
-        this.f12685a.setTextSize(16.0f);
-        this.f12685a.setTextColor(Color.parseColor("#3185FC"));
-        this.f12685a.setGravity(17);
+        this.f12385a = new TextView(context);
+        this.f12385a.setText(str2);
+        this.f12385a.setTextSize(16.0f);
+        this.f12385a.setTextColor(Color.parseColor("#3185FC"));
+        this.f12385a.setGravity(17);
         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(0, ak.a(context, 44));
         layoutParams4.weight = 1.0f;
-        linearLayout2.addView(this.f12685a, layoutParams4);
+        linearLayout2.addView(this.f12385a, layoutParams4);
         return linearLayout;
     }
 
     public TextView a() {
-        return this.f12686b;
+        return this.f12386b;
     }
 
     public TextView b() {
-        return this.f12685a;
+        return this.f12385a;
     }
 }

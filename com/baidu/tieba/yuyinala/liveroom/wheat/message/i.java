@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i extends HttpMessage {
     public i(String str) {
         this(str, null);

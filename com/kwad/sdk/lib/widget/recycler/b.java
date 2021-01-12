@@ -1,5 +1,5 @@
 package com.kwad.sdk.lib.widget.recycler;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface b {
     void a(d dVar);
 }

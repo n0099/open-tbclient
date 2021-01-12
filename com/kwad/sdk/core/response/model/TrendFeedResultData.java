@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
     private static final String TAG = "TrendsResultData";
     private static final long serialVersionUID = -1619392774105464372L;

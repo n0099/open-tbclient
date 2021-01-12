@@ -78,24 +78,24 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dM;
+        l<String> dL;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String bGI = eVar.bGI();
+                String bCP = eVar.bCP();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(bGI) && bArr != null) {
-                    if (eVar.bGJ()) {
-                        l<byte[]> dL = a.btT().dL(bGI, currentAccount);
-                        if (dL != null) {
-                            dL.setForever(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(bCP) && bArr != null) {
+                    if (eVar.bCQ()) {
+                        l<byte[]> dK = a.bpZ().dK(bCP, currentAccount);
+                        if (dK != null) {
+                            dK.setForever(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (dM = a.btT().dM(bGI, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (dL = a.bpZ().dL(bCP, currentAccount)) != null) {
                         try {
-                            dM.setForever(cacheKey, new String(bArr, "UTF-8"));
+                            dL.setForever(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

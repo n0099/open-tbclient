@@ -20,20 +20,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g Qg;
-    private i Qi;
-    private a Qj;
+    private static volatile g Qe;
+    private i Qg;
+    private a Qh;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private com.baidu.adp.lib.stats.c mCommonData;
     private String uid;
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Qh = new ConcurrentHashMap<>();
-    private final int Qk = 6;
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Qf = new ConcurrentHashMap<>();
+    private final int Qi = 6;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.c.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.Qh.entrySet()) {
+                    for (Map.Entry entry : g.this.Qf.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.nb() > 0) {
                             g.this.a(aVar, true, true);
@@ -48,7 +48,7 @@ public class g {
             }
         }
     };
-    private j Pu = new j() { // from class: com.baidu.adp.lib.stats.c.g.5
+    private j Ps = new j() { // from class: com.baidu.adp.lib.stats.c.g.5
         @Override // com.baidu.adp.lib.stats.c.j
         public void o(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.i(aVar)) {
@@ -64,22 +64,22 @@ public class g {
     };
 
     public static g nA() {
-        if (Qg == null) {
+        if (Qe == null) {
             synchronized (g.class) {
-                if (Qg == null) {
-                    Qg = new g();
+                if (Qe == null) {
+                    Qe = new g();
                 }
             }
         }
-        return Qg;
+        return Qe;
     }
 
     public void d(com.baidu.adp.lib.stats.c cVar) {
-        if (this.Qj == null) {
-            this.Qj = new a();
+        if (this.Qh == null) {
+            this.Qh = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
-            BdBaseApplication.getInst().registerReceiver(this.Qj, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.Qh, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
         this.mCommonData = cVar;
@@ -104,22 +104,22 @@ public class g {
         String bY;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.Qh.get((bY = com.baidu.adp.lib.stats.base.a.bY(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.Qf.get((bY = com.baidu.adp.lib.stats.base.a.bY(str)))) == null) {
                 if ("alert".equals(bY)) {
                     aVar = new com.baidu.adp.lib.stats.c.a(null);
                 } else if (BdStatsConstant.StatsType.ERROR.equals(bY)) {
-                    aVar = new c(this.Pu);
+                    aVar = new c(this.Ps);
                 } else if ("dbg".equals(bY)) {
-                    aVar = new b(this.Pu);
+                    aVar = new b(this.Ps);
                 } else if ("stat".equals(bY)) {
-                    aVar = new f(this.Pu);
+                    aVar = new f(this.Ps);
                 } else if (BdStatsConstant.StatsType.PERFORMANCE.equals(bY)) {
-                    aVar = new e(this.Pu);
+                    aVar = new e(this.Ps);
                 } else {
-                    aVar = new c(this.Pu);
+                    aVar = new c(this.Ps);
                 }
                 aVar.bX(bY);
-                this.Qh.put(bY, aVar);
+                this.Qf.put(bY, aVar);
             }
         }
         return aVar;
@@ -216,7 +216,7 @@ public class g {
     }
 
     public void nB() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qh.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qf.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -224,7 +224,7 @@ public class g {
     }
 
     public void nC() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qh.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qf.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             j(value);
@@ -232,7 +232,7 @@ public class g {
     }
 
     public void nD() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qh.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qf.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             a(value, false, false);
@@ -248,7 +248,7 @@ public class g {
     }
 
     public void nE() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qh.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qf.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -303,7 +303,7 @@ public class g {
     }
 
     public void nG() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qh.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qf.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
                 long bS = this.mBdLogSetting.bS(value.ng());
@@ -398,9 +398,9 @@ public class g {
     }
 
     public void nH() {
-        if (this.Qi == null) {
-            this.Qi = new i();
+        if (this.Qg == null) {
+            this.Qg = new i();
         }
-        this.Qi.nH();
+        this.Qg.nH();
     }
 }

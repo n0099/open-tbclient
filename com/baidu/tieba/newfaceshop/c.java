@@ -20,21 +20,21 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private static volatile c lwF;
-    public static final String lwG = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
+    private static volatile c lrZ;
+    public static final String lsa = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
 
-    public static c dkc() {
-        if (lwF == null) {
+    public static c dgk() {
+        if (lrZ == null) {
             synchronized (c.class) {
-                if (lwF == null) {
-                    lwF = new c();
+                if (lrZ == null) {
+                    lrZ = new c();
                 }
             }
         }
-        return lwF;
+        return lrZ;
     }
 
     public boolean u(List<String> list, boolean z) {
@@ -47,9 +47,9 @@ public class c {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-            if (com.baidu.tieba.faceshop.a.cAV().a(myEmotionGroupData)) {
-                n.deleteFileOrDir(new File(lwG + str));
-                i.cBl().Kd(str);
+            if (com.baidu.tieba.faceshop.a.cxd().a(myEmotionGroupData)) {
+                n.deleteFileOrDir(new File(lsa + str));
+                i.cxt().IS(str);
                 i = i2 + 1;
             } else {
                 i = i2;
@@ -59,32 +59,32 @@ public class c {
         if (i2 > 0) {
             MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
             if (z) {
-                d.dkg().dkh();
+                d.dgo().dgp();
             }
             return true;
         }
         return false;
     }
 
-    public List<MyEmotionGroupData> dkd() {
+    public List<MyEmotionGroupData> dgl() {
         try {
-            List<MyEmotionGroupData> JW = com.baidu.tieba.faceshop.a.cAV().JW(TbadkCoreApplication.getCurrentAccount());
-            Iterator<MyEmotionGroupData> it = JW.iterator();
+            List<MyEmotionGroupData> IL = com.baidu.tieba.faceshop.a.cxd().IL(TbadkCoreApplication.getCurrentAccount());
+            Iterator<MyEmotionGroupData> it = IL.iterator();
             while (it.hasNext()) {
                 MyEmotionGroupData next = it.next();
                 if (next.getGroupId() != null && next.getGroupId().contains("collect_")) {
                     it.remove();
                 }
             }
-            return JW;
+            return IL;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public MyEmotionGroupData Ph(String str) {
-        return com.baidu.tieba.faceshop.a.cAV().eT(TbadkCoreApplication.getCurrentAccount(), str);
+    public MyEmotionGroupData NZ(String str) {
+        return com.baidu.tieba.faceshop.a.cxd().eS(TbadkCoreApplication.getCurrentAccount(), str);
     }
 
     public boolean v(List<String> list, boolean z) {
@@ -92,10 +92,10 @@ public class c {
             return false;
         }
         try {
-            i.cBl().k(list, TbadkCoreApplication.getCurrentAccount());
+            i.cxt().k(list, TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
             if (z) {
-                d.dkg().dkh();
+                d.dgo().dgp();
             }
             return true;
         } catch (Exception e) {
@@ -175,17 +175,17 @@ public class c {
             }
         });
         downloadData.setPath((n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/") + nameMd5FromUrl);
-        com.baidu.tbadk.download.d.bEF().f(downloadData);
+        com.baidu.tbadk.download.d.bAL().f(downloadData);
     }
 
-    public void dke() {
+    public void dgm() {
         new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.tieba.newfaceshop.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<String> doInBackground(Void... voidArr) {
-                return c.this.dkf();
+                return c.this.dgn();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -203,11 +203,11 @@ public class c {
         }.execute(new Void[0]);
     }
 
-    public boolean ui(boolean z) {
-        List<String> dkf = dkf();
-        if (dkf.size() > 0) {
+    public boolean ue(boolean z) {
+        List<String> dgn = dgn();
+        if (dgn.size() > 0) {
             if (z) {
-                u(dkf, false);
+                u(dgn, false);
                 return false;
             }
             return false;
@@ -215,10 +215,10 @@ public class c {
         return true;
     }
 
-    public List<String> dkf() {
+    public List<String> dgn() {
         ArrayList arrayList = new ArrayList();
-        for (MyEmotionGroupData myEmotionGroupData : dkd()) {
-            File file = new File(lwG + myEmotionGroupData.getGroupId());
+        for (MyEmotionGroupData myEmotionGroupData : dgl()) {
+            File file = new File(lsa + myEmotionGroupData.getGroupId());
             BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
             if (!file.exists()) {
                 arrayList.add(myEmotionGroupData.getGroupId());

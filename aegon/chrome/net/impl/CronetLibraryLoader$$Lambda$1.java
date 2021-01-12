@@ -1,5 +1,5 @@
 package aegon.chrome.net.impl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class CronetLibraryLoader$$Lambda$1 implements Runnable {
     private static final CronetLibraryLoader$$Lambda$1 instance = new CronetLibraryLoader$$Lambda$1();
 

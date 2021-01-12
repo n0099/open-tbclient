@@ -4,15 +4,15 @@ import android.os.Handler;
 import android.os.HandlerThread;
 /* loaded from: classes6.dex */
 final class e {
-    private static a pKW = new a("loop");
-    private static a pKX = new a("writer");
+    private static a pGv = new a("loop");
+    private static a pGw = new a("writer");
 
-    public static Handler eCc() {
-        return pKW.getHandler();
+    public static Handler eyk() {
+        return pGv.getHandler();
     }
 
-    public static Handler eCd() {
-        return pKX.getHandler();
+    public static Handler eyl() {
+        return pGw.getHandler();
     }
 
     /* loaded from: classes6.dex */

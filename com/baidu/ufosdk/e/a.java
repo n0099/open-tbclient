@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static void a(int i, int i2, Handler handler) {
         c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
@@ -414,7 +414,7 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5356b);
         hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
@@ -617,7 +617,7 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5356b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
@@ -676,7 +676,7 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5356b);
         hashMap.put("output_style", 1);
         try {
             String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -862,7 +862,7 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5356b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("id", str);
         try {

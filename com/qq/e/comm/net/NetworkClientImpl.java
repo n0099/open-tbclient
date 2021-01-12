@@ -1,5 +1,6 @@
 package com.qq.e.comm.net;
 
+import android.net.http.Headers;
 import com.qq.e.comm.net.NetworkClient;
 import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
@@ -17,33 +18,33 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NetworkClientImpl implements NetworkClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final NetworkClient f11871a = new NetworkClientImpl();
+    private static final NetworkClient f11571a = new NetworkClientImpl();
     private PriorityBlockingQueue<Runnable> c = new PriorityBlockingQueue<>(15);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ExecutorService f11872b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.c);
+    private final ExecutorService f11572b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.c);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final NetworkClient.Priority f11874a;
+        private final NetworkClient.Priority f11574a;
 
         public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
             super(callable);
-            this.f11874a = priority;
+            this.f11574a = priority;
         }
 
         public int compareTo(NetFutureTask<T> netFutureTask) {
             if (netFutureTask == null) {
                 return 1;
             }
-            return this.f11874a.value() - netFutureTask.f11874a.value();
+            return this.f11574a.value() - netFutureTask.f11574a.value();
         }
 
         @Override // java.lang.Comparable
@@ -56,41 +57,41 @@ public class NetworkClientImpl implements NetworkClient {
         }
 
         public int hashCode() {
-            return this.f11874a.value();
+            return this.f11574a.value();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TaskCallable implements Callable<Response> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Request f11875a;
+        private Request f11575a;
 
         /* renamed from: b  reason: collision with root package name */
-        private NetworkCallBack f11876b;
+        private NetworkCallBack f11576b;
 
         public TaskCallable(Request request) {
             this(request, null);
         }
 
         public TaskCallable(Request request, NetworkCallBack networkCallBack) {
-            this.f11875a = request;
-            this.f11876b = networkCallBack;
+            this.f11575a = request;
+            this.f11576b = networkCallBack;
         }
 
         private void a(HttpURLConnection httpURLConnection) {
-            for (Map.Entry<String, String> entry : this.f11875a.getHeaders().entrySet()) {
+            for (Map.Entry<String, String> entry : this.f11575a.getHeaders().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
             httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + "]");
-            if (this.f11875a.getConnectionTimeOut() > 0) {
-                httpURLConnection.setConnectTimeout(this.f11875a.getConnectionTimeOut());
+            if (this.f11575a.getConnectionTimeOut() > 0) {
+                httpURLConnection.setConnectTimeout(this.f11575a.getConnectionTimeOut());
             } else {
                 httpURLConnection.setConnectTimeout(30000);
             }
-            if (this.f11875a.getSocketTimeOut() > 0) {
-                httpURLConnection.setReadTimeout(this.f11875a.getSocketTimeOut());
+            if (this.f11575a.getSocketTimeOut() > 0) {
+                httpURLConnection.setReadTimeout(this.f11575a.getSocketTimeOut());
             } else {
                 httpURLConnection.setReadTimeout(30000);
             }
@@ -102,13 +103,13 @@ public class NetworkClientImpl implements NetworkClient {
         public Response call() throws Exception {
             Response response;
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f11875a.getUrlWithParas()).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f11575a.getUrlWithParas()).openConnection();
                 a(httpURLConnection);
-                switch (this.f11875a.getMethod()) {
+                switch (this.f11575a.getMethod()) {
                     case POST:
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setChunkedStreamingMode(0);
-                        byte[] postData = this.f11875a.getPostData();
+                        byte[] postData = this.f11575a.getPostData();
                         if (postData != null && postData.length > 0) {
                             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
                             bufferedOutputStream.write(postData);
@@ -118,24 +119,24 @@ public class NetworkClientImpl implements NetworkClient {
                         }
                         break;
                 }
-                response = this.f11875a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
+                response = this.f11575a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
                 e = null;
             } catch (Exception e) {
                 e = e;
                 response = null;
             }
             if (e == null) {
-                if (this.f11876b != null) {
-                    this.f11876b.onResponse(this.f11875a, response);
+                if (this.f11576b != null) {
+                    this.f11576b.onResponse(this.f11575a, response);
                 }
-                if (this.f11875a.isAutoClose()) {
+                if (this.f11575a.isAutoClose()) {
                     response.close();
                 }
-            } else if (this.f11876b == null) {
+            } else if (this.f11576b == null) {
                 throw e;
             } else {
                 GDTLogger.w("NetworkClientException", e);
-                this.f11876b.onException(e);
+                this.f11576b.onException(e);
                 if (response != null) {
                     response.close();
                 }
@@ -169,7 +170,7 @@ public class NetworkClientImpl implements NetworkClient {
             if (responseCode != 302 && responseCode != 301 && responseCode != 303) {
                 break;
             }
-            String headerField = httpURLConnection2.getHeaderField("location");
+            String headerField = httpURLConnection2.getHeaderField(Headers.LOCATION);
             httpURLConnection2.disconnect();
             HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(headerField).openConnection();
             httpURLConnection3.setConnectTimeout(connectTimeout);
@@ -187,7 +188,7 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     public static NetworkClient getInstance() {
-        return f11871a;
+        return f11571a;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -198,7 +199,7 @@ public class NetworkClientImpl implements NetworkClient {
     @Override // com.qq.e.comm.net.NetworkClient
     public Future<Response> submit(Request request, NetworkClient.Priority priority) {
         NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
-        this.f11872b.execute(netFutureTask);
+        this.f11572b.execute(netFutureTask);
         GDTLogger.d("QueueSize:" + this.c.size());
         return netFutureTask;
     }
@@ -210,7 +211,7 @@ public class NetworkClientImpl implements NetworkClient {
 
     @Override // com.qq.e.comm.net.NetworkClient
     public void submit(Request request, NetworkClient.Priority priority, NetworkCallBack networkCallBack) {
-        submit(request, priority, networkCallBack, this.f11872b);
+        submit(request, priority, networkCallBack, this.f11572b);
     }
 
     @Override // com.qq.e.comm.net.NetworkClient

@@ -4,17 +4,17 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9849a;
+    private final com.kwad.sdk.core.webview.a f9549a;
 
     /* renamed from: b  reason: collision with root package name */
-    private VideoPosition f9850b = new VideoPosition();
+    private VideoPosition f9550b = new VideoPosition();
     private a c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = -3445790097441569428L;
         public double heightWidthRation;
@@ -23,13 +23,13 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         public double widthRation;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(VideoPosition videoPosition);
     }
 
     public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f9849a = aVar;
+        this.f9549a = aVar;
         this.c = aVar2;
     }
 
@@ -42,9 +42,9 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
-            this.f9850b.parseJson(new JSONObject(str));
+            this.f9550b.parseJson(new JSONObject(str));
             if (this.c != null) {
-                this.c.a(this.f9850b);
+                this.c.a(this.f9550b);
             }
         } catch (JSONException e) {
             e.printStackTrace();

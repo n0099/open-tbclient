@@ -6,28 +6,28 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private b eoj;
+    private b eju;
 
     public d(JsObject jsObject) {
-        this.eoj = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.bci().a(this);
+        this.eju = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aYo().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity aDr = f.aDH().aDr();
-        if (aDr == null) {
+        final SwanAppActivity azx = f.azN().azx();
+        if (azx == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (aDr.isDestroyed() || aDr.getIntent() == null) {
+        } else if (azx.isDestroyed() || azx.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(aDr);
+                    com.baidu.swan.games.utils.a.n(azx);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.eoj != null && JSEvent.isValid(cVar)) {
+        if (this.eju != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.eoj.b(cVar);
+                    this.eju.b(cVar);
                     return;
                 case true:
-                    this.eoj.bck();
+                    this.eju.aYq();
                     return;
                 case true:
-                    this.eoj.bcl();
+                    this.eju.aYr();
                     return;
                 default:
                     return;

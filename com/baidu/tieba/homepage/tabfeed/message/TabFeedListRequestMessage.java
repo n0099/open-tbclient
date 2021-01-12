@@ -32,7 +32,7 @@ public class TabFeedListRequestMessage extends NetMessage {
             builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(k.bov().getViewImageQuality());
+            builder.q_type = Integer.valueOf(k.bkB().getViewImageQuality());
             if (z) {
                 t.b(builder, true);
             }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.t;
 import java.util.List;
 import tbclient.GetVerticalForumList.DataReq;
 import tbclient.GetVerticalForumList.GetVerticalForumListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InterestedForumReqMsg extends NetMessage {
     public List<Integer> classidList;
 

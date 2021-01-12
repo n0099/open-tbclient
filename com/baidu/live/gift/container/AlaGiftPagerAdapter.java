@@ -7,21 +7,21 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.gift.container.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> bbZ;
+    private List<View> aXl;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.bbZ = new ArrayList();
-        this.bbZ = list;
+        this.aXl = new ArrayList();
+        this.aXl = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.bbZ == null) {
+        if (this.aXl == null) {
             return 0;
         }
-        return this.bbZ.size();
+        return this.aXl.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -32,7 +32,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.bbZ.get(i);
+            View view = this.aXl.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -43,7 +43,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bbZ.get(i);
+        View view = this.aXl.get(i);
         viewGroup.addView(view);
         return view;
     }
@@ -61,8 +61,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
                             View childAt = gridView.getChildAt(i3);
                             if (childAt != null) {
                                 Object tag = childAt.getTag();
-                                if (tag instanceof a.C0181a) {
-                                    ((a.C0181a) tag).recycle();
+                                if (tag instanceof a.C0172a) {
+                                    ((a.C0172a) tag).recycle();
                                 }
                             }
                             i = i3 + 1;

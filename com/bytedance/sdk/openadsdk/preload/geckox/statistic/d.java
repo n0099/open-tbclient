@@ -49,10 +49,10 @@ class d {
                 a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
                 a2.c = ((UpdatePackage) pair.second).getChannel();
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getAccessKey())) {
-                    a2.f7815a = ((UpdatePackage) pair.second).getAccessKey();
+                    a2.f7515a = ((UpdatePackage) pair.second).getAccessKey();
                 }
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getGroupName())) {
-                    a2.f7816b = ((UpdatePackage) pair.second).getGroupName();
+                    a2.f7516b = ((UpdatePackage) pair.second).getGroupName();
                 }
             }
 

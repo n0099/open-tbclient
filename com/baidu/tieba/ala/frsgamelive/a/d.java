@@ -5,40 +5,40 @@ import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
-    private com.baidu.adp.base.f eXW;
-    private BdTypeMultiColumnListView gWU;
-    private e gWV;
-    private h gWW;
+    private final List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private com.baidu.adp.base.f eTl;
+    private BdTypeMultiColumnListView gSo;
+    private e gSp;
+    private h gSq;
 
     public d(com.baidu.adp.base.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.eXW = fVar;
-        this.gWU = bdTypeMultiColumnListView;
-        MT();
+        this.eTl = fVar;
+        this.gSo = bdTypeMultiColumnListView;
+        IY();
     }
 
-    private void MT() {
-        this.gWV = new e((TbPageContext) this.eXW, com.baidu.tieba.ala.frsgamelive.b.c.gXe);
-        this.gWW = new h((TbPageContext) this.eXW, com.baidu.tieba.ala.frsgamelive.b.c.gXf);
-        this.boM.add(this.gWV);
-        this.boM.add(this.gWW);
-        this.gWU.addAdapters(this.boM);
+    private void IY() {
+        this.gSp = new e((TbPageContext) this.eTl, com.baidu.tieba.ala.frsgamelive.b.c.gSy);
+        this.gSq = new h((TbPageContext) this.eTl, com.baidu.tieba.ala.frsgamelive.b.c.gSz);
+        this.bjZ.add(this.gSp);
+        this.bjZ.add(this.gSq);
+        this.gSo.addAdapters(this.bjZ);
     }
 
     public void setDatas(List<n> list) {
-        if (this.gWU != null) {
-            this.gWU.setData(list);
+        if (this.gSo != null) {
+            this.gSo.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.g gVar) {
-        if (this.gWV != null) {
-            this.gWV.a(gVar);
+        if (this.gSp != null) {
+            this.gSp.a(gVar);
         }
-        if (this.gWW != null) {
-            this.gWW.a(gVar);
+        if (this.gSq != null) {
+            this.gSq.a(gVar);
         }
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.ar.face.a;
 import android.text.TextUtils;
 import com.baidu.ar.a.c;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +13,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0078a {
+    public class C0079a {
         public String pN;
         public String pO;
         public String pP;
@@ -23,7 +22,7 @@ public class a {
         public String pS;
         public String pT;
 
-        public C0078a() {
+        public C0079a() {
         }
     }
 
@@ -38,9 +37,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C0078a qd;
-        public C0078a qe;
-        public C0078a qf;
+        public C0079a qd;
+        public C0079a qe;
+        public C0079a qf;
         public int qg;
 
         public b() {
@@ -56,7 +55,7 @@ public class a {
         if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject("algo")) == null || (optJSONObject2 = optJSONObject.optJSONObject("algo_face")) == null) {
             return;
         }
-        String optString = optJSONObject2.optString(MapBundleKey.MapObjKey.OBJ_LEVEL);
+        String optString = optJSONObject2.optString("level");
         if (!TextUtils.isEmpty(optString)) {
             if (optString.equals("high")) {
                 bVar.qg = 2;
@@ -111,37 +110,37 @@ public class a {
         }
     }
 
-    private C0078a f(JSONObject jSONObject) {
-        C0078a c0078a = new C0078a();
+    private C0079a f(JSONObject jSONObject) {
+        C0079a c0079a = new C0079a();
         try {
-            c0078a.pN = jSONObject.getString("track_param_0");
-            if (TextUtils.isEmpty(c0078a.pN)) {
-                c0078a.pN = "";
+            c0079a.pN = jSONObject.getString("track_param_0");
+            if (TextUtils.isEmpty(c0079a.pN)) {
+                c0079a.pN = "";
             } else {
-                c0078a.pN = this.pL + c0078a.pN;
+                c0079a.pN = this.pL + c0079a.pN;
             }
-            c0078a.pO = jSONObject.getString("track_param_1");
-            if (TextUtils.isEmpty(c0078a.pO)) {
-                c0078a.pO = "";
+            c0079a.pO = jSONObject.getString("track_param_1");
+            if (TextUtils.isEmpty(c0079a.pO)) {
+                c0079a.pO = "";
             } else {
-                c0078a.pO = this.pL + c0078a.pO;
+                c0079a.pO = this.pL + c0079a.pO;
             }
-            c0078a.pP = jSONObject.getString("track_param_2");
-            if (TextUtils.isEmpty(c0078a.pP)) {
-                c0078a.pP = "";
+            c0079a.pP = jSONObject.getString("track_param_2");
+            if (TextUtils.isEmpty(c0079a.pP)) {
+                c0079a.pP = "";
             } else {
-                c0078a.pP = this.pL + c0078a.pP;
+                c0079a.pP = this.pL + c0079a.pP;
             }
-            c0078a.pQ = jSONObject.getString("track_param_3");
-            if (TextUtils.isEmpty(c0078a.pQ)) {
-                c0078a.pQ = "";
+            c0079a.pQ = jSONObject.getString("track_param_3");
+            if (TextUtils.isEmpty(c0079a.pQ)) {
+                c0079a.pQ = "";
             } else {
-                c0078a.pQ = this.pL + c0078a.pQ;
+                c0079a.pQ = this.pL + c0079a.pQ;
             }
-            c0078a.pR = jSONObject.getString("trackingSmoothAlpha");
-            c0078a.pS = jSONObject.getString("trackingSmoothThreshold");
-            c0078a.pT = jSONObject.getString("trackingMouthThreshold");
-            return c0078a;
+            c0079a.pR = jSONObject.getString("trackingSmoothAlpha");
+            c0079a.pS = jSONObject.getString("trackingSmoothThreshold");
+            c0079a.pT = jSONObject.getString("trackingMouthThreshold");
+            return c0079a;
         } catch (JSONException e) {
             com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
             e.printStackTrace();

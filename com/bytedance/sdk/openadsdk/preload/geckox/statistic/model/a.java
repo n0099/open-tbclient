@@ -13,10 +13,10 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7815a;
+    public String f7515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7816b;
+    public String f7516b;
     public String c;
     public String d;
     public long f;

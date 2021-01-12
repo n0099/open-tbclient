@@ -3,7 +3,7 @@ package com.google.zxing.common;
 import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GlobalHistogramBinarizer extends Binarizer {
     private static final byte[] EMPTY = new byte[0];
     private static final int LUMINANCE_BITS = 5;

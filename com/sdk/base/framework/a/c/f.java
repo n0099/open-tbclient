@@ -1,17 +1,17 @@
 package com.sdk.base.framework.a.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class f<Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    final c f13082a;
+    final c f12782a;
 
     /* renamed from: b  reason: collision with root package name */
-    final Data[] f13083b;
+    final Data[] f12783b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, Data... dataArr) {
-        this.f13082a = cVar;
-        this.f13083b = dataArr;
+        this.f12782a = cVar;
+        this.f12783b = dataArr;
     }
 }

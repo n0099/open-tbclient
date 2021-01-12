@@ -10,16 +10,16 @@ import androidx.core.content.ContextCompat;
 import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f11112a = true;
+    private static boolean f10812a = true;
 
     public static List<com.kwad.sdk.core.g.a.a> a(Context context, int i) {
         WifiManager wifiManager;
         ArrayList arrayList = new ArrayList();
-        if (context == null || !f11112a) {
+        if (context == null || !f10812a) {
             return arrayList;
         }
         try {
@@ -32,9 +32,9 @@ public class at {
             if (scanResults != null) {
                 for (ScanResult scanResult : scanResults) {
                     com.kwad.sdk.core.g.a.a aVar = new com.kwad.sdk.core.g.a.a();
-                    aVar.f9456b = scanResult.SSID;
+                    aVar.f9156b = scanResult.SSID;
                     aVar.c = scanResult.BSSID;
-                    aVar.f9455a = scanResult.level;
+                    aVar.f9155a = scanResult.level;
                     if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
                         arrayList.add(aVar);
                     } else {
@@ -51,6 +51,6 @@ public class at {
     }
 
     public static void a(SdkConfig sdkConfig) {
-        f11112a = sdkConfig.canReadNearbyWifiList();
+        f10812a = sdkConfig.canReadNearbyWifiList();
     }
 }

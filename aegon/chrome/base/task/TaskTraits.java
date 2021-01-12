@@ -2,7 +2,7 @@ package aegon.chrome.base.task;
 
 import androidx.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TaskTraits {
     public static final TaskTraits BEST_EFFORT;
     public static final TaskTraits BEST_EFFORT_MAY_BLOCK;

@@ -1,5 +1,6 @@
 package com.baidu.ala.data;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveUserInfoData extends n implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -75,7 +76,7 @@ public class AlaLiveUserInfoData extends n implements Serializable {
             this.bd_portrait = jSONObject.optString("bd_portrait");
             this.levelId = jSONObject.optInt("level_id");
             this.levelExp = jSONObject.optInt("level_exp");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.lng = jSONObject.optDouble("lng");
             this.lat = jSONObject.optDouble("lat");
             this.fansCount = jSONObject.optInt("fans_count");

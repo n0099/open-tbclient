@@ -16,7 +16,7 @@ import androidx.annotation.RequiresApi;
 import java.io.IOException;
 import java.io.InputStream;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ResourcesWrapper extends Resources {
     private final Resources mResources;
 

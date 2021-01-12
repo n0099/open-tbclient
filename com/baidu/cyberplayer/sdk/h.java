@@ -8,20 +8,20 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1823a;
+    private a f1773a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SurfaceTexture f1824b;
+    private SurfaceTexture f1774b;
     private Surface c;
     private i.a d;
     private f e;
     private boolean f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class a implements TextureView.SurfaceTextureListener {
         public a() {
         }
@@ -29,15 +29,15 @@ public class h extends TextureView implements i {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i + " height:" + i2);
-            if (h.this.f1824b == null) {
-                h.this.f1824b = surfaceTexture;
+            if (h.this.f1774b == null) {
+                h.this.f1774b = surfaceTexture;
                 if (h.this.d != null) {
                     h.this.d.a(1);
                 }
             } else if (Build.VERSION.SDK_INT >= 21) {
-                h.this.setSurfaceTexture(h.this.f1824b);
+                h.this.setSurfaceTexture(h.this.f1774b);
             } else {
-                h.this.f1824b = surfaceTexture;
+                h.this.f1774b = surfaceTexture;
                 if (h.this.d != null) {
                     h.this.d.a(1);
                 }
@@ -69,8 +69,8 @@ public class h extends TextureView implements i {
 
     public h(Context context) {
         super(context);
-        this.f1823a = new a();
-        setSurfaceTextureListener(this.f1823a);
+        this.f1773a = new a();
+        setSurfaceTextureListener(this.f1773a);
         this.e = new f();
         this.f = false;
     }
@@ -96,12 +96,12 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f1824b);
+        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f1774b);
         if (this.c != null) {
             this.c.release();
             this.c = null;
         }
-        this.f1824b = null;
+        this.f1774b = null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -113,9 +113,9 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void b() {
-        if (this.f1824b != null) {
-            this.f1824b.release();
-            this.f1824b = null;
+        if (this.f1774b != null) {
+            this.f1774b.release();
+            this.f1774b = null;
         }
         a();
     }
@@ -136,7 +136,7 @@ public class h extends TextureView implements i {
         CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
         if (getSurfaceTexture() != null) {
             this.c = new Surface(getSurfaceTexture());
-            this.f1824b = getSurfaceTexture();
+            this.f1774b = getSurfaceTexture();
             this.f = false;
         }
         CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);

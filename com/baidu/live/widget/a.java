@@ -8,28 +8,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.j.a.d.a;
+import com.baidu.h.a.d.a;
 import com.baidu.live.aj.a;
 import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.widget.HeartSurfaceView;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
-public class a implements com.baidu.j.a.d.a {
-    private int bXR;
-    private int bXS;
+/* loaded from: classes10.dex */
+public class a implements com.baidu.h.a.d.a {
+    private int bTf;
+    private int bTg;
 
-    @Override // com.baidu.j.a.d.a
-    public void a(final Activity activity, a.InterfaceC0155a interfaceC0155a) {
+    @Override // com.baidu.h.a.d.a
+    public void a(final Activity activity, a.InterfaceC0117a interfaceC0117a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.bXR = inst.getResources().getDimensionPixelSize(a.C0167a.like_explosion_size);
-        this.bXS = inst.getResources().getDimensionPixelSize(a.C0167a.like_heart_size);
+        this.bTf = inst.getResources().getDimensionPixelSize(a.C0158a.like_explosion_size);
+        this.bTg = inst.getResources().getDimensionPixelSize(a.C0158a.like_heart_size);
         final HeartSurfaceView heartSurfaceView = new HeartSurfaceView(inst);
         heartSurfaceView.setZOrderOnTop(true);
         heartSurfaceView.getHolder().setFormat(-3);
-        interfaceC0155a.b(0, heartSurfaceView);
+        interfaceC0117a.b(0, heartSurfaceView);
         final a.b bVar = new a.b() { // from class: com.baidu.live.widget.a.1
-            @Override // com.baidu.j.a.d.a.b
+            @Override // com.baidu.h.a.d.a.b
             public void Q(final int i, final int i2) {
                 if (a.x(activity)) {
                     activity.runOnUiThread(new Runnable() { // from class: com.baidu.live.widget.a.1.1
@@ -49,7 +49,7 @@ public class a implements com.baidu.j.a.d.a {
         });
     }
 
-    @Override // com.baidu.j.a.d.a
+    @Override // com.baidu.h.a.d.a
     public void i(View view, int i) {
         if (view instanceof HeartSurfaceView) {
             view.setVisibility(0);
@@ -57,11 +57,11 @@ public class a implements com.baidu.j.a.d.a {
         }
     }
 
-    private void a(a.InterfaceC0155a interfaceC0155a) {
+    private void a(a.InterfaceC0117a interfaceC0117a) {
         LottieAnimationView lottieAnimationView = new LottieAnimationView(TbadkCoreApplication.getInst());
         lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         lottieAnimationView.setAnimation("live/liveshow_video_like_explosion.json");
-        interfaceC0155a.b(0, lottieAnimationView);
+        interfaceC0117a.b(0, lottieAnimationView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,20 +80,20 @@ public class a implements com.baidu.j.a.d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams a(ViewGroup viewGroup, View view, int i, int i2) {
-        int i3 = (this.bXR - this.bXS) / 2;
+        int i3 = (this.bTf - this.bTg) / 2;
         int left = (view.getLeft() + i) - i3;
         int top = (view.getTop() + i2) - i3;
-        int width = viewGroup.getWidth() - (this.bXR + left);
-        int height = viewGroup.getHeight() - (this.bXR + top);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bXR, this.bXR);
+        int width = viewGroup.getWidth() - (this.bTf + left);
+        int height = viewGroup.getHeight() - (this.bTf + top);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bTf, this.bTf);
         layoutParams.setMargins(left, top, width, height);
         return layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Activity activity, final View view, final int i, final int i2) {
-        a(new a.InterfaceC0155a() { // from class: com.baidu.live.widget.a.3
-            @Override // com.baidu.j.a.d.a.InterfaceC0155a
+        a(new a.InterfaceC0117a() { // from class: com.baidu.live.widget.a.3
+            @Override // com.baidu.h.a.d.a.InterfaceC0117a
             public void b(int i3, final View view2) {
                 if (i3 == 0 && view != null && view.getParent() != null && view2 != null) {
                     view2.setTag("LottieAnimationView");

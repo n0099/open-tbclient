@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.quitroomrecommend.data;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends HttpMessage {
-    public int igJ;
-    public long igy;
+    public long ibN;
+    public int ibY;
     public long roomId;
 
     public b() {
@@ -12,8 +12,8 @@ public class b extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("daily_num", this.igJ);
+        addParam("daily_num", this.ibY);
         addParam("room_id", this.roomId);
-        addParam("session_id", this.igy);
+        addParam("session_id", this.ibN);
     }
 }

@@ -74,14 +74,14 @@ public class TTAdConstant {
         
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6383a;
+        final String f6083a;
 
         RitScenes(String str) {
-            this.f6383a = str;
+            this.f6083a = str;
         }
 
         public String getScenesName() {
-            return this.f6383a;
+            return this.f6083a;
         }
     }
 }

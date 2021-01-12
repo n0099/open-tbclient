@@ -20,8 +20,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.bIb() != null) {
-            return a.bIb().query(uri, strArr, str, strArr2, str2);
+        if (a.bEj() != null) {
+            return a.bEj().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -29,8 +29,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.bIb() != null) {
-            return a.bIb().getType(uri);
+        if (a.bEj() != null) {
+            return a.bEj().getType(uri);
         }
         return null;
     }
@@ -38,8 +38,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.bIb() != null) {
-            return a.bIb().insert(uri, contentValues);
+        if (a.bEj() != null) {
+            return a.bEj().insert(uri, contentValues);
         }
         return null;
     }
@@ -47,8 +47,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.bIb() != null) {
-            return a.bIb().delete(uri, str, strArr);
+        if (a.bEj() != null) {
+            return a.bEj().delete(uri, str, strArr);
         }
         return 0;
     }
@@ -56,8 +56,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.bIb() != null) {
-            return a.bIb().update(uri, contentValues, str, strArr);
+        if (a.bEj() != null) {
+            return a.bEj().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
@@ -65,8 +65,8 @@ public class DownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_BAIDU_NOVEL_DOWNLOAD_PROVIDER_READY, this), (Class) null);
-            if (a.bIb() != null) {
-                a.bIb().onCreate();
+            if (a.bEj() != null) {
+                a.bEj().onCreate();
                 this.isPluginSetted = true;
             }
         }

@@ -12,81 +12,81 @@ import com.baidu.tieba.frs.bb;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes2.dex */
 public class a {
-    private int cEd;
-    private final FrsFragment jDI;
-    private bb jDb;
-    private boolean jFM;
-    private int jFN = -1;
-    private TextView jxB;
+    private int czr;
+    private boolean jBg;
+    private int jBh = -1;
+    private TextView jsV;
+    private bb jyv;
+    private final FrsFragment jzc;
 
     public a(FrsFragment frsFragment) {
-        this.cEd = 0;
+        this.czr = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.jDI = frsFragment;
+        this.jzc = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cEd = UtilHelper.getStatusBarHeight();
+            this.czr = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void cMF() {
-        if (this.jFM && this.jFN >= 0) {
-            BC(this.jFN);
+    public void cIN() {
+        if (this.jBg && this.jBh >= 0) {
+            zW(this.jBh);
         }
-        this.jFM = false;
+        this.jBg = false;
     }
 
-    public void BB(int i) {
+    public void zV(int i) {
         if (i >= 0) {
-            rq(true);
-            BD(i);
+            rm(true);
+            zX(i);
             return;
         }
-        rq(false);
-        BD(i);
+        rm(false);
+        zX(i);
     }
 
-    private void BC(int i) {
+    private void zW(int i) {
         FrameLayout frameLayout;
         String string;
-        q cFa = this.jDI.cFa();
-        if (cFa != null && cFa.getListView() != null && (frameLayout = (FrameLayout) cFa.cGB()) != null) {
-            if (this.jxB == null && this.jDI.getPageContext() != null) {
-                this.jxB = new TextView(this.jDI.getPageContext().getPageActivity());
-                this.jxB.setTextSize(0, this.jDI.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.jxB.setGravity(17);
+        q cBi = this.jzc.cBi();
+        if (cBi != null && cBi.getListView() != null && (frameLayout = (FrameLayout) cBi.cCJ()) != null) {
+            if (this.jsV == null && this.jzc.getPageContext() != null) {
+                this.jsV = new TextView(this.jzc.getPageContext().getPageActivity());
+                this.jsV.setTextSize(0, this.jzc.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.jsV.setGravity(17);
             }
-            if (this.jxB != null) {
+            if (this.jsV != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.jxB.setText(string);
+                this.jsV.setText(string);
             }
-            ao.setBackgroundResource(this.jxB, R.color.CAM_X0302);
-            ao.setViewTextColor(this.jxB, R.color.CAM_X0112);
+            ao.setBackgroundResource(this.jsV, R.color.CAM_X0302);
+            ao.setViewTextColor(this.jsV, R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.jDb == null) {
-                this.jDb = new bb();
+            if (this.jyv == null) {
+                this.jyv = new bb();
             }
-            this.jDb.a(this.jxB, frameLayout, layoutParams, 2000);
-            this.jFN = -1;
+            this.jyv.a(this.jsV, frameLayout, layoutParams, 2000);
+            this.jBh = -1;
         }
     }
 
-    public void rq(boolean z) {
-        this.jFM = z;
+    public void rm(boolean z) {
+        this.jBg = z;
     }
 
-    public void BD(int i) {
-        this.jFN = i;
+    public void zX(int i) {
+        this.jBh = i;
     }
 
     public void onDestroy() {
-        if (this.jDb != null) {
-            this.jDb.onDestroy();
+        if (this.jyv != null) {
+            this.jyv.onDestroy();
         }
     }
 }

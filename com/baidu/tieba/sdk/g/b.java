@@ -15,19 +15,19 @@ import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import com.baidu.live.tbadk.share.single.ShareSingleManager;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.tieba.sdk.b.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        e dHl = com.baidu.tieba.sdk.d.a.dHc().dHl();
-        if (dHl != null) {
+        e dDt = com.baidu.tieba.sdk.d.a.dDk().dDt();
+        if (dDt != null) {
             if (customMessage.getData() instanceof y) {
                 y yVar = (y) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
                 a(yVar.alaLiveShowData, shareEntity);
                 f(shareEntity);
                 if (aB(yVar.activity)) {
-                    dHl.a(yVar.activity, shareEntity);
+                    dDt.a(yVar.activity, shareEntity);
                 }
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
@@ -35,7 +35,7 @@ public class b implements CustomMessageTask.CustomRunnable {
                 ShareEntity shareEntity2 = shareEntityWrapperData.shareEntity;
                 if (shareEntity2.sharePanel()) {
                     if (aB(shareEntityWrapperData.activity)) {
-                        dHl.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                        dDt.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                     }
                 } else {
                     try {
@@ -53,7 +53,7 @@ public class b implements CustomMessageTask.CustomRunnable {
                         }
                     } catch (Exception e) {
                         if (aB(shareEntityWrapperData.activity)) {
-                            dHl.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                            dDt.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class b implements CustomMessageTask.CustomRunnable {
     }
 
     private boolean aB(Activity activity) {
-        if (activity == null || com.baidu.tieba.sdk.d.a.dHc().dHl() == null || com.baidu.tieba.sdk.d.a.dHc().dHl().dfs() || UtilHelper.getRealScreenOrientation(activity) != 2) {
+        if (activity == null || com.baidu.tieba.sdk.d.a.dDk().dDt() == null || com.baidu.tieba.sdk.d.a.dDk().dDt().dbA() || UtilHelper.getRealScreenOrientation(activity) != 2) {
             return true;
         }
         BdUtilHelper.showToast(activity, "暂不支持分享");
@@ -72,20 +72,20 @@ public class b implements CustomMessageTask.CustomRunnable {
 
     private void a(x xVar, ShareEntity shareEntity) {
         if (xVar != null && shareEntity != null) {
-            shareEntity.userId = xVar.aKu.userId;
-            shareEntity.userName = xVar.aKu.userName;
-            if (xVar.aKR != null && !TextUtils.isEmpty(xVar.aKR.aKP)) {
-                shareEntity.title = xVar.aKR.aKP;
+            shareEntity.userId = xVar.aFH.userId;
+            shareEntity.userName = xVar.aFH.userName;
+            if (xVar.aGe != null && !TextUtils.isEmpty(xVar.aGe.aGc)) {
+                shareEntity.title = xVar.aGe.aGc;
             } else {
                 shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
             }
-            if (xVar.aKR != null && !TextUtils.isEmpty(xVar.aKR.subTitle)) {
-                shareEntity.content = xVar.aKR.subTitle;
+            if (xVar.aGe != null && !TextUtils.isEmpty(xVar.aGe.subTitle)) {
+                shareEntity.content = xVar.aGe.subTitle;
             } else {
                 shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
             }
-            if (xVar.aKR != null && !TextUtils.isEmpty(xVar.aKR.imgUrl)) {
-                shareEntity.imageUrl = xVar.aKR.imgUrl;
+            if (xVar.aGe != null && !TextUtils.isEmpty(xVar.aGe.imgUrl)) {
+                shareEntity.imageUrl = xVar.aGe.imgUrl;
             } else {
                 shareEntity.imageUrl = xVar.mLiveInfo.cover;
             }

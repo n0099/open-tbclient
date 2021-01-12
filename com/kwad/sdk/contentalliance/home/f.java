@@ -9,14 +9,14 @@ import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsFragment f9035a;
+    public KsFragment f8735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f9036b;
+    public i f8736b;
     public SlidePlayViewPager c;
     public com.kwad.sdk.contentalliance.detail.b.b d;
     public SceneImpl e;

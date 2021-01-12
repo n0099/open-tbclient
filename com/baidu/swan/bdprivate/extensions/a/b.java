@@ -23,7 +23,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.network.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -36,7 +36,7 @@ public class b extends com.baidu.swan.apps.network.a {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
             return false;
-        } else if (eVar.anl()) {
+        } else if (eVar.ajr()) {
             if (DEBUG) {
                 Log.d("FaceVerifyAction", "FaceVerifyAction does not supported when app is invisible.");
             }
@@ -53,9 +53,9 @@ public class b extends com.baidu.swan.apps.network.a {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
                 return false;
             }
-            final String lI = com.baidu.swan.apps.api.module.network.c.lI(eVar.id);
-            JSONObject lK = lK(lI);
-            eVar.aMx().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo), new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1
+            final String kx = com.baidu.swan.apps.api.module.network.c.kx(eVar.id);
+            JSONObject kz = kz(kx);
+            eVar.aID().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo), new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -63,7 +63,7 @@ public class b extends com.baidu.swan.apps.network.a {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     } else {
-                        b.f(lI, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1.1
+                        b.f(kx, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.swan.apps.ao.e.b
                             /* renamed from: onCallback */
@@ -74,7 +74,7 @@ public class b extends com.baidu.swan.apps.network.a {
                     }
                 }
             });
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(lK, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(kz, 0));
             return true;
         }
     }
@@ -98,11 +98,11 @@ public class b extends com.baidu.swan.apps.network.a {
     }
 
     public static void f(String str, com.baidu.swan.apps.ao.e.b<String> bVar) {
-        Request vt = vt(str);
-        if (vt == null) {
+        Request ui = ui(str);
+        if (ui == null) {
             bVar.L(null);
         } else {
-            a(vt, bVar);
+            a(ui, bVar);
         }
     }
 
@@ -120,26 +120,26 @@ public class b extends com.baidu.swan.apps.network.a {
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                com.baidu.swan.apps.ao.e.b.this.L(b.vs(exc == null ? "" : exc.getMessage()));
+                com.baidu.swan.apps.ao.e.b.this.L(b.uh(exc == null ? "" : exc.getMessage()));
             }
         });
         aVar.tag = request.tag();
-        aVar.ewn = true;
-        aVar.ewo = true;
-        aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfF().b(aVar);
+        aVar.erA = true;
+        aVar.erB = true;
+        aVar.erC = true;
+        com.baidu.swan.a.c.a.bbL().b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Response response, com.baidu.swan.apps.ao.e.b<String> bVar) {
         if (response == null) {
-            bVar.L(vs("response is null"));
+            bVar.L(uh("response is null"));
         } else if (!response.isSuccessful()) {
-            bVar.L(vs("response code is error"));
+            bVar.L(uh("response code is error"));
         } else {
             ResponseBody body = response.body();
             if (body == null) {
-                bVar.L(vs("body is null"));
+                bVar.L(uh("body is null"));
                 return;
             }
             String str = null;
@@ -154,18 +154,18 @@ public class b extends com.baidu.swan.apps.network.a {
                 Log.d("FaceVerifyAction", "response body : " + str);
             }
             if (TextUtils.isEmpty(str)) {
-                bVar.L(vs("body is null"));
+                bVar.L(uh("body is null"));
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) != 0) {
-                    bVar.L(vs(jSONObject.optString(BaseJsonData.TAG_ERRMSG)));
+                    bVar.L(uh(jSONObject.optString(BaseJsonData.TAG_ERRMSG)));
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
-                    bVar.L(vs("server data is null"));
+                    bVar.L(uh("server data is null"));
                 } else {
                     bVar.L(String.valueOf(optJSONObject.optInt("real_name")));
                 }
@@ -173,19 +173,19 @@ public class b extends com.baidu.swan.apps.network.a {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
-                bVar.L(vs("body format error"));
+                bVar.L(uh("body format error"));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String vs(String str) {
+    public static String uh(String str) {
         com.baidu.swan.apps.console.c.i("FaceVerifyAction", str);
         return UnitedSchemeUtility.wrapCallbackParams(1001, str).toString();
     }
 
     public static void a(String str, com.baidu.swan.apps.runtime.e eVar, final com.baidu.swan.apps.ao.e.b<String> bVar) {
-        com.baidu.swan.bdprivate.a.a.a(eVar.aMf(), str, eVar.id, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.4
+        com.baidu.swan.bdprivate.a.a.a(eVar.aIl(), str, eVar.id, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: B */
@@ -217,13 +217,13 @@ public class b extends com.baidu.swan.apps.network.a {
     }
 
     @Nullable
-    private static Request vt(@Nullable String str) {
+    private static Request ui(@Nullable String str) {
         HttpUrl parse = HttpUrl.parse(BaseUrlManager.ONLINE_URL);
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.aoV().cPg.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.alb().cKu.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

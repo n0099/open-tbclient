@@ -4,12 +4,12 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
-    private RectF cMb;
-    private float cMc;
-    private float cMd;
-    private boolean cMe;
+    private RectF cHp;
+    private float cHq;
+    private float cHr;
+    private boolean cHs;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -18,30 +18,30 @@ public class c extends a {
             int O2 = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(1));
             int O3 = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(2));
             float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-            this.cMb = new RectF(O - O3, O2 - O3, O + O3, O2 + O3);
-            this.cMc = degrees;
-            this.cMd = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
+            this.cHp = new RectF(O - O3, O2 - O3, O + O3, O2 + O3);
+            this.cHq = degrees;
+            this.cHr = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
         }
         if (jSONArray.length() > 5) {
-            this.cMe = jSONArray.optBoolean(5);
+            this.cHs = jSONArray.optBoolean(5);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cMb != null) {
-            if (!this.cMe && Math.abs(this.cMd) >= 360.0f) {
-                bVar.mPath.addCircle((this.cMb.right + this.cMb.left) / 2.0f, (this.cMb.bottom + this.cMb.top) / 2.0f, (this.cMb.bottom - this.cMb.top) / 2.0f, Path.Direction.CW);
-                bVar.mPath.arcTo(this.cMb, 0.0f, this.cMc);
+        if (this.cHp != null) {
+            if (!this.cHs && Math.abs(this.cHr) >= 360.0f) {
+                bVar.mPath.addCircle((this.cHp.right + this.cHp.left) / 2.0f, (this.cHp.bottom + this.cHp.top) / 2.0f, (this.cHp.bottom - this.cHp.top) / 2.0f, Path.Direction.CW);
+                bVar.mPath.arcTo(this.cHp, 0.0f, this.cHq);
                 return;
             }
-            float f = this.cMd % 360.0f;
-            if (f < 0.0f && !this.cMe) {
+            float f = this.cHr % 360.0f;
+            if (f < 0.0f && !this.cHs) {
                 f += 360.0f;
-            } else if (f > 0.0f && this.cMe) {
+            } else if (f > 0.0f && this.cHs) {
                 f -= 360.0f;
             }
-            bVar.mPath.arcTo(this.cMb, this.cMc, f);
+            bVar.mPath.arcTo(this.cHp, this.cHq, f);
         }
     }
 }

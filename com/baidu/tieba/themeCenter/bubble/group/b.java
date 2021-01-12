@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 import tbclient.ThemeBgProp;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private String groupName;
-    private List<DressItemData> jwx;
+    private List<DressItemData> jrR;
 
     public void a(ThemeBubbleInMain themeBubbleInMain) {
         if (themeBubbleInMain != null) {
             this.groupName = themeBubbleInMain.bubble_category;
-            this.jwx = new ArrayList();
+            this.jrR = new ArrayList();
             for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-                this.jwx.add(new DressItemData(themeBgProp));
+                this.jrR.add(new DressItemData(themeBgProp));
             }
         }
     }
@@ -25,6 +25,6 @@ public class b {
     }
 
     public List<DressItemData> getBubbleList() {
-        return this.jwx;
+        return this.jrR;
     }
 }

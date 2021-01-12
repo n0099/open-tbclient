@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebMessageBoundaryInterface;
 import org.chromium.support_lib_boundary.WebMessageCallbackBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class WebMessageCallbackAdapter implements WebMessageCallbackBoundaryInterface {
     WebMessagePortCompat.WebMessageCallbackCompat mImpl;
 

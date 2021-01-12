@@ -10,17 +10,17 @@ import com.bytedance.embedapplog.bi;
 public final class bm implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6105a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
-    private static final aw<Boolean> pgU = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
+    private static final String f5805a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+    private static final aw<Boolean> pcr = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
         /* renamed from: N */
         public Boolean M(Object... objArr) {
-            return Boolean.valueOf("1".equals(bm.b(bm.f6105a, "0")));
+            return Boolean.valueOf("1".equals(bm.b(bm.f5805a, "0")));
         }
     };
-    private com.bytedance.a.b phh;
+    private com.bytedance.a.b pcF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(Context context) {
@@ -29,8 +29,8 @@ public final class bm implements bi {
         } catch (Throwable th) {
         }
         try {
-            this.phh = new com.bytedance.a.b();
-            this.phh.hN(context);
+            this.pcF = new com.bytedance.a.b();
+            this.pcF.hL(context);
         } catch (Throwable th2) {
             bb.b("OaidVivo", Log.getStackTraceString(th2));
         }
@@ -38,7 +38,7 @@ public final class bm implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return pgU.b(new Object[0]).booleanValue();
+        return pcr.b(new Object[0]).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -47,11 +47,11 @@ public final class bm implements bi {
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hR(Context context) {
-        if (this.phh == null) {
+    public bi.a hP(Context context) {
+        if (this.pcF == null) {
             return null;
         }
-        return this.phh.hP(context);
+        return this.pcF.hN(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

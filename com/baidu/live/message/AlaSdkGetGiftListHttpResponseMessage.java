@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<i> bcD;
-    private ArrayList<k> bcE;
-    private ArrayList<h> bhQ;
-    private aa bwh;
+    private ArrayList<i> aXP;
+    private ArrayList<k> aXQ;
+    private ArrayList<h> bcZ;
+    private aa brt;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -37,13 +37,13 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("sleep_time_span");
             if (!z) {
-                com.baidu.live.d Ba = com.baidu.live.d.Ba();
-                Ba.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
+                com.baidu.live.d xf = com.baidu.live.d.xf();
+                xf.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
             }
             this.scene_from = optJSONObject.optString("scene_from");
             if (n(optJSONObject.optJSONArray("list"))) {
                 k(optJSONObject.optJSONArray("num_info"));
-                aB(this.scene_from, jSONObject.toString());
+                aA(this.scene_from, jSONObject.toString());
                 U(optJSONObject.optJSONObject("contact_conf"));
             }
         }
@@ -51,18 +51,18 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
 
     private void U(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bwh = new aa();
-            this.bwh.iconUrl = jSONObject.optString("button_url");
-            this.bwh.aLJ = jSONObject.optString("dialog_content");
-            this.bwh.dialogTitle = jSONObject.optString("dialog_title");
-            this.bwh.aLK = jSONObject.optString("dialog_content_copy");
+            this.brt = new aa();
+            this.brt.iconUrl = jSONObject.optString("button_url");
+            this.brt.aGW = jSONObject.optString("dialog_content");
+            this.brt.dialogTitle = jSONObject.optString("dialog_title");
+            this.brt.aGX = jSONObject.optString("dialog_content_copy");
         }
     }
 
     private boolean n(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bhQ = new ArrayList<>();
-            this.bcD = new ArrayList<>();
+            this.bcZ = new ArrayList<>();
+            this.aXP = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -77,9 +77,9 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     i iVar = new i();
                     iVar.setCategoryId(optInt);
                     iVar.setCategoryName(optString);
-                    iVar.k(arrayList);
-                    iVar.bu(z);
-                    this.bcD.add(iVar);
+                    iVar.f(arrayList);
+                    iVar.bq(z);
+                    this.aXP.add(iVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -98,59 +98,59 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     hVar.setCategoryId(optInt);
                     hVar.setCategoryName(optString);
                     hVar.G(arrayList2);
-                    hVar.bu(z);
-                    this.bhQ.add(hVar);
+                    hVar.bq(z);
+                    this.bcZ.add(hVar);
                 }
             }
         }
-        return (this.bhQ == null || this.bhQ.isEmpty()) ? false : true;
+        return (this.bcZ == null || this.bcZ.isEmpty()) ? false : true;
     }
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bcE = new ArrayList<>();
+            this.aXQ = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     k kVar = new k();
                     kVar.parser(optJSONObject);
-                    this.bcE.add(kVar);
+                    this.aXQ.add(kVar);
                 }
             }
         }
     }
 
-    private void aB(String str, String str2) {
+    private void aA(String str, String str2) {
         if (str2 != null) {
             if (!TextUtils.isEmpty(str) && str.contains("audio")) {
-                aj.hd(str2);
+                aj.fR(str2);
             } else {
-                ac.hd(str2);
+                ac.fR(str2);
             }
         }
     }
 
-    public ArrayList<h> Kh() {
-        return this.bhQ;
+    public ArrayList<h> Gm() {
+        return this.bcZ;
     }
 
     public ArrayList<i> getCategoryList() {
-        return this.bcD;
+        return this.aXP;
     }
 
-    public ArrayList<k> Ki() {
-        return this.bcE;
+    public ArrayList<k> Gn() {
+        return this.aXQ;
     }
 
     public String getSceneFrom() {
         return this.scene_from;
     }
 
-    public String Kj() {
-        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).Kj() : "";
+    public String Go() {
+        return getOrginalMessage() instanceof f ? ((f) getOrginalMessage()).Go() : "";
     }
 
-    public aa QO() {
-        return this.bwh;
+    public aa MT() {
+        return this.brt;
     }
 }

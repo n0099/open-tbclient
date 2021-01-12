@@ -2,40 +2,39 @@ package com.opensource.svgaplayer.entities;
 
 import android.graphics.Path;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.Set;
 import java.util.StringTokenizer;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b {
-    private final String pTZ;
-    private Path pUa;
+    private Path pPA;
+    private final String pPz;
 
     public b(String str) {
         p.o(str, "originValue");
-        this.pTZ = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        this.pPz = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         p.o(path, "toPath");
-        Path path2 = this.pUa;
+        Path path2 = this.pPA;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pTZ, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pPz, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pUb;
+                set = c.pPB;
                 if (set.contains(nextToken)) {
-                    if (p.l(nextToken, "Z") || p.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+                    if (p.l(nextToken, "Z") || p.l(nextToken, "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
                     }
                 } else {
@@ -45,7 +44,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pUa = path3;
+        this.pPA = path3;
         path.set(path3);
     }
 
@@ -123,7 +122,7 @@ public final class b {
         }
         if (p.l(str, "Z")) {
             path.close();
-        } else if (p.l(str, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+        } else if (p.l(str, "z")) {
             path.close();
         }
     }

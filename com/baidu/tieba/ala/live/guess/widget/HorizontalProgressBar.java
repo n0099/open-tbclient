@@ -18,36 +18,36 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HorizontalProgressBar extends View {
     private static final String TAG = HorizontalProgressBar.class.getSimpleName();
     private int bgColor;
-    private boolean erW;
-    private int hja;
-    private int hjb;
-    private int hjc;
-    private int hjd;
-    private boolean hje;
-    private Paint hjf;
-    private Paint hjg;
-    private Paint hjh;
-    private Paint hji;
-    private Paint hjj;
-    private Paint hjk;
-    private Paint hjl;
-    private Paint hjm;
-    private int hjn;
-    private int hjo;
-    private int hjp;
-    private String hjq;
-    private String hjr;
-    private String hjs;
-    private boolean hjt;
-    private float hju;
-    private float hjv;
-    private int hjw;
-    private int hjx;
-    private Paint hjy;
+    private boolean enh;
+    private Paint heA;
+    private Paint heB;
+    private Paint heC;
+    private Paint heD;
+    private Paint heE;
+    private Paint heF;
+    private int heG;
+    private int heH;
+    private int heI;
+    private String heJ;
+    private String heK;
+    private String heL;
+    private boolean heM;
+    private float heN;
+    private float heO;
+    private int heP;
+    private int heQ;
+    private Paint heR;
+    private int het;
+    private int heu;
+    private int hev;
+    private int hew;
+    private boolean hex;
+    private Paint hey;
+    private Paint hez;
     private int max;
     private int padding;
     private int progress;
@@ -56,142 +56,142 @@ public class HorizontalProgressBar extends View {
 
     public void setPercent(float f) {
         float max = Math.max(0.0f, Math.min(1.0f, f));
-        if (this.hju != max) {
-            if (A(max, this.hjv)) {
-                caK();
+        if (this.heN != max) {
+            if (B(max, this.heO)) {
+                bWS();
                 return;
             }
-            this.hju = max;
-            caM();
+            this.heN = max;
+            bWU();
         }
     }
 
-    private void caK() {
-        this.erW = true;
+    private void bWS() {
+        this.enh = true;
     }
 
     public void setSecondpercent(float f) {
         float max = Math.max(0.0f, Math.min(1.0f, f));
-        if (this.hjv != max) {
-            if (A(this.hju, max)) {
-                caK();
+        if (this.heO != max) {
+            if (B(this.heN, max)) {
+                bWS();
                 return;
             }
-            this.hjv = max;
-            caM();
+            this.heO = max;
+            bWU();
         }
     }
 
-    private boolean A(float f, float f2) {
+    private boolean B(float f, float f2) {
         return f + f2 >= 1.0f;
     }
 
     public void setNumber(int i, int i2) {
-        this.hjw = i;
-        this.hjx = i2;
+        this.heP = i;
+        this.heQ = i2;
     }
 
     public HorizontalProgressBar(Context context) {
         super(context);
-        this.hjq = "能";
-        this.hjr = "（正确答案）";
-        this.hjs = "不能";
-        this.hjt = true;
-        this.erW = false;
+        this.heJ = "能";
+        this.heK = "（正确答案）";
+        this.heL = "不能";
+        this.heM = true;
+        this.enh = false;
         init(context, null);
     }
 
     public HorizontalProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hjq = "能";
-        this.hjr = "（正确答案）";
-        this.hjs = "不能";
-        this.hjt = true;
-        this.erW = false;
+        this.heJ = "能";
+        this.heK = "（正确答案）";
+        this.heL = "不能";
+        this.heM = true;
+        this.enh = false;
         init(context, attributeSet);
     }
 
     public HorizontalProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hjq = "能";
-        this.hjr = "（正确答案）";
-        this.hjs = "不能";
-        this.hjt = true;
-        this.erW = false;
+        this.heJ = "能";
+        this.heK = "（正确答案）";
+        this.heL = "不能";
+        this.heM = true;
+        this.enh = false;
         init(context, attributeSet);
     }
 
     private void init(Context context, AttributeSet attributeSet) {
         c(context, attributeSet);
-        caL();
+        bWT();
     }
 
     private void c(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.HorizontalProgressBar);
         this.max = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_max, 100);
         this.progress = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_progress, 0);
-        this.hju = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_percent, 0);
-        this.hjv = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_secondpercent, 0);
+        this.heN = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_percent, 0);
+        this.heO = obtainStyledAttributes.getInteger(a.j.HorizontalProgressBar_zpb_secondpercent, 0);
         this.bgColor = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_bg_color, -12627531);
         this.progressColor = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_pb_color, -49023);
-        this.hjp = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_pb_color, -49023);
+        this.heI = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_pb_color, -49023);
         this.padding = obtainStyledAttributes.getDimensionPixelSize(a.j.HorizontalProgressBar_zpb_padding, 0);
-        this.hja = obtainStyledAttributes.getDimensionPixelSize(a.j.HorizontalProgressBar_zpb_progress_height, 0);
-        this.hjb = obtainStyledAttributes.getDimensionPixelSize(a.j.HorizontalProgressBar_zpb_progress_marging_bottom, 0);
-        this.hjc = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_gradient_from, -49023);
-        this.hjd = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_gradient_to, -49023);
-        this.hjn = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_gradient_from, -49023);
-        this.hjo = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_gradient_to, -49023);
-        this.hjq = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_left_first);
-        this.hjr = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_left_second);
-        this.hjs = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_right);
-        this.hjt = obtainStyledAttributes.getBoolean(a.j.HorizontalProgressBar_zpb_left_answer, true);
+        this.het = obtainStyledAttributes.getDimensionPixelSize(a.j.HorizontalProgressBar_zpb_progress_height, 0);
+        this.heu = obtainStyledAttributes.getDimensionPixelSize(a.j.HorizontalProgressBar_zpb_progress_marging_bottom, 0);
+        this.hev = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_gradient_from, -49023);
+        this.hew = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_gradient_to, -49023);
+        this.heG = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_gradient_from, -49023);
+        this.heH = obtainStyledAttributes.getColor(a.j.HorizontalProgressBar_zpb_second_gradient_to, -49023);
+        this.heJ = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_left_first);
+        this.heK = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_left_second);
+        this.heL = obtainStyledAttributes.getString(a.j.HorizontalProgressBar_zpb_bottom_text_right);
+        this.heM = obtainStyledAttributes.getBoolean(a.j.HorizontalProgressBar_zpb_left_answer, true);
         obtainStyledAttributes.recycle();
     }
 
-    private void caL() {
-        this.hjh = new Paint();
-        this.hjh.setColor(this.progressColor);
-        this.hjh.setStyle(Paint.Style.FILL);
-        this.hjh.setAntiAlias(true);
-        this.hjf = new Paint();
-        this.hjf.setColor(this.hjp);
-        this.hjf.setStyle(Paint.Style.FILL);
-        this.hjf.setAntiAlias(true);
-        this.hji = new Paint();
-        this.hji.setStyle(Paint.Style.FILL);
-        this.hji.setAntiAlias(true);
-        this.hjg = new Paint();
-        this.hjg.setStyle(Paint.Style.FILL);
-        this.hjg.setAntiAlias(true);
-        this.hjj = new Paint();
-        this.hjj.setColor(this.bgColor);
-        this.hjj.setStyle(Paint.Style.FILL);
-        this.hjj.setAntiAlias(true);
+    private void bWT() {
+        this.heA = new Paint();
+        this.heA.setColor(this.progressColor);
+        this.heA.setStyle(Paint.Style.FILL);
+        this.heA.setAntiAlias(true);
+        this.hey = new Paint();
+        this.hey.setColor(this.heI);
+        this.hey.setStyle(Paint.Style.FILL);
+        this.hey.setAntiAlias(true);
+        this.heB = new Paint();
+        this.heB.setStyle(Paint.Style.FILL);
+        this.heB.setAntiAlias(true);
+        this.hez = new Paint();
+        this.hez.setStyle(Paint.Style.FILL);
+        this.hez.setAntiAlias(true);
+        this.heC = new Paint();
+        this.heC.setColor(this.bgColor);
+        this.heC.setStyle(Paint.Style.FILL);
+        this.heC.setAntiAlias(true);
         this.textPaint = new Paint();
         this.textPaint.setColor(Color.parseColor("#FFFFFF"));
         this.textPaint.setStyle(Paint.Style.FILL);
         this.textPaint.setAntiAlias(true);
         this.textPaint.setTextSize(ax(14.0f));
-        this.hjk = new Paint();
-        this.hjk.setColor(Color.parseColor("#1F1F1F"));
-        this.hjk.setStyle(Paint.Style.FILL);
-        this.hjk.setAntiAlias(true);
-        this.hjk.setTextSize(ax(16.0f));
-        this.hjl = new Paint();
-        this.hjl.setColor(Color.parseColor("#FF397A"));
-        this.hjl.setStyle(Paint.Style.FILL);
-        this.hjl.setAntiAlias(true);
-        this.hjl.setTextSize(ax(14.0f));
-        this.hjm = new Paint();
-        this.hjm.setColor(Color.parseColor("#2A87FF"));
-        this.hjm.setStyle(Paint.Style.FILL);
-        this.hjm.setAntiAlias(true);
-        this.hjm.setTextSize(ax(14.0f));
-        this.hjy = new Paint();
-        this.hjy.setColor(Color.parseColor("#FFFFFF"));
-        this.hjy.setStyle(Paint.Style.FILL);
-        this.hjy.setAntiAlias(true);
+        this.heD = new Paint();
+        this.heD.setColor(Color.parseColor("#1F1F1F"));
+        this.heD.setStyle(Paint.Style.FILL);
+        this.heD.setAntiAlias(true);
+        this.heD.setTextSize(ax(16.0f));
+        this.heE = new Paint();
+        this.heE.setColor(Color.parseColor("#FF397A"));
+        this.heE.setStyle(Paint.Style.FILL);
+        this.heE.setAntiAlias(true);
+        this.heE.setTextSize(ax(14.0f));
+        this.heF = new Paint();
+        this.heF.setColor(Color.parseColor("#2A87FF"));
+        this.heF.setStyle(Paint.Style.FILL);
+        this.heF.setAntiAlias(true);
+        this.heF.setTextSize(ax(14.0f));
+        this.heR = new Paint();
+        this.heR.setColor(Color.parseColor("#FFFFFF"));
+        this.heR.setStyle(Paint.Style.FILL);
+        this.heR.setAntiAlias(true);
     }
 
     @Override // android.view.View
@@ -204,17 +204,17 @@ public class HorizontalProgressBar extends View {
     private void V(Canvas canvas) {
         float f;
         float f2;
-        int i = this.hja / 2;
+        int i = this.het / 2;
         int width = getWidth();
         if (this.max != 0) {
-            float f3 = this.hju;
-            f = this.hjv;
+            float f3 = this.heN;
+            f = this.heO;
             f2 = f3;
         } else {
             f = 0.0f;
             f2 = 0.0f;
         }
-        int i2 = (width - (this.padding * 2)) - this.hja;
+        int i2 = (width - (this.padding * 2)) - this.het;
         a(canvas, f2 * i2, i);
         a(canvas, width, f * i2, i);
         a(canvas, width);
@@ -222,85 +222,85 @@ public class HorizontalProgressBar extends View {
     }
 
     private void a(Canvas canvas, int i) {
-        String str = this.hjq;
-        String str2 = this.hjr;
-        String str3 = this.hjs;
+        String str = this.heJ;
+        String str2 = this.heK;
+        String str3 = this.heL;
         Rect rect = new Rect();
-        this.hjk.getTextBounds(str3, 0, str3.length(), rect);
+        this.heD.getTextBounds(str3, 0, str3.length(), rect);
         int width = rect.width();
         float f = (i - width) - 1;
         float height = (getHeight() - this.padding) - (rect.height() / 10);
-        canvas.drawText(str, 0.0f, height, this.hjk);
-        if (this.hjt) {
-            canvas.drawText(str2, this.hjk.measureText(str), height, this.hjl);
+        canvas.drawText(str, 0.0f, height, this.heD);
+        if (this.heM) {
+            canvas.drawText(str2, this.heD.measureText(str), height, this.heE);
         }
-        canvas.drawText(str3, f, height, this.hjk);
-        if (!this.hjt) {
-            canvas.drawText(this.hjr, f - this.hjm.measureText(str2), height, this.hjm);
+        canvas.drawText(str3, f, height, this.heD);
+        if (!this.heM) {
+            canvas.drawText(this.heK, f - this.heF.measureText(str2), height, this.heF);
         }
     }
 
     private void a(Canvas canvas, int i, float f, int i2) {
-        this.hjg.setShader(new LinearGradient(((this.padding + i) - i2) - f, this.padding, (this.padding + i) - i2, this.padding + this.hja, new int[]{this.hjn, this.hjo}, new float[]{0.0f, 1.0f}, Shader.TileMode.MIRROR));
+        this.hez.setShader(new LinearGradient(((this.padding + i) - i2) - f, this.padding, (this.padding + i) - i2, this.padding + this.het, new int[]{this.heG, this.heH}, new float[]{0.0f, 1.0f}, Shader.TileMode.MIRROR));
         int i3 = i - (this.padding + i2);
-        if (f < this.hja) {
+        if (f < this.het) {
             if (this.progress == 0) {
-                if (this.hje) {
-                    canvas.drawCircle(i3, this.padding + i2, i2, this.hjg);
+                if (this.hex) {
+                    canvas.drawCircle(i3, this.padding + i2, i2, this.hez);
                     return;
                 }
                 return;
             }
-            canvas.drawCircle(i3, this.padding + i2, i2, this.hjg);
+            canvas.drawCircle(i3, this.padding + i2, i2, this.hez);
             return;
         }
-        canvas.drawCircle(i3, this.padding + i2, i2, this.hjg);
+        canvas.drawCircle(i3, this.padding + i2, i2, this.hez);
         Path path = new Path();
         float f2 = i3;
         float f3 = f2 - f;
         float f4 = this.padding;
         path.moveTo(f2, f4);
         path.lineTo(f3, f4);
-        path.lineTo(f3 - i2, this.hja + f4);
-        path.lineTo(f2, this.hja + f4);
+        path.lineTo(f3 - i2, this.het + f4);
+        path.lineTo(f2, this.het + f4);
         path.close();
-        canvas.drawPath(path, this.hjg);
-        String str = this.hjx + "%";
+        canvas.drawPath(path, this.hez);
+        String str = this.heQ + "%";
         canvas.drawText(str, ((i - this.padding) - i2) - this.textPaint.measureText(str), i2 + (Math.abs(this.textPaint.ascent() + this.textPaint.descent()) / 2.0f), this.textPaint);
     }
 
     private void a(Canvas canvas, float f, int i) {
-        this.hji.setShader(new LinearGradient(this.padding + i, this.padding, this.padding + i + f, this.padding + this.hja, new int[]{this.hjc, this.hjd}, new float[]{0.0f, 1.0f}, Shader.TileMode.MIRROR));
-        if (f < this.hja) {
+        this.heB.setShader(new LinearGradient(this.padding + i, this.padding, this.padding + i + f, this.padding + this.het, new int[]{this.hev, this.hew}, new float[]{0.0f, 1.0f}, Shader.TileMode.MIRROR));
+        if (f < this.het) {
             if (this.progress == 0) {
-                if (this.hje) {
-                    canvas.drawCircle(this.padding + i, this.padding + i, i, this.hji);
+                if (this.hex) {
+                    canvas.drawCircle(this.padding + i, this.padding + i, i, this.heB);
                     return;
                 }
                 return;
             }
-            canvas.drawCircle(this.padding + i, this.padding + i, i, this.hji);
+            canvas.drawCircle(this.padding + i, this.padding + i, i, this.heB);
             return;
         }
-        canvas.drawCircle(this.padding + i, this.padding + i, i, this.hji);
+        canvas.drawCircle(this.padding + i, this.padding + i, i, this.heB);
         Path path = new Path();
         float f2 = this.padding + i;
         float f3 = f2 + f + i;
         float f4 = this.padding;
         path.moveTo(f2, f4);
         path.lineTo(f3, this.padding);
-        path.lineTo(f3 - i, this.hja + f4);
-        path.lineTo(f2, this.hja + f4);
+        path.lineTo(f3 - i, this.het + f4);
+        path.lineTo(f2, this.het + f4);
         path.close();
-        canvas.drawPath(path, this.hji);
-        canvas.drawText(this.hjw + "%", i, i + (Math.abs(this.textPaint.ascent() + this.textPaint.descent()) / 2.0f), this.textPaint);
+        canvas.drawPath(path, this.heB);
+        canvas.drawText(this.heP + "%", i, i + (Math.abs(this.textPaint.ascent() + this.textPaint.descent()) / 2.0f), this.textPaint);
     }
 
     private void a(Canvas canvas, int i, int i2, int i3) {
-        if (this.erW) {
-            float f = i2 * this.hju;
+        if (this.enh) {
+            float f = i2 * this.heN;
             a(canvas, f, i3);
-            a(canvas, i, i2 * (1.0f - this.hju), i3);
+            a(canvas, i, i2 * (1.0f - this.heN), i3);
             float f2 = i * 0.01f;
             Path path = new Path();
             float f3 = f + this.padding + i3;
@@ -308,10 +308,10 @@ public class HorizontalProgressBar extends View {
             float f5 = f4 - i3;
             path.moveTo(f3, this.padding);
             path.lineTo(f4, this.padding);
-            path.lineTo(f5, this.padding + this.hja);
-            path.lineTo(f5 - f2, this.padding + this.hja);
+            path.lineTo(f5, this.padding + this.het);
+            path.lineTo(f5 - f2, this.padding + this.het);
             path.close();
-            canvas.drawPath(path, this.hjy);
+            canvas.drawPath(path, this.heR);
         }
     }
 
@@ -324,9 +324,9 @@ public class HorizontalProgressBar extends View {
         if (width % 2 != 0) {
             width--;
         }
-        canvas.drawCircle(height / 2, height / 2, height / 2, this.hjj);
-        canvas.drawCircle(width - (height / 2), height / 2, height / 2, this.hjj);
-        canvas.drawRect(new RectF(height / 2, 0.0f, width - (height / 2), height), this.hjj);
+        canvas.drawCircle(height / 2, height / 2, height / 2, this.heC);
+        canvas.drawCircle(width - (height / 2), height / 2, height / 2, this.heC);
+        canvas.drawRect(new RectF(height / 2, 0.0f, width - (height / 2), height), this.heC);
     }
 
     @Override // android.view.View
@@ -339,13 +339,13 @@ public class HorizontalProgressBar extends View {
         super.onLayout(z, i, i2, i3, i4);
     }
 
-    public HorizontalProgressBar nw(boolean z) {
-        this.hjt = z;
-        caM();
+    public HorizontalProgressBar ns(boolean z) {
+        this.heM = z;
+        bWU();
         return this;
     }
 
-    private void caM() {
+    private void bWU() {
         if (isMainThread()) {
             invalidate();
         } else {
@@ -358,7 +358,7 @@ public class HorizontalProgressBar extends View {
     }
 
     public void bL(int i, int i2) {
-        this.erW = false;
+        this.enh = false;
         setNumber(i, i2);
         int i3 = i <= 12 ? 12 : i;
         int i4 = i2 >= 100 ? 88 : i2;
@@ -397,10 +397,10 @@ public class HorizontalProgressBar extends View {
     }
 
     public void setLeftFirstString(String str) {
-        this.hjq = str;
+        this.heJ = str;
     }
 
     public void setRightFirstString(String str) {
-        this.hjs = str;
+        this.heL = str;
     }
 }

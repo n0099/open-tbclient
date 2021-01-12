@@ -1,16 +1,16 @@
 package com.win.opensdk;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ay {
     public static final String java = ay.class.getSimpleName();
-    private static boolean qdm;
+    private static boolean pYL;
 
     public static boolean java() {
         String[] split;
         String str;
-        if (qdm) {
-            return qdm;
+        if (pYL) {
+            return pYL;
         }
         int length = System.getenv("PATH").split(":").length;
         int i = 0;
@@ -27,7 +27,7 @@ public class ay {
             }
         }
         boolean z = str != null;
-        qdm = z;
+        pYL = z;
         return z;
     }
 }

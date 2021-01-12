@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.ab.e;
 
 import com.qq.e.comm.pi.HADI;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a extends HADI, com.qq.e.comm.plugin.ab.f.a {
     void a();
 

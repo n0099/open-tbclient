@@ -18,6 +18,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.ala.helper.AlaConstants;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobstat.Config;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.d.j;
 import com.bytedance.sdk.openadsdk.core.q;
@@ -45,10 +46,10 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
     private com.bytedance.sdk.openadsdk.f.a.q G;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Map<String, Object> f7147a;
+    protected Map<String, Object> f6847a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f7148b;
+    boolean f6848b;
     private WeakReference<SSWebView> d;
     private WeakReference<Context> g;
     private com.bytedance.sdk.openadsdk.e.c h;
@@ -80,10 +81,10 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7161a;
+        public String f6861a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7162b;
+        public String f6862b;
         public String c;
         public JSONObject d;
         public int e;
@@ -140,7 +141,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
     }
 
     public x a(boolean z) {
-        this.f7148b = z;
+        this.f6848b = z;
         return this;
     }
 
@@ -175,7 +176,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                     jSONObject = null;
                 } else {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("x", ak.b(p.a(), b2[0] - b3[0]));
+                    jSONObject2.put(Config.EVENT_HEAT_X, ak.b(p.a(), b2[0] - b3[0]));
                     jSONObject2.put("y", ak.b(p.a(), b2[1] - b3[1]));
                     jSONObject2.put("w", ak.b(p.a(), view.getWidth()));
                     jSONObject2.put("h", ak.b(p.a(), view.getHeight()));
@@ -264,7 +265,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
     }
 
     public x a(Map<String, Object> map) {
-        this.f7147a = map;
+        this.f6847a = map;
         return this;
     }
 
@@ -343,7 +344,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
         Context context2;
         Context context3;
         int i2;
-        if (!NotificationCompat.CATEGORY_CALL.equals(aVar.f7161a)) {
+        if (!NotificationCompat.CATEGORY_CALL.equals(aVar.f6861a)) {
             return null;
         }
         if (i.c().u()) {
@@ -747,8 +748,8 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                 break;
         }
         if (i == 1) {
-            if (!TextUtils.isEmpty(aVar.f7162b)) {
-                b(aVar.f7162b, jSONObject);
+            if (!TextUtils.isEmpty(aVar.f6862b)) {
+                b(aVar.f6862b, jSONObject);
                 if (i.c().u()) {
                     Log.d("TTAndroidObject", "[JSB-RSP] version:" + i + " data=" + jSONObject);
                     return jSONObject;
@@ -1041,7 +1042,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(AlaConstants.STAT_VIDEO_INFO);
                 if (optJSONObject2 != null) {
-                    double optDouble = optJSONObject2.optDouble("x");
+                    double optDouble = optJSONObject2.optDouble(Config.EVENT_HEAT_X);
                     double optDouble2 = optJSONObject2.optDouble("y");
                     double optDouble3 = optJSONObject2.optDouble("width");
                     double optDouble4 = optJSONObject2.optDouble("height");
@@ -1108,12 +1109,12 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                     @Override // com.bytedance.sdk.openadsdk.g.c
                     public void a(boolean z, List<com.bytedance.sdk.openadsdk.core.d.l> list) {
                         if (!z) {
-                            x.this.b(aVar.f7162b, jSONObject);
+                            x.this.b(aVar.f6862b, jSONObject);
                             return;
                         }
                         try {
                             jSONObject.put("creatives", x.b(list));
-                            x.this.b(aVar.f7162b, jSONObject);
+                            x.this.b(aVar.f6862b, jSONObject);
                         } catch (Exception e) {
                         }
                     }
@@ -1287,15 +1288,15 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                 try {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        aVar.f7161a = optJSONObject.optString("__msg_type", null);
-                        aVar.f7162b = optJSONObject.optString("__callback_id", null);
+                        aVar.f6861a = optJSONObject.optString("__msg_type", null);
+                        aVar.f6862b = optJSONObject.optString("__callback_id", null);
                         aVar.c = optJSONObject.optString("func");
                         aVar.d = optJSONObject.optJSONObject("params");
                         aVar.e = optJSONObject.optInt("JSSDK");
                     }
                 } catch (Throwable th) {
                 }
-                if (!TextUtils.isEmpty(aVar.f7161a) && !TextUtils.isEmpty(aVar.c)) {
+                if (!TextUtils.isEmpty(aVar.f6861a) && !TextUtils.isEmpty(aVar.c)) {
                     Message obtainMessage = this.e.obtainMessage(11);
                     obtainMessage.obj = aVar;
                     this.e.sendMessage(obtainMessage);
@@ -1368,7 +1369,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
     }
 
     private JSONObject p(JSONObject jSONObject) {
-        if (this.f7147a != null) {
+        if (this.f6847a != null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
@@ -1376,7 +1377,7 @@ public class x implements com.bytedance.sdk.openadsdk.e.b, am.a {
                 JSONObject jSONObject2 = new JSONObject();
                 String optString = jSONObject.optString("ad_extra_data", null);
                 JSONObject jSONObject3 = optString != null ? new JSONObject(optString) : jSONObject2;
-                for (Map.Entry<String, Object> entry : this.f7147a.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.f6847a.entrySet()) {
                     jSONObject3.put(entry.getKey(), entry.getValue());
                 }
                 jSONObject.put("ad_extra_data", jSONObject3.toString());

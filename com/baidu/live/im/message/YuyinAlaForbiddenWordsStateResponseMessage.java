@@ -3,9 +3,9 @@ package com.baidu.live.im.message;
 import com.baidu.live.im.data.YuyinImForbiddenStateData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaForbiddenWordsStateResponseMessage extends JsonHttpResponsedMessage {
-    public YuyinImForbiddenStateData bqZ;
+    public YuyinImForbiddenStateData bmm;
 
     public YuyinAlaForbiddenWordsStateResponseMessage() {
         super(1031054);
@@ -15,10 +15,10 @@ public class YuyinAlaForbiddenWordsStateResponseMessage extends JsonHttpResponse
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.bqZ = new YuyinImForbiddenStateData();
-            this.bqZ.errno = getError();
-            this.bqZ.errMsg = getErrorString();
-            this.bqZ.parseJson(jSONObject);
+            this.bmm = new YuyinImForbiddenStateData();
+            this.bmm.errno = getError();
+            this.bmm.errMsg = getErrorString();
+            this.bmm.parseJson(jSONObject);
         }
     }
 }

@@ -18,21 +18,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2317a;
+    private String f2267a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2318b;
+    private String f2268b;
     private String c;
     private String d;
     private String e;
     private LivenessRecogDTO f;
 
     public void a(String str) {
-        this.f2317a = str;
+        this.f2267a = str;
     }
 
     public void b(String str) {
@@ -54,8 +54,8 @@ public class a extends UploadBean {
         if (this.f != null && this.files != null && this.files.get(0) != null && this.files.get(0).filedata != null) {
             setSpParameter(this.f.spParams);
             arrayList.add(new RestNameValuePair("processid", this.f.processid));
-            if (!TextUtils.isEmpty(this.f2318b)) {
-                arrayList.add(new RestNameValuePair("image_callbackkey", this.f2318b));
+            if (!TextUtils.isEmpty(this.f2268b)) {
+                arrayList.add(new RestNameValuePair("image_callbackkey", this.f2268b));
             }
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
             arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
@@ -94,7 +94,7 @@ public class a extends UploadBean {
         } else if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid", this.c));
         }
-        if (!TextUtils.isEmpty(this.f2317a)) {
+        if (!TextUtils.isEmpty(this.f2267a)) {
             arrayList.add(new RestNameValuePair("audioStartTime", "0"));
         }
         if (!TextUtils.isEmpty(this.e)) {

@@ -36,7 +36,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class TextViewCompat {
     public static final int AUTO_SIZE_TEXT_TYPE_NONE = 0;
     public static final int AUTO_SIZE_TEXT_TYPE_UNIFORM = 1;
@@ -53,7 +53,7 @@ public final class TextViewCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface AutoSizeTextType {
     }
 
@@ -280,7 +280,7 @@ public final class TextViewCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(26)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class OreoCallback implements ActionMode.Callback {
         private static final int MENU_ITEM_ORDER_PROCESS_TEXT_INTENT_ACTIONS_START = 100;
         private final ActionMode.Callback mCallback;

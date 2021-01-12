@@ -1,6 +1,6 @@
 package com.win.opensdk.top;
 
 import androidx.core.content.FileProvider;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WFileProvider extends FileProvider {
 }

@@ -8,7 +8,7 @@ public interface a {
 
     void U(View.OnClickListener onClickListener);
 
-    void hJ(String str);
+    void gy(String str);
 
     void setData(com.baidu.tieba.pb.data.f fVar);
 
@@ -20,9 +20,9 @@ public interface a {
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void uA(boolean z);
+    void uv(boolean z);
 
-    void uB(boolean z);
+    void uw(boolean z);
 
-    void uz(boolean z);
+    void ux(boolean z);
 }

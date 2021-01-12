@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
     private static final String TAG = "filedownloader";
     public Service context;
@@ -25,7 +25,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         private String getProcessName(Context context) {
             String str;
@@ -61,7 +61,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
@@ -82,8 +82,8 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
         this.context = service;
         com.kwai.filedownloader.f.c.a(this.context);
         try {
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f11229a);
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f11230b);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f10929a);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f10930b);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }

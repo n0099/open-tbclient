@@ -2,7 +2,7 @@ package aegon.chrome.net;
 
 import java.io.Closeable;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class UploadDataProvider implements Closeable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {

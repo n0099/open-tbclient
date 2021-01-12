@@ -1,22 +1,22 @@
 package rx.a.a;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
-    private static final a qsz = new a();
-    private final AtomicReference<b> qsA = new AtomicReference<>();
+    private static final a qnX = new a();
+    private final AtomicReference<b> qnY = new AtomicReference<>();
 
-    public static a eOh() {
-        return qsz;
+    public static a eKr() {
+        return qnX;
     }
 
     a() {
     }
 
-    public b eOi() {
-        if (this.qsA.get() == null) {
-            this.qsA.compareAndSet(null, b.eOj());
+    public b eKs() {
+        if (this.qnY.get() == null) {
+            this.qnY.compareAndSet(null, b.eKt());
         }
-        return this.qsA.get();
+        return this.qnY.get();
     }
 }

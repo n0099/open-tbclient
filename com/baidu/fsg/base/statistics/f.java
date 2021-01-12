@@ -6,45 +6,45 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1992a = f.class.getSimpleName();
+    private static final String f1942a = f.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private JSONArray f1993b;
+    private JSONArray f1943b;
     private byte[] c;
     private byte[] d;
     private byte[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static f f1996a = new f();
+        private static f f1946a = new f();
 
         private b() {
         }
     }
 
     private f() {
-        this.f1993b = new JSONArray();
+        this.f1943b = new JSONArray();
         this.c = new byte[0];
         this.d = new byte[0];
         this.e = new byte[0];
     }
 
     public static f a() {
-        return b.f1996a;
+        return b.f1946a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         synchronized (this.d) {
             try {
-                this.f1993b.put(this.f1993b.length(), jSONObject);
+                this.f1943b.put(this.f1943b.length(), jSONObject);
             } catch (JSONException e) {
             }
         }
@@ -73,7 +73,7 @@ public class f {
                         long currentTimeMillis = System.currentTimeMillis();
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                            if (currentTimeMillis - jSONObject.getLong(c.f1986a) <= 604800000) {
+                            if (currentTimeMillis - jSONObject.getLong(c.f1936a) <= 604800000) {
                                 a().a(jSONObject);
                             }
                         }
@@ -85,14 +85,14 @@ public class f {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1994a;
+        public int f1944a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1995b;
+        public String f1945b;
         public h[] c;
 
         a() {
@@ -103,7 +103,7 @@ public class f {
     public boolean c() {
         boolean z;
         synchronized (this.d) {
-            z = this.f1993b.length() == 0;
+            z = this.f1943b.length() == 0;
         }
         return z;
     }
@@ -112,7 +112,7 @@ public class f {
     public void a(String str) {
         if (com.baidu.fsg.base.statistics.b.o.equals(str)) {
             synchronized (this.d) {
-                this.f1993b = new JSONArray();
+                this.f1943b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, "{}", false);
         }
@@ -120,6 +120,6 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONArray d() {
-        return this.f1993b;
+        return this.f1943b;
     }
 }

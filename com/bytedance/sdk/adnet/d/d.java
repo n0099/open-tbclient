@@ -3,8 +3,8 @@ package com.bytedance.sdk.adnet.d;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f6352a;
-    private b ppG;
+    private a f6052a;
+    private b pla;
 
     /* loaded from: classes4.dex */
     public enum a {
@@ -22,30 +22,30 @@ public class d {
     }
 
     private d() {
-        this.f6352a = a.OFF;
-        this.ppG = new com.bytedance.sdk.adnet.d.a();
+        this.f6052a = a.OFF;
+        this.pla = new com.bytedance.sdk.adnet.d.a();
     }
 
     /* loaded from: classes4.dex */
     private static class c {
-        private static final d ppH = new d();
+        private static final d plb = new d();
     }
 
     public static void a(a aVar) {
         synchronized (d.class) {
-            c.ppH.f6352a = aVar;
+            c.plb.f6052a = aVar;
         }
     }
 
     public static void a(String str, String str2) {
-        if (c.ppH.f6352a.compareTo(a.ERROR) <= 0) {
-            c.ppH.ppG.a(str, str2);
+        if (c.plb.f6052a.compareTo(a.ERROR) <= 0) {
+            c.plb.pla.a(str, str2);
         }
     }
 
     public static void b(String str, String str2) {
-        if (c.ppH.f6352a.compareTo(a.DEBUG) <= 0) {
-            c.ppH.ppG.b(str, str2);
+        if (c.plb.f6052a.compareTo(a.DEBUG) <= 0) {
+            c.plb.pla.b(str, str2);
         }
     }
 }

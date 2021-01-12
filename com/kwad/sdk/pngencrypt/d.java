@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt;
 
 import com.kwad.sdk.pngencrypt.ChunkReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class d extends ChunkReader {
     protected final DeflatedChunksSet e;
     protected boolean f;
@@ -39,7 +39,7 @@ public abstract class d extends ChunkReader {
         if (i3 > 0) {
             this.e.a(bArr, i2, i3);
             if (this.f) {
-                System.arraycopy(bArr, i2, a().d, this.f10786b, i3);
+                System.arraycopy(bArr, i2, a().d, this.f10486b, i3);
             }
         }
     }

@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 /* loaded from: classes2.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lKe;
+    private f lFA;
+    public View lWw;
+    public TextView lWx;
+    public TextView lWy;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
-    public View mbd;
-    public TextView mbe;
-    public TextView mbf;
 
     public PbThreadPostView(Context context) {
         this(context, null);
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        tN();
+        tC();
     }
 
-    private void tN() {
-        this.mbd = findViewById(R.id.pb_thread_post_container);
-        this.mbe = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.mbf = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void tC() {
+        this.lWw = findViewById(R.id.pb_thread_post_container);
+        this.lWx = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.lWy = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lKe = fVar;
-        vU(TbadkCoreApplication.getInst().getSkinType());
+        this.lFA = fVar;
+        uo(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.mbf.setOnClickListener(this.mOnClickListener);
+            this.lWy.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void vU(int i) {
-        ao.setBackgroundColor(this.mbd, R.color.CAM_X0205, i);
-        ao.setViewTextColor(this.mbe, R.color.CAM_X0107);
-        ao.setViewTextColor(this.mbf, R.color.CAM_X0302);
+    public void uo(int i) {
+        ao.setBackgroundColor(this.lWw, R.color.CAM_X0205, i);
+        ao.setViewTextColor(this.lWx, R.color.CAM_X0107);
+        ao.setViewTextColor(this.lWy, R.color.CAM_X0302);
     }
 }

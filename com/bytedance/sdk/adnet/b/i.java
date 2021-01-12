@@ -11,11 +11,11 @@ import java.util.concurrent.TimeoutException;
 public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6303b = false;
-    private Request<?> ppa;
-    private p<T> ppd;
+    private boolean f6003b = false;
+    private Request<?> pkv;
+    private p<T> pky;
 
-    public static <E> i<E> esj() {
+    public static <E> i<E> eop() {
         return new i<>();
     }
 
@@ -26,8 +26,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.ppa != null && !isDone()) {
-                this.ppa.cancel();
+            if (this.pkv != null && !isDone()) {
+                this.pkv.cancel();
                 z2 = true;
             }
         }
@@ -36,7 +36,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
-    /* renamed from: esi */
+    /* renamed from: eoo */
     public p<T> get() throws InterruptedException {
         try {
             return i(null);
@@ -54,8 +54,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     private synchronized p<T> i(Long l) throws InterruptedException, TimeoutException {
         p<T> pVar;
-        if (this.f6303b) {
-            pVar = this.ppd;
+        if (this.f6003b) {
+            pVar = this.pky;
         } else {
             if (l == null) {
                 while (!isDone()) {
@@ -69,26 +69,26 @@ public class i<T> implements p.a<T>, Future<p<T>> {
                     uptimeMillis = SystemClock.uptimeMillis();
                 }
             }
-            if (!this.f6303b) {
+            if (!this.f6003b) {
                 throw new TimeoutException();
             }
-            pVar = this.ppd;
+            pVar = this.pky;
         }
         return pVar;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.ppa == null) {
+        if (this.pkv == null) {
             return false;
         }
-        return this.ppa.isCanceled();
+        return this.pkv.isCanceled();
     }
 
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f6303b) {
+        if (!this.f6003b) {
             z = isCancelled();
         }
         return z;
@@ -96,15 +96,15 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void a(p<T> pVar) {
-        this.f6303b = true;
-        this.ppd = pVar;
+        this.f6003b = true;
+        this.pky = pVar;
         notifyAll();
     }
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void b(p<T> pVar) {
-        this.f6303b = true;
-        this.ppd = pVar;
+        this.f6003b = true;
+        this.pky = pVar;
         notifyAll();
     }
 }

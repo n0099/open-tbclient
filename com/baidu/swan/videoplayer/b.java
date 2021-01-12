@@ -3,11 +3,11 @@ package com.baidu.swan.videoplayer;
 import android.util.Log;
 import android.view.View;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class b {
-    private WeakReference<View> eCu;
-    private int eCv;
-    private int eCw = 0;
+    private WeakReference<View> exG;
+    private int exH;
+    private int exI = 0;
     private int mMeasuredHeight;
     private int mMeasuredWidth;
     private int mVideoHeight;
@@ -16,7 +16,7 @@ public final class b {
     private int mVideoWidth;
 
     public b(View view) {
-        this.eCu = new WeakReference<>(view);
+        this.exG = new WeakReference<>(view);
     }
 
     public void setVideoSize(int i, int i2) {
@@ -30,7 +30,7 @@ public final class b {
     }
 
     public void setVideoRotation(int i) {
-        this.eCv = i;
+        this.exH = i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:69:0x00ff, code lost:
@@ -46,7 +46,7 @@ public final class b {
         float f;
         float f2;
         int i6;
-        if (this.eCv == 90 || this.eCv == 270) {
+        if (this.exH == 90 || this.exH == 270) {
             i3 = i;
             i4 = i2;
         } else {
@@ -55,7 +55,7 @@ public final class b {
         }
         int defaultSize = View.getDefaultSize(this.mVideoWidth, i4);
         int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i3);
-        if (this.eCw == 3) {
+        if (this.exI == 3) {
             defaultSize = i4;
         } else if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
             int mode = View.MeasureSpec.getMode(i4);
@@ -64,10 +64,10 @@ public final class b {
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
                 float f3 = size / size2;
-                switch (this.eCw) {
+                switch (this.exI) {
                     case 4:
                         f = 1.7777778f;
-                        if (this.eCv == 90 || this.eCv == 270) {
+                        if (this.exH == 90 || this.exH == 270) {
                             f2 = 1.0f / 1.7777778f;
                             break;
                         }
@@ -75,7 +75,7 @@ public final class b {
                         break;
                     case 5:
                         f = 1.3333334f;
-                        if (this.eCv == 90 || this.eCv == 270) {
+                        if (this.exH == 90 || this.exH == 270) {
                             f2 = 1.0f / 1.3333334f;
                             break;
                         }
@@ -91,7 +91,7 @@ public final class b {
                         break;
                 }
                 boolean z = f2 > f3;
-                switch (this.eCw) {
+                switch (this.exI) {
                     case 0:
                     case 4:
                     case 5:
@@ -166,15 +166,15 @@ public final class b {
         this.mMeasuredHeight = i3;
     }
 
-    public int bjt() {
+    public int bfz() {
         return this.mMeasuredWidth;
     }
 
-    public int bju() {
+    public int bfA() {
         return this.mMeasuredHeight;
     }
 
     public void setAspectRatio(int i) {
-        this.eCw = i;
+        this.exI = i;
     }
 }

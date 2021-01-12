@@ -17,22 +17,22 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static String PROFILE_LOG_ACTION = "com.baidu.open.profile.log";
-    private Handler hCA;
-    private int hCB;
-    private JSONArray hCz;
+    private JSONArray hxT;
+    private Handler hxU;
+    private int hxV;
     private long mLastTime;
-    private String hCw = "http://10.101.44.50:8899/live-profile/analy";
-    private StringBuffer hCx = new StringBuffer();
-    private SimpleDateFormat bbo = new SimpleDateFormat("MM-dd HH:mm:ss:SSS");
-    private Date hCy = new Date();
+    private String hxQ = "http://10.101.44.50:8899/live-profile/analy";
+    private StringBuffer hxR = new StringBuffer();
+    private SimpleDateFormat aWA = new SimpleDateFormat("MM-dd HH:mm:ss:SSS");
+    private Date hxS = new Date();
     private HandlerThread mHandlerThread = new HandlerThread("handlerThread");
 
     public b() {
         this.mHandlerThread.start();
-        this.hCA = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.ala.liveroom.i.b.1
+        this.hxU = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.ala.liveroom.i.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
@@ -48,41 +48,41 @@ public class b {
     }
 
     public void report(long j, long j2) {
-        this.hCB++;
+        this.hxV++;
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        if (this.hCz == null) {
-            this.hCz = new JSONArray();
+        if (this.hxT == null) {
+            this.hxT = new JSONArray();
         }
         try {
             jSONObject.put("frame_interval", j2);
             jSONObject.put("frame_time", j);
-            this.hCy.setTime(System.currentTimeMillis());
-            jSONObject.put("time", this.bbo.format(this.hCy));
+            this.hxS.setTime(System.currentTimeMillis());
+            jSONObject.put("time", this.aWA.format(this.hxS));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (this.hCB % 15 == 0) {
+        if (this.hxV % 15 == 0) {
             this.mLastTime = currentTimeMillis;
             try {
-                jSONObject.put("memory", a.chB().chC());
-                jSONObject.put("cpu", a.chB().aez());
+                jSONObject.put("memory", a.cdJ().cdK());
+                jSONObject.put("cpu", a.cdJ().aaG());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        this.hCz.put(jSONObject);
-        if (this.hCB >= 75) {
-            this.hCB = 0;
+        this.hxT.put(jSONObject);
+        if (this.hxV >= 75) {
+            this.hxV = 0;
             try {
-                this.hCx.setLength(0);
-                this.hCx.append(this.hCw).append("?extra=").append(this.hCz.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
+                this.hxR.setLength(0);
+                this.hxR.append(this.hxQ).append("?extra=").append(this.hxT.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
                 addCommonParams();
-                String stringBuffer = this.hCx.toString();
+                String stringBuffer = this.hxR.toString();
                 Message obtain = Message.obtain();
                 obtain.obj = stringBuffer;
-                this.hCA.sendMessage(obtain);
-                this.hCz = null;
+                this.hxU.sendMessage(obtain);
+                this.hxT = null;
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
@@ -90,36 +90,36 @@ public class b {
     }
 
     private void addCommonParams() {
-        this.hCx.append("&_client_type=2");
-        this.hCx.append("&_client_version=" + TbConfig.getVersion());
+        this.hxR.append("&_client_type=2");
+        this.hxR.append("&_client_version=" + TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {
-            this.hCx.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
+            this.hxR.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
         }
         if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-            this.hCx.append("&subapp_type=" + TbConfig.getSubappType());
+            this.hxR.append("&subapp_type=" + TbConfig.getSubappType());
         }
-        this.hCx.append("&subapp_version=" + TbConfig.getSubappVersionCode());
-        this.hCx.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
-        this.hCx.append("&_sdk_version=4.2.0");
+        this.hxR.append("&subapp_version=" + TbConfig.getSubappVersionCode());
+        this.hxR.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
+        this.hxR.append("&_sdk_version=4.2.0");
         if (AlaLiveSwitchData.isHotLive == 1) {
-            this.hCx.append("&ishot=1");
+            this.hxR.append("&ishot=1");
         }
         if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
-            this.hCx.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
+            this.hxR.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
         }
         if (!TextUtils.isEmpty(TbConfig.getLiveEnterFrom())) {
-            this.hCx.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
+            this.hxR.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
         }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
-            this.hCx.append("&from=" + from);
+            this.hxR.append("&from=" + from);
         }
-        this.hCx.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
-        this.hCx.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
-        this.hCx.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
-        this.hCx.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
-        this.hCx.append("&model=" + Build.MODEL);
-        this.hCx.append("&brand=" + Build.BRAND);
-        this.hCx.append("&_os_version=" + Build.VERSION.RELEASE);
+        this.hxR.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
+        this.hxR.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
+        this.hxR.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
+        this.hxR.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
+        this.hxR.append("&model=" + Build.MODEL);
+        this.hxR.append("&brand=" + Build.BRAND);
+        this.hxR.append("&_os_version=" + Build.VERSION.RELEASE);
     }
 }

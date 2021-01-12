@@ -4,9 +4,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class b {
-    private static final char[][] ovh = {"0.".toCharArray(), "0.0".toCharArray(), "0.00".toCharArray(), "0.000".toCharArray(), "0.0000".toCharArray(), "0.00000".toCharArray(), "0.000000".toCharArray(), "0.0000000".toCharArray(), "0.00000000".toCharArray(), "0.000000000".toCharArray(), "0.0000000000".toCharArray(), "0.00000000000".toCharArray(), "0.000000000000".toCharArray(), "0.0000000000000".toCharArray(), "0.00000000000000".toCharArray(), "0.000000000000000".toCharArray()};
+    private static final char[][] oqA = {"0.".toCharArray(), "0.0".toCharArray(), "0.00".toCharArray(), "0.000".toCharArray(), "0.0000".toCharArray(), "0.00000".toCharArray(), "0.000000".toCharArray(), "0.0000000".toCharArray(), "0.00000000".toCharArray(), "0.000000000".toCharArray(), "0.0000000000".toCharArray(), "0.00000000000".toCharArray(), "0.000000000000".toCharArray(), "0.0000000000000".toCharArray(), "0.00000000000000".toCharArray(), "0.000000000000000".toCharArray()};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static String b(double d, int i) {
@@ -41,7 +41,7 @@ class b {
             while (length3 >= 0 && charArray[length3] == '0') {
                 length3--;
             }
-            char[] cArr = ovh[abs - charArray.length];
+            char[] cArr = oqA[abs - charArray.length];
             copyOf = Arrays.copyOf(cArr, cArr.length + length3 + 1);
             System.arraycopy(charArray, 0, copyOf, cArr.length, length3 + 1);
         }

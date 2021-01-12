@@ -15,9 +15,9 @@ public interface g {
 
         void b(k.a aVar);
 
-        void c(int i, String str);
-
         void c(c cVar);
+
+        void d(int i, String str);
 
         void m(byte[] bArr);
 

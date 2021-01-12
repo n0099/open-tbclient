@@ -7,15 +7,15 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.ACTD;
 import com.qq.e.comm.plugin.a.j;
 import com.qq.e.comm.plugin.util.ar;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements d {
     private static final boolean f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.qq.e.comm.plugin.a.c f11900a;
+    private final com.qq.e.comm.plugin.a.c f11600a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f11901b;
+    private final Context f11601b;
     private final Intent c;
     private Intent d;
     private Intent e;
@@ -26,8 +26,8 @@ public class b implements d {
 
     public b(Intent intent, com.qq.e.comm.plugin.a.c cVar, Context context) {
         this.c = intent;
-        this.f11900a = cVar;
-        this.f11901b = context;
+        this.f11600a = cVar;
+        this.f11601b = context;
     }
 
     private PendingIntent a(boolean z) {
@@ -36,15 +36,15 @@ public class b implements d {
                 this.e = new Intent(this.c);
                 j.a(this.e, true);
             }
-            return PendingIntent.getService(this.f11901b, this.f11900a.m(), this.e, 134217728);
+            return PendingIntent.getService(this.f11601b, this.f11600a.m(), this.e, 134217728);
         }
         if (this.d == null) {
             this.d = new Intent();
-            this.d.setClassName(this.f11901b, ar.a());
+            this.d.setClassName(this.f11601b, ar.a());
             this.d.putExtra(ACTD.DELEGATE_NAME_KEY, "downloadManage");
             this.d.putExtra("appid", GDTADManager.getInstance().getAppStatus().getAPPID());
         }
-        return PendingIntent.getActivity(this.f11901b, 0, this.d, 134217728);
+        return PendingIntent.getActivity(this.f11601b, 0, this.d, 134217728);
     }
 
     @Override // com.qq.e.comm.plugin.a.b.d
@@ -64,7 +64,7 @@ public class b implements d {
 
     @Override // com.qq.e.comm.plugin.a.b.d
     public PendingIntent d() {
-        return PendingIntent.getActivity(this.f11901b, this.f11900a.m(), this.c, 0);
+        return PendingIntent.getActivity(this.f11601b, this.f11600a.m(), this.c, 0);
     }
 
     @Override // com.qq.e.comm.plugin.a.b.d

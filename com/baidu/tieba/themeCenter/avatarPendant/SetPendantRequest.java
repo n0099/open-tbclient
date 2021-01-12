@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SetPendantRequest extends NetMessage {
     private int freeUseLevel;
     private long pendantId;

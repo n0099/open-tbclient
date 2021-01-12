@@ -1,10 +1,10 @@
 package com.facebook.datasource;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> euK() {
+    public static <T> g<T> eqQ() {
         return new g<>();
     }
 

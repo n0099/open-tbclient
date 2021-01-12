@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface NativeErrorCode {
     public static final int EKS_AVERROR_EIO = -5002;
     public static final int EKS_AVERROR_EMFILE = -5003;

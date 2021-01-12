@@ -6,32 +6,32 @@ import androidx.core.os.TraceCompat;
 import java.util.HashSet;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static String[] d;
     private static long[] e;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8267a = false;
+    public static boolean f7967a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Set<String> f8268b = new HashSet();
+    private static final Set<String> f7968b = new HashSet();
     private static boolean c = false;
     private static int f = 0;
     private static int g = 0;
 
     public static void a(String str) {
-        if (f8267a) {
+        if (f7967a) {
             Log.d("LOTTIE", str);
         }
     }
 
     public static void b(String str) {
-        if (f8268b.contains(str)) {
+        if (f7968b.contains(str)) {
             return;
         }
         Log.w("LOTTIE", str);
-        f8268b.add(str);
+        f7968b.add(str);
     }
 
     public static void c(String str) {

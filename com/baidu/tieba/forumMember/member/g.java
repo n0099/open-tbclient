@@ -27,17 +27,17 @@ import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.w;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
-    private LikeModel fpO;
-    private int hRm;
-    private int jbt;
+    private LikeModel fle;
+    private int hMG;
+    private int iWM;
     private View.OnClickListener mClickListener;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.hRm = 0;
-        this.jbt = 0;
+        this.hMG = 0;
+        this.iWM = 0;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -53,7 +53,7 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
                                     return;
                                 }
                                 String forumId = hVar.getForumId();
-                                g.this.fpO.gr(hVar.getForumName(), forumId);
+                                g.this.fle.gq(hVar.getForumName(), forumId);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String forumId2 = hVar.getForumId();
@@ -70,8 +70,8 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bo */
     public FrsMemberHeaderViewHolder e(ViewGroup viewGroup) {
-        if (this.fpO == null) {
-            bVt();
+        if (this.fle == null) {
+            bRB();
         }
         return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -81,75 +81,75 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (h) frsMemberHeaderViewHolder);
-        if (hVar != null && hVar.cDt() != null) {
+        if (hVar != null && hVar.czB() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = ao.getColor(R.color.CAM_X0109);
-            w cDt = hVar.cDt();
+            w czB = hVar.czB();
             if (TbadkCoreApplication.isLogin()) {
-                if (cDt.isLike() == 1) {
-                    frsMemberHeaderViewHolder.jbx.setVisibility(8);
-                    frsMemberHeaderViewHolder.jby.setVisibility(0);
-                    frsMemberHeaderViewHolder.jby.setText(R.string.mydegree);
-                    ao.setImageResource(frsMemberHeaderViewHolder.jaw, BitmapHelper.getSmallGradeResourceIdNew(cDt.bNV()));
-                    if (StringUtils.isNull(cDt.getLevelName())) {
-                        frsMemberHeaderViewHolder.jax.setVisibility(8);
+                if (czB.isLike() == 1) {
+                    frsMemberHeaderViewHolder.iWQ.setVisibility(8);
+                    frsMemberHeaderViewHolder.iWR.setVisibility(0);
+                    frsMemberHeaderViewHolder.iWR.setText(R.string.mydegree);
+                    ao.setImageResource(frsMemberHeaderViewHolder.iVP, BitmapHelper.getSmallGradeResourceIdNew(czB.bKd()));
+                    if (StringUtils.isNull(czB.getLevelName())) {
+                        frsMemberHeaderViewHolder.iVQ.setVisibility(8);
                     } else {
-                        frsMemberHeaderViewHolder.jax.setText(cDt.getLevelName());
-                        frsMemberHeaderViewHolder.jax.setVisibility(0);
+                        frsMemberHeaderViewHolder.iVQ.setText(czB.getLevelName());
+                        frsMemberHeaderViewHolder.iVQ.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(cDt.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(czB.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + cDt.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + czB.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    frsMemberHeaderViewHolder.fiT.setText(spannableStringBuilder);
-                    frsMemberHeaderViewHolder.fiT.setVisibility(0);
-                    frsMemberHeaderViewHolder.jbD.setVisibility(0);
-                    frsMemberHeaderViewHolder.jbE.setVisibility(0);
+                    frsMemberHeaderViewHolder.fei.setText(spannableStringBuilder);
+                    frsMemberHeaderViewHolder.fei.setVisibility(0);
+                    frsMemberHeaderViewHolder.iWW.setVisibility(0);
+                    frsMemberHeaderViewHolder.iWX.setVisibility(0);
                 } else {
-                    frsMemberHeaderViewHolder.jbx.setVisibility(0);
-                    frsMemberHeaderViewHolder.jby.setVisibility(8);
-                    frsMemberHeaderViewHolder.jaw.setVisibility(8);
-                    frsMemberHeaderViewHolder.jax.setVisibility(8);
-                    frsMemberHeaderViewHolder.fiT.setVisibility(8);
-                    frsMemberHeaderViewHolder.jbD.setVisibility(8);
-                    frsMemberHeaderViewHolder.jbE.setVisibility(8);
+                    frsMemberHeaderViewHolder.iWQ.setVisibility(0);
+                    frsMemberHeaderViewHolder.iWR.setVisibility(8);
+                    frsMemberHeaderViewHolder.iVP.setVisibility(8);
+                    frsMemberHeaderViewHolder.iVQ.setVisibility(8);
+                    frsMemberHeaderViewHolder.fei.setVisibility(8);
+                    frsMemberHeaderViewHolder.iWW.setVisibility(8);
+                    frsMemberHeaderViewHolder.iWX.setVisibility(8);
                 }
             } else {
-                frsMemberHeaderViewHolder.jbx.setVisibility(8);
-                frsMemberHeaderViewHolder.jby.setVisibility(8);
-                frsMemberHeaderViewHolder.jaw.setVisibility(8);
-                frsMemberHeaderViewHolder.jax.setVisibility(8);
-                frsMemberHeaderViewHolder.fiT.setVisibility(8);
-                frsMemberHeaderViewHolder.jbD.setVisibility(8);
-                frsMemberHeaderViewHolder.jbE.setVisibility(8);
+                frsMemberHeaderViewHolder.iWQ.setVisibility(8);
+                frsMemberHeaderViewHolder.iWR.setVisibility(8);
+                frsMemberHeaderViewHolder.iVP.setVisibility(8);
+                frsMemberHeaderViewHolder.iVQ.setVisibility(8);
+                frsMemberHeaderViewHolder.fei.setVisibility(8);
+                frsMemberHeaderViewHolder.iWW.setVisibility(8);
+                frsMemberHeaderViewHolder.iWX.setVisibility(8);
             }
-            frsMemberHeaderViewHolder.jbx.setTag(Integer.valueOf(i));
-            frsMemberHeaderViewHolder.jax.setTag(Integer.valueOf(i));
-            frsMemberHeaderViewHolder.jax.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            ao.setBackgroundColor(frsMemberHeaderViewHolder.jbA, R.color.CAM_X0201);
-            ao.setBackgroundColor(frsMemberHeaderViewHolder.dDI, R.color.CAM_X0204);
-            ao.setBackgroundColor(frsMemberHeaderViewHolder.jbB, R.color.CAM_X0204);
-            ao.setBackgroundResource(frsMemberHeaderViewHolder.jbx, R.drawable.frs_btn_like);
-            ao.setViewTextColor(frsMemberHeaderViewHolder.jbx, R.color.white_alpha100, 1);
-            ao.setViewTextColor(frsMemberHeaderViewHolder.jby, R.color.CAM_X0105, 1);
-            ao.setViewTextColor(frsMemberHeaderViewHolder.jax, R.color.CAM_X0109, 1);
-            ao.setViewTextColor(frsMemberHeaderViewHolder.jbC, R.color.CAM_X0105, 1);
-            ao.setBackgroundResource(frsMemberHeaderViewHolder.jbD, R.drawable.forum_member_exp_progress);
-            ao.setBackgroundColor(frsMemberHeaderViewHolder.jbE, R.color.CAM_X0204);
-            if (this.hRm != cDt.bNV() || this.jbt != cDt.getCurScore()) {
-                this.hRm = cDt.bNV();
-                this.jbt = cDt.getCurScore();
-                frsMemberHeaderViewHolder.jbD.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, zG(this.hRm)));
+            frsMemberHeaderViewHolder.iWQ.setTag(Integer.valueOf(i));
+            frsMemberHeaderViewHolder.iVQ.setTag(Integer.valueOf(i));
+            frsMemberHeaderViewHolder.iVQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            ao.setBackgroundColor(frsMemberHeaderViewHolder.iWT, R.color.CAM_X0201);
+            ao.setBackgroundColor(frsMemberHeaderViewHolder.dyW, R.color.CAM_X0204);
+            ao.setBackgroundColor(frsMemberHeaderViewHolder.iWU, R.color.CAM_X0204);
+            ao.setBackgroundResource(frsMemberHeaderViewHolder.iWQ, R.drawable.frs_btn_like);
+            ao.setViewTextColor(frsMemberHeaderViewHolder.iWQ, R.color.white_alpha100, 1);
+            ao.setViewTextColor(frsMemberHeaderViewHolder.iWR, R.color.CAM_X0105, 1);
+            ao.setViewTextColor(frsMemberHeaderViewHolder.iVQ, R.color.CAM_X0109, 1);
+            ao.setViewTextColor(frsMemberHeaderViewHolder.iWV, R.color.CAM_X0105, 1);
+            ao.setBackgroundResource(frsMemberHeaderViewHolder.iWW, R.drawable.forum_member_exp_progress);
+            ao.setBackgroundColor(frsMemberHeaderViewHolder.iWX, R.color.CAM_X0204);
+            if (this.hMG != czB.bKd() || this.iWM != czB.getCurScore()) {
+                this.hMG = czB.bKd();
+                this.iWM = czB.getCurScore();
+                frsMemberHeaderViewHolder.iWW.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, ya(this.hMG)));
                 float f = 0.0f;
-                this.jbt = cDt.getCurScore();
-                if (this.jbt > cDt.getLevelupScore()) {
-                    this.jbt = cDt.getLevelupScore();
+                this.iWM = czB.getCurScore();
+                if (this.iWM > czB.getLevelupScore()) {
+                    this.iWM = czB.getLevelupScore();
                 }
-                if (cDt.getLevelupScore() != 0) {
-                    f = this.jbt / cDt.getLevelupScore();
+                if (czB.getLevelupScore() != 0) {
+                    f = this.iWM / czB.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -157,24 +157,24 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setDuration(1000L);
-                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), frsMemberHeaderViewHolder.jbD, scaleAnimation, null);
+                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), frsMemberHeaderViewHolder.iWW, scaleAnimation, null);
             }
         }
         return view;
     }
 
-    private void bVt() {
+    private void bRB() {
         if (this.mPageContext != null) {
-            this.fpO = new LikeModel(this.mPageContext);
-            this.fpO.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.forumMember.member.g.2
+            this.fle = new LikeModel(this.mPageContext);
+            this.fle.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.forumMember.member.g.2
                 @Override // com.baidu.adp.base.e
                 public void callback(Object obj) {
-                    if (!(obj instanceof w) || g.this.fpO.getErrorCode() != 0) {
-                        if (AntiHelper.bP(g.this.fpO.getErrorCode(), g.this.fpO.getErrorString())) {
-                            AntiHelper.bs(g.this.mPageContext.getPageActivity(), g.this.fpO.getErrorString());
+                    if (!(obj instanceof w) || g.this.fle.getErrorCode() != 0) {
+                        if (AntiHelper.bQ(g.this.fle.getErrorCode(), g.this.fle.getErrorString())) {
+                            AntiHelper.bs(g.this.mPageContext.getPageActivity(), g.this.fle.getErrorString());
                             return;
                         } else {
-                            g.this.mPageContext.showToast(g.this.fpO.getErrorString());
+                            g.this.mPageContext.showToast(g.this.fle.getErrorString());
                             return;
                         }
                     }
@@ -186,7 +186,7 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
         }
     }
 
-    private int[] zG(int i) {
+    private int[] ya(int i) {
         if (i <= 3) {
             return new int[]{-8331843, -10499102};
         }

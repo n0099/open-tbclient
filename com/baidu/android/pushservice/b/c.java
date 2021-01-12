@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1179a;
+    private String f1185a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1180b;
+    private String f1186b;
     private int c;
     private ArrayList<e> d;
     private ArrayList<f> e;
@@ -24,21 +24,21 @@ public class c {
     private a h;
     private int i = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1181a;
+        public int f1187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1182b;
+        public int f1188b;
 
         public a() {
         }
     }
 
     public c(Context context, String str) {
-        this.f1179a = str;
+        this.f1185a = str;
         a(context, str);
     }
 
@@ -140,12 +140,12 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.f1181a = i;
-        this.h.f1182b = i2;
+        this.h.f1187a = i;
+        this.h.f1188b = i2;
     }
 
     public void a(String str) {
-        this.f1180b = str;
+        this.f1186b = str;
     }
 
     public void a(ArrayList<e> arrayList) {
@@ -153,7 +153,7 @@ public class c {
     }
 
     public String b() {
-        return this.f1180b;
+        return this.f1186b;
     }
 
     public void b(int i) {
@@ -197,6 +197,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f1179a;
+        return this.f1185a;
     }
 }

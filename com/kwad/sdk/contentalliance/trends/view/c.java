@@ -2,7 +2,7 @@ package com.kwad.sdk.contentalliance.trends.view;
 
 import android.view.View;
 import com.kwad.sdk.core.response.model.TrendInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a();
 

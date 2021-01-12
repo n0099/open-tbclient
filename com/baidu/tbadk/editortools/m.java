@@ -4,26 +4,26 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
     private Context context;
-    public n fDH;
-    public int fEA;
-    public int fEB;
-    public int[] fED;
-    public boolean fEE;
-    public int fEu;
-    public int fEv;
-    public int fEw;
-    public boolean fEx;
-    public boolean fEy;
+    public n fyZ;
+    public int fzM;
+    public int fzN;
+    public int fzO;
+    public boolean fzP;
+    public boolean fzQ;
+    public int fzS;
+    public int fzT;
+    public int[] fzV;
+    public boolean fzW;
     public int id;
     public String name;
-    public boolean fEz = true;
-    public boolean fEC = false;
-    private boolean fEF = true;
+    public boolean fzR = true;
+    public boolean fzU = false;
+    private boolean fzX = true;
 
     public m(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.fEA = i2;
+        this.fzS = i2;
     }
 
     public m(Context context, String str, int i) {
@@ -36,7 +36,7 @@ public class m {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.fEA = i2;
+        this.fzS = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,14 +52,14 @@ public class m {
         return true;
     }
 
-    public void kR(boolean z) {
+    public void kN(boolean z) {
     }
 
-    public void kS(boolean z) {
-        this.fEF = z;
+    public void kO(boolean z) {
+        this.fzX = z;
     }
 
-    public boolean bEZ() {
-        return this.fEF;
+    public boolean bBf() {
+        return this.fzX;
     }
 }

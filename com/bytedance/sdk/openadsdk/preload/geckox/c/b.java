@@ -6,16 +6,16 @@ import com.bytedance.sdk.openadsdk.d.g;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f7772a = new b();
+    private static b f7472a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    private f f7773b = c();
+    private f f7473b = c();
 
     private b() {
     }
 
     public static b a() {
-        return f7772a;
+        return f7472a;
     }
 
     private static f c() {
@@ -26,6 +26,6 @@ public class b {
     }
 
     public f b() {
-        return this.f7773b;
+        return this.f7473b;
     }
 }

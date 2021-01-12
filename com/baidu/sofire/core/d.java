@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.app.NotificationCompat;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
@@ -23,14 +22,14 @@ import java.lang.reflect.Method;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5499a = "";
+    public static String f5216a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5500b = "";
+    public static String f5217b = "";
     private static boolean c = false;
 
     public static synchronized void a(final Context context, final int i, final String str, final String str2, final int... iArr) {
@@ -38,7 +37,7 @@ public class d {
             try {
                 if (!c) {
                     c = true;
-                    c.f5491b = context;
+                    c.f5208b = context;
                     new Thread(new Runnable() { // from class: com.baidu.sofire.core.d.1
                         @Override // java.lang.Runnable
                         public final void run() {
@@ -76,7 +75,7 @@ public class d {
                                     String str3 = str;
                                     String str4 = str2;
                                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.i.e.e.equals(str3) || !com.baidu.sofire.i.e.f.equals(str4))) {
-                                        com.baidu.sofire.e eVar = a3.f5492a;
+                                        com.baidu.sofire.e eVar = a3.f5209a;
                                         eVar.c.putString("svi", str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
                                         eVar.c.commit();
                                     }
@@ -102,16 +101,16 @@ public class d {
     public static Pair<Integer, Object> a(int i, String str, Class<?>[] clsArr, Object... objArr) {
         Pair<Integer, Object> a2;
         try {
-            Context context = c.f5491b;
+            Context context = c.f5208b;
             if (context == null) {
                 a2 = new Pair<>(4, null);
-            } else if (!com.baidu.sofire.i.e.a(c.f5491b, false)) {
+            } else if (!com.baidu.sofire.i.e.a(c.f5208b, false)) {
                 com.baidu.sofire.b.a();
                 a2 = new Pair<>(11, null);
             } else {
-                String b2 = com.baidu.sofire.i.e.b(c.f5491b);
+                String b2 = com.baidu.sofire.i.e.b(c.f5208b);
                 if (TextUtils.isEmpty(b2)) {
-                    if (com.baidu.sofire.i.e.b(c.f5491b.getPackageName())) {
+                    if (com.baidu.sofire.i.e.b(c.f5208b.getPackageName())) {
                         a2 = new Pair<>(5, null);
                     } else {
                         com.baidu.sofire.b.a();
@@ -119,7 +118,7 @@ public class d {
                     }
                 } else if (com.baidu.sofire.i.e.b(b2)) {
                     com.baidu.sofire.b.a();
-                    a2 = b(c.f5491b, i, str, clsArr, objArr);
+                    a2 = b(c.f5208b, i, str, clsArr, objArr);
                 } else {
                     com.baidu.sofire.b.a();
                     a2 = c.a(context).a(i, str, clsArr, objArr);
@@ -135,22 +134,22 @@ public class d {
     private static Pair<Integer, Object> a(String str, Class<?>[] clsArr, Object... objArr) {
         Pair<Integer, Object> b2;
         try {
-            Context context = c.f5491b;
+            Context context = c.f5208b;
             if (context == null) {
                 b2 = new Pair<>(4, null);
-            } else if (!com.baidu.sofire.i.e.a(c.f5491b, false)) {
+            } else if (!com.baidu.sofire.i.e.a(c.f5208b, false)) {
                 b2 = new Pair<>(11, null);
             } else {
-                String b3 = com.baidu.sofire.i.e.b(c.f5491b);
+                String b3 = com.baidu.sofire.i.e.b(c.f5208b);
                 if (TextUtils.isEmpty(b3)) {
-                    if (com.baidu.sofire.i.e.b(c.f5491b.getPackageName())) {
+                    if (com.baidu.sofire.i.e.b(c.f5208b.getPackageName())) {
                         b2 = new Pair<>(5, null);
                     } else {
                         c.a(context);
                         b2 = b(str, clsArr, objArr);
                     }
                 } else if (com.baidu.sofire.i.e.b(b3)) {
-                    b2 = b(c.f5491b, 1, str, clsArr, objArr);
+                    b2 = b(c.f5208b, 1, str, clsArr, objArr);
                 } else {
                     c.a(context);
                     b2 = b(str, clsArr, objArr);
@@ -181,7 +180,7 @@ public class d {
             ApkInfo d = a2.d("com.baidu.sofire.x0");
             if (d != null) {
                 Class<?> a3 = ((e) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                pair = new Pair<>(0, com.baidu.sofire.i.e.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f5491b), str, clsArr, objArr));
+                pair = new Pair<>(0, com.baidu.sofire.i.e.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f5208b), str, clsArr, objArr));
             }
             pair = new Pair<>(3, null);
         }
@@ -195,7 +194,7 @@ public class d {
                 public final void run() {
                     int i2 = 0;
                     try {
-                        Context context = c.f5491b;
+                        Context context = c.f5208b;
                         if (context == null) {
                             for (int i3 = 0; i3 < 20; i3++) {
                                 try {
@@ -203,7 +202,7 @@ public class d {
                                 } catch (InterruptedException e) {
                                     com.baidu.sofire.i.e.a();
                                 }
-                                context = c.f5491b;
+                                context = c.f5208b;
                                 if (context != null) {
                                     break;
                                 }
@@ -220,7 +219,7 @@ public class d {
                     } catch (Throwable th) {
                         com.baidu.sofire.i.e.a();
                     }
-                    if (!com.baidu.sofire.i.e.a(c.f5491b, false)) {
+                    if (!com.baidu.sofire.i.e.a(c.f5208b, false)) {
                         com.baidu.sofire.b.a();
                         if (Callback.this != null) {
                             Callback.this.onError(11);
@@ -228,9 +227,9 @@ public class d {
                         }
                         return;
                     }
-                    String b2 = com.baidu.sofire.i.e.b(c.f5491b);
+                    String b2 = com.baidu.sofire.i.e.b(c.f5208b);
                     if (TextUtils.isEmpty(b2)) {
-                        if (com.baidu.sofire.i.e.b(c.f5491b.getPackageName())) {
+                        if (com.baidu.sofire.i.e.b(c.f5208b.getPackageName())) {
                             if (Callback.this != null) {
                                 Callback.this.onError(5);
                                 return;
@@ -264,7 +263,7 @@ public class d {
                         return;
                     } else if (com.baidu.sofire.i.e.b(b2)) {
                         com.baidu.sofire.b.a();
-                        d.a(c.f5491b, i, str, Callback.this, clsArr, objArr);
+                        d.a(c.f5208b, i, str, Callback.this, clsArr, objArr);
                         return;
                     } else {
                         com.baidu.sofire.b.a();
@@ -305,7 +304,7 @@ public class d {
 
     public static String a(Context context, String str, int i, String str2) {
         try {
-            if (!TextUtils.isEmpty(f5499a)) {
+            if (!TextUtils.isEmpty(f5216a)) {
                 if (i != 0) {
                     if (TextUtils.isEmpty(str2)) {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
@@ -313,7 +312,7 @@ public class d {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i), str2);
                     }
                 }
-                return f5499a;
+                return f5216a;
             } else if (!com.baidu.sofire.i.e.a(context, false)) {
                 com.baidu.sofire.b.a();
                 return "";
@@ -366,30 +365,30 @@ public class d {
             com.baidu.sofire.i.e.a();
         }
         if (!TextUtils.isEmpty(a2)) {
-            f5499a = a2;
+            f5216a = a2;
             return a2;
         }
-        String string = gVar.f5530a.getString("xytk_m", "");
+        String string = gVar.f5247a.getString("xytk_m", "");
         if (!TextUtils.isEmpty(string)) {
-            f5499a = string;
+            f5216a = string;
             return string;
         }
         String b2 = com.baidu.sofire.i.h.b(context);
         if (!TextUtils.isEmpty(b2)) {
             String[] split = b2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split == null || split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) {
-                f5499a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                f5216a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             }
             if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
                 String str = split[0] + com.baidu.sofire.i.e.a(re);
-                gVar.f5531b.putString("xytk_m", str);
-                gVar.f5531b.commit();
-                f5499a = str;
+                gVar.f5248b.putString("xytk_m", str);
+                gVar.f5248b.commit();
+                f5216a = str;
                 return str;
             }
         }
-        f5499a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+        f5216a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
     }
 
@@ -405,13 +404,13 @@ public class d {
                 return (String) a2.second;
             }
             com.baidu.sofire.b.a();
-            if (TextUtils.isEmpty(f5500b)) {
-                f5500b = u.a(context).c();
+            if (TextUtils.isEmpty(f5217b)) {
+                f5217b = u.a(context).c();
             }
-            if (TextUtils.isEmpty(f5500b)) {
-                f5500b = u.a(context).b();
+            if (TextUtils.isEmpty(f5217b)) {
+                f5217b = u.a(context).b();
             }
-            final String str = f5500b;
+            final String str = f5217b;
             w.a().a(new Runnable() { // from class: com.baidu.sofire.core.d.3
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -421,13 +420,13 @@ public class d {
                         if (b2 < 0) {
                             b2 = 0;
                         }
-                        gVar.f5531b.putInt("td_a_c", b2);
-                        gVar.f5531b.commit();
-                        d.f5500b = u.a(context).a(str, b2);
+                        gVar.f5248b.putInt("td_a_c", b2);
+                        gVar.f5248b.commit();
+                        d.f5217b = u.a(context).a(str, b2);
                     }
                 }
             });
-            return f5500b;
+            return f5217b;
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
             return "";
@@ -440,8 +439,8 @@ public class d {
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
         }
-        if (!TextUtils.isEmpty(f5499a)) {
-            return f5499a;
+        if (!TextUtils.isEmpty(f5216a)) {
+            return f5216a;
         } else if (!com.baidu.sofire.i.e.a(context, false)) {
             com.baidu.sofire.b.a();
             return "";
@@ -462,7 +461,7 @@ public class d {
                     }
                     return "";
                 }
-                f5499a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                f5216a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             } else {
                 com.baidu.sofire.b.a();
@@ -485,7 +484,7 @@ public class d {
         }
         i = ((Integer) a2.first).intValue() == 0 ? 502 : ((Integer) a2.first).intValue();
         try {
-            return new JSONObject().put("rc", i).put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, b(context)).toString();
+            return new JSONObject().put("rc", i).put("z", b(context)).toString();
         } catch (Throwable th2) {
             com.baidu.sofire.i.e.a();
             return "";
@@ -584,8 +583,8 @@ public class d {
                     final CallArgs callArgs3 = new CallArgs();
                     bundle.setClassLoader(MyProvider.class.getClassLoader());
                     CallArgs callArgs4 = (CallArgs) bundle.getParcelable("args");
-                    int i = callArgs4.f5486a;
-                    int i2 = callArgs4.f5487b;
+                    int i = callArgs4.f5203a;
+                    int i2 = callArgs4.f5204b;
                     final String str4 = callArgs4.c;
                     Object[] objArr = callArgs4.d;
                     if (objArr != null) {
@@ -698,9 +697,9 @@ public class d {
             }
             String str2 = ("gzfi".equals(str) || "gz".equals(str)) ? str : "invokeMethod";
             CallArgs callArgs = new CallArgs();
-            callArgs.f5486a = i;
+            callArgs.f5203a = i;
             callArgs.c = str;
-            callArgs.f5487b = i2;
+            callArgs.f5204b = i2;
             if (clsArr != null) {
                 Object[] objArr2 = new Object[clsArr.length];
                 for (int i3 = 0; i3 < clsArr.length; i3++) {

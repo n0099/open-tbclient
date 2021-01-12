@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
 /* loaded from: classes6.dex */
 public class d {
-    private static d exf;
-    private com.baidu.swan.pms.c.a.c.b exg = new com.baidu.swan.pms.c.a.c.b();
+    private static d ess;
+    private com.baidu.swan.pms.c.a.c.b est = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d bgD() {
-        if (exf != null) {
-            return exf;
+    public static d bcJ() {
+        if (ess != null) {
+            return ess;
         }
         synchronized (d.class) {
-            if (exf == null) {
-                exf = new d();
+            if (ess == null) {
+                ess = new d();
             }
         }
-        return exf;
+        return ess;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.iG(false);
-        this.exg.b(fVar);
+        fVar.iC(false);
+        this.est.b(fVar);
     }
 
-    public synchronized boolean yK(String str) {
-        return this.exg.yK(str);
+    public synchronized boolean xz(String str) {
+        return this.est.xz(str);
     }
 
-    public synchronized boolean yL(String str) {
-        return this.exg.yL(str);
+    public synchronized boolean xA(String str) {
+        return this.est.xA(str);
     }
 
     public synchronized void c(b bVar) {
-        this.exg.a(bVar);
+        this.est.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.exg.b(bVar);
+        this.est.b(bVar);
     }
 }

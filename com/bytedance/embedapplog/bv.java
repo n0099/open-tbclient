@@ -6,10 +6,10 @@ import com.kwad.sdk.collector.AppStatusRules;
 abstract class bv {
 
     /* renamed from: a  reason: collision with root package name */
-    final Context f6114a;
+    final Context f5814a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6115b = 0;
+    private int f5815b = 0;
     private boolean c;
 
     abstract boolean a();
@@ -20,11 +20,11 @@ abstract class bv {
 
     abstract String e();
 
-    abstract long[] epx();
+    abstract long[] elB();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(Context context) {
-        this.f6114a = context;
+        this.f5814a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,7 +41,7 @@ abstract class bv {
     public final long h() {
         boolean z;
         long j;
-        if (!(!a() || ar.a(this.f6114a))) {
+        if (!(!a() || ar.a(this.f5814a))) {
             return AppStatusRules.DEFAULT_GRANULARITY;
         }
         long b2 = b();
@@ -54,13 +54,13 @@ abstract class bv {
                 z = false;
             }
             if (z) {
-                this.f6115b = 0;
+                this.f5815b = 0;
                 j = b() - System.currentTimeMillis();
             } else {
-                long[] epx = epx();
-                int i = this.f6115b;
-                this.f6115b = i + 1;
-                j = epx[i % epx.length];
+                long[] elB = elB();
+                int i = this.f5815b;
+                this.f5815b = i + 1;
+                j = elB[i % elB.length];
             }
             au.d(e() + " worked:" + z + " " + j, null);
             return j;

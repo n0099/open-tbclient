@@ -2,7 +2,7 @@ package com.baidu.swan.apps.performance.d;
 
 import android.view.View;
 import com.baidu.swan.apps.performance.a.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a extends e {
     void aG(View view);
 

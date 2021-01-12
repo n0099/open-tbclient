@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.lang.Thread;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class JavaHandlerThread {
     public final HandlerThread mThread;
     public Throwable mUnhandledException;

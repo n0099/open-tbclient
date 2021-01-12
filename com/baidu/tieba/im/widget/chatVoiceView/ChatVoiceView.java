@@ -31,20 +31,20 @@ import com.baidu.tieba.im.util.c;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ChatVoiceView extends LinearLayout implements View.OnClickListener, VoiceManager.b {
-    private ChatMessage kIv;
-    private ImageView kJL;
-    private ImageView kJM;
-    private TextView kJN;
-    private ImageView kJO;
-    private VoiceData.VoiceModel kJP;
-    private RelativeLayout kJQ;
+    private ChatMessage kDQ;
+    private ImageView kFg;
+    private ImageView kFh;
+    private TextView kFi;
+    private ImageView kFj;
+    private VoiceData.VoiceModel kFk;
+    private RelativeLayout kFl;
     private ProgressBar mProgress;
 
     public ChatVoiceView(Context context) {
         super(context);
-        this.kJL = null;
-        this.kJN = null;
-        this.kJO = null;
+        this.kFg = null;
+        this.kFi = null;
+        this.kFj = null;
         this.mProgress = null;
         LayoutInflater.from(context).inflate(R.layout.widget_left_voice_view, (ViewGroup) this, true);
         init();
@@ -53,9 +53,9 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     public ChatVoiceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         boolean z;
-        this.kJL = null;
-        this.kJN = null;
-        this.kJO = null;
+        this.kFg = null;
+        this.kFi = null;
+        this.kFj = null;
         this.mProgress = null;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null) {
@@ -73,67 +73,67 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     }
 
     private void init() {
-        this.kJQ = (RelativeLayout) findViewById(R.id.lay_bubble);
-        this.kJL = (ImageView) findViewById(R.id.img_voice_status);
-        this.kJM = (ImageView) findViewById(R.id.img_voice_status_anim);
-        this.kJN = (TextView) findViewById(R.id.tex_voice_duration);
-        this.kJO = (ImageView) findViewById(R.id.img_voice_readed);
+        this.kFl = (RelativeLayout) findViewById(R.id.lay_bubble);
+        this.kFg = (ImageView) findViewById(R.id.img_voice_status);
+        this.kFh = (ImageView) findViewById(R.id.img_voice_status_anim);
+        this.kFi = (TextView) findViewById(R.id.tex_voice_duration);
+        this.kFj = (ImageView) findViewById(R.id.img_voice_readed);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
     }
 
-    private void cZY() {
-        this.kJL.setVisibility(8);
-        this.kJM.setVisibility(0);
-        ((AnimationDrawable) this.kJM.getBackground()).start();
+    private void cWg() {
+        this.kFg.setVisibility(8);
+        this.kFh.setVisibility(0);
+        ((AnimationDrawable) this.kFh.getBackground()).start();
     }
 
-    private void cZZ() {
-        ((AnimationDrawable) this.kJM.getBackground()).stop();
-        this.kJM.clearAnimation();
-        this.kJL.setVisibility(0);
-        this.kJM.setVisibility(8);
+    private void cWh() {
+        ((AnimationDrawable) this.kFh.getBackground()).stop();
+        this.kFh.clearAnimation();
+        this.kFg.setVisibility(0);
+        this.kFh.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            cZZ();
+            cWh();
         } catch (Exception e) {
         }
     }
 
-    public void ED(int i) {
+    public void CX(int i) {
     }
 
-    public void EE(int i) {
+    public void CY(int i) {
         if (i == 3) {
-            if (this.kJL != null) {
-                this.kJL.setVisibility(0);
+            if (this.kFg != null) {
+                this.kFg.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
-            cZY();
-            VoiceMsgData u = c.u(this.kIv);
+            cWg();
+            VoiceMsgData u = c.u(this.kDQ);
             if (u != null && u.getHas_read() != 1) {
                 u.setHas_read(1);
-                this.kIv.setContent("[" + OrmObject.jsonStrWithObject(u) + "]");
-                if (this.kIv instanceof CommonGroupChatMessage) {
-                    final CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) this.kIv;
+                this.kDQ.setContent("[" + OrmObject.jsonStrWithObject(u) + "]");
+                if (this.kDQ instanceof CommonGroupChatMessage) {
+                    final CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) this.kDQ;
                     final LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(commonGroupChatMessage));
-                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(a.kIa))) {
+                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(a.kDv))) {
                         ac.b(new ab<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.1
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.ab
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(com.baidu.tieba.im.db.c.cXm().c(commonGroupChatMessage.getGroupId(), linkedList, false));
+                                return Boolean.valueOf(com.baidu.tieba.im.db.c.cTu().c(commonGroupChatMessage.getGroupId(), linkedList, false));
                             }
                         }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.2
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.l
                             public void onReturnDataInUI(Boolean bool) {
-                                ChatVoiceView.this.kJO.setVisibility(8);
+                                ChatVoiceView.this.kFj.setVisibility(8);
                             }
                         });
                         return;
@@ -143,19 +143,19 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.ab
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(m.cXG().a(c.n(commonGroupChatMessage), linkedList, false));
+                                return Boolean.valueOf(m.cTO().a(c.n(commonGroupChatMessage), linkedList, false));
                             }
                         }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.4
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.l
                             public void onReturnDataInUI(Boolean bool) {
-                                ChatVoiceView.this.kJO.setVisibility(8);
+                                ChatVoiceView.this.kFj.setVisibility(8);
                             }
                         });
                         return;
                     }
-                } else if (this.kIv instanceof PersonalChatMessage) {
-                    final PersonalChatMessage personalChatMessage = (PersonalChatMessage) this.kIv;
+                } else if (this.kDQ instanceof PersonalChatMessage) {
+                    final PersonalChatMessage personalChatMessage = (PersonalChatMessage) this.kDQ;
                     final LinkedList linkedList2 = new LinkedList();
                     linkedList2.add(new CommonMsgPojo(personalChatMessage));
                     ac.b(new ab<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.5
@@ -163,18 +163,18 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(m.cXG().a(c.n(personalChatMessage), linkedList2, false));
+                            return Boolean.valueOf(m.cTO().a(c.n(personalChatMessage), linkedList2, false));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.6
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.l
                         public void onReturnDataInUI(Boolean bool) {
-                            ChatVoiceView.this.kJO.setVisibility(8);
+                            ChatVoiceView.this.kFj.setVisibility(8);
                         }
                     });
                     return;
-                } else if (this.kIv instanceof OfficialChatMessage) {
-                    final OfficialChatMessage officialChatMessage = (OfficialChatMessage) this.kIv;
+                } else if (this.kDQ instanceof OfficialChatMessage) {
+                    final OfficialChatMessage officialChatMessage = (OfficialChatMessage) this.kDQ;
                     final LinkedList linkedList3 = new LinkedList();
                     linkedList3.add(new CommonMsgPojo(officialChatMessage));
                     ac.b(new ab<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.7
@@ -182,13 +182,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(com.baidu.tieba.im.db.l.cXD().a(c.n(officialChatMessage), linkedList3, false));
+                            return Boolean.valueOf(com.baidu.tieba.im.db.l.cTL().a(c.n(officialChatMessage), linkedList3, false));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.8
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.l
                         public void onReturnDataInUI(Boolean bool) {
-                            ChatVoiceView.this.kJO.setVisibility(8);
+                            ChatVoiceView.this.kFj.setVisibility(8);
                         }
                     });
                     return;
@@ -198,15 +198,15 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             return;
         }
-        cZZ();
+        cWh();
         if (i == 1) {
-            if (this.kJL != null) {
-                this.kJL.setVisibility(0);
+            if (this.kFg != null) {
+                this.kFg.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
         } else if (i == 2) {
-            if (this.kJL != null) {
-                this.kJL.setVisibility(4);
+            if (this.kFg != null) {
+                this.kFg.setVisibility(4);
             }
             this.mProgress.setVisibility(0);
         }
@@ -215,7 +215,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         VoiceManager voiceManager;
-        if (this.kJP == null || (voiceManager = getVoiceManager()) == null) {
+        if (this.kFk == null || (voiceManager = getVoiceManager()) == null) {
             return;
         }
         voiceManager.startPlay(this);
@@ -240,35 +240,35 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
         }
         if (z) {
-            this.kJO.setVisibility(0);
+            this.kFj.setVisibility(0);
         } else {
-            this.kJO.setVisibility(8);
+            this.kFj.setVisibility(8);
         }
     }
 
     public void setData(ChatMessage chatMessage) {
         VoiceManager voiceManager;
         if (chatMessage != null && chatMessage.getCacheData() != null) {
-            this.kJP = chatMessage.getCacheData().getVoice_model();
-            if (this.kJP == null) {
-                this.kJP = new VoiceData.VoiceModel();
+            this.kFk = chatMessage.getCacheData().getVoice_model();
+            if (this.kFk == null) {
+                this.kFk = new VoiceData.VoiceModel();
             }
-            this.kIv = chatMessage;
-            this.kJN.setText(VoiceManager.formatVoiceTime(this.kJP.duration));
-            this.kJN.setContentDescription(String.format(getContext().getString(R.string.editor_record_format), VoiceManager.formatVoiceTime(this.kJP.duration)));
-            setBubbleLength(this.kJP.duration);
-            setTag(this.kJP);
+            this.kDQ = chatMessage;
+            this.kFi.setText(VoiceManager.formatVoiceTime(this.kFk.duration));
+            this.kFi.setContentDescription(String.format(getContext().getString(R.string.editor_record_format), VoiceManager.formatVoiceTime(this.kFk.duration)));
+            setBubbleLength(this.kFk.duration);
+            setTag(this.kFk);
             z(chatMessage);
-            if (this.kJP.voice_status.intValue() != 1 && (voiceManager = getVoiceManager()) != null) {
+            if (this.kFk.voice_status.intValue() != 1 && (voiceManager = getVoiceManager()) != null) {
                 voiceManager.resetPlayView(this);
             }
-            EE(this.kJP.voice_status.intValue());
+            CY(this.kFk.voice_status.intValue());
         }
     }
 
     public void reset() {
-        this.kJP = null;
-        EE(1);
+        this.kFk = null;
+        CY(1);
     }
 
     private void setBubbleLength(int i) {
@@ -284,17 +284,17 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             i2 = (int) (equipmentWidth * 0.5375d);
         }
         try {
-            if (this.kJQ.getParent() != null && (this.kJQ.getParent() instanceof RelativeLayout)) {
-                this.kJQ.setLayoutParams(new RelativeLayout.LayoutParams(i2, -2));
+            if (this.kFl.getParent() != null && (this.kFl.getParent() instanceof RelativeLayout)) {
+                this.kFl.setLayoutParams(new RelativeLayout.LayoutParams(i2, -2));
                 return;
             }
-            this.kJQ.setLayoutParams(new LinearLayout.LayoutParams(i2, -2));
+            this.kFl.setLayoutParams(new LinearLayout.LayoutParams(i2, -2));
         } catch (Exception e) {
         }
     }
 
     public boolean isPlaying() {
-        return this.kJP != null && this.kJP.voice_status.intValue() == 3;
+        return this.kFk != null && this.kFk.voice_status.intValue() == 3;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -304,15 +304,15 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
-            EE(voiceModel.voice_status.intValue());
+            CY(voiceModel.voice_status.intValue());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bj(int i) {
-        ED(i);
-        if (this.kJP != null) {
-            this.kJP.elapse = i;
+        CX(i);
+        if (this.kFk != null) {
+            this.kFk.elapse = i;
         }
     }
 
@@ -323,13 +323,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public VoiceData.VoiceModel getVoiceModel() {
-        return this.kJP;
+        return this.kFk;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public VoiceManager.b getRealView() {
         Context context = getContext();
-        VoiceManager.b d = context instanceof VoiceManager.c ? ((VoiceManager.c) context).d(this.kJP) : this;
+        VoiceManager.b d = context instanceof VoiceManager.c ? ((VoiceManager.c) context).d(this.kFk) : this;
         return d == null ? this : d;
     }
 }

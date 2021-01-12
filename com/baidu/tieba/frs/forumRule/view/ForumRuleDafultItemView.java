@@ -28,13 +28,13 @@ public class ForumRuleDafultItemView extends LinearLayout {
     }
 
     private void init() {
-        eZ(this.mContext.getResources().getString(R.string.forum_rule_defalt_one_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_one_content));
-        eZ(this.mContext.getResources().getString(R.string.forum_rule_defalt_two_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_two_content));
-        eZ(this.mContext.getResources().getString(R.string.forum_rule_defalt_three_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_three_content));
-        eZ(this.mContext.getResources().getString(R.string.forum_rule_defalt_four_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_four_content));
+        eY(this.mContext.getResources().getString(R.string.forum_rule_defalt_one_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_one_content));
+        eY(this.mContext.getResources().getString(R.string.forum_rule_defalt_two_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_two_content));
+        eY(this.mContext.getResources().getString(R.string.forum_rule_defalt_three_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_three_content));
+        eY(this.mContext.getResources().getString(R.string.forum_rule_defalt_four_title), this.mContext.getResources().getString(R.string.forum_rule_defalt_four_content));
     }
 
-    private void eZ(String str, String str2) {
+    private void eY(String str, String str2) {
         EMTextView eMTextView = new EMTextView(this.mContext);
         eMTextView.setText(str);
         addView(eMTextView);
@@ -58,9 +58,9 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 if (i3 < getChildCount()) {
                     EMTextView eMTextView = (EMTextView) getChildAt(i3);
                     if (i3 % 2 != 0) {
-                        com.baidu.tbadk.core.elementsMaven.c.bv(eMTextView).pC(R.color.CAM_X0107).pF(R.dimen.M_T_X003);
+                        com.baidu.tbadk.core.elementsMaven.c.bv(eMTextView).nV(R.color.CAM_X0107).nY(R.dimen.M_T_X003);
                     } else {
-                        com.baidu.tbadk.core.elementsMaven.c.bv(eMTextView).pC(R.color.CAM_X0107).pE(R.string.F_X02);
+                        com.baidu.tbadk.core.elementsMaven.c.bv(eMTextView).nV(R.color.CAM_X0107).nX(R.string.F_X02);
                     }
                     i2 = i3 + 1;
                 } else {

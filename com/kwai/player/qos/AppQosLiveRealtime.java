@@ -5,7 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppQosLiveRealtime {
     private static final String TAG = "AppQosLiveRealtime";
     private static final boolean VERBOSE = false;

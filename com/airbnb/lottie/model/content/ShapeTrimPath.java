@@ -3,10 +3,10 @@ package com.airbnb.lottie.model.content;
 import com.airbnb.lottie.a.a.r;
 /* loaded from: classes3.dex */
 public class ShapeTrimPath implements b {
-    private final Type Ep;
-    private final com.airbnb.lottie.model.a.b Gg;
-    private final com.airbnb.lottie.model.a.b Go;
-    private final com.airbnb.lottie.model.a.b Gp;
+    private final Type En;
+    private final com.airbnb.lottie.model.a.b Ge;
+    private final com.airbnb.lottie.model.a.b Gm;
+    private final com.airbnb.lottie.model.a.b Gn;
     private final String name;
 
     /* loaded from: classes3.dex */
@@ -28,10 +28,10 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.Ep = type;
-        this.Go = bVar;
-        this.Gp = bVar2;
-        this.Gg = bVar3;
+        this.En = type;
+        this.Gm = bVar;
+        this.Gn = bVar2;
+        this.Ge = bVar3;
     }
 
     public String getName() {
@@ -39,19 +39,19 @@ public class ShapeTrimPath implements b {
     }
 
     public Type iC() {
-        return this.Ep;
+        return this.En;
     }
 
     public com.airbnb.lottie.model.a.b jQ() {
-        return this.Gp;
+        return this.Gn;
     }
 
     public com.airbnb.lottie.model.a.b jR() {
-        return this.Go;
+        return this.Gm;
     }
 
     public com.airbnb.lottie.model.a.b jK() {
-        return this.Gg;
+        return this.Ge;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.Go + ", end: " + this.Gp + ", offset: " + this.Gg + "}";
+        return "Trim Path: {start: " + this.Gm + ", end: " + this.Gn + ", offset: " + this.Ge + "}";
     }
 }

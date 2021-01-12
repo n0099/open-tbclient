@@ -8,21 +8,21 @@ import androidx.core.content.PermissionChecker;
 import com.baidu.webkit.internal.ETAG;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class al {
-    private static w AW;
-    private static volatile al Bv;
+    private static w AV;
+    private static volatile al Bt;
     private static Context f;
     private static String h = "";
-    public am Bw;
+    public am Bu;
     private volatile boolean c = false;
     private volatile boolean d = false;
     private byte[] e = new byte[0];
-    private SimpleDateFormat Bx = new SimpleDateFormat("HHmmss");
-    private SimpleDateFormat By = new SimpleDateFormat("yyyyMMdd-HHmmss");
+    private SimpleDateFormat Bv = new SimpleDateFormat("HHmmss");
+    private SimpleDateFormat Bw = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1059b = false;
+    public boolean f1058b = false;
 
     private al() {
     }
@@ -30,7 +30,7 @@ public class al {
     public static void a(Context context, String str) {
         f = context.getApplicationContext();
         h = str;
-        AW = w.G(f);
+        AV = w.G(f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,45 +79,45 @@ public class al {
         synchronized (alVar.e) {
             if (alVar.c) {
                 alVar.c = false;
-                if (alVar.Bw != null) {
-                    am amVar = alVar.Bw;
-                    String stringBuffer = amVar.Bz.toString();
-                    amVar.Bz.setLength(0);
-                    if (!amVar.BA.d) {
-                        amVar.BA.a(stringBuffer, false);
-                        amVar.BA.d = true;
+                if (alVar.Bu != null) {
+                    am amVar = alVar.Bu;
+                    String stringBuffer = amVar.Bx.toString();
+                    amVar.Bx.setLength(0);
+                    if (!amVar.By.d) {
+                        amVar.By.a(stringBuffer, false);
+                        amVar.By.d = true;
                     }
-                    am amVar2 = amVar.BA.Bw;
+                    am amVar2 = amVar.By.Bu;
                     if (amVar2 != null) {
                         amVar2.removeCallbacksAndMessages(null);
                     }
-                    alVar.Bw = null;
+                    alVar.Bu = null;
                 }
             }
         }
     }
 
     public static al hO() {
-        if (Bv == null) {
+        if (Bt == null) {
             synchronized (al.class) {
                 try {
-                    if (Bv == null) {
-                        Bv = new al();
+                    if (Bt == null) {
+                        Bt = new al();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return Bv;
+        return Bt;
     }
 
     public final void a(String str, String str2) {
-        if (!b() || this.Bw == null) {
+        if (!b() || this.Bu == null) {
             return;
         }
-        Message obtainMessage = this.Bw.obtainMessage(3);
-        obtainMessage.obj = this.Bx.format(new Date()) + "," + str + "," + str2;
+        Message obtainMessage = this.Bu.obtainMessage(3);
+        obtainMessage.obj = this.Bv.format(new Date()) + "," + str + "," + str2;
         obtainMessage.sendToTarget();
     }
 
@@ -136,9 +136,9 @@ public class al {
                 i = -1;
             } else {
                 this.c = true;
-                if (this.f1059b) {
-                    this.Bw = new am(this, looper);
-                    o.b(this.Bw, 1);
+                if (this.f1058b) {
+                    this.Bu = new am(this, looper);
+                    o.b(this.Bu, 1);
                 }
                 i = 0;
             }
@@ -147,9 +147,9 @@ public class al {
     }
 
     public final void c() {
-        if (!b() || this.Bw == null) {
+        if (!b() || this.Bu == null) {
             return;
         }
-        o.b(this.Bw, 5);
+        o.b(this.Bu, 5);
     }
 }

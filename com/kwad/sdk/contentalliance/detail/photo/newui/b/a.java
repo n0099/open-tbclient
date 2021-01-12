@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.kwad.sdk.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8839a;
+    private ImageView f8539a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f8840b;
+    private TextView f8540b;
 
     public a(Context context) {
         this(context, null);
@@ -23,22 +23,22 @@ public class a extends LinearLayout {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8839a = null;
-        this.f8840b = null;
+        this.f8539a = null;
+        this.f8540b = null;
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_func_button_2, (ViewGroup) this, true);
-        this.f8839a = (ImageView) findViewById(R.id.ksad_photo_func_button_image);
-        this.f8840b = (TextView) findViewById(R.id.ksad_photo_func_button_text);
+        this.f8539a = (ImageView) findViewById(R.id.ksad_photo_func_button_image);
+        this.f8540b = (TextView) findViewById(R.id.ksad_photo_func_button_text);
     }
 
     public void setButtonImageResource(int i) {
-        this.f8839a.setImageResource(i);
+        this.f8539a.setImageResource(i);
     }
 
     public void setButtonText(String str) {
-        this.f8840b.setText(str);
+        this.f8540b.setText(str);
     }
 }

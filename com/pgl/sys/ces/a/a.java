@@ -67,7 +67,7 @@ public class a {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Activity eFb() {
+    public static Activity eBk() {
         Map map;
         try {
             Class<?> cls = Class.forName("android.app.ActivityThread");
@@ -97,7 +97,7 @@ public class a {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application eFc() {
+    public static Application eBl() {
         try {
             return (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]).invoke(null, null);
         } catch (Throwable th) {

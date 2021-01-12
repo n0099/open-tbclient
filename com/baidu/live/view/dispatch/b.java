@@ -1,7 +1,7 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static boolean a(View view, a aVar) {
         if (view == null || aVar == null || !aVar.ai(view)) {

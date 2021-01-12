@@ -10,7 +10,7 @@ public class d extends com.baidu.swan.pms.node.a {
         JSONObject optJSONObject;
         a cY;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (cY = a.cY(optJSONObject)) != null) {
-            b.bhp().a(cY);
+            b.bdv().a(cY);
         }
     }
 }

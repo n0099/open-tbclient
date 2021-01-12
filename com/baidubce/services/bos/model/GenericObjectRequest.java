@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class GenericObjectRequest extends GenericBucketRequest {
     private static final int MAX_OBJECT_KEY_LENGTH = 1024;
     private static final int MIN_OBJECT_KEY_LENGTH = 0;

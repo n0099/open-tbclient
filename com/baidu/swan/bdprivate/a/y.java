@@ -13,23 +13,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dVY = "cookieMap";
-    public static String dVZ = "ptokenDomains";
-    public static String dWa = "bdussDomains";
+    public static String dRm = "cookieMap";
+    public static String dRn = "ptokenDomains";
+    public static String dRo = "bdussDomains";
 
-    public static void el(Context context) {
-        em(context);
+    public static void ek(Context context) {
+        el(context);
     }
 
-    public static void em(Context context) {
+    public static void el(Context context) {
         if (context != null) {
-            String dX = a.dX(context);
-            String ee = a.ee(context);
-            b(context, dX, aSX());
-            c(context, ee, aSX());
+            String dW = a.dW(context);
+            String ed = a.ed(context);
+            b(context, dW, aPd());
+            c(context, ed, aPd());
         }
     }
 
@@ -53,14 +53,14 @@ public class y {
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return af(str, "BDUSS", str2);
+        return ae(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return af(str, "PTOKEN", str2);
+        return ae(str, "PTOKEN", str2);
     }
 
-    private static String af(String str, String str2, String str3) {
+    private static String ae(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -99,7 +99,7 @@ public class y {
         }
     }
 
-    private static List<String> aSX() {
+    private static List<String> aPd() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

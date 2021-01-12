@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.util.httpnet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class NetWorkParam {
     public boolean mIsJson;
     public boolean mIsBaiduServer = true;

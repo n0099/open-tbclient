@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ButtonCard extends BaseCardInfo {
     public static final int BUTTON_COLOR_FILL = 2;
     public static final int BUTTON_COLOR_FRAME = 1;
@@ -26,12 +26,12 @@ public class ButtonCard extends BaseCardInfo {
         this.defaultWidth = FormCard.WIDTH_DEFAULT_SIZE;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
-        this.titleColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("title_color"));
-        this.buttonColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("btn_color"));
+        this.titleColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("title_color"));
+        this.buttonColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("btn_color"));
         this.btnScheme = jSONObject.optString("btn_scheme", "");
         this.cardWidth = jSONObject.optInt("width", this.defaultWidth);
         this.cardHeight = jSONObject.optInt("height", this.defaultHeight);
-        this.bgColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("bg_color"));
+        this.bgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
         extractPhoneNumber(this.btnScheme);

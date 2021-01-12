@@ -14,7 +14,7 @@ import android.webkit.ValueCallback;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -71,10 +71,10 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f5052a;
+    private ValueCallback<Uri> f4769a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ValueCallback<Uri[]> f5053b;
+    private ValueCallback<Uri[]> f4770b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
     private a e;
@@ -152,19 +152,19 @@ public class BaseActivity extends TitleActivity {
             activityResultCallback.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f5052a != null) {
-                this.f5052a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f5052a = null;
+            if (this.f4769a != null) {
+                this.f4769a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f4769a = null;
             }
         } else if (i == 1011) {
-            if (this.f5053b != null) {
+            if (this.f4770b != null) {
                 Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data != null) {
-                    this.f5053b.onReceiveValue(new Uri[]{data});
+                    this.f4770b.onReceiveValue(new Uri[]{data});
                 } else {
-                    this.f5053b.onReceiveValue(new Uri[0]);
+                    this.f4770b.onReceiveValue(new Uri[0]);
                 }
-                this.f5053b = null;
+                this.f4770b = null;
             }
         } else if (i == 1001) {
             if (this.c != null) {
@@ -473,7 +473,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ValueCallback<Uri[]> valueCallback) {
-        this.f5053b = valueCallback;
+        this.f4770b = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
@@ -485,7 +485,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f5052a = valueCallback;
+        this.f4769a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

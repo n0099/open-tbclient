@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.card.b;
 /* loaded from: classes.dex */
 public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
-    protected T iAP;
+    protected T iwi;
 
     public CardViewHolder(T t) {
         super(t.getView());
-        this.iAP = t;
+        this.iwi = t;
     }
 
-    public T cvH() {
-        return this.iAP;
+    public T crP() {
+        return this.iwi;
     }
 }

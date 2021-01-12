@@ -9,5 +9,5 @@ public interface e {
 
     e bz(String str, int i);
 
-    e fG(String str, String str2);
+    e fF(String str, String str2);
 }

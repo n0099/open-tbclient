@@ -1,7 +1,7 @@
 package com.facebook.common.internal;
 
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class l {
     public static <X extends Throwable> void a(@Nullable Throwable th, Class<X> cls) throws Throwable {
         if (th != null && cls.isInstance(th)) {

@@ -4,25 +4,25 @@ import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* loaded from: classes.dex */
 public class g {
-    private bz alW;
-    private ForumManageModel ggJ;
+    private bz ale;
+    private ForumManageModel gca;
     private int type;
 
     public g(int i, ForumManageModel forumManageModel, bz bzVar) {
         this.type = i;
-        this.ggJ = forumManageModel;
-        this.alW = bzVar;
+        this.gca = forumManageModel;
+        this.ale = bzVar;
     }
 
     public int getType() {
         return this.type;
     }
 
-    public bz bNP() {
-        return this.alW;
+    public bz bJX() {
+        return this.ale;
     }
 
-    public ForumManageModel bNQ() {
-        return this.ggJ;
+    public ForumManageModel bJY() {
+        return this.gca;
     }
 }

@@ -27,7 +27,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, CardViewHolder<com.baidu.tieba.personCenter.view.d> cardViewHolder) {
-        cardViewHolder.cvH().a(kVar);
+        cardViewHolder.crP().a(kVar);
         return cardViewHolder.getView();
     }
 }

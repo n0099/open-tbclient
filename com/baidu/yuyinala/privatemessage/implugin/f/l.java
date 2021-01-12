@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class l extends b {
     private boolean mNotify;
 
@@ -18,7 +18,7 @@ public class l extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.b
-    public String elo() {
+    public String ehu() {
         return IMTrack.DbBuilder.ACTION_UPDATE;
     }
 
